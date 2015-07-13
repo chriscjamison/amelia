@@ -12,15 +12,11 @@ DIV#container {
 }
 
 DIV#menu {
-	position: absolute;
-	top:100px;
-	left: 100px;
-}
-
-DIV#menu A {
 	width: 100px;
 	height: 100px;
-	background: url("/test/amelia/assets/img/menu/default.png") 0 0 no-repeat;
+	position: absolute;
+	top: 30px;
+	left: 30px;
 }
 
 DIV#land {
@@ -28,27 +24,6 @@ DIV#land {
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	background: url("/test/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
 	clear: both;
 }
-
-DIV#land {
-	width: 100%;
-	background: url("/test/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
-}
-/*
-DIV#slot-1 {
-	background: url("/test/amelia/assets/img/land/1280/jpg/main-1.jpg") 0 0 no-repeat;
-}
-
-DIV#slot-2 {
-	background: url("/test/amelia/assets/img/land/1280/jpg/main-2.jpg") 0 0 no-repeat;
-}
-
-DIV#slot-3 {
-	width: 100%;
-	background: url("/test/amelia/assets/img/land/1280/jpg/main-3.jpg") 0 0 no-repeat;
-}
-
-DIV#slot-4 {
-	background: url("/test/amelia/assets/img/land/1280/jpg/main-4.jpg") 0 0 no-repeat;
-}*/
