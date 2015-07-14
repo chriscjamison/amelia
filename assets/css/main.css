@@ -1,3 +1,5 @@
+/* main.css */
+
 body {
 	margin: 0;
 	padding: 0;
@@ -13,8 +15,8 @@ div#container {
 }
 	
 div#menu {
-	width: 100px;
-	height: 100px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	top: 30px;
 	left: 30px;
@@ -22,7 +24,7 @@ div#menu {
 
 div#info {
 	width: 285px;
-	height: 450px;
+	height: 430px;
 	position: absolute;
 	top: 125px;
 	left: 745px;
@@ -43,7 +45,7 @@ div#info ul {
 	font-family: 'Copperplate Gothic Light', 'Lucida Sans', sans-serif;
 	font-size: 0.9em;
 	color: #fff;
-	margin: 20px 20px 0 20px;
+	margin: 20px 20px 0 0;
 }
 
 div#info li {

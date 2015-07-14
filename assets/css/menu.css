@@ -1,0 +1,56 @@
+/* menu.css */
+div#menu {
+	width: 210px;
+	height: 610px;
+}
+
+div#menu a {
+	width: 50px;
+	height: 50px;
+	display: block;
+}
+
+.menu-base {
+	background: url('/test/amelia/assets/img/menu/base.png') 0 0 no-repeat;
+}
+
+.menu-hover	{
+	background: url('/test/amelia/assets/img/menu/hover.png') 0 0 no-repeat;
+}
+
+.menu-click	{
+	background: url('/test/amelia/assets/img/menu/click.png') 0 0 no-repeat;
+}
+
+div#options {
+	width: 210px;
+	height: 550px;
+	visibility: hidden;
+}
+
+div#menu span {
+	width: 190px;
+	height: 50px;
+	margin: 10px 10px 10px 0;
+	padding: 10px;
+	display: block;
+	opacity: 0.7;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.option-base	{
+	background-color: #000;
+	color: #fff;
+	cursor: auto;
+}
+
+.option-hover {
+	background-color: #808080;
+	color: #fff;
+	cursor: pointer;
+}
+
+.option-click {
+	background-color: #A6A6A6;
+	color: #000;
+}
