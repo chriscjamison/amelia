@@ -19,6 +19,20 @@ DIV#menu {
 	left: 30px;
 }
 
+DIV#info {
+	width: 250px;
+	height: 450px;
+	position: absolute;
+	top: 150px;
+	left: 800px;
+	background-color: #75827D;
+	opacity: 0.6;	
+}
+
+DIV#info IMG {
+	margin: 25px;
+}
+
 DIV#land {
 	width: 100%;
 	height: 100%;
