@@ -1,17 +1,18 @@
-BODY {
+body {
 	margin: 0;
 	padding: 0;
 }
 
-DIV#container {
+div#container {
 	width: 100%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
+	background: url("/test/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
 	clear: both;
 }
-
-DIV#menu {
+	
+div#menu {
 	width: 100px;
 	height: 100px;
 	position: absolute;
@@ -19,25 +20,37 @@ DIV#menu {
 	left: 30px;
 }
 
-DIV#info {
-	width: 250px;
+div#info {
+	width: 285px;
 	height: 450px;
 	position: absolute;
-	top: 150px;
-	left: 800px;
+	top: 125px;
+	left: 745px;
 	background-color: #75827D;
 	opacity: 0.6;	
 }
 
-DIV#info IMG {
-	margin: 25px;
+div#info img {
+	margin: 25px auto 0 auto;
+	display: block;	
 }
 
-DIV#land {
-	width: 100%;
-	height: 100%;
-	padding: 0;
-	margin: 0;
-	background: url("/test/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
-	clear: both;
+div#info img#spcr {
+	margin: 10px auto;
+}
+
+div#info ul {
+	font-family: 'Copperplate Gothic Light', 'Lucida Sans', sans-serif;
+	font-size: 0.9em;
+	color: #fff;
+	margin: 20px 20px 0 20px;
+}
+
+div#info li {
+	list-style-image: url('/test/amelia/assets/img/spcr/dot_10x10.png');
+}
+
+div#info span {
+	margin-bottom: 15px;
+	display: block;
 }
