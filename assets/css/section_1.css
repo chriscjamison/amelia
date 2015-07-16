@@ -1,0 +1,96 @@
+/* --- Section #1 ---------------------------------------------------------------------------------- */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	clear: both;
+}
+
+div#logo {
+	position: absolute;
+	top: 12px;
+	left: 450px;
+	float: left;
+}
+
+div#pg_bkgrnd {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clear: both;
+	z-index: -2;
+}
+
+.bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/bg-1.jpg');
+}
+
+.bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/bg-2.jpg');
+}
+
+.bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/bg-3.jpg');
+}
+
+.bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/bg-4.jpg');
+}
+
+div#header span {
+	width: 100%;
+	height: 55px;
+	display: block;
+	padding: 20px 0 0 125px;
+	background-color: #476b3f;
+	font: 600 2em "Copperplate Gothic Light", "Cambria", serif;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+div#header div#brdr-1 {
+	width: 100%;
+	height: 3px;
+	background-color: #d7dc8b;
+}
+
+div#header div#brdr-2 {
+	width: 100%;
+	height: 3px;
+	background-color: #8bbbaf;
+}
+
+div#header div#brdr-3 {
+	width: 100%;
+	height: 10px;
+	background-color: #8ab78e;
+}
+
+div#header div#brdr-4 {
+	width: 100%;
+	height: 2px;
+	background-color: #3f4637
+}
+
+div#windowpane {
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	opacity: 0.7;
+}
