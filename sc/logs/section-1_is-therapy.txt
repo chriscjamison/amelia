@@ -1,0 +1,14 @@
+THINGS TO DO
+	* Format text of paragraphs
+	* Format questions 'DIV'
+	* Add code to power and handle data from form.
+	* Add responses from form.
+	
+	WORKFLOW
+		* Centered text within DIV. Cleaned up line height.
+		
+		* Centered text. Increased text of header.
+		
+		** Added effect for menu. <strike>Draws attention to the menu by lightening the rest of page</strike>. 
+		Added left-side navigation.
+		

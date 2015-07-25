@@ -9,19 +9,20 @@
 	
 	<body>
 		<div id="container">
-			<div id="menu-bar">
-				<div id="menu">
-					<a href="#" class="menu-base"></a>
-					<div id="options">
-						<span class="option-base" id="section_1">Welcome</span>
-						<span class="option-base" id="section_2">Is Therapy Right for You</span>
-						<span class="option-base" id="section_3">Credentials</span>
-						<span class="option-base" id="section_4">Specialities</span>
-						<span class="option-base" id="section_5">Testimonials</span>
-						<span class="option-base" id="section_6">Insurance</span>
-						<span class="option-base" id="section_7">Contact Amelia Xavier</span>
-					</div>
+			<div id="menu">
+				<a href="#" class="menu-base"></a>
+				<div id="options">
+					<span class="option-base" id="home">Welcome</span>
+					<span class="option-base" id="section-1">Is Therapy Right for You</span>
+					<span class="option-base" id="section-2">Credentials</span>
+					<span class="option-base" id="section-3">Specialities</span>
+					<span class="option-base" id="section-4">Testimonials</span>
+					<span class="option-base" id="section-5">Insurance</span>
+					<span class="option-base" id="section-6">Contact Amelia Xavier</span>
 				</div>
+				<div id="menu-bkgrnd"></div>
+			</div>
+			<div id="menu-bar">
 				<div id="logo">
 					<img src="/test/amelia/assets/img/logo/logo_sub.png" width="298" height="76" alt="Amelia Xavier Counseling - Austin, TX 78709" />
 				</div>
@@ -34,7 +35,52 @@
 				<div id="brdr-4"></div>
 				<div id="brdr-5"></div>
 			</div>
-			<div id="windowpane"></div>
+			<div id="copy">
+				<div id="description">
+					<p>
+						Psychotherapy consists of one-on-one client to therapist sessions, typically over a period of 
+						50 minutes a meeting. Depending on the emotional wellbeing of the client, he or she may meet 
+						over periods ranging from once a week to one or two times a month.
+					</p>
+					<p>
+						Please complete the quiz below. The results of the quiz will determine if my theraputic method is 
+						a good match to offer you relief from your symptoms.
+					</p>
+				</div>
+				<div id="questionaire">
+					<div class="question" id="question_1">
+						<div class="question-text">
+							<span>
+								<strong>Question #1:</strong>
+								Current Level of Depression
+							</span>
+							<p>
+								Depression is a mood disorder that causes a persistent feeling of sadness and loss of interest.*
+							</p>
+							<span class="refer"><sup>(*) Mayo Clinic</sup></span>
+							<p>
+								On a scale of 1 - 5, with 1 being slight depression and 5 being severely depressed, how depressed 
+								have you felt over the last two weeks?
+							</p>
+							<p>
+								Click on the number that matches your level of depression.
+							</p>
+						</div>
+						</div>
+						<div class="question-data_entry">
+							<form action="post" name="question_1">
+								<div id="slider">
+									<span>1</span>
+									<input type="range" min="1" max="5" step="1" value="1" />
+									<span>5</span>
+								</span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--<div id="windowpane"></div>-->
 			<div id="pg_bkgrnd">
 				<div class="bg_1"></div>
 				<div class="bg_2"></div>

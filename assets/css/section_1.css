@@ -94,3 +94,46 @@ div#windowpane {
 	background-color: #fff;
 	opacity: 0.7;
 }
+
+div#copy {
+	font: 400 0.85em "Glegoo", "Palatino", serif;
+}
+
+div#description {
+	width: 75%;
+	height: 19%;
+	position: absolute;
+	top: 190px;
+	left: 125px;
+	margin: 25px;
+	padding: 5px;
+	background-color: #d2e6db;
+}
+
+div#description p {
+	margin: 10px 17px;
+	text-indent: 2em;
+	line-height: 1.75em
+	
+}
+
+div#questionaire {
+	position: absolute;
+	top: 375px;
+	left: 150px;
+}
+
+div.question {
+	width: 80%;
+	height: 25%;
+	padding: 1.5em;
+	background-color: #fff;
+}
+
+div.question-text {
+	font: 400px 0.9em "Glegoo", "Palantino", serif
+}
+
+div.question-text span {
+	font-size: 1.1em;
+}

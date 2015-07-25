@@ -1,3 +1,5 @@
+/// 
+
 // menu.js
 
 $(document).ready(
@@ -9,7 +11,7 @@ $(document).ready(
 				if ($("#options").css("visibility") == "visible")	{
 					$("#menu > a").addClass("menu-hover");
 				} else {
-					$("#menu > a").addClass("menu-base");	
+					$("#menu > a").addClass("menu-base");
 				}
 			}
 		);
@@ -25,6 +27,8 @@ $(document).ready(
 			function ()	{
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-click");
+				
+				$("#menu").css("opacity", 0.9);
 				
 				$("#options").css("visibility",  "visible");	
 			}
@@ -49,9 +53,20 @@ $(document).ready(
 				$(this).removeClass();
 				$(this).addClass("option-click");
 				
+				
 				$("#options").css("visibility", "hidden");
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-base");
+				
+				switch (this.id)	{
+					case "home":
+						location.href = "http://localhost/test/amelia/sc/";
+						break;
+						
+					case "section-1":
+						location.href = "http://localhost/test/amelia/sc/section_1.htm";
+						break;
+				}
 			}
 		);
 		
@@ -61,6 +76,8 @@ $(document).ready(
 				
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-base");
+				
+				$("#menu").css("opacity", 0);	
 			}
 		);
 	}
