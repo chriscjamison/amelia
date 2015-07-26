@@ -27,10 +27,18 @@ $(document).ready(
 			function ()	{
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-click");
+				//window.alert("1");
 				
-				$("#menu").css("opacity", 0.9);
 				
-				$("#options").css("visibility",  "visible");	
+				if ($("#options").css("visibility") == "hidden")	{
+					$("#menu-bkgrnd").css("visibility", "visible");
+					
+					$("#options").css("visibility",  "visible");
+				} else {
+					$("#menu-bkgrnd").css("visibility", "hidden");
+					
+					$("#options").css("visibility",  "hidden");
+				}	
 			}
 		);
 		
@@ -77,7 +85,7 @@ $(document).ready(
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-base");
 				
-				$("#menu").css("opacity", 0);	
+				//$("#menu-bkgrnd").css("opacity", 0);	
 			}
 		);
 	}
