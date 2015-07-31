@@ -1,4 +1,4 @@
-
+/// <reference path="../../typings/jquery/jquery.d.ts"/>
 
 var windowWidth = new Number;
 var windowHeight = new Number;
@@ -22,7 +22,7 @@ $(document).ready(
 			
 			divValues = {
 				width: windowWidth,
-				height: divHeight//,
+				height: divHeight,
 				backgroundSize: "contain"
 			}
 			

@@ -1,9 +1,13 @@
+/// <reference path="../../typings/jquery/jquery.d.ts"/>
 /// 
 
 // menu.js
 
 $(document).ready(
 	function()	{
+		
+		var containerValues = new Object;
+		
 		$("#menu > a").on("mouseleave", 
 			function ()	{
 				$("#menu > a").removeClass();
@@ -33,10 +37,27 @@ $(document).ready(
 				if ($("#options").css("visibility") == "hidden")	{
 					$("#menu-bkgrnd").css("visibility", "visible");
 					
+					$("#menu").css("position", "fixed");
+						
+					containerValues = {
+						"position": "absolute",
+						"left": "260px"
+					}
+					
+					$("#container").css(containerValues);
+					
 					$("#options").css("visibility",  "visible");
 				} else {
 					$("#menu-bkgrnd").css("visibility", "hidden");
 					
+					$("#menu").css("position", "absolute");
+						
+					containerValues = {
+						"position": "relative",
+						"left": "0"
+					}
+					
+					$("#container").css(containerValues);
 					$("#options").css("visibility",  "hidden");
 				}	
 			}
@@ -85,7 +106,17 @@ $(document).ready(
 				$("#menu > a").removeClass();
 				$("#menu > a").addClass("menu-base");
 				
+				$("#menu-bkgrnd").css("visibility", "hidden");
 				//$("#menu-bkgrnd").css("opacity", 0);	
+				
+				$("#menu").css("position", "absolute");
+						
+					containerValues = {
+						"position": "relative",
+						"left": "0"
+					}
+					
+					$("#container").css(containerValues);
 			}
 		);
 	}
