@@ -12,3 +12,6 @@ THINGS TO DO
 		** Added effect for menu. <strike>Draws attention to the menu by lightening the rest of page</strike>. 
 		Added left-side navigation. [Adding animation to shift div#container.]
 		
+		** Swapped out the questionaire from the 'Is therapy..' landing page.
+			^ <strike>Added section_1-a thru f pages to hold questions for questionaire.</strike>
+			^ Added all questions and submit button to one page.

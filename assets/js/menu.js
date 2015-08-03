@@ -119,5 +119,11 @@ $(document).ready(
 					$("#container").css(containerValues);
 			}
 		);
+		
+		$("input#start-quiz").on("click",
+			function ()	{
+				location.href = "http://localhost/test/amelia/sc/section_1-a.htm";
+			}
+		);
 	}
 );

@@ -30,28 +30,52 @@ div#pg_bkgrnd {
 	z-index: -2;
 }
 
-.bg_1 {
+#pg_bkgrnd .bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-1.jpg');
 }
 
-.bg_2 {
+#pg_bkgrnd .bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-2.jpg');
 }
 
-.bg_3 {
+#pg_bkgrnd .bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-3.jpg');
 }
 
-.bg_4 {
+#pg_bkgrnd .bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-4.jpg');
+}
+
+#pg_bkgrnd-question_1 .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-1.jpg');
+}
+
+#pg_bkgrnd-question_1 .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-2.jpg');
+}
+
+#pg_bkgrnd-question_1 .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-3.jpg');
+}
+
+#pg_bkgrnd-question_1 .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-4.jpg');
 }
 
 div#header span {
@@ -116,7 +140,7 @@ div#quiz-button {
 	height: 50px;
 }
 
-input#start-quiz {
+div#quiz-button input {
 	width: 125px;
 	height: 50px;
 	position: absolute;
@@ -128,7 +152,14 @@ input#start-quiz {
 	color: #221763;
 	border: 2px solid #369DBF;
 	cursor: pointer;
-	
+}
+
+div#quiz-button input#submit-quiz {
+ right: -67%;	
+}
+
+div#quiz-button input:hover {
+	background-color: #33CCFF;
 }
 
 div#description p {
@@ -139,8 +170,38 @@ div#description p {
 
 div#questionaire {
 	position: absolute;
-	top: 375px;
+	top: 200px;
 	left: 150px;
+}
+
+div.column {
+	width: 50%;
+	height: auto;
+	float: left;
+	margin: 0 auto;	
+}
+
+div.question {
+	width: 70%;
+	height: auto;
+	padding: 1.5em;
+	margin: 2em 0;
+	background-color: #fff;
+	border: 4px solid #737367;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div.question:hover {
+	border: 4px solid #9C9C8C;
+	cursor: pointer;
+}
+
+div.question span {
+	font-size: 1.1em;
+}
+
+div.question p {
+	text-indent: 2em;
 }
 
 div#next-section {
@@ -157,19 +218,4 @@ div#next-section {
 
 div#next-section:hover {
 	cursor: pointer;
-}
-
-div.question {
-	width: 80%;
-	height: 25%;
-	padding: 1.5em;
-	background-color: #fff;
-}
-
-div.question-text {
-	font: 400px 0.9em "Glegoo", "Palantino", serif
-}
-
-div.question-text span {
-	font-size: 1.1em;
 }
