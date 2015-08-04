@@ -5,7 +5,6 @@ div#menu {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	z-index: 3;
 }
 
 div#menu a {
@@ -14,7 +13,6 @@ div#menu a {
 	position: absolute;
 	top: 25px;
 	left: 25px;
-	/*display: block;*/
 }
 
 div#menu-bkgrnd {
@@ -22,7 +20,7 @@ div#menu-bkgrnd {
 	height: 100%;
 	background-color: #666;
 	visibility: hidden;
-	z-index: 2;
+	
 }
 
 div#menu-bar {

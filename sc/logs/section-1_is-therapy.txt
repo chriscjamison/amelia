@@ -15,3 +15,6 @@ THINGS TO DO
 		** Swapped out the questionaire from the 'Is therapy..' landing page.
 			^ <strike>Added section_1-a thru f pages to hold questions for questionaire.</strike>
 			^ Added all questions and submit button to one page.
+			
+		+ 08/03/15 +	
+		* Added 3 unique questions to questionaire.

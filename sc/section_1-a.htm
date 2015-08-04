@@ -40,65 +40,83 @@
 					
 					<form method="post" action="/test/amelia/assets/scrp/processForm.php" name="is_therapy">
 						<div class="column">
-							<div class="question" id="question-1">
-								<span>
-									<strong>Question <sup>#</sup>1: </strong>What is the quality of your recent emotional health?
-								</span>
+							<div class="question radio" id="question-1">
+								<span><strong>Question <sup>#</sup>1: </strong></span>
+								<span>What is the quality of your recent emotional health?</span>
 								<p>
-									Over the past ten days, which of the following general moods have you experienced most frequently?
+									Over the past two weeks, which of the following general moods have you experienced most frequently?
 								</p>
-								<span>Sadness</span>
+								<label for="sad">Sadness</label>
 								<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
-								<span>Anger</span>
+								<label for="angr">Anger</label>
 								<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-								<span>Anxiety / Fear</span>
+								<label for="axty">Anxiety or fear</label>
 								<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
 							</div>
 							
 							<div class="question" id="question-2">
-								<span>
-									<strong>Question <sup>#</sup>2: </strong>What is the quality of your recent emotional health?
-								</span>
+								<span><strong>Question <sup>#</sup>2: </strong></span>
+								<span>How difficult has your emotional health made your life?</span>
 								<p>
-									Over the past ten days, which of the following general moods have you experienced most frequently?
+									On a scale of "Slight" to "Significant", with "Slight" being a slight amount and "Signficant" being 
+									significantly, how much have the emotions which have you experienced impacted the amount of 
+									effort you give to complete daily tasks<sup>*</sup>?
 								</p>
-								<span>Sadness</span>
-								<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
-								<span>Anger</span>
-								<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-								<span>Anxiety / Fear</span>
-								<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+								<p class="footnote">
+									<sup>*</sup>Daily tasks include: preparing and eating food, having good physical hygene, stable 
+									relationships	with close ones, etc.
+								</p>
+								<span><strong>Slight</strong></span>
+								<input type="range" name="difficult" min="1" max="10" step="1">
+								<span><strong>Significant</strong></span>
 							</div>
 						</div>
 						<div class="column">
 							<div class="question" id="question-3">
+								<span><strong>Question <sup>#</sup>3: </strong></span>
 								<span>
-									<strong>Question <sup>#</sup>3: </strong>What is the quality of your recent emotional health?
+									Have you experienced any of the following stressors?
 								</span>
 								<p>
-									Over the past ten days, which of the following general moods have you experienced most frequently?
+									Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
 								</p>
-								<span>Sadness</span>
-								<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
-								<span>Anger</span>
-								<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-								<span>Anxiety / Fear</span>
-								<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+								<p class="footnote">
+									<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
+									select "Other", and enter in a brief description of the event.
+								</p>
+								<div>
+									<label for="death">Death of a loved one</label>
+									<input type="checkbox" name="stressor" value="dth" id="stressor-dth" />
+									<label for="rltn">End of close relationship</label>
+									<input type="checkbox" name="stressor" value="rltn" id="stressor-rltn" />
+									<label for="job">Loss of job</label>
+									<input type="checkbox" name="stressor" value="job" id="stressor-job" />
+									<label for="move">Moving to new city</label>
+									<input type="checkbox" name="stressor" value="move" id="stressor-move" />
+									<label for="othr">Other</label>
+									<input type="checkbox" name="stressor" value="othr" id="stressor-othr" />
+								</div>
 							</div>
 							
 							<div class="question" id="question-4">
+								<span><strong>Question <sup>#</sup>4: </strong></span>
 								<span>
-									<strong>Question <sup>#</sup>4: </strong>What is the quality of your recent emotional health?
+									Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed 
+									someone in the last two weeks?
 								</span>
 								<p>
-									Over the past ten days, which of the following general moods have you experienced most frequently?
+									If you have thought of harming someone, select "Thought of", if you have actually physically 
+									harmed someone, select "Physically harmed". If you have not thought of harming someone or physically 
+									harmed someone, select "Neither".
+								<p class="footnote">
+									<sup>*</sup>"Someone" would refer to another person or yourself.
 								</p>
-								<span>Sadness</span>
-								<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
-								<span>Anger</span>
-								<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-								<span>Anxiety / Fear</span>
-								<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+								<select name="harm">
+									<option value="default" selected>- Select One -</option>
+									<option value="tght">Thought of</option>
+									<option value="phys">Physically harmed</option>
+									<option value="netr">Neither</option>
+								</select>
 							</div>
 							
 							<div id="quiz-button">
@@ -106,18 +124,18 @@
 							</div>
 						</div>
 					</form>
-				</div>
-				<div id="next-section">
-					<span>Click to view the next section.</span>
-					<img src="/test/amelia/assets/img/sect/next-sect_base.png" width="88" height="31" id="next-sect_img" />
-				</div>
-				<!--<div id="windowpane"></div>-->
-				<div id="pg_bkgrnd-question_1">
-					<div class="bg_1"></div>
-					<div class="bg_2"></div>
-					<div class="bg_3"></div>
-					<div class="bg_4"></div>
 				</div>	
+			</div>
+			<div id="next-section">
+				<span>Click to view the next section.</span>
+				<img src="/test/amelia/assets/img/sect/next-sect_base.png" width="88" height="31" id="next-sect_img" />
+			</div>
+			<!--<div id="windowpane"></div>-->
+			<div id="pg_bkgrnd-question_1">
+				<div class="bg_1"></div>
+				<div class="bg_2"></div>
+				<div class="bg_3"></div>
+				<div class="bg_4"></div>
 			</div>
 		</div>
 	</body>	
