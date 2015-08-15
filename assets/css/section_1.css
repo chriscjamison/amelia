@@ -84,7 +84,7 @@ div#header span {
 	display: block;
 	padding: 20px 0 0 125px;
 	background-color: #476b3f;
-	font: 600 2em "Copperplate Gothic Light", "Cambria", serif;
+	font: 600 2em "Copperplate Gothic", "Cambria", serif;
 	letter-spacing: 2px;
 	color: #fff;
 }
@@ -131,6 +131,7 @@ div#description {
 	left: 125px;
 	margin: 25px;
 	padding: 5px 5px 17px 5px;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
 	background-color: #d2e6db;
 	border: 4px solid #476b3f;
 }
@@ -230,8 +231,4 @@ div#next-section {
 
 div#next-section:hover {
 	cursor: pointer;
-}
-
-.radio input {
-	background: url('/test/amelia/assets/img/form/rdio_base.png') no-repeat 0 0;
 }
