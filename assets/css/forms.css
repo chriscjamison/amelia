@@ -5,13 +5,13 @@ input + label:hover, input:focus + label			{ text-shadow: 1px 1px 3px #000; colo
 */
 
 fieldset {
+	width: 80%;
 	margin: 1em;
 	padding: 1em;
 }	
 
 fieldset p {
 	display: block;
-	overflow: hidden;
 	height: 22px;
 }
 
@@ -40,9 +40,11 @@ p:not(#foo) > input + label {
 	height: 25px;
 }
 
-p:not(#foo) > input[type=radio] + label { 
+p:not(#foo) > input[type=radio] + label,
+p:not(#foo) > input[type=checkbox] + label { 
+	display: block;
 	position: absolute;
-	background-position: 0 0; 
+	background-position: 0 0;
 }
 
 /* Checked styles */
@@ -51,7 +53,8 @@ p:not(#foo) > input[type=radio]:checked + label {
 }
 
 p:not(#foo) > input[type=checkbox]:checked + label { 
-	background-position: 0 51px;
+	position: absolute;
+	background-position: 0 0;
 }
 
 p:not(#foo) > input[type=checkbox]:hover:checked + label,
