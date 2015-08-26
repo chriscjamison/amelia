@@ -259,11 +259,18 @@ p:not(#foo) > input + label {
 	height: 25px;
 }
 
-p:not(#foo) > input[type=radio] + label,
-p:not(#foo) > input[type=checkbox] + label { 
+p:not(#foo) > input[type=radio] + label { 
 	display: block;
 	font-weight: normal;
+	color: #000;
 	background-position: 0 0;
+}
+
+p:not(#foo) > input[type=checkbox] + label {
+	display: block;
+	font-weight: normal;
+	color: #000;
+	background-position: 0 -103px;
 }
 
 /* Checked styles */
@@ -274,16 +281,18 @@ p:not(#foo) > input[type=radio]:checked + label {
 }
 
 p:not(#foo) > input[type=checkbox]:checked + label { 
-	background-position: 0 -54px;
+	background-position: 0 -178px;
 	font-weight: bold;
+	color: #221763;
 }
 
 p:not(#foo) > input[type=checkbox]:hover:checked + label,
 p:not(#foo) > input[type=checkbox]:focus:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover,
 p:not(#foo) > input[type=checkbox]:focus:checked + label { 
-	background-position: 0 -54px;
+	background-position: 0 -178px;
 	font-weight: bold;
+	color: #221763;
 }
 
 p:not(#foo) > input[type=radio]:hover:checked + label,
@@ -299,8 +308,9 @@ p:not(#foo) > input[type=radio]:focus:checked + label {
 p:not(#foo) > input[type=checkbox]:hover + label,
 p:not(#foo) > input[type=checkbox]:focus + label,
 p:not(#foo) > input[type=checkbox] + label:hover { 
-	background-position: 0 -79px;
+	background-position: 0 -128px;
 	font-weight: bold;
+	color: #000;
 }
 
 p:not(#foo) > input[type=radio]:hover + label,
@@ -308,12 +318,15 @@ p:not(#foo) > input[type=radio]:focus + label,
 p:not(#foo) > input[type=radio] + label:hover { 
 	background-position: 0 -26px;
 	font-weight: bold;
+	color: #000;
 }
 
 /* Active styles */
 p:not(#foo) > input[type=checkbox]:active + label,
 p:not(#foo) > input[type=checkbox] + label:hover:active { 
-	background-position: 0 -53px;
+	background-position: 0 -153px;
+	font-weight: normal;
+	
 }
 
 p:not(#foo) > input[type=radio]:active + label,
@@ -323,11 +336,14 @@ p:not(#foo) > input[type=radio] + label:hover:active {
 
 p:not(#foo) > input[type=checkbox]:active:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
-	background-position: 0 -54px;
+	background-position: 0 -153px;
+	font-weight: normal;
 }
 
-
-
+fieldset > div {
+	margin: 0 auto;
+	width: 270px;
+}
 div#next-section {
 	width: 88px;
 	height: 31px;

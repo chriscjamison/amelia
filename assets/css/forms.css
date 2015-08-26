@@ -41,10 +41,14 @@ p:not(#foo) > input + label {
 	height: 25px;
 }
 
-p:not(#foo) > input[type=radio] + label,
-p:not(#foo) > input[type=checkbox] + label { 
+p:not(#foo) > input[type=radio] + label { 
 	display: block;
 	background-position: 0 0;
+}
+
+p:not(#foo) > input[type=checkbox] + label {
+	display: block;
+	background-position: 0 -103px;
 }
 
 /* Checked styles */
@@ -53,14 +57,14 @@ p:not(#foo) > input[type=radio]:checked + label {
 }
 
 p:not(#foo) > input[type=checkbox]:checked + label { 
-	background-position: 0 -54px;
+	background-position: 0 -103px;
 }
 
 p:not(#foo) > input[type=checkbox]:hover:checked + label,
 p:not(#foo) > input[type=checkbox]:focus:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover,
 p:not(#foo) > input[type=checkbox]:focus:checked + label { 
-	background-position: 0 -54px;
+	background-position: 0 -103px;
 }
 
 p:not(#foo) > input[type=radio]:hover:checked + label,
