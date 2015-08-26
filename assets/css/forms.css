@@ -5,19 +5,19 @@ input + label:hover, input:focus + label			{ text-shadow: 1px 1px 3px #000; colo
 */
 
 fieldset {
-	width: 80%;
 	margin: 1em;
-	padding: 1em;
-}	
-
-fieldset p {
-	display: block;
-	height: 22px;
 }
 
 label + p,
 input + p {
 	margin-top: 20px;
+}
+
+input[type=radio],
+input[type=checkbox] {
+	border: 0;
+	width: 100%;
+	height: 1.6em;
 }
 
 p > input {
@@ -26,6 +26,7 @@ p > input {
 	height: 16px;
 	width: 16px;
 	float: left;
+	position: absolute;
 	left: 0;
 	opacity: 0;
 }
@@ -36,72 +37,66 @@ p > label {
 }
 
 p:not(#foo) > input + label {
-	background: url('/test/amelia/assets/img/form/form.png') 0 25px no-repeat;
+	background: url('/test/amelia/assets/img/form/form.png') 0 -1px no-repeat;
 	height: 25px;
 }
 
 p:not(#foo) > input[type=radio] + label,
 p:not(#foo) > input[type=checkbox] + label { 
 	display: block;
-	position: absolute;
 	background-position: 0 0;
 }
 
 /* Checked styles */
 p:not(#foo) > input[type=radio]:checked + label { 
-	background-position: 0 51px; 
+	background-position: 0 -54px; 
 }
 
 p:not(#foo) > input[type=checkbox]:checked + label { 
-	position: absolute;
-	background-position: 0 0;
+	background-position: 0 -54px;
 }
 
 p:not(#foo) > input[type=checkbox]:hover:checked + label,
 p:not(#foo) > input[type=checkbox]:focus:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover,
 p:not(#foo) > input[type=checkbox]:focus:checked + label { 
-	background-position: 0 51px;
+	background-position: 0 -54px;
 }
 
 p:not(#foo) > input[type=radio]:hover:checked + label,
 p:not(#foo) > input[type=radio]:focus:checked + label,
 p:not(#foo) > input[type=radio]:checked + label:hover,
 p:not(#foo) > input[type=radio]:focus:checked + label { 
-	background-position: 0 51px;
+	background-position: 0 -54px;
 }
 
 /* Hover & Focus styles */
 p:not(#foo) > input[type=checkbox]:hover + label,
 p:not(#foo) > input[type=checkbox]:focus + label,
 p:not(#foo) > input[type=checkbox] + label:hover { 
-	background-position: 0 26px; 
+	background-position: 0 -27px; 
 }
 
 p:not(#foo) > input[type=radio]:hover + label,
 p:not(#foo) > input[type=radio]:focus + label,
 p:not(#foo) > input[type=radio] + label:hover { 
-	background-position: 0 26px;
+	background-position: 0 -27px;
 }
 
 /* Active styles */
 p:not(#foo) > input[type=checkbox]:active + label,
 p:not(#foo) > input[type=checkbox] + label:hover:active { 
-	background-position: 0 -41px;
+	background-position: 0 -54px;
 }
 
 p:not(#foo) > input[type=radio]:active + label,
 p:not(#foo) > input[type=radio] + label:hover:active { 
-	background-position: 0 -201px;
+	background-position: 0 -54px;
 }
 
 p:not(#foo) > input[type=checkbox]:active:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
-	background-position: 0 -121px;
+	background-position: 0 -54px;
 }
 
-p:not(#foo) > input[type=radio]:active:checked + label,
-p:not(#foo) > input[type=radio]:checked + label:hover:active { 
-	background-position: 0 -281px;
-}
 
