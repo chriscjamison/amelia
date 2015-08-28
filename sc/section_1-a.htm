@@ -39,7 +39,7 @@
 			<div id="copy">
 				<div id="questionaire">
 					
-					<form method="post" action="/test/amelia/assets/scrp/processForm.php" name="is_therapy">
+					<form method="post" action="/test/amelia/sc/section_1-b.htm" name="is_therapy">
 						<div class="column">
 							<div class="question" id="question-1">
 								<span><strong>Question <sup>#</sup>1: </strong></span>
@@ -48,9 +48,18 @@
 									Over the past two weeks, which of the following general moods have you experienced most frequently?
 								</p>
 								<fieldset>
-									<p><input type="radio" name="mood_type" value="sad" id="mood_type-sad" /> <label for="sad">Sadness</label></p>
-									<p><input type="radio" name="mood_type" value="angr" id="mood_type-angr" /> <label for="angr">Anger</label></p>
-									<p><input type="radio" name="mood_type" value="axty" id="mood_type-axty" /> <label for="axty">Anxiety or fear</label></p>
+									<p>
+										<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
+										<label for="sad">Sadness</label>
+									</p>
+									<p>
+										<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
+										<label for="angr">Anger</label>
+									</p>
+									<p>
+										<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+										<label for="axty">Anxiety or fear</label>
+									</p>
 								</fieldset>	
 							</div>
 							
@@ -68,7 +77,7 @@
 								</p>
 								<fieldset>
 									<div>
-										<span><strong>Slight</strong></span>
+										<span>Slight</span>
 										<input type="range" name="difficult" min="0" max="10" step="1" value="5" list="range_values">
 										<datalist id="range_values">
 											<option value="0">0</option>
@@ -83,7 +92,7 @@
 											<option value="9"></option>
 											<option value="10">10</option>
 										</datalist>
-										<span><strong>Significant</strong></span>
+										<span>Significant</span>
 									</div>
 								</fieldset>
 							</div>
@@ -139,12 +148,16 @@
 								<p class="footnote">
 									<sup>*</sup>"Someone" would refer to another person or yourself.
 								</p>
-								<select name="harm">
-									<option value="default" selected>- Select One -</option>
-									<option value="tght">Thought of</option>
-									<option value="phys">Physically harmed</option>
-									<option value="netr">Neither</option>
-								</select>
+								<fieldset>
+									<div>
+										<select name="harm">
+											<option value="default" selected>- Select One -</option>
+											<option value="tght">Thought of</option>
+											<option value="phys">Physically harmed</option>
+											<option value="netr">Neither</option>
+										</select>
+									</div>
+								</fieldset>
 							</div>
 							
 							<div id="quiz-button">

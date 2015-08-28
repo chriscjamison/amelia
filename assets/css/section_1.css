@@ -8,7 +8,7 @@ div#container {
 	width: 100%;
 	height: 100%;
 	padding: 0;
-	margin: 0;
+	margin: 0 0 1em 0;
 	clear: both;
 	z-index: 1;
 }
@@ -78,6 +78,30 @@ div#pg_bkgrnd {
 	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-4.jpg');
 }
 
+#pg_bkgrnd-resp_y .bg_1 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-1.jpg');
+}
+
+#pg_bkgrnd-resp_y .bg_2 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-2.jpg');
+}
+
+#pg_bkgrnd-resp_y .bg_3 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-3.jpg');
+}
+
+#pg_bkgrnd-resp_y .bg_4 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-4.jpg');
+}
+
 div#header span {
 	width: 1138px;
 	height: 55px;
@@ -124,6 +148,40 @@ div#copy {
 	font: 400 0.9em "Glegoo", "Palatino", serif;
 }
 
+div.block {
+	width: 25%;
+	height: auto;
+	margin: 0 auto;
+	padding: 2.0em;
+	top: 350px;
+	left: 55%;
+	position: absolute;
+	font-size: 0.9em;
+	z-index: 2;
+}
+
+div.block span {
+	width: 100%;
+	padding-bottom: 0.25em;
+	display: inline-block;
+	border-bottom: 2px solid;
+	font-weight: 800;
+	font-size: 2.5em;
+	text-indent: 0.25em;
+}
+
+div.block p {
+	text-indent: 1.0em;
+	line-height: 1.85em;
+	margin-bottom: 2.0em;
+}
+
+div#yes {
+	background-color: #9a633f;
+	border: 5px solid #64300a;
+	color: #f0f2ee;
+}
+
 div#description {
 	width: 25%;
 	position: absolute;
@@ -145,6 +203,7 @@ div#description p {
 div#quiz-button {
 	width: 100%;
 	height: 50px;
+	margin-bottom: 2.5em;
 }
 
 div#quiz-button input {
@@ -203,6 +262,11 @@ div.question span {
 	font-size: 1.1em;
 }
 
+div.question fieldset div span {
+	font-family: "Franklin Gothic Medium", sans-serif;
+	font-size: 1.3em;	
+}
+
 div.question p {
 	display: block;
 	position: relative;
@@ -238,6 +302,18 @@ input[type=checkbox] {
 	height: 1.6em;
 }
 
+input[type=range] {
+	margin: 0.9em auto 0.1em auto;
+	color: #221763;
+}
+
+select {
+	font: 400 1.3em "Franklin Gothic Medium";
+	width: 150px;
+	margin: 0.7em auto 0.5em auto;
+	display: block;
+}
+
 p > input {
 	padding: 0;
 	margin: 0;
@@ -257,6 +333,7 @@ p > label {
 p:not(#foo) > input + label {
 	background: url('/test/amelia/assets/img/form/form.png') 0 -1px no-repeat;
 	height: 25px;
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
 
 p:not(#foo) > input[type=radio] + label { 
@@ -344,6 +421,7 @@ fieldset > div {
 	margin: 0 auto;
 	width: 270px;
 }
+
 div#next-section {
 	width: 88px;
 	height: 31px;
