@@ -1,6 +1,5 @@
 /* section_2.css */
 
-/* --- Section #1 ---------------------------------------------------------------------------------- */
 body {
 	margin: 0;
 	padding: 0;
@@ -85,8 +84,8 @@ div#header div#brdr-4 {
 }
 
 div.block {
-	width: 285px;
-	height: 230px;;
+	width: 370px;
+	height: 185px;;
 	position: absolute;
 	top: 200px;
 	margin: 25px;
@@ -98,7 +97,7 @@ div.block {
 }
 
 div.degree_desc {
-	width: 295px;
+	width: 370px;
 	height: inherit;
 	position: absolute;
 	top: 10px;
@@ -107,7 +106,7 @@ div.degree_desc {
 }
 
 div.degree_desc > span {
-	width: 285px;
+	width: 370px;
 	height: auto;
 	display: block;
 	position: absolute;
@@ -121,39 +120,69 @@ div.degree_desc > span {
 }
 
 div.degree_desc > span + span {
-	width: 285px;
+	width: 370px;
 	height: auto;
 	display: block;
 	position: absolute;
 	top: 135px;
 	left: 0;
 	margin: 0 auto;
+	color: #000;
 	font-weight: 400;
 	font-size: 1.15em;
 	border: none;
 }
 
 div.degree_desc > span + span + span {
-	width: 285px;
+	width: 370px;
 	height: auto;
 	display: block;
 	position: absolute;
 	top: 165px;
 	left: 0;
 	margin: 0 auto;
+	color: #000;
 	font-size: 0.95em;
 	border: none;
 }
 
 div#undergd {
 	left: 150px;
-	
 }
 
 div#grad {
-	left: 550px;
+	left: 640px;
 }
 
-div#grad > div.degree_desc {
-	top: 55px;
+div.block_2 {
+	width: 800px;
+	height: 110px;
+	position: absolute;
+	top: 500px;
+	left: 225px;
+	background-color: #dce6f0;
+	border: 5px solid #91c5fe;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div.block_2 > span {
+	width: 745px;
+	display: block;
+	padding: 10px;
+	margin: 0 20px;
+	border-bottom: 3px solid #748445;
+	color: #52652d;
+	font-size: 0.95em;
+	font-weight: 600;
+}
+div.block_2 > div {
+	width: 25%;
+	height: 40px;
+	margin: 10px 20px;
+	float: left;
+}
+
+div.block_2 > div > span {
+	font-size: 0.8em;
+	font-weight: 600;
 }

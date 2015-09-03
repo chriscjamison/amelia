@@ -99,6 +99,10 @@ $(document).ready(
 					case "section-2":
 						location.href = "http://localhost/test/amelia/sc/section_2.htm";
 						break;
+						
+					case "section-3":
+						location.href = "http://localhost/test/amelia/sc/section_3.htm";
+						break;
 				}
 			}
 		);

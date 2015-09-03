@@ -1,0 +1,146 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0 0 1em 0;
+	clear: both;
+	z-index: 1;
+}
+
+div#pg_bkgrnd {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clear: both;
+	z-index: -2;
+}
+
+#pg_bkgrnd .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-1.jpg');
+}
+
+#pg_bkgrnd .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-2.jpg');
+}
+
+#pg_bkgrnd .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-3.jpg');
+}
+
+#pg_bkgrnd .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-4.jpg');
+}
+
+#pg_bkgrnd-dprsn .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-1.jpg');
+}
+
+#pg_bkgrnd-dprsn .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-2.jpg');
+}
+
+#pg_bkgrnd-dprsn .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-3.jpg');
+}
+
+#pg_bkgrnd-dprsn .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-4.jpg');
+}
+
+div#header span {
+	width: 1138px;
+	height: 65px;
+	display: block;
+	padding: 30px 0 0 125px;
+	background-color: #937da3;
+	font: 600 2em "Copperplate Gothic", "Cambria", serif;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+div#header div#brdr-1 {
+	width: 100%;
+	height: 3px;
+	background-color: #9ebdff;
+}
+
+div#header div#brdr-2 {
+	width: 100%;
+	height: 3px;
+	background-color: #2d4561;
+}
+
+div#header div#brdr-3 {
+	width: 100%;
+	height: 10px;
+	background-color: #c498a9;
+}
+
+div#header div#brdr-4 {
+	width: 100%;
+	height: 2px;
+	background-color: #cfcbae;
+}
+
+div.block-desc {
+	width: 300px;
+	position: absolute;
+	top: 200px;
+	left: 790px;
+	margin: 25px;
+	padding:  10px 25px;
+	background-color: #253449;
+	border: 5px solid #b7c6c1;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div.block-desc p {
+	color: #c7d4dc;
+	font-size: 0.95em;
+	text-indent: 1.3em;
+	line-height: 1.3em;
+}
+
+div#section-nav {
+	width: 350px;
+	height: 50px;
+	position: relative;
+	top: 630px;
+	margin: 0 auto;
+}
+
+div#section-nav a {
+	width: auto;
+	height: 50px;
+	margin: 15px;
+	padding: 10px;
+	background-color: #9ebdff;
+	border: 3px solid;
+	font: 400 1.15em "Franklin Gothic Medium", sans-serif;
+	color: #2d4561;
+	
+	
+}
