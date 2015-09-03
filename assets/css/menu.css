@@ -75,3 +75,19 @@ div#menu span {
 	background-color: #A6A6A6;
 	color: #000;
 }
+
+div#next-section {
+	width: 88px;
+	height: 31px;
+	position: absolute;
+	right: 10px;
+	bottom: 31px;
+	font: 600 0.8em "Franklin Gothic Medium", sans-serif;
+	color: #fff;	
+	line-height: 1.25em;
+	text-align: center;
+}
+
+div#next-section:hover {
+	cursor: pointer;
+}
