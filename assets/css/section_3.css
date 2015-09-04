@@ -14,57 +14,80 @@ div#container {
 
 div#pg_bkgrnd {
 	width: 100%;
-	height: 100%;
+	height: auto;
 	position: absolute;
-	top: 0;
+	top: 113px;
 	left: 0;
-	clear: both;
-	z-index: -2;
+	z-index: -1;
 }
 
-#pg_bkgrnd .bg_1 {
+div.main > div.bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-1.jpg');
 }
 
-#pg_bkgrnd .bg_2 {
+div.main > div.bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-2.jpg');
 }
 
-#pg_bkgrnd .bg_3 {
+div.main > div.bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-3.jpg');
 }
 
-#pg_bkgrnd .bg_4 {
+div.main > div.bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dvrce/bg-4.jpg');
 }
 
-#pg_bkgrnd-dprsn .bg_1 {
+div.grief > div.bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/grief/bg-1.jpg');
+}
+
+div.grief > div.bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/grief/bg-2.jpg');
+}
+
+div.grief > div.bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/grief/bg-3.jpg');
+}
+
+div.grief > div.bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/3/grief/bg-4.jpg');
+}
+
+div.dprsn > div.bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-1.jpg');
 }
 
-#pg_bkgrnd-dprsn .bg_2 {
+div.dprsn > div.bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-2.jpg');
 }
 
-#pg_bkgrnd-dprsn .bg_3 {
+div.dprsn > div.bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-3.jpg');
 }
 
-#pg_bkgrnd-dprsn .bg_4 {
+div.dprsn > div.bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/3/dprsn/bg-4.jpg');
@@ -105,42 +128,101 @@ div#header div#brdr-4 {
 	background-color: #cfcbae;
 }
 
+div#copy {
+	width: 100%;
+	height: auto;
+}
+
 div.block-desc {
 	width: 300px;
 	position: absolute;
 	top: 200px;
-	left: 790px;
 	margin: 25px;
-	padding:  10px 25px;
-	background-color: #253449;
-	border: 5px solid #b7c6c1;
+	padding: 10px 25px;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
+div#main-splties {
+	left: 750px;
+	background-color: #253449;
+	border: 5px solid #b7c6c1;
+}
+
 div.block-desc p {
-	color: #c7d4dc;
 	font-size: 0.95em;
 	text-indent: 1.3em;
-	line-height: 1.3em;
+	line-height: 1.5em;
+}
+
+div#main-splties p {
+	color: #d9e1ee;
+}
+
+div#main-splties > p:first-line {
+	font-weight: 600;
+}
+
+div#main-splties > p + p:first-line {
+	font-weight: 400;
+}
+div#grief {
+	left: 125px;
+	background-color: #3d3230;
+	border: 5px solid #bd9e8c;
+}
+
+div#deprsn {
+	left: 125px;
+	background-color: #37403b;
+	border: 5px solid #f7f7f7;
+}
+
+div.block-desc > span {
+	width: 100%;
+	display: block;
+	margin: 7px 0;
+	padding-bottom: 9px;
+	border-bottom: 2px solid;
+	font-size: 1.5em;
+	font-weight: 600;	
+}
+
+div#grief > span {
+	color: #ebebe9;
+}
+
+div#grief p {
+	color: #ebebe9;
+}
+
+div#deprsn > span {
+	color: #f0eceb;
+}
+
+div#deprsn p {
+	color: #f0eceb;
 }
 
 div#section-nav {
-	width: 350px;
+	width: 410px;
 	height: 50px;
 	position: relative;
 	top: 630px;
 	margin: 0 auto;
 }
 
-div#section-nav a {
-	width: auto;
+div#section-nav span {
+	width: 150px;
 	height: 50px;
+	display: block;
+	position: absolute;
 	margin: 15px;
-	padding: 10px;
-	background-color: #9ebdff;
-	border: 3px solid;
-	font: 400 1.15em "Franklin Gothic Medium", sans-serif;
-	color: #2d4561;
-	
-	
+	background: url('/test/amelia/assets/img/menu/section-nav/menu.png') 0 0 no-repeat;
+	background-color: #000;
+	color: #fff;
+	cursor: auto;	
+} 
+
+div#specltes {
+	visibility: hidden;
 }

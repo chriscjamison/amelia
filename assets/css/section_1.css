@@ -22,105 +22,104 @@ div#logo {
 
 div#pg_bkgrnd {
 	width: 100%;
-	height: 100%;
+	height: auto;
 	position: absolute;
-	top: 0;
+	top: 113px;
 	left: 0;
-	clear: both;
-	z-index: -2;
+	z-index: -1;
 }
 
-#pg_bkgrnd .bg_1 {
+div.main-section_1 .bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-1.jpg');
 }
 
-#pg_bkgrnd .bg_2 {
+div.sect_1 .bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-2.jpg');
 }
 
-#pg_bkgrnd .bg_3 {
+div.sect_1 .bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-3.jpg');
 }
 
-#pg_bkgrnd .bg_4 {
+div.main-section_1 .bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/bg-b-4.jpg');
 }
 
-#pg_bkgrnd-qstn_1 .bg_1 {
+div.qstn .bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-1.jpg');
 }
 
-#pg_bkgrnd-qstn_1 .bg_2 {
+div.qstn .bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-2.jpg');
 }
 
-#pg_bkgrnd-qstn_1 .bg_3 {
+div.qstn .bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-3.jpg');
 }
 
-#pg_bkgrnd-qstn_1 .bg_4 {
+div.qstn .bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/qstn/1/bg-4.jpg');
 }
 
-#pg_bkgrnd-resp_y .bg_1 {
+div.resp_y .bg_1 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-1.jpg');
 }
 
-#pg_bkgrnd-resp_y .bg_2 {
+div.resp_y .bg_2 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-2.jpg');
 }
 
-#pg_bkgrnd-resp_y .bg_3 {
+div.resp_y .bg_3 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-3.jpg');
 }
 
-#pg_bkgrnd-resp_y .bg_4 {
+div.resp_y .bg_4 {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-4.jpg');
 }
 
-#pg_bkgrnd-resp_n .bg_1 {
+div.resp_n .bg_1 {
 	width: 100%;
 	height: 235px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-1.jpg');
 }
 
-#pg_bkgrnd-resp_n .bg_2 {
+div.resp_n .bg_2 {
 	width: 100%;
 	height: 235px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-2.jpg');
 }
 
-#pg_bkgrnd-resp_n .bg_3 {
+div.resp_n .bg_3 {
 	width: 100%;
 	height: 235px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-3.jpg');
 }
 
-#pg_bkgrnd-resp_n .bg_4 {
+div.resp_n .bg_4 {
 	width: 100%;
 	height: 235px;
 	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-4.jpg');
