@@ -133,5 +133,38 @@ $(document).ready(
 				location.href = "http://localhost/test/amelia/sc/section_1-a.htm";
 			}
 		);
+		
+		$("div#section-nav > span").on("click",
+			function() {
+				if ($("div#specltes").css("visibility") == "hidden") {
+					$("div#specltes").css("visibility", "visible");
+					
+					var cssValues = {
+						backgroundPosition: "0 -105px"
+					}
+					
+					$("div#section-nav > span").css(cssValues);
+				} else {
+					$("div#specltes").css("visibility", "hidden");
+					
+					var cssValues = {
+						backgroundPosition: "0 0px"
+					}
+					
+					$("div#section-nav > span").css(cssValues);
+				}
+			}
+		);
+		
+		$("div#specltes > a").on("click",
+			function() {
+				var cssValues = {
+					backgroundPosition: "0 0"
+				}
+				
+				$("div#section-nav > span").css(cssValues);
+			}
+		);
+		
 	}
 );
