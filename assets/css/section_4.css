@@ -1,0 +1,263 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0 0 1em 0;
+	clear: both;
+	z-index: 1;
+}
+
+div#pg_bkgrnd {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 113px;
+	left: 0;
+	z-index: -1;
+}
+
+div#pg_bkgrnd > div.bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/4/bg-1.jpg');
+}
+
+div#pg_bkgrnd > div.bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/4/bg-2.jpg');
+}
+
+div#pg_bkgrnd > div.bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/4/bg-3.jpg');
+}
+
+div#pg_bkgrnd > div.bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/test/amelia/assets/img/sect/4/bg-4.jpg');
+}
+
+div#header span {
+	width: 1138px;
+	height: 65px;
+	display: block;
+	padding: 30px 0 0 125px;
+	background-color: #937da3;
+	font: 600 2em "Copperplate Gothic", "Cambria", serif;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+div#header div#brdr-1 {
+	width: 100%;
+	height: 3px;
+	background-color: #9ebdff;
+}
+
+div#header div#brdr-2 {
+	width: 100%;
+	height: 3px;
+	background-color: #2d4561;
+}
+
+div#header div#brdr-3 {
+	width: 100%;
+	height: 10px;
+	background-color: #c498a9;
+}
+
+div#header div#brdr-4 {
+	width: 100%;
+	height: 2px;
+	background-color: #cfcbae;
+}
+
+div#copy {
+	width: 100%;
+	height: auto;
+}
+
+div#tstmnal {
+	width: 30%;
+	position: absolute;
+	top: 150px;
+	left: 32%;
+	margin: 0 auto;
+	padding: 3em;
+	clear: both;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div.monifah {
+	background-color: #4d1e17;
+}
+
+div.monifah p {
+	color: #b4ae9f;
+}
+
+div.monifah > div {
+	display: block;
+	position: absolute;
+	top: -56px;
+	left: 10px;
+	font-size: 12em;
+	color: #daa508;
+}
+
+div.monifah > span {
+	width: 100%;
+	display: block;
+	position: initial;
+	padding-top: 0.3em;
+	float: right;
+	border-top: 3px solid;
+	color: #f2e631;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: right;
+}
+
+div#main-splties {
+	left: 750px;
+	background-color: #253449;
+	border: 5px solid #b7c6c1;
+}
+
+div.block-desc p {
+	font-size: 0.95em;
+	text-indent: 1.3em;
+	line-height: 1.5em;
+}
+
+div#main-splties p {
+	color: #d9e1ee;
+}
+
+div#main-splties > p:first-line {
+	font-weight: 600;
+}
+
+div#main-splties > p + p:first-line {
+	font-weight: 400;
+}
+
+div#grief {
+	left: 125px;
+	background-color: #3d3230;
+	border: 5px solid #bd9e8c;
+}
+
+div#trauma {
+	left: 750px;
+	background-color: #42424c;
+	border: 5px solid #898f85;
+}
+
+div#deprsn {
+	left: 125px;
+	background-color: #37403b;
+	border: 5px solid #f7f7f7;
+}
+
+div.block-desc > span {
+	width: 100%;
+	display: block;
+	margin: 7px 0;
+	padding-bottom: 9px;
+	border-bottom: 2px solid;
+	font-size: 2.5em;
+	font-weight: 600;	
+}
+
+div#grief > span {
+	color: #ebebe9;
+}
+
+div#grief p {
+	color: #ebebe9;
+}
+
+div#trauma > span {
+	color: #ececec;
+}
+
+div#trauma p {
+	color: #ececec;
+}
+
+div#deprsn > span {
+	color: #f0eceb;
+}
+
+div#deprsn p {
+	color: #f0eceb;
+}
+
+div#tstmnal-nav {
+	width: 555px;
+	height: 135px;
+	position: relative;
+	top: 630px;
+	margin: 0 auto;
+}
+
+div#tstmnal-nav span {
+	width: 150px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	left: 33.5%;
+	margin: 15px;
+	background: url('/test/amelia/assets/img/menu/tstmnal.png') 0 0 no-repeat;
+	background-color: #000;
+	color: #fff;
+	cursor: auto;	
+} 
+
+div#tstmnal-nav span:hover {
+	background-position: 0 -35px;
+	cursor: pointer;
+} 
+
+div#tstmnal-nav span:active {
+	background-position: 0 -70px;
+	cursor: pointer;
+} 
+
+div#tstmnals {
+	width: 555px;
+	height: 80px;
+	position: absolute;
+	top: 55px;
+	visibility: hidden;
+}
+
+div#tstmnals a {
+	width: 150px;
+	height: 22px;
+	display: block;
+	float: left;
+	margin: 15px;
+	padding: 3px 0 6px 0;
+	background-color: #000;
+	border: 2px solid #222;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 1px;
+	cursor: pointer; 
+}
+
+div#tstmnals a:hover {
+	background-color: #333;
+}

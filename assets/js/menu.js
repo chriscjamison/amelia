@@ -5,32 +5,79 @@
 
 $(document).ready(
 	function()	{
+		var containerValues = {
+					"position": "absolute",
+					"left": "260px"
+				};
 		
-		var containerValues = new Object;
+		var baseCSSvalue = {
+					backgroundPosition: "0 0"
+				};
+				
+		var hoverCSSvalue = {
+					backgroundPosition: "0 -50px"
+				};
+				
+		var clickCSSvalue = {
+					backgroundPosition: "0 -100px"
+				};
+				
+		var afterClickCSSvalue = {
+					backgroundPosition: "0 -150px"
+				};
 		
+		var optionBaseCSSvalues = {
+					backgroundColor: "#000",
+					color: "#fff",
+					cursor: "pointer"
+				};
+				
+		var optionHoverCSSvalues = {
+					backgroundColor: "#808080",
+					color: "#fff",
+					cursor: "pointer"
+				};
+		
+		var optionClickCSSvalues = {
+					backgroundColor: "#A6A6A6",
+					color: "#000"
+				};
+						
+		var specltesBaseCSSvalues = {
+				backgroundPosition: "0 0"
+			};
+			
+		var specltesActiveCSSvalues = {
+				backgroundPosition: "0 -105px"
+			};
+				
 		$("#menu > a").on("mouseleave", 
 			function ()	{
-				$("#menu > a").removeClass();
-				
-				if ($("#options").css("visibility") == "visible")	{
-					$("#menu > a").addClass("menu-hover");
+				if ($("#options").css("visibility") == "hidden")	{
+					$("#menu > a").css(baseCSSvalue);
 				} else {
-					$("#menu > a").addClass("menu-base");
+					$(this).css(afterClickCSSvalue);
 				}
 			}
 		);
 		
 		$("#menu > a").on("mouseenter", 
 			function ()	{
-				$("#menu > a").removeClass();
-				$("#menu > a").addClass("menu-hover");
+				if ($(this).css("backgroundPosition") !== "0px -150px") {
+					$("#menu > a").css(hoverCSSvalue);	
+				}
 			}
 		);
 
 		$("#menu > a").on("click", 
 			function ()	{
-				$("#menu > a").removeClass();
-				$("#menu > a").addClass("menu-click");
+				if ($("#options").css("visibility") === "hidden") {
+					$(this).css(clickCSSvalue);					
+				}	else {
+					$(this).css(baseCSSvalue).delay(250);
+				} 
+				//window.alert("backgroundPosition = " + $(this).css("backgroundPosition"));
+				//$("#menu > a").css(clickCSSvalue);
 				//window.alert("1");
 				
 				
@@ -38,12 +85,7 @@ $(document).ready(
 					$("#menu-bkgrnd").css("visibility", "visible");
 					
 					$("#menu").css("position", "fixed");
-						
-					containerValues = {
-						"position": "absolute",
-						"left": "260px"
-					}
-					
+											
 					$("#container").css(containerValues);
 					
 					$("#options").css("visibility",  "visible");
@@ -51,12 +93,7 @@ $(document).ready(
 					$("#menu-bkgrnd").css("visibility", "hidden");
 					
 					$("#menu").css("position", "absolute");
-						
-					containerValues = {
-						"position": "relative",
-						"left": "0"
-					}
-					
+											
 					$("#container").css(containerValues);
 					$("#options").css("visibility",  "hidden");
 				}	
@@ -65,27 +102,22 @@ $(document).ready(
 		
 		$("#options > span").on("mouseenter", 
 			function () {
-				$(this).removeClass();
-				$(this).addClass("option-hover");
+				$(this).css(optionHoverCSSvalues);
 			}
 		);
 		
 		$("#options > span").on("mouseleave", 
 			function ()	{
-				$(this).removeClass();
-				$(this).addClass("option-base");
+				$(this).css(optionBaseCSSvalues);
 			}
 		);
 		
 		$("#options > span").on("click", 
 			function ()	{
-				$(this).removeClass();
-				$(this).addClass("option-click");
-				
+				$(this).css(optionClickCSSvalues);
 				
 				$("#options").css("visibility", "hidden");
-				$("#menu > a").removeClass();
-				$("#menu > a").addClass("menu-base");
+				$("#menu > a").css(baseCSSvalue);
 				
 				switch (this.id)	{
 					case "home":
@@ -103,6 +135,10 @@ $(document).ready(
 					case "section-3":
 						location.href = "http://localhost/test/amelia/sc/section_3.htm";
 						break;
+						
+					case "section-4":
+						location.href = "http://localhost/test/amelia/sc/section_4.htm";
+						break;
 				}
 			}
 		);
@@ -111,20 +147,18 @@ $(document).ready(
 			function ()	{
 				$("#options").css("visibility", "hidden");
 				
-				$("#menu > a").removeClass();
-				$("#menu > a").addClass("menu-base");
+				$("#menu > a").css(baseCSSvalue);
 				
-				$("#menu-bkgrnd").css("visibility", "hidden");
-				//$("#menu-bkgrnd").css("opacity", 0);	
+				$("#menu-bkgrnd").css("visibility", "hidden");	
 				
 				$("#menu").css("position", "absolute");
 						
-					containerValues = {
-						"position": "relative",
-						"left": "0"
-					}
+				containerValues = {
+					position: "relative",
+					left: "0px"
+				};
 					
-					$("#container").css(containerValues);
+				$("#container").css(containerValues);
 			}
 		);
 		
@@ -139,30 +173,18 @@ $(document).ready(
 				if ($("div#specltes").css("visibility") == "hidden") {
 					$("div#specltes").css("visibility", "visible");
 					
-					var cssValues = {
-						backgroundPosition: "0 -105px"
-					}
-					
-					$("div#section-nav > span").css(cssValues);
+					$("div#section-nav > span").css(specltesActiveCSSvalues);
 				} else {
 					$("div#specltes").css("visibility", "hidden");
 					
-					var cssValues = {
-						backgroundPosition: "0 0px"
-					}
-					
-					$("div#section-nav > span").css(cssValues);
+					$("div#section-nav > span").css(specltesBaseCSSvalues);
 				}
 			}
 		);
 		
 		$("div#specltes > a").on("click",
 			function() {
-				var cssValues = {
-					backgroundPosition: "0 0"
-				}
-				
-				$("div#section-nav > span").css(cssValues);
+				$("div#section-nav > span").css(specltesBaseCSSvalues);
 			}
 		);
 		
