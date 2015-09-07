@@ -50,7 +50,7 @@ div#header span {
 	height: 65px;
 	display: block;
 	padding: 30px 0 0 125px;
-	background-color: #937da3;
+	background-color: #ece511;
 	font: 600 2em "Copperplate Gothic", "Cambria", serif;
 	letter-spacing: 2px;
 	color: #fff;
@@ -59,25 +59,25 @@ div#header span {
 div#header div#brdr-1 {
 	width: 100%;
 	height: 3px;
-	background-color: #9ebdff;
+	background-color: #bd0908;
 }
 
 div#header div#brdr-2 {
 	width: 100%;
 	height: 3px;
-	background-color: #2d4561;
+	background-color: #85bb0d;
 }
 
 div#header div#brdr-3 {
 	width: 100%;
 	height: 10px;
-	background-color: #c498a9;
+	background-color: #a2ced7;
 }
 
 div#header div#brdr-4 {
 	width: 100%;
 	height: 2px;
-	background-color: #cfcbae;
+	background-color: #0894a3;
 }
 
 div#copy {
@@ -88,7 +88,7 @@ div#copy {
 div#tstmnal {
 	width: 30%;
 	position: absolute;
-	top: 150px;
+	top: 201px;
 	left: 32%;
 	margin: 0 auto;
 	padding: 3em;
@@ -97,11 +97,20 @@ div#tstmnal {
 }
 
 div.monifah {
-	background-color: #4d1e17;
+	background-color: #6b3825;
 }
 
 div.monifah p {
-	color: #b4ae9f;
+	color: #e9e1de;
+	text-indent: 1em;
+}
+
+div.monifah > p:first-line {
+	font-weight: 600;
+}
+
+div.monifah > p + p:first-line {
+	font-weight: 400;
 }
 
 div.monifah > div {
@@ -110,7 +119,7 @@ div.monifah > div {
 	top: -56px;
 	left: 10px;
 	font-size: 12em;
-	color: #daa508;
+	color: #c6926a;
 }
 
 div.monifah > span {
@@ -120,7 +129,7 @@ div.monifah > span {
 	padding-top: 0.3em;
 	float: right;
 	border-top: 3px solid;
-	color: #f2e631;
+	color: #e3c766;
 	font-size: 1em;
 	font-weight: 600;
 	text-align: right;
