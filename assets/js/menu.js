@@ -46,8 +46,32 @@ $(document).ready(
 		var specltesBaseCSSvalues = {
 				backgroundPosition: "0 0"
 			};
+		
+		var specltesHoverCSSvalues = {
+				backgroundPosition: "0 -35px"
+			};
+			
+		var specltesClickCSSvalues = {
+				backgroundPosition: "0 -70px"
+			};
 			
 		var specltesActiveCSSvalues = {
+				backgroundPosition: "0 -105px"
+			};
+		
+		var tstmnalsBaseCSSvalues = {
+				backgroundPosition: "0 0"
+			};
+			
+		var tstmnalsHoverCSSvalues = {
+				backgroundPosition: "0 -35px"
+			};
+			
+		var tstmnalsClickCSSvalues = {
+				backgroundPosition: "0 -70px"
+			};
+		
+		var tstmnalsActiveCSSvalues = {
 				backgroundPosition: "0 -105px"
 			};
 				
@@ -168,25 +192,63 @@ $(document).ready(
 			}
 		);
 		
-		$("div#section-nav > span").on("click",
+		$("div.nav-section span").on("mouseover",
 			function() {
-				if ($("div#specltes").css("visibility") == "hidden") {
-					$("div#specltes").css("visibility", "visible");
-					
-					$("div#section-nav > span").css(specltesActiveCSSvalues);
-				} else {
-					$("div#specltes").css("visibility", "hidden");
-					
-					$("div#section-nav > span").css(specltesBaseCSSvalues);
+				if ($("div.nav-section div").css("visibility") == "hidden") {
+					$("div.nav-section span").css(specltesHoverCSSvalues);
+				} 
+			}
+		);
+		
+		$("div.nav-section span").on("mouseleave",
+			function() {
+				if ($("div.nav-section div").css("visibility") == "hidden") {
+					$("div.nav-section span").css(specltesBaseCSSvalues);
 				}
 			}
 		);
 		
-		$("div#specltes > a").on("click",
+		
+		$("div.nav-section span").on("click",
 			function() {
-				$("div#section-nav > span").css(specltesBaseCSSvalues);
+				if ($("div.nav-section div").css("visibility") == "hidden") {
+					$("div.nav-section div").css("visibility", "visible");
+					
+					$("div.nav-section span").css(specltesClickCSSvalues);
+					
+					$("div.nav-section span").css(specltesActiveCSSvalues).delay(500);
+				} else {
+					$("div.nav-section div").css("visibility", "hidden");
+					
+					$("div.nav-section span").css(specltesBaseCSSvalues);
+				}
 			}
 		);
 		
+		$("div.nav-section div a").on("click",
+			function() {
+				$("div.nav-section span").css(specltesBaseCSSvalues);
+			}
+		);
+		
+		$("div#tstmnals-nav > span").on("click",
+			function() {
+				if ($("div#tstmnals").css("visibility") == "hidden") {
+					$("div#tstmnals").css("visibility", "visible");
+					
+					$("div#tstmnals-nav > span").css(tstmnalsActiveCSSvalues);
+				} else {
+					$("div#tstmnals").css("visibility", "hidden");
+					
+					$("div#tstmnals-nav > span").css(tstmnalsBaseCSSvalues);
+				}
+			}
+		);
+		
+		$("div#tstmnals > a").on("click",
+			function() {
+				$("div#tstmnals-nav > span").css(tstmnalsBaseCSSvalues);
+			}
+		);
 	}
 );

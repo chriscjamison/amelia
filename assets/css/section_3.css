@@ -242,46 +242,54 @@ div#deprsn p {
 	color: #f0eceb;
 }
 
-div#section-nav {
-	width: 555px;
+div.nav-section {
+	width: 735px;
 	height: 135px;
 	position: relative;
 	top: 630px;
 	margin: 0 auto;
 }
 
-div#section-nav span {
+div.nav-section span {
 	width: 150px;
 	height: 35px;
 	display: block;
 	position: absolute;
-	left: 33.5%;
+	left: 38%;
 	margin: 15px;
-	background: url('/test/amelia/assets/img/menu/section-nav/menu.png') 0 0 no-repeat;
+	background: url('/test/amelia/assets/img/menu/nav-section/sect_3.png') 0 0 no-repeat;
 	background-color: #000;
 	color: #fff;
 	cursor: auto;	
 } 
 
-div#section-nav span:hover {
+div.nav-section span:hover {
 	background-position: 0 -35px;
 	cursor: pointer;
 } 
 
-div#section-nav span:active {
+div.nav-section span:active {
 	background-position: 0 -70px;
 	cursor: pointer;
 } 
 
-div#specltes {
-	width: 555px;
+div.nav-section div {
 	height: 80px;
 	position: absolute;
 	top: 55px;
 	visibility: hidden;
 }
 
-div#specltes a {
+.main-sect_3 div {
+	width: 555px;
+	left: 12.5%;
+}
+
+.sub-sect_3 div {
+	width: 740px;
+}
+
+div.nav-section div a {
 	width: 150px;
 	height: 22px;
 	display: block;
@@ -298,6 +306,6 @@ div#specltes a {
 	cursor: pointer; 
 }
 
-div#specltes a:hover {
+div.nav-section div a:hover {
 	background-color: #333;
 }

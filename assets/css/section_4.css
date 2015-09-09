@@ -21,25 +21,25 @@ div#pg_bkgrnd {
 	z-index: -1;
 }
 
-div#pg_bkgrnd > div.bg_1 {
+div.main-sect_4 + div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/4/bg-1.jpg');
 }
 
-div#pg_bkgrnd > div.bg_2 {
+divmain-sect_4 + div + div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/4/bg-2.jpg');
 }
 
-div#pg_bkgrnd > div.bg_3 {
+divmain-sect_4 + div + div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/4/bg-3.jpg');
 }
 
-div#pg_bkgrnd > div.bg_4 {
+divmain-sect_4 + div + div + div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/test/amelia/assets/img/sect/4/bg-4.jpg');
@@ -86,16 +86,31 @@ div#copy {
 }
 
 div#tstmnal {
-	width: 30%;
+	width: 20%;
 	position: absolute;
-	top: 201px;
-	left: 32%;
+	top: 200px;
+	left: 40%;
 	margin: 0 auto;
 	padding: 3em;
 	clear: both;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
+	background-color: #fcd36a;
+	border: 5px solid #bc615c;
 }
 
+div#tstmnal p {
+	color: #3b1d13;
+	text-indent: 1em;
+	font-weight: 400;
+}
+
+div#tstmnal > p:first-line {
+	font-weight: 600;
+}
+
+div#tstmnal > p + p:first-line {
+	font-weight: 400;
+}
 div.monifah {
 	background-color: #6b3825;
 }
@@ -135,109 +150,39 @@ div.monifah > span {
 	text-align: right;
 }
 
-div#main-splties {
-	left: 750px;
-	background-color: #253449;
-	border: 5px solid #b7c6c1;
-}
-
 div.block-desc p {
 	font-size: 0.95em;
 	text-indent: 1.3em;
 	line-height: 1.5em;
 }
 
-div#main-splties p {
-	color: #d9e1ee;
-}
-
-div#main-splties > p:first-line {
-	font-weight: 600;
-}
-
-div#main-splties > p + p:first-line {
-	font-weight: 400;
-}
-
-div#grief {
-	left: 125px;
-	background-color: #3d3230;
-	border: 5px solid #bd9e8c;
-}
-
-div#trauma {
-	left: 750px;
-	background-color: #42424c;
-	border: 5px solid #898f85;
-}
-
-div#deprsn {
-	left: 125px;
-	background-color: #37403b;
-	border: 5px solid #f7f7f7;
-}
-
-div.block-desc > span {
-	width: 100%;
-	display: block;
-	margin: 7px 0;
-	padding-bottom: 9px;
-	border-bottom: 2px solid;
-	font-size: 2.5em;
-	font-weight: 600;	
-}
-
-div#grief > span {
-	color: #ebebe9;
-}
-
-div#grief p {
-	color: #ebebe9;
-}
-
-div#trauma > span {
-	color: #ececec;
-}
-
-div#trauma p {
-	color: #ececec;
-}
-
-div#deprsn > span {
-	color: #f0eceb;
-}
-
-div#deprsn p {
-	color: #f0eceb;
-}
-
-div#tstmnal-nav {
+div#tstmnals-nav {
 	width: 555px;
 	height: 135px;
 	position: relative;
-	top: 630px;
+	top: 530px;
 	margin: 0 auto;
 }
 
-div#tstmnal-nav span {
+div#tstmnals-nav span {
 	width: 150px;
 	height: 35px;
 	display: block;
 	position: absolute;
 	left: 33.5%;
 	margin: 15px;
-	background: url('/test/amelia/assets/img/menu/tstmnal.png') 0 0 no-repeat;
+	background: url('/test/amelia/assets/img/menu/nav-section/sect_4.png') 0 0 no-repeat;
 	background-color: #000;
 	color: #fff;
 	cursor: auto;	
 } 
 
-div#tstmnal-nav span:hover {
+div#tstmnals-nav span:hover {
 	background-position: 0 -35px;
 	cursor: pointer;
 } 
 
-div#tstmnal-nav span:active {
+div#tstmnals-nav span:active {
 	background-position: 0 -70px;
 	cursor: pointer;
 } 
