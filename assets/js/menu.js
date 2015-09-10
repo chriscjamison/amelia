@@ -5,7 +5,12 @@
 
 $(document).ready(
 	function()	{
-		var containerValues = {
+		var baseContainerValues = {
+					"position": "absolute",
+					"left": "0px"
+				};
+				
+		var clickContainerValues = {
 					"position": "absolute",
 					"left": "260px"
 				};
@@ -110,7 +115,7 @@ $(document).ready(
 					
 					$("#menu").css("position", "fixed");
 											
-					$("#container").css(containerValues);
+					$("#container").css(clickContainerValues);
 					
 					$("#options").css("visibility",  "visible");
 				} else {
@@ -118,7 +123,8 @@ $(document).ready(
 					
 					$("#menu").css("position", "absolute");
 											
-					$("#container").css(containerValues);
+					$("#container").css(baseContainerValues);
+					
 					$("#options").css("visibility",  "hidden");
 				}	
 			}
