@@ -157,31 +157,104 @@ div#copy {
 	height: auto;
 }
 
-div.tstmnal {
+div.block-desc {
 	width: 25%;
 	position: absolute;
-	top: 200px;
-	left: 35%;
-	margin: 0 auto;
-	padding: 2em;
-	clear: both;
+	top: 150px;
+	margin: 25px;
+	padding: 1em 2em;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div#main-tstmnal {
+	left: 35%;
 	background-color: #fcd36a;
 	border: 5px solid #bc615c;
 }
 
-div.tstmnal p {
+div#main-tstmnal p {
 	color: #3b1d13;
 	text-indent: 1em;
 	font-weight: 400;
 }
 
-div.tstmnal > p:first-line {
+div#main-tstmnal > p:first-line {
 	font-weight: 600;
 }
 
-div.tstmnal > p + p:first-line {
+div#main-tstmnal > p + p:first-line {
 	font-weight: 400;
+}
+
+div.tstmnals p {
+	text-indent: 1em;
+}
+
+div.tstmnals > p:first-line {
+	font-weight: 600;
+}
+
+div.tstmnals > p + p:first-line {
+	font-weight: 400;
+}
+
+div.tstmnals > div {
+	display: block;
+	position: absolute;
+	top: -60px;
+	left: 10px;
+	font-size: 12em;
+	
+}
+
+div.tstmnals > span {
+	width: 100%;
+	display: block;
+	position: initial;
+	padding-top: 0.3em;
+	float: right;
+	border-top: 3px solid;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: right;
+}
+
+div.tstmnals {
+	left: 35%;
+	top: 25%;
+	
+}
+
+div.tstmnals p {
+	text-indent: 1em;
+}
+
+div.tstmnals > p:first-line {
+	font-weight: 600;
+}
+
+div.tstmnals > p + p:first-line {
+	font-weight: 400;
+}
+
+div.tstmnals > div {
+	display: block;
+	position: absolute;
+	top: -60px;
+	left: 10px;
+	font-size: 12em;
+}
+
+div.tstmnals > span {
+	width: 100%;
+	display: block;
+	position: initial;
+	padding-top: 0.3em;
+	float: right;
+	border-top: 3px solid;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: right;
 }
 
 div#monifah {
@@ -190,37 +263,46 @@ div#monifah {
 
 div#monifah p {
 	color: #e9e1de;
-	text-indent: 1em;
 }
 
-div#monifah > p:first-line {
-	font-weight: 600;
-}
-
-div#monifah > p + p:first-line {
-	font-weight: 400;
-}
-
-div#monifah > div {
-	display: block;
-	position: absolute;
-	top: -56px;
-	left: 10px;
-	font-size: 12em;
+div#monifah div {
 	color: #c6926a;
 }
 
-div#monifah > span {
-	width: 100%;
-	display: block;
-	position: initial;
-	padding-top: 0.3em;
-	float: right;
-	border-top: 3px solid;
+div#monifah span {
 	color: #e3c766;
-	font-size: 1em;
-	font-weight: 600;
-	text-align: right;
+}
+
+div#ramira {
+	background-color: #db9b75;
+}
+
+div#ramira div {
+	color: #f7e6ba;
+}
+
+div#ramira p {
+	color: #320f13;
+}
+
+div#ramira span {
+	color: #f2f1ec;
+}
+
+div#owen {
+	background-color: #6c708d;
+}
+
+div#owen div {
+	color: #c9babf;
+}
+
+div#owen p {
+	color: #271916;
+}
+
+div#owen span {
+	color: #def567;
 }
 
 div.nav-section {
