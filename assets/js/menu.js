@@ -208,6 +208,12 @@ $(document).ready(
 			}
 		);
 		
+		$("input#submit-rate").on("click",
+			function ()	{
+				location.href = "http://localhost/test/amelia/sc/section_5-b.htm";
+			}
+		);
+		
 		$("div.nav-section span").on("mouseover",
 			function() {
 				if ($("div.nav-section div").css("visibility") == "hidden") {

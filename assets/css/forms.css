@@ -1,8 +1,59 @@
-/* forms.css */
-/*
-input:hover + label, input:focus + label,
-input + label:hover, input:focus + label			{ text-shadow: 1px 1px 3px #000; color: #2C7AD0; }
-*/
+div#questionaire {
+	position: absolute;
+	top: 150px;
+	left: 150px;
+}
+
+div.column {
+	width: 50%;
+	height: auto;
+	float: left;
+	margin: 0 auto;	
+}
+
+div.question {
+	width: 70%;
+	height: auto;
+	padding: 1.5em;
+	margin: 2em 0;
+	background-color: #fff;
+	border: 4px solid #737367;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+div.question:hover {
+	border: 4px solid #9C9C8C;
+}
+
+div.question span {
+	display: inline-block;
+	margin-bottom: 0.5em;
+	font-size: 1.1em;
+}
+
+div.question fieldset div span {
+	font-family: "Franklin Gothic Medium", sans-serif;
+	font-size: 1.3em;	
+}
+
+div.question p {
+	display: block;
+	position: relative;
+	overflow: visible;
+	line-height: 1.5em;
+	text-indent: 2em;
+}
+
+div.question sup {
+	font-weight: 0.8em;
+}
+
+div.question p.footnote {
+	padding: 0.7em;
+	background-color: #cfd7a3;
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
 
 fieldset {
 	margin: 1em;
@@ -18,6 +69,18 @@ input[type=checkbox] {
 	border: 0;
 	width: 100%;
 	height: 1.6em;
+}
+
+input[type=range] {
+	margin: 0.9em auto 0.1em auto;
+	color: #221763;
+}
+
+select {
+	font: 400 1.3em "Franklin Gothic Medium";
+	width: 150px;
+	margin: 0.7em auto 0.5em auto;
+	display: block;
 }
 
 p > input {
@@ -39,68 +102,108 @@ p > label {
 p:not(#foo) > input + label {
 	background: url('/test/amelia/assets/img/form/form.png') 0 -1px no-repeat;
 	height: 25px;
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
 
 p:not(#foo) > input[type=radio] + label { 
 	display: block;
+	font-weight: normal;
+	color: #000;
 	background-position: 0 0;
 }
 
 p:not(#foo) > input[type=checkbox] + label {
 	display: block;
+	font-weight: normal;
+	color: #000;
 	background-position: 0 -103px;
 }
 
 /* Checked styles */
 p:not(#foo) > input[type=radio]:checked + label { 
-	background-position: 0 -54px; 
+	background-position: 0 -79px;
+	font-weight: bold;
+	color: #221763;
 }
 
 p:not(#foo) > input[type=checkbox]:checked + label { 
-	background-position: 0 -103px;
+	background-position: 0 -178px;
+	font-weight: bold;
+	color: #221763;
 }
 
 p:not(#foo) > input[type=checkbox]:hover:checked + label,
 p:not(#foo) > input[type=checkbox]:focus:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover,
 p:not(#foo) > input[type=checkbox]:focus:checked + label { 
-	background-position: 0 -103px;
+	background-position: 0 -178px;
+	font-weight: bold;
+	color: #221763;
 }
 
 p:not(#foo) > input[type=radio]:hover:checked + label,
 p:not(#foo) > input[type=radio]:focus:checked + label,
 p:not(#foo) > input[type=radio]:checked + label:hover,
 p:not(#foo) > input[type=radio]:focus:checked + label { 
-	background-position: 0 -54px;
+	background-position: 0 -79px;
+	font-weight: bold;
+	color: #221763;
 }
 
 /* Hover & Focus styles */
 p:not(#foo) > input[type=checkbox]:hover + label,
 p:not(#foo) > input[type=checkbox]:focus + label,
 p:not(#foo) > input[type=checkbox] + label:hover { 
-	background-position: 0 -27px; 
+	background-position: 0 -128px;
+	font-weight: bold;
+	color: #000;
 }
 
 p:not(#foo) > input[type=radio]:hover + label,
 p:not(#foo) > input[type=radio]:focus + label,
 p:not(#foo) > input[type=radio] + label:hover { 
-	background-position: 0 -27px;
+	background-position: 0 -26px;
+	font-weight: bold;
+	color: #000;
 }
 
 /* Active styles */
 p:not(#foo) > input[type=checkbox]:active + label,
 p:not(#foo) > input[type=checkbox] + label:hover:active { 
-	background-position: 0 -54px;
+	background-position: 0 -153px;
+	font-weight: normal;
+	
 }
 
 p:not(#foo) > input[type=radio]:active + label,
 p:not(#foo) > input[type=radio] + label:hover:active { 
-	background-position: 0 -54px;
+	background-position: 0 -53px;
 }
 
 p:not(#foo) > input[type=checkbox]:active:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
-	background-position: 0 -54px;
+	background-position: 0 -153px;
+	font-weight: normal;
 }
 
+fieldset > div {
+	margin: 0 auto;
+	width: 270px;
+}
 
+input[type=button],
+input[type=submit] {
+	width: auto;
+	height: 50px;
+	margin: 0.35em 0 0 1.4em;
+	background-color: #40BDE8;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #221763;
+	border: 2px solid #369DBF;
+	cursor: pointer;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover {
+	background-color: #33CCFF;
+}
