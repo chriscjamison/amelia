@@ -320,6 +320,7 @@ div#rates-button {
 	right: 7.1em;
 }
 
+div#main-insrance_rates > input,
 input#rquest-cnsltatn {
 	width: auto;
 	height: 50px;
@@ -332,6 +333,12 @@ input#rquest-cnsltatn {
 	cursor: pointer;
 }
 
+div#main-insrance_rates > input,
 input#rquest-cnsltatn:hover {
 	background-color: #33CCFF;
+}
+
+div#main-insrance_rates > input {
+	display: initial;
+	margin: 0.3em 0 0 1.4em;
 }
