@@ -26,13 +26,13 @@ div#menu-bkgrnd {
 div#menu-bar {
 	width: 100%;
 	height: 100px;
-	background: url('/test/amelia/assets/img/menu/sect-bkgrnd.jpg') 0 0 repeat-x;
+	background: url('/amelia/assets/img/menu/sect-bkgrnd.jpg') 0 0 repeat-x;
 }
 
 #menu > a {
 	width: 50px;
 	height: 50px;
-	background: url('/test/amelia/assets/img/menu/menu.png') 0 0 no-repeat;
+	background: url('/amelia/assets/img/menu/menu.png') 0 0 no-repeat;
 }
 
 div#options {

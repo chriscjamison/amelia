@@ -151,27 +151,31 @@ $(document).ready(
 				
 				switch (this.id)	{
 					case "home":
-						location.href = "http://localhost/test/amelia/sc/";
+						location.href = "http://chriscjamison.com/amelia/sc/";
 						break;
 						
 					case "section-1":
-						location.href = "http://localhost/test/amelia/sc/section_1.htm";
+						location.href = "http://chriscjamison.com/amelia/sc/section_1.htm";
 						break;
 						
 					case "section-2":
-						location.href = "http://localhost/test/amelia/sc/section_2.htm";
+						location.href = "http://chriscjamison.com/amelia/sc/section_2.htm";
 						break;
 						
 					case "section-3":
-						location.href = "http://localhost/test/amelia/sc/section_3.htm";
+						location.href = "http://chriscjamison.com/amelia/sc/section_3.htm";
 						break;
 						
 					case "section-4":
-						location.href = "http://localhost/test/amelia/sc/section_4.htm";
+						location.href = "http://chriscjamison.com/amelia/sc/section_4.htm";
 						break;
 					
 					case "section-5":
-						location.href = "http://localhost/test/amelia/sc/section_5.htm";
+						location.href = "http://chriscjamison.com/amelia/sc/section_5.htm";
+						break;
+						
+					case "section-6":
+						location.href = "http://chriscjamison.com/amelia/sc/section_6.htm";
 						break;
 				}
 			}
@@ -198,19 +202,19 @@ $(document).ready(
 		
 		$("input#start-quiz").on("click",
 			function ()	{
-				location.href = "http://localhost/test/amelia/sc/section_1-a.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/section_1-a.htm";
 			}
 		);
 		
 		$("input#calculate-rate").on("click",
 			function ()	{
-				location.href = "http://localhost/test/amelia/sc/section_5-a.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/section_5-a.htm";
 			}
 		);
 		
 		$("input#submit-rate").on("click",
 			function ()	{
-				location.href = "http://localhost/test/amelia/sc/section_5-b.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/section_5-b.htm";
 			}
 		);
 		

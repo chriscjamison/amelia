@@ -10,7 +10,7 @@ div#container {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	background: url("/test/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
+	background: url("/amelia/assets/img/land/1280x800.jpg") 0 0 no-repeat;
 	clear: both;
 }
 	
@@ -42,14 +42,14 @@ div#info img#spcr {
 }
 
 div#info ul {
-	font-family: 'Copperplate Gothic Light', 'Lucida Sans', sans-serif;
-	font-size: 0.9em;
+	font-family: 'Balthazar', serif;
+	font-size: 1.1em;
 	color: #fff;
 	margin: 20px 20px 0 0;
 }
 
 div#info li {
-	list-style-image: url('/test/amelia/assets/img/spcr/dot_10x10.png');
+	list-style-image: url('/amelia/assets/img/spcr/dot_10x10.png');
 }
 
 div#info span {

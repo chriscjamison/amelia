@@ -4,6 +4,13 @@ div#questionaire {
 	left: 150px;
 }
 
+#form-cntct_info {
+	width: 77%;
+	height: inherit;
+	position: relative;
+	margin: 0 auto;
+}
+
 div.column {
 	width: 50%;
 	height: auto;
@@ -11,7 +18,8 @@ div.column {
 	margin: 0 auto;	
 }
 
-div.question {
+div.question,
+div.cntct_info {
 	width: 70%;
 	height: auto;
 	padding: 1.5em;
@@ -21,22 +29,32 @@ div.question {
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
-div.question:hover {
-	border: 4px solid #9C9C8C;
+div.cntct_info {
+	border-color: #cae9fe;
 }
 
-div.question span {
+div.question:hover {
+	border-color: #9C9C8C;
+}
+
+div.cntct_info:hover {
+	border-color: #9ab5ce;
+}
+
+div.question span,
+div.cntct_info span{
 	display: inline-block;
 	margin-bottom: 0.5em;
 	font-size: 1.1em;
 }
 
-div.question fieldset div span {
-	font-family: "Franklin Gothic Medium", sans-serif;
-	font-size: 1.3em;	
+div.question fieldset div span,
+div.cntct_info fieldset div span{
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
 
-div.question p {
+div.question p,
+div.cntct_info p{
 	display: block;
 	position: relative;
 	overflow: visible;
@@ -45,7 +63,7 @@ div.question p {
 }
 
 div.question sup {
-	font-weight: 0.8em;
+	font-size: 0.8em;
 }
 
 div.question p.footnote {
@@ -55,6 +73,12 @@ div.question p.footnote {
 	line-height: 1.6em;
 }
 
+#submit-cntct {
+	margin: 0;
+	margin-right: 4.6em;
+	float: right;
+}
+
 fieldset {
 	margin: 1em;
 }
@@ -62,6 +86,16 @@ fieldset {
 label + p,
 input + p {
 	margin-top: 20px;
+}
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+	padding: 0.5em;
+	border: 2px solid #bbb;
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
+	letter-spacing: 1px;
 }
 
 input[type=radio],
@@ -100,7 +134,7 @@ p > label {
 }
 
 p:not(#foo) > input + label {
-	background: url('/test/amelia/assets/img/form/form.png') 0 -1px no-repeat;
+	background: url('/amelia/assets/img/form/form.png') 0 -1px no-repeat;
 	height: 25px;
 	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
@@ -146,7 +180,7 @@ p:not(#foo) > input[type=radio]:focus:checked + label,
 p:not(#foo) > input[type=radio]:checked + label:hover,
 p:not(#foo) > input[type=radio]:focus:checked + label { 
 	background-position: 0 -79px;
-	font-weight: bold;
+	font-weight: 500;
 	color: #221763;
 }
 

@@ -32,97 +32,97 @@ div#pg_bkgrnd {
 div.sect_1 .bg_1 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/bg-b-1.jpg');
+	background-image: url('/amelia/assets/img/sect/1/bg-b-1.jpg');
 }
 
 div.sect_1 .bg_2 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/bg-b-2.jpg');
+	background-image: url('/amelia/assets/img/sect/1/bg-b-2.jpg');
 }
 
 div.sect_1 .bg_3 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/bg-b-3.jpg');
+	background-image: url('/amelia/assets/img/sect/1/bg-b-3.jpg');
 }
 
 div.sect_1 .bg_4 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/bg-b-4.jpg');
+	background-image: url('/amelia/assets/img/sect/1/bg-b-4.jpg');
 }
 
 div.qstn .bg_1 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/qstn/bg-1.jpg');
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-1.jpg');
 }
 
 div.qstn .bg_2 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/qstn/bg-2.jpg');
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-2.jpg');
 }
 
 div.qstn .bg_3 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/qstn/bg-3.jpg');
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-3.jpg');
 }
 
 div.qstn .bg_4 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/qstn/bg-4.jpg');
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-4.jpg');
 }
 
 div.resp_y .bg_1 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-1.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-1.jpg');
 }
 
 div.resp_y .bg_2 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-2.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-2.jpg');
 }
 
 div.resp_y .bg_3 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-3.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-3.jpg');
 }
 
 div.resp_y .bg_4 {
 	width: 100%;
 	height: 200px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_y/bg-4.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-4.jpg');
 }
 
 div.resp_n .bg_1 {
 	width: 100%;
 	height: 235px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-1.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-1.jpg');
 }
 
 div.resp_n .bg_2 {
 	width: 100%;
 	height: 235px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-2.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-2.jpg');
 }
 
 div.resp_n .bg_3 {
 	width: 100%;
 	height: 235px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-3.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-3.jpg');
 }
 
 div.resp_n .bg_4 {
 	width: 100%;
 	height: 235px;
-	background-image: url('/test/amelia/assets/img/sect/1/resp_n/bg-4.jpg');
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-4.jpg');
 }
 
 div#header span {
@@ -131,7 +131,7 @@ div#header span {
 	display: block;
 	padding: 30px 0 0 125px;
 	background-color: #476b3f;
-	font: 600 2em "Copperplate Gothic", "Cambria", serif;
+	font: 600 2em "Balthazar", "Cambria", serif;
 	letter-spacing: 2px;
 	color: #fff;
 }
