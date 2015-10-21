@@ -160,13 +160,12 @@ div#copy {
 div.block-desc {
 	width: 25%;
 	position: relative;
-	margin: 25px;
+	margin: 25px auto;
 	padding: 1em 2em;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
 div#main-tstmnal {
-	left: 35%;
 	background-color: #fcd36a;
 	border: 5px solid #bc615c;
 }
@@ -284,6 +283,7 @@ div.nav-section {
 	height: 135px;
 	position: relative;
 	margin: 0 auto;
+	clear: both;
 }
 
 div.sub-sect_4 {
@@ -294,9 +294,9 @@ div.nav-section > span {
 	width: 150px;
 	height: 35px;
 	display: block;
-	position: absolute;
+	position: relative;
 	left: 33.5%;
-	/*margin: 15px;*/
+	margin: 15px;
 	background: url('/amelia/assets/img/menu/nav-section/sect_4.png') 0 0 no-repeat;
 	background-color: #000;
 	color: #fff;
