@@ -66,16 +66,15 @@ $(document).ready(
 					display: "none"
 				};
 		
-		var baseContainerValues = {
+		var containerBaseCSS = {
 					position: "absolute",
-					left: "0"
+					left: "0px"
 				};
 				
-		var clickContainerValues = {
+		var containerClickCSS = {
 					position: "absolute",
 					left: "260px"
 				};
-		
 		
 		
 		var baseCSSvalue = {
@@ -146,27 +145,24 @@ $(document).ready(
 					backgroundPosition: "0 -105px"
 				};
 				
-		$("#links > a").on("mouseleave", 
+		$("#menu-link").on("mouseleave", 
 			function () {
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
-					$("#menu-link").removeClass("menu_hover menu-click_1").addClass("menu-click_2");
+					$("#menu-link").attr( "class", "menu-click_2" );
+					//$("#menu-link").removeClass("menu_hover menu-click_1").addClass("menu-click_2");
 				} else {
-					if ($("#options").css("display") === "block") {
-						$("#menu-link").removeClass("menu-click_1 menu-hover");
-					} else {
-						$("#menu-link").removeClass("menu-click_1 menu-hover").addClass("menu-base");
-					}
+					$("#menu-link").attr( "class", "menu-base" );
 				}
 			}
 		);
 			
-		$("#links > a").on("mouseenter",
+		$("#menu-link").on("mouseenter",
 			function () {
-				if (!$("#menu-link").hasClass("menu-base")) {
-					$("#menu-link").removeClass("menu-hover");
-				} else {
-					$("#menu-link").removeClass("menu-base").addClass("menu-hover");	
-				}
+				if (!$("#menu-link").hasClass("menu-click_2")) {
+					if ($("#menu-link").hasClass("menu-base")) {
+						$("#menu-link").attr( "class", "menu-hover");
+					}
+				}	
 			}
 		);		
 		
@@ -193,45 +189,18 @@ $(document).ready(
 			}
 		);
 		
-		$("#menu-click").on("click",
+		$("#options").on("mouseleave", 
 			function () {
-				$("#menu-click").css(menuClickOffCSS);
-				$("#menu-base").css(menuBaseOutCSS);
+				$("#options").css(optionsClickOffCSS);
+				
+				//$("#menu-link").attr( "class", "menu-base" );
+				
+				$("#menu-bkgrnd").css(bkgrndClickOffCSS);	
+					
+				$("#container").css(containerBaseCSS);
 			}
 		);
-
-		$("#menu > a").on("click", 
-			function ()	{
-				if ($("#options").css("display") === "none") {
-					$(this).css(clickCSSvalue);					
-				}	else {
-					$(this).css(baseCSSvalue).delay(250);
-				} 
-				//window.alert("backgroundPosition = " + $(this).css("backgroundPosition"));
-				//$("#menu > a").css(clickCSSvalue);
-				//window.alert("1");
-				
-				
-				if ($("#options").css("display") === "none")	{
-					$("#menu-bkgrnd").css("display", "block");
-					
-					$("#menu").css("position", "fixed");
-											
-					$("#container").css(clickContainerValues);
-					
-					$("#options").css("display",  "block");
-				} else {
-					$("#menu-bkgrnd").css("display", "none");
-					
-					$("#menu").css("position", "absolute");
-											
-					$("#container").css(baseContainerValues);
-					
-					$("#options").css("display",  "none");
-				}	
-			}
-		);
-		
+	
 		$("#options > span").on("mouseenter", 
 			function () {
 				$(this).css(optionHoverCSSvalues);
@@ -248,8 +217,8 @@ $(document).ready(
 			function ()	{
 				$(this).css(optionClickCSSvalues);
 				
-				$("#options").css("display", "none");
-				$("#menu > a").css(baseCSSvalue);
+				$("#options").css(bkgrndClickOffCSS);
+				$("#menu > a").removeClass().addClass("menu-base");
 				
 				switch (this.id)	{
 					case "home":
@@ -283,24 +252,7 @@ $(document).ready(
 			}
 		);
 		
-		$("#menu").on("mouseleave",  
-			function ()	{
-				$("#options").css("display", "none");
-				
-				$("#menu > a").css(baseCSSvalue);
-				
-				$("#menu-bkgrnd").css("display", "none");	
-				
-				$("#menu").css("position", "absolute");
-						
-				containerValues = {
-					position: "relative",
-					left: "0px"
-				};
-					
-				$("#container").css(containerValues);
-			}
-		);
+		
 		
 		$("input#start-quiz").on("click",
 			function ()	{
