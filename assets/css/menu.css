@@ -3,45 +3,50 @@ div#menu {
 	width: 260px;
 	height: 100%;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 0;
+	left: 0;
 }
 
-div#menu a {
+#links > a {
 	width: 50px;
 	height: 50px;
 	position: absolute;
 	top: 25px;
 	left: 25px;
+	background-image: url('/amelia/assets/img/menu/menu.png');
+	background-repeat: no-repeat;
 }
 
-div#menu-bkgrnd {
+.menu-base {
+	 background-position: 0 0;
+}
+
+.menu-hover {
+	background-position: 0 -50px;
+}
+
+.menu-click_1 {
+	background-position: 0 -100px;
+}
+
+.menu-click_2 {
+	background-position: 0 -150px;
+}
+
+#menu-bkgrnd {
 	width: 100%;
 	height: 100%;
 	background-color: #666;
-	visibility: hidden;
-	
+	display: none;
 }
 
-div#menu-bar {
-	width: 100%;
-	height: 100px;
-	background: url('/amelia/assets/img/menu/sect-bkgrnd.jpg') 0 0 repeat-x;
-}
-
-#menu > a {
-	width: 50px;
-	height: 50px;
-	background: url('/amelia/assets/img/menu/menu.png') 0 0 no-repeat;
-}
-
-div#options {
+#options {
 	width: 210px;
 	height: 550px;
 	position: absolute;
 	top: 75px;
 	left: 25px;
-	visibility: hidden;
+	display: none;
 }
 
 div#options > span {
