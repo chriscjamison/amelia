@@ -66,82 +66,68 @@ $(document).ready(
 					display: "none"
 				};
 		
-		var containerBaseCSS = {
-					position: "absolute",
-					left: "0px"
-				};
-				
-		var containerClickCSS = {
+		var containerClickOnCSS = {
 					position: "absolute",
 					left: "260px"
 				};
 		
-		
-		var baseCSSvalue = {
-					backgroundPosition: "0 0"
-				};
-				
-		var hoverCSSvalue = {
-					backgroundPositionX: "0px",
-					backgroundPositionY: "-50px"
-				};
-				
-		var clickCSSvalue = {
-					backgroundPositionX: "0",
-					backgroundPositionY: "-100px"
-				};
-				
-		var afterClickCSSvalue = {
-					backgroundPosition: "0 -150px"
+		var containerClickOffCSS = {
+					position: "absolute",
+					left: "0px"
 				};
 		
-		var optionBaseCSSvalues = {
+		var menuPositionClickCSS = {
+					position: "absolute",
+					top: "0px",
+					left: "0px"
+				};
+		
+		var optionBaseCSS = {
 					backgroundColor: "#000",
 					color: "#fff",
 					cursor: "pointer"
 				};
 				
-		var optionHoverCSSvalues = {
+		var optionHoverCSS = {
 					backgroundColor: "#808080",
 					color: "#fff",
 					cursor: "pointer"
 				};
 		
-		var optionClickCSSvalues = {
+		var optionClickCSS = {
 					backgroundColor: "#A6A6A6",
 					color: "#000"
 				};
-	
 						
-		var specltesBaseCSSvalues = {
+		var specltesBaseCSS = {
 					backgroundPosition: "0 0"
 				};
 		
-		var specltesHoverCSSvalues = {
+		var specltesHoverCSS = {
 					backgroundPosition: "0 -35px"
 				};
 			
-		var specltesClickCSSvalues = {
+		var specltesClickCSS = {
 					backgroundPosition: "0 -70px"
 				};
 			
-		var specltesActiveCSSvalues = {
+		var specltesActiveCSS = {
 					backgroundPosition: "0 -105px"
 				};
 		
-		var tstmnalsBaseCSSvalues = {
+		var tstmnalsBaseCSS = {
 					backgroundPosition: "0 0"
 				};
 			
-		var tstmnalsHoverCSSvalues = {
+		var tstmnalsHoverCSS = {
 					backgroundPosition: "0 -35px"
 				};
 			
-		var tstmnalsClickCSSvalues = {
+		var tstmnalsClickCSS = {
 					backgroundPosition: "0 -70px"
 				};
 		
-		var tstmnalsActiveCSSvalues = {
+		var tstmnalsActiveCSS = {
 					backgroundPosition: "0 -105px"
 				};
 				
@@ -149,7 +135,6 @@ $(document).ready(
 			function () {
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
 					$("#menu-link").attr( "class", "menu-click_2" );
-					//$("#menu-link").removeClass("menu_hover menu-click_1").addClass("menu-click_2");
 				} else {
 					$("#menu-link").attr( "class", "menu-base" );
 				}
@@ -176,11 +161,14 @@ $(document).ready(
 		$("#menu-link").on("click", 
 			function ()	{
 				if ($("#options").css("display") === "block") {
+					$("#container").css(containerClickOffCSS);
 					$("#menu-bkgrnd").css(bkgrndClickOffCSS);
 					$("#options").css(optionsClickOffCSS);
 					
 					$("#menu-link").removeClass("menu-click_2 menu-click_1").addClass("menu-base");
 				} else {
+					$("#container").css(containerClickOnCSS);
+					
 					$("#menu-bkgrnd").css(bkgrndClickOnCSS);
 					$("#options").css(optionsClickOnCSS);
 					
@@ -188,34 +176,34 @@ $(document).ready(
 				}
 			}
 		);
-		
-		$("#options").on("mouseleave", 
+				
+		$("#menu").on("mouseleave", 
 			function () {
 				$("#options").css(optionsClickOffCSS);
 				
-				//$("#menu-link").attr( "class", "menu-base" );
+				$("#menu-link").attr( "class", "menu-base" );
 				
 				$("#menu-bkgrnd").css(bkgrndClickOffCSS);	
 					
-				$("#container").css(containerBaseCSS);
+				$("#container").css(containerClickOffCSS);
 			}
 		);
 	
 		$("#options > span").on("mouseenter", 
 			function () {
-				$(this).css(optionHoverCSSvalues);
+				$(this).css(optionHoverCSS);
 			}
 		);
 		
 		$("#options > span").on("mouseleave", 
 			function ()	{
-				$(this).css(optionBaseCSSvalues);
+				$(this).css(optionBaseCSS);
 			}
 		);
 		
 		$("#options > span").on("click", 
 			function ()	{
-				$(this).css(optionClickCSSvalues);
+				$(this).css(optionClickCSS);
 				
 				$("#options").css(bkgrndClickOffCSS);
 				$("#menu > a").removeClass().addClass("menu-base");
@@ -275,7 +263,7 @@ $(document).ready(
 		$("div.nav-section span").on("mouseover",
 			function() {
 				if ($("div.nav-section div").css("display") == "none") {
-					$("div.nav-section span").css(specltesHoverCSSvalues);
+					$("div.nav-section span").css(specltesHoverCSS);
 				} 
 			}
 		);
@@ -283,7 +271,7 @@ $(document).ready(
 		$("div.nav-section span").on("mouseleave",
 			function() {
 				if ($("div.nav-section div").css("display") == "none") {
-					$("div.nav-section span").css(specltesBaseCSSvalues);
+					$("div.nav-section span").css(specltesBaseCSS);
 				}
 			}
 		);
@@ -294,20 +282,20 @@ $(document).ready(
 				if ($("div.nav-section div").css("display") == "none") {
 					$("div.nav-section div").css("display", "block");
 					
-					$("div.nav-section span").css(specltesClickCSSvalues);
+					$("div.nav-section span").css(specltesClickCSS);
 					
-					$("div.nav-section span").css(specltesActiveCSSvalues).delay(500);
+					$("div.nav-section span").css(specltesActiveCSS).delay(500);
 				} else {
 					$("div.nav-section div").css("display", "none");
 					
-					$("div.nav-section span").css(specltesBaseCSSvalues);
+					$("div.nav-section span").css(specltesBaseCSS);
 				}
 			}
 		);
 		
 		$("div.nav-section div a").on("click",
 			function() {
-				$("div.nav-section span").css(specltesBaseCSSvalues);
+				$("div.nav-section span").css(specltesBaseCSS);
 			}
 		);
 		
@@ -316,18 +304,18 @@ $(document).ready(
 				if ($("div#tstmnals").css("display") == "none") {
 					$("div#tstmnals").css("display", "block");
 					
-					$("div#tstmnals-nav > span").css(tstmnalsActiveCSSvalues);
+					$("div#tstmnals-nav > span").css(tstmnalsActiveCSS);
 				} else {
 					$("div#tstmnals").css("display", "none");
 					
-					$("div#tstmnals-nav > span").css(tstmnalsBaseCSSvalues);
+					$("div#tstmnals-nav > span").css(tstmnalsBaseCSS);
 				}
 			}
 		);
 		
 		$("div#tstmnals > a").on("click",
 			function() {
-				$("div#tstmnals-nav > span").css(tstmnalsBaseCSSvalues);
+				$("div#tstmnals-nav > span").css(tstmnalsBaseCSS);
 			}
 		);
 	}
