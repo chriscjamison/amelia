@@ -59,16 +59,16 @@ $(document).ready(
 				};
 		
 		var bkgrndClickOnCSS = {
-					display: "block"
+					left: "0px"
 				};
 		
 		var bkgrndClickOffCSS = {
-					display: "none"
+					left: "-260px"
 				};
 		
 		var containerClickOnCSS = {
 					position: "absolute",
-					left: "260px"
+					left: "245px"
 				};
 		
 		var containerClickOffCSS = {
@@ -131,12 +131,90 @@ $(document).ready(
 					backgroundPosition: "0 -105px"
 				};
 				
+		
+		function fadeMenuButton(menuClassName) {
+			$( "#menu-link" ).fadeTo( 75, 0, 
+				function () {
+					$( "#menu-link" ).attr( "class", menuClassName );
+				 	$( "#menu-link" ).fadeTo( 75, 1 );
+				} 
+			);
+		} // END OF function 'fadeMenuButton'
+		
+		function fadeMenu( stateValue ) {
+			if (stateValue === "click_on") {
+				$("body").css("overflow", "hidden");
+				$("#container").animate(containerClickOnCSS, 200);
+				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
+					function () {
+					
+						$("#options").css(optionsClickOnCSS);
+						$( "#options" ).fadeTo(200, 1).delay(200);	
+					}
+				);
+			}	else {
+				$( "#options" ).fadeTo(200, 0, 
+					function () {
+						$("#options").css(optionsClickOffCSS);
+						$("#container").animate(containerClickOffCSS, 200);
+						$("#bkgrnd").css("width", "1280px");
+						$("#bkgrnd").animate(bkgrndClickOffCSS, 200, 
+							function () {
+								$("body").css("overflow", "visible");
+							}
+						);					
+					}
+				);
+			}
+		}  // END OF function fadeMenu
+		
+		function animateMenuOptions(menuOption, animationState) {
+			var optionBgColor;
+			var optionTextColor;
+			var optionCursorState;
+			
+			switch (animationState) {
+				case "hover":
+					optionBgColor = optionHoverCSS.backgroundColor;
+					optionTextColor = optionHoverCSS.color;
+					optionCursorState = optionHoverCSS.cursor;
+					
+					$(menuOption).css("backgroundColor", optionBgColor);
+					$(menuOption).css("color", optionTextColor);
+					$(menuOption).css("cursor", optionCursorState);
+				break;
+					
+				case "click":
+					optionBgColor = optionClickCSS.backgroundColor;
+					optionTextColor = optionClickCSS.color;
+					optionCursorState = "default";
+					
+					$(menuOption).css("backgroundColor", optionBgColor);
+					$(menuOption).css("color", optionTextColor);
+					$(menuOption).css("cursor", optionCursorState);
+				break;
+					
+				default:
+					optionBgColor = optionBaseCSS.backgroundColor;
+					optionTextColor = optionBaseCSS.color;
+					optionCursorState = optionBaseCSS.cursor;
+					
+					$(menuOption).css("backgroundColor", optionBgColor);
+					$(menuOption).css("color", optionTextColor);
+					$(menuOption).css("cursor", optionCursorState);
+				break;
+					
+			} 
+		}
+		
 		$("#menu-link").on("mouseleave", 
 			function () {
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
-					$("#menu-link").attr( "class", "menu-click_2" );
+					fadeMenuButton("menu-click_2");
 				} else {
-					$("#menu-link").attr( "class", "menu-base" );
+					if (!$( "#menu-link").hasClass( "menu-click_2" )) {
+						fadeMenuButton("menu-base"); 	
+					}		
 				}
 			}
 		);
@@ -145,68 +223,56 @@ $(document).ready(
 			function () {
 				if (!$("#menu-link").hasClass("menu-click_2")) {
 					if ($("#menu-link").hasClass("menu-base")) {
-						$("#menu-link").attr( "class", "menu-hover");
-					}
-				}	
-			}
-		);		
-		
-		$("#menu-link").on("mouseover",
-			function () {
-				if ($("#menu-link").hasClass("menu-base")) {
-					$("#menu-link").addClass("menu-hover").removeClass("menu-base");
+						fadeMenuButton("menu-hover");
+  			 	}
 				}
-		});
+			}
+		);
 		
 		$("#menu-link").on("click", 
 			function ()	{
 				if ($("#options").css("display") === "block") {
-					$("#container").css(containerClickOffCSS);
-					$("#menu-bkgrnd").css(bkgrndClickOffCSS);
-					$("#options").css(optionsClickOffCSS);
+					fadeMenu("click_off");
 					
-					$("#menu-link").removeClass("menu-click_2 menu-click_1").addClass("menu-base");
+					
+					fadeMenuButton("menu-base");
 				} else {
-					$("#container").css(containerClickOnCSS);
+					fadeMenu("click_on");
 					
-					$("#menu-bkgrnd").css(bkgrndClickOnCSS);
-					$("#options").css(optionsClickOnCSS);
-					
-					$("#menu-link").removeClass("menu-hover menu-base").addClass("menu-click_1");
+					fadeMenuButton("menu-click_1");
 				}
 			}
 		);
 				
 		$("#menu").on("mouseleave", 
 			function () {
-				$("#options").css(optionsClickOffCSS);
-				
-				$("#menu-link").attr( "class", "menu-base" );
-				
-				$("#menu-bkgrnd").css(bkgrndClickOffCSS);	
+				if ($( "#menu-bkgrnd" ).css("display") === "block") {
+					fadeMenu("click_off");
 					
-				$("#container").css(containerClickOffCSS);
+					fadeMenuButton("menu-base");
+				}
 			}
 		);
 	
 		$("#options > span").on("mouseenter", 
 			function () {
-				$(this).css(optionHoverCSS);
+				animateMenuOptions(this, "hover");
 			}
 		);
 		
 		$("#options > span").on("mouseleave", 
 			function ()	{
-				$(this).css(optionBaseCSS);
+				animateMenuOptions(this, "base");
 			}
 		);
 		
 		$("#options > span").on("click", 
 			function ()	{
-				$(this).css(optionClickCSS);
+				animateMenuOptions(this, "click");
 				
-				$("#options").css(bkgrndClickOffCSS);
-				$("#menu > a").removeClass().addClass("menu-base");
+				fadeMenu("click_off");
+			
+				$("#menu > a").attr( "class", "menu-base" );
 				
 				switch (this.id)	{
 					case "home":
@@ -296,26 +362,6 @@ $(document).ready(
 		$("div.nav-section div a").on("click",
 			function() {
 				$("div.nav-section span").css(specltesBaseCSS);
-			}
-		);
-		
-		$("div#tstmnals-nav > span").on("click",
-			function() {
-				if ($("div#tstmnals").css("display") == "none") {
-					$("div#tstmnals").css("display", "block");
-					
-					$("div#tstmnals-nav > span").css(tstmnalsActiveCSS);
-				} else {
-					$("div#tstmnals").css("display", "none");
-					
-					$("div#tstmnals-nav > span").css(tstmnalsBaseCSS);
-				}
-			}
-		);
-		
-		$("div#tstmnals > a").on("click",
-			function() {
-				$("div#tstmnals-nav > span").css(tstmnalsBaseCSS);
 			}
 		);
 	}
