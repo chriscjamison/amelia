@@ -66,17 +66,21 @@ $(document).ready(
 					left: "-260px"
 				};
 		
-		var containerClickOnCSS = {
+		var cntainrClickOnCSS = {
 					position: "absolute",
-					left: "245px"
+					left: "260px"
 				};
 		
-		var containerClickOffCSS = {
+		var cntainrClickOffCSS = {
 					position: "absolute",
 					left: "0px"
 				};
 		
-		var menuPositionClickCSS = {
+		var menuPositionClickOnCSS = {
+					position: "fixed"
+				};
+
+		var menuPositionClickOffCSS = {
 					position: "absolute",
 					top: "0px",
 					left: "0px"
@@ -96,9 +100,36 @@ $(document).ready(
 		
 		var optionClickCSS = {
 					backgroundColor: "#A6A6A6",
-					color: "#000"
+					color: "#000",
+					cursor: "default"
+				};
+		
+		var bodyClickOnCSS = {
+					overflow: "hidden"
+				};
+		
+		var bodyClickOffCSS = {
+					overflow: "visible"
 				};
 						
+		var nextSctnTextOverCSS = {
+					fontWeight: "600"
+				};
+		
+		var nextSctnTextOutCSS = {
+					fontWeight: "400"
+				};
+		
+		var nextSctnDivOverCSS = {
+					backgroundPosition: "0px -75px",
+					cursor: "pointer"
+				};
+		
+		var nextSctnDivOutCSS = {
+					backgroundPosition: "0px 0px",
+					cursor: "default"
+				};
+		
 		var specltesBaseCSS = {
 					backgroundPosition: "0 0"
 				};
@@ -143,11 +174,11 @@ $(document).ready(
 		
 		function fadeMenu( stateValue ) {
 			if (stateValue === "click_on") {
-				$("body").css("overflow", "hidden");
-				$("#container").animate(containerClickOnCSS, 200);
+				$("body").css(bodyClickOnCSS);
+				$("#menu").css(menuPositionClickOnCSS);
+				$("#cntainr").animate(cntainrClickOnCSS, 200);
 				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
 					function () {
-					
 						$("#options").css(optionsClickOnCSS);
 						$( "#options" ).fadeTo(200, 1).delay(200);	
 					}
@@ -156,11 +187,11 @@ $(document).ready(
 				$( "#options" ).fadeTo(200, 0, 
 					function () {
 						$("#options").css(optionsClickOffCSS);
-						$("#container").animate(containerClickOffCSS, 200);
-						$("#bkgrnd").css("width", "1280px");
+						$("#menu").css(menuPositionClickOffCSS);
+						$("#cntainr").animate(cntainrClickOffCSS, 200);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200, 
 							function () {
-								$("body").css("overflow", "visible");
+								$("body").css(bodyClickOffCSS);
 							}
 						);					
 					}
@@ -175,37 +206,46 @@ $(document).ready(
 			
 			switch (animationState) {
 				case "hover":
-					optionBgColor = optionHoverCSS.backgroundColor;
-					optionTextColor = optionHoverCSS.color;
-					optionCursorState = optionHoverCSS.cursor;
-					
-					$(menuOption).css("backgroundColor", optionBgColor);
-					$(menuOption).css("color", optionTextColor);
-					$(menuOption).css("cursor", optionCursorState);
+					$(menuOption).css(optionHoverCSS);
 				break;
 					
 				case "click":
-					optionBgColor = optionClickCSS.backgroundColor;
-					optionTextColor = optionClickCSS.color;
-					optionCursorState = "default";
-					
-					$(menuOption).css("backgroundColor", optionBgColor);
-					$(menuOption).css("color", optionTextColor);
-					$(menuOption).css("cursor", optionCursorState);
+					$(menuOption).css(optionClickCSS);
 				break;
 					
 				default:
-					optionBgColor = optionBaseCSS.backgroundColor;
-					optionTextColor = optionBaseCSS.color;
-					optionCursorState = optionBaseCSS.cursor;
-					
-					$(menuOption).css("backgroundColor", optionBgColor);
-					$(menuOption).css("color", optionTextColor);
-					$(menuOption).css("cursor", optionCursorState);
+					$(menuOption).css(optionBaseCSS);
 				break;
-					
 			} 
 		}
+		
+		function nextSctnBehavior(mouseState) {
+			
+			switch (mouseState) {
+				case "over":
+					$("#next-sctn span").css(nextSctnTextOverCSS);
+					$("#next-sctn").css(nextSctnDivOverCSS);
+				break;
+					
+				case "out":
+					$("#next-sctn span").css(nextSctnTextOutCSS);
+					$("#next-sctn").css(nextSctnDivOutCSS);
+				break;
+			}
+		}
+		
+		$("#next-sctn").on("mouseenter", 
+			function () {
+				nextSctnBehavior("over");
+			}
+		);
+		
+		$("#next-sctn").on("mouseleave",
+			function () {
+				nextSctnBehavior("out");
+			}
+		);
+	
 		
 		$("#menu-link").on("mouseleave", 
 			function () {
@@ -240,19 +280,21 @@ $(document).ready(
 					fadeMenu("click_on");
 					
 					fadeMenuButton("menu-click_1");
+					
+					$("#menu").on("mouseleave", 
+						function () {
+							if ($( "#menu-bkgrnd" ).css("display") === "block") {
+								fadeMenu("click_off");
+
+								fadeMenuButton("menu-base");
+							}
+						}
+					);
 				}
 			}
 		);
 				
-		$("#menu").on("mouseleave", 
-			function () {
-				if ($( "#menu-bkgrnd" ).css("display") === "block") {
-					fadeMenu("click_off");
-					
-					fadeMenuButton("menu-base");
-				}
-			}
-		);
+		
 	
 		$("#options > span").on("mouseenter", 
 			function () {
@@ -272,35 +314,35 @@ $(document).ready(
 				
 				fadeMenu("click_off");
 			
-				$("#menu > a").attr( "class", "menu-base" );
+				fadeMenuButton("menu-base");
 				
 				switch (this.id)	{
 					case "home":
 						location.href = "http://chriscjamison.com/amelia/sc/";
 						break;
 						
-					case "section-1":
-						location.href = "http://chriscjamison.com/amelia/sc/section_1.htm";
+					case "sctn-1":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/1/";
 						break;
 						
-					case "section-2":
-						location.href = "http://chriscjamison.com/amelia/sc/section_2.htm";
+					case "sctn-2":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/2/";
 						break;
 						
-					case "section-3":
-						location.href = "http://chriscjamison.com/amelia/sc/section_3.htm";
+					case "sctn-3":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/3/";
 						break;
 						
-					case "section-4":
-						location.href = "http://chriscjamison.com/amelia/sc/section_4.htm";
+					case "sctn-4":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/4/";
 						break;
 					
-					case "section-5":
-						location.href = "http://chriscjamison.com/amelia/sc/section_5.htm";
+					case "sctn-5":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/5/";
 						break;
 						
-					case "section-6":
-						location.href = "http://chriscjamison.com/amelia/sc/section_6.htm";
+					case "sctn-6":
+						location.href = "http://chriscjamison.com/amelia/sc/sctn/6/";
 						break;
 				}
 			}
@@ -310,58 +352,58 @@ $(document).ready(
 		
 		$("input#start-quiz").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/section_1-a.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/sctn_1-a.htm";
 			}
 		);
 		
 		$("input#calculate-rate").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/section_5-a.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/sctn_5-a.htm";
 			}
 		);
 		
 		$("input#submit-rate").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/section_5-b.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/sctn_5-b.htm";
 			}
 		);
 		
-		$("div.nav-section span").on("mouseover",
+		$("div.nav-sctn span").on("mouseover",
 			function() {
-				if ($("div.nav-section div").css("display") == "none") {
-					$("div.nav-section span").css(specltesHoverCSS);
+				if ($("div.nav-sctn div").css("display") == "none") {
+					$("div.nav-sctn span").css(specltesHoverCSS);
 				} 
 			}
 		);
 		
-		$("div.nav-section span").on("mouseleave",
+		$("div.nav-sctn span").on("mouseleave",
 			function() {
-				if ($("div.nav-section div").css("display") == "none") {
-					$("div.nav-section span").css(specltesBaseCSS);
+				if ($("div.nav-sctn div").css("display") == "none") {
+					$("div.nav-sctn span").css(specltesBaseCSS);
 				}
 			}
 		);
 		
 		
-		$("div.nav-section span").on("click",
+		$("div.nav-sctn span").on("click",
 			function() {
-				if ($("div.nav-section div").css("display") == "none") {
-					$("div.nav-section div").css("display", "block");
+				if ($("div.nav-sctn div").css("display") == "none") {
+					$("div.nav-sctn div").css("display", "block");
 					
-					$("div.nav-section span").css(specltesClickCSS);
+					$("div.nav-sctn span").css(specltesClickCSS);
 					
-					$("div.nav-section span").css(specltesActiveCSS).delay(500);
+					$("div.nav-sctn span").css(specltesActiveCSS).delay(500);
 				} else {
-					$("div.nav-section div").css("display", "none");
+					$("div.nav-sctn div").css("display", "none");
 					
-					$("div.nav-section span").css(specltesBaseCSS);
+					$("div.nav-sctn span").css(specltesBaseCSS);
 				}
 			}
 		);
 		
-		$("div.nav-section div a").on("click",
+		$("div.nav-sctn div a").on("click",
 			function() {
-				$("div.nav-section span").css(specltesBaseCSS);
+				$("div.nav-sctn span").css(specltesBaseCSS);
 			}
 		);
 	}

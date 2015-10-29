@@ -43,6 +43,15 @@
 	background-color: #666;
 }
 
+#menu-brdr {
+	width: 260px;
+	height: 1%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #444;
+}
+
 #options {
 	width: 210px;
 	height: 550px;
@@ -64,13 +73,13 @@
 	color: #000;
 }
 
-div#options > span {
+#options > span {
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;
 }
 
-div#menu span {
+#menu span {
 	width: 190px;
 	height: 50px;
 	margin: 10px 10px 10px 0;
@@ -79,18 +88,23 @@ div#menu span {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-div#next-section {
-	width: 88px;
-	height: 31px;
+#next-sctn {
+	width: 80px;
+	height: 70px;
 	position: absolute;
 	right: 10px;
 	bottom: 31px;
-	font: 600 0.8em "Franklin Gothic Medium", sans-serif;
-	color: #fff;	
-	line-height: 1.25em;
-	text-align: center;
+	background: url('/amelia/assets/img/menu/next/next-sctn.png') 0 0 no-repeat;
 }
 
-div#next-section:hover {
-	cursor: pointer;
+#next-sctn span {
+	width: 79px;
+	height: 50px;
+	margin-bottom: 50px;
+	display: block;
+	font: 400 0.8em 'Franklin Gothic Medium', sans-serif;
+	color: #fff;	
+	text-align: center;
+	line-height: 1.25em;
+	letter-spacing: 1px;
 }
