@@ -45,7 +45,7 @@
 
 #menu-brdr {
 	width: 260px;
-	height: 1%;
+	height: 5px;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -91,9 +91,9 @@
 #next-sctn {
 	width: 80px;
 	height: 70px;
-	position: absolute;
-	right: 10px;
-	bottom: 31px;
+	position: fixed;
+	right: 25px;
+	bottom: 25px;
 	background: url('/amelia/assets/img/menu/next/next-sctn.png') 0 0 no-repeat;
 }
 

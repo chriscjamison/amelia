@@ -113,11 +113,11 @@ $(document).ready(
 				};
 						
 		var nextSctnTextOverCSS = {
-					fontWeight: "600"
+					color: "#808080"
 				};
 		
 		var nextSctnTextOutCSS = {
-					fontWeight: "400"
+					color: "#fff"
 				};
 		
 		var nextSctnDivOverCSS = {
@@ -220,7 +220,6 @@ $(document).ready(
 		}
 		
 		function nextSctnBehavior(mouseState) {
-			
 			switch (mouseState) {
 				case "over":
 					$("#next-sctn span").css(nextSctnTextOverCSS);
@@ -233,6 +232,7 @@ $(document).ready(
 				break;
 			}
 		}
+		
 		
 		$("#next-sctn").on("mouseenter", 
 			function () {
@@ -352,7 +352,13 @@ $(document).ready(
 		
 		$("input#start-quiz").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/sctn_1-a.htm";
+				location.href = "http://chriscjamison.com/amelia/sc/sctn/1/sctn_1-a.htm";
+			}
+		);
+		
+		$("input#quiz-next").on("click",
+			function ()	{
+				location.href = "http://chriscjamison.com/amelia/sc/sctn/1/sctn_1-b.htm";
 			}
 		);
 		

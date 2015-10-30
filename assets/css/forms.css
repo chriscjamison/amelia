@@ -1,4 +1,4 @@
-div#questionaire {
+#questionaire {
 	position: absolute;
 	top: 150px;
 	left: 150px;
@@ -11,66 +11,96 @@ div#questionaire {
 	margin: 0 auto;
 }
 
-div.column {
+.clmn {
 	width: 50%;
 	height: auto;
 	float: left;
 	margin: 0 auto;	
 }
 
-div.question,
-div.cntct_info {
-	width: 70%;
+.qstn,
+.cntct_info {
+	width: 27em;
 	height: auto;
 	padding: 1.5em;
-	margin: 2em 0;
+	margin: 2em;
 	background-color: #fff;
 	border: 4px solid #737367;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
-div.cntct_info {
+.cntct_info {
 	border-color: #cae9fe;
 }
 
-div.question:hover {
+.qstn:hover {
 	border-color: #9C9C8C;
 }
 
-div.cntct_info:hover {
+.cntct_info:hover {
 	border-color: #9ab5ce;
 }
 
-div.question span,
-div.cntct_info span{
+.qstn span,
+.cntct_info span{
 	display: inline-block;
 	margin-bottom: 0.5em;
-	font-size: 1.1em;
 }
 
-div.question fieldset div span,
-div.cntct_info fieldset div span{
+.qstn span + span {
+	font-size: 1.1em;
+	font-weight: 600;
+	line-height: 1.3em;
+}
+
+.quiz-spcr {
+	width: 100%;
+	height: 3px;
+	margin: 0.8em auto;
+	background-color: #ccc;
+}
+
+.qstn fieldset div span,
+.cntct_info fieldset div span {
+	position: relative;
+	top: -10px;
 	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
 
-div.question p,
-div.cntct_info p{
+.qstn fieldset div span + span,
+.cntct_info fieldset div span + span {
+	left: -13px;
+}
+
+.qstn p,
+.cntct_info p {
 	display: block;
 	position: relative;
 	overflow: visible;
-	line-height: 1.5em;
+	line-height: 1.8em;
 	text-indent: 2em;
 }
 
-div.question sup {
+.qstn sup {
 	font-size: 0.8em;
 }
 
-div.question p.footnote {
+.qstn p.ftnote {
 	padding: 0.7em;
 	background-color: #cfd7a3;
 	font-size: 0.9em;
 	line-height: 1.6em;
+}
+
+#quiz-bttn {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 2.5em;
+}
+
+#quiz-next {
+	position: relative;
+	right: -62%;
 }
 
 #submit-cntct {
@@ -78,6 +108,8 @@ div.question p.footnote {
 	margin-right: 4.6em;
 	float: right;
 }
+
+
 
 fieldset {
 	margin: 1em;
@@ -222,12 +254,12 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 fieldset > div {
 	margin: 0 auto;
-	width: 270px;
+	width: 262px;
 }
 
 input[type=button],
 input[type=submit] {
-	width: auto;
+	width: 125px;
 	height: 50px;
 	margin: 0.35em 0 0 1.4em;
 	background-color: #40BDE8;
