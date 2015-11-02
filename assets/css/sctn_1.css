@@ -202,11 +202,11 @@ body {
 }
 
 #yes {
-	top: 250px;
-	left: 850px;
-	background-color: #3b495d;
-	border: 5px solid #cccfd8;
-	color: #e9ebf8;
+	top: 175px;
+	left: 125px;
+	background-color: #9e7a75;
+	border: 5px solid #c8b2a6;
+	color: #f0c7ab;
 }
 
 #no {

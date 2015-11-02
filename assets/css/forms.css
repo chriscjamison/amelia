@@ -1,4 +1,4 @@
-#questionaire {
+#qstnair {
 	position: absolute;
 	top: 150px;
 	left: 150px;
@@ -85,7 +85,7 @@
 	font-size: 0.8em;
 }
 
-.qstn p.ftnote {
+.qstn .ftnote {
 	padding: 0.7em;
 	background-color: #cfd7a3;
 	font-size: 0.9em;
