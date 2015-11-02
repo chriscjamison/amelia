@@ -348,9 +348,7 @@ $(document).ready(
 			}
 		);
 		
-		
-		
-		$("input#start-quiz").on("click",
+		$("input#quiz-start").on("click",
 			function ()	{
 				location.href = "http://chriscjamison.com/amelia/sc/sctn/1/sctn_1-a.htm";
 			}

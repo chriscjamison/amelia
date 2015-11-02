@@ -55,7 +55,7 @@
 
 .quiz-spcr {
 	width: 100%;
-	height: 3px;
+	height: 2px;
 	margin: 0.8em auto;
 	background-color: #ccc;
 }
@@ -95,12 +95,28 @@
 #quiz-bttn {
 	width: 100%;
 	height: 50px;
-	margin-bottom: 2.5em;
+	margin-bottom: 0.7em;
+}
+
+#quiz-start {
+	margin-right: 1.3em;
+	position: relative;
+	float: right;
 }
 
 #quiz-next {
 	position: relative;
 	right: -62%;
+}
+
+#quiz-prev {
+	position: relative;
+	left: 8.6em;
+}
+
+#quiz-sbmt {
+	position: relative;
+	left: 7.9em;
 }
 
 #submit-cntct {
