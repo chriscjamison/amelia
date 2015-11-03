@@ -57,9 +57,13 @@
 	height: 550px;
 	display: none;
 	position: absolute;
-	top: 75px;
+	top: 100px;
 	left: 25px;
 	opacity: 0;
+}
+
+.options_main {
+	top: 75px;
 }
 
 .option-hover {
@@ -73,7 +77,8 @@
 	color: #000;
 }
 
-#options > span {
+#options > span,
+#options_main > span {
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;
