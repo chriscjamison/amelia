@@ -200,10 +200,6 @@ $(document).ready(
 		}  // END OF function fadeMenu
 		
 		function animateMenuOptions(menuOption, animationState) {
-			var optionBgColor;
-			var optionTextColor;
-			var optionCursorState;
-			
 			switch (animationState) {
 				case "hover":
 					$(menuOption).css(optionHoverCSS);
@@ -232,7 +228,6 @@ $(document).ready(
 				break;
 			}
 		}
-		
 		
 		$("#next-sctn").on("mouseenter", 
 			function () {
@@ -273,7 +268,6 @@ $(document).ready(
 			function ()	{
 				if ($("#options").css("display") === "block") {
 					fadeMenu("click_off");
-					
 					
 					fadeMenuButton("menu-base");
 				} else {
@@ -318,31 +312,31 @@ $(document).ready(
 				
 				switch (this.id)	{
 					case "home":
-						location.href = "http://chriscjamison.com/amelia/sc/";
+						location.href = "http://localhost/amelia/sc/";
 						break;
 						
 					case "sctn-1":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/1/";
+						location.href = "http://localhost/amelia/sc/sctn/1/";
 						break;
 						
 					case "sctn-2":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/2/";
+						location.href = "http://localhost/amelia/sc/sctn/2/";
 						break;
 						
 					case "sctn-3":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/3/";
+						location.href = "http://localhost/amelia/sc/sctn/3/";
 						break;
 						
 					case "sctn-4":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/4/";
+						location.href = "http://localhost/amelia/sc/sctn/4/";
 						break;
 					
 					case "sctn-5":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/5/";
+						location.href = "http://localhost/amelia/sc/sctn/5/";
 						break;
 						
 					case "sctn-6":
-						location.href = "http://chriscjamison.com/amelia/sc/sctn/6/";
+						location.href = "http://localhost/amelia/sc/sctn/6/";
 						break;
 				}
 			}
@@ -350,25 +344,25 @@ $(document).ready(
 		
 		$("input#quiz-start").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/sctn/1/sctn_1-a.htm";
+				location.href = "http://localhost/amelia/sc/sctn/1/sctn_1-a.htm";
 			}
 		);
 		
 		$("input#quiz-next").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/sctn/1/sctn_1-b.htm";
+				location.href = "http://localhost/amelia/sc/sctn/1/sctn_1-b.htm";
 			}
 		);
 		
 		$("input#calculate-rate").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/sctn_5-a.htm";
+				location.href = "http://localhost/amelia/sc/sctn_5-a.htm";
 			}
 		);
 		
 		$("input#submit-rate").on("click",
 			function ()	{
-				location.href = "http://chriscjamison.com/amelia/sc/sctn_5-b.htm";
+				location.href = "http://localhost/amelia/sc/sctn_5-b.htm";
 			}
 		);
 		
