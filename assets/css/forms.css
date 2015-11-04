@@ -25,20 +25,7 @@
 	padding: 1.5em;
 	margin: 2em;
 	background-color: #fff;
-	border: 4px solid #737367;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
-}
-
-.cntct_info {
-	border-color: #cae9fe;
-}
-
-.qstn:hover {
-	border-color: #9C9C8C;
-}
-
-.cntct_info:hover {
-	border-color: #9ab5ce;
 }
 
 .qstn span,
@@ -124,8 +111,6 @@
 	margin-right: 4.6em;
 	float: right;
 }
-
-
 
 fieldset {
 	margin: 1em;
