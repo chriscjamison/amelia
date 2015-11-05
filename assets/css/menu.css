@@ -101,7 +101,7 @@
 	background: url('/amelia/assets/img/menu/next/next-sctn.png') 0 0 no-repeat;
 }
 
-#next-sctn span {
+#next-sctn > span {
 	width: 79px;
 	height: 50px;
 	margin-bottom: 50px;
@@ -112,3 +112,82 @@
 	line-height: 1.25em;
 	letter-spacing: 1px;
 }
+
+div.sctn_nav {
+	width: 735px;
+	height: 135px;
+	position: relative;
+	top: 630px;
+	margin: 0 auto;
+}
+
+div.sctn_nav > span {
+	width: 150px;
+	height: 35px;
+	display: block;
+	position: absolute;
+	left: 38%;
+	margin: 15px;
+	background-image: url('/amelia/assets/img/menu/sctn_nav/sect_3.png');
+	background-position: 0px 0px;
+	color: #fff;
+	cursor: auto;	
+} 
+
+div.sctn_nav > span.base-sctn_nav {
+	background-position: 0px 0px;
+	opacity: 1;
+}
+
+div.sctn_nav > span.hover-sctn_nav {
+	background-position: 0px -35px;
+	opacity: 1;
+}
+
+div.sctn_nav > span.active-sctn_nav {
+	background-position: 0px -70px;
+	opacity: 1;
+}
+
+div.sctn_nav > span.click-sctn_nav {
+	background-position: 0px -105px;
+	opacity: 1;
+}
+
+div.sctn_nav > div {
+	width: 100%;
+	height: 80px;
+	display: none;
+	margin: 0 6.5em;
+	position: absolute;
+	top: 55px;
+}
+
+.nav-sect_3 div {
+	width: 555px;
+	left: 12.5%;
+}
+
+.nav-sub-sect_3 div {
+	width: 740px;
+}
+
+div.sctn_nav > div > a {
+	width: 150px;
+	height: 22px;
+	display: block;
+	float: left;
+	margin: 15px;
+	padding: 3px 0 6px 0;
+	background-color: #000;
+	border: 2px solid #222;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 1px;
+	cursor: pointer; 
+}
+
+div.sctn_nav div a:hover {
+	background-color: #333;

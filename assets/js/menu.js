@@ -130,39 +130,42 @@ $(document).ready(
 					cursor: "default"
 				};
 		
-		var specltesBaseCSS = {
-					backgroundPosition: "0 0"
+		var sctnNavBaseCSS = {
+					cursor: "default",
+					opacity: 1
 				};
 		
-		var specltesHoverCSS = {
-					backgroundPosition: "0 -35px"
+		var sctnNavHoverCSS = {
+					cursor: "pointer",
+					opacity: 0
 				};
 			
-		var specltesClickCSS = {
-					backgroundPosition: "0 -70px"
+		var sctnNavClickCSS = {
+					opacity: 0
 				};
 			
-		var specltesActiveCSS = {
-					backgroundPosition: "0 -105px"
-				};
-		
-		var tstmnalsBaseCSS = {
-					backgroundPosition: "0 0"
-				};
-			
-		var tstmnalsHoverCSS = {
-					backgroundPosition: "0 -35px"
-				};
-			
-		var tstmnalsClickCSS = {
-					backgroundPosition: "0 -70px"
-				};
-		
-		var tstmnalsActiveCSS = {
-					backgroundPosition: "0 -105px"
+		var sctnNavActiveCSS = {
+					opacity: 0
 				};
 				
+		var sctnNavOptionsBaseCSS = {
+					display: "none"
+				};
 		
+		var sctnNavOptionsOnCSS = {
+					display: "block"
+				};
+				
+		var sctnNavOptionsTopOnCSS = {
+					top: "55px",
+					opacity: 1
+				};
+				
+		var sctnNavOptionsTopOffCSS = {
+					top: "0px",
+					opacity: 0
+				};
+				
 		function fadeMenuButton(menuClassName) {
 			$( "#menu-link" ).fadeTo( 75, 0, 
 				function () {
@@ -229,6 +232,33 @@ $(document).ready(
 			}
 		}
 		
+		function fadeSctnNav(mouseState) {
+			var menuOptionClass = mouseState + "-sctn_nav";
+			
+			$( ".sctn_nav > span" ).fadeTo( 75, 0, 
+				function () {
+					$( ".sctn_nav > span" ).attr( "class", menuOptionClass );
+				 	$( ".sctn_nav > span" ).fadeTo( 75, 1 );
+				} 
+			);
+		}
+		
+		function fadeSctnNavOptions() {
+			if ($("div.sctn_nav > div").css("display") === "none") {
+				$("div.sctn_nav > div").css(sctnNavOptionsTopOffCSS);					
+				
+				$("div.sctn_nav > div").css(sctnNavOptionsOnCSS);	
+
+				$("div.sctn_nav > div").animate(sctnNavOptionsTopOnCSS, 200);
+			} else {
+				$("div.sctn_nav > div").animate(sctnNavOptionsTopOffCSS, 175);
+				
+				$("div.sctn_nav > div").css(sctnNavOptionsBaseCSS).delay(200);	
+			}
+			
+			// $("div.sctn_nav A").fadeToggle(500);
+		}
+		
 		$("#next-sctn").on("mouseenter", 
 			function () {
 				nextSctnBehavior("over");
@@ -288,8 +318,6 @@ $(document).ready(
 			}
 		);
 				
-		
-	
 		$("#options > span").on("mouseenter", 
 			function () {
 				animateMenuOptions(this, "hover");
@@ -302,6 +330,46 @@ $(document).ready(
 			}
 		);
 		
+		$(".sctn_nav > span").on("mouseenter",
+			function() {
+				if ($(".sctn_nav > div").css("display") == "none") {
+					fadeSctnNav("hover");
+				} 
+			}
+		);
+		
+		$(".sctn_nav > span").on("mouseleave",
+			function() {
+				if ($(".sctn_nav > div").css("display") == "none") {
+					fadeSctnNav("base");
+				}
+			}
+		);
+		
+		
+		$(".sctn_nav > span").on("click",
+			function() {
+				if ($("div.sctn_nav > div").css("display") == "none") {
+					fadeSctnNav("click");
+					
+					fadeSctnNavOptions();
+				} else {
+					fadeSctnNav("active");
+					
+					fadeSctnNav("base");
+					
+					fadeSctnNavOptions();
+				}
+			}
+		);
+		
+		$(".sctn_nav > div > a").on("click",
+			function() {
+				$("div.sctn_nav > span").css(specltesBaseCSS);
+			}
+		);
+
+
 		$("#options > span").on("click", 
 			function ()	{
 				animateMenuOptions(this, "click");
@@ -363,45 +431,6 @@ $(document).ready(
 		$("input#submit-rate").on("click",
 			function ()	{
 				location.href = "http://localhost/amelia/sc/sctn_5-b.htm";
-			}
-		);
-		
-		$("div.nav-sctn span").on("mouseover",
-			function() {
-				if ($("div.nav-sctn div").css("display") == "none") {
-					$("div.nav-sctn span").css(specltesHoverCSS);
-				} 
-			}
-		);
-		
-		$("div.nav-sctn span").on("mouseleave",
-			function() {
-				if ($("div.nav-sctn div").css("display") == "none") {
-					$("div.nav-sctn span").css(specltesBaseCSS);
-				}
-			}
-		);
-		
-		
-		$("div.nav-sctn span").on("click",
-			function() {
-				if ($("div.nav-sctn div").css("display") == "none") {
-					$("div.nav-sctn div").css("display", "block");
-					
-					$("div.nav-sctn span").css(specltesClickCSS);
-					
-					$("div.nav-sctn span").css(specltesActiveCSS).delay(500);
-				} else {
-					$("div.nav-sctn div").css("display", "none");
-					
-					$("div.nav-sctn span").css(specltesBaseCSS);
-				}
-			}
-		);
-		
-		$("div.nav-sctn div a").on("click",
-			function() {
-				$("div.nav-sctn span").css(specltesBaseCSS);
 			}
 		);
 	}
