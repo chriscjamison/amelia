@@ -813,11 +813,9 @@ body {
 	line-height: 1.8em;
 }
 
-#sctn_5-desc-1,
-#sctn_5-desc-2 {
+#sctn_5-desc-1 {
 	left: 150px;
 	background-color: #711f45;
-	border: 5px solid #d7c1c3;
 	color: #e8d4d3;
 }
 
@@ -841,36 +839,34 @@ body {
 	font-size: 0.35em;
 }
 
-div#main-insrance_desc > p:first-line {
+#sctn_5-desc > p:first-line {
 	font-weight: 600;
 }
 
-div#main-insrance_desc > p + p:first-line {
+#sctn_5-desc > p + p:first-line {
 	font-weight: 400;
 }
 
-div#main-insrnace_comp {
+#sctn_5-desc-2 {
 	left: 590px;
 	padding-bottom: 0;
 	background-color: #a2b5d5;
 }
 
-div#rate-insrance_contct {
+#sctn_5-desc-4 {
 	left: 600px;
 	border: 5px solid #711f45;
-	background-color: #e8d4d3;
 	color: #383b44;
 } 
 
-div#main-insrnace_med {
+#sctn_5-desc-3 {
 	width: 24.25%;
 	top: 505px;
 	left: 590px;
 	background-color: #cbcedd;
-	border: 5px solid #8b9dcb;
 }
 
-div#main-insrnace_comp > span {
+#sctn_5-desc-2 > span {
 	width: 100%;
 	display: block;
 	margin: 7px 0;
@@ -882,7 +878,7 @@ div#main-insrnace_comp > span {
 	text-align: center;
 }
 
-div#main-insrnace_med > span {
+#sctn_5-desc-3 > span {
 	width: 100%;
 	margin: 0 auto;
 	padding: 0;
@@ -892,26 +888,26 @@ div#main-insrnace_med > span {
 	text-align: center;
 }
 
-div#insrance_comps div {
+#sctn_5-logos div {
 	height: 45px;
 	margin: 2em auto;
 }
 
-div#aetna {
+#sctn_5-logo_1 {
 	width: 233px;
 	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 0 no-repeat;
 }
 
-div#humana {
+#sctn_5-logo_2 {
 	width: 176px;
 	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -45px no-repeat;
 }
 
-div#optum {
+#sctn_5-logo_3 {
 	width: 105px;
 	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -90px no-repeat;
 }
-
+/*
 div#main-insrance_rates {
 	width: 59%;
 	left: 150px;
@@ -928,59 +924,4 @@ div#main-insrance_rates > span {
 	color: #383b44;
 	font-size: 1em;
 }
-
-div#grief {
-	left: 125px;
-	background-color: #3d3230;
-	border: 5px solid #bd9e8c;
-}
-
-div#trauma {
-	left: 750px;
-	background-color: #42424c;
-	border: 5px solid #898f85;
-}
-
-div#deprsn {
-	left: 125px;
-	background-color: #37403b;
-	border: 5px solid #f7f7f7;
-}
-
-div.block-desc > span {
-	width: 100%;
-	display: block;
-	margin: 7px 0;
-	padding-bottom: 9px;
-	border-bottom: 2px solid;
-	font-size: 2.5em;
-	font-weight: 600;	
-}
-
-div#rates-button {
-	position: absolute;
-	right: 7.1em;
-}
-
-div#main-insrance_rates > input,
-input#rquest-cnsltatn {
-	width: auto;
-	height: 50px;
-	display: block;
-	margin: 1em auto 0 auto;
-	background-color: #40BDE8;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
-	color: #221763;
-	border: 2px solid #369DBF;
-	cursor: pointer;
-}
-
-div#main-insrance_rates > input,
-input#rquest-cnsltatn:hover {
-	background-color: #33CCFF;
-}
-
-div#main-insrance_rates > input {
-	display: initial;
-	margin: 0.3em 0 0 1.4em;
-}
+*/
