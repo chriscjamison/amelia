@@ -101,7 +101,6 @@ body {
 	font: 400 0.9em 'Glegoo', 'Palatino', serif;
 }
 
-}
 /* --- Section #1 ---------------------------------------------------------------------------------- */
 
 #bkgrnd-sctn_1 > div {
@@ -228,8 +227,8 @@ body {
 
 .blok-txt p {
 	margin-bottom: 2.0em;
-	text-indent: 1.0em;
-	line-height: 1.85em;
+	text-indent: 1.3em;
+	line-height: 1.8em;
 	
 }
 
@@ -248,21 +247,27 @@ body {
 	color: #f0f2ee;
 }
 
-.sctn_1-desc {
+#sctn_1-desc {
 	width: 25%;
 	position: absolute;
 	margin: 25px;
-	padding: 5px 5px 17px 5px;
+	padding: 1em 2em;
 	top: 150px;
 	left: 125px;
 	background-color: #d2e6db;
-	font: 400 0.95em 'Glegoo', 'Palatino', serif;
 }
 
 .sctn_1-desc p {
-	margin: 10px 17px;
-	text-indent: 2em;
-	line-height: 1.75em	
+	text-indent: 1.3em;
+	line-height: 1.8em	
+}
+
+#sctn_1-desc > p:first-line {
+	font-weight: 600;
+}
+
+#sctn_1-desc > p + p:first-line {
+	font-weight: 400;
 }
 
 /** SECTION 2 *************************************************************************************** */
@@ -315,7 +320,7 @@ body {
 	margin: 0 auto;
 }
 
-.sctn_2-blok > span {
+.sctn_2-blok-desc > span {
 	width: 370px;
 	height: auto;
 	margin: 0 auto;
@@ -459,13 +464,13 @@ body {
 	background-image: url('/amelia/assets/img/sect/3/3/bg-4.jpg');
 }
 
-#bkgrnd-sctn_3b > div {
+#bkgrnd-sctn_3c > div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/amelia/assets/img/sect/3/4/bg-1.jpg');
 }
 
-#bkgrnd-sctn_3b > div + div {
+#bkgrnd-sctn_3c > div + div {
 	width: 100%;
 	height: 200px;
 	background-image: url('/amelia/assets/img/sect/3/4/bg-2.jpg');
@@ -490,7 +495,7 @@ body {
 .sctn_3-blok {
 	width: 25%;
 	position: absolute;
-	top: 125px;
+	top: 150px;
 	margin: 25px;
 	padding: 1em 2em;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
@@ -504,7 +509,7 @@ body {
 .sctn_3-blok p {
 	font-size: 0.95em;
 	text-indent: 1.3em;
-	line-height: 1.5em;
+	line-height: 1.8em;
 }
 
 #sctn_3-desc p {
@@ -522,22 +527,19 @@ body {
 #sctn_3a {
 	left: 125px;
 	background-color: #3d3230;
-	border: 5px solid #bd9e8c;
 }
 
 #sctn_3b {
 	left: 750px;
 	background-color: #42424c;
-	border: 5px solid #898f85;
 }
 
 #sctn_3c {
 	left: 125px;
 	background-color: #37403b;
-	border: 5px solid #f7f7f7;
 }
 
-.sctn_3-blok-desc > span {
+.sctn_3-blok > span {
 	width: 100%;
 	display: block;
 	margin: 7px 0;
@@ -571,3 +573,414 @@ body {
 	color: #f0eceb;
 }
 
+
+/* ---- SECTION 4 ---- */
+
+
+#bkgrnd-sctn_4 > div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/1/bg-1.jpg');
+}
+
+#bkgrnd-sctn_4 > div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/1/bg-2.jpg');
+}
+
+#bkgrnd-sctn_4 > div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/1/bg-3.jpg');
+}
+
+#bkgrnd-sctn_4 > div + div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/1/bg-4.jpg');
+}
+
+#bkgrnd-sctn_4a > div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/2/bg-1.jpg');
+}
+
+#bkgrnd-sctn_4a > div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/2/bg-2.jpg');
+}
+
+#bkgrnd-sctn_4a > div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/2/bg-3.jpg');
+}
+
+#bkgrnd-sctn_4a > div + div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/2/bg-4.jpg');
+}
+
+#bkgrnd-sctn_4b > div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/3/bg-1.jpg');
+}
+
+#bkgrnd-sctn_4b > div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/3/bg-2.jpg');
+}
+
+#bkgrnd-sctn_4b > div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/3/bg-3.jpg');
+}
+
+#bkgrnd-sctn_4b > div + div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/3/bg-4.jpg');
+}
+
+#bkgrnd-sctn_4c > div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/4/bg-1.jpg');
+}
+
+#bkgrnd-sctn_4c > div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/4/bg-2.jpg');
+}
+
+#bkgrnd-sctn_4c > div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/4/bg-3.jpg');
+}
+
+#bkgrnd-sctn_4c > div + div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/4/4/bg-4.jpg');
+}
+
+.headr.sctn_4 {
+	background-color: #ece511;
+}
+
+.sctn_4-blok {
+	width: 25%;
+	position: absolute;
+	top: 175px;
+	left: 33em;
+	margin: 0 auto;
+	padding: 1em 2em;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+.sctn_4-blok p {
+	color: #3b1d13;
+	text-indent: 1em;
+	font-weight: 400;
+}
+
+
+.sctn_4-blok > div {
+	display: block;
+	position: absolute;
+	top: -105px;
+	left: 10px;
+	font-size: 12em;
+}
+
+.sctn_4-blok > p:first-line {
+	font-weight: 600;
+}
+
+.sctn_4-blok > p + p:first-line {
+	font-weight: 400;
+}
+
+.sctn_4-blok > span {
+	width: 100%;
+	display: block;
+	padding-top: 0.3em;
+	border-top: 3px solid;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: right;
+}
+
+#sctn_4-desc {
+	background-color: #fcd36a;
+}
+
+#sctn_4a {
+	background-color: #6b3825;
+}
+
+#sctn_4a p {
+	color: #e9e1de;
+}
+
+#sctn_4a div {
+	color: #c6926a;
+}
+
+#sctn_4a span {
+	color: #e3c766;
+}
+
+#sctn_4b {
+	background-color: #db9b75;
+}
+
+#sctn_4b div {
+	color: #f7e6ba;
+}
+
+#sctn_4b p {
+	color: #320f13;
+}
+
+#sctn_4b span {
+	color: #f2f1ec;
+}
+
+#sctn_4c {
+	background-color: #6c708d;
+}
+
+#sctn_4c div {
+	color: #c9babf;
+}
+
+#sctn_4c p {
+	color: #271916;
+}
+
+/* ---- SECTION 5 ---- */
+
+#bkgrnd-sctn_5 > div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/5/1/bg-1.jpg');
+}
+
+#bkgrnd-sctn_5 > div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/5/1/bg-2.jpg');
+}
+
+#bkgrnd-sctn_5 > div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/5/1/bg-3.jpg');
+}
+
+#bkgrnd-sctn_5 > div + div + div + div {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/5/1/bg-4.jpg');
+}
+
+.headr.sctn_5 {
+	background-color: #90a3c3;
+}
+
+.sctn_5-blok {
+	width: 25%;
+	position: absolute;
+	top: 175px;
+	margin: 25px;
+	padding: 1em 2em;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+}
+
+.sctn_5-blok p {
+	font-size: 0.95em;
+	text-indent: 1.3em;
+	line-height: 1.8em;
+}
+
+#sctn_5-desc-1,
+#sctn_5-desc-2 {
+	left: 150px;
+	background-color: #711f45;
+	border: 5px solid #d7c1c3;
+	color: #e8d4d3;
+}
+
+#sctn_5-desc-2 {
+	width: 28%;	
+}
+
+#sctn_5-desc-2 > span + span {
+	width: auto;
+	text-align: center;
+}
+
+#sctn_5-desc-2 > span + span strong {
+	color: #efe9e9;
+	font-size: 2em;
+}
+
+#sctn_5-desc-2 > span + span strong sup {
+	position: relative;
+	top: -18px;
+	font-size: 0.35em;
+}
+
+div#main-insrance_desc > p:first-line {
+	font-weight: 600;
+}
+
+div#main-insrance_desc > p + p:first-line {
+	font-weight: 400;
+}
+
+div#main-insrnace_comp {
+	left: 590px;
+	padding-bottom: 0;
+	background-color: #a2b5d5;
+}
+
+div#rate-insrance_contct {
+	left: 600px;
+	border: 5px solid #711f45;
+	background-color: #e8d4d3;
+	color: #383b44;
+} 
+
+div#main-insrnace_med {
+	width: 24.25%;
+	top: 505px;
+	left: 590px;
+	background-color: #cbcedd;
+	border: 5px solid #8b9dcb;
+}
+
+div#main-insrnace_comp > span {
+	width: 100%;
+	display: block;
+	margin: 7px 0;
+	padding-bottom: 9px;
+	border-bottom: 2px solid;
+	color: #383b44;
+	font-size: 1.25em;
+	font-weight: 600;
+	text-align: center;
+}
+
+div#main-insrnace_med > span {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	border: none;
+	color: #383b44;
+	font-size: 1.25em;
+	text-align: center;
+}
+
+div#insrance_comps div {
+	height: 45px;
+	margin: 2em auto;
+}
+
+div#aetna {
+	width: 233px;
+	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 0 no-repeat;
+}
+
+div#humana {
+	width: 176px;
+	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -45px no-repeat;
+}
+
+div#optum {
+	width: 105px;
+	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -90px no-repeat;
+}
+
+div#main-insrance_rates {
+	width: 59%;
+	left: 150px;
+	top: 605px;
+	border: 5px solid #711f45;
+	background-color: #e8d4d3;
+}
+
+div#main-insrance_rates > span {
+	width: 77.3%;
+	float: left;
+	border-bottom: none;
+	border-right: 2px solid #711f45;
+	color: #383b44;
+	font-size: 1em;
+}
+
+div#grief {
+	left: 125px;
+	background-color: #3d3230;
+	border: 5px solid #bd9e8c;
+}
+
+div#trauma {
+	left: 750px;
+	background-color: #42424c;
+	border: 5px solid #898f85;
+}
+
+div#deprsn {
+	left: 125px;
+	background-color: #37403b;
+	border: 5px solid #f7f7f7;
+}
+
+div.block-desc > span {
+	width: 100%;
+	display: block;
+	margin: 7px 0;
+	padding-bottom: 9px;
+	border-bottom: 2px solid;
+	font-size: 2.5em;
+	font-weight: 600;	
+}
+
+div#rates-button {
+	position: absolute;
+	right: 7.1em;
+}
+
+div#main-insrance_rates > input,
+input#rquest-cnsltatn {
+	width: auto;
+	height: 50px;
+	display: block;
+	margin: 1em auto 0 auto;
+	background-color: #40BDE8;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #221763;
+	border: 2px solid #369DBF;
+	cursor: pointer;
+}
+
+div#main-insrance_rates > input,
+input#rquest-cnsltatn:hover {
+	background-color: #33CCFF;
+}
+
+div#main-insrance_rates > input {
+	display: initial;
+	margin: 0.3em 0 0 1.4em;
+}
