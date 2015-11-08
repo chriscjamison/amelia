@@ -802,7 +802,6 @@ body {
 	width: 25%;
 	position: absolute;
 	top: 175px;
-	margin: 25px;
 	padding: 1em 2em;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
@@ -850,21 +849,35 @@ body {
 #sctn_5-desc-2 {
 	left: 590px;
 	padding-bottom: 0;
+	background-color: #cbcedd;
+}
+
+#sctn_5-desc-3 {
+	width: 28%;
+	top: 505px;
+	left: 590px;
 	background-color: #a2b5d5;
 }
 
 #sctn_5-desc-4 {
-	left: 600px;
-	border: 5px solid #711f45;
+	width: 685px;
+	height: 65px;
+	left: 200px;
+	top: 605px;
+	background-color: #e8d4d3;
 	color: #383b44;
-} 
-
-#sctn_5-desc-3 {
-	width: 24.25%;
-	top: 505px;
-	left: 590px;
-	background-color: #cbcedd;
 }
+
+#sctn_5-desc-4 > span {
+	width: 535px;
+	height: 65px;
+	float: left;
+	border-bottom: none;
+	border-right: 2px solid #711f45;
+	color: #383b44;
+	font-size: 1em;
+}
+
 
 #sctn_5-desc-2 > span {
 	width: 100%;
@@ -879,13 +892,12 @@ body {
 }
 
 #sctn_5-desc-3 > span {
-	width: 100%;
+	width: 75%;
 	margin: 0 auto;
-	padding: 0;
-	border: none;
+	display: block;
 	color: #383b44;
+	font-weight: 700;
 	font-size: 1.25em;
-	text-align: center;
 }
 
 #sctn_5-logos div {
@@ -907,21 +919,3 @@ body {
 	width: 105px;
 	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -90px no-repeat;
 }
-/*
-div#main-insrance_rates {
-	width: 59%;
-	left: 150px;
-	top: 605px;
-	border: 5px solid #711f45;
-	background-color: #e8d4d3;
-}
-
-div#main-insrance_rates > span {
-	width: 77.3%;
-	float: left;
-	border-bottom: none;
-	border-right: 2px solid #711f45;
-	color: #383b44;
-	font-size: 1em;
-}
-*/

@@ -422,9 +422,9 @@ $(document).ready(
 			}
 		);
 		
-		$("input#calculate-rate").on("click",
+		$("input#sctn_5-bttn").on("click",
 			function ()	{
-				location.href = "http://localhost/amelia/sc/sctn_5-a.htm";
+				location.href = "http://localhost/amelia/sc/sctn/5/sctn_5-a.htm";
 			}
 		);
 		
