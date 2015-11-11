@@ -869,7 +869,7 @@ body {
 }
 
 #sctn_5-desc-4 > span {
-	width: 535px;
+	width: 534px;
 	height: 65px;
 	float: left;
 	border-bottom: none;
@@ -877,7 +877,6 @@ body {
 	color: #383b44;
 	font-size: 1em;
 }
-
 
 #sctn_5-desc-2 > span {
 	width: 100%;
@@ -898,6 +897,56 @@ body {
 	color: #383b44;
 	font-weight: 700;
 	font-size: 1.25em;
+}
+
+#sctn_5-desc-5 {
+	left: 150px;
+	background-color: #711f45;
+	color: #e8d4d3;
+}
+
+#sctn_5-desc-5 > span {
+	display: block;
+	margin-bottom: 0.6em;
+	border-bottom: 2px solid;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+#sctn_5-desc-5 > span + span {
+	width: 200px;
+	margin: 0 auto;
+	border: none;
+}
+
+#sctn_5-desc-5 > span + span strong {
+	width: 100%;
+	color: #efe9e9;
+	font-size: 3em;
+}
+
+#sctn_5-desc-5 > span + span strong sup {
+	position: relative;
+	top: -18px;
+	font-size: 0.35em;
+}
+
+#sctn_5-desc-5 > p {
+	font-size: 0.95em;
+}
+
+#sctn_5-desc-6 {
+	left: 600px;
+	background-color: #e8d4d3;
+	color: #383b44;
+}
+
+#sctn_5-desc-6 > p {
+	font-size: 0.95em;
+}
+
+#sctn_5-desc-6 > p:first-line {
+	font-weight: 700;
 }
 
 #sctn_5-logos div {
