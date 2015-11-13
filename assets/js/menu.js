@@ -235,28 +235,26 @@ $(document).ready(
 		function fadeSctnNav(mouseState) {
 			var menuOptionClass = mouseState + "-sctn_nav";
 			
-			$( ".sctn_nav > span" ).fadeTo( 75, 0, 
+			$( ".sctn_nav > div > span" ).fadeTo( 75, 0, 
 				function () {
-					$( ".sctn_nav > span" ).attr( "class", menuOptionClass );
-				 	$( ".sctn_nav > span" ).fadeTo( 75, 1 );
+					$( ".sctn_nav > div > span" ).attr( "class", menuOptionClass );
+				 	$( ".sctn_nav > div > span" ).fadeTo( 75, 1 );
 				} 
 			);
 		}
 		
 		function fadeSctnNavOptions() {
-			if ($("div.sctn_nav > div").css("display") === "none") {
-				$("div.sctn_nav > div").css(sctnNavOptionsTopOffCSS);					
+			if ($("div.sctn_nav > div > div").css("display") === "none") {
+				$("div.sctn_nav > div > div").css(sctnNavOptionsTopOffCSS);					
 				
-				$("div.sctn_nav > div").css(sctnNavOptionsOnCSS);	
+				$("div.sctn_nav > div > div").css(sctnNavOptionsOnCSS);	
 
-				$("div.sctn_nav > div").animate(sctnNavOptionsTopOnCSS, 200);
+				$("div.sctn_nav > div > div").animate(sctnNavOptionsTopOnCSS, 200);
 			} else {
-				$("div.sctn_nav > div").animate(sctnNavOptionsTopOffCSS, 175);
+				$("div.sctn_nav > div > div").animate(sctnNavOptionsTopOffCSS, 175);
 				
-				$("div.sctn_nav > div").css(sctnNavOptionsBaseCSS).delay(200);	
+				$("div.sctn_nav > div > div").css(sctnNavOptionsBaseCSS).delay(200);	
 			}
-			
-			// $("div.sctn_nav A").fadeToggle(500);
 		}
 		
 		$("#next-sctn").on("mouseenter", 
@@ -330,26 +328,26 @@ $(document).ready(
 			}
 		);
 		
-		$(".sctn_nav > span").on("mouseenter",
+		$(".sctn_nav > div > span").on("mouseenter",
 			function() {
-				if ($(".sctn_nav > div").css("display") == "none") {
+				if ($(".sctn_nav > div > div").css("display") == "none") {
 					fadeSctnNav("hover");
 				} 
 			}
 		);
 		
-		$(".sctn_nav > span").on("mouseleave",
+		$(".sctn_nav > div > span").on("mouseleave",
 			function() {
-				if ($(".sctn_nav > div").css("display") == "none") {
+				if ($(".sctn_nav > div > div").css("display") == "none") {
 					fadeSctnNav("base");
 				}
 			}
 		);
 		
 		
-		$(".sctn_nav > span").on("click",
+		$(".sctn_nav > div > span").on("click",
 			function() {
-				if ($("div.sctn_nav > div").css("display") == "none") {
+				if ($("div.sctn_nav > div > div").css("display") == "none") {
 					fadeSctnNav("click");
 					
 					fadeSctnNavOptions();
@@ -363,9 +361,9 @@ $(document).ready(
 			}
 		);
 		
-		$(".sctn_nav > div > a").on("click",
+		$(".sctn_nav > div > div > a").on("click",
 			function() {
-				$("div.sctn_nav > span").css(specltesBaseCSS);
+				$("div.sctn_nav > div > span").css(specltesBaseCSS);
 			}
 		);
 

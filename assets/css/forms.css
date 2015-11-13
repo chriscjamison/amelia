@@ -1,16 +1,17 @@
-#qstnair {
+#qstnair,
+#cntct_form {
 	position: absolute;
 	top: 150px;
 	left: 150px;
 }
-
+/*
 #form-cntct_info {
 	width: 77%;
 	height: inherit;
 	position: relative;
 	margin: 0 auto;
 }
-
+*/
 .clmn {
 	width: 50%;
 	height: auto;
@@ -108,12 +109,48 @@
 
 #submit-cntct {
 	margin: 0;
-	margin-right: 4.6em;
+	margin-right: 1.5em;
 	float: right;
 }
 
 fieldset {
 	margin: 1em;
+}
+
+fieldset > div {
+	margin: 0 auto;
+	width: 262px;
+}
+
+input[type=button],
+input[type=submit] {
+	width: 125px;
+	height: 50px;
+	margin: 0.35em 0 0 1.4em;
+	background-color: #40BDE8;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #221763;
+	border: 2px solid #369DBF;
+	cursor: pointer;
+}
+
+input[type=button]:hover,
+input[type=submit]:hover {
+	background-color: #33CCFF;
+}
+
+input#sctn_5-bttn {
+	display: initial;
+	margin: 0.4em 0 0 1.4em;
+}
+
+input#sctn_5-sbmt {
+	margin-right: 1.5em;
+	float: right;
+}
+
+input#sctn_5-cntct {
+	float: right;
 }
 
 label + p,
@@ -254,40 +291,4 @@ p:not(#foo) > input[type=checkbox]:active:checked + label,
 p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
 	background-position: 0 -153px;
 	font-weight: normal;
-}
-
-fieldset > div {
-	margin: 0 auto;
-	width: 262px;
-}
-
-input[type=button],
-input[type=submit] {
-	width: 125px;
-	height: 50px;
-	margin: 0.35em 0 0 1.4em;
-	background-color: #40BDE8;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
-	color: #221763;
-	border: 2px solid #369DBF;
-	cursor: pointer;
-}
-
-input[type=button]:hover,
-input[type=submit]:hover {
-	background-color: #33CCFF;
-}
-
-input#sctn_5-bttn {
-	display: initial;
-	margin: 0.4em 0 0 1.4em;
-}
-
-input#sctn_5-sbmt {
-	margin-right: 1.5em;
-	float: right;
-}
-
-input#sctn_5-cntct {
-	float: right;
 }
