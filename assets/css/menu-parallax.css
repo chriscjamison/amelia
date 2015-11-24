@@ -20,10 +20,12 @@
 
 .menu-base {
 	background-position: 0 0;
+	cursor: default;
 }
 
 .menu-hover {
 	background-position: 0 -50px;
+	cursor: pointer;
 }
 
 .menu-click_1 {
@@ -60,10 +62,6 @@
 	top: 105px;
 	left: 25px;
 	opacity: 0;
-}
-
-.options_main {
-	top: 75px;
 }
 
 .option-hover {

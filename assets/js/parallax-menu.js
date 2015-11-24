@@ -175,14 +175,20 @@ $(document).ready(
 		} // END OF function 'fadeMenuButton'
 		
 		function fadeMenu(stateValue) {
+			var scrollPosition = $(window).scrollTop() + "px";
+			
 			if (stateValue === "click_on") {
+				
 				// $("body").css(bodyClickOnCSS);
 				$("#menu").css(menuPositionClickOnCSS);
-				$("#menu-bkgrnd").css("top", $(window).scrollTop());
+				
+				window.alert("scrollPosition = " + scrollPosition);
+				$("#menu-bkgrnd").css("top", scrollPosition);
+				window.alert("$(\"#menu-bkgrnd\").css(\"top\", scrollPosition) = " + $("#menu-bkgrnd").css("top"));
 				$("#cntainr").animate(cntainrClickOnCSS, 200);
 				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
 					function () {
-						$("#options").css("top", $(window).scrollTop());
+						// $("#options").css("top", $(window).scrollTop());
 						$("#options").css(optionsClickOnCSS);
 						$("#options").fadeTo(200, 1).delay(200);
 					}
@@ -191,15 +197,14 @@ $(document).ready(
 				$("#options").fadeTo(200, 0,
 					function () {
 						$("#options").css(optionsClickOffCSS);
-						$("#options").css("top", "0px");
+						// $("#options").css("top", "0px");
 						$("#menu").css(menuPositionClickOffCSS);
 						$("#menu-bkgrnd").css("top", "0px");
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
-						$("#bkgrnd").animate(bkgrndClickOffCSS, 200,
-							function () {
+						$("#bkgrnd").animate(bkgrndClickOffCSS, 200);
+							/*function () {
 								// $("body").css(bodyClickOffCSS);
-							}
-						);
+							}*/
 					}
 				);
 			}
@@ -349,22 +354,22 @@ $(document).ready(
 
 					fadeMenuButton("menu-base");
 				} else {
-					fadeMenu("click_on");
-
-					fadeMenuButton("menu-click_1");
-
-					$("#menu").on("mouseleave",
-						function () {
-							if ($("#menu-bkgrnd").css("display") === "block") {
-								fadeMenu("click_off");
-
-								fadeMenuButton("menu-base");
+						fadeMenu("click_on");
+	
+						fadeMenuButton("menu-click_1");
+						
+						$("#cntainr").on("mouseover",
+							function () {
+								if ($("#menu-bkgrnd").css("display") === "block")	{
+									fadeMenu("click_off");
+	
+									fadeMenuButton("menu-base");
+								}
 							}
-						}
 						);
+					}
 				}
-			}
-			);
+		);
 
 		$("#options > span").on("mouseenter",
 			function () {

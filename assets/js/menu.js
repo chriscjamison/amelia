@@ -275,7 +275,7 @@ $(document).ready(
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
 					fadeMenuButton("menu-click_2");
 				} else {
-					if (!$( "#menu-link").hasClass( "menu-click_2" )) {
+					if ($( "#menu-link").hasClass( "menu-click_2" ) === false) {
 						fadeMenuButton("menu-base"); 	
 					}		
 				}
