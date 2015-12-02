@@ -15,6 +15,7 @@ body {
 	top: 0; 
 	left: 0;
 	clear: both;
+	z-index: 1;
 }
 
 .wndow {
@@ -33,7 +34,7 @@ body {
 	position: absolute;
 	top: 0;
 	left: -260px;
-	z-index: -1;
+	z-index: 0;
 }
 
 .page_bkgrnd {
@@ -43,7 +44,7 @@ body {
 	top: 0;
 	left: 260px;
 	display: table-cell;
-	z-index: -1;
+	z-index: 0;
 }
 
 .sctn-blok {
@@ -1003,22 +1004,40 @@ body {
 	font-weight: 700;
 }
 
-#sctn_5-desc-5 > span + span {
-	width: 200px;
-	margin: 0 auto;
-	border: none;
+#sctn_5-desc-5 > span + div {
+	height: 115px;
 }
 
-#sctn_5-desc-5 > span + span strong {
-	width: 100%;
+#sctn_5-desc-5 > span + div > span {
+	height: 180px;
+	position: absolute;
+	top: 0px;
+}
+
+#sctn_5-desc-5 > div > span > sup {
+	position: absolute;
+	top: 65px;
+	left: 85px;
+	display: inline-block;
+	font-size: 2.5em;
+}
+
+#sctn_5-desc-5 > div > span > strong {
+	position: absolute;
+	top: 15px;
+	left: 100px;
+	display: inline-block;
 	color: #efe9e9;
-	font-size: 3em;
+	font-size: 10em;
+	letter-spacing: -8px;
 }
 
-#sctn_5-desc-5 > span + span strong sup {
-	position: relative;
-	top: -18px;
-	font-size: 0.35em;
+#sctn_5-desc-5 > div > span > span 	{
+	position: absolute;
+	top: 150px;
+	left: 250px;
+	display: inline-block;
+	font-size: 2em;
 }
 
 #sctn_5-desc-5 > p {
@@ -1163,7 +1182,7 @@ body {
 }
 
 #sctn_6-desc-1 {
-	width: 85.3%;
+	width: 85.2%;
 	top: 175px;
 	left: 175px;
 	padding: 1em;

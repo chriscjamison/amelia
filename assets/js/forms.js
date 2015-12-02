@@ -70,8 +70,8 @@ function loadQuiz(questionSet) {
 	var questionNum;
 
 	var questionPath = "/amelia/assets/ajax/quiz/qstn_";
-	var questionSuffix = ".htm?" + Math.round(Math.random() * 100 );
-	window.alert("questionSuffix = " + questionSuffix);
+	var questionSuffix = ".htm";
+	
 	var columnDivElement_Array = new Array();
 
 	var questionData_Array = new Array();
@@ -106,9 +106,7 @@ function loadContactForm(infoSet) {
 	var infoNum;
 
 	var infoPath = "/amelia/assets/ajax/cntct/info_";
-	var infoSuffix = ".htm" + Math.round(Math.random() * 100 );
-	
-	window.alert("infoSuffix = " + infoSuffix);
+	var infoSuffix = ".htm";
 	
 	var columnDivElement_Array = new Array();
 

@@ -107,7 +107,7 @@
 }
 
 #cntct-prev {
-	margin-top: 0;
+	margin: 0 1em;
 }
 
 #quiz-sbmt {
@@ -115,9 +115,9 @@
 	left: 7.9em;
 }
 
-#submit-cntct {
-	margin: 0;
-	margin-right: 1.5em;
+#sbmt-cntct {
+	margin: 0 1.5em;
+	/*margin-right: 1.5em;*/
 	float: right;
 }
 

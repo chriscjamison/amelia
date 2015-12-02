@@ -1,7 +1,7 @@
 /* menu.css */
 #menu {
 	width: 260px;
-	height: 100px;
+	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -14,6 +14,7 @@
 	position: fixed;
 	top: 25px;
 	left: 25px;
+	z-index: 5;
 	background-image: url('/amelia/assets/img/menu/menu.png');
 	background-repeat: no-repeat;
 }
@@ -41,7 +42,8 @@
 	height: 100%;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: -260px;
+	z-index: 3;
 	background-color: #666;
 }
 
@@ -51,6 +53,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 3;
 	background-color: #444;
 }
 
@@ -62,6 +65,7 @@
 	top: 105px;
 	left: 25px;
 	opacity: 0;
+	z-index: 4;
 }
 
 .option-hover {
@@ -93,6 +97,7 @@
 	position: fixed;
 	right: 25px;
 	bottom: 25px;
+	z-index: 1;
 	background: url('/amelia/assets/img/menu/next/next-sctn.png') 0 0 no-repeat;
 }
 
@@ -109,7 +114,7 @@
 }
 
 div.sctn_nav {
-	width: 100%;
+	width: 1280px;
 	height: 135px;
 	position: absolute;
 	top: 630px;
@@ -127,12 +132,13 @@ div.sctn_nav > div {
 }
 
 #menu-sctn_6 > div {
-	width: 375px;
-}
-
-#menu-sctn_6.sub_menu > div {
+	/*width: 375px;*/
 	width: 552px;
 }
+/*
+#menu-sctn_6.sub_menu > div {
+	width: 552px;
+}*/
 
 div.sctn_nav > div > span {
 	width: 150px;
@@ -184,26 +190,22 @@ div.sctn_nav > div > span.click-sctn_nav {
 div.sctn_nav > div > div {
 	width: 552px;
 	height: 80px;
-	display: none;
 	margin: 0 auto;
+	position: absolute;
+	display: none;
 }
 
 div.sctn_nav.sub_menu > div > div {
 	width: 740px;
 	margin: 0 auto;
-	left: 0;
 }
-/*
-.nav-sub-sctn > div > div {
-	width: 740px;
-}*/
 
 div.sctn_nav > div > div > a {
 	width: 150px;
 	height: 22px;
 	display: block;
 	float: left;
-	margin: 15px;
+	margin: 0 15px;
 	padding: 3px 0 6px 0;
 	background-color: #000;
 	border: 2px solid #222;

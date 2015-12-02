@@ -10,22 +10,26 @@
 		
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/parallax-menu.js"></script>
-		<script src="/amelia/assets/js/quiz.js"></script>
+		<script src="/amelia/assets/js/forms.js"></script>
+		<script src="/amelia/assets/js/animtn.js"></script>
 	</head>
 	
 	<body onload="loadQuiz('initial'); loadContactForm('initial');">
 		<div id="menu">
 			<span class="menu-base" id="menu-link"></span>
+				<div id="options">
+				<span id="home">Welcome</span>
+				<span id="sctn-1">Is Therapy Right for You?</span>
+				<span id="sctn-2">Credentials</span>
+				<span id="sctn-3">Specialities</span>
+				<span id="sctn-4">Testimonials</span>
+				<span id="sctn-5">Insurance & Rates</span>
+				<span id="sctn-6">Contact Amelia Xavier</span>
 		</div>
-		<div id="options">
-			<span id="home">Welcome</span>
-			<span id="sctn-1">Is Therapy Right for You?</span>
-			<span id="sctn-2">Credentials</span>
-			<span id="sctn-3">Specialities</span>
-			<span id="sctn-4">Testimonials</span>
-			<span id="sctn-5">Insurance & Rates</span>
-			<span id="sctn-6">Contact Amelia Xavier</span>
+		<div id="menu-bkgrnd">
+			<div id="menu-brdr"></div>
 		</div>
+		
 		<div id="cntainr">
 			<div class="wndow sctn-main">
 				<a name="sctn_main"></a>
@@ -63,15 +67,12 @@
 				</div>
 				<div class="copy">
 					<div id="qstnair">
-						
-						<form method="post" name="is_therapy">
-							<div class="clmn" id="clmn_1">
-								
-							</div>
-							<div class="clmn" id="clmn_2">
-								
-							</div>
-						</form>
+						<div class="clmn" id="clmn_1">
+							
+						</div>
+						<div class="clmn" id="clmn_2">
+							
+						</div>
 					</div>	
 				</div>
 				<div class="copy">
@@ -104,7 +105,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="wndow" id="wndow-sect_2">
+			<div class="wndow" id="wndow-sctn_2">
 				<a name="sctn_2"></a>
 				<div class="headr sctn_2">Credentials</div>
 				<div class="copy">
@@ -140,7 +141,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="wndow" id="wndow-sect_3">
+			<div class="wndow" id="wndow-sctn_3">
 				<a name="sctn_3"></a>
 				<div class="headr sctn_3">Specialties</div>
 				<div class="copy">
@@ -156,17 +157,6 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
-					</div>
-					
-					<div class="sctn_nav" id="menu-sctn_3">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="sctn_3-a.htm">Grief</a>
-								<a href="sctn_3-b.htm">Trauma</a>
-								<a href="sctn_3-c.htm">Depression</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="copy">
@@ -185,18 +175,6 @@
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
 					</div>
-					
-					<div class="sctn_nav sub_menu" id="menu-sctn_3">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_3-a.htm">Grief</a>
-								<a href="sctn_3-b.htm">Trauma</a>
-								<a href="sctn_3-c.htm">Depression</a>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="copy">
 					<div class="sctn_3-blok" id="sctn_3b">
@@ -213,18 +191,6 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
-					</div>
-					
-					<div class="sctn_nav sub_menu" id="menu-sctn_3">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_3-a.htm">Grief</a>
-								<a href="sctn_3-b.htm">Trauma</a>
-								<a href="sctn_3-c.htm">Depression</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="copy">
@@ -243,21 +209,20 @@
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
 					</div>
-					
-					<div class="sctn_nav sub_menu" id="menu-sctn_3">
+				</div>
+				<div class="sctn_nav sub_menu" id="menu-sctn_3">
+					<div>
+						<span>&nbsp;</span>
 						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_3-a.htm">Grief</a>
-								<a href="sctn_3-b.htm">Trauma</a>
-								<a href="sctn_3-c.htm">Depression</a>
-							</div>
+							<a href="#sctn_3?pos=0">Home</a>
+							<a href="#sctn_3?pos=1">Grief</a>
+							<a href="#sctn_3?pos=2">Trauma</a>
+							<a href="#sctn_3?pos=3">Depression</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="wndow" id="wndow-sect_4">
+			<div class="wndow" id="wndow-sctn_4">
 				<a name="sctn_4"></a>
 				<div class="headr sctn_4">Testimonials</div>
 				<div class="copy">
@@ -270,16 +235,6 @@
 							Integer ultrices fermentum pharetra. Interdum	et malesuada fames ac ante ipsum primis in faucibus. 
 							Etiam vel lorem non arcu pharetra eleifend vitae nec metus. 
 						</p>
-					</div>
-					<div class="sctn_nav" id="menu-sctn_4">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="sctn_4-a.htm">Monifah</a>
-								<a href="sctn_4-b.htm">Melina</a>
-								<a href="sctn_4-c.htm">Owen</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="copy">
@@ -295,17 +250,7 @@
 						</p>
 						<span>Monifah Simpson</span>
 					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_4">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_4-a.htm">Monifah</a>
-								<a href="sctn_4-b.htm">Ramira</a>
-								<a href="sctn_4-c.htm">Owen</a>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 				<div class="copy">
 					<div class="sctn_4-blok" id="sctn_4b">
@@ -319,17 +264,6 @@
 							suscipit, interdum eget ante. Morbi vehicula sem vitae nulla cursus sollicitudin.
 						</p>
 						<span>Ramira Campos</span>
-					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_4">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_4-a.htm">Monifah</a>
-								<a href="sctn_4-b.htm">Ramira</a>
-								<a href="sctn_4-c.htm">Owen</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="copy">
@@ -347,20 +281,20 @@
 						</p>
 						<span>Owen Murray</span>
 					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_4">
+				</div>
+				<div class="sctn_nav sub_menu" id="menu-sctn_4">
+					<div>
+						<span>&nbsp;</span>
 						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_4-a.htm">Monifah</a>
-								<a href="sctn_4-b.htm">Melina</a>
-								<a href="sctn_4-c.htm">Owen</a>
-							</div>
+							<a href="#sctn_4?pos=0">Home</a>
+							<a href="#sctn_4?pos=1">Monifah</a>
+							<a href="#sctn_4?pos=2">Ramirah</a>
+							<a href="#sctn_4?pos=3">Owen</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="wndow" id="wndow-sect_5">
+			<div class="wndow" id="wndow-sctn_5">
 				<a name="sctn_5"></a>
 				<div class="headr sctn_5">Insurance & Rates</div>
 				<div class="copy">
@@ -371,11 +305,15 @@
 							adipiscing elit. Quisque ut molestie est. Quisque arcu ipsum, tempor et feugiat nec, vehicula et lorem. 
 							Nulla facilisi.
 						</p>
-						
 						<p>
 							Ut at nulla sed dolor congue pellentesque non sodales lorem. Sed gravida nulla venenatis 
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
+						</p>
+						
+						<p>
+							Cras ut tellus quis nunc faucibus maximus. Cras porttitor ac orci non scelerisque. 
+							Nam volutpat ante a efficitur porta. Nam viverra pellentesque tortor.
 						</p>
 					</div>
 					
@@ -399,8 +337,7 @@
 				</div>
 				<div class="copy">
 					<div id="qstnair">
-						<form method="post" action="/amelia/sc/sctn/5/sctn_5-b.htm" name="sctn_5-rate">
-							<div class="clmn">
+						<div class="clmn">
 								<div class="qstn" id="sctn_5-qstn_1">
 									<span><strong>Question <sup>#</sup>1: </strong></span>
 									<span>
@@ -472,16 +409,21 @@
 									</fieldset>	
 								</div>
 								<div id="rates-button">
-									<input type="submit" name="submit-rate" value="Find Out Rate" id="sctn_5-sbmt" />
+									<input type="button" name="submit-rate" value="Find Out Rate" id="sctn_5-sbmt" />
 								</div>
 							</div>
-						</form>
 					</div>
 				</div>
 				<div class="copy">
 					<div class="sctn_5-blok" id="sctn_5-desc-5">
 						<span>Sliding Scale Rate</span>
-						<span><strong><sup>$</sup>45</strong>/hour</span>
+						<div>
+							<span>
+								<sup>$</sup>
+								<strong>45</strong>
+								<span>/hour</span>
+							</span>
+						</div>
 						<p>
 							Ut at nulla sed dolor congue pellentesque non sodales lorem. Sed gravida nulla venenatis 
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
@@ -495,11 +437,11 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
-						<input type="submit" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" />
+						<input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" onclick="animateWindows(6, 6, 1);" />
 					</div>
 				</div>
 			</div>
-			<div class="wndow" id="wndow-sect_6">
+			<div class="wndow" id="wndow-sctn_6">
 				<a name="sctn_6"></a>
 				<div class="headr sctn_6">Contact Amelia Xavier</div>
 				<div class="copy">
@@ -525,19 +467,10 @@
 							<span class="title_emrgncy">In the case of an medical emergency: <strong>Dial 911</strong></span>
 						</div>
 					</div>
-					<div class="sctn_nav" id="menu-sctn_6">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="sctn_6-a.htm">Contact Online</a>
-								<a href="sctn_6-b.htm">View Map</a>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="copy">
 					<div id="cntct_form">
-						<form method="post" action="/amelia/sc/sctn/6/sctn_6-c.htm" name="cntct_info" id="form-cntct_info">
+						<form method="post" name="cntct_info" id="form-cntct_info">
 							<div class="clmn" id="cntct-clmn-1">
 								
 							</div>
@@ -546,16 +479,6 @@
 								
 							</div>
 						</form>
-					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_6">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_6-a.htm">Contact Online</a>
-								<a href="sctn_6-b.htm">View Map</a>
-							</div>
-						</div>
 					</div>
 				</div>
 				<div class="copy">
@@ -585,16 +508,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_6">
-						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_6-a.htm">Contact Online</a>
-								<a href="sctn_6-b.htm">View Map</a>
-							</div>
-						</div>
-					</div>
 				</div>
 				<div class="copy">
 					<div id="sctn_6-desc-5">
@@ -605,15 +518,15 @@
 								neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
 							</p>
 						</div>
-					</div>
-					<div class="sctn_nav sub_menu" id="menu-sctn_6">
+					</div>					
+				</div>
+				<div class="sctn_nav sub_menu" id="menu-sctn_6">
+					<div>
+						<span>&nbsp;</span>
 						<div>
-							<span>&nbsp;</span>
-							<div>
-								<a href="index.htm">Home</a>
-								<a href="sctn_6-a.htm">Contact Online</a>
-								<a href="sctn_6-b.htm">View Map</a>
-							</div>
+							<a href="#sctn_6?pos=0">Home</a>
+							<a href="#sctn_6?pos=1">Contact Online</a>
+							<a href="#sctn_6?pos=2">View Map</a>
 						</div>
 					</div>
 				</div>
@@ -623,9 +536,6 @@
 			<span>Click to view the next section</span>
 		</div>
 		<div id="bkgrnd">
-			<div id="menu-bkgrnd">
-				<div id="menu-brdr"></div>
-			</div>
 			<div class="page_bkgrnd" id="bkgrnd-main">
 				<div></div>
 				<div></div>

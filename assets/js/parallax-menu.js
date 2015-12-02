@@ -102,15 +102,7 @@ $(document).ready(
 					color: "#000",
 					cursor: "default"
 				};
-
-		var bodyClickOnCSS = {
-					overflow: "hidden"
-				};
-
-		var bodyClickOffCSS = {
-					overflow: "visible"
-				};
-
+				
 		var nextSctnTextOverCSS = {
 					color: "#808080"
 				};
@@ -178,17 +170,13 @@ $(document).ready(
 			var scrollPosition = $(window).scrollTop() + "px";
 			
 			if (stateValue === "click_on") {
-				
-				// $("body").css(bodyClickOnCSS);
 				$("#menu").css(menuPositionClickOnCSS);
 				
-				window.alert("scrollPosition = " + scrollPosition);
+				$("#menu-bkgrnd").animate(bkgrndClickOnCSS, 200);
 				$("#menu-bkgrnd").css("top", scrollPosition);
-				window.alert("$(\"#menu-bkgrnd\").css(\"top\", scrollPosition) = " + $("#menu-bkgrnd").css("top"));
 				$("#cntainr").animate(cntainrClickOnCSS, 200);
 				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
 					function () {
-						// $("#options").css("top", $(window).scrollTop());
 						$("#options").css(optionsClickOnCSS);
 						$("#options").fadeTo(200, 1).delay(200);
 					}
@@ -197,14 +185,12 @@ $(document).ready(
 				$("#options").fadeTo(200, 0,
 					function () {
 						$("#options").css(optionsClickOffCSS);
-						// $("#options").css("top", "0px");
 						$("#menu").css(menuPositionClickOffCSS);
 						$("#menu-bkgrnd").css("top", "0px");
+						$("#menu-bkgrnd").animate(bkgrndClickOffCSS, 200);
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200);
-							/*function () {
-								// $("body").css(bodyClickOffCSS);
-							}*/
+						
 					}
 				);
 			}
@@ -265,47 +251,85 @@ $(document).ready(
 								}
 						}			
 	
-					
-					
-
 			}
 		}
 
-		function fadeSctnNav(mouseState) {
+		function fadeSctnNav(mouseState, subNavID) {
 			var menuOptionClass = mouseState + "-sctn_nav";
-
-			$(".sctn_nav > div > span").fadeTo(75, 0,
+			
+			$(subNavID).fadeTo(75, 0,
 				function () {
-					$(".sctn_nav > div > span").attr("class", menuOptionClass);
-					$(".sctn_nav > div > span").fadeTo(75, 1);
+					$(subNavID).attr("class", menuOptionClass);
+					$(subNavID).fadeTo(75, 1);
 				}
 				);
 		}
 
-		function fadeSctnNavOptions() {
-			if ($("div.sctn_nav > div > div").css("display") === "none") {
-				$("div.sctn_nav > div > div").css(sctnNavOptionsTopOffCSS);
+		function fadeSctnNavOptions(subNavValue) {
+			if ($(subNavValue).css("display") === "none") {
+				$(subNavValue).css(sctnNavOptionsTopOffCSS);
 
-				$("div.sctn_nav > div > div").css(sctnNavOptionsOnCSS);
+				$(subNavValue).css(sctnNavOptionsOnCSS);
 
-				$("div.sctn_nav > div > div").animate(sctnNavOptionsTopOnCSS, 200);
+				$(subNavValue).animate(sctnNavOptionsTopOnCSS, 200);
 			} else {
-				$("div.sctn_nav > div > div").animate(sctnNavOptionsTopOffCSS, 175);
+				$(subNavValue).animate(sctnNavOptionsTopOffCSS, 200);
 
-				$("div.sctn_nav > div > div").css(sctnNavOptionsBaseCSS).delay(200);
+				$(subNavValue).css(sctnNavOptionsBaseCSS).delay(200);
 			}
 		}
-
-		/*function animateWindows(windowPane) {
-		    switch (windowPane) {
-		        case "completeQuiz":
-		             $("#bkgrnd-1").css("left", "-2560px");
-			         $("#wndow-sctn_1").css("left", "-2560px");
-		        break;
-		    }
-		}*/
-
-
+		
+		function animateWindowPanes() {
+			var pageURLString = window.location.hash;
+			
+			if (pageURLString !== "") {
+				var variableIndexNum;
+				
+				var sectionNum;
+				var positionNum;
+				
+				var sectionNumString = "sctn_";
+				var positionNumString = "pos=";
+				
+				variableIndexNum = pageURLString.indexOf(sectionNumString);
+				
+				sectionNum = pageURLString.charAt(variableIndexNum + sectionNumString.length);
+				
+				var bkgrndValueString = "#bkgrnd-" + sectionNum;
+				var windowPaneValueString = "#wndow-sctn_" + sectionNum;
+				var headerValueString = "div.headr.sctn_" + sectionNum;
+				
+				variableIndexNum = pageURLString.indexOf(positionNumString);
+				
+				positionNum = pageURLString.charAt(variableIndexNum + positionNumString.length);
+				
+				var bkgrndValueNum = positionNum * -1280;
+				var windowPaneValueNum = positionNum * -1280;
+				var headerValueNum = positionNum * 1280;
+				
+				var bkgrndValueNumString = bkgrndValueNum + "px";
+				var windowPaneValueNumString = windowPaneValueNum + "px";
+				var headerValueNumString = headerValueNum + "px";
+					
+				$(bkgrndValueString).css("left", bkgrndValueNumString);
+				$(windowPaneValueString).css("left", windowPaneValueNumString);
+				$(headerValueString).css("left", headerValueNumString);
+				
+				var subNavValueString = "#menu-sctn_" + sectionNum;
+				
+				var windowScrollNum = sectionNum * 800;
+				
+				$(window).scrollTop(windowScrollNum);
+				
+				if ($(subNavValueString)) {
+					var subNavValueNum = positionNum * 1280;
+					var subNavValueNumString = subNavValueNum + "px";
+							
+					$(subNavValueString).css("left", subNavValueNumString);
+				}
+			}
+		}
+		
 
 		$("#next-sctn").on("mouseenter",
 			function () {
@@ -356,19 +380,16 @@ $(document).ready(
 				} else {
 						fadeMenu("click_on");
 	
-						fadeMenuButton("menu-click_1");
-						
-						$("#cntainr").on("mouseover",
-							function () {
-								if ($("#menu-bkgrnd").css("display") === "block")	{
-									fadeMenu("click_off");
-	
-									fadeMenuButton("menu-base");
-								}
-							}
-						);
-					}
+						fadeMenuButton("menu-click_1");}
 				}
+		);
+		
+		$("#menu").on("mouseleave",
+			function () {
+				fadeMenu("click_off");
+
+				fadeMenuButton("menu-base");
+			}
 		);
 
 		$("#options > span").on("mouseenter",
@@ -385,16 +406,24 @@ $(document).ready(
 
 		$(".sctn_nav > div > span").on("mouseenter",
 			function () {
-				if ($(".sctn_nav > div > div").css("display") == "none") {
-					fadeSctnNav("hover");
-				}
-			}
+				var currentSctnNavID = $(this).parent().parent().attr("id");
+				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
+				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
+							
+				if ($(currentSctnNavElement).css("display") === "none") {
+					fadeSctnNav("hover", currentSctnNavIDString);
+				}	
+			} 
 			);
 
 		$(".sctn_nav > div > span").on("mouseleave",
 			function () {
-				if ($(".sctn_nav > div > div").css("display") == "none") {
-					fadeSctnNav("base");
+				var currentSctnNavID = $(this).parent().parent().attr("id");
+				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
+				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
+					
+				if ($(currentSctnNavElement).css("display") === "none") {
+					fadeSctnNav("base", currentSctnNavIDString);
 				}
 			}
 			);
@@ -402,25 +431,33 @@ $(document).ready(
 
 		$(".sctn_nav > div > span").on("click",
 			function () {
-				if ($("div.sctn_nav > div > div").css("display") == "none") {
-					fadeSctnNav("click");
+				var currentSctnNavID = $(this).parent().parent().attr("id");
+				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
+				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
+				
+				if ($(currentSctnNavElement).css("display") === "none") {
+					fadeSctnNav("click", currentSctnNavIDString);
 
-					fadeSctnNavOptions();
+					fadeSctnNavOptions(currentSctnNavElement);
 				} else {
-					fadeSctnNav("active");
-
-					fadeSctnNav("base");
-
-					fadeSctnNavOptions();
+					fadeSctnNav("active", currentSctnNavIDString);
+					
+					fadeSctnNavOptions(currentSctnNavElement);
 				}
 			}
 			);
 
 		$(".sctn_nav > div > div > a").on("click",
 			function () {
-				$("div.sctn_nav > div > span").css(specltesBaseCSS);
-			}
-			);
+				var currentSctnNavID = $(this).parent().parent().parent().attr("id");
+				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
+				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
+				
+				fadeSctnNav("base", currentSctnNavIDString);
+				
+				fadeSctnNavOptions(currentSctnNavElement);
+				}
+		);
 
 		$("#options > span").on("click",
 			function () {
@@ -437,6 +474,7 @@ $(document).ready(
 
 					case "sctn-1":
 						window.scrollTo(0, 800);
+						window.location.href = "#sctn_1?pos=0";
 						break;
 
 					case "sctn-2":
@@ -445,10 +483,12 @@ $(document).ready(
 
 					case "sctn-3":
 						window.scrollTo(0, 2400);
+						window.location.href = "#sctn_3?pos=0";
 						break;
 
 					case "sctn-4":
 						window.scrollTo(0, 3200);
+						window.location.href = "#sctn_4?pos=0";
 						break;
 
 					case "sctn-5":
@@ -457,36 +497,47 @@ $(document).ready(
 
 					case "sctn-6":
 						window.scrollTo(0, 4704);
+						window.location.href = "#sctn_6?pos=0";
 						break;
 				}
 			}
 			);
 
-		$("input#quiz-start").on("click",
+		$("#quiz-start").on("click",
 			function () {
-			    $("#bkgrnd-1").css("left", "-1280px");
-			    $("#wndow-sctn_1").css("left", "-1280px");
+				window.location.hash = "#sctn_1?pos=1"
 			}
 			);
 
-		$("input#quiz-sbmt").on("click",
+		$("#quiz-prev").on("click",
 			function () {
-			    //location.href = "http://localhost/amelia/sc/sctn/1/sctn_1-b.htm";
-			    $("#bkgrnd-1").css("left", "-2560px");
-			    $("#wndow-sctn_1").css("left", "-2560px");
+				loadQuiz("initial");
+			});
+		
+		$("#quiz-sbmt").on("click",
+			function () {
+				window.location.hash = "#sctn_1?pos=2";
 			}
 		);
 
 		$("input#sctn_5-bttn").on("click",
 			function () {
-				location.href = "http://localhost/amelia/sc/sctn/5/sctn_5-a.htm";
+				window.location.hash = "#sctn_5?pos=1"
 			}
 			);
 
-		$("input#submit-rate").on("click",
+		$("input#sctn_5-sbmt").on("click",
 			function () {
-				location.href = "http://localhost/amelia/sc/sctn_5-b.htm";
+				window.location.hash = "#sctn_5?pos=2"
 			}
+			);
+			
+			$(window).on('hashchange', 
+				function () {
+					animateWindowPanes();
+				}
 			);
 	}
 	);
+
+
