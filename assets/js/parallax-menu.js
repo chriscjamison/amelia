@@ -295,7 +295,7 @@ $(document).ready(
 				
 				sectionNum = pageURLString.charAt(variableIndexNum + sectionNumString.length);
 				
-				var bkgrndValueString = "#bkgrnd-" + sectionNum;
+				var bkgrndValueString = "#bkgrnd-sctn_" + sectionNum;
 				var windowPaneValueString = "#wndow-sctn_" + sectionNum;
 				var headerValueString = "div.headr.sctn_" + sectionNum;
 				
@@ -307,11 +307,11 @@ $(document).ready(
 				var windowPaneValueNum = positionNum * -1280;
 				var headerValueNum = positionNum * 1280;
 				
-				var bkgrndValueNumString = bkgrndValueNum + "px";
+				var bkgrndValueNumString =  bkgrndValueNum + "px" + " 0px"
 				var windowPaneValueNumString = windowPaneValueNum + "px";
 				var headerValueNumString = headerValueNum + "px";
-					
-				$(bkgrndValueString).css("left", bkgrndValueNumString);
+				
+				$(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
 				$(windowPaneValueString).css("left", windowPaneValueNumString);
 				$(headerValueString).css("left", headerValueNumString);
 				
@@ -327,6 +327,8 @@ $(document).ready(
 							
 					$(subNavValueString).css("left", subNavValueNumString);
 				}
+			} else {
+				$(window).scrollTop(0);
 			}
 		}
 		

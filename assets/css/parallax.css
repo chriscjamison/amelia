@@ -19,7 +19,7 @@ body {
 }
 
 .wndow {
-	width: 5132px;
+	width: 5135px;
 	height: 800px;
 	padding: 0;
 	margin: 0;
@@ -29,7 +29,7 @@ body {
 }
 
 #bkgrnd {
-	width: 5132px;
+	width: 5120px;
 	height: 100%;
 	position: absolute;
 	top: 0;
@@ -37,16 +37,34 @@ body {
 	z-index: 0;
 }
 
-.page_bkgrnd {
+.page_bkgrnd-sm {
 	width: 1280px;
 	height: 800px;
 	position: relative;
 	top: 0;
 	left: 260px;
-	display: table-cell;
 	z-index: 0;
 }
 
+.page_bkgrnd-med {
+	width: 3840px;
+	height: 800px;
+	position: relative;
+	top: 0;
+	left: 260px;
+	z-index: 0;
+}
+
+.page_bkgrnd-lg {
+	width: 5120px;
+	height: 800px;
+	position: relative;
+	top: 0;
+	left: 260px;
+	z-index: 0;
+}
+
+/*
 .sctn-blok {
 	width: 5232px;
 	height: 800px;
@@ -55,7 +73,7 @@ body {
 	position: relative;
 }
 
-.headr {
+*/.headr {
 	width: 1155px;
 	height: 65px;
 	padding: 30px 0 0 125px;
@@ -78,32 +96,10 @@ body {
 
 /* ---- MAIN LANDING PAGE ---- */
 
-#bkgrnd-main > div {
-	width: 100%;
-	height: 25%;
-	background-image: url('/amelia/assets/img/land/bg-1.jpg');
+#bkgrnd-main {
+	background-image: url('/amelia/assets/img/land/sctn_main.jpg');
 	background-size: 100%;
-}
-
-#bkgrnd-main > div + div {
-	width: 100%;
-	height: 25%;
-	background-image: url('/amelia/assets/img/land/bg-2.jpg');
-	background-size: 100%;
-}
-
-#bkgrnd-main > div + div + div {
-	width: 100%;
-	height: 25%;
-	background-image: url('/amelia/assets/img/land/bg-3.jpg');
-	background-size: 100%;
-}
-
-#bkgrnd-main > div + div + div + div {
-	width: 100%;
-	height: 25%;
-	background-image: url('/amelia/assets/img/land/bg-4.jpg');
-	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .sctn-main {
@@ -147,100 +143,11 @@ body {
 
 
 /* --- Section #1 ---------------------------------------------------------------------------------- */
-#bkgrnd-sctn_1 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/land/bg-1.jpg');
-}
-
-#bkgrnd-sctn_1 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/land/bg-2.jpg');
-}
-
-#bkgrnd-sctn_1 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/land/bg-3.jpg');
-}
-
-#bkgrnd-sctn_1 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/land/bg-4.jpg');
-}
-
-#bkgrnd-sctn_1a > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/a/bg-1.jpg');
-}
-
-#bkgrnd-sctn_1a > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/a/bg-2.jpg');
-}
-
-#bkgrnd-sctn_1a > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/a/bg-3.jpg');
-}
-
-#bkgrnd-sctn_1a > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/a/bg-4.jpg');
-}
-
-#bkgrnd-sctn_1b > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/b/bg-1.jpg');
-}
-
-#bkgrnd-sctn_1b > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/b/bg-2.jpg');
-}
-
-#bkgrnd-sctn_1b > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/b/bg-3.jpg');
-}
-
-#bkgrnd-sctn_1b > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/b/bg-4.jpg');
-}
-
-#bkgrnd-sctn_1c > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/c/bg-1.jpg');
-}
-
-#bkgrnd-sctn_1c > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/c/bg-2.jpg');
-}
-
-#bkgrnd-sctn_1c > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/c/bg-3.jpg');
-}
-
-#bkgrnd-sctn_1c > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/1/c/bg-4.jpg');
+#bkgrnd-sctn_1 {
+	background-image: url('/amelia/assets/img/sctn/1/sctn_1.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .headr.sctn_1 {
@@ -278,7 +185,7 @@ body {
 
 #yes {
 	top: 175px;
-	left: 125px;
+	left: 750px;
 	background-color: #9e7a75;
 	color: #f0c7ab;
 }
@@ -315,28 +222,11 @@ body {
 
 /** SECTION 2 *************************************************************************************** */
 
-#bkgrnd-sctn_2 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/2/bg-1.jpg');
-}
-
-#bkgrnd-sctn_2 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/2/bg-2.jpg');
-}
-
-#bkgrnd-sctn_2 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/2/bg-3.jpg');
-}
-
-#bkgrnd-sctn_2 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/2/bg-4.jpg');
+#bkgrnd-sctn_2 {
+	background-image: url('/amelia/assets/img/sctn/2/sctn_2.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .headr.sctn_2 {
@@ -435,100 +325,11 @@ body {
 
 /* --- SECTION 3 --- */
 
-#bkgrnd-sctn_3 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/1/bg-1.jpg');
-}
-
-#bkgrnd-sctn_3 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_3 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_3 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/1/bg-4.jpg');
-}
-
-#bkgrnd-sctn_3a > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/2/bg-1.jpg');
-}
-
-#bkgrnd-sctn_3a > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/2/bg-2.jpg');
-}
-
-#bkgrnd-sctn_3a > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/2/bg-3.jpg');
-}
-
-#bkgrnd-sctn_3a > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/2/bg-4.jpg');
-}
-
-#bkgrnd-sctn_3b > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/3/bg-1.jpg');
-}
-
-#bkgrnd-sctn_3b > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/3/bg-2.jpg');
-}
-
-#bkgrnd-sctn_3b > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/3/bg-3.jpg');
-}
-
-#bkgrnd-sctn_3b > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/3/bg-4.jpg');
-}
-
-#bkgrnd-sctn_3c > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/4/bg-1.jpg');
-}
-
-#bkgrnd-sctn_3c > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/4/bg-2.jpg');
-}
-
-#bkgrnd-sctn_3c > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/4/bg-3.jpg');
-}
-
-#bkgrnd-sctn_3c > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/3/4/bg-4.jpg');
+#bkgrnd-sctn_3 {
+	background-image: url('/amelia/assets/img/sctn/3/sctn_3.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .headr.sctn_3 {
@@ -619,103 +420,12 @@ body {
 
 /* ---- SECTION 4 ---- */
 
-
-#bkgrnd-sctn_4 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/1/bg-1.jpg');
+#bkgrnd-sctn_4 {
+	background-image: url('/amelia/assets/img/sctn/4/sctn_4.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
-
-#bkgrnd-sctn_4 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_4 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_4 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/1/bg-4.jpg');
-}
-
-#bkgrnd-sctn_4a > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/2/bg-1.jpg');
-}
-
-#bkgrnd-sctn_4a > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/2/bg-2.jpg');
-}
-
-#bkgrnd-sctn_4a > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/2/bg-3.jpg');
-}
-
-#bkgrnd-sctn_4a > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/2/bg-4.jpg');
-}
-
-#bkgrnd-sctn_4b > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/3/bg-1.jpg');
-}
-
-#bkgrnd-sctn_4b > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/3/bg-2.jpg');
-}
-
-#bkgrnd-sctn_4b > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/3/bg-3.jpg');
-}
-
-#bkgrnd-sctn_4b > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/3/bg-4.jpg');
-}
-
-#bkgrnd-sctn_4c > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/4/bg-1.jpg');
-}
-
-#bkgrnd-sctn_4c > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/4/bg-2.jpg');
-}
-
-#bkgrnd-sctn_4c > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/4/bg-3.jpg');
-}
-
-#bkgrnd-sctn_4c > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/4/4/bg-4.jpg');
-}
-
 .headr.sctn_4 {
 	background-color: #ece511;
 }
@@ -813,78 +523,12 @@ body {
 
 /* ---- SECTION 5 ---- */
 
-#bkgrnd-sctn_5 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-1.jpg');
+#bkgrnd-sctn_5 {
+	background-image: url('/amelia/assets/img/sctn/5/sctn_5.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
-
-#bkgrnd-sctn_5 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_5 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_5 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-4.jpg');
-}
-
-#bkgrnd-sctn_5a > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-1.jpg');
-}
-
-#bkgrnd-sctn_5a > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_5a > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_5a > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-4.jpg');
-}
-
-#bkgrnd-sctn_5b > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-1.jpg');
-}
-
-#bkgrnd-sctn_5b > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_5b > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_5b > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/5/1/bg-4.jpg');
-}
-
 .headr.sctn_5 {
 	background-color: #90a3c3;
 }
@@ -1065,116 +709,26 @@ body {
 
 #sctn_5-logo_1 {
 	width: 233px;
-	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 0 no-repeat;
+	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 0 no-repeat;
 }
 
 #sctn_5-logo_2 {
 	width: 176px;
-	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -45px no-repeat;
+	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 -45px no-repeat;
 }
 
 #sctn_5-logo_3 {
 	width: 105px;
-	background: url(/amelia/assets/img/sect/5/sprite-insrance_comps.png) 0 -90px no-repeat;
+	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 -90px no-repeat;
 }
 
 /* ---- SECTION 6 ---- */
 
-
-#bkgrnd-sctn_6 > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/1/bg-1.jpg');
-}
-
-#bkgrnd-sctn_6 > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/1/bg-2.jpg');
-}
-
-#bkgrnd-sctn_6 > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/1/bg-3.jpg');
-}
-
-#bkgrnd-sctn_6 > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/1/bg-4.jpg');
-}
-
-#bkgrnd-sctn_6a > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-1.jpg');
-}
-
-#bkgrnd-sctn_6a > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-2.jpg');
-}
-
-#bkgrnd-sctn_6a > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-3.jpg');
-}
-
-#bkgrnd-sctn_6a > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-4.jpg');
-}
-
-#bkgrnd-sctn_6b > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-1.jpg');
-}
-
-#bkgrnd-sctn_6b > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-2.jpg');
-}
-
-#bkgrnd-sctn_6b > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-3.jpg');
-}
-
-#bkgrnd-sctn_6b > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/2/bg-4.jpg');
-}
-
-#bkgrnd-sctn_6c > div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/3/bg-1.jpg');
-}
-
-#bkgrnd-sctn_6c > div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/3/bg-2.jpg');
-}
-
-#bkgrnd-sctn_6c > div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/3/bg-3.jpg');
-}
-
-#bkgrnd-sctn_6c > div + div + div + div {
-	width: 100%;
-	height: 200px;
-	background-image: url('/amelia/assets/img/sect/6/3/bg-4.jpg');
+#bkgrnd-sctn_6 {
+	background-image: url('/amelia/assets/img/sctn/6/sctn_6.jpg');
+	background-position: 0 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .headr.sctn_6 {
