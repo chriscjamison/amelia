@@ -73,7 +73,8 @@ body {
 	position: relative;
 }
 
-*/.headr {
+*/
+.headr {
 	width: 1155px;
 	height: 65px;
 	padding: 30px 0 0 125px;
@@ -81,10 +82,10 @@ body {
 	top: 100px;
 	left: 0;
 	display: block;
+	opacity: 0;
 	font: 600 2em 'Balthazar', 'Cambria', serif;
 	letter-spacing: 2px;
 	color: #fff;
-	/*opacity: 0;*/
 }
 
 .copy {
@@ -161,7 +162,6 @@ body {
 }
 
 .headr.sctn_1 {
-	opacity: 0;
 	background-color: #476b3f;
 }
 
@@ -252,6 +252,7 @@ body {
 	top: 150px;
 	margin: 25px;
 	padding: 17px;
+	opacity: 0;
 	background-color: #dce6f0;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 	text-align: center;
@@ -308,6 +309,7 @@ body {
 	position: absolute;
 	top: 450px;
 	left: 225px;
+	opacity: 0;
 	background-color: #91c5fe;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
@@ -354,6 +356,7 @@ body {
 	top: 150px;
 	margin: 25px;
 	padding: 1em 2em;
+	opacity: 0;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
@@ -449,6 +452,7 @@ body {
 	left: 33em;
 	margin: 0 auto;
 	padding: 1em 2em;
+	opacity: 0;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 

@@ -118,6 +118,7 @@ div.sctn_nav {
 	height: 135px;
 	position: absolute;
 	top: 630px;
+	opacity: 0;
 }
 /*
 #menu-sctn_6.sub_menu {
