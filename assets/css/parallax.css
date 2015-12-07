@@ -84,6 +84,7 @@ body {
 	font: 600 2em 'Balthazar', 'Cambria', serif;
 	letter-spacing: 2px;
 	color: #fff;
+	/*opacity: 0;*/
 }
 
 .copy {
@@ -105,6 +106,7 @@ body {
 .sctn-main {
 	width: 1280px;
 	height: 800px;
+	display: none;
 }
 
 #info {
@@ -118,27 +120,35 @@ body {
 
 #info img {
 	margin: 25px auto 0 auto;
-	display: block;	
+	display: block;
+	opacity: 0;	
 }
 
 #info #spcr {
 	margin: 10px auto;
+	display: none;
+	opacity: 0;
 }
 
 #info ul {
+	opacity: 0;
 	font-family: 'Balthazar', serif;
 	font-size: 1.1em;
 	color: #fff;
 	margin: 20px 20px 0 0;
+	
 }
 
 #info li {
 	list-style-image: url('/amelia/assets/img/spcr/dot_10x10.png');
+	display: list-item;
+	opacity: 0;
 }
 
 #info span {
 	margin-bottom: 15px;
 	display: block;
+	opacity: 0;
 }
 
 
@@ -151,10 +161,11 @@ body {
 }
 
 .headr.sctn_1 {
+	opacity: 0;
 	background-color: #476b3f;
 }
 
-.blok-txt {
+.sctn_1-blok {
 	width: 370px;
 	height: auto;
 	margin: 0 auto;
@@ -164,9 +175,10 @@ body {
 	left: 55%;
 	z-index: 2;
 	font-size: 0.9em;
+	opacity: 0;
 }
 
-.blok-txt span {
+.sctn_1-blok span {
 	width: 100%;
 	padding-bottom: 0.25em;
 	display: inline-block;
@@ -176,7 +188,7 @@ body {
 	text-indent: 0.25em;
 }
 
-.blok-txt p {
+.sctn_1-blok p {
 	margin-bottom: 2.0em;
 	text-indent: 1.3em;
 	line-height: 1.8em;

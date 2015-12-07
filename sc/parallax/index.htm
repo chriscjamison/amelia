@@ -9,12 +9,13 @@
 		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/forms.css">
 		
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
+		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
 		<script src="/amelia/assets/js/parallax-menu.js"></script>
 		<script src="/amelia/assets/js/forms.js"></script>
 		<script src="/amelia/assets/js/animtn.js"></script>
 	</head>
 	
-	<body onload="loadQuiz('initial'); loadContactForm('initial');">
+	<body onload="loadQuiz('initial'); loadContactForm('initial'); animateElements('main');">
 		<div id="menu">
 			<span class="menu-base" id="menu-link"></span>
 			<div id="options">
@@ -48,7 +49,7 @@
 				<a name="sctn_1"></a>
 				<div class="headr sctn_1">Is Therapy Right for You?</div>
 				<div class="copy">
-					<div class="blok-txt" id="sctn_1-desc">
+					<div class="sctn_1-blok" id="sctn_1-desc">
 						<p>
 							Psychotherapy consists of one-on-one client to therapist sessions, typically over a period of 
 							50 minutes per meeting. Depending on the emotional wellbeing of the client, he or she may meet 
