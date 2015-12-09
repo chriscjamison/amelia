@@ -545,6 +545,7 @@ body {
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
+
 .headr.sctn_5 {
 	background-color: #90a3c3;
 }
@@ -554,6 +555,7 @@ body {
 	position: absolute;
 	top: 175px;
 	padding: 1em 2em;
+	opacity: 0;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
@@ -758,6 +760,7 @@ body {
 	padding: 1em;
 	position: absolute;
 	clear: both;
+	opacity: 0;
 	background-color: #442b2f;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
@@ -779,11 +782,11 @@ body {
 	background-color: #fee8da;
 }
 
-#sctn_6-desc-1 c > div > p:first-line {
+#sctn_6-desc-1 > div > p:first-line {
 	font-weight: 700;	
 }
 
-#sctn_6-desc-1  > div > p + p:first-line {
+#sctn_6-desc-1 > div > p + p:first-line {
 	font-weight: 400;	
 }
 

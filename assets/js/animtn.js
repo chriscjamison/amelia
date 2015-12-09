@@ -18,16 +18,32 @@ function animateElements(sectionNum) {
 			case 1:
 				fadeSectionBlocks(sectionDescElementsString, transitionValue);
 			break;
+			
 			case 2:
-				var sectionDescElementsString_2 = "div.sctn_2-blok, div.sctn_2-blok-desc, div.sctn_2-blok_2";
+				var sectionDescElementsString_2 = sectionDescElementsString + ", div.sctn_2-blok-desc, div.sctn_2-blok_2";
 				fadeSectionBlocks(sectionDescElementsString_2, transitionValue);
 			break;
+			
 			case 3:
-				var sectionDescELementsString_3 = sectionDescElementsString + ", #menu-sctn_3";
-				fadeSectionBlocks(sectionDescELementsString_3, transitionValue);
+				var sectionDescElementsString_3 = sectionDescElementsString + ", #menu-sctn_3";
+				fadeSectionBlocks(sectionDescElementsString_3, transitionValue);
 			break;
+			
 			case 4:
+				var sectionDescElementsString_4 = sectionDescElementsString + ", #menu-sctn_4";
+				fadeSectionBlocks(sectionDescElementsString_4, transitionValue);
+			break;
+			
+			case 5:
 				fadeSectionBlocks(sectionDescElementsString, transitionValue);
+			break;
+			
+			case 6:
+				var sectionDescElementsString_5 = "#sctn_6-desc-1";
+				fadeSectionBlocks(sectionDescElementsString_5, transitionValue);
+				
+				var sectionDescElementsString_6 = "#menu-sctn_6";
+				fadeSectionBlocks(sectionDescElementsString_6, transitionValue);
 			break;
 		}
 	}	else	{
@@ -72,19 +88,25 @@ $(document).ready(
 					animateElements(1);
 				} 
 				
-				if (browserPositionNum > 1780 && browserPositionNum < 2180) {
+				if (browserPositionNum > 1280 && browserPositionNum < 1580) {
 					animateElements(2);
 				}	
 				
-				if (browserPositionNum > 3060 && browserPositionNum < 3360)	{
+				if (browserPositionNum > 2000 && browserPositionNum < 2500)	{
 					animateElements(3);
 				}	
 				
-				if (browserPositionNum > 4140 && browserPositionNum < 4540)	{
+				if (browserPositionNum > 2800 && browserPositionNum < 3300)	{
 					animateElements(4);
 				}
-						
-				// window.alert("$(window).scrollTop() = " + $(window).scrollTop());
+				
+				if (browserPositionNum > 3600 && browserPositionNum < 4100)	{
+					animateElements(5);
+				}	
+				
+				if (browserPositionNum > 4400 && browserPositionNum < 4500)	{
+					animateElements(6);
+				}		
 			});
 	}
 );
