@@ -77,14 +77,17 @@ $(document).ready(
 				};
 		
 		var menuPositionClickOnCSS = {
+					height: "100%",
 					position: "fixed"
 				};
 
 		var menuPositionClickOffCSS = {
+					height: "100px",
 					position: "absolute",
 					top: "0px",
 					left: "0px"
 				};
+				
 		
 		var optionBaseCSS = {
 					backgroundColor: "#000",
@@ -180,6 +183,7 @@ $(document).ready(
 				$("body").css(bodyClickOnCSS);
 				$("#menu").css(menuPositionClickOnCSS);
 				$("#cntainr").animate(cntainrClickOnCSS, 200);
+				$("#menu-bkgrnd").animate(bkgrndClickOnCSS, 200);
 				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
 					function () {
 						$("#options").css(optionsClickOnCSS);
@@ -190,8 +194,12 @@ $(document).ready(
 				$( "#options" ).fadeTo(200, 0, 
 					function () {
 						$("#options").css(optionsClickOffCSS);
-						$("#menu").css(menuPositionClickOffCSS);
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
+						$("#menu-bkgrnd").animate(bkgrndClickOffCSS, 200, 
+							function () {
+								$("#menu").css(menuPositionClickOffCSS);		
+							}
+						);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200, 
 							function () {
 								$("body").css(bodyClickOffCSS);
@@ -414,7 +422,19 @@ $(document).ready(
 			}
 		);
 		
-		$("input#quiz-next").on("click",
+		$("input#quiz-prev").on("click", 
+			function () {
+				loadQuiz('initial');
+			}
+		);
+		
+		$("input#quiz-next").on("click", 
+			function () {
+				loadQuiz('set_1');
+			}
+		);
+		
+		$("input#quiz-sbmt").on("click",
 			function ()	{
 				location.href = "http://localhost/amelia/sc/sctn/1/sctn_1-b.htm";
 			}

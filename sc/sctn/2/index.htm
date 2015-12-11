@@ -1,32 +1,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Amelia Xavier Counseling ~ Credentials ~</title>
+		
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
+		
 		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/menu.css">
 		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/main.css">
+		
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
-		<script src="/amelia/assets/js/menu.js"></script>
+		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
+		<script src="/amelia/assets/js/dsktp/menu.js"></script>
+		<script src="/amelia/assets/js/dsktp/animtn.js"></script>
 	</head>
 	
-	<body>
+	<body onload="animateElements(2); resizeBackground('2');">
 		<div id="menu">
-			<a href="#" class="menu-base" id="menu-link"></a>
-		</div>
-		<div id="options">
-			<span id="home">Welcome</span>
-			<span id="sctn-1">Is Therapy Right for You?</span>
-			<span id="sctn-2">Credentials</span>
-			<span id="sctn-3">Specialities</span>
-			<span id="sctn-4">Testimonials</span>
-			<span id="sctn-5">Insurance & Rates</span>
-			<span id="sctn-6">Contact Amelia Xavier</span>
+			<span class="menu-base" id="menu-link"></span>
+			<div id="options">
+				<span id="home">Welcome</span>
+				<span id="sctn-1">Is Therapy Right for You?</span>
+				<span id="sctn-2">Credentials</span>
+				<span id="sctn-3">Specialities</span>
+				<span id="sctn-4">Testimonials</span>
+				<span id="sctn-5">Insurance & Rates</span>
+				<span id="sctn-6">Contact Amelia Xavier</span>
+			</div>
+			<div id="menu-bkgrnd">
+				<div id="menu-brdr"></div>
+			</div>
 		</div>
 		<div id="cntainr">
 			<div class="headr sctn_2">Credentials</div>
 			
 			<div id="copy">
 				<div class="sctn_2-blok" id="undergd">
-					<img src="/amelia/assets/img/sect/2/logo-missouri.png" width="277" height="90" alt="University of Missouri" title="University of Missouri" />
+					<img src="/amelia/assets/img/sctn/2/logo-missouri.png" width="277" height="90" alt="University of Missouri" title="University of Missouri" />
 					<div class="sctn_2-blok-desc">
 						<span>Undergraduate Degree</span>
 						<span>University of Missouri</span>
@@ -35,7 +43,7 @@
 				</div>
 				
 				<div class="sctn_2-blok" id="grad">
-					<img src="/amelia/assets/img/sect/2/logo-texas.png" width="193" height="90" alt="University of Texas at Austin" title="University of Texas at Austin" />
+					<img src="/amelia/assets/img/sctn/2/logo-texas.png" width="193" height="90" alt="University of Texas at Austin" title="University of Texas at Austin" />
 					<div class="sctn_2-blok-desc">
 						<span>Graduate Degree</span>
 						<span>University of Texas at Austin</span>
@@ -63,15 +71,7 @@
 		</div>
 		
 		<div id="bkgrnd">
-			<div class="menu-bkgrnd">
-				<div class="menu-brdr"></div>
-			</div>
-			<div class="page_bkgrnd" id="bkgrnd-sctn_2">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
+			<div class="page_bkgrnd" id="bkgrnd-sctn_2"></div>
 		</div>
 	</body>	
 </html>

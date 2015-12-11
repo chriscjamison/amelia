@@ -4,6 +4,7 @@
 	position: absolute;
 	top: 150px;
 	left: 150px;
+	z-index: 6;
 }
 /*
 #form-cntct_info {
@@ -76,7 +77,7 @@
 
 .qstn .ftnote {
 	padding: 0.7em;
-	background-color: #cfd7a3;
+	border-top: 2px dotted #cfd7a3;
 	font-size: 0.9em;
 	line-height: 1.6em;
 }
@@ -103,7 +104,7 @@
 #quiz-prev,
 #cntct-prev {
 	position: relative;
-	left: 8.6em;
+	left: 8.2em;
 }
 
 #cntct-prev {
@@ -112,17 +113,17 @@
 
 #quiz-sbmt {
 	position: relative;
-	left: 7.9em;
+	left: 7.5em;
 }
 
 #sbmt-cntct {
 	margin: 0 1.5em;
-	/*margin-right: 1.5em;*/
 	float: right;
 }
 
 fieldset {
 	margin: 1em;
+	border: 2px solid #cfd7a3;
 }
 
 fieldset > div {

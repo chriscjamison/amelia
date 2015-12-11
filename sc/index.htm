@@ -8,20 +8,26 @@
 		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/menu.css">
 		
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
-		<script src="/amelia/assets/js/menu.js"></script>
+		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
+		<script src="/amelia/assets/js/dsktp/menu.js"></script>
+		<script src="/amelia/assets/js/dsktp/animtn.js"></script>
 	</head>
 	
-	<body>
+	<body onload="animateElements('main');">
 		<div id="menu">
-			<a href="#" class="menu-base" id="menu-link"></a>
-		</div>
-		<div id="options">
-			<span id="sctn-1">Is Therapy Right for You?</span>
-			<span id="sctn-2">Credentials</span>
-			<span id="sctn-3">Specialities</span>
-			<span id="sctn-4">Testimonials</span>
-			<span id="sctn-5">Insurance & Rates</span>
-			<span id="sctn-6">Contact Amelia Xavier</span>
+			<span class="menu-base" id="menu-link"></span>
+			<div id="options">
+					<span id="home">Welcome</span>
+					<span id="sctn-1">Is Therapy Right for You?</span>
+					<span id="sctn-2">Credentials</span>
+					<span id="sctn-3">Specialities</span>
+					<span id="sctn-4">Testimonials</span>
+					<span id="sctn-5">Insurance & Rates</span>
+					<span id="sctn-6">Contact Amelia Xavier</span>
+			</div>
+			<div id="menu-bkgrnd">
+				<div id="menu-brdr"></div>
+			</div>
 		</div>
 		<div id="cntainr">
 			<div id="info">
@@ -35,8 +41,7 @@
 			</div>
 		</div>
 		<div id="bkgrnd">
-			<div class="menu-bkgrnd"></div>
-			<div id="main-bkgrnd"></div>
+			<div id="bkgrnd-main"></div>
 		</div>
 	</body>	
 </html>

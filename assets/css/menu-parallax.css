@@ -31,10 +31,12 @@
 
 .menu-click_1 {
 	background-position: 0 -100px;
+	cursor: pointer;
 }
 
 .menu-click_2 {
 	background-position: 0 -150px;
+	cursor: pointer;
 }
 
 #menu-bkgrnd {
@@ -133,13 +135,8 @@ div.sctn_nav > div {
 }
 
 #menu-sctn_6 > div {
-	/*width: 375px;*/
 	width: 552px;
 }
-/*
-#menu-sctn_6.sub_menu > div {
-	width: 552px;
-}*/
 
 div.sctn_nav > div > span {
 	width: 150px;

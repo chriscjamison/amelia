@@ -70,7 +70,7 @@ function loadQuiz(questionSet) {
 	var questionNum;
 
 	var questionPath = "/amelia/assets/ajax/quiz/qstn_";
-	var questionSuffix = ".htm";
+	var questionSuffix = ".htm?" + Math.round(Math.random() * 10);
 	
 	var columnDivElement_Array = new Array();
 
