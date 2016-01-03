@@ -61,7 +61,7 @@ function animateElements(sectionNum) {
 			opacity: 1
 		};
 		
-		$("div.sctn-main").show("drop", "linear", 1000);
+		$("#wndow-sctn_main").show("drop", "linear", 1000);
 		$("#spcr").css(logoCSS_1).delay(1250).fadeTo(375, 1, 
 			function () {
 				$("#logo").css(logoCSS_1).delay(500).fadeTo(750, 1, 
@@ -78,8 +78,108 @@ function animateElements(sectionNum) {
 	}
 }
 
+function resizeBackgrounds() {
+	var windowElements_Array = new Array();
+	var backgroundElement_Array = new Array();
+  var backgroundCSSValues_Array = new Array();
+	
+	var windowWidth = new Number();
+  var windowHeight = new Number();
+  
+  var urlString = new String();
+  
+  windowElements_Array = $("div.wndow");
+  backgroundElement_Array = $("#bkgrnd");
+ 
+  windowWidth = $(window).width();
+  windowHeight = $(window).height();
+  
+	windowElements_Array.each(
+		function (windowIndexNum)	{
+      var sectionNumValue = new String();
+      var sectionIdSelector = new String();
+      
+      sectionIdSelector = $(this).attr("id");
+      sectionNumValue = sectionIdSelector.slice(6);
+      
+      backgroundCSSValues_Array[0] = "#bkgrnd-" + sectionNumValue;
+    
+      backgroundCSSValues_Array[1] = $(this).children("div.copy").length;
+      
+      if (backgroundCSSValues_Array[1] === 0) {
+        backgroundCSSValues_Array[1]++;
+      }  
+      
+      if (windowWidth < 1280)	{
+        backgroundCSSValues_Array[2] = 1280;
+        
+        if (windowHeight > 800) {
+          backgroundCSSValues_Array[3] = 1024;
+        } else {
+          backgroundCSSValues_Array[3] = 800; 
+        }
+      } else {
+        if (windowWidth > 1280 && windowWidth <= 1366)  {
+          backgroundCSSValues_Array[2] = 1366;
+          backgroundCSSValues_Array[3] = 768;  
+        } else {
+            backgroundCSSValues_Array[2] = 1920;
+            backgroundCSSValues_Array[3] = 1200;
+          }
+        }
+       
+      backgroundCSSValues_Array[5] = backgroundCSSValues_Array[2] * backgroundCSSValues_Array[1]; 
+       
+      
+      backgroundCSSValues_Array[4] = "url('/amelia/assets/img/sctn/" + 
+                                     sectionNumValue.slice(sectionNumValue.indexOf("_") + 1) + 
+                                     "/" + backgroundCSSValues_Array[5] + 
+                                     "x" + backgroundCSSValues_Array[3] +	".jpg')";
+       
+      $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[4]);		
+      $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[5]);
+      $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);
+      $(this).css("height", backgroundCSSValues_Array[3]);
+    }
+  );
+  
+  urlString = window.location.hash;
+      
+  if (urlString !== "") {
+    var urlStringIndexNum = new Number();
+    var windowSection = new String()
+    var windowPosition = new String();
+    var backgroundPositionValue = new Number();
+    
+    urlStringIndexNum = urlString.indexOf("_");
+    
+    windowSection = urlString.charAt(urlStringIndexNum + 1);
+    windowPosition = urlString.charAt(urlString.length - 1);
+    
+    switch (windowPosition) {
+      case "2":
+        backgroundPositionValue = backgroundCSSValues_Array[2] * -2;
+      break;
+      
+      case "3":
+        backgroundPositionValue = backgroundCSSValues_Array[2] * -3;
+      break;
+      
+      case "4":
+        backgroundPositionValue = backgroundCSSValues_Array[2] * -4;
+      break;
+    }
+    
+    var backgroundSectionElement = "#bkgrnd-" + urlString.slice(1, urlString.indexOf("?"));
+    
+    // window.alert("backgroundSectionElement = " + backgroundSectionElement);
+    $(backgroundSectionElement).css("backgroundPositionX", backgroundPositionValue);
+  }
+}
+
 $(document).ready(
 	function () {
+    resizeBackgrounds();
 		$(window).on("scroll",
 			function () {
 				var browserPositionNum = $(window).scrollTop();

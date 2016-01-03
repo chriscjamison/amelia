@@ -2,54 +2,6 @@
 
 $(document).ready(
 	function () {
-		var menuBaseOverCSS = {
-					opacity: 0
-				};
-
-		var menuBaseOutCSS = {
-					opacity: 1
-				};
-
-		var menuBaseClickOffCSS = {
-					visibility: "hidden",
-					opacity: 0
-				};
-
-		var menuBaseClickOnCSS = {
-					visibility: "visible"
-				};
-
-		var menuHoverOverCSS = {
-					display: "block",
-					"z-index": "1",
-					opacity: 1
-				};
-
-		var menuHoverOutCSS = {
-					opacity: 0,
-					"z-index": -1
-				};
-
-		var menuHoverClickOnCSS = {
-					opacity: 1,
-					"z-index": 1,
-					visibility: "visible"
-				};
-
-		var menuHoverClickOffCSS = {
-					visibility: "hidden",
-					opacity: 0,
-					"z-index": -1
-				};
-
-		var menuClickOnCSS = {
-					visibility: "visible"
-				};
-
-		var menuClickOffCSS = {
-					visibility: "hidden"
-				};
-
 		var optionsClickOnCSS = {
 					display: "block"
 				};
@@ -59,11 +11,11 @@ $(document).ready(
 				};
 
 		var bkgrndClickOnCSS = {
-					left: "0px"
+          left: "260px"
 				};
 
 		var bkgrndClickOffCSS = {
-					left: "-260px"
+          left: "0px"
 				};
 
 		var cntainrClickOnCSS = {
@@ -77,12 +29,13 @@ $(document).ready(
 				};
 
 		var menuPositionClickOnCSS = {
-					position: "absolute"
+					position: "absolute",
+          left: "0px"
 				};
 
 		var menuPositionClickOffCSS = {
 					position: "absolute",
-					left: "0px"
+					left: "-260px"
 				};
 
 		var optionBaseCSS = {
@@ -121,24 +74,6 @@ $(document).ready(
 					cursor: "default"
 				};
 
-		var sctnNavBaseCSS = {
-					cursor: "default",
-					opacity: 1
-				};
-
-		var sctnNavHoverCSS = {
-					cursor: "pointer",
-					opacity: 0
-				};
-
-		var sctnNavClickCSS = {
-					opacity: 0
-				};
-
-		var sctnNavActiveCSS = {
-					opacity: 0
-				};
-
 		var sctnNavOptionsBaseCSS = {
 					display: "none"
 				};
@@ -167,12 +102,12 @@ $(document).ready(
 		} // END OF function 'fadeMenuButton'
 		
 		function fadeMenu(stateValue) {
-			var scrollPosition = $(window).scrollTop() + "px";
+      var scrollPosition = $(window).scrollTop() + "px";
 			
 			if (stateValue === "click_on") {
 				$("#menu").css(menuPositionClickOnCSS);
 				
-				$("#menu-bkgrnd").animate(bkgrndClickOnCSS, 200);
+				$("#menu-bkgrnd").animate(menuPositionClickOnCSS, 200);
 				$("#menu-bkgrnd").css("top", scrollPosition);
 				$("#cntainr").animate(cntainrClickOnCSS, 200);
 				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
@@ -185,12 +120,14 @@ $(document).ready(
 				$("#options").fadeTo(200, 0,
 					function () {
 						$("#options").css(optionsClickOffCSS);
-						$("#menu").css(menuPositionClickOffCSS);
-						$("#menu-bkgrnd").css("top", "0px");
-						$("#menu-bkgrnd").animate(bkgrndClickOffCSS, 200);
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200);
-						
+            $("#menu-bkgrnd").css("top", "0px");
+						$("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200, 
+              function () {
+                $("#menu").css(menuPositionClickOffCSS);
+              }
+            );
 					}
 				);
 			}
@@ -333,7 +270,25 @@ $(document).ready(
 		}
 		
 
-		$("#next-sctn").on("mouseenter",
+		$("#prev-sctn").on("mouseenter",
+			function () {
+				nextSctnBehavior("over");
+			}
+			);
+
+		$("#prev-sctn").on("mouseleave",
+			function () {
+				nextSctnBehavior("out");
+			}
+			);
+
+		$("#prev-sctn").on("click",
+			function () {
+				nextSctnBehavior("click");
+			}
+			);
+      
+    $("#next-sctn").on("mouseenter",
 			function () {
 				nextSctnBehavior("over");
 			}
@@ -388,9 +343,12 @@ $(document).ready(
 		
 		$("#menu").on("mouseleave",
 			function () {
-				fadeMenu("click_off");
+        if ($("#options").css("display") === "block") {
+          fadeMenu("click_off");
 
-				fadeMenuButton("menu-base");
+				  fadeMenuButton("menu-base");
+        }
+				
 			}
 		);
 
