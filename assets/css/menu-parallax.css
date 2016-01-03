@@ -93,6 +93,7 @@
 	cursor: pointer;
 }
 
+#prev-sctn,
 #next-sctn {
 	width: 80px;
 	height: 70px;
@@ -100,9 +101,23 @@
 	right: 25px;
 	bottom: 25px;
 	z-index: 1;
-	background: url('/amelia/assets/img/menu/next/next-sctn.png') 0 0 no-repeat;
+	background-image: url('/amelia/assets/img/menu/next/next-sctn.png');
+  background-repeat: no-repeat;
 }
 
+#prev-sctn {
+  height: 50px;
+  bottom: 145px;
+  padding-top: 19px;
+  background-position: 0 0;
+
+}
+
+#next-sctn {
+  background-position: 0 -145px;
+}
+
+#prev-sctn > span,
 #next-sctn > span {
 	width: 79px;
 	height: 50px;

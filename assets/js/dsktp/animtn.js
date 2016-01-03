@@ -46,6 +46,10 @@ function animateElements(sectionNum) {
 					case 6:
 						var sectionDescElementsString_5 = "#sctn_6-desc-1";
 						
+						if (location.href.charAt(location.href.length - 5) === "b")	{
+							sectionDescElementsString_5 = "#sctn_6-cntainr"
+						}
+							
 						fadeSectionBlocks(sectionDescElementsString_5, transitionValue);
 						
 						var sectionDescElementsString_6 = "#menu-sctn_6";
@@ -93,17 +97,23 @@ function resizeBackground (sectionNumValue) {
 	var backgroundPositionString = new String();
 	var backgroundSizeWidthNum = new String();
 	var backgroundSizeHeightNum = new String();
+	var backgroundSectionValueString = new String();
+	var backgroundWidthValueString = new String();
 	
 	var backgroundPositionValueNum = new Number();
+	var backgroundWidthValueNum = new Number();
 	
 	if (windowWidth > 1100 && windowWidth <= 1280)	{
-		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || sectionNumValue.charAt(0) === "4") {
+		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || 
+				sectionNumValue.charAt(0) === "4" || sectionNumValue.charAt(0) === "6") {
 			backgroundSizeWidthNum = "5120";
-		}
-		
-		if (sectionNumValue.charAt(0) === "2")	{
-			backgroundSizeWidthNum = "1280";
-		}
+		}	else {
+			if (sectionNumValue.charAt(0) === "2" || sectionNumValue === "main")	{
+				backgroundSizeWidthNum = "1280";
+			} else {
+					backgroundSizeWidthNum = "3840";
+				}
+			}	
 		
 		if (windowHeight < 900)	{
 			backgroundSizeHeightNum = "800";
@@ -115,13 +125,16 @@ function resizeBackground (sectionNumValue) {
 	}
 	
 	if (windowWidth > 1280 && windowWidth <= 1366)	{
-		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || sectionNumValue.charAt(0) === "4")	{
+		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || 
+				sectionNumValue.charAt(0) === "4" || sectionNumValue.charAt(0) === "6")	{
 			backgroundSizeWidthNum = "5464";
-		}
-		
-		if (sectionNumValue.charAt(0) === "2")	{
-			backgroundSizeWidthNum = "1366";
-		}
+		}	else {
+				if (sectionNumValue.charAt(0) === "2" || sectionNumValue === "main")	{
+				backgroundSizeWidthNum = "1366";
+				} else {
+					backgroundSizeWidthNum = "4098";
+				}
+			}
 		
 		backgroundSizeHeightNum = "766";
 		
@@ -129,23 +142,36 @@ function resizeBackground (sectionNumValue) {
 	}
 	
 	if (windowWidth > 1366)	{
-		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || sectionNumValue.charAt(0) === "4")	{
+		if (sectionNumValue.charAt(0) === "1" || sectionNumValue.charAt(0) === "3" || 
+				sectionNumValue.charAt(0) === "4" || sectionNumValue.charAt(0) === "6")	{
 			backgroundSizeWidthNum = "7680";
-		}
-		
-		if (sectionNumValue.charAt(0) === "2")	{
-			backgroundSizeWidthNum = "1920";
-		}
-		
+		}	else {
+				if (sectionNumValue.charAt(0) === "2" || sectionNumValue === "main")	{
+					backgroundSizeWidthNum = "1920";
+				} else {
+						backgroundSizeWidthNum = "5760";
+					}
+			}
+
 		backgroundSizeHeightNum = "1200";
 		
 		backgroundPositionValueNum = -1920;
 	}
 	
-	backgroundImageString = "url('/amelia/assets/img/sctn/" + sectionNumValue.charAt(0) + 
+	if (sectionNumValue.charAt(0) === "m")	{
+		backgroundSectionValueString = "main"	
+	}	else {
+		backgroundSectionValueString = sectionNumValue.charAt(0);
+	}
+	
+	
+	backgroundImageString = "url('/amelia/assets/img/sctn/" + backgroundSectionValueString + 
 													"/" + backgroundSizeWidthNum + 
 													"x" + backgroundSizeHeightNum +	".jpg')";
-													
+	
+	backgroundWidthValueNum = -(backgroundPositionValueNum) + 260;
+	backgroundWidthValueString = backgroundWidthValueNum + "px";
+									
 	switch (sectionNumValue.length) {
 		case 2:
 			switch (sectionNumValue.charAt(1))	{
@@ -169,11 +195,12 @@ function resizeBackground (sectionNumValue) {
 	}
 	
 	backgroundPositionString = backgroundPositionValueNum + "px";
-
+	
 	$(backgroundElementString).css("backgroundImage", backgroundImageString);		
 	$(backgroundElementString).css("width", backgroundSizeWidthNum);
 	$(backgroundElementString).css("height", windowHeight);
 	$(backgroundElementString).css("backgroundPositionX", backgroundPositionString);
+	$("#bkgrnd").css("width", backgroundWidthValueString);
 	
 }
 

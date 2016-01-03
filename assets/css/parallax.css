@@ -33,7 +33,7 @@ body {
 	height: 100%;
 	position: absolute;
 	top: 0;
-	left: -260px;
+  left: 0;
 	z-index: 0;
 }
 
@@ -88,9 +88,7 @@ body {
 
 /* ---- MAIN LANDING PAGE ---- */
 
-#bkgrnd-main {
-	background-image: url('/amelia/assets/img/land/sctn_main.jpg');
-	background-size: 100%;
+#bkgrnd-sctn_main {
 	background-repeat: no-repeat;
 }
 
@@ -145,9 +143,6 @@ body {
 
 /* --- Section #1 ---------------------------------------------------------------------------------- */
 #bkgrnd-sctn_1 {
-	background-image: url('/amelia/assets/img/sctn/1/sctn_1.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
@@ -225,9 +220,6 @@ body {
 /** SECTION 2 *************************************************************************************** */
 
 #bkgrnd-sctn_2 {
-	background-image: url('/amelia/assets/img/sctn/2/sctn_2.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
@@ -330,9 +322,6 @@ body {
 /* --- SECTION 3 --- */
 
 #bkgrnd-sctn_3 {
-	background-image: url('/amelia/assets/img/sctn/3/sctn_3.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
@@ -426,11 +415,9 @@ body {
 /* ---- SECTION 4 ---- */
 
 #bkgrnd-sctn_4 {
-	background-image: url('/amelia/assets/img/sctn/4/sctn_4.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
+
 .headr.sctn_4 {
 	background-color: #ece511;
 }
@@ -530,9 +517,6 @@ body {
 /* ---- SECTION 5 ---- */
 
 #bkgrnd-sctn_5 {
-	background-image: url('/amelia/assets/img/sctn/5/sctn_5.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
 
@@ -733,9 +717,6 @@ body {
 /* ---- SECTION 6 ---- */
 
 #bkgrnd-sctn_6 {
-	background-image: url('/amelia/assets/img/sctn/6/sctn_6.jpg');
-	background-position: 0 0;
-	background-size: 100%;
 	background-repeat: no-repeat;
 }
 

@@ -15,7 +15,7 @@
 		<script src="/amelia/assets/js/animtn.js"></script>
 	</head>
 	
-	<body onload="loadQuiz('initial'); loadContactForm('initial'); animateElements('main');">
+	<body onload="loadQuiz('initial'); loadContactForm('initial'); animateElements('main');" onresize="resizeBackgrounds();">
 		<div id="menu">
 			<span class="menu-base" id="menu-link"></span>
 			<div id="options">
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 		<div id="cntainr">
-			<div class="wndow sctn-main">
+			<div class="wndow" id="wndow-sctn_main">
 				<a name="sctn_main"></a>
 				<div id="info">
 					<img src="/amelia/assets/img/logo/lg.png" width="200" height="190" border="0" alt="Amelia Xavier Conseling :: Austin, TX 78709" id="logo" />
@@ -533,17 +533,20 @@
 				</div>
 			</div>
 		</div>
+    <div id="prev-sctn">
+			<span>Click to view the previous section</span>
+		</div>
 		<div id="next-sctn">
 			<span>Click to view the next section</span>
 		</div>
 		<div id="bkgrnd">
-			<div class="page_bkgrnd-sm" id="bkgrnd-main"></div>
-			<div class="page_bkgrnd-lg" id="bkgrnd-sctn_1"></div>
-			<div class="page_bkgrnd-sm" id="bkgrnd-sctn_2"></div>
-			<div class="page_bkgrnd-lg" id="bkgrnd-sctn_3"></div>
-			<div class="page_bkgrnd-lg" id="bkgrnd-sctn_4"></div>
-			<div class="page_bkgrnd-med" id="bkgrnd-sctn_5"></div>
-			<div class="page_bkgrnd-lg" id="bkgrnd-sctn_6"></div>
+			<div id="bkgrnd-sctn_main"></div>
+			<div id="bkgrnd-sctn_1"></div>
+			<div id="bkgrnd-sctn_2"></div>
+			<div id="bkgrnd-sctn_3"></div>
+			<div id="bkgrnd-sctn_4"></div>
+			<div id="bkgrnd-sctn_5"></div>
+			<div id="bkgrnd-sctn_6"></div>
 		</div>
 	</body>	
 </html>
