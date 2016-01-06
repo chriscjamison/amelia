@@ -56,21 +56,31 @@ $(document).ready(
 					cursor: "default"
 				};
 				
-		var nextSctnTextOverCSS = {
+		var sctnTextOverCSS = {
 					color: "#808080"
 				};
 
-		var nextSctnTextOutCSS = {
+		var sctnTextOutCSS = {
 					color: "#fff"
 				};
 
-		var nextSctnDivOverCSS = {
-					backgroundPosition: "0px -75px",
+		var prevSctnDivOverCSS = {
+					backgroundPosition: "0px -96px",
+					cursor: "pointer"
+				};
+
+		var prevSctnDivOutCSS = {
+					backgroundPosition: "0px 0px",
+					cursor: "default"
+				};
+    
+    var nextSctnDivOverCSS = {
+					backgroundPosition: "0px -220px",
 					cursor: "pointer"
 				};
 
 		var nextSctnDivOutCSS = {
-					backgroundPosition: "0px 0px",
+					backgroundPosition: "0px -145px",
 					cursor: "default"
 				};
 
@@ -149,45 +159,58 @@ $(document).ready(
 			}
 		}
 
-		function nextSctnBehavior(mouseState) {
-			switch (mouseState) {
+		function nextSctnBehavior(sectionElement, mouseState) {
+      var spanElement = $(sectionElement).children("span");
+      var sectionIdValue = $(sectionElement).attr("id");
+      
+      switch (mouseState) {
 				case "over":
-					$("#next-sctn span").css(nextSctnTextOverCSS);
-					$("#next-sctn").css(nextSctnDivOverCSS);
+					$(spanElement).css(sctnTextOverCSS);
+          
+          if (sectionIdValue === "prev-sctn") {
+            $(sectionElement).css(prevSctnDivOverCSS);
+          } else {
+            $(sectionElement).css(nextSctnDivOverCSS);
+          }
 					break;
 
 				case "out":
-					$("#next-sctn span").css(nextSctnTextOutCSS);
-					$("#next-sctn").css(nextSctnDivOutCSS);
+					$(spanElement).css(sctnTextOutCSS);
+          
+					if (sectionIdValue === "prev-sctn") {
+            $(sectionElement).css(prevSctnDivOutCSS);
+          } else {
+            $(sectionElement).css(nextSctnDivOutCSS);
+          }
 					break;
 
 				case "click":
 					var yLocation = $(window).scrollTop();
-					
-					if ((yLocation >= 0) && (yLocation < 800)) {
-						window.scrollTo(0, 800);
-					}	else {
-							if ((yLocation >= 800) && (yLocation < 1600)) {
-								window.scrollTo(0, 1600);
-							} else {
-									if ((yLocation >= 1600) && (yLocation < 2400)) {
-										window.scrollTo(0, 2400);
-									} else {
-											if ((yLocation >= 2400) && (yLocation < 3200)) {
-												window.scrollTo(0, 3200);
-											}	else {
-													if ((yLocation >= 3200) && (yLocation < 4000)) {
-														window.scrollTo(0, 4000);
-													}	else {
-															if (yLocation >= 4000) {
-																window.scrollTo(0, 4704);						
-															} 
-														}
-												}
-										}
-								}
-						}			
-	
+				  var yScroll = $("div.wndow").height();
+          var yDifferenceValue = new Number();
+          var inc = 0;
+          
+          if (sectionIdValue === "prev-sctn")  {
+            yDifferenceValue = -yLocation;
+          
+            while (yDifferenceValue < -yScroll) {
+              yDifferenceValue = (inc * yScroll) - yLocation;
+              
+              inc++;
+            }
+          } else {
+            yDifferenceValue = yScroll - yLocation;
+            
+            while (yDifferenceValue < 1) {
+              yDifferenceValue = (inc * yScroll) - yLocation;
+              
+              inc++;
+            }
+          }
+          
+          var yScrollTo = yLocation + yDifferenceValue;
+          
+         $("body").animate({scrollTop: yScrollTo}, 750, "easeOutQuad");
 			}
 		}
 
@@ -254,7 +277,7 @@ $(document).ready(
 				
 				var subNavValueString = "#menu-sctn_" + sectionNum;
 				
-				var windowScrollNum = sectionNum * 800;
+				var windowScrollNum = sectionNum * $(window).scrollTop();
 				
 				$(window).scrollTop(windowScrollNum);
 				
@@ -270,42 +293,24 @@ $(document).ready(
 		}
 		
 
-		$("#prev-sctn").on("mouseenter",
+		$("#prev-sctn, #next-sctn").on("mouseenter",
 			function () {
-				nextSctnBehavior("over");
+				nextSctnBehavior(this, "over");
 			}
 			);
 
-		$("#prev-sctn").on("mouseleave",
+		$("#prev-sctn, #next-sctn").on("mouseleave",
 			function () {
-				nextSctnBehavior("out");
+				nextSctnBehavior(this, "out");
 			}
 			);
 
-		$("#prev-sctn").on("click",
+		$("#prev-sctn, #next-sctn").on("click",
 			function () {
-				nextSctnBehavior("click");
+				nextSctnBehavior(this, "click");
 			}
 			);
       
-    $("#next-sctn").on("mouseenter",
-			function () {
-				nextSctnBehavior("over");
-			}
-			);
-
-		$("#next-sctn").on("mouseleave",
-			function () {
-				nextSctnBehavior("out");
-			}
-			);
-
-		$("#next-sctn").on("click",
-			function () {
-				nextSctnBehavior("click");
-			}
-			);
-
 		$("#menu-link").on("mouseleave",
 			function () {
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
@@ -433,31 +438,31 @@ $(document).ready(
 						break;
 
 					case "sctn-1":
-						window.scrollTo(0, 800);
-						window.location.href = "#sctn_1?pos=0";
+						window.scrollTo(0, $("div.wndow").height());
+						window.location.hash = "#sctn_1?pos=0";
 						break;
 
 					case "sctn-2":
-						window.scrollTo(0, 1600);
+						window.scrollTo(0, ($("div.wndow").height() * 2));
 						break;
 
 					case "sctn-3":
-						window.scrollTo(0, 2400);
-						window.location.href = "#sctn_3?pos=0";
+						window.scrollTo(0, ($("div.wndow").height() * 3));
+						window.location.hash = "#sctn_3?pos=0";
 						break;
 
 					case "sctn-4":
-						window.scrollTo(0, 3200);
-						window.location.href = "#sctn_4?pos=0";
+						window.scrollTo(0, ($("div.wndow").height() * 4));
+						window.location.hash = "#sctn_4?pos=0";
 						break;
 
 					case "sctn-5":
-						window.scrollTo(0, 4000);
+						window.scrollTo(0, ($("div.wndow").height() * 5));
 						break;
 
 					case "sctn-6":
-						window.scrollTo(0, 4704);
-						window.location.href = "#sctn_6?pos=0";
+						window.scrollTo(0, ($("div.wndow").height() * 6));
+						window.location.hash = "#sctn_6?pos=0";
 						break;
 				}
 			}
