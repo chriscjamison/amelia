@@ -1,7 +1,8 @@
 function fadeSectionBlocks(sectionBlockElements, transitionTimeValue) {
 	$(sectionBlockElements).each(
 		function () {
-			$(this).fadeTo(transitionTimeValue, 1);
+      $(this).attr("id");
+      $(this).fadeTo(transitionTimeValue, 1);
 		}
 	);
 }
@@ -13,46 +14,46 @@ function animateElements(sectionNum) {
 		var transitionValue = 500;
 	
 		fadeSectionBlocks(headerClassString, transitionValue);
-		
-		switch (sectionNum) {
-			case 1:
-        $(window).scrollTop($("div.wndow").height())
+	
+    switch (sectionNum) {
+			case "1":
+        // $(window).scrollTop($("div.wndow").height());
 				
         fadeSectionBlocks(sectionDescElementsString, transitionValue);
 			break;
 			
-			case 2:
-        $(window).scrollTop($("div.wndow").height() * 2);
+			case "2":
+        // $(window).scrollTop($("div.wndow").height() * 2);
 				
         var sectionDescElementsString_2 = sectionDescElementsString + ", div.sctn_2-blok-desc, div.sctn_2-blok_2";
 				
         fadeSectionBlocks(sectionDescElementsString_2, transitionValue);
 			break;
 			
-			case 3:
-        $(window).scrollTop($("div.wndow").height() * 3);
+			case "3":
+        // $(window).scrollTop($("div.wndow").height() * 3);
         
         var sectionDescElementsString_3 = sectionDescElementsString + ", #menu-sctn_3";
 				
         fadeSectionBlocks(sectionDescElementsString_3, transitionValue);
 			break;
 			
-			case 4:
-				$(window).scrollTop($("div.wndow").height() * 4);
+			case "4":
+				// $(window).scrollTop($("div.wndow").height() * 4);
 				
         var sectionDescElementsString_4 = sectionDescElementsString + ", #menu-sctn_4";
 				
         fadeSectionBlocks(sectionDescElementsString_4, transitionValue);
 			break;
 			
-			case 5:
-        $(window).scrollTop($("div.wndow").height() * 5);
+			case "5":
+        // $(window).scrollTop($("div.wndow").height() * 5);
 				        
 				fadeSectionBlocks(sectionDescElementsString, transitionValue);
 			break;
 			
-			case 6:
-				$(window).scrollTop($("div.wndow").height() * 3);
+			case "6":
+				// $(window).scrollTop($("div.wndow").height() * 6);
 				
         var sectionDescElementsString_5 = "#sctn_6-desc-1";
 				
@@ -193,37 +194,127 @@ function resizeBackgrounds() {
   }
 }
 
+
+function animateWindowPanes() {
+  var pageURLString = window.location.hash;
+  
+  if (pageURLString !== "") {
+    var variableIndexNum;
+    
+    var sectionNum;
+    var positionNum;
+    
+    var sectionNumString = "sctn_";
+    var positionNumString = "pos=";
+    
+    variableIndexNum = pageURLString.indexOf(sectionNumString);
+    
+    sectionNum = pageURLString.charAt(variableIndexNum + sectionNumString.length);
+    
+    var bkgrndValueString = "#bkgrnd-sctn_" + sectionNum;
+    var windowPaneValueString = "#wndow-sctn_" + sectionNum;
+    var headerValueString = "div.headr.sctn_" + sectionNum;
+    
+    variableIndexNum = pageURLString.indexOf(positionNumString);
+    
+    positionNum = pageURLString.charAt(variableIndexNum + positionNumString.length);
+    
+    var windowWidth = $(window).width();
+    var windowWidthValue = new Number();
+    
+    if (windowWidth <= 1280) {
+      windowWidthValue = 1280;
+    } else {
+      if (windowWidth > 1280 && windowWidth <= 1366)  {
+        windowWidthValue = 1366;
+      } else  {
+        windowWidthValue = 1920;
+      }
+    }
+    
+    var bkgrndValueNum = positionNum * -windowWidthValue;
+    var windowPaneValueNum = positionNum * -windowWidthValue;
+    var headerValueNum = positionNum * windowWidthValue;
+    
+    var bkgrndValueNumString =  bkgrndValueNum + "px" + " 0px"
+    var windowPaneValueNumString = windowPaneValueNum + "px";
+    var headerValueNumString = headerValueNum + "px";
+    // var sectionNumString = "\"" + sectionNum + "\"";
+    
+    if ($(headerValueString).css("opacity") !== "0")  {
+      $(bkgrndValueString).fadeTo(125, 0, 
+        function () {
+          $(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
+          $(bkgrndValueString).fadeTo(125, 1);
+        });
+    } else {
+      $(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
+      animateElements(sectionNum);
+    }
+    
+    $(windowPaneValueString).css("left", windowPaneValueNumString);
+    $(headerValueString).css("left", headerValueNumString);
+    
+    var subNavValueString = "#menu-sctn_" + sectionNum;
+    
+    var windowScrollNum = sectionNum * $("div.wndow").height();
+    
+    $("body").animate({scrollTop: windowScrollNum}, 750, "easeInOutQuad");
+      
+    if ($(subNavValueString)) {
+      var subNavValueNum = positionNum * windowWidthValue;
+      var subNavValueNumString = subNavValueNum + "px";
+          
+      $(subNavValueString).css("left", subNavValueNumString);
+    }
+  } else {
+    $(window).scrollTop(0);
+  }
+}
+
 $(document).ready(
 	function () {
     resizeBackgrounds();
     
-		$(window).on("scroll",
+		$(window).on('hashchange', 
+      function () {
+        animateWindowPanes();
+      }
+    );
+    
+    $(window).on('load', 
+      function () {
+        animateWindowPanes();
+      }
+    );
+    
+    $(window).on("scroll",
 			function () {
 				var browserPositionNum = $(window).scrollTop();
         var windowHeight = $("div.wndow").height();
 				
-				if (browserPositionNum > (windowHeight - 500) && browserPositionNum < windowHeight) {
-					animateElements(1);
+				if (browserPositionNum > (windowHeight - 500) && browserPositionNum < (windowHeight + 250)) {
+					animateElements("1");
 				} 
 				
-				if (browserPositionNum > (windowHeight * 2 - 500) && browserPositionNum < windowHeight * 2) {
-					animateElements(2);
+				if (browserPositionNum > (windowHeight * 2 - 500) && browserPositionNum < (windowHeight * 2) + 250) {
+					animateElements("2");
 				}	
 				
-				if (browserPositionNum > (windowHeight * 3 - 500) && browserPositionNum < windowHeight * 3)	{
-					animateElements(3);
+				if (browserPositionNum > (windowHeight * 3 - 500) && browserPositionNum < (windowHeight * 3) + 250)	{
+					animateElements("3");
 				}	
 				
-				if (browserPositionNum > (windowHeight * 4 - 500) && browserPositionNum < windowHeight * 4)	{
-					animateElements(4);
+				if (browserPositionNum > (windowHeight * 4 - 500) && browserPositionNum < (windowHeight * 4) + 250)	{
+					animateElements("4");
 				}
 				
-				if (browserPositionNum > (windowHeight * 5 - 500) && browserPositionNum < windowHeight * 5)	{
-					animateElements(5);
+				if (browserPositionNum > (windowHeight * 5 - 500) && browserPositionNum < (windowHeight * 5) + 250)	{
+					animateElements("5");
 				}	
 				
 				if (browserPositionNum > (windowHeight * 6 - 500) && browserPositionNum < windowHeight * 6)	{
-					animateElements(6);
+					animateElements("6");
 				}
         
         if ((browserPositionNum === 0) && ($("#prev-sctn").css("opacity") === "1"))  {

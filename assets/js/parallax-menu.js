@@ -238,60 +238,6 @@ $(document).ready(
 				$(subNavValue).css(sctnNavOptionsBaseCSS).delay(200);
 			}
 		}
-		
-		function animateWindowPanes() {
-			var pageURLString = window.location.hash;
-			
-			if (pageURLString !== "") {
-				var variableIndexNum;
-				
-				var sectionNum;
-				var positionNum;
-				
-				var sectionNumString = "sctn_";
-				var positionNumString = "pos=";
-				
-				variableIndexNum = pageURLString.indexOf(sectionNumString);
-				
-				sectionNum = pageURLString.charAt(variableIndexNum + sectionNumString.length);
-				
-				var bkgrndValueString = "#bkgrnd-sctn_" + sectionNum;
-				var windowPaneValueString = "#wndow-sctn_" + sectionNum;
-				var headerValueString = "div.headr.sctn_" + sectionNum;
-				
-				variableIndexNum = pageURLString.indexOf(positionNumString);
-				
-				positionNum = pageURLString.charAt(variableIndexNum + positionNumString.length);
-				
-				var bkgrndValueNum = positionNum * -1280;
-				var windowPaneValueNum = positionNum * -1280;
-				var headerValueNum = positionNum * 1280;
-				
-				var bkgrndValueNumString =  bkgrndValueNum + "px" + " 0px"
-				var windowPaneValueNumString = windowPaneValueNum + "px";
-				var headerValueNumString = headerValueNum + "px";
-				
-				$(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
-				$(windowPaneValueString).css("left", windowPaneValueNumString);
-				$(headerValueString).css("left", headerValueNumString);
-				
-				var subNavValueString = "#menu-sctn_" + sectionNum;
-				
-				var windowScrollNum = sectionNum * $(window).scrollTop();
-				
-				$(window).scrollTop(windowScrollNum);
-				
-				if ($(subNavValueString)) {
-					var subNavValueNum = positionNum * 1280;
-					var subNavValueNumString = subNavValueNum + "px";
-							
-					$(subNavValueString).css("left", subNavValueNumString);
-				}
-			} else {
-				$(window).scrollTop(0);
-			}
-		}
-		
 
 		$("#prev-sctn, #next-sctn").on("mouseenter",
 			function () {
@@ -435,35 +381,47 @@ $(document).ready(
 				switch (this.id) {
 					case "home":
 						window.scrollTo(0, 0);
-						break;
+					break;
 
 					case "sctn-1":
 						window.scrollTo(0, $("div.wndow").height());
 						window.location.hash = "#sctn_1?pos=0";
-						break;
+            
+            if ($("div.headr.sctn_1").css("opacity") === "0") {
+              setTimeout(
+                function() {
+                  animateElements(1) 
+                }, 1000);
+            }
+					break;
 
 					case "sctn-2":
 						window.scrollTo(0, ($("div.wndow").height() * 2));
-						break;
+            animateElements(2);
+					break;
 
 					case "sctn-3":
 						window.scrollTo(0, ($("div.wndow").height() * 3));
 						window.location.hash = "#sctn_3?pos=0";
-						break;
+            animateElements(3);
+					break;
 
 					case "sctn-4":
 						window.scrollTo(0, ($("div.wndow").height() * 4));
 						window.location.hash = "#sctn_4?pos=0";
-						break;
+            animateElements(4);
+					break;
 
 					case "sctn-5":
 						window.scrollTo(0, ($("div.wndow").height() * 5));
-						break;
+            animateElements(5);
+					break;
 
 					case "sctn-6":
 						window.scrollTo(0, ($("div.wndow").height() * 6));
 						window.location.hash = "#sctn_6?pos=0";
-						break;
+            animateElements(6);
+					break;
 				}
 			}
 			);
@@ -495,12 +453,6 @@ $(document).ready(
 			function () {
 				window.location.hash = "#sctn_5?pos=2"
 			}
-			);
-			
-			$(window).on('hashchange', 
-				function () {
-					animateWindowPanes();
-				}
 			);
 	}
 	);
