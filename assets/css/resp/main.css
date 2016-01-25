@@ -81,6 +81,7 @@ body {
 .copy {
 	width: 1280px;
 	height: 800px;
+  margin: 12.15em 0 0 10.42em; 
 	display: inline-block;
 	position: relative;
 	font: 400 0.9em 'Glegoo', 'Palatino', serif;
@@ -156,8 +157,6 @@ body {
 	margin: 0 auto;
 	padding: 2.0em;
 	position: absolute;
-	top: 350px;
-	left: 55%;
 	z-index: 2;
 	font-size: 0.9em;
 	opacity: 0;
@@ -196,11 +195,7 @@ body {
 
 #sctn_1-desc {
 	width: 25%;
-	position: absolute;
-	margin: 25px;
 	padding: 1em 2em;
-	top: 150px;
-	left: 125px;
 	background-color: #d2e6db;
 }
 
@@ -228,27 +223,47 @@ body {
 }
 
 .sctn_2-blok {
-	width: 370px;
-	height: 185px;;
-	position: absolute;
-	top: 150px;
-	margin: 25px;
-	padding: 17px;
-	opacity: 0;
+	width: 29.9em;
+	height: auto;
+  margin-right: 4.5em;
+	padding: 1em;
+  opacity: 0;
+	float: left;
 	background-color: #e0d0b0;
 	font: 400 0.95em "Glegoo", "Palatino", serif;
 	text-align: center;
 }
 
+.sctn_2-blok > img {
+  margin-bottom: 0.4em;
+}
+
+.sctn_2-blok > ul {
+  width: 74.3%;
+  margin: 0.35em auto;
+  padding: 0;
+  list-style-type: none;
+  border-top: 3px solid #945b63;
+}
+
+.sctn_2-blok > ul > li {
+  margin: 0.5em;  
+}
+
+.sctn_2-blok > ul > li:first-child {
+  font-weight: 600;
+}
+
+/*
 .sctn_2-blok-desc {
 	width: 370px;
 	height: inherit;
 	position: absolute;
 	top: 10px;
 	margin: 0 auto;
-}
+}*/
 
-.sctn_2-blok-desc > span {
+/*.sctn_2-blok-desc > span {
 	width: 370px;
 	height: auto;
 	margin: 0 auto;
@@ -260,23 +275,23 @@ body {
 	border-top: 3px solid #748445;
 	font-weight: 600;
 	color: #52652d;
-}
+}*/
 
-.sctn_2-blok-desc > span + span {
+/*.sctn_2-blok-desc > span + span {
 	top: 135px;
 	border: none;
 	font-weight: 400;
 	font-size: 1.15em;
 	color: #000;
-}
+}*/
 
-.sctn_2-blok-desc > span + span + span {
+/*.sctn_2-blok-desc > span + span + span {
 	top: 165px;
 	border: none;
 	font-size: 0.95em;
 	color: #000;
-}
-
+}*/
+/*
 #undergd {
 	left: 150px;
 }
@@ -284,33 +299,30 @@ body {
 #grad {
 	left: 640px;
 }
-
+*/
 .sctn_2-blok_2 {
-	width: 800px;
-	height: 110px;
-	position: absolute;
-	top: 450px;
-	left: 225px;
+	width: 64.85em;
+	height: auto;
 	opacity: 0;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
 .sctn_2-blok_2 > span {
-	width: 340px;
+	width: 15em;
 	display: block;
-	padding: 10px;
-	margin: 0 20px;
-	font-size: 0.95em;
+	padding: 1em;
+	margin: 0 auto;
 	font-weight: 600;
-	color: #f6f3cb;
+  text-align: center;
+	color: #f6f3bc;
   background-color: #8f5b56;
 }
 
 .sctn_2-blok_2 > div {
-	width: 25%;
-	height: 40px;
+	width: 15em;
+	height: auto;
 	margin: 10px 20px 10px 30px;
 	display: inline-block;
+  background-color: #f6f3bc;
 }
 
 .sctn_2-blok_2 > div > span {
