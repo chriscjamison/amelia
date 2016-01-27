@@ -1,9 +1,6 @@
 #qstnair,
 #cntct_form {
 	height: initial;
-	position: absolute;
-	top: 150px;
-	left: 150px;
 	z-index: 6;
 }
 /*
@@ -15,20 +12,18 @@
 }
 */
 .clmn {
-	width: 50%;
+	width: 28.9em;
 	height: auto;
+  display: inline-block;
 	float: left;
-	margin: 0 auto;	
+	margin-right: 4.5em;	
 }
 
 .qstn,
 .cntct_info {
-	width: 27em;
 	height: auto;
-	padding: 1.5em;
-	margin: 2em;
+	padding: 2em;
 	background-color: #fff;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
 .qstn span,
@@ -38,9 +33,11 @@
 }
 
 .qstn span + span {
+  padding-bottom: 1.1em;
 	font-size: 1.1em;
 	font-weight: 600;
 	line-height: 1.3em;
+  border-bottom: 2px solid #cfd7a3;
 }
 
 .quiz-spcr {
@@ -54,7 +51,7 @@
 .cntct_info fieldset div span {
 	position: relative;
 	top: -10px;
-	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
+	font: 400 1.2em "Franklin Gothic Medium", sans-serif;
 }
 
 .qstn fieldset div span + span,
@@ -64,10 +61,11 @@
 
 .qstn p,
 .cntct_info p {
+  margin-top: 0.3em;
 	display: block;
 	position: relative;
 	overflow: visible;
-	line-height: 1.8em;
+	line-height: 1.7em;
 	text-indent: 2em;
 }
 
@@ -97,14 +95,12 @@
 
 #quiz-next,
 #cntct-next {
-	position: relative;
-	right: -62%;
+	float: right;
 }
 
 #quiz-prev,
 #cntct-prev {
-	position: relative;
-	left: 8.2em;
+	float: right;
 }
 
 #cntct-prev {
@@ -112,8 +108,7 @@
 }
 
 #quiz-sbmt {
-	position: relative;
-	left: 7.5em;
+	float: right;
 }
 
 #sbmt-cntct {
@@ -135,7 +130,7 @@ input[type=button],
 input[type=submit] {
 	width: 125px;
 	height: 50px;
-	margin: 0.35em 0 0 1.4em;
+	margin: 1.20em 0 0 1.2em;
 	background-color: #40BDE8;
 	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
 	color: #221763;

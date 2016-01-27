@@ -103,7 +103,8 @@ function resizeBackgrounds() {
 	
 	var windowWidth = new Number();
   var windowHeight = new Number();
-  
+  var windowResizeValue = new Number();
+      
   var urlString = new String();
   
   windowElements_Array = $("div.wndow");
@@ -111,9 +112,10 @@ function resizeBackgrounds() {
  
   windowWidth = $(window).width();
   windowHeight = $(window).height();
+  windowResizeValue = 133;
   
 	windowElements_Array.each(
-		function (windowIndexNum)	{
+		function ()	{
       var sectionNumValue = new String();
       var sectionIdSelector = new String();
       
@@ -145,19 +147,30 @@ function resizeBackgrounds() {
             backgroundCSSValues_Array[3] = 1200;
           }
         }
-       
-      backgroundCSSValues_Array[5] = backgroundCSSValues_Array[2] * backgroundCSSValues_Array[1]; 
-       
       
-      backgroundCSSValues_Array[4] = "url('/amelia/assets/img/sctn/" + 
+      backgroundCSSValues_Array[4] = backgroundCSSValues_Array[2] * backgroundCSSValues_Array[1];
+      
+      backgroundCSSValues_Array[5] = "url('/amelia/assets/img/sctn/" + 
                                      sectionNumValue.slice(sectionNumValue.indexOf("_") + 1) + 
-                                     "/" + backgroundCSSValues_Array[5] + 
+                                     "/" + backgroundCSSValues_Array[4] + 
                                      "x" + backgroundCSSValues_Array[3] +	".jpg')";
        
-      $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[4]);		
-      $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[5]);
+       
+      $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[5]);		
+      $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[4]);
       $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);
+      
+      $(this).css("width", backgroundCSSValues_Array[1] * backgroundCSSValues_Array[2]);
       $(this).css("height", backgroundCSSValues_Array[3]);
+      
+      $(this).children(".copy").css("width", (windowWidth - windowResizeValue));
+      $(this).children(".copy").css("height", (windowHeight - 50));
+      
+      if ($(this).children(".copy").length > 0) {
+        var copyElementsString = ".copy:nth-child(" + ($(this).children(".copy").length + 2) + ")";
+       
+        $(this).children(copyElementsString).css("width", windowWidth - windowResizeValue - 1);
+      }
     }
   );
   
