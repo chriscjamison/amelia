@@ -151,8 +151,9 @@ body {
 
 .sctn_1-blok {
 	width: 28.94em;
-  min-height: 320px;
+  min-width: 320px;
 	height: auto;
+  min-height: 320px;
 	padding: 1em 2em;
 	position: absolute;
 	z-index: 2;
@@ -217,8 +218,9 @@ body {
 
 .sctn_2-blok {
 	width: 28.9em;
-  min-height: 320px;
+  min-width: 320px;
 	height: auto;
+  min-height: 320px;
   margin-right: 4.5em;
 	padding: 1em;
   display: inline-block;
@@ -301,9 +303,8 @@ body {
 
 .sctn_3-blok {
   width: 28.9em;
-  min-height: 320px;
+  min-width: : 320px;
 	height: auto;
-  margin-right: 4.5em;
 	padding: 1em 2em;
   display: inline-block;
   background-color: #e0d0b0;
@@ -393,28 +394,29 @@ body {
 }
 
 .sctn_4-blok {
-	width: 370px;
-	position: absolute;
-	top: 175px;
-	left: 33em;
-	margin: 0 auto;
+  width: 28.9em;
+  min-width: 320px;
+	height: auto;
+  margin: 0 auto;
 	padding: 1em 2em;
-	opacity: 0;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
+  display: block;
+  position: relative;
+  left: -5.5em;
+  opacity: 0;
 }
 
 .sctn_4-blok p {
 	color: #3b1d13;
+  font-weight: 400;
 	text-indent: 1em;
-	font-weight: 400;
+  line-height: 1.7em;
+	
 }
 
-
 .sctn_4-blok > div {
-	display: block;
 	position: absolute;
-	top: -105px;
-	left: 10px;
+	top: -0.3em;
+	left: 0.06em;
 	font-size: 12em;
 }
 
@@ -437,6 +439,7 @@ body {
 }
 
 #sctn_4-desc {
+  min-height: 320px;
 	background-color: #fcd36a;
 }
 
