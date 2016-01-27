@@ -252,7 +252,6 @@ function animateWindowPanes() {
     var bkgrndValueNumString =  bkgrndValueNum + "px" + " 0px"
     var windowPaneValueNumString = windowPaneValueNum + "px";
     var headerValueNumString = headerValueNum + "px";
-    // var sectionNumString = "\"" + sectionNum + "\"";
     
     if ($(headerValueString).css("opacity") !== "0")  {
       $(bkgrndValueString).fadeTo(125, 0, 
