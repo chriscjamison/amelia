@@ -144,8 +144,9 @@ input[type=submit]:hover {
 }
 
 input#sctn_5-bttn {
-	display: initial;
-	margin: 0.4em 0 0 1.4em;
+	margin: 0.35em 0 0.7em 0;
+  float: right;
+  
 }
 
 input#sctn_5-sbmt {

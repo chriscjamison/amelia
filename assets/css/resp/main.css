@@ -220,7 +220,6 @@ body {
 	width: 28.9em;
   min-width: 320px;
 	height: auto;
-  min-height: 320px;
   margin-right: 4.5em;
 	padding: 1em;
   display: inline-block;
@@ -303,7 +302,7 @@ body {
 
 .sctn_3-blok {
   width: 28.9em;
-  min-width: : 320px;
+  min-width: 320px;
 	height: auto;
 	padding: 1em 2em;
   display: inline-block;
@@ -395,7 +394,7 @@ body {
 
 .sctn_4-blok {
   width: 28.9em;
-  min-width: 320px;
+  min-width: 225px;
 	height: auto;
   margin: 0 auto;
 	padding: 1em 2em;
@@ -489,21 +488,16 @@ body {
 
 /* ---- SECTION 5 ---- */
 
-#bkgrnd-sctn_5 {
-	background-repeat: no-repeat;
-}
-
 .headr.sctn_5 {
-	background-color: #90a3c3;
+	background-color: #61123a;
 }
 
 .sctn_5-blok {
-	width: 370px;
-	position: absolute;
-	top: 175px;
+	width: 28.9em;
+  margin-right: 4.5em;
 	padding: 1em 2em;
+	position: relative;
 	opacity: 0;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
 }
 
 .sctn_5-blok p {
@@ -513,90 +507,95 @@ body {
 }
 
 #sctn_5-desc-1 {
-	left: 150px;
-	background-color: #711f45;
-	color: #e8d4d3;
+  float: left;
+	background-color: #7ea6d7;
+	color: #231f20;
 }
 
-#sctn_5-desc-2 {
-	width: 28%;	
-}
-
-#sctn_5-desc-2 > span + span {
-	width: auto;
-	text-align: center;
-}
-
-#sctn_5-desc-2 > span + span strong {
-	color: #efe9e9;
-	font-size: 2em;
-}
-
-#sctn_5-desc-2 > span + span strong sup {
-	position: relative;
-	top: -18px;
-	font-size: 0.35em;
-}
-
-#sctn_5-desc > p:first-line {
+#sctn_5-desc-1 > p:first-line {
 	font-weight: 600;
 }
 
-#sctn_5-desc > p + p:first-line {
+#sctn_5-desc-1 > p + p:first-line {
 	font-weight: 400;
 }
 
 #sctn_5-desc-2 {
-	left: 590px;
-	padding-bottom: 0;
-	background-color: #cbcedd;
-}
-
-#sctn_5-desc-3 {
-	width: 28%;
-	top: 505px;
-	left: 590px;
-	background-color: #a2b5d5;
-}
-
-#sctn_5-desc-4 {
-	width: 685px;
-	height: 65px;
-	left: 200px;
-	top: 605px;
-	background-color: #e8d4d3;
-	color: #383b44;
-}
-
-#sctn_5-desc-4 > span {
-	width: 534px;
-	height: 65px;
-	float: left;
-	border-bottom: none;
-	border-right: 2px solid #711f45;
-	color: #383b44;
-	font-size: 1em;
+	width: 28.9em;
+  margin-top: 2.5em;
+  padding-bottom: 0;
+	position: relative;
+  float: left;
+  background-color: #456392;	
 }
 
 #sctn_5-desc-2 > span {
-	width: 100%;
-	display: block;
-	margin: 7px 0;
-	padding-bottom: 9px;
-	border-bottom: 2px solid;
-	color: #383b44;
+  margin: 0.1em 0 1em 0;
+  display: block;
+	color: #cbcedd;
 	font-size: 1.25em;
 	font-weight: 600;
 	text-align: center;
 }
 
+#sctn_5-desc-3 {
+	background-color: none;
+  float: left;
+}
+
 #sctn_5-desc-3 > span {
-	width: 75%;
-	margin: 0 auto;
-	display: block;
+  width: 105px;
+  height: 45px;
+  padding: 1em;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-color: #b9c6d3;
+}
+
+#sctn_5-desc-3 > span > span {
+  width: 105px;
+  height: 27px;
+  margin-top: 0.55em;
+  display: block;
+  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-position: 0px 0px;
+}
+
+#sctn_5-desc-3 > span + span > span {
+  width: 105px;
+  height: 20px;
+  margin-top: 0.9em;
+  display: block;
+  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-position: 0px -28px;
+}
+
+#sctn_5-desc-3 > span + span + span > span {
+  width: 105px;
+  height: 45px;
+  margin-top: 0;
+  display: block;
+  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-position: 0px -47px;
+}
+
+#sctn_5-desc-3 > span + span + span ~ span span {
+  height: 45px;
+  margin-top: 0.85em;
+  text-align: center;
+  background-image: none;
+}
+
+#sctn_5-desc-4 {
+	float: left;
+	background-color: #e8d4d3;
 	color: #383b44;
-	font-weight: 700;
-	font-size: 1.25em;
+}
+
+#sctn_5-desc-4 > p {
+  padding-bottom: 0.9em;
+	border-bottom: 2px solid #711f45;
+	color: #383b44;
 }
 
 #sctn_5-desc-5 {
