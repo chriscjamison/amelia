@@ -599,30 +599,30 @@ body {
 }
 
 #sctn_5-desc-5 {
-	left: 150px;
-	background-color: #711f45;
-	color: #e8d4d3;
+	background-color: #d8bfd5;
+	color: #61123a;
 }
 
 #sctn_5-desc-5 > span {
 	display: block;
-	margin-bottom: 0.6em;
-	border-bottom: 2px solid;
 	font-size: 2em;
 	font-weight: 700;
+  text-align: center;
 }
 
-#sctn_5-desc-5 > span + div {
-	height: 115px;
+#sctn_5-desc-6 {
+  min-height: 225px;
+  margin-top: 1em;
+  background-color: #253771;
 }
 
-#sctn_5-desc-5 > span + div > span {
+#sctn_5-desc-6 > span > span {
 	height: 180px;
 	position: absolute;
 	top: 0px;
 }
 
-#sctn_5-desc-5 > div > span > sup {
+#sctn_5-desc-6 > span > sup {
 	position: absolute;
 	top: 65px;
 	left: 85px;
@@ -630,7 +630,7 @@ body {
 	font-size: 2.5em;
 }
 
-#sctn_5-desc-5 > div > span > strong {
+#sctn_5-desc-6 > span > span {
 	position: absolute;
 	top: 15px;
 	left: 100px;
@@ -640,7 +640,7 @@ body {
 	letter-spacing: -8px;
 }
 
-#sctn_5-desc-5 > div > span > span 	{
+#sctn_5-desc-6 > span > span 	{
 	position: absolute;
 	top: 150px;
 	left: 250px;
@@ -648,42 +648,18 @@ body {
 	font-size: 2em;
 }
 
-#sctn_5-desc-5 > p {
-	font-size: 0.95em;
-}
-
-#sctn_5-desc-6 {
+#sctn_5-desc-7 {
 	left: 600px;
 	background-color: #e8d4d3;
 	color: #383b44;
 }
 
-#sctn_5-desc-6 > p {
+#sctn_5-desc-7 > p {
 	font-size: 0.95em;
 }
 
-#sctn_5-desc-6 > p:first-line {
+#sctn_5-desc-7 > p:first-line {
 	font-weight: 700;
-}
-
-#sctn_5-logos div {
-	height: 45px;
-	margin: 2em auto;
-}
-
-#sctn_5-logo_1 {
-	width: 233px;
-	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 0 no-repeat;
-}
-
-#sctn_5-logo_2 {
-	width: 176px;
-	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 -45px no-repeat;
-}
-
-#sctn_5-logo_3 {
-	width: 105px;
-	background: url(/amelia/assets/img/sctn/5/sprite-insrance_comps.png) 0 -90px no-repeat;
 }
 
 /* ---- SECTION 6 ---- */
