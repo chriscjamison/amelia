@@ -155,7 +155,9 @@ input#sctn_5-sbmt {
 }
 
 input#sctn_5-cntct {
+  margin: 0 0 0.7em 0;
 	float: right;
+  letter-spacing: -0.6px;
 }
 
 label + p,
