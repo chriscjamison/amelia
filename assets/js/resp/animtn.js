@@ -55,8 +55,8 @@ function animateElements(sectionNum) {
 			case "6":
 				// $(window).scrollTop($("div.wndow").height() * 6);
 				
-        var sectionDescElementsString_5 = "#sctn_6-desc-1";
-				
+        var sectionDescElementsString_5 = sectionDescElementsString + ", div.sctn_6-blok-2";
+        
         fadeSectionBlocks(sectionDescElementsString_5, transitionValue);
 				
 				var sectionDescElementsString_6 = "#menu-sctn_6";

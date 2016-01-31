@@ -88,8 +88,7 @@
 }
 
 #quiz-start {
-	margin-top: 0;
-	position: relative;
+	margin: 0 0 0.8em 0;
 	float: right;
 }
 
@@ -102,9 +101,20 @@
 #cntct-prev {
 	float: right;
 }
-
+/*
 #cntct-prev {
 	margin: 0 1em;
+}
+*/
+#cntct-map {
+  margin: 0;
+  float: right;
+}
+
+#cntct-msg {
+  margin: 0.7em 0 0.7em 0;
+  float: right;
+  letter-spacing: -0.7px;
 }
 
 #quiz-sbmt {
@@ -112,8 +122,8 @@
 }
 
 #sbmt-cntct {
-	margin: 0 1.5em;
 	float: right;
+  letter-spacing: -0.7px;
 }
 
 fieldset {
@@ -157,7 +167,7 @@ input#sctn_5-sbmt {
 input#sctn_5-cntct {
   margin: 0 0 0.7em 0;
 	float: right;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.7px;
 }
 
 label + p,

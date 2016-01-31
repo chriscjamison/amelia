@@ -49,7 +49,7 @@
 				<a name="sctn_1"></a>
 				<div class="headr sctn_1">Is Therapy Right for You?</div>
 				<div class="copy">
-					<div class="sctn_1-blok" id="sctn_1-desc">
+					<div class="sctn_1-blok" id="sctn_1-desc-1">
 						<p>
 							Psychotherapy consists of one-on-one client to therapist sessions, typically over a period of 
 							50 minutes per meeting. Depending on the emotional wellbeing of the client, he or she may meet 
@@ -61,9 +61,7 @@
 							of the quiz will determine if my theraputic method is	a good match to offer you relief from 
 							your symptoms.
 						</p>
-						<div id="quiz-bttn">
-							<input type="button" name="quiz-start" value="Start Quiz" id="quiz-start" />
-						</div>
+						<input type="button" name="quiz-start" value="Start Quiz" id="quiz-start" />
 					</div>
 				</div>
 				<div class="copy">
@@ -77,7 +75,7 @@
 					</div>	
 				</div>
 				<div class="copy">
-					<div class="sctn_1-blok" id="yes">
+					<div class="sctn_1-blok" id="sctn_1-desc-2">
 						<span>Yes</span>
 						<p>
 							Etiam in justo ut eros mollis sagittis vel et eros. Nullam bibendum sed nunc nec iaculis. 
@@ -89,7 +87,7 @@
 					</div>
 				</div>
 				<div class="copy">
-					<div class="sctn_1-blok" id="no">
+					<div class="sctn_1-blok" id="sctn_1-desc-3">
 						<span>No</span>
 						<p>
 							Etiam in justo ut eros mollis sagittis vel et eros. Nullam bibendum sed nunc nec iaculis. 
@@ -428,7 +426,7 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
-            	<input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" onclick="window.location.hash='#sctn_6?pos=1';" />
+            <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" onclick="window.location.hash='#sctn_6?pos=1';" />
 					</div>
 				</div>
 			</div>
@@ -436,28 +434,49 @@
 				<a name="sctn_6"></a>
 				<div class="headr sctn_6">Contact Amelia Xavier</div>
 				<div class="copy">
-					<div id="sctn_6-desc-1">
-						<div>
-							<p>
-								Duis sodales aliquam lacus. Nulla eget velit eu sem bibendum faucibus ullamcorper non est. 
-								Nulla facilisi. Cras hendrerit suscipit suscipit. Nunc ut augue consequat, gravida diam in, 
-								tincidunt nisi. Aenean maximus tincidunt nisl a vehicula. 
-							</p>
-							<p>
-								In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
-								neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
-							</p>
-						</div>
-						<div>
-							<span class="title_1">Office Hours</span>
-							<span>Monday - Thursday</span>
-							<span>8:00a - 4:30p</span>
-							<span class="title_1">Phone &amp; Fax Numbers</span>
-							<span><strong>Phone Number:</strong>1-512-555-4515</span>
-							<span><strong>Fax Number:</strong>1-512-555-4516</span>
-							<span class="title_emrgncy">In the case of an medical emergency: <strong>Dial 911</strong></span>
-						</div>
+					<div class="sctn_6-blok" id="sctn_6-desc-1">
+            <p>
+              Duis sodales aliquam lacus. Nulla eget velit eu sem bibendum faucibus ullamcorper non est. 
+              Nulla facilisi. Cras hendrerit suscipit suscipit. Nunc ut augue consequat, gravida diam in, 
+              tincidunt nisi. Aenean maximus tincidunt nisl a vehicula. 
+            </p>
+            <p>
+              In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
+              neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
+            </p>
+            <input type="button" name="contact_amelia" value="Contact Amelia" id="cntct-msg" onclick="window.location.hash='#sctn_6?pos=1';" />
 					</div>
+          <div class="sctn_6-blok" id="sctn_6-info-1">
+            <span>
+              <span>In the case of an medical emergency: <strong>Dial 911</strong></span>
+            </span>
+          </div>
+          <div class="sctn_6-blok-2" id="sctn_6-info-2">
+            <span>Office Address</span>
+            <div>
+              <span>4756 Medical Parkway Blvd.</span>
+              <span>Suite 4D</span>
+              <span>Austin, TX 78709</span>
+            </div>
+            <div>
+              <input type="button" name="cntct_amelia-map" value="View Map" id="cntct-map" onclick="window.location.hash='#sctn_6?pos=1';" />
+            </div>
+          </div>
+          <div class="sctn_6-spcr"></div>
+          <div class="sctn_6-blok-2">
+            <span>Office Hours</span>
+            <div>
+              <span>Monday - Thursday</span>
+              <span>8:00a - 4:30p</span>
+            </div>
+          </div>
+          <div class="sctn_6-blok-2">
+            <span>Phone &amp; Fax Numbers</span>
+            <div>
+              <span><strong>Phone Number: </strong><br />1-512-555-4515</span>
+              <span><strong>Fax Number: </strong><br />1-512-555-4516</span>
+            </div>
+          </div>
 				</div>
 				<div class="copy">
 					<div id="cntct_form">
@@ -501,25 +520,13 @@
 					</div>
 				</div>
 				<div class="copy">
-					<div id="sctn_6-desc-5">
+					<div class="sctn_6-blok" id="sctn_6-desc-2">
 						<span>Thank You!</span>
-						<div>
-							<p>
-								In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
-								neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
-							</p>
-						</div>
+						<p>
+              In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
+              neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
+            </p>
 					</div>					
-				</div>
-				<div class="sctn_nav sub_menu" id="menu-sctn_6">
-					<div>
-						<span>&nbsp;</span>
-						<div>
-							<a href="#sctn_6?pos=0">Home</a>
-							<a href="#sctn_6?pos=1">Contact Online</a>
-							<a href="#sctn_6?pos=2">View Map</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

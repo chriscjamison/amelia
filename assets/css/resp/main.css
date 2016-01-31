@@ -161,7 +161,7 @@ body {
 	opacity: 0;
 }
 
-.sctn_1-blok span {
+.sctn_1-blok > span {
 	width: 100%;
 	padding-bottom: 0.25em;
 	display: inline-block;
@@ -170,39 +170,44 @@ body {
 	font-size: 2.5em;
 }
 
-.sctn_1-blok p {
+.sctn_1-blok > p {
 	margin-bottom: 2.0em;
 	text-indent: 1.3em;
 	line-height: 1.8em;
-	
 }
 
-#yes {
+.sctn_1-blok > p ~ p {
+  margin-bottom: 1.7em;
+  padding-bottom: 1.5em;
+  border-bottom: 3px solid;
+}
+
+#sctn_1-desc-2 {
 	background-color: #9e7a75;
 	color: #f0c7ab;
 }
 
-#no {
+#sctn_1-desc-3 {
 	left: 500px;
 	background-color: #9a633f;
 	color: #f0f2ee;
 }
 
-#sctn_1-desc {
+#sctn_1-desc-1 {
 	padding: 1em 2em;
 	background-color: #d2e6db;
 }
 
-.sctn_1-desc p {
+#sctn_1-desc-1 p {
 	text-indent: 1.3em;
 	line-height: 1.8em	
 }
 
-#sctn_1-desc > p:first-line {
+#sctn_1-desc-1 > p:first-line {
 	font-weight: 600;
 }
 
-#sctn_1-desc > p + p:first-line {
+#sctn_1-desc-1 > p + p:first-line {
 	font-weight: 400;
 }
 
@@ -667,63 +672,140 @@ body {
 
 /* ---- SECTION 6 ---- */
 
-#bkgrnd-sctn_6 {
-	background-repeat: no-repeat;
+.headr.sctn_6 {
+	background-color: #32241a;
 }
 
-.headr.sctn_6 {
-	background-color: #ece511;
+.sctn_6-blok {
+  width: 28.9em;
+  margin-right: 2.5em;
+	padding: 1em 2em;
+  float: left;
+	opacity: 0;
 }
 
 #sctn_6-desc-1 {
-	width: 85.2%;
-	top: 175px;
-	left: 175px;
-	padding: 1em;
-	position: absolute;
-	clear: both;
+	padding: 1em 2em;
 	opacity: 0;
-	background-color: #442b2f;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
+	background-color: #b98a61;
 }
 
-#sctn_6-desc-1  > div {
-	width: 58%;
-	display: inline-block;
-	padding: 0.2em 1.5em;
-	color: #fee8da;
+#sctn_6-desc-1 > p {
+  line-height: 1.7em;
 }
 
-#sctn_6-desc-1  > div + div {
-	width: 235px;
-	margin-top: 0.5em;
-	padding: 0.5em 1em;
-	position: absolute;
-	display: inline-block;
-	color: #442b2f;
-	background-color: #fee8da;
+#sctn_6-info-1 {
+  width: 28.9em;
+  margin-top: 2.5em;
+  padding-bottom: 0;
+	position: relative;
+  color: #fff;
+  background-color: #971b1e;
 }
 
-#sctn_6-desc-1 > div > p:first-line {
+#sctn_6-info-1 > span {
+  width: 100%;
+  padding-bottom: 0.75em;
+  display: table;
+  background: none;
+}
+
+#sctn_6-info-1 > span > span {
+  font-size: 1em;
+  font-weight: 600;
+  display: table-cell;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+  background: none;
+}
+
+.sctn_6-blok-2 {
+  width: 15.25em;
+  height: 200px;
+  min-height: 200px;
+  margin-right: 2.5em;
+  float: left;
+  opacity: 0;
+}
+
+.sctn_6-blok-2 > div {
+  width: 12em;
+  margin-top: 0.75em;
+  padding: 1em 1.65em;
+  float: left;
+  background-color: #f5dbb0;
+}
+
+.sctn_6-blok-2 > div > span {
+  display: block;
+  line-height: 1.7em;
+  color: #231f20;
+}
+
+.sctn_6-blok-2 > span {
+  padding: 1em 1.7em;
+  display: block;
+  font-weight: 600;
+  color: #f5dbb0;
+  background-color: #70573a
+}
+
+#sctn_6-info-2 {
+  width: 32.9em;
+  margin-top: 1em;
+}
+
+#sctn_6-info-2 > div {
+  width: 15.75em;
+}
+
+#sctn_6-info-2 > div + div {
+  width: 8.61em;
+  padding: 2em 2em 1.46em 3.24em;
+	float: left;
+	background-color: #f5dbb0;
+}
+
+#sctn_6-desc-1 > p:first-line {
 	font-weight: 700;	
 }
 
-#sctn_6-desc-1 > div > p + p:first-line {
+#sctn_6-desc-1 > p + p:first-line {
 	font-weight: 400;	
 }
 
-#sctn_6-desc-1  > div + div span {
+#sctn_6-desc-1 > p ~ p {
+  padding-bottom: 1.5em;
+  border-bottom: 3px solid;
+}
+
+.sctn_6-spcr {
+  width: 28.9em;
+  height: 1em;
+  position: relative;
+  float: left;
+}
+
+#sctn_6-desc-2 {
+  width: 20em;
+	padding: 1em 2em;
+	margin-bottom: 20em;
+	position: relative;
+	background-color: #ffe0b6;
+	color: #442b2f;
+}
+
+#sctn_6-desc-2 > span {
 	display: block;
-	font-size: 0.9em;
+	margin-bottom: 0.5em;
+	border-bottom: 3px solid;
+	font-size: 2.5em;
+	font-weight: 600;
 }
 
-#sctn_6-desc-1  .title_1 {
-	font-size: 1.1em;
-	font-weight: 700;
-}
-
-#sctn_6-desc-1  .title_1 + span + span {
-	margin-bottom: 1em;
+#sctn_6-desc-2 > p {
+  line-height: 1.7em;
 }
 
 #sctn_6-cntainr {
@@ -775,25 +857,4 @@ body {
 	height: 360px;
 	margin: 0;
 	padding: 1.6em 1.5em;
-}
-
-#sctn_6-desc-5 {
-	width: 300px;
-	top: 175px;
-	left: 800px;
-	padding: 1em 2em;
-	margin-bottom: 20em;
-	position: absolute;
-	background-color: #442b2f;
-	font: 400 0.95em "Glegoo", "Palatino", serif;
-	color: #ffe0b6;
-}
-
-#sctn_6-desc-5 > span {
-	display: block;
-	margin-bottom: 0.5em;
-	border-bottom: 2px solid;
-	font-size: 2.5em;
-	font-weight: 700;
-	
 }
