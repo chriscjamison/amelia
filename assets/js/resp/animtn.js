@@ -155,7 +155,7 @@ function resizeBackgrounds() {
                                      "/" + backgroundCSSValues_Array[4] + 
                                      "x" + backgroundCSSValues_Array[3] +	".jpg')";
        
-       
+      
       $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[5]);		
       $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[4]);
       $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);

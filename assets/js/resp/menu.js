@@ -454,6 +454,15 @@ $(document).ready(
 				window.location.hash = "#sctn_5?pos=2"
 			}
 			);
+      
+    $("input#cntct-map").on("click",
+			function () {
+        // window.alert("input#cntct-map");
+				window.open("https://bit.ly/1Pq1HkT");
+
+			}
+			);
+
 	}
 	);
 

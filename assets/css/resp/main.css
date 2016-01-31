@@ -213,10 +213,6 @@ body {
 
 /** SECTION 2 *************************************************************************************** */
 
-#bkgrnd-sctn_2 {
-	background-repeat: no-repeat;
-}
-
 .headr.sctn_2 {
 	background-color: #8e5a54;
 }
@@ -762,7 +758,7 @@ body {
 
 #sctn_6-info-2 > div + div {
   width: 8.61em;
-  padding: 2em 2em 1.46em 3.24em;
+  padding: 2em 2em 1.5em 3.24em;
 	float: left;
 	background-color: #f5dbb0;
 }
