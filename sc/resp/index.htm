@@ -4,9 +4,16 @@
 		
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/resp/main.css">
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/resp/menu.css">
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/resp/forms.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/resp/main.css">
+    
+    <link rel="stylesheet" type="text/css" media="screen and (max-device-width: 480px) " 
+    href="/amelia/assets/css/resp/phone.css">
+    
+    <link rel="stylesheet" type="text/css" media="screen and (device-width: 980px) " 
+    href="/amelia/assets/css/resp/tablet.css">
+    
+		<link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/resp/menu.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/resp/forms.css">
 		
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
@@ -15,8 +22,8 @@
 		<script src="/amelia/assets/js/resp/animtn.js"></script>
 	</head>  
 	
-	<body onload="loadQuiz('initial'); loadContactForm('initial'); animateElements('main');" onresize="resizeBackgrounds();">
-		<div id="menu">
+  <body onload="loadQuiz('initial'); loadContactForm('initial'); animateElements('main');" onresize="resizeBackgrounds();">
+    <div id="menu">
 			<span class="menu-base" id="menu-link"></span>
 			<div id="options">
 					<span id="home">Welcome</span>
@@ -36,11 +43,10 @@
 				<a name="sctn_main"></a>
 				<div id="info">
 					<img src="/amelia/assets/img/logo/lg.png" width="200" height="190" border="0" alt="Amelia Xavier Conseling :: Austin, TX 78709" id="logo" />
-					<img src="/amelia/assets/img/spcr/line_234x37.png" width="234" height="37" alt="" id="spcr"/>
 					<ul>
-						<li><span>Graduated from University of Texas - Austin</span></li>
-						<li><span>Licensed Clinical Social Worker</span></li>
-						<li><span>Specializes in Child Psychology</span></li>
+						<li>Graduated from University of Texas - Austin</li>
+						<li>Licensed Clinical Social Worker</li>
+						<li>Specializes in Child Psychology</li>
 					</ul>
 				</div>
 			</div>
@@ -334,80 +340,11 @@
 				<div class="copy">
 					<div id="qstnair">
 						<div class="clmn">
-								<div class="qstn" id="sctn_5-qstn_1">
-									<span><strong>Question <sup>#</sup>1: </strong></span>
-									<span>
-										How many people make up your household?
-									</span>
-									<fieldset>
-										<p>
-											<input type="radio" name="num_of_household" value="0" id="household_0" />
-											<label for="0">0</label>
-										</p>
-										<p>
-											<input type="radio" name="num_of_household" value="1" id="household_1" />
-											<label for="1">1</label>
-										</p>
-										<p>
-											<input type="radio" name="num_of_household" value="2" id="household_2" />
-											<label for="2">2</label>
-										</p>
-										<p>
-											<input type="radio" name="num_of_household" value="3" id="household_3" />
-											<label for="3">3</label>
-										</p>
-										<p>
-											<input type="radio" name="num_of_household" value="4" id="household_4" />
-											<label for="4">4</label>
-										</p>
-										<p>
-											<input type="radio" name="num_of_household" value="5" id="household_5" />
-											<label for="5">5 or more</label>
-										</p>
-									</fieldset>	
-								</div>
-							</div>
-							<div class="clmn">
-								<div class="qstn" id="sctn_5-qstn_2">
-									<span><strong>Question <sup>#</sup>2: </strong></span>
-									<span>
-										Click the circle next to the value which matches your monthly income?
-									</span>
-									<fieldset>
-										<p>
-											<input type="radio" name="monthly_income" value="less-than-500" id="income_0" />
-											<label for="less-than-500">Less than $500</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="501-1000" id="income_1" />
-											<label for="501-1000">From $501 - $1,000</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="1001-1500" id="income_2" />
-											<label for="1001-1500">From $1,001 - $1,500</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="1501-2000" id="income_3" />
-											<label for="1501-2000">From $1,501 - $2,000</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="2001-2500" id="income_4" />
-											<label for="2001-2500">From $2,001 - $2,500</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="2501-3000" id="income_5" />
-											<label for="2501-3000">From $2,5001 - $3,000</label>
-										</p>
-										<p>
-											<input type="radio" name="monthly_income" value="more-than-3500" id="income_6" />
-											<label for="more-than-3500">More than $3,500</label>
-										</p>
-									</fieldset>	
-								</div>
-								<div id="rates-button">
-									<input type="button" name="submit-rate" value="Find Out Rate" id="sctn_5-sbmt" />
-								</div>
-							</div>
+								
+						</div>
+						<div class="clmn">
+              
+					  </div>			
 					</div>
 				</div>
 				<div class="copy">

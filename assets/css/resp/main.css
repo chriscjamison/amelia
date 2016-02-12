@@ -1,6 +1,8 @@
 /* main.css */
 /* --- FOR ALL SECTIONS --- */
 body {
+  width: 100%;
+  height: inherit;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
@@ -35,33 +37,6 @@ body {
 	z-index: 0;
 }
 
-.page_bkgrnd-sm {
-	width: 1280px;
-	height: 800px;
-	position: relative;
-	top: 0;
-	left: 260px;
-	z-index: 0;
-}
-
-.page_bkgrnd-med {
-	width: 3840px;
-	height: 800px;
-	position: relative;
-	top: 0;
-	left: 260px;
-	z-index: 0;
-}
-
-.page_bkgrnd-lg {
-	width: 5120px;
-	height: 800px;
-	position: relative;
-	top: 0;
-	left: 260px;
-	z-index: 0;
-}
-
 .headr {
 	width: 36.1em;
 	height: 2.05em;
@@ -91,54 +66,46 @@ body {
 	background-repeat: no-repeat;
 }
 
-.sctn-main {
-	width: 1280px;
-	height: 800px;
-	display: none;
-}
-
 #info {
-	width: 285px;
-	height: 430px;
+	width: initial;
+	height: 25.2em;
 	position: absolute;
-	top: 125px;
-	left: 745px;
-	background-color: #75827D;
+	float: right;
+  bottom: 9.2em;
+  right: 9.2em;
+  opacity: 0;
 }
 
 #info img {
-	margin: 25px auto 0 auto;
-	display: block;
+  margin: 0 1.7em;
+  padding: 1.7em;
+	display: none;
+  position: relative;
+  background-color: #967348;
 	opacity: 0;	
 }
 
-#info #spcr {
-	margin: 10px auto;
-	display: none;
-	opacity: 0;
-}
-
 #info ul {
-	opacity: 0;
+  margin: 0.25em 0 0 0;
+  padding: 0;
+  display: none;
+  position: relative;
 	font-family: 'Balthazar', serif;
 	font-size: 1.1em;
-	color: #fff;
-	margin: 20px 20px 0 0;
-	
+  opacity: 0;
 }
 
 #info li {
-	list-style-image: url('/amelia/assets/img/spcr/dot_10x10.png');
-	display: list-item;
+  width: 17.4em;
+  height: 1.65em;
+	margin: 0.75em 0;
+  padding: 0.6em 0 0 0;
+  display: none;
+  text-align: center;
+  color: #fbe7e9;
+  background-color: #632e22;
 	opacity: 0;
 }
-
-#info span {
-	margin-bottom: 15px;
-	display: block;
-	opacity: 0;
-}
-
 
 /* --- Section #1 ---------------------------------------------------------------------------------- */
 #bkgrnd-sctn_1 {
@@ -718,8 +685,8 @@ body {
 
 .sctn_6-blok-2 {
   width: 15.25em;
-  height: 200px;
-  min-height: 200px;
+  height: 165px;
+  min-height: 165px;
   margin-right: 2.5em;
   float: left;
   opacity: 0;

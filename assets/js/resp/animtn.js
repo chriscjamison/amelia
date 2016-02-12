@@ -7,12 +7,65 @@ function fadeSectionBlocks(sectionBlockElements, transitionTimeValue) {
 	);
 }
 
+function setWindowParams(windowWidth, paramNameString)  {
+  var elementWidth = new Number();
+  var elementHeight = new Number();
+  
+  if (windowWidth < 360) {
+    elementWidth = 360;
+    elementHeight = 540;
+  } else {
+    if (windowWidth <= 980) {
+      elementWidth = 980;
+      elementHeight = 1308;
+    } else {
+      if (windowWidth <= 1024) {
+        elementWidth = 1125;
+        elementHeight = 1500;
+      } else {
+        if (windowWidth <= 1280) {
+          elementWidth = 1280;
+          
+          if ($(window).height() <= 800) {
+            elementHeight = 800;
+          } else {
+            elementHeight = 1024;
+          }
+        } else {
+          if (windowWidth <= 1366) {
+            elementWidth = 1366;
+            elementHeight = 768;
+          } else {
+            if (windowWidth <= 1600) {
+              elementWidth = 1600;
+              elementHeight = 900;
+            } else {
+              elementWidth = 1920;
+              elementHeight = 1020;
+            }
+          }
+        }
+      }
+    }
+  } 
+  
+  if (paramNameString === "width")  {
+    return elementWidth;  
+  } else {
+    return elementHeight;
+  }
+     
+}
+
 function animateElements(sectionNum) {
-	if (sectionNum !== "main")	{
+  var transitionValue = new Number();
+  
+  transitionValue = 500;
+  
+  if (sectionNum !== "main")	{
 		var headerClassString = "div.headr.sctn_" + sectionNum;
 		var sectionDescElementsString = "div.sctn_" + sectionNum + "-blok";
-		var transitionValue = 500;
-	
+		
 		fadeSectionBlocks(headerClassString, transitionValue);
 	
     switch (sectionNum) {
@@ -70,27 +123,31 @@ function animateElements(sectionNum) {
 		};
 		
 		var logoCSS_2 = {
-			display: "list-item",
-			opacity: 1
+			display: "inherit"
 		};
 		
 		var logoCSS_3 = {
 			display: "block",
-			opacity: 1
+      opacity: 1
 		};
 		
-		$("#wndow-sctn_main").show("drop", "linear", 1000);
-		$("#spcr").css(logoCSS_1).delay(1250).fadeTo(375, 1, 
-			function () {
-				$("#logo").css(logoCSS_1).delay(500).fadeTo(750, 1, 
-				
-				function () {
-					$("#info ul").css(logoCSS_3);
-					$("#info ul li").css(logoCSS_2);
-					
-					$("#info ul span").show("drop").delay(100).fadeTo(500, 1);
-				}
-				);		
+		$("#wndow-sctn_main").show("drop", (transitionValue * 2));
+		$("#info").css(logoCSS_1).css("opacity", 1);
+    $("#info > img").css(logoCSS_1);
+    
+    // window.alert(transitionValue * 1.5);
+    $("#info > img").delay(transitionValue).fadeTo((transitionValue * 1.5), 1, 
+      function () {
+        // window.alert("#info visible")
+          
+        $("#info ul li").css(logoCSS_2);
+        $("#info ul").css(logoCSS_3);
+        
+        $("#info ul li").each(
+          function () {
+            $(this).delay(transitionValue * 0.75).fadeTo((transitionValue * 1.5), 1);
+          }
+        );		
 			}
 		);		
 	}
@@ -130,24 +187,10 @@ function resizeBackgrounds() {
         backgroundCSSValues_Array[1]++;
       }  
       
-      if (windowWidth < 1280)	{
-        backgroundCSSValues_Array[2] = 1280;
-        
-        if (windowHeight > 800) {
-          backgroundCSSValues_Array[3] = 1024;
-        } else {
-          backgroundCSSValues_Array[3] = 800; 
-        }
-      } else {
-        if (windowWidth > 1280 && windowWidth <= 1366)  {
-          backgroundCSSValues_Array[2] = 1366;
-          backgroundCSSValues_Array[3] = 768;  
-        } else {
-            backgroundCSSValues_Array[2] = 1920;
-            backgroundCSSValues_Array[3] = 1200;
-          }
-        }
+      backgroundCSSValues_Array[2] = setWindowParams(windowWidth, "width");
       
+      backgroundCSSValues_Array[3] = setWindowParams(windowWidth, "height");
+              
       backgroundCSSValues_Array[4] = backgroundCSSValues_Array[2] * backgroundCSSValues_Array[1];
       
       backgroundCSSValues_Array[5] = "url('/amelia/assets/img/sctn/" + 
@@ -204,6 +247,11 @@ function resizeBackgrounds() {
     var backgroundSectionElement = "#bkgrnd-" + urlString.slice(1, urlString.indexOf("?"));
     
     $(backgroundSectionElement).css("backgroundPositionX", backgroundPositionValue);
+    
+    if (urlString === "#sctn_6?pos=2") {
+      window.setTimeout(function() {window.location.hash = "";}, 3000);
+    }
+    
   }
 }
 
@@ -235,15 +283,7 @@ function animateWindowPanes() {
     var windowWidth = $(window).width();
     var windowWidthValue = new Number();
     
-    if (windowWidth <= 1280) {
-      windowWidthValue = 1280;
-    } else {
-      if (windowWidth > 1280 && windowWidth <= 1366)  {
-        windowWidthValue = 1366;
-      } else  {
-        windowWidthValue = 1920;
-      }
-    }
+    windowWidthValue = setWindowWidth(windowWidth);
     
     var bkgrndValueNum = positionNum * -windowWidthValue;
     var windowPaneValueNum = positionNum * -windowWidthValue;
@@ -300,8 +340,18 @@ $(document).ready(
       }
     );
     
+    
+    $("#cntainr").on("scrollstart", 
+      function (event) {
+        window.alert($(window).scrollTop());
+      }
+    );
+    
     $(window).on("scroll",
 			function () {
+        //  $("#menu").css("top", $(window).scrollTop());
+        
+        
 				var browserPositionNum = $(window).scrollTop();
         var windowHeight = $("div.wndow").height();
 				

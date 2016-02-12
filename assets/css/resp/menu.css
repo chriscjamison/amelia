@@ -1,8 +1,8 @@
 /* menu.css */
 #menu {
-	width: 260px;
-	height: 100%;
-	position: fixed;
+	width: 20.45em;
+	height: inherit;
+	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 2;
@@ -11,7 +11,7 @@
 #menu-link {
 	width: 50px;
 	height: 50px;
-	position: fixed;
+	position: absolute;
 	top: 25px;
 	left: 25px;
 	z-index: 5;
@@ -40,18 +40,18 @@
 }
 
 #menu-bkgrnd {
-	width: 260px;
-	height: 100%;
+	width: 20.45em;
+	height: 1308px;
 	position: absolute;
 	top: 0;
-	left: -260px;
+	left: -20.3em;
 	z-index: 3;
 	background-color: #666;
 }
 
 #menu-brdr {
-	width: 260px;
-	height: 100px;
+	width: 20.45em;
+	height: 6.25em;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -60,10 +60,10 @@
 }
 
 #options {
-	width: 210px;
-	height: 550px;
+	width: 17.25em;
+	height: inherit;
 	display: none;
-	position: fixed;
+	position: absolute;
 	top: 105px;
 	left: 25px;
 	opacity: 0;
@@ -82,12 +82,13 @@
 }
 
 #options > span {
-	width: 190px;
-	height: 50px;
-	margin: 10px 10px 10px 0;
-	padding: 10px;
+	width: 9.45em;
+	height: 2.35em;
+	margin: 1em 1em 1em 0;
+	padding: 1em;
 	display: block;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5em;
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;

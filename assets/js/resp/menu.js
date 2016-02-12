@@ -11,31 +11,33 @@ $(document).ready(
 				};
 
 		var bkgrndClickOnCSS = {
-          left: "260px"
+          width: "655px",
+          left: "20.45em"
 				};
 
 		var bkgrndClickOffCSS = {
+          width: "980px",
           left: "0px"
 				};
 
 		var cntainrClickOnCSS = {
-					position: "absolute",
-					left: "260px"
+          width: "655px",
+					left: "20.45em"
 				};
 
 		var cntainrClickOffCSS = {
-					position: "absolute",
+          width: "980px",
 					left: "0px"
 				};
 
 		var menuPositionClickOnCSS = {
 					position: "absolute",
-          left: "0px"
+          left: "0em"
 				};
 
 		var menuPositionClickOffCSS = {
 					position: "absolute",
-					left: "-260px"
+					left: "-20.45em"
 				};
 
 		var optionBaseCSS = {
@@ -103,10 +105,15 @@ $(document).ready(
 				};
 
 		function fadeMenuButton(menuClassName) {
-			$("#menu-link").fadeTo(75, 0,
+			/*$("#menu-link").css("opacity", 0);
+      $("#menu-link").attr("class", menuClassName);
+      $("#menu-link").css("opacity", 1);*/
+      
+      $("#menu-link").fadeTo(75, 0,
 				function () {
 					$("#menu-link").attr("class", menuClassName);
 					$("#menu-link").fadeTo(75, 1);
+          // $("#menu-link").css("opacity", 1);
 				}
 				);
 		} // END OF function 'fadeMenuButton'
@@ -116,16 +123,17 @@ $(document).ready(
 			
 			if (stateValue === "click_on") {
 				$("#menu").css(menuPositionClickOnCSS);
-				
-				$("#menu-bkgrnd").animate(menuPositionClickOnCSS, 200);
+			
+      	
 				$("#menu-bkgrnd").css("top", scrollPosition);
-				$("#cntainr").animate(cntainrClickOnCSS, 200);
-				$("#bkgrnd").animate(bkgrndClickOnCSS, 200,
-					function () {
-						$("#options").css(optionsClickOnCSS);
-						$("#options").fadeTo(200, 1).delay(200);
-					}
-				);
+        $("#menu-bkgrnd").animate(menuPositionClickOnCSS, 200, 
+          function () {
+            $("#cntainr").css(cntainrClickOnCSS);
+            $("#bkgrnd").css(bkgrndClickOnCSS);
+            $("#options").css(optionsClickOnCSS);
+            $("#options").fadeTo(200, 1).delay(200);    
+          }
+        );
 			} else {
 				$("#options").fadeTo(200, 0,
 					function () {
@@ -133,11 +141,13 @@ $(document).ready(
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200);
             $("#menu-bkgrnd").css("top", "0px");
-						$("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200, 
+            $("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200);
+            // $("#menu").css(menuPositionClickOffCSS);
+						/*$("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200, 
               function () {
-                $("#menu").css(menuPositionClickOffCSS);
+                // $("#menu").css(menuPositionClickOffCSS);
               }
-            );
+            );*/
 					}
 				);
 			}
@@ -288,7 +298,7 @@ $(document).ready(
 				} else {
 						fadeMenu("click_on");
 	
-						fadeMenuButton("menu-click_1");}
+						fadeMenuButton("menu-click_2");}
 				}
 		);
 		
@@ -423,43 +433,6 @@ $(document).ready(
             animateElements(6);
 					break;
 				}
-			}
-			);
-
-		$("#quiz-start").on("click",
-			function () {
-				window.location.hash = "#sctn_1?pos=1";
-			}
-			);
-
-		$("#quiz-prev").on("click",
-			function () {
-				loadQuiz("initial");
-			});
-		
-		$("#quiz-sbmt").on("click",
-			function () {
-				window.location.hash = "#sctn_1?pos=2";
-			}
-		);
-
-		$("input#sctn_5-bttn").on("click",
-			function () {
-				window.location.hash = "#sctn_5?pos=1"
-			}
-			);
-
-		$("input#sctn_5-sbmt").on("click",
-			function () {
-				window.location.hash = "#sctn_5?pos=2"
-			}
-			);
-      
-    $("input#cntct-map").on("click",
-			function () {
-        // window.alert("input#cntct-map");
-				window.open("https://bit.ly/1Pq1HkT");
-
 			}
 			);
 
