@@ -8,7 +8,7 @@ body {
 
 #cntainr {
   width: 980px;
-  height: 9156px;
+  height: 9256px;
 	padding: 0;
 	margin: 0;
 	position: absolute;
@@ -36,22 +36,29 @@ body {
 }
 
 .headr {
-	width: 36.1em;
-	height: 2.05em;
-	padding: 0.95em 0 0 3.9em;
+	width: 61.2em;
+	height: 6em;
 	position: absolute;
 	top: 3.13em;
-	display: block;
-	font: 600 2em 'Balthazar', 'Cambria', serif;
-	letter-spacing: 2px;
-	color: #fff;
+	display: table;
   opacity: 0;
 }
 
+.headr > span {
+  width: 12em;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font: 600 2.5em 'Balthazar', 'Cambria', serif;
+	letter-spacing: 2px;
+	color: #fff;  
+}
+
 .copy {
-	margin: 12.15em 0 0 10.42em; 
-	display: block;
-	position: relative;
+  width: 875px;
+	margin: 9.15em 0 0 17.5em; 
+	display: none;
+	position: absolute;
   float: left;
   top: 0;
   left: 0;
@@ -117,7 +124,7 @@ body {
 }
 
 .sctn_1-blok {
-	width: 28.94em;
+	width: 32.5em;
   min-width: 320px;
 	height: auto;
   min-height: 320px;
@@ -185,7 +192,7 @@ body {
 }
 
 .sctn_2-blok {
-	width: 28.9em;
+	width: 30.9em;
   min-width: 320px;
 	height: auto;
   margin-right: 4.5em;
@@ -222,6 +229,7 @@ body {
   margin: 0;
   position: relative;
   top: 4em;
+  left: -17.5em;
   float: left;
   clear: both;
 	opacity: 0;
@@ -258,6 +266,11 @@ body {
   background-color: #f6f3bc;
 }
 
+.sctn_2-spcr {
+  width: 0.1em;
+  height: 4em;
+}
+
 /* --- SECTION 3 --- */
 
 #bkgrnd-sctn_3 {
@@ -265,7 +278,7 @@ body {
 }
 
 .headr.sctn_3 {
-	background-color: #937da3;
+	background-color: #2b3b50;
 }
 
 .sctn_3-blok {
@@ -274,22 +287,22 @@ body {
 	height: auto;
 	padding: 1em 2em;
   display: inline-block;
-  background-color: #e0d0b0;
+  background-color: #e5d8e1;
   opacity: 0;
 }
-
+/*
 #sctn_3-desc {
 	left: 750px;
 	background-color: #253449;
 }
-
+*/
 .sctn_3-blok p {
 	text-indent: 1.3em;
 	line-height: 1.7em;
 }
 
 #sctn_3-desc p {
-	color: #d9e1ee;
+	color: #231f20;
 }
 
 #sctn_3-desc > p:first-line {
@@ -364,11 +377,9 @@ body {
   width: 28.9em;
   min-width: 225px;
 	height: auto;
-  margin: 0 auto;
 	padding: 1em 2em;
   display: block;
   position: relative;
-  left: -5.5em;
   opacity: 0;
 }
 
@@ -747,7 +758,7 @@ body {
   width: 28.9em;
   height: 1em;
   position: relative;
-  float: left;
+  clear: both;
 }
 
 #sctn_6-desc-2 {
