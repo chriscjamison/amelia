@@ -8,7 +8,7 @@ body {
 
 #cntainr {
   width: 980px;
-  height: 9256px;
+  height: 9880px;
 	padding: 0;
 	margin: 0;
 	position: absolute;
@@ -72,12 +72,12 @@ body {
 }
 
 #info {
-	width: 100%;
+	width: 38.6em;
 	height: 15.2em;
 	position: absolute;
 	float: right;
   bottom: 9.2em;
-  right: -9.2em;
+  right: 12.5em;
   opacity: 0;
 }
 

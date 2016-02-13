@@ -2,7 +2,7 @@
 #menu {
 	width: 20.45em;
 	height: inherit;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 2;
@@ -11,7 +11,7 @@
 #menu-link {
 	width: 50px;
 	height: 50px;
-	position: absolute;
+	position: fixed;
 	top: 25px;
 	left: 25px;
 	z-index: 5;
@@ -63,7 +63,7 @@
 	width: 17.25em;
 	height: inherit;
 	display: none;
-	position: absolute;
+	position: fixed;
 	top: 105px;
 	left: 25px;
 	opacity: 0;
@@ -96,13 +96,13 @@
 
 #prev-sctn,
 #next-sctn {
-	width: 80px;
+	width: 360px;
 	height: 70px;
 	position: fixed;
-	right: 25px;
-	bottom: 25px;
-	z-index: 1;
-	background-image: url('/amelia/assets/img/menu/next/next-sctn.png');
+	left: 25px;
+	top: 25px;
+	z-index: 5;
+	background-image: url('/amelia/assets/img/menu/next/resp/next-sctn.png');
   background-repeat: no-repeat;
 }
 
@@ -116,7 +116,7 @@
 }
 
 #next-sctn {
-  background-position: 0 -145px;
+  background-position: 0 -140px;
 }
 
 #prev-sctn > span,
