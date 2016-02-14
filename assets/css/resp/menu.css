@@ -1,11 +1,19 @@
 /* menu.css */
 #menu {
 	width: 20.45em;
-	height: inherit;
-	position: fixed;
+	height: 1308px;
 	top: 0;
-	left: 0;
 	z-index: 2;
+}
+
+.menu-base {
+  position: fixed;
+  left: -20.45em;
+}
+
+.menu-click {
+  position: absolute;
+  left: 0px;
 }
 
 #menu-link {
@@ -19,22 +27,22 @@
 	background-repeat: no-repeat;
 }
 
-.menu-base {
+.menu-link-base {
 	background-position: 0 0;
 	cursor: default;
 }
 
-.menu-hover {
+.menu-link-hover {
 	background-position: 0 -50px;
 	cursor: pointer;
 }
 
-.menu-click_1 {
+.menu-link-click_1 {
 	background-position: 0 -100px;
 	cursor: pointer;
 }
 
-.menu-click_2 {
+.menu-link-click_2 {
 	background-position: 0 -150px;
 	cursor: pointer;
 }
@@ -44,7 +52,6 @@
 	height: 1308px;
 	position: absolute;
 	top: 0;
-	left: -20.3em;
 	z-index: 3;
 	background-color: #666;
 }
@@ -96,36 +103,51 @@
 
 #prev-sctn,
 #next-sctn {
-	width: 360px;
-	height: 70px;
+	width: 200px;
+	height: 60px;
 	position: fixed;
-	left: 25px;
-	top: 25px;
+	left: 384px;
+	bottom: 250px;
 	z-index: 5;
 	background-image: url('/amelia/assets/img/menu/next/resp/next-sctn.png');
   background-repeat: no-repeat;
 }
 
 #prev-sctn {
-  height: 50px;
-  bottom: 145px;
-  padding-top: 19px;
+  top: 17px;
+  padding-top: 30px;
   display: none;
   opacity: 0;
-  background-position: 0 0;
 }
 
-#next-sctn {
-  background-position: 0 -140px;
+.base-prev-sctn {
+  background-position: 0 0;
+  cursor: default;
+}
+
+.click-prev-sctn {
+  background-position: 0 -111px;
+  cursor: pointer;
+}
+
+.base-next-sctn {
+  background-position: 0 -209px;
+  cursor: default;
+}
+
+.click-next-sctn {
+  background-position: 0 -320px;
+  cursor: pointer;
 }
 
 #prev-sctn > span,
 #next-sctn > span {
-	width: 79px;
-	height: 50px;
-	margin-bottom: 50px;
+	width: 180px;
+	height: 40px;
+	margin: 0 auto 50px auto;
 	display: block;
-	font: 400 0.8em 'Franklin Gothic Medium', sans-serif;
+	font-family: 'Franklin Gothic Medium', sans-serif;
+  font-size: 0.8em;
 	color: #fff;	
 	text-align: center;
 	line-height: 1.25em;

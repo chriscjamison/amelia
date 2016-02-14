@@ -15,7 +15,7 @@ function setWindowParams(windowWidth, paramNameString)  {
     elementWidth = 360;
     elementHeight = 540;
   } else {
-    if (windowWidth <= 980) {
+    if (windowWidth <= 1100) {
       elementWidth = 980;
       elementHeight = 1308;
     } else {
@@ -201,13 +201,13 @@ function resizeBackgrounds() {
        
       
       $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[5]);		
-      // $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[4]);
+      $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[2]);
       $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);
       
-      // $(this).css("width", backgroundCSSValues_Array[1] * backgroundCSSValues_Array[2]);
+      $(this).css("width",backgroundCSSValues_Array[2]);
       $(this).css("height", backgroundCSSValues_Array[3]);
       
-      // $(this).children(".copy").css("width", (windowWidth - windowResizeValue));
+      $(this).children(".copy").css("width", (windowWidth - windowResizeValue));
       $(this).children(".copy").css("height", (windowHeight - 50));
       
       copyElementsString = "#" + $(this).attr("id");
@@ -215,11 +215,7 @@ function resizeBackgrounds() {
       if ($(copyElementsString).children(".copy:first").css("display") !== undefined) {
         $(copyElementsString).children(".copy:first").css("display", "block")
       }
-      
-      // window.alert("$(" + copyElementsString + ").children(\".copy\").length = " + $(copyElementsString).children(".copy").length);
-      
-      // $(copyElementsString).children(".copy:first-child").css("display", "block");
-      
+       
       if ($(this).children(".copy").length > 0) {
         copyElementsString = ".copy:nth-child(" + ($(this).children(".copy").length + 2) + ")";
        

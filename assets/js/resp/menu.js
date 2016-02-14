@@ -10,6 +10,14 @@ $(document).ready(
 					display: "none"
 				};
 
+    var menuPositionClickOnCSS = {
+          left: "0px"
+        };
+        
+    var menuPositionClickOffCSS = {
+          left: "-20.45em"
+        };
+     
 		var bkgrndClickOnCSS = {
           width: "655px",
           left: "20.45em"
@@ -28,16 +36,6 @@ $(document).ready(
 		var cntainrClickOffCSS = {
           width: "980px",
 					left: "0px"
-				};
-
-		var menuPositionClickOnCSS = {
-					position: "absolute",
-          left: "0em"
-				};
-
-		var menuPositionClickOffCSS = {
-					position: "absolute",
-					left: "-20.45em"
 				};
 
 		var optionBaseCSS = {
@@ -66,26 +64,6 @@ $(document).ready(
 					color: "#fff"
 				};
 
-		var prevSctnDivOverCSS = {
-					backgroundPosition: "0px -96px",
-					cursor: "pointer"
-				};
-
-		var prevSctnDivOutCSS = {
-					backgroundPosition: "0px 0px",
-					cursor: "default"
-				};
-    
-    var nextSctnDivOverCSS = {
-					backgroundPosition: "0px -220px",
-					cursor: "pointer"
-				};
-
-		var nextSctnDivOutCSS = {
-					backgroundPosition: "0px -145px",
-					cursor: "default"
-				};
-
 		var sctnNavOptionsBaseCSS = {
 					display: "none"
 				};
@@ -103,6 +81,8 @@ $(document).ready(
 					top: "0px",
 					opacity: 0
 				};
+        
+    var menuTransitionValue = 200;
 
 		function fadeMenuButton(menuClassName) {
 			/*$("#menu-link").css("opacity", 0);
@@ -120,37 +100,50 @@ $(document).ready(
 		
 		function fadeMenu(stateValue) {
       var scrollPosition = $(window).scrollTop() + "px";
-			
-			if (stateValue === "click_on") {
-				$("#menu").css(menuPositionClickOnCSS);
-			
-      	
-				$("#menu-bkgrnd").css("top", scrollPosition);
-        $("#menu-bkgrnd").animate(menuPositionClickOnCSS, 200, 
-          function () {
-            $("#cntainr").css(cntainrClickOnCSS);
+			// window.alert("$(\"#menu\").css(\"left\") = " + $("#menu").css("left"));
+			if ($("#menu").css("left") !== "0px") {
+        // window.alert("run");
+				$("#menu").toggleClass("menu-click");
+			  $("#menu-bkgrnd").css("top", scrollPosition);
+        $("#menu-bkgrnd").toggleClass("menu-click", menuTransitionValue, "easeOutQuad"); 
+         /* function () {
+           /* $("#cntainr").css(cntainrClickOnCSS);
             $("#bkgrnd").css(bkgrndClickOnCSS);
             $("#options").css(optionsClickOnCSS);
             $("#options").fadeTo(200, 1).delay(200);    
+            
+            window.alert("fadeMenu On");
+            
+            return false;
           }
-        );
+        );*/
+        
+        
 			} else {
-				$("#options").fadeTo(200, 0,
+         
+
+          // $("#menu-bkgrnd").css("top", "0px");
+            
+            $("#menu-bkgrnd").toggleClass("menu-click", menuTransitionValue, "easeOutQuad"); 
+          $("#menu").toggleClass("menu-click");   
+				/*$("#options").fadeTo(200, 0,
 					function () {
 						$("#options").css(optionsClickOffCSS);
 						$("#cntainr").animate(cntainrClickOffCSS, 200);
 						$("#bkgrnd").animate(bkgrndClickOffCSS, 200);
-            $("#menu-bkgrnd").css("top", "0px");
-            $("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200);
+            // $("#menu-bkgrnd").css("top", "0px");
+            
+            // $("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200);
             // $("#menu").css(menuPositionClickOffCSS);
-						/*$("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200, 
+						$("#menu-bkgrnd").animate(menuPositionClickOffCSS, 200, 
               function () {
                 // $("#menu").css(menuPositionClickOffCSS);
               }
-            );*/
-					}
-				);
+            );
+            
+          });*/
 			}
+      
 		}  // END OF function fadeMenu
 		
 		function animateMenuOptions(menuOption, animationState) {
@@ -168,31 +161,32 @@ $(document).ready(
 					break;
 			}
 		}
+    
+    function animateNextSctnElements(sectionElement, mouseState)  {
+      var sectionElementID = $(sectionElement).attr("id");
+     
+      var spanElement = $(sectionElement).children("span");
+      
+      var sectionElementState = mouseState + "-" + sectionElementID;
+      var spanElementState = mouseState + "-sctn_span";
+      
+      $(spanElement).removeClass();
+      $(spanElement).addClass(spanElementState);
+      
+      $(sectionElement).removeClass();
+      $(sectionElement).addClass(sectionElementState);
+    }
 
 		function nextSctnBehavior(sectionElement, mouseState) {
-      var spanElement = $(sectionElement).children("span");
-      var sectionIdValue = $(sectionElement).attr("id");
-      
+      var sectionElementID = $(sectionElement).attr("id");
       switch (mouseState) {
 				case "over":
-					$(spanElement).css(sctnTextOverCSS);
-          
-          if (sectionIdValue === "prev-sctn") {
-            $(sectionElement).css(prevSctnDivOverCSS);
-          } else {
-            $(sectionElement).css(nextSctnDivOverCSS);
-          }
-					break;
+				  animateNextSctnElements(sectionElement, "click");  
+				break;
 
 				case "out":
-					$(spanElement).css(sctnTextOutCSS);
-          
-					if (sectionIdValue === "prev-sctn") {
-            $(sectionElement).css(prevSctnDivOutCSS);
-          } else {
-            $(sectionElement).css(nextSctnDivOutCSS);
-          }
-					break;
+				  animateNextSctnElements(sectionElement, "base");
+				break;
 
 				case "click":
 					var yLocation = $(window).scrollTop();
@@ -200,7 +194,9 @@ $(document).ready(
           var yDifferenceValue = new Number();
           var inc = 0;
           
-          if (sectionIdValue === "prev-sctn")  {
+          animateNextSctnElements(sectionElement, "click");
+          
+          if (sectionElementID === "prev-sctn")  {
             yDifferenceValue = -yLocation;
           
             while (yDifferenceValue < -yScroll) {
@@ -218,9 +214,17 @@ $(document).ready(
             }
           }
           
+          
+          
           var yScrollTo = yLocation + yDifferenceValue;
           
-         $("body").animate({scrollTop: yScrollTo}, 750, "easeOutQuad");
+          $("body").animate({scrollTop: yScrollTo}, 750, "easeOutQuad", 
+            function() {
+              animateNextSctnElements(sectionElement, "base");
+            }
+          );
+         
+        break;
 			}
 		}
 
@@ -267,7 +271,7 @@ $(document).ready(
 			}
 			);
       
-		$("#menu-link").on("mouseleave",
+		/*$("#menu-link").on("mouseleave",
 			function () {
 				if ($("#menu-link").hasClass("menu-click_1") === true) {
 					fadeMenuButton("menu-click_2");
@@ -287,19 +291,14 @@ $(document).ready(
 					}
 				}
 			}
-			);
+			);*/
 
 		$("#menu-link").on("click",
 			function () {
-				if ($("#options").css("display") === "block") {
-					fadeMenu("click_off");
-
-					fadeMenuButton("menu-base");
-				} else {
-						fadeMenu("click_on");
-	
-						fadeMenuButton("menu-click_2");}
-				}
+        // fadeMenuButton();
+               
+        fadeMenu();
+      }
 		);
 		
 		$("#menu").on("mouseleave",
