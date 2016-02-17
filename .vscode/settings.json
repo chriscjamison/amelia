@@ -1,10 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-	"editor.fontFamily": Inconsolata,
+	"editor.fontFamily": "Inconsolata",
 	
-	"editor.fontSize": 14px,
+	"editor.fontSize": 15,
 	
-	"editor.lineHeight": 20px,
+	"editor.lineHeight": 20,
 	
 	"editor.tabSize": 2
 }

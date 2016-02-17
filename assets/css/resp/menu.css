@@ -2,18 +2,20 @@
 #menu {
 	width: 20.45em;
 	height: 1308px;
+  position: fixed;
 	top: 0;
+  left: -20.45em;
 	z-index: 2;
 }
 
 .menu-base {
-  position: fixed;
-  left: -20.45em;
+  position: fixed !important;
+  left: -20.45em !important;
 }
 
 .menu-click {
-  position: absolute;
-  left: 0px;
+  position: absolute !important;
+  left: 0px !important;
 }
 
 #menu-link {
@@ -50,7 +52,7 @@
 #menu-bkgrnd {
 	width: 20.45em;
 	height: 1308px;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 3;
 	background-color: #666;
@@ -59,9 +61,8 @@
 #menu-brdr {
 	width: 20.45em;
 	height: 6.25em;
-	position: absolute;
+	position: fixed;
 	top: 0;
-	left: 0;
 	z-index: 3;
 	background-color: #444;
 }
@@ -69,12 +70,23 @@
 #options {
 	width: 17.25em;
 	height: inherit;
-	display: none;
-	position: fixed;
+  display: none;
+  position: fixed;
 	top: 105px;
-	left: 25px;
-	opacity: 0;
+  left: 25px;
+  opacity: 0;
 	z-index: 4;
+}
+
+.options-base {
+  display: none;
+  /*left: 25px;*/
+  opacity: 0;
+}
+
+.options-click {
+  display: block !important;
+  opacity: 1 !important;
 }
 
 .option-hover {
@@ -99,6 +111,38 @@
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;
+}
+
+.bkgrnd-base {
+  width: 980px !important;
+  left: 0px !important;
+}
+
+.bkgrnd-click {
+  width: 655px !important;
+  left: 20.45em !important;
+}
+
+.cntainr-base {
+  width: 980px !important;
+  left: 0px !important;
+}
+
+.cntainr-click {
+  width: 655px !important;
+  left: 20.45em !important;
+}
+
+.wndow-base {
+  width: 980px !important;
+  left: 0px !important;
+  display: block !important;
+}
+
+.wndow-click {
+  width: 655px !important;
+  left: 20.45em !important;
+  display: none !important;
 }
 
 #prev-sctn,

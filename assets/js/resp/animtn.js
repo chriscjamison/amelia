@@ -1,7 +1,7 @@
 function fadeSectionBlocks(sectionBlockElements, transitionTimeValue) {
 	$(sectionBlockElements).each(
 		function () {
-      $(this).attr("id");
+      // $(this).attr("id");
       $(this).fadeTo(transitionTimeValue, 1);
 		}
 	);
@@ -60,6 +60,8 @@ function setWindowParams(windowWidth, paramNameString)  {
 function animateElements(sectionNum) {
   var transitionValue = new Number();
   
+  var inc = new Number();
+  
   transitionValue = 500;
   
   if (sectionNum !== "main")	{
@@ -85,6 +87,7 @@ function animateElements(sectionNum) {
 			
 			case "3":
         // $(window).scrollTop($("div.wndow").height() * 3);
+        // window.alert("sectionDescElementsString = " + sectionDescElementsString);
         
         var sectionDescElementsString_3 = sectionDescElementsString + ", #menu-sctn_3";
 				
@@ -170,7 +173,7 @@ function resizeBackgrounds() {
  
   windowWidth = $(window).width();
   windowHeight = $(window).height();
-  windowResizeValue = 133;
+  windowResizeValue = 250;
   
 	windowElements_Array.each(
 		function ()	{
@@ -281,35 +284,53 @@ function animateWindowPanes() {
     variableIndexNum = pageURLString.indexOf(sectionNumString);
     
     sectionNum = pageURLString.charAt(variableIndexNum + sectionNumString.length);
-    
-    var bkgrndValueString = "#bkgrnd-sctn_" + sectionNum;
-    var windowPaneValueString = "#wndow-sctn_" + sectionNum;
-    var headerValueString = "div.headr.sctn_" + sectionNum;
-    
+   
     variableIndexNum = pageURLString.indexOf(positionNumString);
     
     positionNum = pageURLString.charAt(variableIndexNum + positionNumString.length);
     
+    var bkgrndValueString = "#bkgrnd-sctn_" + sectionNum;
+    var windowPaneValueString = "#wndow-sctn_" + sectionNum;
+    var headerValueString = "div.headr.sctn_" + sectionNum;
+    var copyValueString = "div.copy";
+    
+    var positionValue = (positionNum * 1) + 3;
+    
+    var newCopyValueString = "div.copy:nth-child(" + positionValue + ")";
+    window.alert("newCopyValueString = " + newCopyValueString);
+    
     var windowWidth = $(window).width();
     var windowWidthValue = new Number();
     
-    windowWidthValue = setWindowWidth(windowWidth);
+    windowWidthValue = setWindowParams(windowWidth, "width");
     
     var bkgrndValueNum = positionNum * -windowWidthValue;
     var windowPaneValueNum = positionNum * -windowWidthValue;
     var headerValueNum = positionNum * windowWidthValue;
+    var copyValueNum = (positionNum * windowWidthValue);
     
     var bkgrndValueNumString =  bkgrndValueNum + "px" + " 0px"
     var windowPaneValueNumString = windowPaneValueNum + "px";
     var headerValueNumString = headerValueNum + "px";
+    var copyValueNumString = copyValueNum + "px";
     
+   
+    window.alert("$(" + headerValueString + ").css(\"opacity\") = " + $(headerValueString).css("opacity"));
     if ($(headerValueString).css("opacity") !== "0")  {
       $(bkgrndValueString).fadeTo(125, 0, 
         function () {
+           window.alert("copyValueNumString = " + copyValueNumString);
+          $(windowPaneValueString).children("div.copy").css("display", "none");
+          $(windowPaneValueString).children(newCopyValueString).css("display", "block");
+          $(windowPaneValueString).children(newCopyValueString).css("left", copyValueNumString);
           $(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
           $(bkgrndValueString).fadeTo(125, 1);
         });
     } else {
+      $(windowPaneValueString).css("display", "block");
+      $(windowPaneValueString).children("div.copy").css("display", "none");
+      $(windowPaneValueString).children(newCopyValueString).css("display", "block");
+      $(windowPaneValueString).children(newCopyValueString).css("left", copyValueNumString);
       $(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
       animateElements(sectionNum);
     }
