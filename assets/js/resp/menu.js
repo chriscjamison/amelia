@@ -100,6 +100,8 @@ $(document).ready(
             }
           );
         }
+        
+      resetWindowPanes();
 		}  // END OF function fadeMenu
 		
 		function animateMenuOptions(menuOption, animationState) {

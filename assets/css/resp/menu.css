@@ -151,16 +151,19 @@
 	height: 60px;
 	position: fixed;
 	left: 384px;
-	bottom: 250px;
+	bottom: 25px;
 	z-index: 5;
 	background-image: url('/amelia/assets/img/menu/next/resp/next-sctn.png');
   background-repeat: no-repeat;
+  background-position: 0 -209px;
+  cursor: default;
 }
 
 #prev-sctn {
   top: 17px;
   padding-top: 30px;
   display: none;
+  background-position: 0 0;
   opacity: 0;
 }
 

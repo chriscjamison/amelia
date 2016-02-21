@@ -1,8 +1,11 @@
 function fadeSectionBlocks(sectionBlockElements, transitionTimeValue) {
-	$(sectionBlockElements).each(
+	
+  
+  $(sectionBlockElements).each(
 		function () {
       // $(this).attr("id");
-      $(this).fadeTo(transitionTimeValue, 1);
+      
+      $(this).fadeTo(transitionTimeValue, 1).delay(transitionTimeValue * 2);
 		}
 	);
 }
@@ -15,7 +18,7 @@ function setWindowParams(windowWidth, paramNameString)  {
     elementWidth = 360;
     elementHeight = 540;
   } else {
-    if (windowWidth <= 1100) {
+    if (windowWidth <= 980) {
       elementWidth = 980;
       elementHeight = 1308;
     } else {
@@ -57,6 +60,13 @@ function setWindowParams(windowWidth, paramNameString)  {
      
 }
 
+function resetWindowPanes() {
+  $("div.wndow").css("left", "0px");
+  $("div.headr").css("left", "0px");
+  $("div.copy").css("left", "0px");
+  $("div.sctn_nav.sub_menu").css("left", "0px");
+}
+
 function animateElements(sectionNum) {
   var transitionValue = new Number();
   
@@ -68,8 +78,12 @@ function animateElements(sectionNum) {
 		var headerClassString = "div.headr.sctn_" + sectionNum;
 		var sectionDescElementsString = "div.sctn_" + sectionNum + "-blok";
 		
-		fadeSectionBlocks(headerClassString, transitionValue);
-	
+    resetWindowPanes();
+    
+    if ($(headerClassString).css("opacity") === "0")  {
+      fadeSectionBlocks(headerClassString, transitionValue);
+    }
+		
     switch (sectionNum) {
 			case "1":
         // $(window).scrollTop($("div.wndow").height());
@@ -203,15 +217,31 @@ function resizeBackgrounds() {
                                      "x" + backgroundCSSValues_Array[3] +	".jpg')";
        
       
-      $(backgroundCSSValues_Array[0]).css("backgroundImage", backgroundCSSValues_Array[5]);		
-      $(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[2]);
+      $(backgroundCSSValues_Array[0]).css(
+        {
+          "backgroundImage": backgroundCSSValues_Array[5],
+          "width": backgroundCSSValues_Array[2],
+          "height": backgroundCSSValues_Array[3]
+        }
+      );		
+      /*$(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[2]);
       $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);
-      
-      $(this).css("width",backgroundCSSValues_Array[2]);
+     */
+      $(this).css(
+        {
+          "width": backgroundCSSValues_Array[2], 
+          "height": backgroundCSSValues_Array[3]
+        }
+      );
       $(this).css("height", backgroundCSSValues_Array[3]);
       
-      $(this).children(".copy").css("width", (windowWidth - windowResizeValue));
-      $(this).children(".copy").css("height", (windowHeight - 50));
+      $(this).children(".copy").css(
+        {
+         "width": (windowWidth - windowResizeValue),
+         "height": (windowHeight - 50)
+        }
+      );
+      // $(this).children(".copy").);
       
       copyElementsString = "#" + $(this).attr("id");
        
@@ -227,6 +257,13 @@ function resizeBackgrounds() {
         
       }
       
+    }
+  );
+  
+  $("#cntainr").css(
+    {
+      "width": setWindowParams(windowWidth, "width"), 
+      "height": (setWindowParams(windowHeight, "height") * $(".wndow").length)
     }
   );
   
@@ -270,16 +307,21 @@ function resizeBackgrounds() {
 
 
 function animateWindowPanes() {
-  var pageURLString = window.location.hash;
+  var pageURLString = new String();
+  
+  pageURLString = window.location.hash;
   
   if (pageURLString !== "") {
-    var variableIndexNum;
+    var variableIndexNum = new Number();
     
-    var sectionNum;
-    var positionNum;
+    var sectionNum = new Number();
+    var positionNum = new Number();
     
-    var sectionNumString = "sctn_";
-    var positionNumString = "pos=";
+    var sectionNumString = new String();
+    var positionNumString = new String();
+    
+    sectionNumString = "sctn_";
+    positionNumString = "pos=";
     
     variableIndexNum = pageURLString.indexOf(sectionNumString);
     
@@ -297,7 +339,7 @@ function animateWindowPanes() {
     var positionValue = (positionNum * 1) + 3;
     
     var newCopyValueString = "div.copy:nth-child(" + positionValue + ")";
-    window.alert("newCopyValueString = " + newCopyValueString);
+    // window.alert("newCopyValueString = " + newCopyValueString);
     
     var windowWidth = $(window).width();
     var windowWidthValue = new Number();
@@ -315,11 +357,11 @@ function animateWindowPanes() {
     var copyValueNumString = copyValueNum + "px";
     
    
-    window.alert("$(" + headerValueString + ").css(\"opacity\") = " + $(headerValueString).css("opacity"));
+    // window.alert("$(" + headerValueString + ").css(\"opacity\") = " + $(headerValueString).css("opacity"));
     if ($(headerValueString).css("opacity") !== "0")  {
       $(bkgrndValueString).fadeTo(125, 0, 
         function () {
-           window.alert("copyValueNumString = " + copyValueNumString);
+          //  window.alert("copyValueNumString = " + copyValueNumString);
           $(windowPaneValueString).children("div.copy").css("display", "none");
           $(windowPaneValueString).children(newCopyValueString).css("display", "block");
           $(windowPaneValueString).children(newCopyValueString).css("left", copyValueNumString);
@@ -334,6 +376,8 @@ function animateWindowPanes() {
       $(bkgrndValueString).css("backgroundPosition", bkgrndValueNumString);
       animateElements(sectionNum);
     }
+    
+    resetWindowPanes();
     
     $(windowPaneValueString).css("left", windowPaneValueNumString);
     $(headerValueString).css("left", headerValueNumString);

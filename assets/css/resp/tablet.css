@@ -162,7 +162,7 @@ body {
 }
 
 #sctn_1-desc-3 {
-	left: 500px;
+	/*left: 500px;*/
 	background-color: #9a633f;
 	color: #f0f2ee;
 }
@@ -637,7 +637,9 @@ body {
 }
 
 #sctn_5-desc-7 > p {
-	font-size: 0.95em;
+	padding-bottom: 0.9em;
+  font-size: 0.95em;
+  border-bottom: 2px solid #711f45;
 }
 
 #sctn_5-desc-7 > p:first-line {
@@ -762,8 +764,7 @@ body {
 }
 
 #sctn_6-desc-2 {
-  width: 20em;
-	padding: 1em 2em;
+ padding: 1em 2em;
 	margin-bottom: 20em;
 	position: relative;
 	background-color: #ffe0b6;

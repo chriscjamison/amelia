@@ -1,180 +1,138 @@
-function loadQuestion(questionData_Array) {	
-	$.ajax(
-		{
-			url: questionData_Array[0],
-			statusCode: {
-				404: function () {
-					$(questionData_Array[1]).html("<a href=\"javascript:loadQuiz('initial')\">Please click here to restart the quiz</a>");
-				}
-			}
-		}
-	).done(
-			function (html) {
-				$(questionData_Array[1]).empty();
-				$(questionData_Array[1]).append(html);
-				
-				$.ajax(
-					{
-						url: questionData_Array[2],
-						statusCode: {
-							404: function () {
-								$(questionData_Array[3]).html("<a href=\"javascript:loadQuiz('initial')\">Please click here to restart the quiz</a>");
-							}
-						}
-					}
-				).done(
-						function (html) {
-							$(questionData_Array[3]).empty();
-							$(questionData_Array[3]).append(html);
-						}
-				);
-			}
-	);
-}
-
-function loadInfo(infoData_Array) {	
-	$.ajax(
-		{
-			url: infoData_Array[0],
-			statusCode: {
-				404: function () {
-					$(infoData_Array[1]).html("<a href=\"javascript:loadContactForm('initial')\">Please click here to restart the quiz</a>");
-				}
-			}
-		}
-	).done(
-			function (html) {
-				$(infoData_Array[1]).empty();
-				$(infoData_Array[1]).append(html);
-				
-				$.ajax(
-					{
-						url: infoData_Array[2],
-						statusCode: {
-							404: function () {
-								$(infoData_Array[3]).html("<a href=\"javascript:loadContactForm('initial')\">Please click here to restart the quiz</a>");
-							}
-						}
-					}
-				).done(
-						function (html) {
-							$(infoData_Array[3]).empty();
-							$(infoData_Array[3]).append(html);
-						}
-				);
-			}
-	);
-}
-
-function loadQuiz(questionValue) {
-  if (questionValue === "start")  {
-    window.location.hash = "#sctn_1?pos=1";
-    return true;
-  }
+function loadFormContent(questionData_Array) {	
+	var linkString = new String();
   
-  if (questionValue !== "submit")  {
-    var questionNum;
+  linkString = "<a href=\"javascript:formData('" + questionData_Array[0] + "', 'initial')\">Please click here to restart the quiz</a>"
+  
+  $.ajax(
+		{
+			url: questionData_Array[1],
+			statusCode: {
+				404: function () {
+					$(questionData_Array[2]).html(linkString);
+				}
+			}
+		}
+	).done(
+			function (html) {
+				$(questionData_Array[2]).html("Loading...");
+        $(questionData_Array[2]).empty();
+				$(questionData_Array[2]).append(html);
+				
+				$.ajax(
+					{
+						url: questionData_Array[3],
+						statusCode: {
+							404: function () {
+								$(questionData_Array[4]).html(linkString);
+							}
+						}
+					}
+				).done(
+						function (html) {
+              $(questionData_Array[4]).html("Loading...");
+							$(questionData_Array[4]).empty();
+							$(questionData_Array[4]).append(html);
+						}
+				);
+			}
+	);
+}
 
-    var questionPath = "/amelia/assets/ajax/quiz/qstn_";
-    var questionSuffix = ".htm";
+function formData(sectionValue, questionValue) {
+  var questionNum = new Number();
+  var questionPath = new String();
+  var questionSuffix = new String();
+  
+  var columnDivIDString = new String();
+      
+  var columnDivElement_Array = new Array();
+  var questionData_Array = new Array();
+  
+  var i = new Number();
+
+  
+  if (questionValue === "start")  {
+    var URLString = new String();
     
-    var columnDivElement_Array = new Array();
-
-    var questionData_Array = new Array();
-
+    URLString = "#" + sectionValue + "?pos=1";
+    
+    window.location.hash = URLString;
+    // window.alert(URLString);
+  } else {
+    
+    questionPath = "/amelia/assets/ajax/" + sectionValue + "/no_";
+    
+    questionSuffix = ".htm";
+    
+    // window.alert("sectionValue = " + sectionValue);
+    
+    // window.alert("questionPath = " + questionPath);
+    
     switch (questionValue) {
       case "initial":
         questionNum = 1;
       break;
-
+      
       case "set_1":
         questionNum = 3;
       break;
     } // END OF switch statement
     
-    columnDivElement_Array = [
-      "#clmn_1",
-      "#clmn_2"
-    ];
-    
-    questionData_Array[0] = questionPath + questionNum + questionSuffix;
-    
-    questionData_Array[1] = columnDivElement_Array[0];
-    
-    questionData_Array[2] = questionPath + (questionNum + 1) + questionSuffix;
+    for (i = 2; i <= 4; i = i * 2)  {
+      questionData_Array[i] = "#" + sectionValue + "-clmn-" + (i / 2);
       
-    questionData_Array[3] = columnDivElement_Array[1];
+      // window.alert("i = " + i);
+    }
     
-    loadQuestion(questionData_Array);  
-  } else {
-    window.location.hash = "#sctn_1?pos=2";
-  }
-  
-}
-
-function loadContactForm(infoValue) {
-	if (infoValue === "start") {
-    window.location.hash = "#sctn_1?pos=1";
-    return true;
-  }
-  
-  if (infoValue !== "submit")  {
-    var infoNum;
-
-    var infoPath = "/amelia/assets/ajax/cntct/info_";
-    var infoSuffix = ".htm";
+    questionData_Array[0] = sectionValue;
     
-    var columnDivElement_Array = new Array();
-
-    var infoData_Array = new Array();
-
-    switch (infoValue) {
-      case "initial":
-        infoNum = 1;
-      break;
-
-      case "set_1":
-        infoNum = 3;
-      break;
+    questionData_Array[1] = questionPath + questionNum + questionSuffix;
       
-    } // END OF switch statement
+    // window.alert("questionData_Array[2] = " + questionData_Array[2]);
     
-    columnDivElement_Array = [
-      "#cntct-clmn-1",
-      "#cntct-clmn-2"
-    ];
-    
-    infoData_Array[0] = infoPath + infoNum + infoSuffix;
-    
-    infoData_Array[1] = columnDivElement_Array[0];
-    
-    infoData_Array[2] = infoPath + (infoNum + 1) + infoSuffix;
+    questionData_Array[3] = questionPath + (questionNum + 1) + questionSuffix;
       
-    infoData_Array[3] = columnDivElement_Array[1];
+    // window.alert("questionData_Array[4] = " + questionData_Array[4]);
     
-    loadInfo(infoData_Array);
-  } else {
-    window.location.hash = "#sctn_6?pos=2";
+    loadFormContent(questionData_Array);
+    
+    if (questionValue === "submit")  {
+      URLString = "#" + sectionValue + "?pos=2";
+      
+      window.location.hash = URLString;  
+    } 
   }
 }
 
 $(document).ready(
   function () {
-    $("input#quiz-start").on("click", 
+    $("input#sctn_1-start").on("click", 
       function () {
-        loadQuiz("start");
+        formData("sctn_1", "start");
       }
     );
     
-    $("input#insrnce-start").on("click", 
+    $("input#sctn_5-start").on("click", 
       function () {
-        window.location.hash = "#sctn_5?pos=1";
+        // window.location.hash = "#sctn_5?pos=1";
+        
+        formData("sctn_5", "start");
       }
     );
     
-    $("input#insrnce-submit").on("click", 
+    $("input#sctn_5-submit").on("click", 
       function () {
-        window.location.hash = "#sctn_5?pos=2";
+        formData("sctn_5", "submit");
+        
+        // window.location.hash = "#sctn_5?pos=2";
+      }
+    );
+    
+    $("input#sctn_6-start").on("click", 
+      function () {
+        // window.location.hash = "#sctn_5?pos=1";
+        
+        formData("sctn_6", "start");
       }
     );
   }

@@ -12,27 +12,25 @@
 }
 */
 .clmn {
-	width: 28.9em;
+	width: 32.6em;
 	height: auto;
   display: inline-block;
-	float: left;
 	margin-right: 4.5em;	
 }
 
-.qstn,
-.cntct_info {
+.form_cntnt {
 	height: auto;
+  margin-bottom: 1.25em;
 	padding: 2em;
 	background-color: #fff;
 }
 
-.qstn span,
-.cntct_info span {
+.form_cntnt span {
 	display: inline-block;
 	margin-bottom: 0.5em;
 }
 
-.qstn span + span {
+.form_cntnt span + span {
   padding-bottom: 1.1em;
 	font-size: 1.1em;
 	font-weight: 600;
@@ -40,27 +38,24 @@
   border-bottom: 2px solid #cfd7a3;
 }
 
-.quiz-spcr {
+.form_cntnt-spcr {
 	width: 100%;
 	height: 2px;
 	margin: 0.8em auto;
 	background-color: #ccc;
 }
 
-.qstn fieldset div span,
-.cntct_info fieldset div span {
+.form_cntnt fieldset div span {
 	position: relative;
 	top: -10px;
 	font: 400 1.2em "Franklin Gothic Medium", sans-serif;
 }
 
-.qstn fieldset div span + span,
-.cntct_info fieldset div span + span {
+.form_cntnt fieldset div span + span {
 	left: -13px;
 }
 
-.qstn p,
-.cntct_info p {
+.form_cntnt p {
   margin-top: 0.3em;
 	display: block;
 	position: relative;
@@ -69,11 +64,11 @@
 	text-indent: 2em;
 }
 
-.qstn sup {
+.form_cntnt sup {
 	font-size: 0.8em;
 }
 
-.qstn .ftnote {
+.form_cntnt .ftnote {
 	padding: 0.7em;
 	border-top: 2px dotted #cfd7a3;
 	font-size: 0.9em;
@@ -87,18 +82,18 @@
 	margin-bottom: 0.7em;
 }
 
-#quiz-start {
+#sctn_1-start {
 	margin: 0 0 0.8em 0;
 	float: right;
 }
 
-#quiz-next,
-#cntct-next {
+#sctn_1-next,
+#sctn_6-next {
 	float: right;
 }
 
-#quiz-prev,
-#cntct-prev {
+#sctn_1-prev,
+#sctn_6-prev {
 	float: right;
 }
 /*
@@ -106,22 +101,22 @@
 	margin: 0 1em;
 }
 */
-#cntct-map {
+#sctn_6-map {
   margin: 0;
   float: right;
 }
 
-#cntct-msg {
+#sctn_6-start {
   margin: 0.7em 0 0.7em 0;
   float: right;
   letter-spacing: -0.7px;
 }
 
-#quiz-sbmt {
+#sctn_1-sbmt {
 	float: right;
 }
 
-#sbmt-cntct {
+#sctn_6-sbmt {
 	float: right;
   letter-spacing: -0.7px;
 }
@@ -140,7 +135,7 @@ input[type=button],
 input[type=submit] {
 	width: 125px;
 	height: 50px;
-	margin: 1.20em 0 0 1.2em;
+	margin: 0 0 0 1.2em;
 	background-color: #40BDE8;
 	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
 	color: #221763;
@@ -153,14 +148,13 @@ input[type=submit]:hover {
 	background-color: #33CCFF;
 }
 
-input#sctn_5-bttn {
+input#sctn_5-start {
 	margin: 0.35em 0 0.7em 0;
   float: right;
   
 }
 
 input#sctn_5-sbmt {
-	margin-right: 1.5em;
 	float: right;
 }
 
