@@ -303,3 +303,16 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	background-position: 0 -153px;
 	font-weight: normal;
 }
+
+@media screen and (min-width: 1260px) {
+  .clmn {
+    vertical-align: top;
+  } 
+}
+
+@media screen and (min-width: 1340px) {
+  .clmn {
+    vertical-align: top;
+  } 
+}
+

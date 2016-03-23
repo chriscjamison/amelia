@@ -833,3 +833,116 @@ body {
 	margin: 0;
 	padding: 1.6em 1.5em;
 }
+
+@media screen and (min-width: 1260px) {
+ 
+  #cntainr {
+    width: 1280px;   
+  }
+  
+  .headr {
+    width: 80.2em;
+  }
+  
+  .copy {
+    margin-left: 27.9em
+  }
+  
+  #info {
+    width: 19.2em;
+    height: 27.2em;
+    bottom: 5.5em;
+    right: 5.5em;
+  }
+  
+  #wndow-sctn_1 > .copy,
+  #wndow-sctn_2 > .copy,
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_6 > .copy {
+    width: 55.25em;
+    margin-left: 11.5em;
+  }
+  
+  #sctn_1-desc-1 {
+    left: 18.4em;  
+  }
+  
+  #sctn_1-desc-2 {
+    left: 40em;
+  }
+  
+  .sctn_2-spcr {
+    display: inline-block;
+  }
+  
+  .sctn_2-blok_2 {
+    width: 71em;
+    height: 13.45em;
+    left: 0;
+  }
+  
+  .sctn_6-spcr {
+    width: 33em;
+    height: 0.8em;
+    float: left;
+    clear: none;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  #cntnr {
+    width: 1366px;
+  }
+  
+  #bkgrnd {
+    width: 1366px;
+  }
+  
+  .headr {
+    width: 85.375em;
+  }
+  
+  .copy {
+    margin-left: 31em;
+  }
+  
+  #info {
+    width: 19.5em;
+    height: 27.2em;
+    bottom: 5.5em;
+    right: 7em;
+  }
+  
+  #sctn_1-desc-1 {
+    left: 21.5em;  
+  }
+  
+  #wndow-sctn_1 > .copy,
+  #wndow-sctn_2 > .copy,
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_6 > .copy {
+    width: 75.25em !important;
+    margin-left: 11.5em;
+  }
+  
+  .sctn_2-spcr {
+    display: inline-block;
+  }
+  
+  .sctn_2-blok_2 {
+    width: 71em;
+    height: 13.45em;
+    left: 0;
+  }
+  
+  .sctn_6-spcr {
+    width: 33em;
+    height: 0.8em;
+    float: left;
+    clear: none;
+  }
+}
+
+html[data-useragent*='Windows NT 6.3'] .sctn_4-blok > div {
+  top: -0.6em;
+}

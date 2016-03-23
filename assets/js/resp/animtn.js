@@ -23,7 +23,7 @@ function setWindowParams(windowWidth, paramNameString)  {
       elementHeight = 1308;
     } else {
       if (windowWidth <= 1024) {
-        elementWidth = 1125;
+        elementWidth = 1024;
         elementHeight = 1500;
       } else {
         if (windowWidth <= 1280) {
@@ -178,6 +178,8 @@ function resizeBackgrounds() {
 	var windowWidth = new Number();
   var windowHeight = new Number();
   var windowResizeValue = new Number();
+  
+  var copyElementWidth = new Number();
       
   var urlString = new String();
   var copyElementsString = new String();
@@ -187,9 +189,11 @@ function resizeBackgrounds() {
  
   windowWidth = $(window).width();
   windowHeight = $(window).height();
-  windowResizeValue = 250;
+  // windowResizeValue = setWindowParams(windowWidth, "width");
   
-	windowElements_Array.each(
+  // windowResizeValue = 166;
+  
+  windowElements_Array.each(
 		function ()	{
       var sectionNumValue = new String();
       var sectionIdSelector = new String();
@@ -224,21 +228,67 @@ function resizeBackgrounds() {
           "height": backgroundCSSValues_Array[3]
         }
       );		
+      
+      // window.alert("$(this).children(\".copy\").css(\"width\") = " + $(this).children(".copy").css("width"));
+      
+      if (windowWidth <= 980) {
+        windowResizeValue = 253;
+      } else {
+        if (windowWidth <= 1280) {
+          // if (this.children(".copy").css("width"))
+          
+          windowResizeValue = 166;
+        } else {
+          if (windowWidth <= 1366) {
+            windowResizeValue = 440;
+          }
+        }
+      }
       /*$(backgroundCSSValues_Array[0]).css("width", backgroundCSSValues_Array[2]);
       $(backgroundCSSValues_Array[0]).css("height", backgroundCSSValues_Array[3]);
      */
+    
+    
       $(this).css(
         {
           "width": backgroundCSSValues_Array[2], 
           "height": backgroundCSSValues_Array[3]
         }
       );
+      
       $(this).css("height", backgroundCSSValues_Array[3]);
       
+      switch ($(this).attr("id")) {
+        case "wndow-sctn_3":
+          copyElementWidth = windowWidth - 402;
+          // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+        break;
+        
+        case "wndow-sctn_4":
+          copyElementWidth = windowWidth - 402;
+          // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+        break;
+        
+        default:
+          copyElementWidth = windowWidth - 166;
+        break;
+        
+      }
+      
+      $(this).children(".copy").each(
+        function () {
+          // window.alert("copyElementWidth = " + copyElementWidth);
+          $(this).css("width", copyElementWidth);
+        }
+      )
+      // window.alert("$(window).width = " + $(window).width());
+      // window.alert("$(window)")
+      // copyElementWidth = windowWidth - windowResizeValue;
+      // window.alert("copyElementWidth = " + copyElementWidth);
+      // window.alert("$(window).width = " + $(window).width());
       $(this).children(".copy").css(
         {
-         "width": (windowWidth - windowResizeValue),
-         "height": (windowHeight - 50)
+         "height": (windowHeight - 132)
         }
       );
       // $(this).children(".copy").);
@@ -249,10 +299,10 @@ function resizeBackgrounds() {
         $(copyElementsString).children(".copy:first").css("display", "block")
       }
        
-      if ($(this).children(".copy").length > 0) {
+      if ($(this).children(".copy").length > 1) {
         copyElementsString = ".copy:nth-child(" + ($(this).children(".copy").length + 2) + ")";
        
-        $(this).children(copyElementsString).css("width", windowWidth - windowResizeValue - 1);
+        $(this).children(copyElementsString).css("width", (copyElementWidth - 1));
         
         
       }
@@ -260,10 +310,23 @@ function resizeBackgrounds() {
     }
   );
   
+  /*window.alert("$(\"#cntainr\").css(\"height\") = " + $("#cntainr").css("height"));
+  
+  window.alert("$(\".wndow\").length = " + $(".wndow").length);
+  
+  window.alert("setWindowParams(" + windowWidth + ", \"height\") = " + setWindowParams(windowWidth, "height"));
+  */
   $("#cntainr").css(
     {
       "width": setWindowParams(windowWidth, "width"), 
-      "height": (setWindowParams(windowHeight, "height") * $(".wndow").length)
+      "height": (setWindowParams(windowWidth, "height") * $(".wndow").length)
+    }
+  );
+  
+  $("#bkgrnd").css(
+    {
+      "width": setWindowParams(windowWidth, "width"), 
+      "height": (setWindowParams(windowWidth, "height") * $(".wndow").length)
     }
   );
   
@@ -338,7 +401,14 @@ function animateWindowPanes() {
     
     var positionValue = (positionNum * 1) + 3;
     
-    var newCopyValueString = "div.copy:nth-child(" + positionValue + ")";
+    var newCopyValueString = new String();
+    
+    if ((window.location.hash === "#sctn_2") || (window.location.hash === "#sctn_5")) {
+      newCopyValueString = "div.copy";
+    } else {
+      newCopyValueString = "div.copy:nth-child(" + positionValue + ")";
+    }
+    
     // window.alert("newCopyValueString = " + newCopyValueString);
     
     var windowWidth = $(window).width();
@@ -399,13 +469,26 @@ function animateWindowPanes() {
   }
 }
 
+function setUseragent () {
+  var userAgentString = document.documentElement;
+    
+  userAgentString.setAttribute('data-useragent', navigator.userAgent);
+}
+
+
 $(document).ready(
 	function () {
     resizeBackgrounds();
     
-		$(window).on('hashchange', 
+    setUseragent();
+    
+    $(window).on('hashchange', 
       function () {
+        
+        // window.alert("window.location.hash = " + window.location.hash);
+        
         animateWindowPanes();
+        
       }
     );
     
@@ -452,6 +535,8 @@ $(document).ready(
 				
 				if (browserPositionNum > (windowHeight * 6 - 500) && browserPositionNum < windowHeight * 6)	{
 					animateElements("6");
+          // window.alert("$(window).scrollTop() = " + $(window).scrollTop());
+          // window.alert("$(\"div.wndow\").height() * ($(\"div.wndow\").length - 1) - 4) = " + ($("div.wndow").height() * ($("div.wndow").length - 1) - 4)); 
 				}
         
         if ((browserPositionNum === 0) && ($("#prev-sctn").css("opacity") === "1"))  {
@@ -464,12 +549,15 @@ $(document).ready(
           $("#prev-sctn").animate({"opacity": 1}, 500); 
         }
         
-        if (browserPositionNum > (($("div.wndow").length - 1) * $("div.wndow").height())) {
-          $("#next-sctn").css("display", "none");
-          $("#next-sctn").fadeTo(500, 0);
+        if (browserPositionNum === ($("div.wndow").height() * ($("div.wndow").length - 1) - 5)) {
+          $("#next-sctn").fadeTo(500, 0, 
+            function () {
+              $("#next-sctn").css("display", "none");
+            }
+          );
         }
         
-        if (browserPositionNum < (($("div.wndow").length - 1) * $("div.wndow").height())) {
+        if ((browserPositionNum < (($("div.wndow").height() * ($("div.wndow").length - 1) - 5)) && ($("#next-sctn").css("opacity") === "0"))) {
           $("#next-sctn").css("display", "block");
           $("#next-sctn").fadeTo(500, 1);
         }
