@@ -366,6 +366,7 @@ $(document).ready(
 		
 		function fadeMenu() {
       var menuWidth = new Number();
+      var menuVertPosition = new Number();
       var windowWidth = new Number();
       var cssElementsBaseWidth = new Number();
       var cssElementsClickWidth = new Number();
@@ -387,39 +388,52 @@ $(document).ready(
       var copyElementClickCSS = new Object;
       var sctnNavElementClickCSS = new Object;
       
-      var inc = new Number();
-      var inc_2 = new Number();
       var copyElementsIncrementer = new Number();
       var copyElementsURLValueString = new String();
       var copyElementsURLIndexValueNum = new Number();
       var copyElementIndexValuesString = new String();
       var copyElementSelectorString = new String();
+      var windowElementSelectorString = new String();
+      var menuWidthBaseString = new String();
+      var menuWidthClickString = new String();
+      var menuVertPosString = new String();
+      var menuVertOptionsPosString = new String();
       
       var copyElementPlace_Array = new Array();
       var copyElementsURLValues_Array = new Array();
       
+      var inc_wndow = new Number();
+      var inc_copy = new Number();
+      var inc_copyElements = new Number();
+      var inc_copyValues = new Number();
+      var inc_copyVisible = new Number();
+      
       windowWidth = $(window).width();
       
       if (windowWidth <= 1366) {
-        menuWidth = Math.round(windowWidth * 0.515);
+        menuWidth = Math.round(windowWidth * 0.51);
       } else {
-        menuWidth = Math.round(windowWidth * 0.20); 
+        menuWidth = Math.round(windowWidth * 0.2); 
       }
+      
+      menuVertPosition = $(window).scrollTop();  
 
-      cssElementsBaseWidth = $(window).width();
-      cssElementsClickWidth = windowWidth - menuWidth;
+      menuWidthBaseString = -menuWidth + "px";
+      menuWidthClickString = menuWidth + "px";
+      menuVertPosString = menuVertPosition + "px";
+      menuVertOptionsPosString = (menuVertPosition + 105) + "px";
+      
+      
+      cssElementsBaseWidth = windowWidth;
+      cssElementsClickWidth = windowWidth - menuWidth + 50;
       // windowElementClickWidth = windowWidth - menuWidth;
       cssElementLeftValue = menuWidth;
-      copyElementWidth = windowWidth;
+      copyElementWidth = windowWidth - 165;
       
       // window.alert("copyElementWidth = " + copyElementWidth);
       
-      $("#menu").css("width", menuWidth);
-      $("#menu-bkgrnd").css("width", menuWidth);
-      $("#menu-brdr").css("width", menuWidth);
-      
       menuBaseCSS = {
-        "left": -menuWidth 
+        "left": menuWidthBaseString
       }
       
       otherElementsBaseCSS = {
@@ -428,62 +442,83 @@ $(document).ready(
       }
       
       windowElementBaseCSS = {
-        "width": windowWidth
+        "width": windowWidth,
+        "left": 0
       }
       
       optionsElementBaseCSS = {
         "width": menuWidth,
         "left": -cssElementLeftValue,
+        "display": "none",
         "opacity": 0
       }
       
       copyElementBaseCSS = {
         "width": copyElementWidth,
-        "opacity": 1,
-        "display": "block"
+        "opacity": 1
       }
       
       sctnNavElementBaseCSS = {
+        "display": "block",
         "opacity": 1
       }
       
       menuClickCSS = {
-        "left": 0 
+        "left": 0
       }
       
       otherElementsClickCSS = {
         "width": cssElementsClickWidth,
-        "left": cssElementLeftValue
+        "left": menuWidthClickString
       }
       
       windowElementClickCSS = {
-        "width": cssElementsClickWidth
+        "width": cssElementsClickWidth,
+        "left": menuWidthClickString
       }
       
       optionsElementClickCSS = {
-        "width": menuWidth,
+        "width": menuWidthClickString,
         "left": 0,
-        "display": "block",
         "opacity": 1
       }
       
       copyElementClickCSS = {
         "width": copyElementWidth - menuWidth,
-        "display": "none",
         "opacity": 0
       }
       
       sctnNavElementClickCSS = {
+        "display": "none",
         "opacity": 0
       }
       
+      $("#menu").css("width", menuWidth);
+      $("#menu-bkgrnd").css("width", menuWidth);
+      $("#menu-brdr").css("width", menuWidth);
+      
       if ($("#menu").css("left") === "0px") {
-        // $("#options").hide("fade", "linear", menuTransitionValue);
-        $("#options").animate(optionsElementBaseCSS, menuTransitionValue); 
-        $("#bkgrnd").animate(otherElementsBaseCSS, menuTransitionValue);
-        $("#bkgrnd > div").animate(otherElementsBaseCSS, menuTransitionValue); 
-        $("#menu").animate(menuBaseCSS, menuTransitionValue);
-        $(".headr").animate(windowElementBaseCSS, (menuTransitionValue / 2));
+        
+            $("#menu").css(menuBaseCSS);
+            /*$("#menu-brdr").css(menuBaseCSS);
+            $("#menu-bkgrnd").css(menuBaseCSS);*/
+            $("#options").css(optionsElementBaseCSS);
+            $("#bkgrnd").css(otherElementsBaseCSS);
+            $("#bkgrnd > div").css(otherElementsBaseCSS);
+            // $("#info").toggle("fade");
+            $(".wndow").css(windowElementBaseCSS);
+            $("#cntainr").css(windowElementBaseCSS);
+            // $(".wndow").animate(windowElementBaseCSS, menuTransitionValue);
+            $(".headr").css(windowElementBaseCSS);
+        // $("#options").effect("drop", "left");
+         /*$(".wndow").css(windowElementBaseCSS);
+            $("#cntainr").css(windowElementBaseCSS);*/
+        
+        
+        
+        // 
+        // $(".headr").animate(windowElementBaseCSS, (menuTransitionValue / 2));
+        // $(".headr").css("display", "table");
           
         copyElementsURLValues_Array = window.location.hash.split("?");
          
@@ -503,64 +538,118 @@ $(document).ready(
         
         copyElementsURLValues_Array = copyElementIndexValuesString.split(",");
         
-        inc = 0;
-        inc_2 = 0;
+        
                  
         /*for (inc = 0; inc < $(".wndow").length; inc++) {
           var copyElementSelectorString_1 = "div.wndow:nth-child(" + (inc + 1) + ")"; 
           // window.alert("$(\"body\").children(\"div.wndow:nth-child(" + inc + ")\").children(\"div.copy\").length = " + $("body").children("copyElementSelectorString_1").children("div.copy").length);
-          // for (inc_2 = 0; inc_2 < $(".wndow").children("div.copy").length; inc_2++) {}
-          /*if (inc.toString() === copyElementsURLValues_Array[inc_2]) {
-            copyElementSelectorString = "div.copy:nth-child(" + (inc + 3) + ")";
-            
-            switch ($(".wndow").children(copyElementSelectorString).parent()) {
-              case "wndow-sctn_3":
-                copyElementBaseCSS.width = copyElementBaseCSS.width - 292;
-              break;
-              
-              case "wndow-sctn_4":
-                copyElementBaseCSS.width = copyElementBaseCSS.width - 292;
-              break;
-            }
-              
-            $(".wndow").children(copyElementSelectorString).css("display", "block");
-              inc_2++;
-            }
-            
-            $(".wndow").children(copyElementSelectorString).animate(copyElementBaseCSS, menuTransitionValue);;
+          */
+        for (inc_wndow = 1; inc_wndow < $(".wndow").length; inc_wndow++) {
+         
+          wndowElementSelectorString = ".wndow#wndow-sctn_" + inc_wndow;
+          $(wndowElementSelectorString).children("div.copy").length
           
-          }*/
+          // window.alert("wndowElementSelectorString = " + wndowElementSelectorString);
+          // window.alert("$(" + wndowElementSelectorString + ").children(\"div.copy\").length = " + $(wndowElementSelectorString).children("div.copy").length);
+          
+          for (inc_copy = 0; inc_copy < $(wndowElementSelectorString).children("div.copy").length; inc_copy++) {
+            
+            copyElementSelectorString = "div.copy:nth-child(" + (inc_copy + 3) + ")";
+            
+            // window.alert("copyElementBaseCSS.width = " + copyElementBaseCSS.width);
+            
+            switch (inc_wndow) {
+              case 3:
+                copyElementBaseCSS.width = copyElementBaseCSS.width - 192;
+              break;
+              
+              case 4:
+                copyElementBaseCSS.width = copyElementBaseCSS.width - 192;
+              break;
+            }
+            
+            // window.alert("copyElementBaseCSS.width = " + copyElementBaseCSS.width);
+            
+            $(wndowElementSelectorString).children(copyElementSelectorString).css(copyElementBaseCSS);
+            $(wndowElementSelectorString).children(copyElementSelectorString).css("display", "none");
+            // window.alert("copyElementSelectorString = " + copyElementSelectorString);   
+            
+            
+            for (inc_copyElements = 0; inc_copyElements < copyElementsURLValues_Array.length; inc_copyElements++)  {
+              
+              if (inc_copy.toString() === copyElementsURLValues_Array[inc_copyElements]) {
+                //  window.alert("copyElementsURLValues_Array[" + inc_2 + "] = " + copyElementsURLValues_Array[inc_2]);
+            
+                // window.alert("copyElementSelectorString = " + copyElementSelectorString);
+              
+              
+              // window.alert("copyElementSelectorString = " + copyElementSelectorString);
+                $(wndowElementSelectorString).children(copyElementSelectorString).css("display", "block");
+              }
+            }
+          }
+          
+            
+        }
         
-        $("#info").toggle("fade");
-        // $(".copy").css("display", "block");
+        // $("#info").toggle("fade");
         
         copyElementsURLIndexValueNum = window.location.hash.indexOf("copy");
         
         if (window.location.hash !== "")  {
           window.location.hash = window.location.hash.slice(0, (copyElementsURLIndexValueNum - 1));
-        } 
-         $(".sctn_nav").toggle("fade");
-         $(".wndow").animate(windowElementBaseCSS, menuTransitionValue);
-         $("#cntainr").animate(otherElementsBaseCSS, menuTransitionValue);
-      } else {
-        $("#menu").animate(menuClickCSS, menuTransitionValue);
-        $("#options").animate(optionsElementClickCSS, menuTransitionValue);
-        $("#options").show("fade", "linear", menuTransitionValue);
-        $("#bkgrnd").animate(otherElementsClickCSS, menuTransitionValue); 
-        $("#bkgrnd > div").animate(otherElementsClickCSS, menuTransitionValue);
-        $("#info").toggle("fade");
-        $(".headr").animate(windowElementClickCSS, menuTransitionValue);
+        }
         
+       /* $("#prev-sctn").css("opacity", 1);
+        $("#next-sctn").css("opacity", 1);*/
+      /*  
         $(".sctn_nav").toggle("fade");
+        $(".sctn_nav").css(sctnNavElementBaseCSS);*/
         
+        // $(".wndow").css(windowElementBaseCSS);
+        // $("#cntainr").animate(otherElementsBaseCSS, menuTransitionValue);
+      } else {
+        // $("#info").toggle("fade");
+        // $(".copy").css("display", "none");
+        $(".headr").css(otherElementsClickCSS);
+        $("#bkgrnd").css(otherElementsClickCSS); 
+        $("#bkgrnd > div").css(otherElementsClickCSS);
+        $(".wndow").css(windowElementClickCSS);
+        $("#cntainr").css(windowElementClickCSS);
+        $("#menu").css(menuClickCSS);
+        $("#options").css(optionsElementClickCSS);
+        $("#options").css("display", "block"); 
+            // $("#options").show("drop", menuTransitionValue);
+           
+          
         
+          /*function () {
+            // $("#options").effect("drop");
+            $("#options").animate(optionsElementClickCSS, menuTransitionValue);
+            $("#bkgrnd").animate(otherElementsClickCSS, menuTransitionValue); 
+            $("#bkgrnd > div").animate(otherElementsClickCSS, menuTransitionValue);
+            // $("#options").effect("drop", "right");
+          });*/
+        // $("#menu").effect("drop", "right", "linear", menuTransitionValue);
+        
+        //  $("#info").toggle("fade");
+        
+        // $("#info").toggle("fade");
+        // $(".headr").animate(windowElementClickCSS, menuTransitionValue);
+        /*$("#prev-sctn").css("opacity", 0);
+        $("#next-sctn").css("opacity", 0); */
+        // $(".headr").css("display", "none");
+        
+       /* $(".sctn_nav").toggle("fade");
+        $(".sctn_nav").css(sctnNavElementClickCSS);
+        */
         $(".copy").each(
           function () {
             if ($(this).css("display") === "block") {
-              copyElementPlace_Array.push(inc);
+              copyElementPlace_Array.push(inc_copyVisible);
             }
             
-            inc++;
+            inc_copyVisible++;
             
             switch ($(this).parent("div").attr("id")) {
               case "wndow-sctn_3":
@@ -576,25 +665,26 @@ $(document).ready(
           }
         );  
         
-        
-        
         if (window.location.hash === "")  {
           copyElementsURLValueString = window.location.hash + "copyVals=";
         } else {
           copyElementsURLValueString = window.location.hash + "?copyVals=";
         }
         
-        for (inc = 0; inc < copyElementPlace_Array.length; inc++)  {
-          copyElementsURLValueString = copyElementsURLValueString + copyElementPlace_Array[inc];
+        for (inc_copyValues = 0; inc_copyValues < copyElementPlace_Array.length; inc_copyValues++)  {
+          copyElementsURLValueString = copyElementsURLValueString + copyElementPlace_Array[inc_copyValues];
           
-          if (inc < copyElementPlace_Array.length - 1) {
+          if (inc_copyValues < copyElementPlace_Array.length - 1) {
             copyElementsURLValueString = copyElementsURLValueString + ",";
           }  
         }
         
         $(".copy").css("display", "none");
-        $(".wndow").animate(windowElementClickCSS, menuTransitionValue); 
-        $("#cntainr").animate(otherElementsClickCSS, menuTransitionValue);
+        // $(".wndow").animate(windowElementClickCSS, menuTransitionValue);
+        
+        // $(".wndow").css(windowElementClickCSS);
+        
+        // $("#cntainr").animate(otherElementsClickCSS, menuTransitionValue);
         
         window.location.hash = copyElementsURLValueString;
       }
@@ -630,11 +720,8 @@ $(document).ready(
       $(spanElement).removeClass();
       $(spanElement).addClass(spanElementState);
       
-      // window.alert("$(\"" + spanElement + "\").attr(\"class\") = " + $(spanElement).attr("class"));
       $(sectionElement).removeClass();
       $(sectionElement).addClass(sectionElementState);
-      
-      // window.alert("$(\"" + sectionElement + "\").attr(\"class\") = " + $(sectionElement).attr("class"));
     }
 
 		function nextSctnBehavior(sectionElement, mouseState) {
@@ -715,6 +802,7 @@ $(document).ready(
       switch (optionElement.id) {
         case "home":
           window.scrollTo(0, 0);
+          window.location.hash = "#sctn_main";
         break;
 
         case "sctn-1":

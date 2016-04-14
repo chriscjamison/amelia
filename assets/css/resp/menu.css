@@ -1,7 +1,7 @@
 /* menu.css */
 #menu {
 	width: 20.45em;
-	height: 1308px;
+	height: auto;
   position: fixed;
 	top: 0;
   left: -20.45em;
@@ -51,7 +51,7 @@
 
 #menu-bkgrnd {
 	width: 20.45em;
-	height: 1308px;
+	height: auto;
 	position: fixed;
 	top: 0;
 	z-index: 3;
@@ -313,10 +313,12 @@ div.sctn_nav > div > div a:hover {
 @media screen and (min-width: 1260px) {
   #menu {
     left: -39.1em;
+    height: 800px;
   }
 
   #menu-bkgrnd {
     width: 39.1em;
+    height: 800px;
   }
 
   #menu-brdr {

@@ -300,7 +300,7 @@ function resizeBackgrounds() {
       }
        
       if ($(this).children(".copy").length > 1) {
-        copyElementsString = ".copy:nth-child(" + ($(this).children(".copy").length + 2) + ")";
+        copyElementsString = ".copy:nth-child(" + ($(this).children(".copy").length + 1) + ")";
        
         $(this).children(copyElementsString).css("width", (copyElementWidth - 1));
         
