@@ -54,6 +54,7 @@
 	height: auto;
 	position: fixed;
 	top: 0;
+  left: -20.45em;
 	z-index: 3;
 	background-color: #666;
 }
@@ -63,6 +64,7 @@
 	height: 6.25em;
 	position: fixed;
 	top: 0;
+  left: -20.45em;
 	z-index: 3;
 	background-color: #444;
 }
@@ -106,13 +108,13 @@
 }
 
 #options > span {
-	width: 9.45em;
+	width: 12.4em;
 	height: 2.35em;
 	margin: 1em;
 	padding: 1em;
 	display: block;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.5em;
+  font-size: 1.25em;
 	background-color: #000;
 	color: #fff;
 	cursor: pointer;
@@ -311,19 +313,33 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (min-width: 1260px) {
-  #menu {
+  /*#menu {
     left: -39.1em;
-    height: 800px;
   }
 
   #menu-bkgrnd {
     width: 39.1em;
-    height: 800px;
   }
 
   #menu-brdr {
     width: 39.1em;
   }
+  
+  #options {
+    width: 38em;
+  }*/
+
+  .options-click {
+    display: inline-table !important;
+    opacity: 1 !important;
+  }
+
+  /*#options > span { 
+    width: 8.61em;
+    height: 2.35em;
+    display: inline-table;
+    font-size: 1.5em;
+  }*/
   
   .bkgrnd-base {
     width: 80em !important;
@@ -333,7 +349,7 @@ div.sctn_nav > div > div a:hover {
     width: 46.25em !important;
     left: 39.1em !important;
   }
-
+  
   .cntainr-base {
     width: 80em !important;
     left: 0px !important;
@@ -356,23 +372,6 @@ div.sctn_nav > div > div a:hover {
   .sctn_nav {
     width: 80em !important;
     top: 34.375em !important;
-  }
-
-  #options {
-    width: 38em;
-  }
-
-  .options-click {
-    display: inline-table !important;
-    opacity: 1 !important;
-  }
-
-  #options > span { 
-    display: inline-table;
-  }
-
-  .sctn_nav {
-    width: 80em !important;
   }
   
   #prev-sctn, 

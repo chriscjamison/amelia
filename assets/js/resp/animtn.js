@@ -1,6 +1,4 @@
 function fadeSectionBlocks(sectionBlockElements, transitionTimeValue) {
-	
-  
   $(sectionBlockElements).each(
 		function () {
       // $(this).attr("id");
