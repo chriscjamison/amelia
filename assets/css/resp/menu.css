@@ -157,7 +157,7 @@
 	width: 200px;
 	height: 60px;
 	position: fixed;
-	left: 24em;
+	right: 33.8em;
 	bottom: 1.56em;
 	z-index: 5;
 	background-image: url('/amelia/assets/img/menu/next/resp/next-sctn.png');
@@ -227,10 +227,6 @@ div.sctn_nav > div {
 	margin: 0 auto;
 }
 
-#menu-sctn_6 > div {
-	width: 552px;
-}
-
 div.sctn_nav > div > span {
 	width: 150px;
 	height: 35px;
@@ -248,10 +244,6 @@ div.sctn_nav > div > span {
 
 #menu-sctn_4 > div > span {
 	background-image: url('/amelia/assets/img/menu/sctn_nav/sctn_4.png');
-}
-
-#menu-sctn_6 > div > span {
-	background-image: url('/amelia/assets/img/menu/sctn_nav/sctn_6.png');
 }
 
 div.sctn_nav > div > span.base-sctn_nav {
@@ -279,16 +271,11 @@ div.sctn_nav > div > span.click-sctn_nav {
 }
 
 div.sctn_nav > div > div {
-	width: 552px;
-	height: 80px;
+	width: 740px;
+	height: 35px;
 	margin: 0 auto;
 	position: absolute;
 	display: none;
-}
-
-div.sctn_nav.sub_menu > div > div {
-	width: 740px;
-	margin: 0 auto;
 }
 
 div.sctn_nav > div > div > a {
@@ -376,7 +363,7 @@ div.sctn_nav > div > div a:hover {
   
   #prev-sctn, 
   #next-sctn {
-    left: 34em;
+    right: 33.8em;
   }
   
 }
@@ -418,6 +405,6 @@ div.sctn_nav > div > div a:hover {
   
   #prev-sctn, 
   #next-sctn {
-    left: 36.3em;
+    right: 36.3em;
   }
 }

@@ -21,16 +21,17 @@
     
 		<script src="/amelia/assets/js/resp/menu-test.js"></script>
 		<script src="/amelia/assets/js/resp/forms.js"></script>
-		<script src="/amelia/assets/js/resp/animtn.js"></script>
+		<script src="/amelia/assets/js/resp/animations.js"></script>
     
     <!--<script>$(document).ready(function() {window.alert("browser typw = " + window.navigator.userAgent);});</script>-->
 	</head>  
 	
-  <body 
-    onload="cssAdjustment(); formData('sctn_1', 'initial'); formData('sctn_5', 'initial'); formData('sctn_6', 'initial'); animateElements('main');;" 
-    onresize="resizeBackgrounds();"> 
-  <!--<body onload="animateElements('main');">-->
-  <!--<body>-->
+  <!--<body 
+    onload="formData('sctn_1', 'initial'); formData('sctn_5', 'initial'); formData('sctn_6', 'initial'); animateElements('main');;" 
+    onresize="resizeBackgrounds();"> -->
+  <!--<body onload="animateWindowPanes();">-->
+		<!--<body onload="setupPage();">-->
+  <body>
     <div id="menu">
 			<span id="menu-link"></span>
 			<div id="options">
@@ -121,7 +122,7 @@
 				</div>
 			</div>
       
-      <<div class="wndow" id="wndow-sctn_2">
+      <div class="wndow" id="wndow-sctn_2">
 				<a name="sctn_2"></a>
 				<div class="headr sctn_2"><span>Credentials</span></div>
 				<div class="copy">
