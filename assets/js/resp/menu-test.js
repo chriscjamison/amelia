@@ -203,10 +203,12 @@ function cssAdjustment()  {
         "width": "5em",
         "height": "3.12em"
       }  
+      
+      $("#next-sctn").css(nextSctnElementCSS);
+      $("#prev-sctn").css(prevSctnElementCSS);
+      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);    
     }
-    $("#next-sctn").css(nextSctnElementCSS);
-    $("#prev-sctn").css(prevSctnElementCSS);
-    $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);
+    
   }
 }
 
@@ -271,46 +273,12 @@ $(document).ready(
       function () {
         slideMenu();
         
-        menuLinkHoverState("base");
-        
-        setTimeout(menuTransitionTime);
-        
-        switch ($(this).attr("id")) {
-          case "home":
-            window.scrollTo(0, 0);
-            window.location.hash = "#sctn_main";
-          break;
-
-          case "sctn-1":
-            window.scrollTo(0, $(".wndow").height());
-            window.location.hash = "#sctn_1?pos=0";
-          break;
-
-          case "sctn-2":
-            window.scrollTo(0, ($(".wndow").height() * 2));
-            window.location.hash = "#sctn_2";
-          break;
-
-          case "sctn-3":
-            window.scrollTo(0, ($(".wndow").height() * 3));
-            window.location.hash = "#sctn_3?pos=0";
-          break;
-
-          case "sctn-4":
-            window.scrollTo(0, ($(".wndow").height() * 4));
-            window.location.hash = "#sctn_4?pos=0";
-          break;
-
-          case "sctn-5":
-            window.scrollTo(0, ($(".wndow").height() * 5));
-            window.location.hash = "#sctn_5?pos=0";
-          break;
-
-          case "sctn-6":
-            window.scrollTo(0, ($(".wndow").height() * 6));
-            window.location.hash = "#sctn_6?pos=0";
-          break;
+        if ($(this).attr("id") !== "sctn_main") {
+          window.location.hash = $(this).attr("id") + "?pos=0";  
+        } else  {
+          window.location.hash = $(this).attr("id");  
         }
+        
       }
     );
     
@@ -326,6 +294,7 @@ $(document).ready(
         
         currentLocation = $(window).scrollTop();
         wndowHeight = $(".wndow").height();
+        // window.alert("wndowHeight = " + wndowHeight);
         
         if ($(this).attr("id") === "prev-sctn")  {
           if (Math.floor(currentLocation / wndowHeight) === 0)  {
@@ -342,15 +311,19 @@ $(document).ready(
         }
         
         newLocation = currentLocation + locationDifferenceValue;
-        
+        // window.alert("newLocation = " + newLocation);
         sctnValue = Math.floor(newLocation / wndowHeight);
-       
+        // window.alert("sctnValue = " + sctnValue);
         if (sctnValue === 0) {
-            URLHashString = "sctn_main";
+          URLHashString = "sctn_main";
         } else {
-          URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
+          if (window.location.hash.indexOf("pos=") >= 0)  {
+            URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
+          } else {
+            URLHashString = "sctn_" + sctnValue + "?pos=0";
+          }
         }
-        
+        // window.alert("URLHashString = " + URLHashString);
         window.location.hash = URLHashString;
       }
     );
@@ -405,8 +378,76 @@ $(document).ready(
 				// fadeSctnNav("base", currentSctnNavIDString);
 				
 				// fadeSctnNavOptions(currentSctnNavElement);
-				}
+      }
 		);
+    
+    var wndowHeight = new Number();
+    var currentPosition = new Number();
+    var windowViewMargin = new Number();
+        
+   
+    windowViewMargin = 300;
+    // window.alert("wndowHeight = " + wndowHeight);
+    $(window).on("scroll", 
+      function () {
+        wndowHeight = $(".wndow").height();
+        // window.alert("windowViewMargin = " + windowViewMargin);
+        // window.alert("wndowHeight = " + wndowHeight);
+        
+        currentPosition = $(window).scrollTop();  
+        
+        // window.alert("currentPosition = " + currentPosition);
+        // window.alert("wndowHeight - windowViewMargin = " + (wndowHeight - windowViewMargin));
+        if ((currentPosition < wndowHeight) && 
+            (window.location.hash.indexOf("sctn_main") === -1)) {
+          setupWindow(windowViewMargin);
+        }
+        
+        if (((currentPosition > wndowHeight) && 
+            (currentPosition < (wndowHeight * 2))) && 
+            (window.location.hash.indexOf("sctn_1") === -1))  {
+          setupWindow(windowViewMargin);
+        } 
+        
+        if (((currentPosition > (wndowHeight * 2)) && 
+            (currentPosition < (wndowHeight * 3))) && 
+            (window.location.hash.indexOf("sctn_2") === -1))  {
+          setupWindow(windowViewMargin);
+        }   
+        
+        if (((currentPosition > wndowHeight * 3) && 
+            (currentPosition < (wndowHeight * 4))) && 
+            (window.location.hash.indexOf("sctn_3") === -1))  {
+          setupWindow(windowViewMargin);
+        } 
+        
+        if ((currentPosition > wndowHeight * 4) && 
+            ((currentPosition < (wndowHeight * 5))) && 
+            (window.location.hash.indexOf("sctn_4") === -1))  {
+           setupWindow(windowViewMargin);
+        }
+        
+        if (((currentPosition > wndowHeight * 5) && 
+            (currentPosition < (wndowHeight * 6))) && 
+            (window.location.hash.indexOf("sctn_5") === -1))  {
+         setupWindow(windowViewMargin);
+        }
+      
+        if ((currentPosition > wndowHeight * 6) && 
+            (window.location.hash.indexOf("sctn_6") === -1))  {
+          setupWindow(windowViewMargin);
+          
+        }  
+      }
+    );
+    
+    $(window).on("hashchange",
+      function () {
+        if (window.location.hash.indexOf("copyValues=") === -1) {
+          setupWindow(windowViewMargin);
+        }
+      }
+    );
   }
 );
 

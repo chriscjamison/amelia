@@ -58,24 +58,54 @@ function URLInfo() {
   var sectionNumIndexValue = new String();
   var positionNumIndexValue = new String();
   
+  var wndowElementString = new String();
+  var copyElementVisibleString = new String();
+  
+  var inc_copyVisible = new Number();
+  
   var URLHashInfo_Array = new Array();
  
   URLHashString = window.location.hash; 
   
   sectionNumIndexValue = URLHashString.indexOf("sctn_");
   
-  sectionNumIndexValue = sectionNumIndexValue + 5;
-  URLHashInfo_Array[0] = URLHashString.charAt(sectionNumIndexValue);
+  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
+  if (sectionNumIndexValue !== -1)  {
+    sectionNumIndexValue = sectionNumIndexValue + 5;
   
-  if (URLHashInfo_Array[0] === "m" || sectionNumIndexValue === 4) {
-    URLHashInfo_Array[0] = "main";
+    URLHashInfo_Array[0] = URLHashString.charAt(sectionNumIndexValue);
+    
+    if (URLHashInfo_Array[0] === "m" || sectionNumIndexValue === 4) {
+      URLHashInfo_Array[0] = "main";
+    }
+    
+    if (URLHashString.indexOf("pos=") !== -1) {
+      positionNumIndexValue = URLHashString.indexOf("pos=");
+      positionNumIndexValue = positionNumIndexValue + 4;
+      URLHashInfo_Array[1] = URLHashString.charAt(positionNumIndexValue);
+    } else  {
+      if (URLHashInfo_Array[0] !== "main")  {
+        inc_copyVisible = 3;
+        
+        wndowElementString = "#wndow-sctn_" + URLHashInfo_Array[0];
+        copyElementVisibleString = ".copy:nth-child(" + inc_copyVisible + ")";
+        
+        $(wndowElementString).children(".copy").each(
+          function () {
+            if ($(this).css("display") === "none")  {
+              inc_copyVisible++;
+            }
+          }
+        );
+        
+        URLHashInfo_Array[1] = inc_copyVisible - 3;
+      }  
+    }
+    
+    // window.alert("URLHashInfoArray[1] = " + URLHashInfo_Array[1]);
   }
   
-  if (URLHashString.indexOf("pos=") !== -1) {
-    positionNumIndexValue = URLHashString.indexOf("pos=");
-    positionNumIndexValue = positionNumIndexValue + 4;
-    URLHashInfo_Array[1] = URLHashString.charAt(positionNumIndexValue);
-  }
+  // window.alert("URLHashInfoArray.length = " + URLHashInfo_Array.length);
   
   return URLHashInfo_Array;
 }
@@ -119,6 +149,13 @@ function setupPage()  {
     "width": pageDimensions_Array[0],
     "height": pageDimensions_Array[1]
   };
+  
+  if ($("#wndow-sctn_main").children("#info").css("opacity") === "0") {
+    $("#wndow-sctn_main").children("#info").css("opacity", 1);  
+    $("#wndow-sctn_main").children("#info").children("img").css({"display": "block", "opacity": 1});
+    $("#wndow-sctn_main").children("#info").children("ul").css({"display": "block", "opacity": 1});
+    $("#wndow-sctn_main").children("#info").children("ul").children("li").css({"display": "block", "opacity": 1});
+  }
   
   copyCSS.width = copyCSS.width - copyDifferenceValue;
   
@@ -185,41 +222,73 @@ function setupPage()  {
     }
   );
   
-  displayVerticalNav();
+  // displayVerticalNav();
+  
+  animateWindowPanes();
 }
 
-function setupWindow(sectionValue) {
+function setupWindow(windowViewMargin) {
   var wndowElementString = new String();
   var copyElementsString = new String();
+  var copyVisibleElementString = new String();
+  var copyDIVElementsString = new String();
+  var headrElementString = new String();
+  
+  var URLHashInfo_Array = new Array();
   
   var inc_copyVisible = new Number();
+  var inc_copyElements = new Number();
   var windowPaneValue = new Number();
   var positionValue = new Number();
   var currentPosition = new Number();
   
   var URLHash = new String();
   
-  copyElementsString = ".copy:nth-child(" + inc_copyVisible + ")";
-  wndowElementString = "#wndow-sctn_" + sectionValue;
+  URLHashInfo_Array = URLInfo();
   
-  inc_copyVisible = 3;
+  currentPosition = $(window).scrollTop();
   
-  while ($(wndowElementString).children(copyElementsString).css("display") === "none")  {
-    inc_copyVisible++;
-    
-    copyElementsString = ".copy:nth-child(" + inc_copyVisible + ")";
+  if (URLHashInfo_Array[0] !== "sctn_main" || URLHashInfo_Array[0] !== "")  {
+    sectionValue = Math.floor((currentPosition + windowViewMargin) / $(".wndow").height());  
   }
   
-  positionValue = inc_copyVisible - 3;  
-    
-    
-  if (sectionValue === "main")  {
-    URLHash = "#sctn_main";
-  } else  {
-    URLHash = "#sctn_" + sectionValue + "?pos=" + positionValue;
-  }
+  if ((URLHashInfo_Array[0] !== sectionValue) && 
+      ((currentPosition >= ($(".wndow").height() * sectionValue)) && 
+      (currentPosition <= ($(".wndow").height() * (sectionValue + 1))))) {
+    // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
+    if (URLHashInfo_Array[0] === "main" || URLHashInfo_Array === "") {
+      sectionValue = URLHashInfo_Array[0];
+    } else  {
+      sectionValue = (URLHashInfo_Array[0] * 1);
       
-  window.location.hash = URLHash;
+      positionValue = (URLHashInfo_Array[1] * 1);
+    } 
+  } 
+  // window.alert("sectionValue = " + sectionValue);
+  if ((sectionValue !== 0) && (sectionValue !== "main"))  {
+    wndowElementString = "#wndow-sctn_" + sectionValue;
+    copyVisibleElementString = ".copy:nth-child(" + (positionValue + 3) + ")";
+    
+    if (positionValue > 0)  {
+      while ($(wndowElementString).chldren(copyVisibleElementString).css("display") === "none")  {
+        positionValue++;
+            
+        copyVisibleElementString = ".copy:nth-child(" + (positionValue + 3) + ")";
+        
+      }
+    }
+    
+    $(wndowElementString).children(".copy").css("display", "none");
+    $(wndowElementString).children(copyVisibleElementString).css("display", "block");
+    
+    URLHash = "sctn_" + sectionValue + "?pos=" + positionValue;
+  } else {
+    URLHash = "sctn_main";
+  }
+  
+  window.location.hash = URLHash; 
+  
+  animateWindowPanes();
   
   displayVerticalNav();
 }
@@ -228,9 +297,10 @@ function setupWindow(sectionValue) {
 function animateWindowPanes() {
   var URLHashInfo_Array = new Array();
   
-  var wndowIDString = new String();
+  var wndowElementString = new String();
   var headrElementString = new String();
   var copyElementVisibleString = new String();
+  var copyDIVElementsString = new String();
   var bkgrndIDString = new String();
   
   var positionString = new String();
@@ -241,46 +311,37 @@ function animateWindowPanes() {
   var bkgrndCSS = new Object();
   var wndowCSS = new Object();
   
-  var copyPositionNumValue = new Number();
-  var posNumValue = new Number();
-  var bkgrndPositionValue = new Number();
+  var inc_copyElements = new Number();
   
   URLHashInfo_Array = URLInfo();
   
   copyHideCSS = {
-    "display": "none"
+    "display": "none", 
+    "opacity": 0
   };
   
   copyVisibleCSS = {
-    "display": "block"
+    "display": "block",
+    "opacity": 1
+  };
+  
+  headrVisibleCSS = {
+    "opacity": 1
   };
   
   bkgrndVisibleCSS = {
     "display": "block"
   };
   
-  wndowIDString = "#wndow-sctn_" + URLHashInfo_Array[0];
-    // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
-    
-  if (wndowIDString !== "#wndow-sctn_main") {    
-    $(wndowIDString).children(".copy").css(copyHideCSS);
-  }
-  
   // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
-  
+  // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
   if (URLHashInfo_Array.length === 2) {
-    posNumValue = URLHashInfo_Array[1] * 1;
-    
-    copyPositionNumValue = posNumValue + 3;
-  
-    copyElementVisibleString = ".copy:nth-child(" + copyPositionNumValue + ")";
-    
     bkgrndIDString = "#bkgrnd-sctn_" + URLHashInfo_Array[0];
     
     // window.alert("bkgrndIDString = " + bkgrndIDString);
-    newPositionValue = $(".wndow").width() * posNumValue;
+    newPositionValue = $(".wndow").width() * (URLHashInfo_Array[1] * 1);
     
-    positionString = newPositionValue + "px";
+    positionString = "-" + newPositionValue + "px";
     
     // window.alert("backgroundPositionString = " + backgroundPositionString);
     
@@ -303,93 +364,32 @@ function animateWindowPanes() {
       $(bkgrndIDString).css(bkgrndVisibleCSS);
     }
     
-    headrElementString = "div.headr.sctn_" + URLHashInfo_Array[0];
+    wndowElementString = "#wndow-sctn_" + URLHashInfo_Array[0];
+    headrElementString = ".headr.sctn_" + URLHashInfo_Array[0];
+    copyVisibleElementString = ".copy:nth-child(" + ((URLHashInfo_Array[1] * 1) + 3) + ")";
        
-    $(wndowIDString).children(headrElementString).css(copyVisibleCSS);
-    $(wndowIDString).children(copyElementVisibleString).css(copyVisibleCSS);
-  } else {
-    if ($(wndowIDString).children("#info").css("opacity") === "0") {
-      $(wndowIDString).children("#info").css("opacity", 1);  
-      $(wndowIDString).children("#info").children("img").css({"display": "block", "opacity": 1});
-      $(wndowIDString).children("#info").children("ul").css({"display": "block", "opacity": 1});
-      $(wndowIDString).children("#info").children("ul").children("li").css({"display": "block", "opacity": 1});
+    copyDIVElementsString = "div:nth-child(1)";
+  
+    // window.alert("$(" + wndowElementString + ").children(" + copyVisibleElementString + ").children(\"div\").length = " + $(wndowElementString).children(copyVisibleElementString).children(copyDIVElementsString).length);
+    for (inc_copyElements = 0; inc_copyElements < $(wndowElementString).children(copyVisibleElementString).children("div").length; inc_copyElements++)  {
+      copyDIVElementsString = "div:nth-child(" + (inc_copyElements + 1) + ")";
+      // window.alert("copyVisibleElementString = " + copyVisibleElementString);
+      // window.alert("copyDIVElementsString = " + copyDIVElementsString);
+      $(wndowElementString).children(copyVisibleElementString).children(copyDIVElementsString).css("opacity", 1);
     }
+  
+    
+    $(wndowElementString).children(headrElementString).css(headrVisibleCSS);
+    $(wndowElementString).children(copyVisibleElementString).css(copyVisibleCSS);
+    
+    window.scrollTo(0, ((URLHashInfo_Array[0] * 1) * $(".wndow").height()));
+  } else {
+    window.scrollTo(0, 0);
   }
 }
 
 $(document).ready(
   function () {
-    var wndowHeight = $(".wndow").height();
-    var currentPosition = new Number();
-    
     setupPage();
-    animateWindowPanes();
-    
-    
-    // window.alert("$(\".wndow\").height() = " + $(".wndow").height());
-    
-    windowViewMargin = 300;
-    
-    $(window).on("hashchange",
-      function () {
-        animateWindowPanes();
-        
-        /*var sectionValue = new String();
-        
-        sectionValue = window.location.hash.charAt(window.location.hash.indexOf("_") + 1);
-        
-        if (sectionValue === "m") {
-          setupWindow("main");
-        } else  {
-          setupWindow(sectionValue);
-        }*/
-        
-      }
-    );
-    
-    $(window).on("scroll", 
-      function () {
-        
-        // window.alert("wndowHeight = " + wndowHeight);
-        currentPosition = $(window).scrollTop();  
-        
-        // window.alert("wndowHeight - windowViewMargin = " + (wndowHeight - windowViewMargin));
-        if (currentPosition < wndowHeight - windowViewMargin) {
-          setupWindow("main");
-        }
-        
-        if ((currentPosition > wndowHeight - windowViewMargin) && 
-            (currentPosition < (wndowHeight * 2 - windowViewMargin)))  {
-          setupWindow("1");
-        } 
-        
-        if ((currentPosition > (wndowHeight * 2 - windowViewMargin)) && 
-            (currentPosition < (wndowHeight * 3 - windowViewMargin)))  {
-          setupWindow("2");
-        }   
-        
-        if ((currentPosition > wndowHeight * 3 - windowViewMargin) && 
-            (currentPosition < (wndowHeight * 4 - windowViewMargin)))  {
-         setupWindow("3");
-        } 
-        
-        if ((currentPosition > wndowHeight * 4 - windowViewMargin) && 
-            (currentPosition < (wndowHeight * 5 - windowViewMargin)))  {
-           setupWindow("4");
-        }
-        
-        if ((currentPosition > wndowHeight * 5 - windowViewMargin) && 
-            (currentPosition < (wndowHeight * 6 - windowViewMargin)))  {
-          setupWindow("5"); 
-        }
-      
-        if ((currentPosition > wndowHeight * 6 - windowViewMargin) && 
-            (currentPosition < (wndowHeight * 7 - windowViewMargin)))  {
-          setupWindow("6");
-          
-        }
-          
-      }
-    );
   }
 );
