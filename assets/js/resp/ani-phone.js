@@ -15,50 +15,37 @@ function parseWindowDimensions()  {
     pageDimensions_Array[0] = 360;
     pageDimensions_Array[1] = 540;
   } else {
-      if (windowWidth <= 640) {
-        pageDimensions_Array[0] = 640;
-        
-        if (windowHeight > 1000)  {
-          pageDimensions_Array[1] = 1136;
-        } 
-      } else  {
-        if (windowWidth <= 980) {
-          pageDimensions_Array[0] = 980;
+    if (windowWidth <= 980) {
+       pageDimensions_Array[0] = 980;
+      pageDimensions_Array[1] = 1308;
+    } else {
+      if (windowWidth <= 1024) {
+        pageDimensions_Array[0] = 1024;
+        pageDimensions_Array[1] = 1500;
+      } else {
+        if (windowWidth <= 1280) {
+          pageDimensions_Array[0] = 1280;
           
-          if (windowHeight > 1308)  {
-            pageDimensions_Array[1] = 1740;
-          } else  {
-            pageDimensions_Array[1] = 1308;  
+          if (windowHeight <= 800) {
+            pageDimensions_Array[1] = 800;
+          } else {
+            pageDimensions_Array[1] = 1024;
           }
         } else {
-          if (windowWidth <= 1024) {
-            pageDimensions_Array[0] = 1024;
-            pageDimensions_Array[1] = 1500;
+          if (windowWidth <= 1366) {
+            pageDimensions_Array[0] = 1366;
+            pageDimensions_Array[1] = 768;
           } else {
-            if (windowWidth <= 1280) {
-              pageDimensions_Array[0] = 1280;
-              
-              if (windowHeight <= 800) {
-                pageDimensions_Array[1] = 800;
-              } else {
-                pageDimensions_Array[1] = 1024;
-              }
+            if (windowWidth <= 1600) {
+              pageDimensions_Array[0] = 1600;
+              pageDimensions_Array[1] = 900;
             } else {
-              if (windowWidth <= 1366) {
-                pageDimensions_Array[0] = 1366;
-                pageDimensions_Array[1] = 768;
-              } else {
-                if (windowWidth <= 1600) {
-                  pageDimensions_Array[0] = 1600;
-                  pageDimensions_Array[1] = 900;
-                } else {
-                  pageDimensions_Array[0] = 1920;
-                  pageDimensions_Array[1] = 1020;
-                }
-              }
+              pageDimensions_Array[0] = 1920;
+              pageDimensions_Array[1] = 1020;
             }
           }
         }
+      }
     }
   } 
   
@@ -163,24 +150,8 @@ function setupPage()  {
     "height": pageDimensions_Array[1]
   };
   
-  $(".wndow").css(wndowCSS);
-  $("#bkgrnd").css(bkgrndCSS);
-  window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-  window.alert("pageDimensions_Array[1] = " + pageDimensions_Array[1]);
-  if ((pageDimensions_Array[0] > 640 && pageDimensions_Array[0] <= 980) && 
-      ((pageDimensions_Array[1] > 1308 && pageDimensions_Array[1] <= 1780)))  {
-    $("#wndow-sctn_main").children("#info").css({"width": (pageDimensions_Array[1] * 0.2), "opacity": 1})
-   
-    $("#wndow-sctn_main").children("#info").children("img").attr({"src": "/amelia/assets/img/logo/logo_phone.png", "width": "480", "height": "455"});
-       
-    $("#wndow-sctn_main, #bkgrnd_sctn_main").css("height", (pageDimensions_Array[1] * 1.5));
-    
-      
-  } 
-  
   if ($("#wndow-sctn_main").children("#info").css("opacity") === "0") {
-    $("#wndow-sctn_main").children("#info").css("opacity", 1); 
-     
+    $("#wndow-sctn_main").children("#info").css("opacity", 1);  
     $("#wndow-sctn_main").children("#info").children("img").css({"display": "block", "opacity": 1});
     $("#wndow-sctn_main").children("#info").children("ul").css({"display": "block", "opacity": 1});
     $("#wndow-sctn_main").children("#info").children("ul").children("li").css({"display": "block", "opacity": 1});
@@ -197,6 +168,8 @@ function setupPage()  {
       $(this) 
     }
   );*/
+  $(".wndow").css(wndowCSS);
+  $("#bkgrnd").css(bkgrndCSS);
   
   $(".copy").each(
     function () {

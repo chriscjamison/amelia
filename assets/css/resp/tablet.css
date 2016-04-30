@@ -834,6 +834,16 @@ body {
 	padding: 1.6em 1.5em;
 }
 
+
+@media screen and (width: 980px) {
+  #info {
+    background-color: #977348;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+ 
 @media screen and (min-width: 1260px) {
  
   #cntainr {
