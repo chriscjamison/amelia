@@ -299,6 +299,25 @@ div.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
 
+@media screen and (width: 980px) {
+  #prev-sctn, 
+  #next-sctn {
+    height: 132px;
+    bottom: 37em;
+    right: 24.1em;
+  }
+  
+  #next-sctn {
+    background-position-y: -137px;
+  }
+  
+  #next-sctn > span {
+    height: 105px;
+    margin: 0 auto;
+    font-size: 1.8em;
+  }
+}
+
 @media screen and (min-width: 1260px) {
   /*#menu {
     left: -39.1em;

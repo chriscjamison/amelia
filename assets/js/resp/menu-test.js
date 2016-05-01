@@ -292,9 +292,20 @@ $(document).ready(
         
         var URLHashString = new String();
         
+        var pageDimensions_Array = new Array();
+        
+        
+        
         currentLocation = $(window).scrollTop();
-        wndowHeight = $(".wndow").height();
-        // window.alert("wndowHeight = " + wndowHeight);
+        
+        
+        if (window.navigator.userAgent.indexOf("Mobile") === -1 && window.navigator.userAgent.indexOf("Tablet") === -1) {
+          wndowHeight = $(".wndow").height();
+        } else  {
+          wndowHeight = $("#wndow-sctn_1").height();
+        }
+        
+        window.alert("wndowHeight = " + wndowHeight);
         
         if ($(this).attr("id") === "prev-sctn")  {
           if (Math.floor(currentLocation / wndowHeight) === 0)  {
@@ -313,17 +324,32 @@ $(document).ready(
         newLocation = currentLocation + locationDifferenceValue;
         // window.alert("newLocation = " + newLocation);
         sctnValue = Math.floor(newLocation / wndowHeight);
+        
+        // window.alert("Math.floor(" + newLocation + " / " + wndowHeight + ") = " + Math.floor(newLocation/wndowHeight));
+        // window.alert("currentLocation = " + currentLocation);
         // window.alert("sctnValue = " + sctnValue);
-        if (sctnValue === 0) {
-          URLHashString = "sctn_main";
-        } else {
+        // window.alert("window.location.hash.indexOf(\"sctn_main\") = " + window.location.hash.indexOf("sctn_main"));
+        if (sctnValue > 0 && window.location.hash.indexOf("sctn_main") !== -1) {
           if (window.location.hash.indexOf("pos=") >= 0)  {
             URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
           } else {
             URLHashString = "sctn_" + sctnValue + "?pos=0";
           }
+        } else {
+          if (window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) {
+            if (sctnValue === 1) {
+              if (currentLocation === 0) {
+                if ($(window).width() === 980) {
+                  $("#cntainr").css("top", (-0.7 * $("#wndow-sctn_main").height()));
+                  $("#bkgrnd-sctn_main").css("backgroundPositionY", "0px");
+                  $("#next-sctn").css("bottom", "1.56em");
+                }  
+              }
+            }
+          }
+          URLHashString = "sctn_main";
         }
-        // window.alert("URLHashString = " + URLHashString);
+        window.alert("URLHashString = " + URLHashString);
         window.location.hash = URLHashString;
       }
     );

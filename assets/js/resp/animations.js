@@ -81,11 +81,11 @@ function URLInfo() {
   URLHashString = window.location.hash; 
   
   sectionNumIndexValue = URLHashString.indexOf("sctn_");
-  
+  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
   // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
   if (sectionNumIndexValue !== -1)  {
     sectionNumIndexValue = sectionNumIndexValue + 5;
-  
+  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
     URLHashInfo_Array[0] = URLHashString.charAt(sectionNumIndexValue);
     
     if (URLHashInfo_Array[0] === "m" || sectionNumIndexValue === 4) {
@@ -165,16 +165,25 @@ function setupPage()  {
   
   $(".wndow").css(wndowCSS);
   $("#bkgrnd").css(bkgrndCSS);
-  window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-  window.alert("pageDimensions_Array[1] = " + pageDimensions_Array[1]);
+ 
   if ((pageDimensions_Array[0] > 640 && pageDimensions_Array[0] <= 980) && 
-      ((pageDimensions_Array[1] > 1308 && pageDimensions_Array[1] <= 1780)))  {
-    $("#wndow-sctn_main").children("#info").css({"width": (pageDimensions_Array[1] * 0.2), "opacity": 1})
+      ((pageDimensions_Array[1] > 1308 && pageDimensions_Array[1] <= 1740)))  {
+        
+        /*window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
+  window.alert("pageDimensions_Array[1] = " + pageDimensions_Array[1]);*/
+  
+    // window.alert("$(\"#wndow-sctn_main\").children(\"#info\")css(\"opacity\") = " + $("#wndow-sctn_main").children("#info").css("opacity"));
+    $("#wndow-sctn_main").children("#info").css({"width": pageDimensions_Array[0], "height": (pageDimensions_Array[1] * 0.7)});
    
     $("#wndow-sctn_main").children("#info").children("img").attr({"src": "/amelia/assets/img/logo/logo_phone.png", "width": "480", "height": "455"});
-       
-    $("#wndow-sctn_main, #bkgrnd_sctn_main").css("height", (pageDimensions_Array[1] * 1.5));
     
+    // $("#bkgrnd").css("height", $("#wndow-sctn_main").height()));
+    $("#cntainr").css("height", ($("#cntainr").height() + (pageDimensions_Array[1] * 1.5)));  
+    $("#wndow-sctn_main, #bkgrnd-sctn_main").css("height", (pageDimensions_Array[1] * 1.5));
+    
+    $("#bkgrnd-sctn_main").css("backgroundPositionY", (pageDimensions_Array[1] * 0.7));
+    
+    $("#next-sctn > span").html("Press to view the next section");
       
   } 
   
@@ -274,11 +283,16 @@ function setupWindow(windowViewMargin) {
   URLHashInfo_Array = URLInfo();
   
   currentPosition = $(window).scrollTop();
-  
-  if (URLHashInfo_Array[0] !== "sctn_main" || URLHashInfo_Array[0] !== "")  {
+  // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
+  if (URLHashInfo_Array[0] !== "main")  {
     sectionValue = Math.floor((currentPosition + windowViewMargin) / $(".wndow").height());  
+  } 
+  
+  if (URLHashInfo_Array[0] !== undefined) {
+    sectionValue = 0;
   }
   
+  // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
   if ((URLHashInfo_Array[0] !== sectionValue) && 
       ((currentPosition >= ($(".wndow").height() * sectionValue)) && 
       (currentPosition <= ($(".wndow").height() * (sectionValue + 1))))) {
@@ -291,11 +305,14 @@ function setupWindow(windowViewMargin) {
       positionValue = (URLHashInfo_Array[1] * 1);
     } 
   } 
-  // window.alert("sectionValue = " + sectionValue);
-  if ((sectionValue !== 0) && (sectionValue !== "main"))  {
+  
+    
+  
+  
+  if (sectionValue !== 0 && sectionValue !== "main")  {
     wndowElementString = "#wndow-sctn_" + sectionValue;
     copyVisibleElementString = ".copy:nth-child(" + (positionValue + 3) + ")";
-    
+    // window.alert("wndowElementString = " + wndowElementString);
     if (positionValue > 0)  {
       while ($(wndowElementString).chldren(copyVisibleElementString).css("display") === "none")  {
         positionValue++;
@@ -304,7 +321,8 @@ function setupWindow(windowViewMargin) {
         
       }
     }
-    
+  
+          
     $(wndowElementString).children(".copy").css("display", "none");
     $(wndowElementString).children(copyVisibleElementString).css("display", "block");
     
@@ -312,7 +330,7 @@ function setupWindow(windowViewMargin) {
   } else {
     URLHash = "sctn_main";
   }
-  
+  window.alert("URLHash = " + URLHash);
   window.location.hash = URLHash; 
   
   animateWindowPanes();
@@ -359,6 +377,7 @@ function animateWindowPanes() {
   bkgrndVisibleCSS = {
     "display": "block"
   };
+  
   
   // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
   // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
@@ -416,6 +435,13 @@ function animateWindowPanes() {
 }
 
 $(document).ready(
+  function () {
+    setupPage();
+    cssAdjustment();
+  }
+);
+
+$(window).on("resize", 
   function () {
     setupPage();
     cssAdjustment();

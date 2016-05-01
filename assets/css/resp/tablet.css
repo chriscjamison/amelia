@@ -838,10 +838,31 @@ body {
 @media screen and (width: 980px) {
   #info {
     background-color: #977348;
+    width: 980px;
     position: absolute;
     top: 0;
     left: 0;
   }
+
+  #info img {
+    width: 480px;
+    position: absolute;
+    margin: 3em 14em;
+  }
+  
+  #info ul {
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    top: 540px;
+    font-size: 2.5em;
+  }
+  
+  #info ul li {
+    margin: 1em auto;
+  }
+ 
+  
 }
  
 @media screen and (min-width: 1260px) {
