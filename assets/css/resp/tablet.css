@@ -862,7 +862,14 @@ body {
     margin: 1em auto;
   }
  
+  .headr > span {
+    font-size: 3em;
+  }
   
+  .sctn_1-blok {
+    width: 18em;
+    font-size: 1.75em;
+  }
 }
  
 @media screen and (min-width: 1260px) {

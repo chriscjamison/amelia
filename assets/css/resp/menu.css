@@ -311,6 +311,7 @@ div.sctn_nav > div > div a:hover {
     background-position-y: -137px;
   }
   
+  #prev-sctn > span,
   #next-sctn > span {
     height: 105px;
     margin: 0 auto;

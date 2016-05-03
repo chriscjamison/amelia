@@ -305,7 +305,7 @@ $(document).ready(
           wndowHeight = $("#wndow-sctn_1").height();
         }
         
-        window.alert("wndowHeight = " + wndowHeight);
+        // window.alert("wndowHeight = " + wndowHeight);
         
         if ($(this).attr("id") === "prev-sctn")  {
           if (Math.floor(currentLocation / wndowHeight) === 0)  {
@@ -340,16 +340,14 @@ $(document).ready(
             if (sctnValue === 1) {
               if (currentLocation === 0) {
                 if ($(window).width() === 980) {
-                  $("#cntainr").css("top", (-0.7 * $("#wndow-sctn_main").height()));
-                  $("#bkgrnd-sctn_main").css("backgroundPositionY", "0px");
-                  $("#next-sctn").css("bottom", "1.56em");
+                  animateInfoElement();
                 }  
               }
             }
           }
           URLHashString = "sctn_main";
         }
-        window.alert("URLHashString = " + URLHashString);
+        // window.alert("URLHashString = " + URLHashString);
         window.location.hash = URLHashString;
       }
     );
@@ -412,39 +410,65 @@ $(document).ready(
     var windowViewMargin = new Number();
         
    
-    windowViewMargin = 300;
+   
+    windowViewMargin = 150;
     // window.alert("wndowHeight = " + wndowHeight);
     $(window).on("scroll", 
       function () {
-        wndowHeight = $(".wndow").height();
-        // window.alert("windowViewMargin = " + windowViewMargin);
+        
+        wndowHeight = $(".wndow").height(); 
         // window.alert("wndowHeight = " + wndowHeight);
+        
+        // window.alert("windowViewMargin = " + windowViewMargin);
+        /*if (currentPosition >= (wndowHeight - windowViewMargin))  {
+          window.alert("(currentPosition = " + currentPosition + " > wndowHeight = " + wndowHeight + ")");
+          
+          if ((currentPosition <= (wndowHeight * 2)))  {
+            window.alert("(currentPosition = " + currentPosition + " < (wndowHeight * 2 = " + (wndowHeight * 2) + "))");
+          }
+        } else {
+          window.alert("currentPosition = " + currentPosition);
+          
+        }*/
+        
         
         currentPosition = $(window).scrollTop();  
         
-        // window.alert("currentPosition = " + currentPosition);
-        // window.alert("wndowHeight - windowViewMargin = " + (wndowHeight - windowViewMargin));
-        if ((currentPosition < wndowHeight) && 
-            (window.location.hash.indexOf("sctn_main") === -1)) {
-          setupWindow(windowViewMargin);
+        if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
+            (window.location.hash.indexOf("sctn_main") === -1) && 
+            (currentPosition > 1)) {
+          animateInfoElement();
         }
         
-        if (((currentPosition > wndowHeight) && 
-            (currentPosition < (wndowHeight * 2))) && 
+        if ((currentPosition < wndowHeight) && 
+            (window.location.hash.indexOf("sctn_main") === -1)) {
+          // setupWindow(windowViewMargin);
+          // animateWindowPanes();
+          
+        }
+        
+        
+        if (((currentPosition >= (wndowHeight - windowViewMargin)) && 
+            (currentPosition <= (wndowHeight * 2))) && 
             (window.location.hash.indexOf("sctn_1") === -1))  {
-          setupWindow(windowViewMargin);
+              animateWindowPanes();
+              // window.alert("animateWindowPanes");
+              if (currentPosition === wndowHeight) {
+                window.alert("setupWindow()");
+                // setupWindow(windowViewMargin);
+              }
         } 
         
         if (((currentPosition > (wndowHeight * 2)) && 
             (currentPosition < (wndowHeight * 3))) && 
             (window.location.hash.indexOf("sctn_2") === -1))  {
-          setupWindow(windowViewMargin);
+          // setupWindow(windowViewMargin);
         }   
         
         if (((currentPosition > wndowHeight * 3) && 
             (currentPosition < (wndowHeight * 4))) && 
             (window.location.hash.indexOf("sctn_3") === -1))  {
-          setupWindow(windowViewMargin);
+          // setupWindow(windowViewMargin);
         } 
         
         if ((currentPosition > wndowHeight * 4) && 
