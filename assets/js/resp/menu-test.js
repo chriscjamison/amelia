@@ -123,94 +123,7 @@ function slideMenu()  {
     window.location.hash = copyVisibleURLString;
   }
 }
-    
-function cssAdjustment()  {
-  // window.alert("$(window).width() = " + $(window).width() + " $(window).height() = " + $(window).height());
-  
-  if (($(window).width() >= 1260) && ($(window).height() <= 800))  {
-    
-    var optionsElementCSS = new Object;
-    var optionsSpanElementsCSS = new Object;
-    var menuElementCSS = new Object;
-    var menuBkgrndElementCSS = new Object;
-    var menuBrdrElementCSS = new Object;
-    var infoElementCSS = new Object;
-    var nextSctnElementCSS = new Object;
-    var prevSctnElementCSS = new Object;
-    var nextSctnSpanElementsCSS = new Object;
-    
-    optionsElementCSS = {
-      "width": "32em"
-    };
-      
-    optionsSpanElementsCSS = {
-      "width": "8.61em",
-      "display": "inline-table",
-      "fontSize": "1.25em"
-    };
-    
-    menuElementCSS = {
-      "width": "32em",
-      "left": "-32em"
-    };
-    
-    menuBkgrndElementCSS = {
-      "width": "32em",
-      "left": "-32em"
-    };
-    
-    menuBrdrElementCSS = {
-      "width": "32em",
-      "left": "-35em"
-    };
-    
-    infoElementCSS = {
-      "height": "28.1em",
-      "bottom": "12.5em"
-    };
-      
-    
-    $("#options").css(optionsElementCSS);
-    $("#options > span").css(optionsSpanElementsCSS);
-    $("#menu").css(menuElementCSS);
-    $("#menu-bkgrnd").css(menuBkgrndElementCSS);
-    $("#menu-brdr").css(menuBrdrElementCSS);
-    $("#info").css(infoElementCSS);
-    
-   if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
-        (window.navigator.userAgent.indexOf("Tablet") === -1))  {
-      nextSctnElementCSS = {
-        "width": "5em",
-        "height": "5.3em",
-        "paddingTop": "0",
-        "right": "1.56em",
-        "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
-        "backgroundPosition": "0px -130px"
-      };
-      
-      prevSctnElementCSS = {
-        "width": "5em",
-        "height": "4em",
-        "paddingTop": "1.3em",
-        "right": "1.56em",
-        "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
-        "backgroundPosition": "0px 0px"
-      };
-      
-      nextSctnSpanElementsCSS = {
-        "width": "5em",
-        "height": "3.12em"
-      }  
-      
-      $("#next-sctn").css(nextSctnElementCSS);
-      $("#prev-sctn").css(prevSctnElementCSS);
-      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);    
-    }
-    
-  }
-}
+
 
 function displayVerticalNav() {
   var currentPosition = new Number();
@@ -405,6 +318,43 @@ $(document).ready(
       }
 		);
     
+    
+    $("input#sctn_1-start").on("click", 
+      function () {
+        formData("sctn_1", "start");
+      }
+    );
+    /*
+    $("input#sctn_5-start").on("click", 
+      function () {
+        // window.location.hash = "#sctn_5?pos=1";
+        
+        formData("sctn_5", "start");
+      }
+    );
+    
+    $("input#sctn_5-submit").on("click", 
+      function () {
+        formData("sctn_5", "submit");
+        
+        // window.location.hash = "#sctn_5?pos=2";
+      }
+    );
+    
+    $("input#sctn_6-start").on("click", 
+      function () {
+        // window.location.hash = "#sctn_5?pos=1";
+        
+        formData("sctn_6", "start");
+      }
+    );
+  
+    $("input#sctn_1-start").on("click", 
+      function () {
+        window.location.hash = "#sctn_1?pos=1";
+      }
+    );*/
+    
     var wndowHeight = new Number();
     var currentPosition = new Number();
     var windowViewMargin = new Number();
@@ -417,20 +367,6 @@ $(document).ready(
       function () {
         
         wndowHeight = $(".wndow").height(); 
-        // window.alert("wndowHeight = " + wndowHeight);
-        
-        // window.alert("windowViewMargin = " + windowViewMargin);
-        /*if (currentPosition >= (wndowHeight - windowViewMargin))  {
-          window.alert("(currentPosition = " + currentPosition + " > wndowHeight = " + wndowHeight + ")");
-          
-          if ((currentPosition <= (wndowHeight * 2)))  {
-            window.alert("(currentPosition = " + currentPosition + " < (wndowHeight * 2 = " + (wndowHeight * 2) + "))");
-          }
-        } else {
-          window.alert("currentPosition = " + currentPosition);
-          
-        }*/
-        
         
         currentPosition = $(window).scrollTop();  
         
@@ -454,7 +390,8 @@ $(document).ready(
               animateWindowPanes();
               // window.alert("animateWindowPanes");
               if (currentPosition === wndowHeight) {
-                window.alert("setupWindow()");
+                animateWindowPanes();
+                // window.alert("setupWindow()");
                 // setupWindow(windowViewMargin);
               }
         } 
@@ -462,7 +399,7 @@ $(document).ready(
         if (((currentPosition > (wndowHeight * 2)) && 
             (currentPosition < (wndowHeight * 3))) && 
             (window.location.hash.indexOf("sctn_2") === -1))  {
-          // setupWindow(windowViewMargin);
+           animateWindowPanes();
         }   
         
         if (((currentPosition > wndowHeight * 3) && 
@@ -494,7 +431,9 @@ $(document).ready(
     $(window).on("hashchange",
       function () {
         if (window.location.hash.indexOf("copyValues=") === -1) {
-          setupWindow(windowViewMargin);
+          // setupWindow(windowViewMargin);
+          
+          animateWindowPanes();
         }
       }
     );

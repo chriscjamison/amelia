@@ -123,6 +123,143 @@ function URLInfo() {
   return URLHashInfo_Array;
 }
 
+    
+function cssAdjustment()  {
+  // window.alert("$(window).width() = " + $(window).width() + " $(window).height() = " + $(window).height());
+  if (($(window).width() >= 1260) && ($(window).height() <= 800))  {
+    
+    var optionsElementCSS = new Object;
+    var optionsSpanElementsCSS = new Object;
+    var menuElementCSS = new Object;
+    var menuBkgrndElementCSS = new Object;
+    var menuBrdrElementCSS = new Object;
+    var infoElementCSS = new Object;
+    var nextSctnElementCSS = new Object;
+    var prevSctnElementCSS = new Object;
+    var nextSctnSpanElementsCSS = new Object;
+    
+    $(".copy").each(
+      function () {
+        switch ($(this).parent("div").attr("id").charAt(11)) {
+          case "3":
+            copyDifferenceValue = pageDimensions_Array[0] * 0.314;
+          break;
+          
+          case "4":
+            copyDifferenceValue = pageDimensions_Array[0] * 0.314;
+          break;
+          
+          default:
+            copyDifferenceValue = pageDimensions_Array[0] * 0.26;
+          break;
+        }
+        
+        /*window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
+        window.alert("copyDifferenceValue = " + copyDifferenceValue);
+        window.alert("pageDimensions_Array[0] - copyDifferenceValue = " + (pageDimensions_Array[0] - copyDifferenceValue));
+        */
+        
+        copyCSS.width = pageDimensions_Array[0] - copyDifferenceValue;
+        
+        // window.alert("copyCSS.width = " + copyCSS.width);
+        $(this).css(copyCSS);
+      }
+    );
+    
+    optionsElementCSS = {
+      "width": "32em"
+    };
+      
+    optionsSpanElementsCSS = {
+      "width": "8.61em",
+      "display": "inline-table",
+      "fontSize": "1.25em"
+    };
+    
+    menuElementCSS = {
+      "width": "32em",
+      "left": "-32em"
+    };
+    
+    menuBkgrndElementCSS = {
+      "width": "32em",
+      "left": "-32em"
+    };
+    
+    menuBrdrElementCSS = {
+      "width": "32em",
+      "left": "-35em"
+    };
+    
+    infoElementCSS = {
+      "height": "28.1em",
+      "bottom": "12.5em"
+    };
+      
+    
+    $("#options").css(optionsElementCSS);
+    $("#options > span").css(optionsSpanElementsCSS);
+    $("#menu").css(menuElementCSS);
+    $("#menu-bkgrnd").css(menuBkgrndElementCSS);
+    $("#menu-brdr").css(menuBrdrElementCSS);
+    $("#info").css(infoElementCSS);
+    
+   if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
+        (window.navigator.userAgent.indexOf("Tablet") === -1))  {
+      nextSctnElementCSS = {
+        "width": "5em",
+        "height": "5.3em",
+        "paddingTop": "0",
+        "right": "1.56em",
+        "bottom": "1.56em",
+        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
+        "backgroundPosition": "0px -130px"
+      };
+      
+      prevSctnElementCSS = {
+        "width": "5em",
+        "height": "4em",
+        "paddingTop": "1.3em",
+        "right": "1.56em",
+        "bottom": "1.56em",
+        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
+        "backgroundPosition": "0px 0px"
+      };
+      
+      nextSctnSpanElementsCSS = {
+        "width": "5em",
+        "height": "3.12em"
+      }  
+      
+      $("#next-sctn").css(nextSctnElementCSS);
+      $("#prev-sctn").css(prevSctnElementCSS);
+      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);    
+    }
+    
+  }
+  
+  if ($(window).width() === 980)  {
+    var copyCSS = new Object();
+    
+    copyCSS = {
+      "marginLeft": "14.5em",
+     }
+     
+     
+    $(".copy").each(
+      function () {
+        switch ($(this).parent().attr("id").charAt(11))  {
+          case "1":
+            copyCSS.width = "770px";
+          break;
+        }
+        
+        $(this).css(copyCSS);
+      }
+    );
+  }
+}
+
 function setupPage()  {
   var pageDimensions_Array = new Array();
   var URLHashInfo_Array = new Array();
@@ -207,31 +344,6 @@ function setupPage()  {
     }
   );*/
   
-  $(".copy").each(
-    function () {
-      switch ($(this).parent("div").attr("id").charAt(11)) {
-        case "3":
-          copyDifferenceValue = pageDimensions_Array[0] * 0.314;
-        break;
-        
-        case "4":
-          copyDifferenceValue = pageDimensions_Array[0] * 0.314;
-        break;
-        
-        default:
-          copyDifferenceValue = pageDimensions_Array[0] * 0.26;
-        break;
-      }
-      
-      /*window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-      window.alert("copyDifferenceValue = " + copyDifferenceValue);
-      window.alert("pageDimensions_Array[0] - copyDifferenceValue = " + (pageDimensions_Array[0] - copyDifferenceValue));
-      */copyCSS.width = pageDimensions_Array[0] - copyDifferenceValue;
-      
-      $(this).css(copyCSS);
-    }
-  );
-  
   inc_bkgrnd = 0;
   
   // window.alert("$(\"#bkgrnd > div\").length = " + $("#bkgrnd > div").length);
@@ -285,7 +397,10 @@ function setupWindow(windowViewMargin) {
   
   URLHashInfo_Array = URLInfo();
   
-    currentPosition = $(window).scrollTop();
+  positionValue = URLHashInfo_Array[1] * 1;
+  
+  
+  /*currentPosition = $(window).scrollTop();
   // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
   if (URLHashInfo_Array[0] !== "main")  {
     sectionValue = Math.floor((currentPosition + windowViewMargin) / $(".wndow").height());  
@@ -338,7 +453,7 @@ function setupWindow(windowViewMargin) {
   
   animateWindowPanes();
   
-  displayVerticalNav();
+  displayVerticalNav();*/
 }
 
 function animateInfoElement() {
@@ -352,14 +467,25 @@ function animateInfoElement() {
 
 function animateWindowPanes() {
   var URLHashInfo_Array = new Array();
+  var pageDimensions_Array = new Array();
   
   var copyHideCSS = new Object();
   var copyVisibleCSS = new Object();
   var headrVisibleCSS = new Object();
   var bkgrndVisibleCSS = new Object();
   
+  var blokElements = new Object();
+  
   var sectionValue = new Number();
   var positionValue = new Number();
+  
+  var wndowElementString = new String();
+  var copyElementVisibleString = new String();
+  var headrElementString = new String();
+  var blokElementsString = new String();
+  
+  var inc_copyVisible = new Number();
+  var inc_blokElements = new Number();
   
   copyHideCSS = {
     "display": "none", 
@@ -386,7 +512,51 @@ function animateWindowPanes() {
     positionValue = URLHashInfo_Array[1] * 1;
     
     wndowElementString = "#wndow-sctn_" + sectionValue;
-    copyElementVisibleString = ".copy:nth-child(" + (positionValue + 3) + ")";  
+    copyElementVisibleString = ".copy:nth-child(" + (positionValue + 3) + ")";
+    
+    $(wndowElementString).children(".copy").css("display", "none");
+    
+    $(wndowElementString).children(copyElementVisibleString).css("display", "block");
+    
+    headrElementString = ".headr.sctn_" + sectionValue;
+    
+    $(wndowElementString).children(headrElementString).css("opacity", 1);
+    
+    inc_blokElements = 1;
+    
+    blokElements = $(wndowElementString).children(copyElementVisibleString).children("div");
+    
+    blokElements.each(
+      function () {
+        // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+        
+        $(this).css("opacity", 1);
+      }
+    );
+    
+    bkgrndElementString = "#bkgrnd-sctn_" + sectionValue;
+    
+    $(bkgrndElementString).css("opacity", 0);
+    
+    pageDimensions_Array = parseWindowDimensions();
+    
+    bkgrndPositionString = -(pageDimensions_Array[0] * positionValue) + "px";
+    
+    $(bkgrndElementString).css("backgroundPositionX", bkgrndPositionString);
+    
+    $(bkgrndElementString).css("opacity", 1);
+    
+    /*if (positionValue < $(wndowElementString).children(".copy").length) {
+      while (($(wndowElementString).children(copyElementVisibleString).css("display") === "none" && 
+             (inc_copyVisible < $(wndowElementString).children(".copy").length))) {
+        copyElementVisibleString = ".copy:nth-child(" + (inc_copyVisible + 3) + ")";
+        
+        inc_copyVisible++;
+      }   
+    }*/
+    
+    $(window).scrollTop(sectionValue * $(".wndow").height());
+      
   }
  
 }
@@ -541,6 +711,8 @@ $(document).ready(
   function () {
     setupPage();
     cssAdjustment();
+    
+    animateWindowPanes();
   }
 );
 

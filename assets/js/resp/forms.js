@@ -50,6 +50,7 @@ function formData(sectionValue, questionValue) {
   
   var i = new Number();
 
+  // window.alert("formData");
   
   if (questionValue === "start")  {
     var URLString = new String();
@@ -103,37 +104,3 @@ function formData(sectionValue, questionValue) {
     } 
   }
 }
-
-$(document).ready(
-  function () {
-    $("input#sctn_1-start").on("click", 
-      function () {
-        formData("sctn_1", "start");
-      }
-    );
-    
-    $("input#sctn_5-start").on("click", 
-      function () {
-        // window.location.hash = "#sctn_5?pos=1";
-        
-        formData("sctn_5", "start");
-      }
-    );
-    
-    $("input#sctn_5-submit").on("click", 
-      function () {
-        formData("sctn_5", "submit");
-        
-        // window.location.hash = "#sctn_5?pos=2";
-      }
-    );
-    
-    $("input#sctn_6-start").on("click", 
-      function () {
-        // window.location.hash = "#sctn_5?pos=1";
-        
-        formData("sctn_6", "start");
-      }
-    );
-  }
-);
