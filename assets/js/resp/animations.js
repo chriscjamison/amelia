@@ -483,6 +483,7 @@ function animateWindowPanes() {
   var copyElementVisibleString = new String();
   var headrElementString = new String();
   var blokElementsString = new String();
+  var sctnNavElementString = new String();
   
   var inc_copyVisible = new Number();
   var inc_blokElements = new Number();
@@ -533,6 +534,12 @@ function animateWindowPanes() {
         $(this).css("opacity", 1);
       }
     );
+    
+    if (sectionValue === 3 || sectionValue === 4) {
+      sctnNavElementString = "#menu-sctn_" + sectionValue;
+      
+      $(sctnNavElementString).css("opacity", 1);
+    }
     
     bkgrndElementString = "#bkgrnd-sctn_" + sectionValue;
     

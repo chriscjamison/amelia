@@ -317,6 +317,12 @@ div.sctn_nav > div > div a:hover {
     margin: 0 auto;
     font-size: 1.8em;
   }
+  
+  .sctn_nav {
+    width: 80em !important;
+    top: 0;
+    bottom: 34.375em !important;
+  }
 }
 
 @media screen and (min-width: 1260px) {
