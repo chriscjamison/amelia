@@ -315,10 +315,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		font: 400 2.5em "Franklin Gothic Medium", sans-serif;
 	}
 	
-	input#sctn_1-start {
-		font-size: 1.5em;
-	}
-	
 	.clmn {
 		width: 39em;
 		margin-right: 0;
@@ -331,6 +327,36 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	
 	fieldset > div {
 		width: 330px;
+	}
+	
+	fieldset > textarea {
+		width: 397px;
+	}
+	
+	input#sctn_1-start {
+		font-size: 1.5em;
+	}
+	
+	input#sctn_5-sbmt {
+		width: 7em;
+	}
+	
+	input#sctn_5-cntct,
+	input#sctn_6-start {
+		width: 7.75em;
+		letter-spacing: 0;
+	}
+	
+	input#sctn_6-map {
+		margin: 0.7em 0 0 0.55em;
+		font-size: 1.5em;
+	}
+	
+	input#sctn_6-sbmt {
+		width: 7.7em;
+		margin-left: 0.7em;
+		letter-spacing: 0;
+		
 	}
 }
 

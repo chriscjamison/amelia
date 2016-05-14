@@ -19,8 +19,8 @@
 }
 
 #menu-link {
-	width: 50px;
-	height: 50px;
+	width: 3.13em;
+	height: 3.13em;
 	position: fixed;
 	top: 25px;
 	left: 25px;
@@ -74,7 +74,7 @@
 	height: inherit;
   display: none;
   position: fixed;
-	top: 105px;
+	top: 6.56em;
   left: 25px;
   opacity: 0;
 	z-index: 4;
@@ -121,41 +121,41 @@
 }
 
 .bkgrnd-base {
-  width: 980px !important;
+  width: 61.25em !important;
   left: 0px !important;
 }
 
 .bkgrnd-click {
-  width: 655px !important;
+  width: 40.94em !important;
   left: 20.45em !important;
 }
 
 .cntainr-base {
-  width: 980px !important;
+  width: 61.25em !important;
   left: 0px !important;
 }
 
 .cntainr-click {
-  width: 655px !important;
+  width: 40.94em !important;
   left: 20.45em !important;
 }
 
 .wndow-base {
-  width: 980px !important;
+  width: 61.25em !important;
   left: 0px !important;
   display: block !important;
 }
 
 .wndow-click {
-  width: 655px !important;
+  width: 40.94em !important;
   left: 20.45em !important;
   display: none !important;
 }
 
 #prev-sctn,
 #next-sctn {
-	width: 200px;
-	height: 60px;
+	width: 12.5em;
+	height: 3.75em;
 	position: fixed;
 	right: 33.8em;
 	bottom: 1.56em;
@@ -167,8 +167,8 @@
 }
 
 #prev-sctn {
-  top: 17px;
-  padding-top: 30px;
+  top: 1.06em;
+  padding-top: 1.88em;
   display: none;
   background-position: 0 0;
   opacity: 0;
@@ -196,8 +196,8 @@
 
 #prev-sctn > span,
 #next-sctn > span {
-	width: 180px;
-	height: 40px;
+	width: 11.25em;
+	height: 2.5em;
 	margin: 0 auto 50px auto;
 	display: block;
 	font-family: 'Franklin Gothic Medium', sans-serif;
@@ -209,10 +209,10 @@
 }
 
 div.sctn_nav {
-	width: 980px;
-	height: 135px;
+	width: 61.25em;
+	height: 8.44em;
 	position: absolute;
-	top: 630px;
+	top: 39.38em;
 	opacity: 0;
 }
 /*
@@ -222,14 +222,14 @@ div.sctn_nav {
 }*/
 
 div.sctn_nav > div {
-	width: 740px;
+	width: 46.25em;
 	height: inherit;
 	margin: 0 auto;
 }
 
 div.sctn_nav > div > span {
-	width: 150px;
-	height: 35px;
+	width: 9.38em;
+	height: 2.19em;
 	display: block;
 	position: relative;
 	margin: 0 auto;
@@ -271,20 +271,20 @@ div.sctn_nav > div > span.click-sctn_nav {
 }
 
 div.sctn_nav > div > div {
-	width: 740px;
-	height: 35px;
+	width: 46.25em;
+	height: 2.19em;
 	margin: 0 auto;
 	position: absolute;
 	display: none;
 }
 
 div.sctn_nav > div > div > a {
-	width: 150px;
-	height: 22px;
+	width: 6.56em;
+	height: 1.38em;
 	display: block;
 	float: left;
-	margin: 0 15px;
-	padding: 3px 0 6px 0;
+	margin: 0 0.94em;
+	padding: 0.19em 0 0.38em 0;
 	background-color: #000;
 	border: 2px solid #222;
 	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
@@ -302,7 +302,7 @@ div.sctn_nav > div > div a:hover {
 @media screen and (width: 980px) {
   #prev-sctn, 
   #next-sctn {
-    height: 132px;
+    height: 8.25em;
     bottom: 37em;
     right: 24.1em;
   }
@@ -313,15 +313,49 @@ div.sctn_nav > div > div a:hover {
   
   #prev-sctn > span,
   #next-sctn > span {
-    height: 105px;
+    width: 6.8em;
+    height: 6.56em;
     margin: 0 auto;
     font-size: 1.8em;
   }
   
   .sctn_nav {
-    width: 80em !important;
-    top: 0;
-    bottom: 34.375em !important;
+    width: 61.2em !important;
+    height: 4.38em !important; 
+    top: 67em !important;
+  }
+  
+  div.sctn_nav > div {
+	  width: 18.8em;
+  }
+  
+  div.sctn_nav > div > span {
+    width: 18.8em;
+    height: 4.38em;
+  }
+  
+  #menu-sctn_3 > div > span {
+    background-color: #000;
+    background-image: url('/amelia/assets/img/menu/sctn_nav/sctn_3-mble.png');
+  }
+  
+  #menu-sctn_4 > div > span {
+    background-color: #000;
+    background-image: url('/amelia/assets/img/menu/sctn_nav/sctn_4-mble.png');
+  }
+  
+  div.sctn_nav > div > div {
+    width: 18.8em;
+    height: 27.19em;
+    margin: 2em 0;
+  }
+  
+  div.sctn_nav > div > div > a {
+    width: 9.3em;
+    height: 1.5em;
+    margin: 0.65em 0;
+    padding: 0.5em 0 0.25em 0;
+    font: 400 2em "Franklin Gothic Medium", sans-serif
   }
 }
 

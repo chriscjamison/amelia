@@ -324,6 +324,12 @@ $(document).ready(
         formData("sctn_1", "start");
       }
     );
+    
+    $("input#sctn_5-start").on("click", 
+      function () {
+        window.location.hash = "#sctn_5?pos=1";
+      }
+    );
     /*
     $("input#sctn_5-start").on("click", 
       function () {
