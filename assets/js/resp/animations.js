@@ -484,6 +484,7 @@ function animateWindowPanes() {
   var headrElementString = new String();
   var blokElementsString = new String();
   var sctnNavElementString = new String();
+  var menuElementsString = new String();
   
   var inc_copyVisible = new Number();
   var inc_blokElements = new Number();
@@ -553,6 +554,9 @@ function animateWindowPanes() {
     
     $(bkgrndElementString).css("opacity", 1);
     
+    menuElementsString = "#menu, #menu-bkgrnd, #menu-brdr, #options";
+    
+    $(menuElementsString).css("display", "block");
     /*if (positionValue < $(wndowElementString).children(".copy").length) {
       while (($(wndowElementString).children(copyElementVisibleString).css("display") === "none" && 
              (inc_copyVisible < $(wndowElementString).children(".copy").length))) {

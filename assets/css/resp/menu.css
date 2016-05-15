@@ -10,12 +10,12 @@
 
 .menu-base {
   position: fixed !important;
-  left: -20.45em !important;
+  /*left: -20.45em !important;*/
 }
 
 .menu-click {
   position: absolute !important;
-  left: 0px !important;
+  /*left: 0px !important;*/
 }
 
 #menu-link {
@@ -300,6 +300,37 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (width: 980px) {
+  #menu, 
+  #menu-bkgrnd, 
+  #menu-brdr, 
+  #options {
+	  width: 61.25em;
+    height: 108.75em;
+    left: -61.25em;
+    display: none;
+  }
+  
+  #menu-brdr {
+    height: 9.25em;
+  }
+  
+  #menu-link {
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    left: 50px;
+    background-image: url('/amelia/assets/img/menu/menu_mobile.png');
+  }
+  
+  #options {
+	  top: 9em;
+  }  
+  
+  #options > span {
+    margin: 1em auto;
+    font-size: 2.5em;  
+  }
+  
   #prev-sctn, 
   #next-sctn {
     height: 8.25em;

@@ -114,6 +114,7 @@ function slideMenu()  {
     
     $("#cntainr, #bkgrnd, #bkgrnd > div").css({"width": ($(window).width() - $("#menu").width()), "left": $("#menu").width()});
     $(".wndow").css("width", ($(window).width() - $("#menu").width()));
+    $("#info").css("display", "none");
     $(".copy, .headr, .sctn_nav, #prev-sctn, #next-sctn").css("display", "none");
     
     if (window.location.hash !== "")  {
@@ -254,6 +255,7 @@ $(document).ready(
               if (currentLocation === 0) {
                 if ($(window).width() === 980) {
                   animateInfoElement();
+                  $("#menu, #menu-bkgrnd, #menu-brdr, #options").css("display", "block");
                 }  
               }
             }
