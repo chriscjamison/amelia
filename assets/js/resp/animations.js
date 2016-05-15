@@ -569,6 +569,8 @@ function animateWindowPanes() {
     $(window).scrollTop(sectionValue * $(".wndow").height());
       
   }
+  
+  displayVerticalNav();
  
 }
 
