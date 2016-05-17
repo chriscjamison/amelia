@@ -219,31 +219,39 @@ $(document).ready(
           wndowHeight = $("#wndow-sctn_1").height();
         }
         
-        // window.alert("wndowHeight = " + wndowHeight);
+        // window.alert("Math.floor(currentLocation / wndowHeight) = " + (Math.floor(currentLocation / wndowHeight)));
         
         if ($(this).attr("id") === "prev-sctn")  {
           if (Math.floor(currentLocation / wndowHeight) === 0)  {
-            locationDifferenceValue = -wndowHeight;
+            locationDifferenceValue = 0;
           } else  {
             locationDifferenceValue = -((wndowHeight * Math.floor(currentLocation / wndowHeight) - currentLocation) + wndowHeight);
           }
         } else {
           if (Math.floor(currentLocation / wndowHeight) === 0)  {
-            locationDifferenceValue = wndowHeight;
+            locationDifferenceValue = 0;
           } else  {
             locationDifferenceValue = (wndowHeight * Math.floor(currentLocation / wndowHeight) - currentLocation) + wndowHeight;
           }
         }
         
         newLocation = currentLocation + locationDifferenceValue;
-        // window.alert("newLocation = " + newLocation);
-        sctnValue = Math.floor(newLocation / wndowHeight);
+        
+        if (currentLocation === 0 && window.location.hash === "#sctn_main") {
+          sctnValue = 1;
+          // window.alert("true");
+        } else {
+          // window.alert("false");
+          sctnValue = Math.floor(newLocation / wndowHeight);  
+        }
+        
         
         // window.alert("Math.floor(" + newLocation + " / " + wndowHeight + ") = " + Math.floor(newLocation/wndowHeight));
         // window.alert("currentLocation = " + currentLocation);
-        // window.alert("sctnValue = " + sctnValue);
+        window.alert("sctnValue = " + sctnValue);
+        // window.alert("$(\"#info\").css(\"t op\") = " + $("#info").css("top"));
         // window.alert("window.location.hash.indexOf(\"sctn_main\") = " + window.location.hash.indexOf("sctn_main"));
-        if (sctnValue > 0 && window.location.hash !== "") {
+        if (sctnValue > 0) {
           if (window.location.hash.indexOf("pos=") >= 0)  {
             URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
           } else {
@@ -251,18 +259,39 @@ $(document).ready(
           }
         } else {
           if (window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) {
-            if (sctnValue === 1) {
-              if (currentLocation === 0) {
-                if ($(window).width() === 980) {
+            if ((sctnValue === 0) && 
+                (currentLocation === 0) && 
+                ($(window).width() === 980) && 
+                ($("#info").css("top") === "0px")) {
                   animateInfoElement();
                   $("#menu, #menu-bkgrnd, #menu-brdr, #options").css("display", "block");
-                }  
-              }
-            }
+                  $("#menu-link").animate({"opacity": 1}, 800);
+             }
           }
+          
           URLHashString = "sctn_main";
+          
         }
+        
         // window.alert("URLHashString = " + URLHashString);
+        // window.alert("sctnValue * wndowHeight = " + (sctnValue * wndowHeight));
+        
+        /*
+        
+        if (URLHashString !== "sctn_main" && window.location.hash !== "") {
+          $("body").animate({scrollTop: (sctnValue * wndowHeight)}, (timeValue * 2), 
+            function () {
+               window.location.hash = URLHashString;
+            }
+          );  
+        } else {
+          $("body").animate({scrollTop: 0}, (timeValue * 2), 
+            function () {
+               window.location.hash = URLHashString;
+            }
+          );
+        }*/
+        
         window.location.hash = URLHashString;
       }
     );

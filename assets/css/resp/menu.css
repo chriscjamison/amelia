@@ -311,7 +311,7 @@ div.sctn_nav > div > div a:hover {
   }
   
   #menu-brdr {
-    height: 9.25em;
+    height: 12.25em;
   }
   
   #menu-link {
@@ -320,10 +320,11 @@ div.sctn_nav > div > div a:hover {
     top: 50px;
     left: 50px;
     background-image: url('/amelia/assets/img/menu/menu_mobile.png');
+    opacity: 0;
   }
   
   #options {
-	  top: 9em;
+	  top: 12em;
   }  
   
   #options > span {
