@@ -1,14 +1,65 @@
 // menu-test.js
 var menuTransitionTime = 500;
 
-function menuLinkHoverState(hoverState) {
+function menuLinkHoverState() {
+  var pageDimensions_Array = parseWindowDimensions();
+  
+  var menuScaleValue = new Number();
+  var backgroundPositionNum = new Number();
+  
   var menuClassString = new String();
+  var hoverState = new String();
+  var backgroundPositionValue = new String();
+  var backgroundClickStateValue = new String();
+  
+  backgroundPositionValue = $("#menu-link").css("backgroundPositionY");
+  
+  if (backgroundPositionValue.indexOf("-") === 0) {
+    backgroundPositionNum = (backgroundPositionValue.slice(1, backgroundPositionValue.indexOf("px")) * 1);  
+  } else {
+    backgroundPositionNum = 0;
+  }
+  
+  if (pageDimensions_Array[0] === 980)  {
+    backgroundPositionNum = backgroundPositionNum / 2;
+  } 
+  
+  backgroundClickStateValue = backgroundPositionNum + "px";
+  
+  // window.alert("backgroundClickStateValue = " + backgroundClickStateValue);
+  switch (backgroundClickStateValue) {
+    case "0px":
+      // window.alert("$(\"#menu\").css(\"left\") = " + $("#menu").css("left"));
+      if ($("#menu").css("left") !== "0px")  {
+        hoverState = "click_2";
+      } else {
+        hoverState = "hover";
+      }
+    break;
+    
+    case "-50px":
+      // window.alert("$(\"#menu\").css(\"left\") = " + $("#menu").css("left"));
+      if ($("#menu").css("left") !== "0px")  {
+        hoverState = "base";
+      } else {
+        hoverState = "click_1";
+      }
+    break;
+    
+    case "-100px":
+      hoverState = "click_2";
+    break;
+    
+    case "-150px":
+      hoverState = "base";
+    break;
+  }
   
   menuClassString = "menu-link-" + hoverState;
   
-  if (hoverState === "click") {
+  /*if (hoverState === "click") {
     menuTransitionTime = menuTransitionTime / 2;
-  }
+  }*/
   
   $("#menu-link").fadeTo((menuTransitionTime / 2), 0, 
     function () {
@@ -35,8 +86,11 @@ function slideMenu()  {
   $("#menu").css("height", $(window).height());
   $("#menu-bkgrnd").css("height", $(window).height());
   if ($("#menu").css("left") === "0px") {
-    $("#menu, #menu-brdr, #menu-bkgrnd").css("left", -($("#menu").width()));
-    $("#options").css({"display": "none", "opacity": 0, "left": -($("#menu").width())})
+    $("#options").animate({"opacity": 0, "left": -($("#menu").width())}, (menuTransitionTime / 1.5), 
+      function () {
+        $("#options, #options > span").css("display", "none");
+        $("#menu, #menu-brdr, #menu-bkgrnd").animate({"left": -($("#menu").width())}, (menuTransitionTime / 1.5));
+      });
     
     inc_copyVisible = 0;
     
@@ -76,31 +130,17 @@ function slideMenu()  {
     if (window.location.hash.indexOf("?") === -1 ) {
       window.location.hash = "";  
     } else {
-      
-      window.location.hash = window.location.hash.substring(1, window.location.hash.indexOf("?")); 
+      window.location.hash = window.location.hash.substring(1, window.location.hash.indexOf("?copyValues")); 
     }
-    
-    // window.alert("window.location.hash.substring(1, (window.location.hash.indexOf(\"?\") - 1)) = " + window.location.hash.substring(1, (window.location.hash.indexOf("?"))));
-    
-    
-    
   } else  {
-    $("#menu, #menu-brdr, #menu-bkgrnd").css("left", "0px");
-    $("#options").css({"display": "block", "opacity": 1, "left": "0px"})
-    
-    inc_copyVisible = 0;
-        
-    $(".copy").each(
+    $("#menu, #menu-brdr, #menu-bkgrnd").animate({"left": "0px"}, (menuTransitionTime / 1.25), 
       function () {
-        // window.alert("$(this).css(\"display\") = " + $(this).css("display"));
-        
-        if ($(this).css("display") === "block") {
-          copyVisibleElements_Array.push(inc_copyVisible);
-        }
-        
-        inc_copyVisible++;
+        $("#options, #options > span").css("display", "block");
+        $("#options").animate({"opacity": 1, "left": "0px"}, (menuTransitionTime / 1.5));
       }
     );
+    
+    inc_copyVisible = 0;
     
     copyVisibleURLString = "copyValues=";
     
@@ -117,11 +157,11 @@ function slideMenu()  {
     $("#info").css("display", "none");
     $(".copy, .headr, .sctn_nav, #prev-sctn, #next-sctn").css("display", "none");
     
-    if (window.location.hash !== "")  {
+    if (copyVisibleURLString !== "copyValues=")  {
       copyVisibleURLString = window.location.hash + "?" + copyVisibleURLString;
     }
     
-    window.location.hash = copyVisibleURLString;
+    setTimeout(function () {window.location.hash = copyVisibleURLString;}, menuTransitionTime);
   }
 }
 
@@ -156,42 +196,64 @@ $(document).ready(
   function () {
     $("#menu-link").on("mouseover", 
       function () {
-        menuLinkHoverState("hover");
+        menuLinkHoverState();
       }
     );
 
     $("#menu-link").on("mouseout", 
       function () {
         if (($("#menu-link").hasClass("menu-link-click_2")) === false) {
-          menuLinkHoverState("base"); 
+          menuLinkHoverState(); 
         }
       }
     );
     
     $("#menu-link").on("click", 
       function () {
-        if (($("#menu-link").hasClass("menu-link-hover")) === true)  {
-          menuLinkHoverState("click");
-          menuLinkHoverState("click_2");
-          
-          slideMenu();
-        } else  {
-          menuLinkHoverState("base");
-          
-          slideMenu();
-        }
+        slideMenu();
+        
+        menuLinkHoverState();
       }
     );
     
     $("#options > span").on("click",
       function () {
-        slideMenu();
         
-        if ($(this).attr("id") !== "sctn_main") {
+        var sectionValue = new String();
+        
+        sectionValue = $(this).attr("id");
+        $(this).animate({backgroundColor: "#ccc", color: "#000"}, (menuTransitionTime / 4), 
+          function () {
+            $(this).animate({backgroundColor: "#000", color: "#fff"}, (menuTransitionTime / 2), 
+              function () {
+                slideMenu();
+                
+                setTimeout(
+                  function () {
+                    if (sectionValue !== "sctn_main") {
+                      window.location.hash = sectionValue + "?pos=0";  
+                    } else  {
+                      window.location.hash = sectionValue;  
+                    }
+                  }, (menuTransitionTime * 1.5)
+                );
+              }
+            );
+          }
+        );
+        
+        
+        
+        
+        // setTimeout(slideMenu, (menuTransitionTime / 2));
+        
+        /*if ($(this).attr("id") !== "sctn_main") {
           window.location.hash = $(this).attr("id") + "?pos=0";  
         } else  {
           window.location.hash = $(this).attr("id");  
-        }
+        }*/
+        
+        menuLinkHoverState();
         
       }
     );
@@ -208,10 +270,7 @@ $(document).ready(
         
         var pageDimensions_Array = new Array();
         
-        
-        
         currentLocation = $(window).scrollTop();
-        
         
         if (window.navigator.userAgent.indexOf("Mobile") === -1 && window.navigator.userAgent.indexOf("Tablet") === -1) {
           wndowHeight = $(".wndow").height();
@@ -219,19 +278,13 @@ $(document).ready(
           wndowHeight = $("#wndow-sctn_1").height();
         }
         
-        // window.alert("Math.floor(currentLocation / wndowHeight) = " + (Math.floor(currentLocation / wndowHeight)));
-        
         if ($(this).attr("id") === "prev-sctn")  {
-          if (Math.floor(currentLocation / wndowHeight) === 0)  {
-            locationDifferenceValue = 0;
-          } else  {
-            locationDifferenceValue = -((wndowHeight * Math.floor(currentLocation / wndowHeight) - currentLocation) + wndowHeight);
-          }
+          locationDifferenceValue = ((Math.floor(currentLocation / wndowHeight) - 1) * wndowHeight) - currentLocation;
         } else {
-          if (Math.floor(currentLocation / wndowHeight) === 0)  {
+          if ((Math.floor(currentLocation / wndowHeight) === 0) && (window.location.hash == ""))  {
             locationDifferenceValue = 0;
           } else  {
-            locationDifferenceValue = (wndowHeight * Math.floor(currentLocation / wndowHeight) - currentLocation) + wndowHeight;
+            locationDifferenceValue = ((Math.floor(currentLocation / wndowHeight) + 1) * wndowHeight) - currentLocation;
           }
         }
         
@@ -239,18 +292,10 @@ $(document).ready(
         
         if (currentLocation === 0 && window.location.hash === "#sctn_main") {
           sctnValue = 1;
-          // window.alert("true");
         } else {
-          // window.alert("false");
           sctnValue = Math.floor(newLocation / wndowHeight);  
         }
         
-        
-        // window.alert("Math.floor(" + newLocation + " / " + wndowHeight + ") = " + Math.floor(newLocation/wndowHeight));
-        // window.alert("currentLocation = " + currentLocation);
-        window.alert("sctnValue = " + sctnValue);
-        // window.alert("$(\"#info\").css(\"t op\") = " + $("#info").css("top"));
-        // window.alert("window.location.hash.indexOf(\"sctn_main\") = " + window.location.hash.indexOf("sctn_main"));
         if (sctnValue > 0) {
           if (window.location.hash.indexOf("pos=") >= 0)  {
             URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
@@ -263,34 +308,13 @@ $(document).ready(
                 (currentLocation === 0) && 
                 ($(window).width() === 980) && 
                 ($("#info").css("top") === "0px")) {
-                  animateInfoElement();
-                  $("#menu, #menu-bkgrnd, #menu-brdr, #options").css("display", "block");
-                  $("#menu-link").animate({"opacity": 1}, 800);
-             }
+              animateInfoElement();
+            }
           }
           
           URLHashString = "sctn_main";
           
         }
-        
-        // window.alert("URLHashString = " + URLHashString);
-        // window.alert("sctnValue * wndowHeight = " + (sctnValue * wndowHeight));
-        
-        /*
-        
-        if (URLHashString !== "sctn_main" && window.location.hash !== "") {
-          $("body").animate({scrollTop: (sctnValue * wndowHeight)}, (timeValue * 2), 
-            function () {
-               window.location.hash = URLHashString;
-            }
-          );  
-        } else {
-          $("body").animate({scrollTop: 0}, (timeValue * 2), 
-            function () {
-               window.location.hash = URLHashString;
-            }
-          );
-        }*/
         
         window.location.hash = URLHashString;
       }
@@ -301,10 +325,7 @@ $(document).ready(
         var sctnNavVisibleCSS = new Object();
         var sctnNavElement = new String();
         
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > div"
-        
-        // window.alert("$(this).parent().parent().attr(\"id\") = " + $(this).parent().parent().attr("id"));
-        // window.alert("$(" + sctnNavElement + ").css(\"display\") = " + $(sctnNavElement).css("display"));
+        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > div";
         
         if ($(sctnNavElement).css("display") === "none")  {
           sctnNavVisibleCSS = {
@@ -317,23 +338,8 @@ $(document).ready(
         }
         
         $(sctnNavElement).css(sctnNavVisibleCSS);  
-        
-        
-				/*var currentSctnNavID = $(this).parent().parent().attr("id");
-				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
-				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
-				
-				if ($(currentSctnNavElement).css("display") === "none") {
-					fadeSctnNav("click", currentSctnNavIDString);
-
-					fadeSctnNavOptions(currentSctnNavElement);
-				} else {
-					fadeSctnNav("active", currentSctnNavIDString);
-					
-					fadeSctnNavOptions(currentSctnNavElement);
-				}*/
 			}
-			);
+		);
 
 		$(".sctn_nav > div > div > a").on("click",
 			function () {
@@ -342,10 +348,6 @@ $(document).ready(
 				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
 				
         $(currentSctnNavElement).css("display", "none");
-        
-				// fadeSctnNav("base", currentSctnNavIDString);
-				
-				// fadeSctnNavOptions(currentSctnNavElement);
       }
 		);
     
@@ -394,12 +396,8 @@ $(document).ready(
     
     var wndowHeight = new Number();
     var currentPosition = new Number();
-    var windowViewMargin = new Number();
-        
-   
-   
-    windowViewMargin = 150;
-    // window.alert("wndowHeight = " + wndowHeight);
+    var windowViewMargin = new Number(100);
+    
     $(window).on("scroll", 
       function () {
         
@@ -413,54 +411,48 @@ $(document).ready(
           animateInfoElement();
         }
         
-        if ((currentPosition < wndowHeight) && 
+        if ((currentPosition === 0) && 
             (window.location.hash.indexOf("sctn_main") === -1)) {
-          // setupWindow(windowViewMargin);
-          // animateWindowPanes();
+          window.location.hash = "#sctn_main";
           
         }
-        
-        
-        if (((currentPosition >= (wndowHeight - windowViewMargin)) && 
-            (currentPosition <= (wndowHeight * 2))) && 
+        // window.alert("currentPosition = " + currentPosition);
+        // window.alert("((" + wndowHeight + " - " + windowViewMargin + ") = " + (wndowHeight - windowViewMargin));
+        // window.alert("((" + wndowHeight + " * 2) + " + windowViewMargin + ") = " + ((wndowHeight * 2) + windowViewMargin));
+        if ((currentPosition >= wndowHeight) && 
+            (currentPosition < wndowHeight + windowViewMargin) && 
             (window.location.hash.indexOf("sctn_1") === -1))  {
-              animateWindowPanes();
-              // window.alert("animateWindowPanes");
-              if (currentPosition === wndowHeight) {
-                animateWindowPanes();
-                // window.alert("setupWindow()");
-                // setupWindow(windowViewMargin);
-              }
+              
+          sortCopyElements("sctn_1");
         } 
         
-        if (((currentPosition > (wndowHeight * 2)) && 
-            (currentPosition < (wndowHeight * 3))) && 
+        if ((currentPosition >= wndowHeight * 2) && 
+            (currentPosition < (wndowHeight * 2) + windowViewMargin) && 
             (window.location.hash.indexOf("sctn_2") === -1))  {
-           animateWindowPanes();
+           sortCopyElements("sctn_2");
         }   
         
-        if (((currentPosition > wndowHeight * 3) && 
-            (currentPosition < (wndowHeight * 4))) && 
+        if ((currentPosition >= wndowHeight * 3) && 
+            (currentPosition < (wndowHeight * 3) + windowViewMargin) && 
             (window.location.hash.indexOf("sctn_3") === -1))  {
-          // setupWindow(windowViewMargin);
+          sortCopyElements("sctn_3");
         } 
         
-        if ((currentPosition > wndowHeight * 4) && 
-            ((currentPosition < (wndowHeight * 5))) && 
+        if ((currentPosition >= wndowHeight * 4) && 
+            (currentPosition < (wndowHeight * 4) + windowViewMargin) && 
             (window.location.hash.indexOf("sctn_4") === -1))  {
-           setupWindow(windowViewMargin);
+           sortCopyElements("sctn_4");
         }
         
-        if (((currentPosition > wndowHeight * 5) && 
-            (currentPosition < (wndowHeight * 6))) && 
+        if ((currentPosition >= wndowHeight * 5) && 
+            (currentPosition < (wndowHeight * 5) + windowViewMargin) && 
             (window.location.hash.indexOf("sctn_5") === -1))  {
-         setupWindow(windowViewMargin);
+          sortCopyElements("sctn_5");
         }
       
-        if ((currentPosition > wndowHeight * 6) && 
+        if ((currentPosition >= wndowHeight * 6) && 
             (window.location.hash.indexOf("sctn_6") === -1))  {
-          setupWindow(windowViewMargin);
-          
+          sortCopyElements("sctn_6");
         }  
       }
     );
@@ -468,8 +460,6 @@ $(document).ready(
     $(window).on("hashchange",
       function () {
         if (window.location.hash.indexOf("copyValues=") === -1) {
-          // setupWindow(windowViewMargin);
-          
           animateWindowPanes();
         }
       }

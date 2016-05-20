@@ -8,9 +8,6 @@ function parseWindowDimensions()  {
   windowWidth = $(window).width();
   windowHeight = $(window).height();
   
-/*  window.alert("windowWidth = " + windowWidth);
-  window.alert("windowHeight = " + windowHeight);*/
-  
   if (windowWidth < 360) {
     pageDimensions_Array[0] = 360;
     pageDimensions_Array[1] = 540;
@@ -103,13 +100,7 @@ function URLInfo() {
         wndowElementString = "#wndow-sctn_" + URLHashInfo_Array[0];
         copyElementVisibleString = ".copy:nth-child(" + inc_copyVisible + ")";
         
-        $(wndowElementString).children(".copy").each(
-          function () {
-            if ($(this).css("display") === "none")  {
-              inc_copyVisible++;
-            }
-          }
-        );
+        inc_copyVisible = sortCopyElements();
         
         URLHashInfo_Array[1] = inc_copyVisible - 3;
       }  
@@ -373,7 +364,7 @@ function setupPage()  {
     }
   );
   
-  displayVerticalNav();
+  setTimeout(displayVerticalNav, timeValue * 2);
   
   // animateWindowPanes();
 }
@@ -465,8 +456,49 @@ function animateInfoElement() {
   
   $("#prev-sctn").css("height", "25px");
   $("#prev-sctn > span, #next-sctn > span").animate({"height": "15px"});
+  
+  $("#menu, #menu-bkgrnd, #menu-brdr, #options").css("display", "block");
+  $("#menu-link").animate({"opacity": 1}, 800);
 }
 
+function sortCopyElements(sectionValue) {
+  var wndowElementString = new String();
+  var positionValue = new Number();
+  
+  var inc_copyVisible = new Number();
+  
+  if (sectionValue === null)  {
+    $(".copy").each(
+      function () {
+        if ($(this).css("display") === "block") {
+          positionValue = inc_copyVisible;
+        }
+        
+        inc_copyVisible++;
+      }
+    );
+    
+    return positionValue;  
+  } else {
+    wndowElementString = "#wndow-" + sectionValue + " > .copy";
+    
+    $(wndowElementString).each(
+      function () {
+        if ($(this).css("display") === "block") {
+          positionValue = inc_copyVisible;
+        }
+        
+        inc_copyVisible++;
+      }
+    );
+    
+    URLHashString = "#" + sectionValue + "?pos=" + positionValue;
+    
+    window.location.hash = URLHashString;
+  }
+  
+  
+}
 function animateWindowPanes() {
   var URLHashInfo_Array = new Array();
   var pageDimensions_Array = new Array();
@@ -480,6 +512,7 @@ function animateWindowPanes() {
   
   var sectionValue = new Number();
   var positionValue = new Number();
+  var scrollValue = new Number();
   
   var wndowElementString = new String();
   var copyElementVisibleString = new String();
@@ -487,6 +520,7 @@ function animateWindowPanes() {
   var blokElementsString = new String();
   var sctnNavElementString = new String();
   var menuElementsString = new String();
+  
   
   var inc_copyVisible = new Number();
   var inc_blokElements = new Number();
@@ -541,7 +575,7 @@ function animateWindowPanes() {
     if (sectionValue === 3 || sectionValue === 4) {
       sctnNavElementString = "#menu-sctn_" + sectionValue;
       
-      $(sctnNavElementString).css("opacity", 1);
+      $(sctnNavElementString).fadeTo(timeValue, 1);
     }
     
     bkgrndElementString = "#bkgrnd-sctn_" + sectionValue;
@@ -556,9 +590,18 @@ function animateWindowPanes() {
     
     $(bkgrndElementString).css("opacity", 1);
     
-    menuElementsString = "#menu, #menu-bkgrnd, #menu-brdr, #options";
     
-    $(menuElementsString).css("display", "block");
+    
+    
+    if (window.location.hash !== "" && window.location.hash !== "#sctn_main") {
+      menuElementsString = "#menu, #menu-bkgrnd, #menu-brdr, #options";
+    
+      $(menuElementsString).css("display", "block");
+      
+      $("#menu-link").animate({"opacity": 1}, timeValue);
+    }
+    
+    
     /*if (positionValue < $(wndowElementString).children(".copy").length) {
       while (($(wndowElementString).children(copyElementVisibleString).css("display") === "none" && 
              (inc_copyVisible < $(wndowElementString).children(".copy").length))) {
@@ -571,9 +614,13 @@ function animateWindowPanes() {
     sectionValue = 0;
   }
   
-  $("body").animate({scrollTop: sectionValue * $(".wndow").height()});
+  scrollValue = sectionValue * $(".wndow").height();
   
+  // $("body").animate({scrollTop: scrollValue}, 400);
+  
+  $(window).scrollTop(sectionValue * $(".wndow").height());
   setTimeout(displayVerticalNav, timeValue * 1.5);
+ 
  
 }
 
@@ -724,6 +771,7 @@ function animateWindowPanes() {
 }*/
 
 var timeValue = new Number(400);
+var windowViewMargin = new Number(150);
 
 $(document).ready(
   function () {

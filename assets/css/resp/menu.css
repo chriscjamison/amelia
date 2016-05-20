@@ -3,7 +3,6 @@
 	width: 20.45em;
 	height: auto;
   position: fixed;
-	top: 0;
   left: -20.45em;
 	z-index: 2;
 }
@@ -53,7 +52,6 @@
 	width: 20.45em;
 	height: auto;
 	position: fixed;
-	top: 0;
   left: -20.45em;
 	z-index: 3;
 	background-color: #666;
@@ -63,7 +61,6 @@
 	width: 20.45em;
 	height: 6.25em;
 	position: fixed;
-	top: 0;
   left: -20.45em;
 	z-index: 3;
 	background-color: #444;
@@ -323,12 +320,28 @@ div.sctn_nav > div > div a:hover {
     opacity: 0;
   }
   
+  .menu-link-base {
+    background-position: 0 0;
+  }
+
+  .menu-link-hover {
+    background-position: 0 -100px;
+  }
+
+  .menu-link-click_1 {
+    background-position: 0 -200px;
+  }
+
+  .menu-link-click_2 {
+    background-position: 0 -300px;
+  }
+  
   #options {
 	  top: 12em;
   }  
   
   #options > span {
-    margin: 1em auto;
+    margin: 0.9em auto;
     font-size: 2.5em;  
   }
   
