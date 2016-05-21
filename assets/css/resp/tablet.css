@@ -1021,7 +1021,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1360px) {
+@media screen and (min-width: 1330px) {
   #cntnr {
     width: 1366px;
   }
@@ -1041,7 +1041,7 @@ body {
   #info {
     width: 19.5em;
     height: 27.2em;
-    bottom: 5.5em;
+    bottom: 14.5em;
     right: 7em;
   }
   
@@ -1053,7 +1053,7 @@ body {
   #wndow-sctn_2 > .copy,
   #wndow-sctn_5 > .copy, 
   #wndow-sctn_6 > .copy {
-    width: 75.25em !important;
+    width: 82.25em !important;
     margin-left: 11.5em;
   }
   
@@ -1065,6 +1065,22 @@ body {
     width: 71em;
     height: 13.45em;
     left: 0;
+  }
+  
+  .sctn_4-blok > div {
+    top: -0.59em;
+  }
+  
+  .sctn_6-blok-2 {
+    height: 12em !important;
+  }
+  
+  .sctn_6-blok-2 > div {
+    width: 12.05em !important;
+  }
+    
+  #sctn_6-info-2 > div {
+    width: 29.75em !important;
   }
   
   .sctn_6-spcr {

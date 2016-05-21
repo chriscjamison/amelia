@@ -27,10 +27,12 @@ function menuLinkHoverState() {
   backgroundClickStateValue = backgroundPositionNum + "px";
   
   // window.alert("backgroundClickStateValue = " + backgroundClickStateValue);
+  
+  // window.alert("backgroundClickStateValue = " + backgroundClickStateValue);
   switch (backgroundClickStateValue) {
     case "0px":
       // window.alert("$(\"#menu\").css(\"left\") = " + $("#menu").css("left"));
-      if ($("#menu").css("left") !== "0px")  {
+      if ($("#options").css("display") === "block")  {
         hoverState = "click_2";
       } else {
         hoverState = "hover";
@@ -39,10 +41,10 @@ function menuLinkHoverState() {
     
     case "-50px":
       // window.alert("$(\"#menu\").css(\"left\") = " + $("#menu").css("left"));
-      if ($("#menu").css("left") !== "0px")  {
-        hoverState = "base";
-      } else {
+      if ($("#options").css("display") === "block")  {
         hoverState = "click_1";
+      } else {
+        hoverState = "base";
       }
     break;
     
@@ -182,7 +184,7 @@ function displayVerticalNav() {
       $("#prev-sctn").css({"opacity": 1, "display": "block"});
     }
     
-    if (currentPosition >= ($("#cntainr").height() - wndowHeight) - pageScrollMargin)  {
+    if (currentPosition >= ((wndowHeight * $(".wndow").length) - wndowHeight))  {
       $("#next-sctn").css({"opacity": 0, "display": "none"});
     } else {
       if ($("#next-sctn").css("display") === "none") {
@@ -202,9 +204,7 @@ $(document).ready(
 
     $("#menu-link").on("mouseout", 
       function () {
-        if (($("#menu-link").hasClass("menu-link-click_2")) === false) {
-          menuLinkHoverState(); 
-        }
+        menuLinkHoverState(); 
       }
     );
     
@@ -218,7 +218,6 @@ $(document).ready(
     
     $("#options > span").on("click",
       function () {
-        
         var sectionValue = new String();
         
         sectionValue = $(this).attr("id");

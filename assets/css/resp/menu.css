@@ -159,7 +159,7 @@
 	z-index: 5;
 	background-image: url('/amelia/assets/img/menu/next/resp/next-sctn.png');
   background-repeat: no-repeat;
-  background-position: 0 -209px;
+  background-position: 0 -145px;
   cursor: default;
 }
 
@@ -171,8 +171,21 @@
   opacity: 0;
 }
 
+#prev-sctn:hover,
+#next-sctn:hover {
+  cursor: pointer;  
+}
+
+#prev-sctn:hover {
+  background-position: 0px -111px;
+}
+
+#next-sctn:hover {
+  background-position: 0px -235px;
+}
+
 .base-prev-sctn {
-  background-position: 0 0 !important;
+  background-position: 0 0;
   cursor: default;
 }
 
@@ -234,6 +247,10 @@ div.sctn_nav > div > span {
 	color: #fff;
 	cursor: auto;	
 } 
+
+div.sctn_nav > div > span:hover {
+  cursor: pointer;
+}
 
 #menu-sctn_3 > div > span {
 	background-image: url('/amelia/assets/img/menu/sctn_nav/sctn_3.png');
@@ -353,7 +370,7 @@ div.sctn_nav > div > div a:hover {
   }
   
   #next-sctn {
-    background-position-y: -137px;
+    background-position-y: -137px !important;
   }
   
   #prev-sctn > span,
@@ -463,7 +480,24 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 80em !important;
+    height: 6.1em !important;
     top: 34.375em !important;
+  }
+  
+  .sctn_nav > div {
+    width: 49em !important;
+  }
+  
+  .sctn_nav > div > div {
+    width: 49.25em !important;
+    height: 3.54em !important;
+  }
+  
+  .sctn_nav > div > div > a {
+    width: 7.56em !important;
+    height: 1em !important;
+    margin: 1em !important;
+    padding: 0.27em 0 0.38em 0 !important;
   }
   
   #prev-sctn, 
@@ -475,6 +509,10 @@ div.sctn_nav > div > div a:hover {
 
 
 @media screen and (min-width: 1340px) {
+  #options > span {
+    float: left;
+  }
+  
   .bkgrnd-base {
     width: 85.375em !important;
   }

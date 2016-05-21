@@ -117,8 +117,14 @@ function URLInfo() {
     
 function cssAdjustment()  {
   // window.alert("$(window).width() = " + $(window).width() + " $(window).height() = " + $(window).height());
+  
+  var pageDimensions_Array = new Array();
+  
+  pageDimensions_Array = parseWindowDimensions();
+  
   if (($(window).width() >= 1260) && ($(window).height() <= 800))  {
     
+    var copyCSS = new Object();
     var optionsElementCSS = new Object;
     var optionsSpanElementsCSS = new Object;
     var menuElementCSS = new Object;
@@ -204,7 +210,7 @@ function cssAdjustment()  {
         "right": "1.56em",
         "bottom": "1.56em",
         "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
-        "backgroundPosition": "0px -130px"
+        "backgroundPosition": "0px -145px"
       };
       
       prevSctnElementCSS = {
@@ -224,7 +230,16 @@ function cssAdjustment()  {
       
       $("#next-sctn").css(nextSctnElementCSS);
       $("#prev-sctn").css(prevSctnElementCSS);
-      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);    
+      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);  
+    } else {
+      navSctnElementCSS = {
+        "right": "24.216em"
+      };
+      
+      $("#prev-sctn, #next-sctn").css(navSctnElementCSS);
+      
+      $("#prev-sctn > span").html("Click to view the previous section");
+      $("#next-sctn > span").html("Click to view the next section");
     }
     
   }
@@ -457,7 +472,7 @@ function animateInfoElement() {
   $("#prev-sctn").css("height", "25px");
   $("#prev-sctn > span, #next-sctn > span").animate({"height": "15px"});
   
-  $("#menu, #menu-bkgrnd, #menu-brdr, #options").css("display", "block");
+  $("#menu, #menu-bkgrnd, #menu-brdr").css("display", "block");
   $("#menu-link").animate({"opacity": 1}, 800);
 }
 
@@ -777,7 +792,6 @@ $(document).ready(
   function () {
     setupPage();
     cssAdjustment();
-    
     animateWindowPanes();
   }
 );
@@ -786,5 +800,6 @@ $(window).on("resize",
   function () {
     setupPage();
     cssAdjustment();
+    animateWindowPanes();
   }
 );
