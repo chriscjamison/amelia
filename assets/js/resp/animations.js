@@ -105,19 +105,13 @@ function URLInfo() {
         URLHashInfo_Array[1] = inc_copyVisible - 3;
       }  
     }
-    
-    // window.alert("URLHashInfoArray[1] = " + URLHashInfo_Array[1]);
   }
-  
-  // window.alert("URLHashInfoArray.length = " + URLHashInfo_Array.length);
   
   return URLHashInfo_Array;
 }
 
     
 function cssAdjustment()  {
-  // window.alert("$(window).width() = " + $(window).width() + " $(window).height() = " + $(window).height());
-  
   var pageDimensions_Array = new Array();
   
   pageDimensions_Array = parseWindowDimensions();
@@ -131,6 +125,7 @@ function cssAdjustment()  {
     var menuBkgrndElementCSS = new Object;
     var menuBrdrElementCSS = new Object;
     var infoElementCSS = new Object;
+    var logoElementCSS = new Object;
     var nextSctnElementCSS = new Object;
     var prevSctnElementCSS = new Object;
     var nextSctnSpanElementsCSS = new Object;
@@ -151,14 +146,8 @@ function cssAdjustment()  {
           break;
         }
         
-        /*window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-        window.alert("copyDifferenceValue = " + copyDifferenceValue);
-        window.alert("pageDimensions_Array[0] - copyDifferenceValue = " + (pageDimensions_Array[0] - copyDifferenceValue));
-        */
-        
         copyCSS.width = pageDimensions_Array[0] - copyDifferenceValue;
         
-        // window.alert("copyCSS.width = " + copyCSS.width);
         $(this).css(copyCSS);
       }
     );
@@ -193,6 +182,11 @@ function cssAdjustment()  {
       "bottom": "12.5em"
     };
       
+    infoImgCSS = {
+      "src": "/amelia/assets/img/logo/lg.png",
+      "width": "200",
+      "height": "190"
+    }
     
     $("#options").css(optionsElementCSS);
     $("#options > span").css(optionsSpanElementsCSS);
@@ -201,7 +195,9 @@ function cssAdjustment()  {
     $("#menu-brdr").css(menuBrdrElementCSS);
     $("#info").css(infoElementCSS);
     
-   if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
+    window.alert("window.navigator.userAgent.indexOf(\"Mobile\") = " + window.navigator.userAgent.indexOf("Mobile"));
+    window.alert("window.navigator.userAgent.indexOf(\"Tablet\") = " + window.navigator.userAgent.indexOf("Tablet"));
+    if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
         (window.navigator.userAgent.indexOf("Tablet") === -1))  {
       nextSctnElementCSS = {
         "width": "5em",
@@ -226,31 +222,61 @@ function cssAdjustment()  {
       nextSctnSpanElementsCSS = {
         "width": "5em",
         "height": "3.12em"
-      }  
+      };
+      
+      infoCSS = {
+        width: "19.5em",
+        height: "27.2em",
+        bottom: "14.5em",
+        right: "7em"
+      };
+     
+      infoImgCSS = {
+        "src": "/amelia/assets/img/logo/lg.png", 
+        "width": "200", 
+        "height": "190"
+      };
       
       $("#next-sctn").css(nextSctnElementCSS);
       $("#prev-sctn").css(prevSctnElementCSS);
       $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);  
-    } else {
-      navSctnElementCSS = {
-        "right": "24.216em"
-      };
-      
-      $("#prev-sctn, #next-sctn").css(navSctnElementCSS);
-      
+     
+      $("#info").css(infoCSS); 
+      $("#info > img").attr(infoImgCSS);
+    
       $("#prev-sctn > span").html("Click to view the previous section");
       $("#next-sctn > span").html("Click to view the next section");
-    }
+    } 
+    
+    
+   
+  //  window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
+    /*if (pageDimensions_Array[0] >= 1330 && pageDimensions_Array[0] < 1600) {
+      infoCSS = {
+        width: "19.5em",
+        height: "27.2em",
+        bottom: "14.5em",
+        right: "7em"
+      };
+    } else {
+      infoCSS = {
+        width: "19.2em",
+        height: "27.2em",
+        bottom: "5.5em",
+        right: "5.5em"
+      };
+    }*/
+    
+    // $("#info").css(infoCSS);
     
   }
-  
+    
   if ($(window).width() === 980)  {
     var copyCSS = new Object();
     
     copyCSS = {
       "marginLeft": "14.5em",
      }
-     
      
     $(".copy").each(
       function () {
@@ -263,7 +289,43 @@ function cssAdjustment()  {
         $(this).css(copyCSS);
       }
     );
-  }
+    
+    var infoCSS = new Object();
+    var infoImgCSS = new Object();
+   
+    infoCSS = {
+      width: pageDimensions_Array[0],
+      height: (pageDimensions_Array[1] * 0.7)
+    };
+    
+    infoImgCSS = {
+      "src": "/amelia/assets/img/logo/logo_phone.png", 
+      "width": "480", 
+      "height": "455"
+    }
+    
+    navSctnSpanCSS =  {
+      width: "6.8em",
+      height: "6.56em",
+      margin: "0 auto"
+    }
+   
+    nextSctnCSS = {
+      right: "24.1em",
+      bottom: "37em",
+      backgroundImage: "url('/amelia/assets/img/menu/next/resp/next-sctn.png')"
+    };
+    
+    $("#info").css(infoCSS);
+    $("#info > img").attr(infoImgCSS);
+    
+    // $("#next-sctn").css(nextSctnCSS);
+    // $("#prev-sctn, #next-sctn").css("right");
+  //  $("#prev-sctn > span, #next-sctn > span").css(navSctnSpanCSS);
+   
+    $("#prev-sctn > span").html("");
+    $("#next-sctn > span").html("Press to view the next section");
+  } 
 }
 
 function setupPage()  {
@@ -282,6 +344,8 @@ function setupPage()  {
   
   var bkgrndWindowString = new String();
   var bkgrndImageString = new String();
+  
+  cssAdjustment();
   
   pageDimensions_Array = parseWindowDimensions();
   URLHashInfo_Array = URLInfo();
@@ -309,50 +373,10 @@ function setupPage()  {
   $(".wndow").css(wndowCSS);
   $("#bkgrnd").css(bkgrndCSS);
  
-  if ((pageDimensions_Array[0] > 640 && pageDimensions_Array[0] <= 980) && 
-      ((pageDimensions_Array[1] > 1308 && pageDimensions_Array[1] <= 1740)))  {
-        
-        /*window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-  window.alert("pageDimensions_Array[1] = " + pageDimensions_Array[1]);*/
-  
-    // window.alert("$(\"#wndow-sctn_main\").children(\"#info\")css(\"opacity\") = " + $("#wndow-sctn_main").children("#info").css("opacity"));
-    $("#wndow-sctn_main").children("#info").css({"width": pageDimensions_Array[0], "height": (pageDimensions_Array[1] * 0.7)});
-   
-    $("#wndow-sctn_main").children("#info").children("img").attr({"src": "/amelia/assets/img/logo/logo_phone.png", "width": "480", "height": "455"});
-    
-    // $("#bkgrnd").css("height", $("#wndow-sctn_main").height()));
-    // $("#cntainr").css("height", ($("#cntainr").height() + (pageDimensions_Array[1] * 1.5)));  
-    // $("#wndow-sctn_main, #bkgrnd-sctn_main").css("height", (pageDimensions_Array[1] * 1.5));
-    
-    // $("#bkgrnd-sctn_main").css("backgroundPositionY", (pageDimensions_Array[1] * 0.7));
-    
-    $("#prev-sctn > span").html("");
-    $("#next-sctn > span").html("Press to view the next section");
-  } 
-  
-  if ($("#wndow-sctn_main").children("#info").css("opacity") === "0") {
-    $("#wndow-sctn_main").children("#info").css("opacity", 1); 
-     
-    $("#wndow-sctn_main").children("#info").children("img").css({"display": "block", "opacity": 1});
-    $("#wndow-sctn_main").children("#info").children("ul").css({"display": "block", "opacity": 1});
-    $("#wndow-sctn_main").children("#info").children("ul").children("li").css({"display": "block", "opacity": 1});
-  }
-  
-  // copyCSS.width = copyCSS.width - copyDifferenceValue;
-  
   $("#cntainr").css(cntainrCSS);
-  
-  /*$(".wndow").each(
-    function () {
-      wndowCSS.width = $(this).children(".copy").length * pageDimensions_Array[0];
-      
-      $(this) 
-    }
-  );*/
-  
+   
   inc_bkgrnd = 0;
   
-  // window.alert("$(\"#bkgrnd > div\").length = " + $("#bkgrnd > div").length);
   $("#bkgrnd > div").each(
     function () {
       if (inc_bkgrnd > 0) {
@@ -384,96 +408,89 @@ function setupPage()  {
   // animateWindowPanes();
 }
 
-function setupWindow(windowViewMargin) {
-  var wndowElementString = new String();
-  var copyElementsString = new String();
-  var copyVisibleElementString = new String();
-  var copyDIVElementsString = new String();
-  var headrElementString = new String();
-  
-  var URLHashInfo_Array = new Array();
-  
-  var inc_copyVisible = new Number();
-  var inc_copyElements = new Number();
-  var windowPaneValue = new Number();
-  var positionValue = new Number();
-  var currentPosition = new Number();
-  
-  var URLHash = new String();
-  
-  URLHashInfo_Array = URLInfo();
-  
-  positionValue = URLHashInfo_Array[1] * 1;
-  
-  
-  /*currentPosition = $(window).scrollTop();
-  // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
-  if (URLHashInfo_Array[0] !== "main")  {
-    sectionValue = Math.floor((currentPosition + windowViewMargin) / $(".wndow").height());  
-  } 
-  
-  if (URLHashInfo_Array[0] !== undefined) {
-    sectionValue = 0;
-  }
-  
-  // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
-  if ((URLHashInfo_Array[0] !== sectionValue) && 
-      ((currentPosition >= ($(".wndow").height() * sectionValue)) && 
-      (currentPosition <= ($(".wndow").height() * (sectionValue + 1))))) {
-    // window.alert("URLHashInfo_Array[0] = " + URLHashInfo_Array[0]);
-    if (URLHashInfo_Array[0] === "main" || URLHashInfo_Array === "") {
-      sectionValue = URLHashInfo_Array[0];
-    } else  {
-      sectionValue = (URLHashInfo_Array[0] * 1);
-      
-      positionValue = (URLHashInfo_Array[1] * 1);
-    } 
-  } 
-  
-    
-  
-  
-  if (sectionValue !== 0 && sectionValue !== "main")  {
-    wndowElementString = "#wndow-sctn_" + sectionValue;
-    copyVisibleElementString = ".copy:nth-child(" + (positionValue + 3) + ")";
-    // window.alert("wndowElementString = " + wndowElementString);
-    if (positionValue > 0)  {
-      while ($(wndowElementString).chldren(copyVisibleElementString).css("display") === "none")  {
-        positionValue++;
-            
-        copyVisibleElementString = ".copy:nth-child(" + (positionValue + 3) + ")";
-        
-      }
-    }
-  
-          
-    $(wndowElementString).children(".copy").css("display", "none");
-    $(wndowElementString).children(copyVisibleElementString).css("display", "block");
-    
-    URLHash = "sctn_" + sectionValue + "?pos=" + positionValue;
-  } else {
-    URLHash = "sctn_main";
-  }
-  // window.alert("URLHash = " + URLHash);
-  window.location.hash = URLHash; 
-  
-  animateWindowPanes();
-  
-  displayVerticalNav();*/
-}
 
 function animateInfoElement() {
-  $("#info").animate({"top": (-($("#info").height()))});
+  var pageDimensions_Array = new Array();
   
-  // $("#info").css("top", (-($("#info").height())));
-  $("#next-sctn > span").html("");
-  $("#next-sctn").css("bottom", "1.56em");
+  pageDimensions_Array = parseWindowDimensions();
+  // window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
+  if (pageDimensions_Array[0] === 980) {
+    var infoCSS = new Object();
+    var nextSctnCSS = new Object();
+    var prevSctnCSS = new Object();
+    var navSctnSpanCSS = new Object();
+    var menuElementsCSS = new Object();
+    var menuLinkCSS = new Object();
+    
+    infoCSS = {
+      top: -($("#info").height())
+    };
+    
+    nextSctnCSS = {
+      bottom: "1.56em"
+    };
+    
+    prevSctnCSS = {
+      height: "25px"
+    };
+    
+    navSctnSpanCSS = {
+      display: "block"
+    };
+    
+    menuElementsCSS = {
+      display: "block"
+    }
+    
+    menuLinkCSS = {
+      opacity: 1
+    }
+    
+    $("#info").animate(infoCSS);
   
-  $("#prev-sctn").css("height", "25px");
-  $("#prev-sctn > span, #next-sctn > span").animate({"height": "15px"});
-  
-  $("#menu, #menu-bkgrnd, #menu-brdr").css("display", "block");
-  $("#menu-link").animate({"opacity": 1}, 800);
+    $("#next-sctn > span").html("");
+    $("#next-sctn").css(nextSctnCSS);
+    
+    $("#prev-sctn").css(prevSctnCSS);
+    $("#prev-sctn > span, #next-sctn > span").animate(navSctnSpanCSS);
+    
+    $("#menu, #menu-bkgrnd, #menu-brdr").css(menuElementsCSS);
+    $("#menu-link").animate(menuLinkCSS, 800);		
+  } else {
+    var logoCSS_1 = {
+			display: "block"
+		};
+		
+    var logoCSS_2 = {
+      opacity: 1
+    }
+    
+		var logoCSS_3 = {
+			display: "inherit"
+		};
+		
+		var logoCSS_4 = {
+			display: "block",
+      opacity: 1
+		};
+    
+    $("#wndow-sctn_main").show("drop", (timeValue * 2));
+		$("#info").css(logoCSS_1).css(logoCSS_2);
+    $("#info > img").css(logoCSS_1);
+    
+    $("#info > img").delay(timeValue).fadeTo((timeValue * 1.5), 1, 
+      function () {
+        $("#info ul li").css(logoCSS_3);
+        $("#info ul").css(logoCSS_4);
+        
+        $("#info ul li").each(
+          function () {
+            $(this).delay(timeValue * 0.75).fadeTo((timeValue * 1.5), 1);
+          }
+        );		
+			}
+		);
+  }
 }
 
 function sortCopyElements(sectionValue) {
@@ -605,9 +622,6 @@ function animateWindowPanes() {
     
     $(bkgrndElementString).css("opacity", 1);
     
-    
-    
-    
     if (window.location.hash !== "" && window.location.hash !== "#sctn_main") {
       menuElementsString = "#menu, #menu-bkgrnd, #menu-brdr, #options";
     
@@ -615,18 +629,12 @@ function animateWindowPanes() {
       
       $("#menu-link").animate({"opacity": 1}, timeValue);
     }
-    
-    
-    /*if (positionValue < $(wndowElementString).children(".copy").length) {
-      while (($(wndowElementString).children(copyElementVisibleString).css("display") === "none" && 
-             (inc_copyVisible < $(wndowElementString).children(".copy").length))) {
-        copyElementVisibleString = ".copy:nth-child(" + (inc_copyVisible + 3) + ")";
-        
-        inc_copyVisible++;
-      }   
-    }*/      
   } else {
     sectionValue = 0;
+    
+    if ($("#info").css("opacity") === "0" && pageDimensions_Array[0] !== 980) {
+      animateInfoElement();
+    }
   }
   
   scrollValue = sectionValue * $(".wndow").height();
@@ -639,151 +647,6 @@ function animateWindowPanes() {
  
 }
 
-/*function animateWindowPanes() {
-  var URLHashInfo_Array = new Array();
-  
-  var wndowElementString = new String();
-  var headrElementString = new String();
-  var copyElementVisibleString = new String();
-  var copyDIVElementsString = new String();
-  var bkgrndIDString = new String();
-  
-  var positionString = new String();
-  var positionFlag = new Boolean();
-  
-  var copyHideCSS = new Object();
-  var copyVisibleCSS = new Object();
-  var bkgrndCSS = new Object();
-  var wndowCSS = new Object();
-  
-  var inc_copyElements = new Number();
-  var inc_divElements = new Number();
-  
-  var sectionValue = new Number();
-  var currentPosition = new Number();
-  
-  URLHashInfo_Array = URLInfo();
-  
-  copyHideCSS = {
-    "display": "none", 
-    "opacity": 0
-  };
-  
-  copyVisibleCSS = {
-    "display": "block",
-    "opacity": 1
-  };
-  
-  headrVisibleCSS = {
-    "opacity": 1
-  };
-  
-  bkgrndVisibleCSS = {
-    "display": "block"
-  };
-  
- window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
-    
-  if (URLHashInfo_Array.length != 2)  {
-    currentPosition = $(window).scrollTop();
-    
-    // window.alert("currentPosition = " + currentPosition);
-    sectionValue = Math.floor($(".wndow").height() / currentPosition);
-    // window.alert("$(\".wndow\").height() = " + $(".wndow").height() + " / currentPosition = " + currentPosition + " = " + ($(".wndow").height() / currentPosition));
-    
-  } else {
-    if (URLHashInfo_Array.length === 1) {
-      sectionValue = 0;
-    }
-    
-  }
-  
-  if (URLHashInfo_Array.length !== 1) {
-    wndowElementString = "#wndow-sctn_" + sectionValue;
-    headrElementString = ".headr.sctn_" + sectionValue;  
-  } else  {
-    wndowElementString = "#wndow-sctn_main";
-  }
-  
-  
-  if (sect) {
-    copyVisibleElementString = ".copy:nth-child(3)";
-    inc_copyElements = 3;
-    
-    while ($(wndowElementString).children(copyVisibleElementString).css("display") === "none")  {
-      inc_copyElements++;
-      
-      copyVisibleElementString = ".copy:nth-child(" + inc_copyElements + ")";
-    }
-    
-    window.alert("inc_copyElements = " + inc_copyElements);
-    window.alert("$(" + wndowElementString + ").children(\".copy\").length = " + $(wndowElementString).children(".copy").length);
-    
-    if (inc_copyElements === ($(wndowElementString).children(".copy").length + 3))  {
-      positionValue = 0;
-    } else  {
-      positionValue = inc_copyElements - 3;
-    }
-  }
-    
-  
-  window.alert("wndowElementString = " + wndowElementString);
-  window.alert("headrElementString = " + headrElementString);
-  window.alert("sectionValue = " + sectionValue);
-  window.alert("positionValue = " + positionValue);
-    
-    
-  // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
-  // window.alert("URLHashInfo_Array.length = " + URLHashInfo_Array.length);
-  if (sectionValue !== 0) {
-    bkgrndIDString = "#bkgrnd-sctn_" + sectionValue;
-    
-    // window.alert("bkgrndIDString = " + bkgrndIDString);
-    newPositionValue = $(".wndow").width() * positionValue;
-    
-    positionString = "-" + newPositionValue + "px";
-    
-    
-    
-    // window.alert("backgroundPositionString = " + backgroundPositionString);
-    
-    if (($(bkgrndIDString).css("backgroundPositionX") === "0%") && (URLHashInfo_Array[1] === "0")) {
-      positionFlag = false;
-    } else {
-      positionFlag = true;
-    }
-    
-    if (positionFlag === true)  {
-      copyVisibleCSS.backgroundPositionX = positionString;
-      
-      bkgrndHideCSS = {
-        "display": "none",
-        "backgroundPositionX": positionString
-      };
-      
-      $(bkgrndIDString).css(bkgrndHideCSS);
-      
-      $(bkgrndIDString).css(bkgrndVisibleCSS);
-    } 
-    
-    // window.alert("$(" + wndowElementString + ").children(" + copyVisibleElementString + ").children(\"div\").length = " + $(wndowElementString).children(copyVisibleElementString).children(copyDIVElementsString).length);
-    for (inc_divElements = 0; inc_divElements < $(wndowElementString).children(copyVisibleElementString).children("div").length; inc_copyElements++)  {
-      copyDIVElementsString = "div:nth-child(" + (inc_divElements + 1) + ")";
-      // window.alert("copyVisibleElementString = " + copyVisibleElementString);
-      // window.alert("copyDIVElementsString = " + copyDIVElementsString);
-      $(wndowElementString).children(copyVisibleElementString).children(copyDIVElementsString).css("opacity", 1);
-    }
-    
-    $(wndowElementString).children(headrElementString).css(headrVisibleCSS);
-    $(wndowElementString).children(copyVisibleElementString).css(copyVisibleCSS);
-    
-    window.scrollTo(0, (sectionValue * $(".wndow").height()));
-  } else {
-    window.scrollTo(0, 0);
-  }
-  
-  displayVerticalNav();
-}*/
 
 var timeValue = new Number(400);
 var windowViewMargin = new Number(150);
@@ -791,15 +654,14 @@ var windowViewMargin = new Number(150);
 $(document).ready(
   function () {
     setupPage();
-    cssAdjustment();
     animateWindowPanes();
+    
+    $(window).on("resize", 
+      function () {
+        setupPage();
+        animateWindowPanes();
+      }
+    );
   }
 );
 
-$(window).on("resize", 
-  function () {
-    setupPage();
-    cssAdjustment();
-    animateWindowPanes();
-  }
-);

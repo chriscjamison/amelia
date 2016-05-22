@@ -289,12 +289,19 @@ $(document).ready(
         
         newLocation = currentLocation + locationDifferenceValue;
         
-        if (currentLocation === 0 && window.location.hash === "#sctn_main") {
+        if (currentLocation === 0 && 
+            window.location.hash === "#sctn_main" && 
+            (window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) ) {
           sctnValue = 1;
         } else {
-          sctnValue = Math.floor(newLocation / wndowHeight);  
+          if (currentLocation === 0)  {
+            sctnValue = 1;
+          } else {
+            sctnValue = Math.floor(newLocation / wndowHeight);  
+          }
         }
         
+        // window.alert("sctnValue = " + sctnValue);
         if (sctnValue > 0) {
           if (window.location.hash.indexOf("pos=") >= 0)  {
             URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);

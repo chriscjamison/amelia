@@ -364,9 +364,9 @@ div.sctn_nav > div > div a:hover {
   
   #prev-sctn, 
   #next-sctn {
-    height: 8.25em;
-    bottom: 37em;
-    right: 24.1em;
+    height: 8.25em !important;
+    bottom: 37em !important;
+    right: 24.1em !important;
   }
   
   #next-sctn {
