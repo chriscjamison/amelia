@@ -98,6 +98,15 @@ function loadQuiz(questionSet) {
 	questionData_Array[2] = questionPath + (questionNum + 1) + questionSuffix;
 		
 	questionData_Array[3] = columnDivElement_Array[1];
+
+	window.alert("document.form-quiz.mood_type.value = " + document.form-quiz.mood_type.value);
+	/*if (questionNum === 1) {
+		window.location.href = window.location.href + "&mood_type=" + document.form-quiz.mood_type.value + 
+													 "&difficulty=" + document.form-quiz.difficulty.value; 
+	} else {
+		window.location.href = window.location.href + "&stressor=" + document.form-quiz.stressor.value + 
+													 "&harm=" + document.form-quiz.harm.value;
+	}*/
 	
 	loadQuestion(questionData_Array);
 }

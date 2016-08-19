@@ -50,21 +50,13 @@ function formData(sectionValue, questionValue) {
   
   var i = new Number();
 
-  // window.alert("formData");
-  
   if (questionValue === "start")  {
     var URLString = new String();
     
     URLString = "#" + sectionValue + "?pos=1";
     
     window.location.hash = URLString;
-    // window.alert(URLString);
   } else {
-    
-    // window.alert("sectionValue = " + sectionValue);
-    
-    // window.alert("questionPath = " + questionPath);
-    
     switch (questionValue) {
       case "initial":
         questionNum = 1;
@@ -77,8 +69,6 @@ function formData(sectionValue, questionValue) {
     
     for (i = 2; i <= 4; i = i * 2)  {
       questionData_Array[i] = "#" + sectionValue + "-clmn-" + (i / 2);
-      
-      // window.alert("i = " + i);
     }
     
     questionPath = "/amelia/assets/ajax/" + sectionValue + "/no_";
@@ -88,15 +78,8 @@ function formData(sectionValue, questionValue) {
     questionData_Array[0] = sectionValue;
     
     questionData_Array[1] = questionPath + questionNum + questionSuffix;
-      
-    // window.alert("questionData_Array[2] = " + questionData_Array[2]);
     
     questionData_Array[3] = questionPath + (questionNum + 1) + questionSuffix;
-    
-    // window.alert("questionData_Array[1] = " + questionData_Array[1]);
-    // window.alert("questionData_Array[3] = " + questionData_Array[3]);
-    
-    // window.alert("questionData_Array[4] = " + questionData_Array[4]);
     
     loadFormContent(questionData_Array);
     
@@ -106,4 +89,14 @@ function formData(sectionValue, questionValue) {
       window.location.hash = URLString;  
     } 
   }
+
+  $(document).ready(
+    function () {
+       if (window.location.href.indexOf("rateValue") != -1) {
+        urlValue = window.location.href;
+        
+        $("#sctn_5-desc-6 > span > span > sup + span").text(urlValue.slice((urlValue.indexOf("rateValue") + 10), urlValue.length));
+      }
+    }
+  );
 }

@@ -78,11 +78,10 @@ function URLInfo() {
   URLHashString = window.location.hash; 
   
   sectionNumIndexValue = URLHashString.indexOf("sctn_");
-  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
-  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
+  
   if (sectionNumIndexValue !== -1)  {
     sectionNumIndexValue = sectionNumIndexValue + 5;
-  // window.alert("sectionNumIndexValue = " + sectionNumIndexValue);
+  
     URLHashInfo_Array[0] = URLHashString.charAt(sectionNumIndexValue);
     
     if (URLHashInfo_Array[0] === "m" || sectionNumIndexValue === 4) {
@@ -116,87 +115,15 @@ function cssAdjustment()  {
   
   pageDimensions_Array = parseWindowDimensions();
   
-  if (($(window).width() >= 1260) && ($(window).height() <= 800))  {
-    
-    var copyCSS = new Object();
-    var optionsElementCSS = new Object;
-    var optionsSpanElementsCSS = new Object;
-    var menuElementCSS = new Object;
-    var menuBkgrndElementCSS = new Object;
-    var menuBrdrElementCSS = new Object;
-    var infoElementCSS = new Object;
-    var logoElementCSS = new Object;
-    var nextSctnElementCSS = new Object;
-    var prevSctnElementCSS = new Object;
-    var nextSctnSpanElementsCSS = new Object;
-    
-    $(".copy").each(
-      function () {
-        switch ($(this).parent("div").attr("id").charAt(11)) {
-          case "3":
-            copyDifferenceValue = pageDimensions_Array[0] * 0.314;
-          break;
-          
-          case "4":
-            copyDifferenceValue = pageDimensions_Array[0] * 0.314;
-          break;
-          
-          default:
-            copyDifferenceValue = pageDimensions_Array[0] * 0.26;
-          break;
-        }
-        
-        copyCSS.width = pageDimensions_Array[0] - copyDifferenceValue;
-        
-        $(this).css(copyCSS);
-      }
-    );
-    
-    optionsElementCSS = {
-      "width": "32em"
-    };
-      
-    optionsSpanElementsCSS = {
-      "width": "8.61em",
-      "display": "inline-table",
-      "fontSize": "1.25em"
-    };
-    
-    menuElementCSS = {
-      "width": "32em",
-      "left": "-32em"
-    };
-    
-    menuBkgrndElementCSS = {
-      "width": "32em",
-      "left": "-32em"
-    };
-    
-    menuBrdrElementCSS = {
-      "width": "32em",
-      "left": "-35em"
-    };
-    
-    infoElementCSS = {
-      "height": "28.1em",
-      "bottom": "12.5em"
-    };
-      
-    infoImgCSS = {
-      "src": "/amelia/assets/img/logo/lg.png",
-      "width": "200",
-      "height": "190"
-    }
-    
-    $("#options").css(optionsElementCSS);
-    $("#options > span").css(optionsSpanElementsCSS);
-    $("#menu").css(menuElementCSS);
-    $("#menu-bkgrnd").css(menuBkgrndElementCSS);
-    $("#menu-brdr").css(menuBrdrElementCSS);
-    $("#info").css(infoElementCSS);
-    
-    window.alert("window.navigator.userAgent.indexOf(\"Mobile\") = " + window.navigator.userAgent.indexOf("Mobile"));
-    window.alert("window.navigator.userAgent.indexOf(\"Tablet\") = " + window.navigator.userAgent.indexOf("Tablet"));
+  if (pageDimensions_Array[0] >= 1260)  {
+    if (pageDimensions_Array[1] <= 800) {
+      var infoElementCSS = new Object;
+      var logoElementCSS = new Object;
+      var nextSctnElementCSS = new Object;
+      var prevSctnElementCSS = new Object;
+      var nextSctnSpanElementsCSS = new Object;
+    } 
+
     if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
         (window.navigator.userAgent.indexOf("Tablet") === -1))  {
       nextSctnElementCSS = {
@@ -205,7 +132,7 @@ function cssAdjustment()  {
         "paddingTop": "0",
         "right": "1.56em",
         "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
+        "backgroundImage": "url('/amelia/assets/img/nav/next/next-sctn.png')",
         "backgroundPosition": "0px -145px"
       };
       
@@ -215,7 +142,7 @@ function cssAdjustment()  {
         "paddingTop": "1.3em",
         "right": "1.56em",
         "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/menu/next/next-sctn.png')",
+        "backgroundImage": "url('/amelia/assets/img/nav/next/next-sctn.png')",
         "backgroundPosition": "0px 0px"
       };
       
@@ -225,50 +152,28 @@ function cssAdjustment()  {
       };
       
       infoCSS = {
-        width: "19.5em",
-        height: "27.2em",
-        bottom: "14.5em",
-        right: "7em"
+        "width": "19.5em",
+        "height": "27.2em",
+        "bottom": "14.5em",
+        "right": "7em"
       };
-     
+    
       infoImgCSS = {
         "src": "/amelia/assets/img/logo/lg.png", 
         "width": "200", 
         "height": "190"
       };
-      
+   
       $("#next-sctn").css(nextSctnElementCSS);
       $("#prev-sctn").css(prevSctnElementCSS);
       $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);  
-     
+      
       $("#info").css(infoCSS); 
       $("#info > img").attr(infoImgCSS);
     
       $("#prev-sctn > span").html("Click to view the previous section");
       $("#next-sctn > span").html("Click to view the next section");
-    } 
-    
-    
-   
-  //  window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
-    /*if (pageDimensions_Array[0] >= 1330 && pageDimensions_Array[0] < 1600) {
-      infoCSS = {
-        width: "19.5em",
-        height: "27.2em",
-        bottom: "14.5em",
-        right: "7em"
-      };
-    } else {
-      infoCSS = {
-        width: "19.2em",
-        height: "27.2em",
-        bottom: "5.5em",
-        right: "5.5em"
-      };
-    }*/
-    
-    // $("#info").css(infoCSS);
-    
+    }  
   }
     
   if ($(window).width() === 980)  {
@@ -312,16 +217,15 @@ function cssAdjustment()  {
    
     nextSctnCSS = {
       right: "24.1em",
-      bottom: "37em",
-      backgroundImage: "url('/amelia/assets/img/menu/next/resp/next-sctn.png')"
+      backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
+      backgroundPositionY: "-234px"
     };
     
     $("#info").css(infoCSS);
     $("#info > img").attr(infoImgCSS);
     
-    // $("#next-sctn").css(nextSctnCSS);
-    // $("#prev-sctn, #next-sctn").css("right");
-  //  $("#prev-sctn > span, #next-sctn > span").css(navSctnSpanCSS);
+    $("#next-sctn").css(nextSctnCSS);
+    $("#prev-sctn > span, #next-sctn > span").css(navSctnSpanCSS);
    
     $("#prev-sctn > span").html("");
     $("#next-sctn > span").html("Press to view the next section");
@@ -385,12 +289,11 @@ function setupPage()  {
         bkgrndWidth =  pageDimensions_Array[0] * $(bkgrndWindowString).children(".copy").length;
         bkgrndImageString = "url('/amelia/assets/img/sctn/" + 
                             inc_bkgrnd + "/" + bkgrndWidth + "x" + pageDimensions_Array[1] + 
-                            ".jpg')";        
-        
-        // bkgrndCSS.width = bkgrndWidth;
+                            ".jpg')";      
+
         bkgrndCSS.backgroundImage = bkgrndImageString;
       } else  {
-        // bkgrndCSS.width = pageDimensions_Array[0];
+        
         bkgrndCSS.backgroundImage = "url('/amelia/assets/img/sctn/main/" + pageDimensions_Array[0] +
                                     "x" + pageDimensions_Array[1] + ".jpg')";
       }
@@ -398,14 +301,10 @@ function setupPage()  {
       $(this).css(bkgrndCSS);
       
       inc_bkgrnd++;
-      
-      // window.alert("inc_bkgrnd = " + inc_bkgrnd);
     }
   );
   
   setTimeout(displayVerticalNav, timeValue * 2);
-  
-  // animateWindowPanes();
 }
 
 
@@ -413,49 +312,56 @@ function animateInfoElement() {
   var pageDimensions_Array = new Array();
   
   pageDimensions_Array = parseWindowDimensions();
-  // window.alert("pageDimensions_Array[0] = " + pageDimensions_Array[0]);
+  
   if (pageDimensions_Array[0] === 980) {
     var infoCSS = new Object();
-    var nextSctnCSS = new Object();
-    var prevSctnCSS = new Object();
+    var sctnBottomCSS = new Object();
+    var sctnHeight1CSS = new Object();
+    var sctnHeight2CSS = new Object();
     var navSctnSpanCSS = new Object();
-    var menuElementsCSS = new Object();
-    var menuLinkCSS = new Object();
+    var navElementsCSS = new Object();
+    var navLinkCSS = new Object();
     
     infoCSS = {
       top: -($("#info").height())
     };
     
-    nextSctnCSS = {
+    sctnBottomCSS = {
       bottom: "1.56em"
     };
     
-    prevSctnCSS = {
+    sctnHeight1CSS = {
       height: "25px"
+    };
+
+    sctnHeight2CSS = {
+      height: "35px"
     };
     
     navSctnSpanCSS = {
       display: "block"
     };
     
-    menuElementsCSS = {
+    navElementsCSS = {
       display: "block"
     }
     
-    menuLinkCSS = {
+    navLinkCSS = {
       opacity: 1
     }
     
     $("#info").animate(infoCSS);
   
     $("#next-sctn > span").html("");
-    $("#next-sctn").css(nextSctnCSS);
+    $("#next-sctn").css(sctnBottomCSS);
+    $("#next-sctn").css(sctnHeight2CSS);
     
-    $("#prev-sctn").css(prevSctnCSS);
+
+    $("#prev-sctn").css(sctnHeight1CSS);
     $("#prev-sctn > span, #next-sctn > span").animate(navSctnSpanCSS);
     
-    $("#menu, #menu-bkgrnd, #menu-brdr").css(menuElementsCSS);
-    $("#menu-link").animate(menuLinkCSS, 800);		
+    $("nav, #nav-bkgrnd, #nav-brdr").css(navElementsCSS);
+    $("#nav-link").animate(navLinkCSS, 800);		
   } else {
     var logoCSS_1 = {
 			display: "block"
@@ -529,6 +435,7 @@ function sortCopyElements(sectionValue) {
     window.location.hash = URLHashString;
   }
   
+  setTimeout(function() {displayVerticalNav();}, timeValue);
   
 }
 function animateWindowPanes() {
@@ -551,7 +458,7 @@ function animateWindowPanes() {
   var headrElementString = new String();
   var blokElementsString = new String();
   var sctnNavElementString = new String();
-  var menuElementsString = new String();
+  var navElementsString = new String();
   
   
   var inc_copyVisible = new Number();
@@ -597,15 +504,13 @@ function animateWindowPanes() {
     blokElements = $(wndowElementString).children(copyElementVisibleString).children("div");
     
     blokElements.each(
-      function () {
-        // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
-        
+      function () {        
         $(this).fadeTo(timeValue, 1);
       }
     );
     
     if (sectionValue === 3 || sectionValue === 4) {
-      sctnNavElementString = "#menu-sctn_" + sectionValue;
+      sctnNavElementString = "#nav-sctn_" + sectionValue;
       
       $(sctnNavElementString).fadeTo(timeValue, 1);
     }
@@ -623,11 +528,11 @@ function animateWindowPanes() {
     $(bkgrndElementString).css("opacity", 1);
     
     if (window.location.hash !== "" && window.location.hash !== "#sctn_main") {
-      menuElementsString = "#menu, #menu-bkgrnd, #menu-brdr, #options";
+      navElementsString = "nav, #nav-bkgrnd, #nav-brdr, #options";
     
-      $(menuElementsString).css("display", "block");
+      $(navElementsString).css("display", "block");
       
-      $("#menu-link").animate({"opacity": 1}, timeValue);
+      $("#nav-link").animate({"opacity": 1}, timeValue);
     }
   } else {
     sectionValue = 0;
@@ -638,13 +543,9 @@ function animateWindowPanes() {
   }
   
   scrollValue = sectionValue * $(".wndow").height();
-  
-  // $("body").animate({scrollTop: scrollValue}, 400);
-  
+
   $(window).scrollTop(sectionValue * $(".wndow").height());
   setTimeout(displayVerticalNav, timeValue * 1.5);
- 
- 
 }
 
 
@@ -664,4 +565,3 @@ $(document).ready(
     );
   }
 );
-
