@@ -66,13 +66,122 @@
 				</div>
 				<div class="copy">
 					<div id="form-sctn_1">
-					<form name="form-quiz" type="GET" id="form-quiz">
+					<form name="form_quiz" type="GET" id="form-quiz">
 						<div class="clmn" id="sctn_1-clmn-1">
-							
+							<div class="form_cntnt" id="sctn_1-no_1">
+								<span>Question <sup>#</sup>1:</span>
+								<span>What is the quality of your recent emotional health?</span>
+								<p>
+									Over the past two weeks, which of the following general moods have you experienced most frequently?
+								</p>
+								<fieldset>
+									<p>
+										<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
+										<label for="sad">Sadness</label>
+									</p>
+									<p>
+										<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
+										<label for="angr">Anger</label>
+									</p>
+									<p>
+										<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+										<label for="axty">Anxiety or fear</label>
+									</p>
+								</fieldset>	
+							</div>
+							<div class="form_cntnt" id="sctn_1-no_3">
+								<span><strong>Question <sup>#</sup>3: </strong></span>
+								<span>
+									Have you experienced any of the following stressors?
+								</span>
+								<p>
+									Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
+								</p>
+								<p class="ftnote">
+									<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
+									select "Other", and enter in a brief description of the event.
+								</p>
+								<fieldset>
+									<p>
+										<input type="checkbox" name="stressor" value="death" id="stressor-dth" />
+										<label for="death">Death of a loved one</label>
+									</p>
+									<p>
+										<input type="checkbox" name="stressor" value="rltn" id="stressor-rltn" />
+										<label for="rltn">End of close relationship</label>
+									</p>
+									<p>
+										<input type="checkbox" name="stressor" value="job" id="stressor-job" />
+										<label for="job">Loss of job</label>
+									</p>
+									<p>
+										<input type="checkbox" name="stressor" value="move" id="stressor-move" />
+										<label for="move">Moving to new city</label>
+									</p>
+									<p>
+										<input type="checkbox" name="stressor" value="othr" id="stressor-othr" />
+										<label for="othr">Other</label>
+									</p>
+								</fieldset>
+							</div>
 						</div>
 						<div class="clmn" id="sctn_1-clmn-2">
 							
+							<div class="form_cntnt" id="sctn_1-no_2">
+								<span>Question <sup>#</sup>2:</span>
+								<span>How difficult has your emotional health made your life?</span>
+								<p>
+									On a scale of <strong>Slight</strong> to <strong>Significant</strong>, with <strong>Slight</strong> 
+									being a slight amount and <strong>Signficant</strong> being significantly, how much have 
+									the emotions which have you experienced impacted the amount of effort you give to 
+									complete daily tasks<sup>*</sup>?
+								</p>
+								<p class="ftnote">
+									<sup>*</sup> Daily tasks include: preparing and eating food, having good physical hygene, stable 
+									relationships	with close ones, etc.
+								</p>
+								<fieldset>
+									<div>
+										<span>Slight</span>
+										<input type="range" name="difficulty" min="0" max="10" step="1" value="5" list="range_values">
+										<datalist id="range_values">
+											<option value="0"></option>
+											<option value="1"></option>
+											<option value="2"></option>
+											<option value="3"></option>
+											<option value="4"></option>
+											<option value="5"></option>
+											<option value="6"></option>
+											<option value="7"></option>
+											<option value="8"></option>
+											<option value="9"></option>
+											<option value="10"></option>
+										</datalist>
+										<span>Significant</span>
+									</div>
+								</fieldset>
+							</div>
+							<input type="button" name="sctn_1-next" value="Next" id="sctn_1-next" onclick="formData('sctn_1', 'set_1');" />
 						</div>
+						<div class="form_cntnt" id="sctn_1-no_4">
+							<span><strong>Question <sup>#</sup>4: </strong></span>
+							<span>
+								Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed 
+								someone else or yourself in the last two weeks?
+							</span>
+							<fieldset>
+								<div>
+									<select name="harm" id="harm">
+										<option value="default" selected>- Select One -</option>
+										<option value="thought">Thought of</option>
+										<option value="harmed">Physically harmed</option>
+										<option value="neither">Neither</option>
+									</select>
+								</div>
+							</fieldset>
+						</div>
+						<input type="button" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" onclick="window.location.hash = '#sctn_1?pos=2';" />
+						<input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" onclick="formData('sctn_1', 'initial');" />
 					</form>
 					</div>	
 				</div>

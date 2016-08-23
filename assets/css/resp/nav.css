@@ -10,12 +10,10 @@ nav {
 
 .nav-base {
   position: fixed !important;
-  /*left: -20.45em !important;*/
 }
 
 .nav-click {
   position: absolute !important;
-  /*left: 0px !important;*/
 }
 
 #nav-link {

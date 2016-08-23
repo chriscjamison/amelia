@@ -528,9 +528,9 @@ function animateWindowPanes() {
     $(bkgrndElementString).css("opacity", 1);
     
     if (window.location.hash !== "" && window.location.hash !== "#sctn_main") {
-      navElementsString = "nav, #nav-bkgrnd, #nav-brdr, #options";
+      /*navElementsString = "nav, #nav-bkgrnd, #nav-brdr, #options";
     
-      $(navElementsString).css("display", "block");
+      $(navElementsString).css("display", "block");*/
       
       $("#nav-link").animate({"opacity": 1}, timeValue);
     }
