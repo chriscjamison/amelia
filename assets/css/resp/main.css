@@ -1017,7 +1017,11 @@ body {
   }
 
   #sctn_1-desc-2 {
-    left: 40em;
+    left: 0em;
+  }
+
+  #sctn_1-desc-3 {
+    left: 36.25em !important;
   }
 
   .sctn_2-spcr {

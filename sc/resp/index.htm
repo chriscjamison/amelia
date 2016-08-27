@@ -12,12 +12,13 @@
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/resp/ui/jquery-ui.js"></script>
 		<script src="/amelia/assets/js/resp/nav.js"></script>
-		<script src="/amelia/assets/js/resp/forms.js"></script>
+		<!--<script src="/amelia/assets/js/resp/forms.js"></script>-->
 		<script src="/amelia/assets/js/resp/animations.js"></script>
     
    
-	</head>  
-	<body onload="formData('sctn_1', 'initial'); formData('sctn_5', 'initial'); formData('sctn_6', 'initial');">
+	</head>
+	<body>  
+	<!--<body onload="formData('sctn_5', 'initial'); formData('sctn_6', 'initial');">-->
 		<nav>
 			<span class="nav-base" id="nav-link"></span>
 			<div id="options">
@@ -66,122 +67,129 @@
 				</div>
 				<div class="copy">
 					<div id="form-sctn_1">
-					<form name="form_quiz" type="GET" id="form-quiz">
+					<form name="form_quiz" type="GET" action="/amelia/assets/php/is_therapy.php" id="form-quiz">
 						<div class="clmn" id="sctn_1-clmn-1">
-							<div class="form_cntnt" id="sctn_1-no_1">
-								<span>Question <sup>#</sup>1:</span>
-								<span>What is the quality of your recent emotional health?</span>
-								<p>
-									Over the past two weeks, which of the following general moods have you experienced most frequently?
-								</p>
-								<fieldset>
+							<div class="form-page_1">
+								<div class="form_cntnt" id="sctn_1-no_1">
+									<span>Question <sup>#</sup>1:</span>
+									<span>What is the quality of your recent emotional health?</span>
 									<p>
-										<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
-										<label for="sad">Sadness</label>
+										Over the past two weeks, which of the following general moods have you experienced most frequently?
 									</p>
-									<p>
-										<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-										<label for="angr">Anger</label>
-									</p>
-									<p>
-										<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
-										<label for="axty">Anxiety or fear</label>
-									</p>
-								</fieldset>	
+									<fieldset>
+										<p>
+											<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
+											<label for="sad">Sadness</label>
+										</p>
+										<p>
+											<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
+											<label for="angr">Anger</label>
+										</p>
+										<p>
+											<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
+											<label for="axty">Anxiety or fear</label>
+										</p>
+									</fieldset>	
+								</div>
 							</div>
-							<div class="form_cntnt" id="sctn_1-no_3">
-								<span><strong>Question <sup>#</sup>3: </strong></span>
-								<span>
-									Have you experienced any of the following stressors?
-								</span>
-								<p>
-									Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
-								</p>
-								<p class="ftnote">
-									<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
-									select "Other", and enter in a brief description of the event.
-								</p>
-								<fieldset>
+							<div class="form-page_2">
+								<div class="form_cntnt" id="sctn_1-no_3">
+									<span><strong>Question <sup>#</sup>3: </strong></span>
+									<span>
+										Have you experienced any of the following stressors?
+									</span>
 									<p>
-										<input type="checkbox" name="stressor" value="death" id="stressor-dth" />
-										<label for="death">Death of a loved one</label>
+										Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
 									</p>
-									<p>
-										<input type="checkbox" name="stressor" value="rltn" id="stressor-rltn" />
-										<label for="rltn">End of close relationship</label>
+									<p class="ftnote">
+										<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
+										select "Other", and enter in a brief description of the event.
 									</p>
-									<p>
-										<input type="checkbox" name="stressor" value="job" id="stressor-job" />
-										<label for="job">Loss of job</label>
-									</p>
-									<p>
-										<input type="checkbox" name="stressor" value="move" id="stressor-move" />
-										<label for="move">Moving to new city</label>
-									</p>
-									<p>
-										<input type="checkbox" name="stressor" value="othr" id="stressor-othr" />
-										<label for="othr">Other</label>
-									</p>
-								</fieldset>
+									<fieldset>
+										<p>
+											<input type="checkbox" name="death" value="death" id="stressor-dth" />
+											<label for="death">Death of a loved one</label>
+										</p>
+										<p>
+											<input type="checkbox" name="rltn" value="rltn" id="stressor-rltn" />
+											<label for="rltn">End of close relationship</label>
+										</p>
+										<p>
+											<input type="checkbox" name="job" value="job" id="stressor-job" />
+											<label for="job">Loss of job</label>
+										</p>
+										<p>
+											<input type="checkbox" name="move" value="move" id="stressor-move" />
+											<label for="move">Moving to new city</label>
+										</p>
+										<p>
+											<input type="checkbox" name="othr" value="othr" id="stressor-othr" />
+											<label for="othr">Other</label>
+										</p>
+									</fieldset>
+								</div>
 							</div>
 						</div>
 						<div class="clmn" id="sctn_1-clmn-2">
-							
-							<div class="form_cntnt" id="sctn_1-no_2">
-								<span>Question <sup>#</sup>2:</span>
-								<span>How difficult has your emotional health made your life?</span>
-								<p>
-									On a scale of <strong>Slight</strong> to <strong>Significant</strong>, with <strong>Slight</strong> 
-									being a slight amount and <strong>Signficant</strong> being significantly, how much have 
-									the emotions which have you experienced impacted the amount of effort you give to 
-									complete daily tasks<sup>*</sup>?
-								</p>
-								<p class="ftnote">
-									<sup>*</sup> Daily tasks include: preparing and eating food, having good physical hygene, stable 
-									relationships	with close ones, etc.
-								</p>
-								<fieldset>
-									<div>
-										<span>Slight</span>
-										<input type="range" name="difficulty" min="0" max="10" step="1" value="5" list="range_values">
-										<datalist id="range_values">
-											<option value="0"></option>
-											<option value="1"></option>
-											<option value="2"></option>
-											<option value="3"></option>
-											<option value="4"></option>
-											<option value="5"></option>
-											<option value="6"></option>
-											<option value="7"></option>
-											<option value="8"></option>
-											<option value="9"></option>
-											<option value="10"></option>
-										</datalist>
-										<span>Significant</span>
-									</div>
-								</fieldset>
-							</div>
-							<input type="button" name="sctn_1-next" value="Next" id="sctn_1-next" onclick="formData('sctn_1', 'set_1');" />
-						</div>
-						<div class="form_cntnt" id="sctn_1-no_4">
-							<span><strong>Question <sup>#</sup>4: </strong></span>
-							<span>
-								Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed 
-								someone else or yourself in the last two weeks?
-							</span>
-							<fieldset>
-								<div>
-									<select name="harm" id="harm">
-										<option value="default" selected>- Select One -</option>
-										<option value="thought">Thought of</option>
-										<option value="harmed">Physically harmed</option>
-										<option value="neither">Neither</option>
-									</select>
+							<div class="form-page_1">
+								<div class="form_cntnt" id="sctn_1-no_2">
+									<span>Question <sup>#</sup>2:</span>
+									<span>How difficult has your emotional health made your life?</span>
+									<p>
+										On a scale of <strong>Slight</strong> to <strong>Significant</strong>, with <strong>Slight</strong> 
+										being a slight amount and <strong>Signficant</strong> being significantly, how much have 
+										the emotions which have you experienced impacted the amount of effort you give to 
+										complete daily tasks<sup>*</sup>?
+									</p>
+									<p class="ftnote">
+										<sup>*</sup> Daily tasks include: preparing and eating food, having good physical hygene, stable 
+										relationships	with close ones, etc.
+									</p>
+									<fieldset>
+										<div>
+											<span>Slight</span>
+											<input type="range" name="difficulty" min="0" max="10" step="1" value="5" list="range_values">
+											<datalist id="range_values">
+												<option value="0"></option>
+												<option value="1"></option>
+												<option value="2"></option>
+												<option value="3"></option>
+												<option value="4"></option>
+												<option value="5"></option>
+												<option value="6"></option>
+												<option value="7"></option>
+												<option value="8"></option>
+												<option value="9"></option>
+												<option value="10"></option>
+											</datalist>
+											<span>Significant</span>
+										</div>
+									</fieldset>
 								</div>
-							</fieldset>
+								<input type="button" name="sctn_1-next" value="Next" id="sctn_1-next" />
+							</div>
+							<div class="form-page_2">
+								<div class="form_cntnt" id="sctn_1-no_4">
+									<span><strong>Question <sup>#</sup>4: </strong></span>
+									<span>
+										Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed 
+										someone else or yourself in the last two weeks?
+									</span>
+									<fieldset>
+										<div>
+											<select name="harm" id="harm">
+												<option value="default" selected>- Select One -</option>
+												<option value="tght">Thought of</option>
+												<option value="harm">Physically harmed</option>
+												<option value="nther">Neither</option>
+											</select>
+										</div>
+									</fieldset>
+								</div>
+								<input type="submit" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" />
+								<input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" />
+							</div>
 						</div>
-						<input type="button" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" onclick="window.location.hash = '#sctn_1?pos=2';" />
-						<input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" onclick="formData('sctn_1', 'initial');" />
 					</form>
 					</div>	
 				</div>
@@ -438,12 +446,71 @@
 				</div>
 				<div class="copy">
 					<div id="form_cntnt">
-						<form name="form-rates" type="GET" id="form-rates">
+						<form name="form-rates" type="GET" action="/amelia/assets/php/rates.php" id="form-rates">
 						<div class="clmn" id="sctn_5-clmn-1">
-								
+							<div class="form_cntnt" id="sctn_5-no_1">
+								<span><strong>Question <sup>#</sup>1: </strong></span>
+								<span>
+									How many people make up your household?
+								</span>
+								<fieldset>
+									<p>
+										<input type="radio" name="num_in_household" value="0" id="household_0" />
+										<label for="0">0</label>
+									</p>
+									<p>
+										<input type="radio" name="num_in_household" value="1" id="household_1" />
+										<label for="1">1</label>
+									</p>
+									<p>
+										<input type="radio" name="num_in_household" value="2" id="household_2" />
+										<label for="2">2</label>
+									</p>
+									<p>
+										<input type="radio" name="num_in_household" value="3" id="household_3" />
+										<label for="3">3</label>
+									</p>
+									<p>
+										<input type="radio" name="num_in_household" value="4" id="household_4" />
+										<label for="4">4</label>
+									</p>
+									<p>
+										<input type="radio" name="num_in_household" value="5" id="household_5" />
+										<label for="5">5 or more</label>
+									</p>
+								</fieldset>	
+							</div>
 						</div>
 						<div class="clmn" id="sctn_5-clmn-2">
-              
+              <div class="form_cntnt" id="sctn_5-no_2">
+								<span><strong>Question <sup>#</sup>2: </strong></span>
+								<span>
+									Click the circle next to the value which matches your monthly income?
+								</span>
+								<fieldset>
+									<p>
+										<input type="radio" name="monthly_income" value="1" id="income_0" />
+										<label for="less-than-500">Less than $3,000</label>
+									</p>
+									<p>
+										<input type="radio" name="monthly_income" value="2" id="income_1" />
+										<label for="501-1000">From $3,001 - $4,200</label>
+									</p>
+									<p>
+										<input type="radio" name="monthly_income" value="3" id="income_2" />
+										<label for="1001-1500">From $4,201 - $5,000</label>
+									</p>
+									<p>
+										<input type="radio" name="monthly_income" value="4" id="income_3" />
+										<label for="1501-2000">From $5,001 - $6,000</label>
+									</p>
+									<p>
+										<input type="radio" name="monthly_income" value="5" id="income_6" />
+										<label for="more-than-2000">More than $6,000</label>
+									</p>
+								</fieldset>	
+							</div>
+							<input type="submit" name="sctn_5-sbmt" value="Find Out Rate" id="sctn_5-sbmt" />
 					  </div>
 						</form>			
 					</div>
@@ -464,7 +531,7 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
-            <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" onclick="window.location.hash='#sctn_6?pos=1';" />
+            <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" />
 					</div>
 				</div>
 			</div>
@@ -482,7 +549,7 @@
               In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
               neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
             </p>-->
-            <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_6-start" onclick="window.location.hash='#sctn_6?pos=1';" />
+            <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_6-start" />
 					</div>
           <div class="sctn_6-blok" id="sctn_6-info-1">
             <span>
@@ -518,14 +585,76 @@
 				</div>
 				<div class="copy">
 					<div id="form_cntnt-sctn_6">
-						<form method="post" name="cntct_info" id="form-sctn_6">
-							<div class="clmn" id="sctn_6-clmn-1">
-								
+						<form method="POST" name="cntct_info" action="/amelia/assets/php/contact.php" id="form-sctn_6">
+						<div class="clmn" id="sctn_6-clmn-1">
+							<div class="form-page_1">
+								<div class="form_cntnt" id="sctn_6-no_1">
+									<span>Enter in your first and last name below:</span>
+									<fieldset>
+										<input type="text" size="34" maxlength="40" name="cntct_name" id="cntct_name" />
+									</fieldset>	
+								</div>
 							</div>
-							
-							<div class="clmn" id="sctn_6-clmn-2">
-								
+							<div class="form-page_2">
+								<div class="form_cntnt" id="sctn_6-no_3">
+									<span>Please select an option that best matches your need:</span>
+									<fieldset>
+										<p>
+											<input type="radio" name="need" value="cnsltatn" id="need-cnsltatn" />
+											<label for="cnsltatn">Consultation</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="make_appt" id="make-appt" />
+											<label for="mke-appntmnt">Make Appointment</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="cancl-appt" id="cancl-appt" />
+											<label for="cancl-appntmnt">Cancel Appointment</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="billng" id="need-billng" />
+											<label for="bllng">Billing / Insurance</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="othr" id="need-othr" />
+											<label for="other">Other</label>
+										</p>
+										<p>
+											<input type="text" name="need-othr" value="" id="need-othr-text" />
+										</p>
+									</fieldset>	
+								</div>
 							</div>
+						</div>
+						<div class="clmn" id="sctn_6-clmn-2">
+							<div class="form-page_1">
+								<div class="form_cntnt" id="sctn_6-no_2">
+									<span>Please enter your email or phone number below:</span>
+									<fieldset>
+										<p>
+											<input type="radio" name="phone_email" value="email" id="cntct-email" />
+											<label for="appntmnt">Email Address</label>
+										</p>
+										<p>
+											<input type="radio" name="phone_email" value="phone" id="cntct-phone" />
+											<label for="cnsltatn">Phone Number</label>
+										</p>
+										<input type="email" size="34" maxlength="40" name="cntct_method" />
+									</fieldset>
+									<input type="button" name="sctn_6-next" value="Next" id="sctn_6-next" />
+								</div>
+							</div>
+							<div class="form-page_2">
+								<div class="form_cntnt" id="sctn_6-no_4">
+									<span>Please enter your message for Amelia below:</span>
+									<fieldset>
+										<textarea name="msg" cols="33" rows="10" id="msg"></textarea>
+									</fieldset>
+								</div>
+								<input type="submit" name="sctn_6-sbmt" value="Send Message" id="sctn_6-sbmt" />
+								<input type="button" name="sctn_6-prev" value="Previous" id="sctn_6-prev" />
+							</div>
+						</div>
 						</form>
 					</div>
 				</div>

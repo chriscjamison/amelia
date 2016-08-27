@@ -12,7 +12,7 @@
   
   $form_url_string = "rateValue=" . urlencode($final_rate_value);
   
-  $form_url_string = "http://localhost/amelia/sc/resp/phone.htm#sctn_5?pos=2&" . $form_url_string;
+  $form_url_string = "http://localhost/amelia/sc/resp/index.htm#sctn_5?pos=2&" . $form_url_string;
 ?>
 
 <html>
