@@ -1,56 +1,56 @@
 //animations.js
 function parseWindowDimensions()  {
-  var windowWidth = new Number();
-  var windowHeight = new Number();
+  var window_width = new Number();
+  var window_height = new Number();
   
-  var pageDimensions_Array = new Array();
+  var page_dimensions_Array = new Array();
   
-  windowWidth = $(window).width();
-  windowHeight = $(window).height();
+  window_width = $(window).width();
+  window_height = $(window).height();
   
-  if (windowWidth < 360) {
-    pageDimensions_Array[0] = 360;
-    pageDimensions_Array[1] = 540;
+  if (window_width < 360) {
+    page_dimensions_Array[0] = 360;
+    page_dimensions_Array[1] = 540;
   } else {
-      if (windowWidth <= 640) {
-        pageDimensions_Array[0] = 640;
+      if (window_width <= 640) {
+        page_dimensions_Array[0] = 640;
         
-        if (windowHeight > 1000)  {
-          pageDimensions_Array[1] = 1136;
+        if (window_height > 1000)  {
+          page_dimensions_Array[1] = 1136;
         } 
       } else  {
-        if (windowWidth <= 980) {
-          pageDimensions_Array[0] = 980;
+        if (window_width <= 980) {
+          page_dimensions_Array[0] = 980;
           
-          if (windowHeight > 1308)  {
-            pageDimensions_Array[1] = 1740;
+          if (window_height > 1308)  {
+            page_dimensions_Array[1] = 1740;
           } else  {
-            pageDimensions_Array[1] = 1308;  
+            page_dimensions_Array[1] = 1308;  
           }
         } else {
-          if (windowWidth <= 1024) {
-            pageDimensions_Array[0] = 1024;
-            pageDimensions_Array[1] = 1500;
+          if (window_width <= 1024) {
+            page_dimensions_Array[0] = 1024;
+            page_dimensions_Array[1] = 1500;
           } else {
-            if (windowWidth <= 1280) {
-              pageDimensions_Array[0] = 1280;
+            if (window_width <= 1280) {
+              page_dimensions_Array[0] = 1280;
               
-              if (windowHeight <= 800) {
-                pageDimensions_Array[1] = 800;
+              if (window_height <= 800) {
+                page_dimensions_Array[1] = 800;
               } else {
-                pageDimensions_Array[1] = 1024;
+                page_dimensions_Array[1] = 1024;
               }
             } else {
-              if (windowWidth <= 1366) {
-                pageDimensions_Array[0] = 1366;
-                pageDimensions_Array[1] = 768;
+              if (window_width <= 1366) {
+                page_dimensions_Array[0] = 1366;
+                page_dimensions_Array[1] = 768;
               } else {
-                if (windowWidth <= 1600) {
-                  pageDimensions_Array[0] = 1600;
-                  pageDimensions_Array[1] = 900;
+                if (window_width <= 1600) {
+                  page_dimensions_Array[0] = 1600;
+                  page_dimensions_Array[1] = 900;
                 } else {
-                  pageDimensions_Array[0] = 1920;
-                  pageDimensions_Array[1] = 1020;
+                  page_dimensions_Array[0] = 1920;
+                  page_dimensions_Array[1] = 1020;
                 }
               }
             }
@@ -59,74 +59,56 @@ function parseWindowDimensions()  {
     }
   } 
   
-  return pageDimensions_Array;
+  return page_dimensions_Array;
 }
 
-function URLInfo() {
-  var URLHashString = new String();
+function urlInfo() {
+  var url_hash = new String();
   
-  var sectionNumIndexValue = new String();
-  var positionNumIndexValue = new String();
+  var section_index_num = new Number();
+  var position_index_num = new Number();
+
+  var section_value = new String();
+  var position_value = new String();
   
-  var wndowElementString = new String();
-  var copyElementVisibleString = new String();
-  
-  var inc_copyVisible = new Number();
-  
-  var URLHashInfo_Array = new Array();
+  var url_info_Array = new Array();
  
-  URLHashString = window.location.hash; 
+  url_hash = window.location.hash; 
   
-  sectionNumIndexValue = URLHashString.indexOf("sctn_");
-  
-  if (sectionNumIndexValue !== -1)  {
-    sectionNumIndexValue = sectionNumIndexValue + 5;
-  
-    URLHashInfo_Array[0] = URLHashString.charAt(sectionNumIndexValue);
-    
-    if (URLHashInfo_Array[0] === "m" || sectionNumIndexValue === 4) {
-      URLHashInfo_Array[0] = "main";
-    }
-    
-    if (URLHashString.indexOf("pos=") !== -1) {
-      positionNumIndexValue = URLHashString.indexOf("pos=");
-      positionNumIndexValue = positionNumIndexValue + 4;
-      URLHashInfo_Array[1] = URLHashString.charAt(positionNumIndexValue);
-    } else  {
-      if (URLHashInfo_Array[0] !== "main")  {
-        inc_copyVisible = 3;
-        
-        wndowElementString = "#wndow-sctn_" + URLHashInfo_Array[0];
-        copyElementVisibleString = ".copy:nth-child(" + inc_copyVisible + ")";
-        
-        inc_copyVisible = sortCopyElements();
-        
-        URLHashInfo_Array[1] = inc_copyVisible - 3;
-      }  
-    }
+  section_index_num = url_hash.indexOf("sctn_");
+
+  position_index_num = url_hash.indexOf("pos=");
+
+  section_value = url_hash.charAt(section_index_num + 5);
+  position_value = url_hash.charAt(position_index_num);
+
+  if (position_index_num === -1)  {
+    url_info_Array[0] = "main";
+  } else  {
+    url_info_Array[0] = section_value;
+    url_info_Array[1] = position_value;
   }
-  
-  return URLHashInfo_Array;
+
+  return url_hash_info_Array;
 }
 
     
 function cssAdjustment()  {
-  var pageDimensions_Array = new Array();
-  
-  pageDimensions_Array = parseWindowDimensions();
-  
-  if (pageDimensions_Array[0] >= 1260)  {
-    if (pageDimensions_Array[1] <= 800) {
-      var infoElementCSS = new Object;
-      var logoElementCSS = new Object;
-      var nextSctnElementCSS = new Object;
-      var prevSctnElementCSS = new Object;
-      var nextSctnSpanElementsCSS = new Object;
-    } 
+  var page_dimensions_Array = new Array();
 
+  var next_sctn_1_css = new Object();
+  var next_sctn_2_css = new Object();
+  var prev_sctn_css = new Object();
+  var info_1_css = new Object();
+  var info_2_css = new Object();
+  var copy_css = new Object();
+  
+  page_dimensions_Array = parseWindowDimensions();
+  
+  if (page_dimensions_Array[0] >= 1260)  {
     if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
         (window.navigator.userAgent.indexOf("Tablet") === -1))  {
-      nextSctnElementCSS = {
+      next_sctn_1_css = {
         "width": "5em",
         "height": "5.3em",
         "paddingTop": "0",
@@ -136,7 +118,7 @@ function cssAdjustment()  {
         "backgroundPosition": "0px -145px"
       };
       
-      prevSctnElementCSS = {
+      prev_sctn_css = {
         "width": "5em",
         "height": "4em",
         "paddingTop": "1.3em",
@@ -146,30 +128,30 @@ function cssAdjustment()  {
         "backgroundPosition": "0px 0px"
       };
       
-      nextSctnSpanElementsCSS = {
+      next_sctn_2_css = {
         "width": "5em",
         "height": "3.12em"
       };
       
-      infoCSS = {
+      info_1_css = {
         "width": "19.5em",
         "height": "27.2em",
         "bottom": "14.5em",
         "right": "7em"
       };
     
-      infoImgCSS = {
+      info_2_css = {
         "src": "/amelia/assets/img/logo/lg.png", 
         "width": "200", 
         "height": "190"
       };
    
-      $("#next-sctn").css(nextSctnElementCSS);
-      $("#prev-sctn").css(prevSctnElementCSS);
-      $("#prev-sctn > span, #next-sctn > span").css(nextSctnSpanElementsCSS);  
+      $("#next-sctn").css(next_sctn_1_css);
+      $("#prev-sctn").css(prev_sctn_css);
+      $("#prev-sctn > span, #next-sctn > span").css(next_sctn_2_css);  
       
-      $("#info").css(infoCSS); 
-      $("#info > img").attr(infoImgCSS);
+      $("#info").css(info_1_css); 
+      $("#info > img").attr(info_2_css);
     
       $("#prev-sctn > span").html("Click to view the previous section");
       $("#next-sctn > span").html("Click to view the next section");
@@ -177,9 +159,13 @@ function cssAdjustment()  {
   }
     
   if ($(window).width() === 980)  {
-    var copyCSS = new Object();
-    
-    copyCSS = {
+    var copy_css = new Object();
+    var info_4_css = new Object();
+    var info_5_css = new Object();
+    var nav_sctn_css = new Object();
+    var next_sctn_css = new Object():
+
+    copy_css = {
       "marginLeft": "14.5em",
      }
      
@@ -187,45 +173,43 @@ function cssAdjustment()  {
       function () {
         switch ($(this).parent().attr("id").charAt(11))  {
           case "1":
-            copyCSS.width = "770px";
+            copy_css.width = "770px";
           break;
         }
         
-        $(this).css(copyCSS);
+        $(this).css(copy_css);
       }
     );
     
-    var infoCSS = new Object();
-    var infoImgCSS = new Object();
-   
-    infoCSS = {
-      width: pageDimensions_Array[0],
-      height: (pageDimensions_Array[1] * 0.7)
+       
+    info_4_css = {
+      "width": page_dimensions_Array[0],
+      "height": (page_dimensions_Array[1] * 0.7)
     };
     
-    infoImgCSS = {
+    info_5_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
       "width": "480", 
       "height": "455"
     }
     
-    navSctnSpanCSS =  {
+    nav_sctn_css =  {
       width: "6.8em",
       height: "6.56em",
       margin: "0 auto"
     }
    
-    nextSctnCSS = {
+    next_sctn_css = {
       right: "24.1em",
       backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
       backgroundPositionY: "-234px"
     };
     
-    $("#info").css(infoCSS);
-    $("#info > img").attr(infoImgCSS);
+    $("#info").css(info_4_css);
+    $("#info > img").attr(info_5_css);
     
-    $("#next-sctn").css(nextSctnCSS);
-    $("#prev-sctn > span, #next-sctn > span").css(navSctnSpanCSS);
+    $("#next-sctn").css(next_sctn_css);
+    $("#prev-sctn > span, #next-sctn > span").css(nav_sctn_css);
    
     $("#prev-sctn > span").html("");
     $("#next-sctn > span").html("Press to view the next section");
@@ -233,165 +217,167 @@ function cssAdjustment()  {
 }
 
 function setupPage()  {
-  var pageDimensions_Array = new Array();
-  var URLHashInfo_Array = new Array();
+  var page_dimensions_Array = new Array();
+  var url_info_Array = new Array();
   
-  var pageHeight = new Number();
-  var copyDifferenceValue = new Number();
+  var page_height = new Number();
   
-  var cntainrCSS = new Object();
-  var wndowCSS = new Object();
-  var bkgrndCSS = new Object();
-  var copyCSS = new Object();
+  var cntainr_css = new Object();
+  var wndow_css = new Object();
+  var bkgrnd_css = new Object();
+  var copy_css = new Object();
   
   var inc_bkgrnd = new Number();
   
-  var bkgrndWindowString = new String();
-  var bkgrndImageString = new String();
+  var bkgrnd_1_selector = new String();
+  var bkgrnd_img_value = new String();
   
   cssAdjustment();
   
-  pageDimensions_Array = parseWindowDimensions();
-  URLHashInfo_Array = URLInfo();
-  pageHeight = $(window).height() * $(".wndow").length;
+  page_dimensions_Array = parseWindowDimensions();
+  url_info_Array = urlInfo();
+  page_height = $(window).height() * $(".wndow").length;
   
-  cntainrCSS = {
-    "width": pageDimensions_Array[0],
-    "height": pageHeight
+  cntainr_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_height
   };
   
-  wndowCSS = {
-    "width": pageDimensions_Array[0],
-    "height": pageDimensions_Array[1]
+  wndow_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_dimensions_Array[1]
   };
   
-  copyCSS = {
-    "height": pageDimensions_Array[1]
+  copy_css = {
+    "height": page_dimensions_Array[1]
   };
   
-  bkgrndCSS = {
-    "width": pageDimensions_Array[0],
-    "height": pageDimensions_Array[1]
+  bkgrnd_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_dimensions_Array[1]
   };
   
-  $(".wndow").css(wndowCSS);
-  $("#bkgrnd").css(bkgrndCSS);
+  $(".wndow").css(wndow_css);
+  $("#bkgrnd").css(bkgrnd_css);
  
-  $("#cntainr").css(cntainrCSS);
+  $("#cntainr").css(cntainr_css);
    
   inc_bkgrnd = 0;
   
   $("#bkgrnd > div").each(
     function () {
       if (inc_bkgrnd > 0) {
-        bkgrndWindowString = "#wndow-sctn_" + inc_bkgrnd;
+        bkgrnd_1_selector = "#wndow-sctn_" + inc_bkgrnd;
         
-        bkgrndWidth =  pageDimensions_Array[0] * $(bkgrndWindowString).children(".copy").length;
-        bkgrndImageString = "url('/amelia/assets/img/sctn/" + 
-                            inc_bkgrnd + "/" + bkgrndWidth + "x" + pageDimensions_Array[1] + 
+        bkgrndWidth =  page_dimensions_Array[0] * $(bkgrnd_1_selector).children(".copy").length;
+        bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
+                            inc_bkgrnd + "/" + bkgrndWidth + "x" + page_dimensions_Array[1] + 
                             ".jpg')";      
 
-        bkgrndCSS.backgroundImage = bkgrndImageString;
+        bkgrnd_css.backgroundImage = bkgrnd_img_value;
       } else  {
         
-        bkgrndCSS.backgroundImage = "url('/amelia/assets/img/sctn/main/" + pageDimensions_Array[0] +
-                                    "x" + pageDimensions_Array[1] + ".jpg')";
+        bkgrnd_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + page_dimensions_Array[0] +
+                                    "x" + page_dimensions_Array[1] + ".jpg')";
       }
       
-      $(this).css(bkgrndCSS);
+      $(this).css(bkgrnd_css);
       
       inc_bkgrnd++;
     }
   );
   
-  setTimeout(displayVerticalNav, timeValue * 2);
+  setTimeout(displayVerticalNav, time_value * 2);
 }
 
 
 function animateInfoElement() {
-  var pageDimensions_Array = new Array();
+  var page_dimensions_Array = new Array();
   
-  pageDimensions_Array = parseWindowDimensions();
+  page_dimensions_Array = parseWindowDimensions();
   
-  if (pageDimensions_Array[0] === 980) {
-    var infoCSS = new Object();
-    var sctnBottomCSS = new Object();
-    var sctnHeight1CSS = new Object();
-    var sctnHeight2CSS = new Object();
-    var navSctnSpanCSS = new Object();
-    var navElementsCSS = new Object();
-    var navLinkCSS = new Object();
+  if (page_dimensions_Array[0] === 980) {
+    var info_css = new Object();
+    var sctn_bttm_css = new Object();
+    var sctn_height_1_css = new Object();
+    var sctn_height_2_css = new Object();
+    var nav_sctn_css = new Object();
+    var nav_css = new Object();
+    var nav_link_css = new Object();
     
-    infoCSS = {
-      top: -($("#info").height())
+    info_css = {
+      "top": -($("#info").height())
     };
     
-    sctnBottomCSS = {
-      bottom: "1.56em"
+    sctn_bttm_css = {
+      "bottom": "1.56em"
     };
     
-    sctnHeight1CSS = {
-      height: "25px"
+    sctn_height_1_css = {
+      "height": "25px"
     };
 
-    sctnHeight2CSS = {
-      height: "35px"
+    sctn_height_2_css = {
+      "height": "35px"
     };
     
-    navSctnSpanCSS = {
-      display: "block"
+    nav_sctn_css = {
+      "display": "block"
     };
     
-    navElementsCSS = {
-      display: "block"
-    }
+    nav_css = {
+      "display": "block"
+    };
     
-    navLinkCSS = {
-      opacity: 1
-    }
+    nav_link_css = {
+      "opacity": 1
+    };
     
-    $("#info").animate(infoCSS);
+    $("#info").animate(info_css);
   
     $("#next-sctn > span").html("");
-    $("#next-sctn").css(sctnBottomCSS);
-    $("#next-sctn").css(sctnHeight2CSS);
+    $("#next-sctn").css(sctn_bttm_css);
+    $("#next-sctn").css(sctn_height_2_css);
     
 
-    $("#prev-sctn").css(sctnHeight1CSS);
-    $("#prev-sctn > span, #next-sctn > span").animate(navSctnSpanCSS);
+    $("#prev-sctn").css(sctn_height_1_css);
+    $("#prev-sctn > span, #next-sctn > span").animate(nav_sctn_css);
     
-    $("nav, #nav-bkgrnd, #nav-brdr").css(navElementsCSS);
-    $("#nav-link").animate(navLinkCSS, 800);		
+    $("nav, #nav-bkgrnd, #nav-brdr").css(nav_css);
+    $("#nav-link").animate(nav_link_css, 800);		
   } else {
-    var logoCSS_1 = {
+    var logo_1_css = {
 			display: "block"
 		};
 		
-    var logoCSS_2 = {
+    var logo_2_css = {
       opacity: 1
     }
     
-		var logoCSS_3 = {
+		var logo_3_css = {
 			display: "inherit"
 		};
 		
-		var logoCSS_4 = {
+		var logo_4_css = {
 			display: "block",
       opacity: 1
 		};
     
-    $("#wndow-sctn_main").show("drop", (timeValue * 2));
-		$("#info").css(logoCSS_1).css(logoCSS_2);
-    $("#info > img").css(logoCSS_1);
+    time_value_1 = time_value * 2;
+    time_value_2 = time_value * 1.5;
+
+    $("#wndow-sctn_main").show("drop", time_value_1);
+		$("#info").css(logo_1_css).css(logo_2_css);
+    $("#info > img").css(logo_1_css);
     
-    $("#info > img").delay(timeValue).fadeTo((timeValue * 1.5), 1, 
+    $("#info > img").delay(time_value).fadeTo(time_value_2, 1, 
       function () {
-        $("#info ul li").css(logoCSS_3);
-        $("#info ul").css(logoCSS_4);
+        $("#info ul li").css(logo_3_css);
+        $("#info ul").css(logo_4_css);
         
         $("#info ul li").each(
           function () {
-            $(this).delay(timeValue * 0.75).fadeTo((timeValue * 1.5), 1);
+            $(this).delay(time_value * 0.75).fadeTo(time_value_2, 1);
           }
         );		
 			}
@@ -399,43 +385,44 @@ function animateInfoElement() {
   }
 }
 
-function sortCopyElements(sectionValue) {
-  var wndowElementString = new String();
-  var positionValue = new Number();
+function sortCopyElements(section_value) {
+  var wndow_selector = new String();
   
-  var inc_copyVisible = new Number();
+  var position_value = new Number();
   
-  if (sectionValue === null)  {
+  var inc = new Number();
+  
+  if (section_value === null)  {
     $(".copy").each(
       function () {
         if ($(this).css("display") === "block") {
-          positionValue = inc_copyVisible;
+          position_value = inc;
         }
         
-        inc_copyVisible++;
+        inc++;
       }
     );
     
-    return positionValue;  
+    return position_value;  
   } else {
-    wndowElementString = "#wndow-" + sectionValue + " > .copy";
+    wndow_selector = "#wndow-" + section_value + " > .copy";
     
     $(wndowElementString).each(
       function () {
         if ($(this).css("display") === "block") {
-          positionValue = inc_copyVisible;
+          position_value = inc;
         }
         
-        inc_copyVisible++;
+        inc++;
       }
     );
     
-    URLHashString = "#" + sectionValue + "?pos=" + positionValue;
+    url_hash = "#" + sectionValue + "?pos=" + positionValue;
     
-    window.location.hash = URLHashString;
+    window.location.hash = url_hash;
   }
   
-  setTimeout(function() {displayVerticalNav();}, timeValue);
+  setTimeout(function() {displayVerticalNav();}, time_value);
 }
 
 function animateFormPanes(section_value) {
@@ -444,489 +431,335 @@ function animateFormPanes(section_value) {
   page_1_selector = form_id + " .form-page_1";
   page_2_selector = form_id + " .form-page_2";
 
-  // window.alert("$(page_1_selector).css(\"display\) = " + $(page_1_selector).css("display"));
-  if ($(page_1_selector).css("display") === "block")  {
-    $(page_1_selector).fadeTo(timeValue, 0);
+ if ($(page_1_selector).css("display") === "block")  {
+    $(page_1_selector).fadeTo(time_value, 0);
     $(page_1_selector).css("display", "none");
 
     $(page_2_selector).css("display", "block");
-    $(page_2_selector).fadeTo(timeValue, 1);
+    $(page_2_selector).fadeTo(time_value, 1);
   } else  {
-    $(page_2_selector).fadeTo(timeValue, 0);
+    $(page_2_selector).fadeTo(time_value, 0);
     $(page_2_selector).css("display", "none");
 
     $(page_1_selector).css("display", "block");
-    $(page_1_selector).fadeTo(timeValue, 1);
+    $(page_1_selector).fadeTo(time_value, 1);
   }
 }
 
-function animateWindowPanes() {
-  var URLHashInfo_Array = new Array();
-  var pageDimensions_Array = new Array();
-  
-  var copyHideCSS = new Object();
-  var copyVisibleCSS = new Object();
-  var headrVisibleCSS = new Object();
-  var bkgrndVisibleCSS = new Object();
-  
-  var blokElements = new Object();
-  
-  var sectionValue = new Number();
-  var positionValue = new Number();
-  var scrollValue = new Number();
-  
-  var wndowElementString = new String();
-  var copyElementVisibleString = new String();
-  var headrElementString = new String();
-  var blokElementsString = new String();
-  var sctnNavElementString = new String();
-  var navElementsString = new String();
-  
-  
-  var inc_copyVisible = new Number();
-  var inc_blokElements = new Number();
-  
-  copyHideCSS = {
-    "display": "none", 
-    "opacity": 0
-  };
-  
-  copyVisibleCSS = {
-    "display": "block",
-    "opacity": 1
-  };
-  
-  headrVisibleCSS = {
-    "opacity": 1
-  };
-  
-  bkgrndVisibleCSS = {
-    "display": "block"
-  };
-  
-  URLHashInfo_Array = URLInfo();
-  
-  if (URLHashInfo_Array.length === 2) {
-    sectionValue = URLHashInfo_Array[0] * 1;
-    positionValue = URLHashInfo_Array[1] * 1;
-    
-    wndowElementString = "#wndow-sctn_" + sectionValue;
-    copyElementVisibleString = ".copy:nth-child(" + (positionValue + 3) + ")";
-    
-    $(wndowElementString).children(".copy").css("display", "none");
-    
-    $(wndowElementString).children(copyElementVisibleString).css("display", "block");
-    
-    headrElementString = ".headr.sctn_" + sectionValue;
-    
-    $(wndowElementString).children(headrElementString).fadeTo((timeValue * 1.5), 1);
-    
-    inc_blokElements = 1;
-    
-    blokElements = $(wndowElementString).children(copyElementVisibleString).children("div");
-    
-    blokElements.each(
-      function () {        
-        $(this).fadeTo(timeValue, 1);
-      }
-    );
-    
-    if (sectionValue === 3 || sectionValue === 4) {
-      sctnNavElementString = "#nav-sctn_" + sectionValue;
+function animatePageElements()  {
+  var url_hash = window.location.hash;
+
+  if (url_hash.indexOf("base") > -1) {
+    var url_hash_info_Array = new Array();
+
+
+    url_hash_info_Array = urlInfo();
+
+    if (url_hash_info_Array.length === 2) {      
+      var section_value = new String();
+      var position_value = new String();
+
+      var wndow_selector = new String();
+      var wndows_selector = new String();
+      var copy_element_selector = new String();
+      var sctn_nav_selector = new String();
+      var bkgrnd_selector = new String();
+      var nav_link_selector = new String();
+      var info_selector = new String();
+
+      var bkgrnd_position_x = new String();
+
+      var blok_elements = new Object();
+      var page_dimensions_Array = new Array();
+
+      var scroll_value = new Number();
+
+      section_value = url_hash_info_Array[0];
+      position_value = url_hash_info_Array[1];   
       
-      $(sctnNavElementString).fadeTo(timeValue, 1);
-    }
-    
-    bkgrndElementString = "#bkgrnd-sctn_" + sectionValue;
-    
-    $(bkgrndElementString).css("opacity", 0);
-    
-    pageDimensions_Array = parseWindowDimensions();
-    
-    bkgrndPositionString = -(pageDimensions_Array[0] * positionValue) + "px";
-    
-    $(bkgrndElementString).css("backgroundPositionX", bkgrndPositionString);
-    
-    $(bkgrndElementString).css("opacity", 1);
-    
-    if (window.location.hash !== "" && window.location.hash !== "#sctn_main") {
-      /*navElementsString = "nav, #nav-bkgrnd, #nav-brdr, #options";
-    
-      $(navElementsString).css("display", "block");*/
+      wndow_selector = "#wndow-sctn_" + section_value;
+      copy_element_selector = ".copy:nth-child(" + (position_value + 3) + ")";
+      headr_selector = ".headr.sctn_" + section_value;
+      bkgrnd_selector = "#bkgrnd-sctn_" + section_value;
+      nav_link_selector = "#nav-link";
+      wndows_selctor = ".wndow";
+
+      blok_elements = $(wndow_selector).children(copy_element_selector).children("div");
+
+      scroll_value = section_value * $(wndows_selector).height();
       
-      $("#nav-link").animate({"opacity": 1}, timeValue);
-    }
-  } else {
-    sectionValue = 0;
-    
-    if ($("#info").css("opacity") === "0" && pageDimensions_Array[0] !== 980) {
-      animateInfoElement();
-    }
-  }
-  
-  scrollValue = sectionValue * $(".wndow").height();
-
-  $(window).scrollTop(sectionValue * $(".wndow").height());
-  setTimeout(displayVerticalNav, timeValue * 1.5);
-}
-
-var timeValue = new Number(400);
-var windowViewMargin = new Number(150);
-
-$(document).ready(
-  function () {
-    if (window.location.href.indexOf("rateValue") != -1) {
-      urlValue = window.location.href;
+      $(wndow_selector).css(".copy").css("display", "none");
+      $(wndow_selector).children(copy_element_selector).css("display", "block");
+      $(headr_selector).fadeTo((time_value * 1.5), 1);
       
-      $("#sctn_5-desc-6 > span > span > sup + span").text(urlValue.slice((urlValue.indexOf("rateValue") + 10), urlValue.length));
-    }
+      blok_elements.each(
+        function () {
+          $(this).fadeTo(time_value, 1);
+        }
+      );
 
-    if (window.location.hash === "#sctn_6?pos=1" && 
-        window.location.hash.indexOf("copyValues") === -1)  {
-      $("#form-sctn_6 .form-page_1").css("display", "block");
-      $("#form-sctn_6 .form-page_1").fadeTo(timeValue, 1);
-    }
-    
-    $("#nav-link").on("mouseover", 
-      function () {
-        navLinkHoverState();
-      }
-    );
+      if (section_value === 3 || section_value === 4) {
+        sctn_nav_selector = "#nav-sctn_" + section_value;
 
-    $("#nav-link").on("mouseout", 
-      function () {
-        navLinkHoverState(); 
+        $(sctn_nav_selector).fadeTo(time_value, 1);
+      }      
+      
+      $(bkgrnd_selector).fadeTo(time_value, 0);      
+      
+      page_dimensions_Array = parseWindowDimensions();
+
+      bkgrnd_position_x = "\"" + -(page_dimensions_Array[0] * position_value) + " 0px" + "\"";
+
+      $(bkgrnd_selector).css("backgroundPosition", bkgrnd_position_x);
+
+      $(bkgrnd_selector).css("opacity", 1);
+
+      if (url_hash !== "" && url_hash != "#sctn_main")  {
+        $(nav_link_selector).fadeTo(time_value, 1);
       }
-    );
-    
-    $("#nav-link").on("click", 
-      function () {
-        slideNav();
-        
-        navLinkHoverState();
+    } else {
+      if ($(info_selector).css("opacity") === "0" && page_dimensions_Array[0] !== 980) {
+        animateInfoElement();
       }
-    );
+    }
+  } else  {
+    var nav_1_selector = new String();
+    var nav_2_selector = new String();
+    var nav_3_selector = new String();
+    var nav_4_selector = new Strin();
+    var nav_5_selector = new String();
+
+    var options_1_selector = new String();
+    var options_2_selctor = new String();
+    var options_3_selector = new String();
+
+    var wndows_selector = new String();
+    var wndow_selector = new String();
+    var cntainr_selector = new String();
+    var bkgrnd_selector = new String();
+    var sctn_nav_selector = new String();
+    var headr_selector = new String();
+    var next_nav_selector = new String();
+
+    var copy_values_string = new String();
+    var bkgrnd_value_string = new String();
+
+    var window_height = new Number();
+    var window_width = new Number();
+    var nav_width = new Number();
+    var copy_elements_length = new Number();
+
+    var inc_1 = new Number();
+
+    var copy_elements_url_Array = new Array();
+    var copy_elements_Array = new Array();
+
+    var css_1 = new Object(); // "opacity": 0, "width": -($("#nav").width())
+    var css_2 = new Object(); // "display": "none"
+    var css_3 = new Object(); // "left": -($("#nav").width())
+    var css_4 = new Object(); // "display": "block"
+    var css_5 = new Object(); // "width": $(window).width()
+    var css_6 = new Object(); // "display": "table"
+    var css_7 = new Object(); // "width": $(window).width(), "left": "0px"
+    var css_8 = new Object(); // "left": "0px"
+    var css_9 = new Object(); // "left": "0px", "opacity", 1
+    var css_10 = new Object(); // "width": $(window).width() - $("#nav").width(), "left": $("#nav").width()
+    var css_11 = new Object(); // "width": $(window).width() - $("#nav").width()
+
+    window_height = $(window).height();
+    window_width = $(window).width();
     
-    $("#options > span").on("click",
-      function () {
-        var sectionValue = new String();
-        
-        sectionValue = $(this).attr("id");
-        $(this).animate({backgroundColor: "#ccc", color: "#000"}, (navTransitionTime / 4), 
-          function () {
-            $(this).animate({backgroundColor: "#000", color: "#fff"}, (navTransitionTime / 2), 
-              function () {
-                slideNav();
-                
-                setTimeout(
-                  function () {
-                    if (sectionValue !== "sctn_main") {
-                      window.location.hash = sectionValue + "?pos=0";  
-                    } else  {
-                      window.location.hash = sectionValue;  
-                    }
-                  }, (navTransitionTime * 1.5)
-                );
-              }
-            );
+    nav_width = -($(nav_selector).width());
+    nav_position = window_width - nav_width;
+
+    nav_1_selector = "#nav";
+    nav_2_selector = "#nav-bkgrnd";
+    nav_3_selector = "#nav-brdr";
+    nav_4_selector = nav_1_selector + ", " + nav_2_selector;
+    nav_5_selector = nav_1_selector + ", " + nav_2_selector + ", " + nav_3_selector;
+
+    options_1_selector = "#options";
+    options_2_selector = "#options > span";
+    options_3_selector = options_1_selector + ", " + options_2_selctor;
+    
+    cntainr_selector = "#cntainr";
+    wndow_selector = ".wndow";
+    bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
+    sctn_nav_selector = ".sctn_nav";
+    headr_selector = ".headr";
+    next_nav_selector = "#prev-sctn, #next-sctn";
+    multiple_selector = "#info, .copy, .headr, .sctn_nav, #prev-sctn, #next-sctn";
+
+    bkgrnd_value_string = "bkgrnd=nav";
+    copy_values_string = "&copyValues";
+    
+    css_1 = {
+      "opacity": 0,
+      "width": nav_width
+    };
+
+    css_2 = {
+      "display": "none"
+    };
+
+    css_3 = {
+      "left": nav_width
+    };
+
+    css_4 = {
+      "display": "block"
+    };
+
+    css_5 = {
+      "width": window_width
+    };
+
+    css_6 = {
+      "display": "table"
+    };
+
+    css_7 = {
+      "width": window_width, 
+      "left": "0px"
+    };
+
+    css_8 = {
+      "left": "0px"
+    };
+
+    css_9 = {
+      "left": "0px", 
+      "opacity": 1
+    };
+
+    css_10 = {
+      "width": nav_position, 
+      "left": nav_width
+    };
+    
+    css_11 = {
+      "width": nav_position
+    };
+
+    if ($(nav_1_selector).css("left") === "0px")  {
+    
+      $(nav_4_selector).css("height", window_height);
+      
+      if ($(nav_selector).css("left") === "0px")  {
+        $(options_1_selector).animate(css_1, 
+          function () {          
+            $(options_3_selector).css(css_2);
+            $(nav_5_selector).animate(css_3);
           }
         );
-        
-        navLinkHoverState();
-        
       }
-    );
-    
-    $("#prev-sctn, #next-sctn").on("click", 
-      function () {
-        var currentLocation = new Number();
-        var wndowHeight = new Number();
-        var locationDifferenceValue = new Number();
-        var newLocation = new Number();
-        var sctnValue = new Number();
-        var sctnBackgroundPositionString = new String();
-        var inc_copyVisible = new Number();
-        var copyElementVisibleString = new String();
-        var wndowElementValueString = new String();
-        var URLHashString = new String();
-        
-        var pageDimensions_Array = new Array();
-        
-        currentLocation = $(window).scrollTop();
-        
-        wndowHeight = $("#wndow-sctn_1").height();
-        
-        if ($(this).attr("id") === "prev-sctn")  {
-          locationDifferenceValue = ((Math.floor(currentLocation / wndowHeight) - 1) * wndowHeight) - currentLocation;
-          
-          sctnBackgroundPositionString = "0px -111px";
-        } else {
-          if ((Math.floor(currentLocation / wndowHeight) === 0) && (window.location.hash == ""))  {
-            locationDifferenceValue = 0;
-          } else  {
-            locationDifferenceValue = ((Math.floor(currentLocation / wndowHeight) + 1) * wndowHeight) - currentLocation;
-          }
-          
-           sctnBackgroundPositionString = "0px -234px";
-        }
-        
-        newLocation = currentLocation + locationDifferenceValue;
-        
-        if (currentLocation === 0 &&
-            $("#info").css("top") !== "0px" && 
-            $("#next-sctn").css("bottom") === "8.25em")  {
-          sctnValue = 0;
-        } else {
-          if (currentLocation === 0 && 
-              window.location.hash === "#sctn_main")  {
-            sctnValue = 1;
-          } else  {
-            sctnValue = Math.floor(newLocation / wndowHeight);
-          }
-        }
-        
-        if (sctnValue > 0) {
-          inc_copyVisible = 0;
-          wndowElementValueString = "#wndow-sctn_" + sctnValue;
-          copyElementVisibleString = ".copy:nth-child(3)";
-          
-          while (inc_copyVisible < $(wndowElementValueString).children(".copy").length && 
-                 $(wndowElementValueString).children(copyElementVisibleString).css("display") === "none") { 
-            inc_copyVisible++;
-            copyElementVisibleString = ".copy:nth-child(" + (inc_copyVisible + 3) + ")";
-          } 
 
-          if (inc_copyVisible > 0 && inc_copyVisible < $(wndowElementValueString).children(".copy").length)  {
-            URLHashString = "sctn_" + sctnValue + "?pos=" + (inc_copyVisible--);
-          } else {
-            URLHashString = "sctn_" + sctnValue + "?pos=0";
-          }
-        } else {
-          if (window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) {
-            if ((sctnValue === 0) && 
-                (currentLocation === 0) && 
-                ($(window).width() === 980) && 
-                ($("#info").css("top") === "0px")) {
-              animateInfoElement();
+      copy_elements_url_Array = url_hash.split("=");
+      
+      copy_elements_length = copy_elements_url_Array.length;
+
+      copy_elements_Array = copy_elements_url_Array[copy_elements_length - 1];
+
+      for (inc_1 = 0; inc_1 < copy_elements_length; inc_1++)  {
+        wndows_selector = "#wndow-sctn_" + (inc_1 + 1);
+
+        if (!isNan(copy_elements_Array[inc_1 * 1])) {
+          copy_selector = ".copy:nth-child(" + ((copy_elements_url_Array[inc_1 * 1]) + 3) + ")";
+        
+          $(wndows_selector).children(copy_selector).css(css_4);
+        }
+      }
+
+      $(wndow_selector).css(css_5);
+      $(cntainr_selector, bkgrnd_selector).css(css_7);
+      $(sctn_nav_selector, next_nav_selector).css(css_4);
+      $(headr_selector).css(css_6);
+
+      if (url_hash.indexOf(copy_values_string) === -1) {
+        window.location.hash = "#sctn_nav?bkgrnd=base";
+      } else {
+        url_nav_value = url_hash;
+
+        if (url_hash.indexOf(bkgrnd_value_string) > -1)  {
+          url_nav_value = url_nav_value.replace("nav", "base");
+        }
+
+        window.location.hash = url_nav_value.substring(1, url_hash.indexOf(copy_values_string));
+      }
+    } else  {
+      var nav_transition = time_value / 1.25;
+
+      var copy_1_selector = new String();
+      var copy_2_selector = new String();
+
+      copy_1_selector = ".copy";
+
+      copy_elements_Array = $(".copy");
+
+      $(nav_5_selector).animate({css_8}, nav_transition, 
+        function () {
+          $(options_3_selector).css(css_4);
+          $(options_1_selector).css(css_9);
+        }
+      );
+
+      $(wndow_selector).each(
+        function () {
+          inc_1 = 0;
+          copy_2_selector = ".copy:nth-child(3)";
+          copy_elements_length = $(this).children(copy_1_selector).length;
+
+          if ($(this).children(copy_2_selector).css("display") === "none") {
+            while (inc_1 < copy_elements_length && 
+                    $(this).children(copy_2_selector).css("display") === "none") {
+              inc_1++;
+              copy_2_selector = ".copy:nth-child(" + (inc_1 + 3) + ")";
+            }
+          } else  {
+            if ($(this).attr("id") === "wndow-sctn_1") {
+              if (inc_1 === 0)  {
+                copy_url_values = copy_url_values + "0";
+              } else  {
+                copy_url_values = copy_url_values + (inc_1--);
+              }
+            } else  {
+              if (inc_1 === 0)  {
+                copy_url_values = copy_url_values + ", 0";
+              } else  {
+                copy_url_values = copy_url_values + (inc_1--);
+              }
             }
           }
-          
-          URLHashString = "sctn_main";
-          
-        }
-        
-        
-        $(this).css("backgroundPosition", sctnBackgroundPositionString);
-        
-        if ($(this).attr("id") === "prev-sctn") {
-          sctnBackgroundPositionString = "0px 0px";
-        } else {
-          sctnBackgroundPositionString = "0px -145px";
-        }
-        
-        setTimeout(function () {$(this).css("backgroundPosition", sctnBackgroundPositionString)}, navTransitionTime);
-        
-        setTimeout(function () {window.location.hash = URLHashString;}, (navTransitionTime * 1.5));
-      }
-    );
-    
-    $(".sctn_nav > div > span").on("mouseover",
-			function () {
-        var sctnNavElement = new String();
 
-        
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
-
-        if ($(sctnNavElement).css("backgroundPositionY") !== "-105px")  {
-          animateSctnNav(sctnNavElement);
-        }
-			}
-		);
-
-    $(".sctn_nav > div > span").on("mouseout",
-			function () {
-        var sctnNavElement = new String();
-        var sctnNavLinkElement = new String();
-
-        var sctnNavBaseCSS = new Object();
-
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctnNavLinkElement = "#" + $(this).parent().parent().attr("id") + " > div > div";
-        
-        sctnNavBaseCSS = {
-          backgroundPositionY: "0px"
-        };
-
-        if ($(sctnNavLinkElement).css("display") === "none" && 
-            $(sctnNavElement).css("backgroundPositionY") === "0px") {
-          $(sctnNavElement).css(sctnNavBaseCSS);
-        } else {
-          if ($(sctnNavElement).css("backgroundPositionY") !== "-105px")  {
-            animateSctnNav(sctnNavElement);
+          if (inc_1 === copy_elements_length) {
+            if ($(this).attr("id") === "wndow-sctn_1") {
+              copy_url_values = copy_url_values + "-";
+            } else  {
+              copy_url_values = copy_url_values + ",-";
+            }
+          } else  {
+            if (inc_1 > 0)  {
+              copy_url_values = copy_url_values + inc_1;
+            } else  {
+              copy_url_values = copy_url_values + "," + inc_1;
+            }
           }
         }
-        
-			}
-		);
+      );
+    }
 
-    $(".sctn_nav > div > span").on("click",
-			function () {
-        var sctnNavVisibleCSS = new Object();
-        var sctnNavElement = new String();
-        var sctnNavLinkElement = new String();
-        
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctnNavLinkElement = "#" + $(this).parent().parent().attr("id") + " > div > div";
-        
-        animateSctnNavLinks(sctnNavLinkElement);
-        
-        animateSctnNav(sctnNavElement);
-			}
-		);
+    $(cntainr_selector, bkgrnd_selector).css(css_10);
+    $(wndows_selector).css(css_11);
+    $(multiple_selector).css(css_2);
 
-		$(".sctn_nav > div > div > a").on("click",
-			function () {
-				var currentSctnNavID = $(this).parent().parent().parent().attr("id");
-				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
-				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
-				         
-        animateSctnNavLinks(currentSctnNavElement);
-        animateSctnNav(currentSctnNavIDString);
-      }
-		);
-    
-    $("#sctn_1-prev, #sctn_1-next").click(
-      function () {
-        animateFormPanes("sctn_1");
-      }
-    );
+    if (url_hash.indexOf("?") === -1) {
+      copy_url_values = copy_url_values.replace("&", "?");
+    }
 
-    $("input#sctn_1-start").on("click", 
-      function () {
-        window.location.hash = "#sctn_1?pos=1";
-
-        $("#form-sctn_1 .form-page_1").css("display", "block");
-        $("#form-sctn_1 .form-page_1").fadeTo(timeValue, 1);
-      }
-    );
-
-    $("input#sctn_5-start").on("click", 
-      function () {
-        window.location.hash = "#sctn_5?pos=1";
-      }
-    );
-    
-    $("input#sctn_5-cntct").click(
-      function () {
-        window.location.hash = "#sctn_6?pos=1";
-      }
-    );
-
-    $("input#sctn_6-start").click(
-      function () {
-        window.location.hash = "#sctn_6?pos=1";
-
-        $("#form-sctn_6 .form-page_1").css("display", "block");
-        $("#form-sctn_6 .form-page_1").fadeTo(timeValue, 1);
-      }
-    )
-    $("input#sctn_6-map").click(
-      function () {
-        window.location.href = "https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027";
-      }
-    );
-    
-    $("#sctn_6-prev, #sctn_6-next").click(
-      function () {
-        animateFormPanes("sctn_6");
-      }
-    );
-    
-    var wndowHeight = new Number();
-    var currentPosition = new Number();
-    var windowViewMargin = new Number(100);
-    
-    $(window).on("scroll", 
-      function () {
-        
-        wndowHeight = $(".wndow").height(); 
-        
-        currentPosition = $(window).scrollTop();  
-        
-        if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
-            (window.location.hash.indexOf("sctn_main") === -1) && 
-            (currentPosition > 1)) {
-          animateInfoElement();
-        }
-        
-        if ((currentPosition === 0) && 
-            (window.location.hash.indexOf("sctn_main") === -1)) {
-          window.location.hash = "#sctn_main";
-          
-        }
-        
-        if ((currentPosition >= wndowHeight) && 
-            (currentPosition < wndowHeight + windowViewMargin) && 
-            (window.location.hash.indexOf("sctn_1") === -1))  {
-              
-          sortCopyElements("sctn_1");
-        } 
-        
-        if ((currentPosition >= wndowHeight * 2) && 
-            (currentPosition < (wndowHeight * 2) + windowViewMargin) && 
-            (window.location.hash.indexOf("sctn_2") === -1))  {
-           sortCopyElements("sctn_2");
-        }   
-        
-        if ((currentPosition >= wndowHeight * 3) && 
-            (currentPosition < (wndowHeight * 3) + windowViewMargin) && 
-            (window.location.hash.indexOf("sctn_3") === -1))  {
-          sortCopyElements("sctn_3");
-        } 
-        
-        if ((currentPosition >= wndowHeight * 4) && 
-            (currentPosition < (wndowHeight * 4) + windowViewMargin) && 
-            (window.location.hash.indexOf("sctn_4") === -1))  {
-           sortCopyElements("sctn_4");
-        }
-        
-        if ((currentPosition >= wndowHeight * 5) && 
-            (currentPosition < (wndowHeight * 5) + windowViewMargin) && 
-            (window.location.hash.indexOf("sctn_5") === -1))  {
-          sortCopyElements("sctn_5");
-        }
-      
-        if ((currentPosition >= wndowHeight * 6) && 
-            (window.location.hash.indexOf("sctn_6") === -1))  {
-          sortCopyElements("sctn_6");
-        }
-
-        
-      }
-    );
-    
-    $(window).on("hashchange",
-      function () {
-        if (window.location.hash.indexOf("copyValues=") === -1) {
-          animateWindowPanes();
-        }
-        
-        if (window.location.hash === "#sctn_6?pos=1" && 
-            window.location.hash.indexOf("copyValues") === -1)  {
-          $("#form-sctn_6 .form-page_1").css("display", "block");
-          $("#form-sctn_6 .form-page_1").fadeTo(timeValue, 1);
-        }
-      }
-    );
-
-    setupPage();
-    animateWindowPanes();
-    
-    $(window).on("resize", 
-      function () {
-        setupPage();
-        animateWindowPanes();
-      }
-    );
+    setTimeout(function () {window.location.hash = copy_url_values;}, nav_transition);
   }
-);
+  
+  $(window).scrollTop(scroll_value);
+  
+  setTimeout(displayVerticalNav, time_value * 1.5);
+}
