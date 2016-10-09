@@ -1,189 +1,190 @@
 // nav.js
-var navTransitionTime = 500;
+var nav_transition_time = 500;
 
-function navLinkHoverState() {
-  var pageDimensions_Array = parseWindowDimensions();
+function navLinkHoverState() {  
+  var page_dimensions_Array = new Array();
   
-  var navScaleValue = new Number();
-  var backgroundPositionNum = new Number();
+  var nav_link_background_position_num = new Number();
   
-  var navClassString = new String();
-  var hoverState = new String();
-  var backgroundPositionValue = new String();
-  var backgroundClickStateValue = new String();
+  var nav_class = new String();
+  var hover_state = new String();
+  var nav_link_background_position_css = new String();
+  var nav_link_background_click_state = new String();
   
-  backgroundPositionValue = $("#nav-link").css("backgroundPositionY");
+  page_dimensions_Array = parseWindowDimensions();
+
+  nav_link_background_position_css = $("#nav-link").css("backgroundPositionY");
   
-  if (backgroundPositionValue.indexOf("-") === 0) {
-    backgroundPositionNum = (backgroundPositionValue.slice(1, backgroundPositionValue.indexOf("px")) * 1);  
+  if (nav_link_background_position_css.indexOf("-") === 0) {
+    nav_link_background_position_num = (nav_link_background_position_css.slice(1, nav_link_background_position_css.indexOf("px")) * 1);  
   } else {
-    backgroundPositionNum = 0;
+    nav_link_background_position_num = 0;
   }
   
-  if (pageDimensions_Array[0] === 980)  {
-    backgroundPositionNum = backgroundPositionNum / 2;
+  if (page_dimensions_Array[0] === 980)  {
+    nav_link_background_position_num = nav_link_background_position_num / 2;
   } 
   
-  backgroundClickStateValue = backgroundPositionNum + "px";
+  nav_link_background_click_state = nav_link_background_position_num + "px";
   
-  switch (backgroundClickStateValue) {
+  switch (nav_link_background_click_state) {
     case "0px":
      if ($("#options").css("display") === "block")  {
-        hoverState = "click_2";
+        hover_state = "click_2";
       } else {
-        hoverState = "hover";
+        hover_state = "hover";
       }
     break;
     
     case "-50px":
      if ($("#options").css("display") === "block")  {
-        hoverState = "click_1";
+        hover_state = "click_1";
       } else {
-        hoverState = "base";
+        hover_state = "base";
       }
     break;
     
     case "-100px":
-      hoverState = "click_2";
+      hover_state = "click_2";
     break;
     
     case "-150px":
-      hoverState = "base";
+      hover_state = "base";
     break;
   }
   
-  navClassString = "nav-link-" + hoverState;
+  nav_class = "nav-link-" + hover_state;
   
-  $("#nav-link").fadeTo((navTransitionTime / 2), 0, 
+  $("#nav-link").fadeTo((nav_transition_time / 2), 0, 
     function () {
       $("#nav-link").removeClass();
-      $("#nav-link").addClass(navClassString);
-      $("#nav-link").fadeTo((navTransitionTime / 2), 1);
+      $("#nav-link").addClass(nav_class);
+      $("#nav-link").fadeTo((nav_transition_time / 2), 1);
     }
   );
 } // END OF FUNCTION navLinkHoverState
 
 function displayVerticalNav() {
-  var currentPosition = new Number();
-  var wndowHeight = new Number();
-  var pageScrollMargin = new Number();
+  var current_position = new Number();
+  var wndow_height = new Number();
+  var page_scroll_margin = new Number();
 
-  var sctnOnCSS = new Object();
-  var sctnOffCSS = new Object();
+  var sctn_on_css = new Object();
+  var sctn_off_css = new Object();
 
-  sctnOnCSS = {
+  sctn_on_css = {
     display: "block",
     opacity: 1
   };
 
-  sctnOffCSS = {
+  sctn_off_css = {
     display: "none", 
     opacity: 0
   }
   
-  pageScrollMargin = 5;
-  wndowHeight = $(".wndow").height();
-  currentPosition = $(window).scrollTop();
+  page_scroll_margin = 5;
+  wndow_height = $(".wndow").height();
+  current_position = $(window).scrollTop();
   
-  if (currentPosition === 0)  {
-    $("#prev-sctn").css(sctnOffCSS);
+  if (current_position === 0)  {
+    $("#prev-sctn").css(sctn_off_css);
   } else {
     if ($("#prev-sctn").css("display") === "none")  {
-      $("#prev-sctn").css(sctnOnCSS);
+      $("#prev-sctn").css(sctn_on_css);
     }
     
-    if (currentPosition >= ((wndowHeight * $(".wndow").length) - wndowHeight))  {
-      $("#next-sctn").css(sctnOffCSS);
+    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height))  {
+      $("#next-sctn").css(sctn_off_css);
     } else {
       if ($("#next-sctn").css("display") === "none") {
-        $("#next-sctn").css(sctnOnCSS);
+        $("#next-sctn").css(sctn_on_css);
       }
     }
   }
 }
 
-function animateSctnNav(sctnNavElementString) {
-  var sctnNavLinkElementString = new String();
+function animateSctnNav(sctn_nav_element) {
+  var sctn_nav_link = new String();
   
-  var sctnNavBackgroundPositionYValue = new String();
+  var sctn_nav_background_position_y = new String();
 
-  var sctnNavBaseCSS = new Object();
-  var sctnNavHoverCSS = new Object();
-  var sctnNavClick1CSS = new Object();
-  var sctnNavClick2CSS = new Object();
+  var sctn_nav_base_css = new Object();
+  var sctn_nav_hover_css = new Object();
+  var sctn_nav_click1_css = new Object();
+  var sctn_nav_click2_css = new Object();
 
-  var respSctnNavBaseCSS = new Object();
-  var respSctnNavClickCSS = new Object();
+  var resp_sctn_nav_base_css = new Object();
+  var resp_sctn_nav_click_css = new Object();
         
-  sctnNavBaseCSS = {
+  sctn_nav_base_css = {
     backgroundPositionY: "0px"
   };
 
-  sctnNavHoverCSS = {
+  sctn_nav_hover_css = {
     backgroundPositionY: "-35px"
   };
 
-  sctnNavCLick1CSS = {
+  sctn_nav_click1_css = {
     backgroundPositionY: "-70px"
   };
 
-  sctnNavClick2CSS = {
+  sctn_nav_click2_css = {
     backgroundPositionY: "-105px"
   };
 
-  respSctnNavBaseCSS = {
+  resp_sctn_nav_base_css = {
     backgroundPositionY: "0px", 
     backgroundColor: "#000"
   };
 
-  respSctnNavClickCSS = {
+  resp_sctn_nav_click_css = {
     backgroundPositionY: "-210px", 
     backgroundColor: "#666"
   };
 
-  sctnNavLinkElementString = sctnNavElementString.slice(0, 12) + " > div > div";
+  sctn_nav_link = sctn_nav_element.slice(0, 12) + " > div > div";
   
-  sctnNavBackgroundPositionYValue = $(sctnNavElementString).css("backgroundPositionY");
-  $(sctnNavElementString).css("opacity", 0);
+  sctn_nav_background_position_y = $(sctn_nav_element).css("backgroundPositionY");
+  $(sctn_nav_element).css("opacity", 0);
 
   if (window.navigator.userAgent.indexOf("Mobile") === -1 && 
       window.navigator.userAgent.indexOf("Tablet") === -1)  {
-    if (sctnNavBackgroundPositionYValue === "-35px" && 
-        $(sctnNavLinkElementString).css("display") === "block") {
-      $(sctnNavElementString).css(sctnNavClick1CSS);
-      setTimeout(function () {$(sctnNavElementString).css("opacity", 0)}, (navTransitionTime / 4));
-      $(sctnNavElementString).css(sctnNavClick2CSS);
+    if (sctn_nav_background_position_y === "-35px" && 
+        $(sctn_nav_link).css("display") === "block") {
+      $(sctn_nav_element).css(sctn_nav_click1_css);
+      setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (nav_transition_time / 4));
+      $(sctn_nav_element).css(sctn_nav_click2_css);
     } else {
-      if (sctnNavBackgroundPositionYValue === "0px" || 
-          sctnNavBackgroundPositionYValue === "0%") {
-        $(sctnNavElementString).css(sctnNavHoverCSS);
+      if (sctn_nav_background_position_y === "0px" || 
+          sctn_nav_background_position_y === "0%") {
+        $(sctn_nav_element).css(sctn_nav_hover_css);
       } else {
-        if ($(sctnNavLinkElementString).css("display") === "none") {
-          $(sctnNavElementString).css(sctnNavBaseCSS);
+        if ($(sctn_nav_link).css("display") === "none") {
+          $(sctn_nav_element).css(sctn_nav_base_css);
         }
         
       }
     }
   } else {
-    if (sctnNavBackgroundPositionYValue === "0px" && 
-        $(sctnNavLinkElementString).css("display") === "block") {
-      $(sctnNavElementString).css(respSctnNavClickCSS);
+    if (sctn_nav_background_position_y === "0px" && 
+        $(sctn_nav_link).css("display") === "block") {
+      $(sctn_nav_element).css(resp_sctn_nav_click_css);
     } else {
-      $(sctnNavElementString).css(respSctnNavBaseCSS);
+      $(sctn_nav_element).css(resp_sctn_nav_base_css);
     }
   }
   
-  $(sctnNavElementString).fadeTo((navTransitionTime / 2), 1);
+  $(sctn_nav_element).fadeTo((nav_transition_time / 2), 1);
 }
 
-function animateSctnNavLinks(sctnNavLinkElement) {
-  if ($(sctnNavLinkElement).css("display") === "none")  {
-    $(sctnNavLinkElement).css("opacity", 0);
-    $(sctnNavLinkElement).css("display", "block");
-    $(sctnNavLinkElement).fadeTo((navTransitionTime / 2), 1);
+function animateSctnNavLinks(sctn_nav_link_element) {
+  if ($(sctn_nav_link_element).css("display") === "none")  {
+    $(sctn_nav_link_element).css("opacity", 0);
+    $(sctn_nav_link_element).css("display", "block");
+    $(sctn_nav_link_element).fadeTo((nav_transition_time / 2), 1);
   } else {
-    $(sctnNavLinkElement).fadeTo((navTransitionTime / 2), 1);
-    $(sctnNavLinkElement).css("display", "none");    
+    $(sctn_nav_link_element).fadeTo((nav_transition_time / 2), 1);
+    $(sctn_nav_link_element).css("display", "none");    
   }
 } 
 

@@ -1,54 +1,105 @@
 //animations.js
 function parseWindowDimensions()  {
-  var window_width = new Number();
+  /* **************** **************** **************** **************** **************** 
+   *  parseWindowDimensions collects the width and height of the 'window' DOM element 
+   *  by using the jQuery methods "$(window).width()" and "$(window).height()". 
+   * 
+   *  Once the dimensions are gathered from the browser a numerical value is set 
+   *  which corresponds with the background images for the indiviual ".wndow" elements.
+   * 
+   *  The numberical values of the height and width are passed through to the place 
+   *  of the function call by way of the Array - page_dimensions_Array.
+   * **************** **************** **************** **************** **************** */
+
+  var window_width = new Number(); 
+  // Holds the numerical value of the width of the visible area of the browser. Captured by the Method "$(window).width()"
+  
   var window_height = new Number();
+  // Holds the numerical value of the height of the visible area of the browser. Captured by the Method "$(window).height()"
   
   var page_dimensions_Array = new Array();
+  // Holds the calculated values of the width and height of the visible area of the browser. 
+  // The value is calculated by the Variables "window_width" and "window_height".
   
   window_width = $(window).width();
+  // Width of the visible area of the browser is captured.
   window_height = $(window).height();
+  // Height of the visible area of the browser is captured.
+
   
+ /* **************** **************** **************** **************** **************** 
+  * The following IF statement sets a calculated numerical constant based upon the 
+  * width and height values of "window_width" and "window_height" 
+  * **************** **************** **************** **************** **************** */
+
   if (window_width < 360) {
+  // If the window width is roughly 360px, the browser is likely a mobile device.
+  // The height of the display of a mobile device, with the width of 360px is 540px.
+  // The dimensions of the background image for a browser with a width of 360px are "360px x 540px" 
     page_dimensions_Array[0] = 360;
     page_dimensions_Array[1] = 540;
   } else {
       if (window_width <= 640) {
+      // The width value of a background image of a modern mobile device with a width of roughly 640px is "640"
+        
         page_dimensions_Array[0] = 640;
         
         if (window_height > 1000)  {
+        // The height value of a modern mobile device with a typical width of "640px" is "1136"
           page_dimensions_Array[1] = 1136;
         } 
       } else  {
         if (window_width <= 980) {
+        // The width value of a typical mobile device with a browser width of roughly "980px", also the typical width of an iPad, is "980"  
+          
           page_dimensions_Array[0] = 980;
           
           if (window_height > 1308)  {
+          // The width value of a mobile device with a height of roughly "1300px", also the typical height of an iPad, is "1740"
             page_dimensions_Array[1] = 1740;
           } else  {
+          // The width value of a mobile device with a height of roughly "1300px" is "1308"
             page_dimensions_Array[1] = 1308;  
           }
         } else {
           if (window_width <= 1024) {
+          // The width value of a mobile device with a width of roughly "1024px", also a common width of a smartphone, is "1024"
+          // The height value of a mobile device with a width of roughly "1024px", also a common width of a smartphone, is "1500"
             page_dimensions_Array[0] = 1024;
             page_dimensions_Array[1] = 1500;
           } else {
             if (window_width <= 1280) {
+            // The width value of a device with a width of roughly "1280px", also a common width of a laptop display, is "1280"
               page_dimensions_Array[0] = 1280;
               
               if (window_height <= 800) {
+              // The height value of a device with a width of roughly "1280px" which also has a browser height of less than "800px" is "800"
                 page_dimensions_Array[1] = 800;
               } else {
+                // The height value of a device with a width of roughly "1280px", which also has a browser height of greater than "800px" is "1024"
                 page_dimensions_Array[1] = 1024;
               }
             } else {
               if (window_width <= 1366) {
+              // The width value of a device with a browser width of roughly "1366px", 
+              // which also is a common browser width of a laptop display, is "1366"
+              //
+              // The height value of a device with a browser width of roughly "1366px", 
+              // which also is a common browser width of a laptop display, is "768"
                 page_dimensions_Array[0] = 1366;
                 page_dimensions_Array[1] = 768;
               } else {
                 if (window_width <= 1600) {
+                // The width value of a device with a browser width of roughly "1600px", 
+                // which also is a common browser width of a desktop or laptop display, is "1600"
+                // 
+                // The height value of a device with a browser width of roughly "1600px", 
+                // which also is a common browser width of a desktop or laptop display, is "900"
                   page_dimensions_Array[0] = 1600;
                   page_dimensions_Array[1] = 900;
                 } else {
+                  // If the browser width of a display is greater than "1600px", the width value is "1900"
+                  // If the browser width of a display is greater than "1600px", the height value is "1020"
                   page_dimensions_Array[0] = 1920;
                   page_dimensions_Array[1] = 1020;
                 }
@@ -60,7 +111,9 @@ function parseWindowDimensions()  {
   } 
   
   return page_dimensions_Array;
-}
+  // Once the width and height values have been calculated, this function returns those values in the above Array.
+
+} // END OF FUNCTION parseWindowDimensions
 
 function urlInfo() {
   var url_hash = new String();
@@ -89,9 +142,8 @@ function urlInfo() {
     url_info_Array[1] = position_value;
   }
 
-  return url_hash_info_Array;
+  return url_info_Array;
 }
-
     
 function cssAdjustment()  {
   var page_dimensions_Array = new Array();
@@ -163,7 +215,7 @@ function cssAdjustment()  {
     var info_4_css = new Object();
     var info_5_css = new Object();
     var nav_sctn_css = new Object();
-    var next_sctn_css = new Object():
+    var next_sctn_css = new Object();
 
     copy_css = {
       "marginLeft": "14.5em",
@@ -181,7 +233,6 @@ function cssAdjustment()  {
       }
     );
     
-       
     info_4_css = {
       "width": page_dimensions_Array[0],
       "height": (page_dimensions_Array[1] * 0.7)
@@ -191,13 +242,13 @@ function cssAdjustment()  {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
       "width": "480", 
       "height": "455"
-    }
+    };
     
     nav_sctn_css =  {
       width: "6.8em",
       height: "6.56em",
       margin: "0 auto"
-    }
+    };
    
     next_sctn_css = {
       right: "24.1em",
@@ -452,7 +503,6 @@ function animatePageElements()  {
   if (url_hash.indexOf("base") > -1) {
     var url_hash_info_Array = new Array();
 
-
     url_hash_info_Array = urlInfo();
 
     if (url_hash_info_Array.length === 2) {      
@@ -526,7 +576,7 @@ function animatePageElements()  {
     var nav_1_selector = new String();
     var nav_2_selector = new String();
     var nav_3_selector = new String();
-    var nav_4_selector = new Strin();
+    var nav_4_selector = new String();
     var nav_5_selector = new String();
 
     var options_1_selector = new String();
@@ -569,7 +619,7 @@ function animatePageElements()  {
     window_height = $(window).height();
     window_width = $(window).width();
     
-    nav_width = -($(nav_selector).width());
+    nav_width = -($(next_nav_selector).width());
     nav_position = window_width - nav_width;
 
     nav_1_selector = "#nav";
@@ -580,7 +630,7 @@ function animatePageElements()  {
 
     options_1_selector = "#options";
     options_2_selector = "#options > span";
-    options_3_selector = options_1_selector + ", " + options_2_selctor;
+    options_3_selector = options_1_selector + ", " + options_2_selector;
     
     cntainr_selector = "#cntainr";
     wndow_selector = ".wndow";
@@ -696,7 +746,7 @@ function animatePageElements()  {
 
       copy_elements_Array = $(".copy");
 
-      $(nav_5_selector).animate({css_8}, nav_transition, 
+      $(nav_5_selector).animate(css_8, nav_transition, 
         function () {
           $(options_3_selector).css(css_4);
           $(options_1_selector).css(css_9);
@@ -718,30 +768,30 @@ function animatePageElements()  {
           } else  {
             if ($(this).attr("id") === "wndow-sctn_1") {
               if (inc_1 === 0)  {
-                copy_url_values = copy_url_values + "0";
+                copy_values_string = copy_values_string + "0";
               } else  {
-                copy_url_values = copy_url_values + (inc_1--);
+                copy_values_string = copy_values_string + (inc_1--);
               }
             } else  {
               if (inc_1 === 0)  {
-                copy_url_values = copy_url_values + ", 0";
+                copy_values_string = copy_values_string + ", 0";
               } else  {
-                copy_url_values = copy_url_values + (inc_1--);
+                copy_values_string = copy_values_string + (inc_1--);
               }
             }
           }
 
           if (inc_1 === copy_elements_length) {
             if ($(this).attr("id") === "wndow-sctn_1") {
-              copy_url_values = copy_url_values + "-";
+              copy_values_string = copy_values_string + "-";
             } else  {
-              copy_url_values = copy_url_values + ",-";
+              copy_values_string = copy_values_string + ",-";
             }
           } else  {
             if (inc_1 > 0)  {
-              copy_url_values = copy_url_values + inc_1;
+              copy_values_string = copy_values_string + inc_1;
             } else  {
-              copy_url_values = copy_url_values + "," + inc_1;
+              copy_values_string = copy_values_string + "," + inc_1;
             }
           }
         }
@@ -753,10 +803,10 @@ function animatePageElements()  {
     $(multiple_selector).css(css_2);
 
     if (url_hash.indexOf("?") === -1) {
-      copy_url_values = copy_url_values.replace("&", "?");
+      copy_values_string = copy_values_string.replace("&", "?");
     }
 
-    setTimeout(function () {window.location.hash = copy_url_values;}, nav_transition);
+    setTimeout(function () {window.location.hash = copy_values_string;}, nav_transition);
   }
   
   $(window).scrollTop(scroll_value);

@@ -5,16 +5,24 @@ var current_position = new Number();
 
 $(document).ready(
   function () {
-    if (window.location.href.indexOf("rateValue") != -1) {
-      url = window.location.href;
-      
-      $("#sctn_5-desc-6 > span > span > sup + span").text(url.slice((url.indexOf("rateValue") + 10), url.length));
+    var url_string = new String();
+    var url_hash = new String();
+
+    url_string = window.location.href;
+    url_hash = window.location.hash;
+
+    if (url_string.indexOf("rateValue") != -1) {      
+      $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url.indexOf("rateValue") + 10), url_string.length));
     }
 
-    if (window.location.hash === "#sctn_6?pos=1&bkgrnd=base" && 
-        window.location.hash.indexOf("copyValues") === -1)  {
-      $("#form-sctn_6 .form-page_1").css("display", "block");
-      $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
+    var form_selectors = new String();
+
+    form_selectors = "#form-sctn_6 .form-page_1";
+
+    if (url_hash === "#sctn_6?pos=1&bkgrnd=base" && 
+        url_hash.indexOf("copyValues") === -1)  {
+      $(form_selectors).css("display", "block");
+      $(form_selectors).fadeTo(time_value, 1);
     }
     
     $("#nav-link").on("mouseover", 
@@ -40,31 +48,44 @@ $(document).ready(
     $("#options > span").on("click",
       function () {
         var section_value = new String();
+
+        var time_value_1 = new Number();
+        var time_Value_2 = new Number();
+        var time_value_3 = new Number();
         
-        var options_1_css = {
+        var options_1_css = new Object();
+        var options_2_css = new Object();
+
+        options_1_css = {
           "backgroundColor": "#ccc", 
           "color": "#000"
         };
 
-        var options_2_css = {
+        options_2_css = {
           "backgroundColor": "#000", 
           "color": "#fff"
-        }
+        };
+
         section_value = $(this).attr("id");
-        $(this).animate(, (navTransitionTime / 4), 
+
+        time_value_1 = time_value / 4;
+        time_value_2 = time_value / 2;
+        time_value_3 = time_value * 1.5;
+
+        $(this).animate(options_1_css, time_value_1, 
           function () {
-            $(this).animate({}, (navTransitionTime / 2), 
+            $(this).animate(options_2_css, time_value_2, 
               function () {
-                slideNav();
+                animatePageElements();
                 
                 setTimeout(
                   function () {
                     if (section_value !== "sctn_main") {
-                      window.location.hash = section_value + "?pos=0";  
+                      url_hash = section_value + "?pos=0&bkgrnd=base";  
                     } else  {
-                      window.location.hash = section_value;  
+                      url_hash = section_value + "?bkgrnd=base";  
                     }
-                  }, (navTransitionTime * 1.5)
+                  }, time_value_3
                 );
               }
             );
@@ -78,106 +99,96 @@ $(document).ready(
     
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
-        var currentLocation = new Number();
+        var current_location = new Number();
         var wndow_height = new Number();
-        var locationDifferenceValue = new Number();
-        var newLocation = new Number();
-        var sctnValue = new Number();
-        var sctnBackgroundPositionString = new String();
-        var inc_copyVisible = new Number();
-        var copyElementVisibleString = new String();
-        var wndowElementValueString = new String();
-        var URLHashString = new String();
+        var location_num = new Number();
+        var new_location = new Number();
+        var section_value = new Number();
+        var user_agent = new Number();
+
+        var inc = new Number();
+
+        var sctn_bkgrnd_position = new String();
+
+        var copy_selector = new String();
+        var wndow_selector = new String();
+
+        var url_hash = new String();
         
-        var pageDimensions_Array = new Array();
-        
-        currentLocation = $(window).scrollTop();
-        
+        current_location = $(window).scrollTop();
+        url_hash = url_hash;
+        user_agent = window.navigator.userAgent;
         wndow_height = $("#wndow-sctn_1").height();
         
         if ($(this).attr("id") === "prev-sctn")  {
-          locationDifferenceValue = ((Math.floor(currentLocation / wndow_height) - 1) * wndow_height) - currentLocation;
+          location_num = ((Math.floor(current_location / wndow_height) - 1) * wndow_height) - current_location;
           
-          sctnBackgroundPositionString = "0px -111px";
+          sctn_bkgrnd_position = "0px -111px";
         } else {
-          if ((Math.floor(currentLocation / wndow_height) === 0) && (window.location.hash == ""))  {
-            locationDifferenceValue = 0;
+          if (Math.floor(current_location / wndow_height) === 0 && 
+              (url_hash === "" || url_hash.indexOf("#sctn_main") > -1))  {
+            location_num = 0;
           } else  {
-            locationDifferenceValue = ((Math.floor(currentLocation / wndow_height) + 1) * wndow_height) - currentLocation;
+            location_num = ((Math.floor(current_location / wndow_height) + 1) * wndow_height) - current_location;
           }
           
-           sctnBackgroundPositionString = "0px -234px";
+           sctn_bkgrnd_position = "0px -234px";
         }
         
-        newLocation = currentLocation + locationDifferenceValue;
+        new_location = current_location + location_num;
         
-        if (currentLocation === 0 &&
+        if (current_location === 0 &&
             $("#info").css("top") !== "0px" && 
             $("#next-sctn").css("bottom") === "8.25em")  {
-          sctnValue = 0;
+          section_value = 0;
         } else {
-          if (currentLocation === 0 && 
-              window.location.hash === "#sctn_main")  {
-            sctnValue = 1;
+          if (current_location === 0 && 
+              url_hash === "#sctn_main")  {
+            section_value = 1;
           } else  {
-            sctnValue = Math.floor(newLocation / wndow_height);
+            section_value = Math.floor(new_location / wndow_height);
           }
         }
         
-        if (sctnValue > 0) {
-          inc_copyVisible = 0;
-          wndowElementValueString = "#wndow-sctn_" + sctnValue;
-          copyElementVisibleString = ".copy:nth-child(3)";
-          
-          while (inc_copyVisible < $(wndowElementValueString).children(".copy").length && 
-                 $(wndowElementValueString).children(copyElementVisibleString).css("display") === "none") { 
-            inc_copyVisible++;
-            copyElementVisibleString = ".copy:nth-child(" + (inc_copyVisible + 3) + ")";
-          } 
-
-          if (inc_copyVisible > 0 && inc_copyVisible < $(wndowElementValueString).children(".copy").length)  {
-            URLHashString = "sctn_" + sctnValue + "?pos=" + (inc_copyVisible--);
-          } else {
-            URLHashString = "sctn_" + sctnValue + "?pos=0";
-          }
+        if (section_value > 0) {
+          animatePageElements()
         } else {
-          if (window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) {
-            if ((sctnValue === 0) && 
-                (currentLocation === 0) && 
+          if (user_agent.indexOf("Mobile") > -1 || user_agent.indexOf("Tablet") > -1) {
+            if ((section_value === 0) && 
+                (current_location === 0) && 
                 ($(window).width() === 980) && 
                 ($("#info").css("top") === "0px")) {
               animateInfoElement();
             }
           }
           
-          URLHashString = "sctn_main";
+          url_hash = "sctn_main";
           
         }
         
         
-        $(this).css("backgroundPosition", sctnBackgroundPositionString);
+        $(this).css("backgroundPosition", sctn_bkgrnd_position);
         
         if ($(this).attr("id") === "prev-sctn") {
-          sctnBackgroundPositionString = "0px 0px";
+          sctn_bkgrnd_position = "0px 0px";
         } else {
-          sctnBackgroundPositionString = "0px -145px";
+          sctn_bkgrnd_position = "0px -145px";
         }
         
-        setTimeout(function () {$(this).css("backgroundPosition", sctnBackgroundPositionString)}, navTransitionTime);
+        setTimeout(function () {$(this).css("backgroundPosition", sctn_bkgrnd_position)}, time_value);
         
-        setTimeout(function () {window.location.hash = URLHashString;}, (navTransitionTime * 1.5));
+        setTimeout(function () {url_hash = url_hash;}, (time_value * 1.5));
       }
     );
     
     $(".sctn_nav > div > span").on("mouseover",
 			function () {
-        var sctnNavElement = new String();
+        var sctn_nav_selector = new String();
 
-        
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
+        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
 
-        if ($(sctnNavElement).css("backgroundPositionY") !== "-105px")  {
-          animateSctnNav(sctnNavElement);
+        if ($(sctn_nav_selector).css("backgroundPosition") !== "0px -105px")  {
+          animateSctnNav(sctn_nav_selector);
         }
 			}
 		);
@@ -289,50 +300,50 @@ $(document).ready(
         current_position = $(window).scrollTop();  
         
         if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
-            (window.location.hash.indexOf("sctn_main") === -1) && 
+            (url_hash.indexOf("sctn_main") === -1) && 
             (current_position > 1)) {
           animateInfoElement();
         }
         
         if ((current_position === 0) && 
-            (window.location.hash.indexOf("sctn_main") === -1)) {
+            (url_hash.indexOf("sctn_main") === -1)) {
           window.location.hash = "#sctn_main?bkgrnd=base";
           
         }
         
         if ((current_position >= wndow_height) && 
             (current_position < wndow_height + window_margin) && 
-            (window.location.hash.indexOf("sctn_1") === -1))  {
+            (url_hash.indexOf("sctn_1") === -1))  {
               
           sortCopyElements("sctn_1");
         } 
         
         if ((current_position >= wndow_height * 2) && 
             (current_position < (wndow_height * 2) + window_margin) && 
-            (window.location.hash.indexOf("sctn_2") === -1))  {
+            (url_hash.indexOf("sctn_2") === -1))  {
            sortCopyElements("sctn_2");
         }   
         
         if ((current_position >= wndow_height * 3) && 
             (current_position < (wndow_height * 3) + window_margin) && 
-            (window.location.hash.indexOf("sctn_3") === -1))  {
+            (url_hash.indexOf("sctn_3") === -1))  {
           sortCopyElements("sctn_3");
         } 
         
         if ((current_position >= wndow_height * 4) && 
             (current_position < (wndow_height * 4) + window_margin) && 
-            (window.location.hash.indexOf("sctn_4") === -1))  {
+            (url_hash.indexOf("sctn_4") === -1))  {
            sortCopyElements("sctn_4");
         }
         
         if ((current_position >= wndow_height * 5) && 
             (current_position < (wndow_height * 5) + window_margin) && 
-            (window.location.hash.indexOf("sctn_5") === -1))  {
+            (url_hash.indexOf("sctn_5") === -1))  {
           sortCopyElements("sctn_5");
         }
       
         if ((current_position >= wndow_height * 6) && 
-            (window.location.hash.indexOf("sctn_6") === -1))  {
+            (url_hash.indexOf("sctn_6") === -1))  {
           sortCopyElements("sctn_6");
         }
 
@@ -342,12 +353,12 @@ $(document).ready(
     
     $(window).on("hashchange",
       function () {
-        if (window.location.hash.indexOf("copyValues=") === -1) {
+        if (url_hash.indexOf("copyValues=") === -1) {
           animatePageElements();
         }
         
-        if (window.location.hash.indexOf("#sctn_6?pos=1") > -1 && 
-            window.location.hash.indexOf("copyValues") === -1)  {
+        if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
+            url_hash.indexOf("copyValues") === -1)  {
           $("#form-sctn_6 .form-page_1").css("display", "block");
           $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
         }
@@ -355,12 +366,12 @@ $(document).ready(
     );
 
     setupPage();
-    animateWindowPanes();
+    animatePageElements();
     
     $(window).on("resize", 
       function () {
         setupPage();
-        animateWindowPanes();
+        animatePageElements();
       }
     );
   }
