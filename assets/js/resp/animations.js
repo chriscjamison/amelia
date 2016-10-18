@@ -10,7 +10,7 @@ function parseWindowDimensions()  {
   
 /*  window.alert("windowWidth = " + windowWidth);
   window.alert("windowHeight = " + windowHeight);*/
-  
+  l
   if (windowWidth < 360) {
     pageDimensions_Array[0] = 360;
     pageDimensions_Array[1] = 540;
