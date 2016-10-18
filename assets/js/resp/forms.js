@@ -50,25 +50,13 @@ function formData(sectionValue, questionValue) {
   
   var i = new Number();
 
-  // window.alert("formData");
-  
   if (questionValue === "start")  {
     var URLString = new String();
     
     URLString = "#" + sectionValue + "?pos=1";
     
     window.location.hash = URLString;
-    // window.alert(URLString);
   } else {
-    
-    questionPath = "/amelia/assets/ajax/" + sectionValue + "/no_";
-    
-    questionSuffix = ".htm";
-    
-    // window.alert("sectionValue = " + sectionValue);
-    
-    // window.alert("questionPath = " + questionPath);
-    
     switch (questionValue) {
       case "initial":
         questionNum = 1;
@@ -81,26 +69,27 @@ function formData(sectionValue, questionValue) {
     
     for (i = 2; i <= 4; i = i * 2)  {
       questionData_Array[i] = "#" + sectionValue + "-clmn-" + (i / 2);
-      
-      // window.alert("i = " + i);
     }
+    
+    questionPath = "/amelia/assets/ajax/" + sectionValue + "/no_";
+    
+    questionSuffix = ".htm";
     
     questionData_Array[0] = sectionValue;
     
     questionData_Array[1] = questionPath + questionNum + questionSuffix;
-      
-    // window.alert("questionData_Array[2] = " + questionData_Array[2]);
     
     questionData_Array[3] = questionPath + (questionNum + 1) + questionSuffix;
-      
-    // window.alert("questionData_Array[4] = " + questionData_Array[4]);
     
+    
+
     loadFormContent(questionData_Array);
-    
+
     if (questionValue === "submit")  {
       URLString = "#" + sectionValue + "?pos=2";
-      
+
       window.location.hash = URLString;  
     } 
   }
-}
+
+ 

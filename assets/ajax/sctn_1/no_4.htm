@@ -6,14 +6,14 @@
 	</span>
 	<fieldset>
 		<div>
-			<select name="harm">
+			<select name="harm" id="harm">
 				<option value="default" selected>- Select One -</option>
-				<option value="tght">Thought of</option>
-				<option value="phys">Physically harmed</option>
-				<option value="netr">Neither</option>
+				<option value="thought">Thought of</option>
+				<option value="harmed">Physically harmed</option>
+				<option value="neither">Neither</option>
 			</select>
 		</div>
 	</fieldset>
 </div>
-<input type="button" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" onclick="formData('sctn_1', 'submit');" />
+<input type="button" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" onclick="window.location.hash = '#sctn_1?pos=2';" />
 <input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" onclick="formData('sctn_1', 'initial');" />
