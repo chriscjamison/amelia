@@ -242,7 +242,7 @@ $(document).ready(
         // window.alert("currentLocation = " + currentLocation);
         // window.alert("sctnValue = " + sctnValue);
         // window.alert("window.location.hash.indexOf(\"sctn_main\") = " + window.location.hash.indexOf("sctn_main"));
-        if (sctnValue > 0 && window.location.hash.indexOf("sctn_main") !== -1) {
+        if (sctnValue > 0 && window.location.hash !== "") {
           if (window.location.hash.indexOf("pos=") >= 0)  {
             URLHashString = "sctn_" + sctnValue + "?pos=" + window.location.hash.charAt(window.location.hash.indexOf("pos=") + 4);
           } else {
