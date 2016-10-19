@@ -246,16 +246,55 @@ function urlInfo() {
 } /* **************** END OF FUNCTION "urlInfo" **************** */
     
 function cssAdjustment()  {
+  /* **************** **************** **************** **************** **************** 
+   *  urlInfo scans the hash, as referenced by, "window.location.hash",
+   *  for the values for Section Value and Position Value.
+   * 
+   *  The values for Section Value and Position Value are used 
+   *  by the functions, "setupPage" and "animatePageElements", to navigate 
+   *  to the location within the webpage and display the corresponding background image 
+   *  and content for the section of the page that the Section Value 
+   *  and Position value reference.
+   * **************** **************** **************** **************** **************** */
+  
   var page_dimensions_Array = new Array();
+  // Holds the width and height of the browser window.
+  // 
+  // The width and height values are calculated by "parseWindowDimensions" and passed on 
+  // to "pageDimensions_Array".
 
   var next_sctn_1_css = new Object();
+  // Holds CSS properties and values of "width", "height", "paddingTop", "right", bottom", 
+  // "backgroundImage", and "backgroundPosition".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#next-sctn".
   var next_sctn_2_css = new Object();
+  // Holds CSS properties and values of "width", "height", "paddingTop", "right", "bottom", 
+  // "backgroundImage, and "backgroundPosition".
+  //
+  // The values contained within this object, format the HTML elements using the 
+  // selectors, "#prev-sctn > span" and "#next-sctn > span".
   var prev_sctn_css = new Object();
+  // Holds CSS properties and values of "width", "height", "paddingTop", "right", bottom", 
+  // "backgroundImage", and "backgroundPosition".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#prev-sctn".
   var info_1_css = new Object();
+  // Holds the CSS properties and values of "width", "height", "bottom", and "right".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#info". 
   var info_2_css = new Object();
-  var copy_css = new Object();
-  
+  // Holds the HTML attributes and values of "src", "width", and "height".
+  // 
+  // The values contained within this object, format the HTML element 
+  // idtentified by the selector, "#info > img".
+    
   page_dimensions_Array = parseWindowDimensions();
+  // The width and height of the browser window is passed to "pageDimensions_Array" by 
+  // the function, "parseWindowDimensions".
   
   if (page_dimensions_Array[0] >= 1260)  {
     if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
@@ -299,15 +338,61 @@ function cssAdjustment()  {
       };
    
       $("#next-sctn").css(next_sctn_1_css);
+      // The HTML element identified by the selector, "#next-sctn", is formatted by 
+      // using the CSS properties held by the Object, "next_sctn_1_css".
+      // 
+      // The Method, "css", is meant to alter the HTML element, "#next-sctn", to best 
+      // render within a desktop or laptop browser.
       $("#prev-sctn").css(prev_sctn_css);
+      // The HTML element identified by the selector, "#prev-sctn", is formatted by 
+      // using the CSS properties held by the Object, "prev_sctn_css".
+      // 
+      // The Method, "css", is meant to alter the HTML element, "#prev-sctn", to best 
+      // render within a desktop or laptop browser.
       $("#prev-sctn > span, #next-sctn > span").css(next_sctn_2_css);  
-      
-      $("#info").css(info_1_css); 
+      // The HTML elements identified by the selectors, 
+      // "#prev-sctn > span" and "#next-sctn > span", are formatted by 
+      // using the CSS properties held by the Object, "prev_sctn_css".
+      // 
+      // The Method, "css", is meant to alter the HTML elements, 
+      // "#prev-sctn > span" and "#next-sctn > span" to best  
+      // render within a desktop or laptop browser.
+      $("#info").css(info_1_css);
+      // The HTML element identified by the selector, "#prev-sctn", is formatted by 
+      // using the CSS properties held by the Object, "prev_sctn_css".
+      // 
+      // The Method, "css", is meant to alter the HTML element, "#prev-sctn", to best 
+      // render within a desktop or laptop browser.
       $("#info > img").attr(info_2_css);
+      // The HTML element identified by the selector, "#info > img", is formatted by 
+      // using the CSS properties held by the Object, "info_2_css".
+      // 
+      // The Method, "css", is meant to alter the HTML element, "#info > img", to best 
+      // render within a desktop or laptop browser.
     
       $("#prev-sctn > span").html("Click to view the previous section");
+      // The navigation "arrow" which navigates a visitor from one section 
+      // to the previous section has the text, "Click to view the previous section", 
+      // added to the SPAN element holding the "arrow".
       $("#next-sctn > span").html("Click to view the next section");
-    }  
+      // The navigation "arrow" which navigates a visitor from one section 
+      // to the next section has the text, "Click to view the next section", 
+      // added to the SPAN element holding the "arrow".
+    }
+
+    /* IF STATEMENT LOGIC ************** **************** **************** **************** 
+   *  I - If the height of the browser has a value greater than "1260".
+   *    A. If the browser is NOT a mobile browser.
+   *      1. Initialize the values of the Objects which will contain CSS properties 
+   *         and values meant to format various HTML elements.
+   * 
+   *  II - If the value of, "position_string", IS FOUND WITHIN, "url_hash".
+   *    A.  Store values within, "url_info_Array".
+   *      1.  Set the first value of the array, "url_info_Array", to the value
+   *          of, "section_value".
+   *      2.  Set the second value of the array, "url_info_Array", to the value 
+   *          of, "position_value". 
+   * **************** **************** **************** **************** **************** */
   }
     
   if ($(window).width() === 980)  {
