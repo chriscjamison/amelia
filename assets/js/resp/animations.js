@@ -13,10 +13,12 @@ function parseWindowDimensions()  {
    * **************** **************** **************** **************** **************** */
 
   var window_width = new Number(); 
-  // Holds the numerical value of the width of the visible area of the browser. Captured by the Method "$(window).width()"
+  // Holds the numerical value of the width of the visible area of the browser. 
+  // Captured by the Method "$(window).width()"
   
   var window_height = new Number();
-  // Holds the numerical value of the height of the visible area of the browser. Captured by the Method "$(window).height()"
+  // Holds the numerical value of the height of the visible area of the browser. 
+  // Captured by the Method "$(window).height()"
   
   var page_dimensions_Array = new Array();
   // Holds the calculated values of the width and height of the visible area of the browser. 
@@ -35,28 +37,35 @@ function parseWindowDimensions()  {
 
   if (window_width < 360) {
   // If the window width is roughly 360px, the browser is likely a mobile device.
+  // 
   // The height of the display of a mobile device, with the width of 360px is 540px.
-  // The dimensions of the background image for a browser with a width of 360px are "360px x 540px" 
+  //
+  // The dimensions of the background image for a browser 
+  // with a width of 360px are "360px x 540px" 
     page_dimensions_Array[0] = 360;
     page_dimensions_Array[1] = 540;
   } else {
       if (window_width <= 640) {
-      // The width value of a background image of a modern mobile device with a width of roughly 640px is "640"
+      // The width value of a background image of a modern mobile device 
+      // with a width of roughly 640px is "640"
         
         page_dimensions_Array[0] = 640;
         
         if (window_height > 1000)  {
-        // The height value of a modern mobile device with a typical width of "640px" is "1136"
+        // The height value of a modern mobile device with a typical width 
+        // of "640px" is "1136"
           page_dimensions_Array[1] = 1136;
         } 
       } else  {
         if (window_width <= 980) {
-        // The width value of a typical mobile device with a browser width of roughly "980px", also the typical width of an iPad, is "980"  
+        // The width value of a typical mobile device with a browser width 
+        // of roughly "980px", also the typical width of an iPad, is "980"  
           
           page_dimensions_Array[0] = 980;
           
           if (window_height > 1308)  {
-          // The width value of a mobile device with a height of roughly "1300px", also the typical height of an iPad, is "1740"
+          // The width value of a mobile device with a height of roughly "1300px", 
+          // also the typical height of an iPad, is "1740"
             page_dimensions_Array[1] = 1740;
           } else  {
           // The width value of a mobile device with a height of roughly "1300px" is "1308"
@@ -64,20 +73,26 @@ function parseWindowDimensions()  {
           }
         } else {
           if (window_width <= 1024) {
-          // The width value of a mobile device with a width of roughly "1024px", also a common width of a smartphone, is "1024"
-          // The height value of a mobile device with a width of roughly "1024px", also a common width of a smartphone, is "1500"
+          // The width value of a mobile device with a width of roughly "1024px", 
+          // also a common width of a smartphone, is "1024"
+          // 
+          // The height value of a mobile device with a width of roughly "1024px", 
+          // also a common width of a smartphone, is "1500"
             page_dimensions_Array[0] = 1024;
             page_dimensions_Array[1] = 1500;
           } else {
             if (window_width <= 1280) {
-            // The width value of a device with a width of roughly "1280px", also a common width of a laptop display, is "1280"
+            // The width value of a device with a width of roughly "1280px", 
+            // also a common width of a laptop display, is "1280"
               page_dimensions_Array[0] = 1280;
               
               if (window_height <= 800) {
-              // The height value of a device with a width of roughly "1280px" which also has a browser height of less than "800px" is "800"
+              // The height value of a device with a width of roughly "1280px", 
+              // which also has a browser height of less than "800px", is "800"
                 page_dimensions_Array[1] = 800;
               } else {
-                // The height value of a device with a width of roughly "1280px", which also has a browser height of greater than "800px" is "1024"
+                // The height value of a device with a width of roughly "1280px", 
+                // which also has a browser height of greater than "800px", is "1024"
                 page_dimensions_Array[1] = 1024;
               }
             } else {
@@ -99,8 +114,11 @@ function parseWindowDimensions()  {
                   page_dimensions_Array[0] = 1600;
                   page_dimensions_Array[1] = 900;
                 } else {
-                  // If the browser width of a display is greater than "1600px", the width value is "1900"
-                  // If the browser width of a display is greater than "1600px", the height value is "1020"
+                  // If the browser width of a display is greater than "1600px", 
+                  // the width value is "1900"
+                  // 
+                  // If the browser width of a display is greater than "1600px", 
+                  // the height value is "1020"
                   page_dimensions_Array[0] = 1920;
                   page_dimensions_Array[1] = 1020;
                 }
@@ -112,29 +130,94 @@ function parseWindowDimensions()  {
   } 
   
   return page_dimensions_Array;
-  // Once the width and height values have been calculated, this function returns those values in the above Array.
+  // Once the width and height values have been calculated, 
+  // this function returns those values in the above Array.
 
-} // END OF FUNCTION parseWindowDimensions
+} /* **************** END OF FUNCTION "parseWindowDimensions" **************** */
 
 function urlInfo() {
+  /* **************** **************** **************** **************** **************** 
+   *  urlInfo scans the hash, as referenced by, "window.location.hash",
+   *  for the values for Section Value and Position Value.
+   * 
+   *  The values for Section Value and Position Value are used 
+   *  by the functions, "setupPage" and "animatePageElements", to navigate 
+   *  to the location within the webpage and display the corresponding background image 
+   *  and content for the section of the page that the Section Value 
+   *  and Position value reference.
+   * **************** **************** **************** **************** **************** */
+  
   var url_hash = new String();
+  // Holds the string which is returned by the HTML DOM property, "window.location.hash".
+
+  var section_string = new String();
+  // Holds the string, "sctn_", which is searched for within, "url_hash".
+  var position_string = new String();
+  // Holds the string, "pos=", which is searched for within, "url_hash".
   
   var section_index_num = new Number();
+  // Holds the value that the Method, "indexOf", returns 
+  // when the string, "sctn_" is searched for within, "url_hash". 
   var position_index_num = new Number();
-
+  // Holds the value that the Method, "indexOf", returns 
+  // when the string, "pos=" is searched for within, "url_hash".
+  
   var section_value = new String();
+  // Holds the character at the location within, "url_hash", that lies 
+  // at the value found by combining the value held by "section_index_num" and 
+  // the length of the string held by, "section_string".
+  // 
+  // The length of the string held by, "section_string", 
+  // is added to the value within, "section_index_num", to 
+  // capture the character stored at the end of the search string, "section_string". 
   var position_value = new String();
-  
+  // Holds the character at the location within, "url_hash", that lies 
+  // at the value found by combining the value held by "position_index_num" and 
+  // the length of the string held by, "position_string".
+  // 
+  // The length of the string held by, "section_string", 
+  // is added to the value within, "section_index_num", to 
+  // capture the character stored at the end of the search string, "section_string".
   var url_info_Array = new Array();
- 
+  // Holds the String values referencing the Section Value and Position Value 
+  // which are contained within the string held by, "url_hash".
+  //
+  // The array is passed on to the functions which call, "urlInfo"; 
+  // "setupPage" and "animatePageElements".
+
   url_hash = window.location.hash; 
+  // The value of, "window.location.hash", is stored within, "url_hash".
+
+  section_string = "sctn_";
+  // The string, "sctn_", is stored within, "section_string". 
+  //
+  // NOTE: If the hash name is changed within the HTML of index.htm, 
+  // the value stored within, "section_string", must be changed.
+  position_string = "pos=";
+  // The string, "pos=", is stored within, "position_string". 
   
-  section_index_num = url_hash.indexOf("sctn_");
-
+  section_index_num = url_hash.indexOf(section_string);
+  // The Method, "indexOf", searches, "url_hash", for the string held by, "section_string".
+  // 
+  // The value produced by, "indexOf", is stored within, "section_index_num".
   position_index_num = url_hash.indexOf("pos=");
+  // The Method, "indexOf", searches, "url_hash", for the string held by, "position_string".
+  // 
+  // The value produced by, "indexOf", is stored within, "position_index_num".
 
-  section_value = url_hash.charAt(section_index_num + 5);
-  position_value = url_hash.charAt(position_index_num);
+  section_value = url_hash.charAt(section_index_num + section_string.length);
+  // "section_value" collects the character stored within, "url_hash" that lies 
+  // at the end of the string stored within, "section_string".
+  //
+  // The value of "section_value" is also the Section Value contained within 
+  // the hash value contained in the URL.
+  
+  position_value = url_hash.charAt(position_index_num + position_string.length);
+  // "section_value" collects the character stored within, "url_hash" that lies 
+  // at the end of the string stored within, "section_string".
+  //
+  // The value of "section_value" is also the Section Value contained within 
+  // the hash value contained in the URL.
 
   if (position_index_num === -1)  {
     url_info_Array[0] = "main";
@@ -143,8 +226,24 @@ function urlInfo() {
     url_info_Array[1] = position_value;
   }
 
+  /* IF STATEMENT LOGIC ************** **************** **************** **************** 
+   *  I - If the value of, "position_string", CANNOT BE FOUND WITHIN, "url_hash".
+   *    A.  Store values within "url_info_Array" 
+   *      1.  Set the first value of the array, "url_info_Array", to the string, "main".
+   * 
+   *  II - If the value of, "position_string", IS FOUND WITHIN, "url_hash".
+   *    A.  Store values within, "url_info_Array".
+   *      1.  Set the first value of the array, "url_info_Array", to the value
+   *          of, "section_value".
+   *      2.  Set the second value of the array, "url_info_Array", to the value 
+   *          of, "position_value". 
+   * **************** **************** **************** **************** **************** */
+
   return url_info_Array;
-}
+  // "url_info_Array" is passed on to the point within the function, 
+  // either, "setupPage", or, "animatePageElements", that called "urlInfo".
+
+} /* **************** END OF FUNCTION "urlInfo" **************** */
     
 function cssAdjustment()  {
   var page_dimensions_Array = new Array();
