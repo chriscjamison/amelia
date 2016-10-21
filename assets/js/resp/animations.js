@@ -379,45 +379,37 @@ function cssAdjustment()  {
       // to the next section has the text, "Click to view the next section", 
       // added to the SPAN element holding the "arrow".
     }
-
-    /* IF STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - If the height of the browser has a value greater than "1260".
-   *    A. If the browser is NOT a mobile browser.
-   *      1. Initialize the values of the Objects which will contain CSS properties 
-   *         and values meant to format various HTML elements.
-   * 
-   *  II - If the value of, "position_string", IS FOUND WITHIN, "url_hash".
-   *    A.  Store values within, "url_info_Array".
-   *      1.  Set the first value of the array, "url_info_Array", to the value
-   *          of, "section_value".
-   *      2.  Set the second value of the array, "url_info_Array", to the value 
-   *          of, "position_value". 
-   * **************** **************** **************** **************** **************** */
   }
     
   if ($(window).width() === 980)  {
     var copy_css = new Object();
+    // Holds the CSS value for the property, "marginLeft", which is used to 
+    // position the HTML elements using the selector, ".copy", to appear 
+    // within the browser window as they were designed.
     var info_4_css = new Object();
+    // Holds the CSS values for the properties, "width" and "height". 
+    // 
+    // These values format the HTML element using the selector, "#info".
     var info_5_css = new Object();
-    var nav_sctn_css = new Object();
+    // Holds the HTML attributes, "src", "width", and "height", for the 
+    // HTML element using the selector, "#info > img".
+    //
+    // These attributes format the HTML element using the selector, "#info > img".
     var next_sctn_css = new Object();
+    // Holds the CSS values for the properties, "right", "backgroundImage", 
+    // and "backgroundPosition".
+    //
+    // These values format the HTML element using the selector, "#next-sctn".
+    var nav_sctn_css = new Object();
+    // Holds the CSS values for the properties, "width", "height", and "margin".
+    //
+    // These values format the HTML elements using the selectors, 
+    // "#prev-sctn > span" and "#next-sctn > span".
 
     copy_css = {
       "marginLeft": "14.5em",
-     }
-     
-    $(".copy").each(
-      function () {
-        switch ($(this).parent().attr("id").charAt(11))  {
-          case "1":
-            copy_css.width = "770px";
-          break;
-        }
+    };
         
-        $(this).css(copy_css);
-      }
-    );
-    
     info_4_css = {
       "width": page_dimensions_Array[0],
       "height": (page_dimensions_Array[1] * 0.7)
@@ -429,27 +421,83 @@ function cssAdjustment()  {
       "height": "455"
     };
     
+    next_sctn_css = {
+      right: "24.1em",
+      backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
+      backgroundPosition: "0px -234px"
+    };
+
     nav_sctn_css =  {
       width: "6.8em",
       height: "6.56em",
       margin: "0 auto"
     };
    
-    next_sctn_css = {
-      right: "24.1em",
-      backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPositionY: "-234px"
-    };
-    
+    $(".copy").each(
+      function () {
+        switch ($(this).parent().attr("id").charAt(11))  {
+          case "1":
+            copy_css.width = "48.13em";
+          break;
+        } // END OF SWITCH STATEMENT
+        
+        /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
+        *  I - If the parent of this ".copy" element is #wndow-sctn_1"
+        *    A.  Set the "width" of the element to "48.13em". 
+        * **************** **************** **************** **************** **************** */
+        
+        $(this).css(copy_css);
+        // Sets the value of the CSS property as they are held within the Object, "copy_css".
+        //
+        // The current HTML element, ".copy", is positioned in the middle of the page, just below 
+        // the HTML element using the selector, ".headr", for the section being cycled through.
+      }
+    ); // END OF Method ".each"
+
     $("#info").css(info_4_css);
+    // Sets the CSS properties, "width" and "height", of the HTML element using the selector, "#info", 
+    // using the values held by, "info_4_css".
+    // 
+    // The HTML element, "#info", is formatted to take up the full width of the browser window, 
+    // and "70%" of the height of that browser window.
     $("#info > img").attr(info_5_css);
-    
+    // Sets the HTML attributes, "src", "width", and "height", 
     $("#next-sctn").css(next_sctn_css);
     $("#prev-sctn > span, #next-sctn > span").css(nav_sctn_css);
    
     $("#prev-sctn > span").html("");
     $("#next-sctn > span").html("Press to view the next section");
-  } 
+  } // END OF IF STATEMENT
+
+  /* IF STATEMENT LOGIC ************** **************** **************** **************** 
+   *  I - If the height of the browser has a value greater than "1260".
+   *    A. If the browser is NOT a mobile browser.
+   *      1. Initialize the values of the Objects which will contain CSS properties 
+   *         and values meant to format various HTML elements.
+   *         a. The HTML element using the selector, "#next-sctn", which also serves 
+   *            as a navigation button, is formatted to fit a desktop or laptop display.
+   *         b. The HTML element using the selector, "#prev-sctn", which also serves 
+   *            as a navigation button, is formatted to fit a desktop or laptop display.
+   *         c. The HTML elements using the selectors, 
+   *            "#prev-sctn > span" and "#next-sctn > span", which holds text which 
+   *            describes the function of the corresponding naviation buttons.
+   *         d. The HTML element using the selector, "#info", is positioned on the page 
+   *            in the place is it designed to appear within a desktop or laptop display.
+   *         e. The HTML element using the selector, "#info > img", is 
+   *            to format the IMG contained within the tag using the selector, "#info" 
+   *            to appear on a display larger than the mobile version 
+   *            which serves as the default.
+   *         f. The HTML element using the selector, "#prev-sctn > span", is passed text 
+   *            which describes the function of the navigation button it is associated with.
+   *         g. The HTML element using the selector, "#prev-sctn > span", is passed text 
+   *            which describes the function of the navigation button it is associated with.
+   *  II - If the value of, "position_string", IS FOUND WITHIN, "url_hash".
+   *    A.  Store values within, "url_info_Array".
+   *      1.  Set the first value of the array, "url_info_Array", to the value
+   *          of, "section_value".
+   *      2.  Set the second value of the array, "url_info_Array", to the value 
+   *          of, "position_value". 
+   * **************** **************** **************** **************** **************** */ 
 }
 
 function setupPage()  {
