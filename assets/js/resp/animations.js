@@ -461,12 +461,41 @@ function cssAdjustment()  {
     // The HTML element, "#info", is formatted to take up the full width of the browser window, 
     // and "70%" of the height of that browser window.
     $("#info > img").attr(info_5_css);
-    // Sets the HTML attributes, "src", "width", and "height", 
+    // Sets the HTML attributes, "src", "width", and "height", of the HTML element 
+    // using the selector, "#info > img", using the values held by, "info_5_css".
+    // 
+    // The HTML element, "#info > img", is passed these attributes to display a smaller 
+    // image to fit a mobile browser.
+
     $("#next-sctn").css(next_sctn_css);
+    // Sets the CSS properties, "right", "backgroundImage", "backgroundPosition", 
+    // of the HTML element using the selector, "#next-sctn", using the values held by, 
+    // "next_sctn_css".
+    //
+    // These values are passed to the HTML element, "#next-sctn", to format this element 
+    // to function as a navigation button within a mobile browser.
     $("#prev-sctn > span, #next-sctn > span").css(nav_sctn_css);
-   
+    // Sets the CSS properties, "width", "height", and "margin", of the HTML elements 
+    // using the selectors, "#prev-sctn > span" and "#next-sctn > span", using values 
+    // held by, "nav_sctn_css".
+    // 
+    // The HTML elements, "#prev-sctn > span" and "#next-sctn > span", are formatted 
+    // to have a smaller width and height than these elements would have within the 
+    // default desktop or laptop display. The elements also are horizontally centered 
+    // within the browser window.
+
     $("#prev-sctn > span").html("");
+    // Removes the HTML from the HTML element using the selector, "#prev-sctn > span".
+    //
+    // The above HTML element has text to describe the navigation function of this element.
+    // The Method, ".html", strips that HTML.
     $("#next-sctn > span").html("Press to view the next section");
+    // Sets the HTML from the HTML element using the selector, "#next-sctn > span"
+    // to "Press to view the next section".
+    //
+    // The above HTML element lacks text to describe the navigation function of this element.
+    // The Method, ".html", adds the descriptive text, "Press to view the next section", 
+    // to the HTML element. 
   } // END OF IF STATEMENT
 
   /* IF STATEMENT LOGIC ************** **************** **************** **************** 
@@ -489,16 +518,35 @@ function cssAdjustment()  {
    *            which serves as the default.
    *         f. The HTML element using the selector, "#prev-sctn > span", is passed text 
    *            which describes the function of the navigation button it is associated with.
-   *         g. The HTML element using the selector, "#prev-sctn > span", is passed text 
+   *         g. The HTML element using the selector, "#next-sctn > span", is passed text 
    *            which describes the function of the navigation button it is associated with.
-   *  II - If the value of, "position_string", IS FOUND WITHIN, "url_hash".
-   *    A.  Store values within, "url_info_Array".
-   *      1.  Set the first value of the array, "url_info_Array", to the value
-   *          of, "section_value".
-   *      2.  Set the second value of the array, "url_info_Array", to the value 
-   *          of, "position_value". 
-   * **************** **************** **************** **************** **************** */ 
-}
+   *  II - If the width of the browser is "980".
+   *    A. Initialize Objects to hold CSS properties and values.
+   *    B. Cycle through every HTML element using the selector, ".copy".
+   *      1. If the current HTML element has a parent HTML element which uses 
+   *         the selector, "#wndow-sctn_1".
+   *         a. Set the width of the current HTML element to, "48.13em".
+   *      2. Set the value of the CSS property, "marginLeft", to "14.5em".
+   *    C. The HTML element, "#info", is formatted to take up the width 
+   *       of the browser window and 70% of the height of the browser window.
+   *    D. The HTML element using the selector, "#info > img", is passed HTML attributes 
+   *       which formats the element to best fit within a mobile browser.
+   *    E. The HTML element using the selector, "#next-sctn", is passed CSS values 
+   *       which sets the image of the navigation "arrow" to a smaller size than the 
+   *       default desktop or laptop display. The HTML element is also horizontally 
+   *       centered within the browser window.
+   *    F. The HTML elements using the selectors, 
+   *       "#prev-sctn > span" and "#next-sctn > span", are passed CSS values which format
+   *       the HTML elements to a smaller width and height than the default desktop or 
+   *       laptop display. These HTML elements are also horizontally centered within the 
+   *       browser window.
+   *    G. The HTML element using the selector, "#prev-sctn > span", 
+   *       has its HTML stripped.
+   *    H. The HTML element using the selector, "#next-sctn > span", has HTML 
+   *       describes the navigation function of the element.
+   * **************** **************** **************** **************** **************** */
+
+} /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
 function setupPage()  {
   var page_dimensions_Array = new Array();
