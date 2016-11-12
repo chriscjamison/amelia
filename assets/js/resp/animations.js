@@ -549,26 +549,88 @@ function cssAdjustment()  {
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
 function setupPage()  {
+  /* **************** **************** **************** **************** **************** 
+  * setupPage initializes the rendering of the HTML elements 
+  * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
+  *   
+  * This function also initializes the placement of the intrapage navigation 
+  * which uses "arrows". These arrows appear on the far-right side of the browser window 
+  * within a desktop or laptop display and in the top and bottom middle 
+  * of a mobile display .
+  * 
+  * Based upon the width and height values calculated by, "parseWindowDimensions", 
+  * which are returned to the Array, "page_dimensions_Array", the values 
+  * of the CSS properties, "width" and "height" are applied to the HTML elements using 
+  * the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd". 
+  * 
+  * The HTML elements, using the selectors, "#bkgrnd > div", has it's, "background image", 
+  * property set by a jQuery bit of code which loads images based upon the 
+  * "width" and "height" values passed on to the Array, "page_dimensions_Array".
+  * **************** **************** **************** **************** **************** */
+
   var page_dimensions_Array = new Array();
-  var url_info_Array = new Array();
+  // Holds the "width" and "height" values of the browser window.
+  // 
+  // The width and height values are call by "parseWindowDimensions" and passed on 
+  // to "page_dimensions_Array".
   
   var page_height = new Number();
+  // Holds the total height of the loaded web page.
+  // 
+  // "page_height" is calculated by multiplying the height of the browser frame, 
+  // as it is calculated by the jQuery Method, "$(window).height()", 
+  // and the total number of HTML elements using the selector, ".wndow".
   
   var cntainr_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#cntainr". 
   var wndow_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML elements 
+  // identified by the selector, ".wndow". 
   var bkgrnd_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#bkgrnd". 
   var copy_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML elements 
+  // identified by the selector, ".copy". 
   
   var inc_bkgrnd = new Number();
+  // Holds a number which represents the Section Value of the background image 
+  // loaded within a given HTML element using the selector, "#bkgrnd > div".
+  //  
+  // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
   
   var bkgrnd_1_selector = new String();
+  // Holds a String representing the selector of the HTML element being modified by 
+  // the jQuery Method, ".each".
+  //
+  // The HTML element is one of the many elements defined 
+  // by the selector, "#bkgrnd > div".
   var bkgrnd_img_value = new String();
+  // Holds a String defining the value of the CSS property, "background-image", 
+  // which is used within the jQuery Method, ".each", as it is used for 
+  // the HTML elements using the selectors, "#bkgrnd > div".
   
   cssAdjustment();
-  
+  // cssAdjusment is called to render various HTML elements of the webpage 
+  // within the browser window.
+
   page_dimensions_Array = parseWindowDimensions();
-  url_info_Array = urlInfo();
+  // The calculated values for the "width" and "height" of various 
+  // HTML elements of the webpage within the browser window 
+  // are passed on to "page_dimensions_Array".
   page_height = $(window).height() * $(".wndow").length;
+  // The value for "page_height" is determined by multiplying the value 
+  // calculated by the jQuery Method, "$(window).height()", and 
+  // the number of HTML elements using the selector, ".wndow".
   
   cntainr_css = {
     "width": page_dimensions_Array[0],
@@ -589,21 +651,42 @@ function setupPage()  {
     "height": page_dimensions_Array[1]
   };
   
-  $(".wndow").css(wndow_css);
-  $("#bkgrnd").css(bkgrnd_css);
- 
   $("#cntainr").css(cntainr_css);
+  // The values of the CSS properties, "width" and "height" are modified 
+  // using the jQuery Method, ".css".
+  //
+  // The HTML element using the selector, "#cntainr", has it's CSS 
+  // values of "width" and "height" set to equal the width 
+  // of the browser window and the height of the webpage.
+  $(".wndow").css(wndow_css);
+  // The values of the CSS properties, "width" and "height" are modified
+  // using the jQuery Method, ".css".
+  //
+  // The HTML elements using the selector, ".wndow", have its CSS 
+  // values set to match the values of the browser width and height, 
+  // as calculated by "parseWindowDimensions". 
+  
+  $("#bkgrnd").css(bkgrnd_css);
+  // The values of the CSS properties, "width" and "height" are modified 
+  // using the jQuery Method, ".css".
+  //
+  // The HTML element using the selector, "#bkgrnd", has its CSS 
+  // values set to match the values of the browser width and height, 
+  // as calculated by "parseWindowDimensions". 
    
   inc_bkgrnd = 0;
-  
+  // "inc_bkgrnd" serves as an incrementer which increases in value as 
+  // the jQuery Method, ".each", cycles through the HTML elements defined 
+  // by the selector, "#bkgrnd > div".
+
   $("#bkgrnd > div").each(
     function () {
       if (inc_bkgrnd > 0) {
         bkgrnd_1_selector = "#wndow-sctn_" + inc_bkgrnd;
         
-        bkgrndWidth =  page_dimensions_Array[0] * $(bkgrnd_1_selector).children(".copy").length;
+        bkgrnd_width =  page_dimensions_Array[0] * $(bkgrnd_1_selector).children(".copy").length;
         bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
-                            inc_bkgrnd + "/" + bkgrndWidth + "x" + page_dimensions_Array[1] + 
+                            inc_bkgrnd + "/" + bkgrnd_width + "x" + page_dimensions_Array[1] + 
                             ".jpg')";      
 
         bkgrnd_css.backgroundImage = bkgrnd_img_value;
@@ -617,10 +700,51 @@ function setupPage()  {
       
       inc_bkgrnd++;
     }
-  );
-  
+  ); // END OF .each METHOD
+
+  /* .each STATEMENT LOGIC ************** **************** **************** **************** 
+   *  I - If the value of "inc_bkgrnd" is greater than "0".
+   *    A. If the background being modified is not the background for "#sctn_main".
+   *      1. Set the value of "bkgrnd_1_selector" equal to the combination of 
+   *         the string, "#wndow-sctn_" and the value of "inc_bkgrnd".
+   *            a. The value of, "bkgrnd_1_selector", serves as selector which is modified 
+   *               within this Method.
+   *      2. Calculate the value of the width of a background image by multiplying 
+   *         the value of the browser width and height 
+   *         as calculated by "parseWindowDimensions" and store that value within 
+   *         "bkgrnd_width".
+   *      3. Determine the value of the String which will serve as the value 
+   *         for the CSS property, "background-image".
+   *            a. The string is made up of the path to the file which holds the 
+   *               background image which is loaded within the HTML element being 
+   *               modified by this Method.
+   *      4. The value, determined in Step I-A-3, is added to the Object, "bkgrnd_css". 
+   *  II - If the value of "inc_bkgrnd" is "0".
+   *      A. Determine the valueof the String which will serve as the value 
+   *         for the CSS property, "background-image".
+   *            a. The string is made up of the path to the file which holds the 
+   *               background image which is loaded within the HTML element being 
+   *               modified by this Method.
+   *  III - Set the CSS values of the HTML element, defined by the selector 
+   *        held by "bkgrnd_selector".
+   *      A. The CSS properties, "width", "height", and "background-image", are modified 
+   *         by the values held within the Object, "bkgrnd_css".
+   *  IV - The value of "inc_bkgrnd" increased by "1".
+   * 
+   * * **************** **************** **************** **************** **************** */
+
   setTimeout(displayVerticalNav, time_value * 2);
-}
+  // The intrapage navigation, which appears on the far-right side of the browser 
+  // within a desktop or laptop display, or in the middle of the page 
+  // within a mobile display is activate.
+  // 
+  // The function runs after a period of time after the other HTML elements of the web page 
+  // are rendered. The time period is twice the value held by the variable, "time_value".
+  // 
+  // The value of, "time_period" is defined as a global variable and is located
+  // near the top of this file.
+
+} // END OF FUNCTION setupPage
 
 
 function animateInfoElement() {
