@@ -731,7 +731,7 @@ function setupPage()  {
    *         by the values held within the Object, "bkgrnd_css".
    *  IV - The value of "inc_bkgrnd" increased by "1".
    * 
-   * * **************** **************** **************** **************** **************** */
+   * **************** **************** **************** **************** **************** */
 
   setTimeout(displayVerticalNav, time_value * 2);
   // The intrapage navigation, which appears on the far-right side of the browser 
@@ -748,33 +748,71 @@ function setupPage()  {
 
 
 function animateInfoElement() {
+  /* **************** **************** **************** **************** **************** 
+   * animateInfoElement animates the content of the HTML element 
+   * defined by the selector, "#info".
+   * 
+   * If a browser runs on a mobile device and has a width of "980px", 
+   * the contents of, "#info", are animated using different CSS values than those same 
+   * contents run within a desktop or laptop browser, or with a larger browser width.
+   * **************** *************** **************** **************** **************** */
+
   var page_dimensions_Array = new Array();
+  // Holds the "width" and "height" values of the browser window.
+  // 
+  // The width and height values are call by "parseWindowDimensions" and passed on 
+  // to "page_dimensions_Array".
   
   page_dimensions_Array = parseWindowDimensions();
+  // The calculated values for the "width" and "height" of various HTML elements 
+  // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
   if (page_dimensions_Array[0] === 980) {
     var info_css = new Object();
-    var sctn_bttm_css = new Object();
-    var sctn_height_1_css = new Object();
-    var sctn_height_2_css = new Object();
+    // Holds the value for the CSS property, "top"
+    // 
+    // The value of this Object will modify the HTML element identified 
+    // by the selector, "#info".
+    // 
+    // The value is calculated by determining the "height" of "#info" 
+    // and then the inverse of that value.
+    var next_sctn_css = new Object();
+    // Holds the values for the CSS properties, "height" and "bottom".
+    // 
+    // The values of this Object will modify the HTML element identified 
+    // by the selector, "#next-sctn".
+    var prev_sctn_css = new Object();
+     // Holds the value for the CSS property, "height".
+    // 
+    // The value of this Object will modify the HTML element identified 
+    // by the selector, "#prev-sctn".
     var nav_sctn_css = new Object();
+     // Holds the value for the CSS property, "display".
+    // 
+    // The value of this Object will modify the HTML elements identified 
+    // by the selectors, "#prev-sctn > span" and "#next-sctn > span".
     var nav_css = new Object();
+     // Holds the value for the CSS property, "block".
+    // 
+    // The value of this Object will modify the HTML elements identified 
+    // by the selectors, "nav", "#nav-bkgrnd", and "#nav-brdr".
     var nav_link_css = new Object();
+     // Holds the value for the CSS property, "opacity".
+    // 
+    // The value of this Object will modify the HTML element identified 
+    // by the selector, "#nav-link".
     
     info_css = {
       "top": -($("#info").height())
     };
     
-    sctn_bttm_css = {
+    next_sctn_css = {
+      "height": "35px", 
       "bottom": "1.56em"
     };
     
-    sctn_height_1_css = {
+   prev_sctn_css = {
       "height": "25px"
-    };
-
-    sctn_height_2_css = {
-      "height": "35px"
     };
     
     nav_sctn_css = {
@@ -790,31 +828,77 @@ function animateInfoElement() {
     };
     
     $("#info").animate(info_css);
-  
+    // Animates the HTML element identified by the selector, "#info" 
+    // from it's initial "visible" position and "hides" it from view 
+    // by scrolling "#info" up and out of view. 
+    // 
+    // The animation is initiated by the jQuery Method, ".animate".
     $("#next-sctn > span").html("");
-    $("#next-sctn").css(sctn_bttm_css);
-    $("#next-sctn").css(sctn_height_2_css);
+    // The description above the "arrow", held by the HTML element 
+    // identified by the selector, "#next-sctn > span", is stripped 
+    // 
+    // The text is stripped using the jQuery Method, ".html".
+    $("#next-sctn").css(next_sctn_css);
+    // The "arrow", which is used to lead the visitor to the next section 
+    // is placed near the center-bottom of the browser window. 
+    // Also, the size of the "arrow" is decreased.
+    //
+    // The position size are changed using the jQuery Method, ".css".
+  
+    $("#prev-sctn").css(next_sctn_height_css);
+    // The "arrow", which is used to lead the visitor to the previous section 
+    // has it's size decreased.
     
-
-    $("#prev-sctn").css(sctn_height_1_css);
     $("#prev-sctn > span, #next-sctn > span").animate(nav_sctn_css);
-    
+    // Fades the HTML elements which holds "arrows" which serve as links 
+    // to intrapage navigation are brought into view.
+    // 
+    // The elements brought into view are animated using the 
+    // jQuery Method, ".animate".    
     $("nav, #nav-bkgrnd, #nav-brdr").css(nav_css);
-    $("#nav-link").animate(nav_link_css, 800);		
+    // The intrapage navigation HTML elements are made available for view.
+    // 
+    // The elements brought into view are made visible using the 
+    // jQuery Method, ".css".
+    $("#nav-link").animate(nav_link_css, 800);
+    // The "hamburger navigation icon" is the only element will be viewable.
+    // 
+    // The "icon" is made viewable by using the jQuery Method, ".animate".		
   } else {
-    var logo_1_css = {
+    var logo_1_css = new Object();
+    // Holds the value for the CSS property, "display".
+    // 
+    // The value of this Object will modify the HTML elements 
+    // using the selectors, "#info" and "#info > img".
+    var logo_2_css = new Object();
+    // Holds the value for the CSS property, "opacity".
+    // 
+    // The value of this Object will modify the HTML element
+    // using the selector, "#info". 
+    var logo_3_css = new Object();
+    // Holds the value for the CSS property, "display".
+    // 
+    // The value of this Object will modify the HTML elements 
+    // using the selectors, "#info ul li".
+    var logo_4_css = new Object();
+    // Holds the values for the CSS properties, "display" and "opacity".
+    // 
+    // The value of this Object will modify the HTML elements 
+    // using the selector, "#info ul".
+    
+    logo_1_css = {
 			display: "block"
 		};
 		
-    var logo_2_css = {
+    logo_2_css = {
       opacity: 1
-    }
+    };
     
-		var logo_3_css = {
+		logo_3_css = {
 			display: "inherit"
 		};
 		
-		var logo_4_css = {
+	  logo_4_css = {
 			display: "block",
       opacity: 1
 		};
@@ -823,9 +907,27 @@ function animateInfoElement() {
     time_value_2 = time_value * 1.5;
 
     $("#wndow-sctn_main").show("drop", time_value_1);
+    // This jQuery Method, "show", "drops" or animates the panel which serves 
+    // as the background of the logo and other items on the landing page 
+    // down from the top of the browser window.
+    // 
+    // This animation occurs over an interval which is twice the time of 
+    // a "menu" HTML element to animate.
 		$("#info").css(logo_1_css).css(logo_2_css);
+    // Allow the HTML element, which uses the selctor, "#info", to be visible 
+    // within a browser window. The "display" CSS property is set to "display" 
+    // and the "opacity" of "#info" is set to "1".
+    //
+    // The CSS values are applied using the jQuery Method, ".css".
+    //
+    // The jQuery Method, ".css", is used twice because using both variables 
+    // within one ".css" call would make the HTML element, "#info" visibly flash. 
     $("#info > img").css(logo_1_css);
-    
+    // The HTML element using the selctor, "#info > img" is made visible by 
+    // setting the "display" CSS property to "block".
+    //
+    // The CSS values are applied using the jQuery Method, ".css".
+
     $("#info > img").delay(time_value).fadeTo(time_value_2, 1, 
       function () {
         $("#info ul li").css(logo_3_css);
@@ -837,16 +939,48 @@ function animateInfoElement() {
           }
         );		
 			}
-		);
-  }
-}
+		); // END OF METHOD .fadeTo
+    /* .fadeTo STATEMENT LOGIC ********* **************** **************** **************** 
+     *  I - Fade the HTML element, using the selector, "#info > img" 
+     *      from an opacity of "0" to "1".
+     *    A. Only run this function after delaying for a time span of a value calculated 
+     *       by multiplying the value of "time_value" by "2".
+     *  II - Set the CSS values of various HTML elements to allow those elements 
+     *       top appear visible.
+     *    A. Make the HTML elements using the selector, "#info ul li" visible.
+     *    B. Make the HTML element using the selector, "#info ul" visible.
+     *  III - Fade in the individual bullet points.
+     *    A. For every bullet point, 
+     *       or HTML element identified by the selector, "#info ul li", fade in 
+     *       that bullet point over a time span of a value calculated by multiplying 
+     *       the value of "time_value" by "1.5".
+     * **************** **************** **************** **************** **************** */
+
+  } // END OF if STATEMENT
+} // END OF FUNCTION animateInfoElement
 
 function sortCopyElements(section_value) {
+  /* **************** **************** **************** **************** **************** 
+   * sortCopyElements determines which HTML content within a given "section" 
+   * is made visible.
+   * 
+   * The function accepts the parameter, "section_value", which directs the function to 
+   * sort through the HTML content to find the HTML element using the selector, ".copy", 
+   * which holds the content which a visitor wants to view.
+   * **************** *************** **************** **************** **************** */
   var wndow_selector = new String();
+  // Holds a String which matches the selector of the ".copy" HTML element which is 
+  // being examined by the logic of an ".each" jQuery Method.
   
   var position_value = new Number();
+  // Holds a Number which identifies the individual, ".copy" HTML element containing 
+  // the HTML content which a visitor wants to view.
   
   var inc = new Number();
+  // Holds an incrementer used by an ".each" jQuery Method.
+  // 
+  // "inc" is used to increment through various ".copy" HTML elements which 
+  // are identified by the selector held by "wndow_selector".
   
   if (section_value === null)  {
     $(".copy").each(
@@ -859,11 +993,17 @@ function sortCopyElements(section_value) {
       }
     );
     
-    return position_value;  
+    /* .each METHOD LOGIC ************* **************** **************** **************** 
+    *  I - For every ".copy" HTML element, determine if the value 
+    *      of the CSS property, "display", is "block". 
+    *    A. If the CSS value of the current ".copy" HTML element is set to "block".
+    *       1. Set "position_value" to the value of "inc".
+    *    B. Increment the value of "inc".  
+    * **************** **************** **************** **************** **************** */
   } else {
     wndow_selector = "#wndow-" + section_value + " > .copy";
     
-    $(wndowElementString).each(
+    $(wndow_selector).each(
       function () {
         if ($(this).css("display") === "block") {
           position_value = inc;
