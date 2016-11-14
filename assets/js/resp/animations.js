@@ -442,9 +442,9 @@ function cssAdjustment()  {
         } // END OF SWITCH STATEMENT
         
         /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
-        *  I - If the parent of this ".copy" element is #wndow-sctn_1"
-        *    A.  Set the "width" of the element to "48.13em". 
-        * **************** **************** **************** **************** **************** */
+         *  I - If the parent of this ".copy" element is #wndow-sctn_1"
+         *    A.  Set the "width" of the element to "48.13em". 
+         * **************** **************** **************** **************** **************** */
         
         $(this).css(copy_css);
         // Sets the value of the CSS property as they are held within the Object, "copy_css".
@@ -550,23 +550,23 @@ function cssAdjustment()  {
 
 function setupPage()  {
   /* **************** **************** **************** **************** **************** 
-  * setupPage initializes the rendering of the HTML elements 
-  * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
-  *   
-  * This function also initializes the placement of the intrapage navigation 
-  * which uses "arrows". These arrows appear on the far-right side of the browser window 
-  * within a desktop or laptop display and in the top and bottom middle 
-  * of a mobile display .
-  * 
-  * Based upon the width and height values calculated by, "parseWindowDimensions", 
-  * which are returned to the Array, "page_dimensions_Array", the values 
-  * of the CSS properties, "width" and "height" are applied to the HTML elements using 
-  * the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd". 
-  * 
-  * The HTML elements, using the selectors, "#bkgrnd > div", has it's, "background image", 
-  * property set by a jQuery bit of code which loads images based upon the 
-  * "width" and "height" values passed on to the Array, "page_dimensions_Array".
-  * **************** **************** **************** **************** **************** */
+   * setupPage initializes the rendering of the HTML elements 
+   * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
+   *   
+   * This function also initializes the placement of the intrapage navigation 
+   * which uses "arrows". These arrows appear on the far-right side of the browser window 
+   * within a desktop or laptop display and in the top and bottom middle 
+   * of a mobile display .
+   * 
+   * Based upon the width and height values calculated by, "parseWindowDimensions", 
+   * which are returned to the Array, "page_dimensions_Array", the values 
+   * of the CSS properties, "width" and "height" are applied to the HTML elements using 
+   * the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd". 
+   * 
+   * The HTML elements, using the selectors, "#bkgrnd > div", has it's, "background image", 
+   * property set by a jQuery bit of code which loads images based upon the 
+   * "width" and "height" values passed on to the Array, "page_dimensions_Array".
+   * **************** **************** **************** **************** **************** */
 
   var page_dimensions_Array = new Array();
   // Holds the "width" and "height" values of the browser window.
@@ -744,7 +744,7 @@ function setupPage()  {
   // The value of, "time_period" is defined as a global variable and is located
   // near the top of this file.
 
-} // END OF FUNCTION setupPage
+} /* **************** END OF FUNCTION "setupPage" **************** */
 
 
 function animateInfoElement() {
@@ -957,7 +957,16 @@ function animateInfoElement() {
      * **************** **************** **************** **************** **************** */
 
   } // END OF if STATEMENT
-} // END OF FUNCTION animateInfoElement
+  /* if STATEMENT LOGIC ********* **************** **************** **************** 
+   *  I - If the width of the browser is equal to "980px", 
+   *      animate the HTML elements contained by, "#info", to conform 
+   *      to a mobile browser. 
+   *      from an opacity of "0" to "1".
+   *  II - Otherwise, animate the HTML elements contained by, "#info", 
+   *       to conform to a desktop or laptop browser.
+   * 
+   * **************** **************** **************** **************** **************** */
+} /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
 function sortCopyElements(section_value) {
   /* **************** **************** **************** **************** **************** 
@@ -982,44 +991,39 @@ function sortCopyElements(section_value) {
   // "inc" is used to increment through various ".copy" HTML elements which 
   // are identified by the selector held by "wndow_selector".
   
-  if (section_value === null)  {
-    $(".copy").each(
-      function () {
-        if ($(this).css("display") === "block") {
-          position_value = inc;
-        }
-        
-        inc++;
-      }
-    );
-    
-    /* .each METHOD LOGIC ************* **************** **************** **************** 
-    *  I - For every ".copy" HTML element, determine if the value 
-    *      of the CSS property, "display", is "block". 
-    *    A. If the CSS value of the current ".copy" HTML element is set to "block".
-    *       1. Set "position_value" to the value of "inc".
-    *    B. Increment the value of "inc".  
-    * **************** **************** **************** **************** **************** */
-  } else {
-    wndow_selector = "#wndow-" + section_value + " > .copy";
-    
-    $(wndow_selector).each(
-      function () {
-        if ($(this).css("display") === "block") {
-          position_value = inc;
-        }
-        
-        inc++;
-      }
-    );
-    
-    url_hash = "#" + sectionValue + "?pos=" + positionValue;
-    
-    window.location.hash = url_hash;
-  }
   
+  wndow_selector = "#wndow-" + section_value + " > .copy";
+  
+  $(wndow_selector).each(
+    function () {
+      if ($(this).css("display") === "block") {
+        position_value = inc;
+      }
+      
+      inc++;
+    }
+  );
+  /* .each METHOD LOGIC ************* **************** **************** **************** 
+   *  I - For every ".copy" HTML element, determine if the value 
+   *      of the CSS property, "display", is "block". 
+   *    A. If the CSS value of the current ".copy" HTML element is set to "block".
+   *       1. Set "position_value" to the value of "inc".
+   *    B. Increment the value of "inc".  
+   * **************** **************** **************** **************** **************** */
+  
+  url_hash = "#" + sectionValue + "?pos=" + positionValue;
+  // Assemble the URL hash which will determine which location within the page 
+  // that the browser will display after "sortCopyElements" is complete.  
+  window.location.hash = url_hash;
+  // Set the URL hash to the value contained within, "url_hash".
+
   setTimeout(function() {displayVerticalNav();}, time_value);
-}
+  // Activates the function, "displayVerticalNav", which displays intrapage navigation.
+  //
+  // "displayVerticalNav" is activated after a period which is equal to the 
+  // value of "time_value".
+
+} /* **************** END OF FUNCTION "sortCopyElements" **************** */
 
 function animateFormPanes(section_value) {
   form_id = "#form-" + section_value;
