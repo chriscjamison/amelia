@@ -1026,10 +1026,45 @@ function sortCopyElements(section_value) {
 } /* **************** END OF FUNCTION "sortCopyElements" **************** */
 
 function animateFormPanes(section_value) {
-  form_id = "#form-" + section_value;
+  /* **************** **************** **************** **************** **************** 
+   * animateFormPanes animates the content of the HTML elements which make up 
+   * the Screening, Rate, and Contact forms.
+   * **************** *************** **************** **************** **************** */
+
+  var form_id = new String();
+  // Holds the selector of the HTML form which, "animateFormPanes", is modifying.
+  //
+  // The value held by, "form_id", is made up of the String snippet, "#form-" 
+  // and the Section Value parameter which is passed to, "animateFormPanes", when 
+  // a button which triggers an action of the form which is a request 
+  // for more form options.
+  
+  var page_1_selector = new String();
+  // Holds the selector of the "<DIV>" element which holds the HTML content which 
+  // makes up form options for the Screening, Rate, or Contact form.
+  //
+  // This variable holds the selector of the first "page" of a given form.
+  var page_2_selector = new String();
+  // Holds the selector of the "<DIV>" element which holds the HTML content which 
+  // makes up form options for the Screening, Rate, or Contact form.
+  //
+  // This variable holds the selector of the second "page" of a given form.
+  
+  form_id = "#form-" + section_value; 
+  // Sets the value of, "form_id", to the combination of the String, "#form", 
+  // and the value held by, "section_value".w
+  //
+  // This statement defines part of the selector of the form which, "animateFormPanes", 
+  // will alter.
 
   page_1_selector = form_id + " .form-page_1";
   page_2_selector = form_id + " .form-page_2";
+  // Sets the values of the selectors, held by, "page_1_selector" and "page_2_selector"
+  // which are a combination of the String value held by "form_id" and the String to follow.
+  //
+  // The variables are used to determine which form "pane" is visible and also 
+  // to animate and make visible or make invisible each form pane depending 
+  // on the form pane a visitor is viewing and interacting with.
 
  if ($(page_1_selector).css("display") === "block")  {
     $(page_1_selector).fadeTo(time_value, 0);
@@ -1044,7 +1079,33 @@ function animateFormPanes(section_value) {
     $(page_1_selector).css("display", "block");
     $(page_1_selector).fadeTo(time_value, 1);
   }
-}
+  /* if STATEMENT LOGIC ********* **************** **************** **************** 
+   *  I - The first form pane is visible. 
+   *    A. Fade out the first form pane.
+   *      1. The time span which the animation runs is equal to the value of 
+   *         the variable, "time_value".
+   *        a. "time_value" is a global variable which sets the amount of time an 
+   *           an animation is to last.
+   *    B. Make the first form pane invisible.
+   *      1. The first form pane has it's CSS property, "display", set to "none".
+   *    C. Make the second form pane visible.
+   *      1. The second form pane has it's CSS property, "display", set to "block". 
+   *    D. Fade in the second window pane
+   *      1. The time span which the animation runs is equal to the value of 
+   *         the variable, "time_value".    
+   *  II - The second form pane is visible.
+   *    A. Fade out the second form pane.
+   *      1. The time span which the animation runs is equal to the value of 
+   *         the variable, "time_value".
+   *    B. Make the second form pane invisible.
+   *      1. The second form pane has it's CSS property, "display", set to "none".
+   *    C. Make the first form pane visible.
+   *      1. The first form pane has it's CSS property, "display", set to "block". 
+   *    D. Fade in the first window pane
+   *      1. The time span which the animation runs is equal to the value of 
+   *         the variable, "time_value".       
+   * **************** **************** **************** **************** **************** */
+} /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animatePageElements()  {
   var url_hash = window.location.hash;
