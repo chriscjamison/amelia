@@ -1,5 +1,43 @@
 
 //animations.js
+
+/* **************** **************** **************** **************** **************** 
+   * "animations.js" holds the various functions which modify various HTML elements 
+   * and create transition type animations using those elements.
+   * 
+   * ~~~ LIST OF FUNCTIONS ~~~
+   *  parseWindowDimensions 
+   *    Collects the width and height of the browser.
+   * 
+   *  urlInfo 
+   *    Scans the hash, as referenced by, "window.location.hash" 
+   *    for the "Section" and "Position" values.
+   * 
+   *  cssAdjustment
+   *    Adjusts the placement of various HTML elements within the browser window 
+   *    based upon the parameters of the browser a visitor is viewing.
+   * 
+   *  setupPage 
+   *    Initializes the rendering of the HTML elements within the browser window.
+   *  
+   *  animateInfoElement
+   *    Animates the content of the HTML element defined by the selector, "#info".
+   * 
+   *  sortCopyElements
+   *    Determines which HTML content within a given "Section" is made visible.
+   *    - Uses parameter - "section_value":String
+   * 
+   *  animateFormPanes
+   *    Animates the content of the HTML elementw which make up 
+   *    the Screening, Rate, and Contact forms.
+   *    - Uses parameter - "section_value":String
+   * 
+   *  animatePageElements
+   *    Triggers a sequence of modifications of CSS values and properties and animations 
+   *    of various HTML elements which fire when a user 
+   *    activates a menu option, intrapage, or intrasection option.
+   * **************** *************** **************** **************** **************** */
+
 function parseWindowDimensions()  {
   /* **************** **************** **************** **************** **************** 
    *  parseWindowDimensions collects the width and height of the 'window' DOM element 
@@ -247,14 +285,16 @@ function urlInfo() {
     
 function cssAdjustment()  {
   /* **************** **************** **************** **************** **************** 
-   *  urlInfo scans the hash, as referenced by, "window.location.hash",
-   *  for the values for Section Value and Position Value.
+   *  cssAdjustment adjusts the placement within the browser window of various 
+   *  HTML elements based upon the parameters of the browser a visitor is using.
    * 
-   *  The values for Section Value and Position Value are used 
-   *  by the functions, "setupPage" and "animatePageElements", to navigate 
-   *  to the location within the webpage and display the corresponding background image 
-   *  and content for the section of the page that the Section Value 
-   *  and Position value reference.
+   *  One set of values are used to modify HTML elements if the browser is a mobile one.
+   *  Another set of values are used to adjust other HTML elements depending 
+   *  on the width of a browser used by a visitor using a desktop or laptop.
+   * 
+   *  The HTML elements which "cssAdjustment" modifies are:
+   *    "#prev-sctn", "#next_sctn", "#prev-sctn > span", "#next-sctn > span", "#info", 
+   *    #info > img", and ".copy". 
    * **************** **************** **************** **************** **************** */
   
   var page_dimensions_Array = new Array();
@@ -1079,7 +1119,7 @@ function animateFormPanes(section_value) {
     $(page_1_selector).css("display", "block");
     $(page_1_selector).fadeTo(time_value, 1);
   }
-  /* if STATEMENT LOGIC ********* **************** **************** **************** 
+  /* if STATEMENT LOGIC ************** **************** **************** **************** 
    *  I - The first form pane is visible. 
    *    A. Fade out the first form pane.
    *      1. The time span which the animation runs is equal to the value of 
@@ -1108,79 +1148,230 @@ function animateFormPanes(section_value) {
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animatePageElements()  {
-  var url_hash = window.location.hash;
+  /* **************** **************** **************** **************** **************** 
+   * "animateePageElements" Triggers a sequence of modifications of CSS values and 
+   * properties and animations of various HTML elements which fire when a user 
+   * activates a menu option, intrapage, or intrasection option.
+   * 
+   * The function has a number of purposes.
+   *    1. Determine the hash of the URL, if there is one.
+   *    2  Allow for the page elements to be rendered within the browser.
+   *    3. Make the Sections within the page invisible while the menu is activated 
+   *    4. Make the invisible sections of the page visible 
+   *       after a menu option is activated.
+   * **************** *************** **************** **************** **************** */
+  
+  var url_hash = new String ();
+  // Holds the string which is returned by the HTML DOM property, "window.location.hash".
+  
+  url_hash = window.location.hash;
+  // The current URL hash that is returned from, "window.location.hash", 
+  // is passed to url_hash.
+  //
+  // The Method, "window.location.hash", is a JavaScript DOM Method.
 
   if (url_hash.indexOf("base") > -1) {
     var url_hash_info_Array = new Array();
+    // Holds the Section and Position values which are extracted from the URL hash.
 
     url_hash_info_Array = urlInfo();
+    // The Section and Position values are passed on to "url_hash_info_Array" from 
+    // the call of the function, "urlInfo".
 
     if (url_hash_info_Array.length === 2) {      
       var section_value = new String();
+      // Holds the Section value of the URL hash.
       var position_value = new String();
+      // Holds the Position value of the URL hash.
 
       var wndow_selector = new String();
+      // Holds the combination of the String value, "#wndow-sctn_" and the value 
+      // held by, "section_value", to form a selector for an HTML element.
+      // 
+      // The variable is used to modify the CSS values of the decendents of the 
+      // HTML element which is defined by the selector held by, "wndow_selector".
       var wndows_selector = new String();
+      // Holds the String value, ".wndow", to form a selector for an HTML object.
+      // 
+      // The HTML element which this selector describes is used, along with the value 
+      // of "section_value", to determine the "Y-coordinate" within the webpage 
+      // to scroll to once this function is called.
       var copy_element_selector = new String();
+      // Holds the combination of the String value, ".copy:nth-child(", 
+      // the sum of, "position_value" and the number, "3", and the String value, 
+      // ")", to form a selector.
+      // 
+      // This selector is used to define an Array of HTML elements 
+      // and also modify the CSS value of, "display" for another HTML element.
+      
       var sctn_nav_selector = new String();
+      // Holds the combination of the String value, "#nav-sctn_" and the value 
+      // of "section_value" to form a selector for an HTML element.
+      // 
+      // This selector is used to fade in the intrapage navigation for a section 
+      // with multiple HTML elements using the selector, ".copy".
       var bkgrnd_selector = new String();
+      // Holds the combination of the String value, "#bkgrnd-sctn_" and the value 
+      // of "section_value" to form a selector for an HTML element.
+      // 
+      // The selector is used to fade out the background image using this selector 
+      // and to change the CSS values for the properties, "backgroundPosition" and "opacity". 
       var nav_link_selector = new String();
+      // Holds the String value, "#nav-link", to form a selector.
+      // 
+      // The selector is used to identify an HTML element which makes up 
+      // the main intrapage navigation, which is located in the upper-left 
+      // of the browser window. The jQuery Method, ".fadeTo", is used to fade the 
+      // link "in" to visibility.
       var info_selector = new String();
+      // Holds the String value, "#info", to form a selector.
+      // 
+      // The selector used to identify an HTML element which has the CSS property, 
+      // "opacity", read for the purpose of determining if the HTML element is visible.
 
-      var bkgrnd_position_x = new String();
+      var bkgrnd_position = new String();
+      // Holds the String value of the CSS property, "backgroundPosition".
+      // 
+      // The value is calculated by combining the String value, "\"", the product of 
+      // multiplying the calculated browser width and "position_value". 
+      // After the product is found, it is inverted. The String value, " 0px" is 
+      // cocatenated to the end of this String.
+      // 
+      // This value is used to position the background of a given Section.
 
       var blok_elements = new Object();
+      // Holds an Array containing the "<div>" HTML elements which fall under 
+      // the "<div>" element which "animatePageElements" is processing.
+      // 
+      // The HTML elements contained within, "blok_elements", are made to 
+      // fade "into" visibility.
       var page_dimensions_Array = new Array();
+      // Holds the browser width and height values as calculated by "parseWindowDimensions".
+      // 
+      // The values contained by, "page_dimensions_Array", are used 
+      // to calculate the value held by, "bkgrnd_position", and determine 
+      // if "animateInfoElement" ought to be run.
 
       var scroll_value = new Number();
+      // 
+
+      var bkgrnd_css = new Object();
+      // Holds the values for the CSS properties, "backgroundPosition" and "opacity".
+      // 
+      // The values are used to position the background element for the section, 
+      // "animatePageElements" and fade in the background element into visibility. 
 
       section_value = url_hash_info_Array[0];
+      // Sets the value of, "section_value", to the Section Value as is listed 
+      // in the URL hash and held within the Array, "url_hash_info_Array". 
       position_value = url_hash_info_Array[1];   
-      
+      // Sets the value of, "position_value", to the Position Value as is listed 
+      // in the URL hash and held within the Array, "url_hash_info_Array". 
+     
       wndow_selector = "#wndow-sctn_" + section_value;
       copy_element_selector = ".copy:nth-child(" + (position_value + 3) + ")";
       headr_selector = ".headr.sctn_" + section_value;
       bkgrnd_selector = "#bkgrnd-sctn_" + section_value;
       nav_link_selector = "#nav-link";
       wndows_selctor = ".wndow";
+      info_selector = "#info";
 
       blok_elements = $(wndow_selector).children(copy_element_selector).children("div");
+      // The "<div>" HTML elements which are defined by various jQuery statements are 
+      // passed on to the Array, "blok_elements".
+      //
+      // Here is an example of a statement for the "second pane" for the "first section".
+      // $("wndow_sctn_1").children(".copy:nth-child(4)").children("div");
 
       scroll_value = section_value * $(wndows_selector).height();
       
-      $(wndow_selector).css(".copy").css("display", "none");
+      $(wndow_selector).children(".copy").css("display", "none");
       $(wndow_selector).children(copy_element_selector).css("display", "block");
+      // The "<div>" HTML elements which lie within the "<div>" element using the 
+      // selector held by "wndow_selector" are passed the value of "none" for the 
+      // CSS property, "display".
+      // 
+      // The "<div>" HTML element which matches the element which "animatePageElements" 
+      // is processing is set to be visible by passing the value of, "block", 
+      // for the CSS property, "display".
+      
       $(headr_selector).fadeTo((time_value * 1.5), 1);
+      // The "<div>" HTML element which uses the selector held by, "headr_selector" 
+      // is triggered to become visible by using the jQuery Method, ".fadeTo".
+      // 
+      // The amount of time this animation runs is equal to the product 
+      // of the value held by global variable, "time_value", and "1.5". 
       
       blok_elements.each(
         function () {
           $(this).fadeTo(time_value, 1);
         }
       );
+      /* .each METHOD LOGIC ************* **************** **************** **************** 
+      *  I - For every HTML element held within the Array, "blok_elements", fade the element 
+      *      into visibility.  
+      *    A. The HTML element's visiblity is triggered by the jQuery Method, ".fadeTo".
+      *       1. The amount of time this animation runs is equal to the value of the 
+      *          global variable, "time_value".  
+      * **************** **************** **************** **************** **************** */
 
       if (section_value === 3 || section_value === 4) {
         sctn_nav_selector = "#nav-sctn_" + section_value;
 
         $(sctn_nav_selector).fadeTo(time_value, 1);
-      }      
+      }
+      /* if STATEMENT LOGIC ************* **************** **************** **************** 
+      *  I - If the current Section being processed by "animatePageElements" 
+      *      has a Section Value of "3" or "4", fade the current intrapage navigation 
+      *      into visibility.
+      *    A. Define the selector which defines the HTML element 
+      *       which will be made visible.
+      *       1. The amount of time this animation runs is equal to the value of the 
+      *          global variable, "time_value".    
+      * **************** **************** **************** **************** **************** */
       
-      $(bkgrnd_selector).fadeTo(time_value, 0);      
+      $(bkgrnd_selector).fadeTo(time_value, 0);
+      // Makes the background element being processed by "animatePageElements" 
+      // invisible.    
       
       page_dimensions_Array = parseWindowDimensions();
+      // The browser width and height values, as calcuated by, "parseWindowDimensions" 
+      // are passed to the Array, "page_dimensions_Array".
 
-      bkgrnd_position_x = "\"" + -(page_dimensions_Array[0] * position_value) + " 0px" + "\"";
+      bkgrnd_position = "\"" + -(page_dimensions_Array[0] * position_value) + " 0px" + "\"";
+      // Sets the value of "bkgrnd_position" equal to a String which will set the 
+      // CSS property, "backgroundPosition", of the background element being 
+      // processed by "animatePageElements".
 
-      $(bkgrnd_selector).css("backgroundPosition", bkgrnd_position_x);
+      bkgrnd_css = {
+        "backgroundPosition": bkgrnd_position,
+        "opacity": 1
+      };
 
-      $(bkgrnd_selector).css("opacity", 1);
+      $(bkgrnd_selector).css(bkgrnd_css);
+      // Passes the values of the CSS properties, "backgroundPosition" and "opacity" 
+      // to the HTML element using the selector held by "bkgrnd_selector".
 
       if (url_hash !== "" && url_hash != "#sctn_main")  {
         $(nav_link_selector).fadeTo(time_value, 1);
       }
+      /* if STATEMENT LOGIC ************* **************** **************** **************** 
+      *  I - If the current Section being processed is NOT the landing section 
+      *      of the webpage, make the link in the upper-left of the browser window, visible. 
+      *    A. The HTML element using the selector held by, "nav_link_selector" 
+      *       is made visible by the jQuery Method, ".fadeTo".
+      *       1. The amount of time this animation runs is equal to the value of the 
+      *          global variable, "time_value".    
+      * **************** **************** **************** **************** **************** */
     } else {
-      if ($(info_selector).css("opacity") === "0" && page_dimensions_Array[0] !== 980) {
+      if ($(info_selector).css("opacity") === 0 && page_dimensions_Array[0] !== 980) {
         animateInfoElement();
       }
+      /* if STATEMENT LOGIC ************* **************** **************** **************** 
+      *  I - If the value of the CSS property, "opacity", for the HTML element identified 
+      *      by the selector, "#info", is equal to "0" and the browser width is NOT 
+      *      equal to "980px", run the function, "animateInfoElement".
+      * **************** **************** **************** **************** **************** */
     }
   } else  {
     var nav_1_selector = new String();
@@ -1422,4 +1613,4 @@ function animatePageElements()  {
   $(window).scrollTop(scroll_value);
   
   setTimeout(displayVerticalNav, time_value * 1.5);
-}
+} /* **************** END OF FUNCTION "animatePageElements" **************** */
