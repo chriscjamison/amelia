@@ -38,7 +38,7 @@
    *    activates a menu option, intrapage, or intrasection option.
    * **************** *************** **************** **************** **************** */
 
-function parseWindowDimensions()  {
+function parseWindowDimensions() {
   /* **************** **************** **************** **************** **************** 
    *  parseWindowDimensions collects the width and height of the 'window' DOM element 
    *  by using the jQuery methods "$(window).width()" and "$(window).height()". 
@@ -74,98 +74,100 @@ function parseWindowDimensions()  {
   * **************** **************** **************** **************** **************** */
 
   if (window_width < 360) {
-  // If the window width is roughly 360px, the browser is likely a mobile device.
-  // 
-  // The height of the display of a mobile device, with the width of 360px is 540px.
-  //
-  // The dimensions of the background image for a browser 
-  // with a width of 360px are "360px x 540px" 
+    // If the window width is roughly 360px, the browser is likely a mobile device.
+    // 
+    // The height of the display of a mobile device, with the width of 360px is 540px.
+    //
+    // The dimensions of the background image for a browser 
+    // with a width of 360px are "360px x 540px" 
     page_dimensions_Array[0] = 360;
     page_dimensions_Array[1] = 540;
   } else {
-      if (window_width <= 640) {
+    if (window_width <= 640) {
       // The width value of a background image of a modern mobile device 
       // with a width of roughly 640px is "640"
         
-        page_dimensions_Array[0] = 640;
-        
-        if (window_height > 1000)  {
+      page_dimensions_Array[0] = 640;
+      
+      if (window_height > 1000)  {
         // The height value of a modern mobile device with a typical width 
         // of "640px" is "1136"
-          page_dimensions_Array[1] = 1136;
-        } 
-      } else  {
-        if (window_width <= 980) {
+
+        page_dimensions_Array[1] = 1136;
+      } // END OF if STATEMENT -- height > 1000
+      
+      if (window_width <= 980) {
         // The width value of a typical mobile device with a browser width 
         // of roughly "980px", also the typical width of an iPad, is "980"  
           
-          page_dimensions_Array[0] = 980;
-          
-          if (window_height > 1308)  {
-          // The width value of a mobile device with a height of roughly "1300px", 
-          // also the typical height of an iPad, is "1740"
-            page_dimensions_Array[1] = 1740;
-          } else  {
-          // The width value of a mobile device with a height of roughly "1300px" is "1308"
-            page_dimensions_Array[1] = 1308;  
-          }
-        } else {
-          if (window_width <= 1024) {
+        page_dimensions_Array[0] = 980;
+        
+        if (window_height > 1308)  {
+        // The width value of a mobile device with a height of roughly "1300px", 
+        // also the typical height of an iPad, is "1740"
+          page_dimensions_Array[1] = 1740;
+        } else  {
+        // The width value of a mobile device with a height of roughly "1300px" is "1308"
+          page_dimensions_Array[1] = 1308;  
+        } // END OF if STATEMENT -- height > 1308
+      } else {
+        if (window_width <= 1024) {
           // The width value of a mobile device with a width of roughly "1024px", 
           // also a common width of a smartphone, is "1024"
           // 
           // The height value of a mobile device with a width of roughly "1024px", 
           // also a common width of a smartphone, is "1500"
-            page_dimensions_Array[0] = 1024;
-            page_dimensions_Array[1] = 1500;
-          } else {
-            if (window_width <= 1280) {
+
+          page_dimensions_Array[0] = 1024;
+          page_dimensions_Array[1] = 1500;
+        } else {
+          if (window_width <= 1280) {
             // The width value of a device with a width of roughly "1280px", 
-            // also a common width of a laptop display, is "1280"
-              page_dimensions_Array[0] = 1280;
-              
-              if (window_height <= 800) {
+            // also a common width of a laptop display, is "1280".
+            page_dimensions_Array[0] = 1280;
+            
+            if (window_height <= 800) {
               // The height value of a device with a width of roughly "1280px", 
               // which also has a browser height of less than "800px", is "800"
-                page_dimensions_Array[1] = 800;
-              } else {
-                // The height value of a device with a width of roughly "1280px", 
-                // which also has a browser height of greater than "800px", is "1024"
-                page_dimensions_Array[1] = 1024;
-              }
+              page_dimensions_Array[1] = 800;
             } else {
-              if (window_width <= 1366) {
-              // The width value of a device with a browser width of roughly "1366px", 
-              // which also is a common browser width of a laptop display, is "1366"
-              //
-              // The height value of a device with a browser width of roughly "1366px", 
-              // which also is a common browser width of a laptop display, is "768"
-                page_dimensions_Array[0] = 1366;
-                page_dimensions_Array[1] = 768;
+              // The height value of a device with a width of roughly "1280px", 
+              // which also has a browser height of greater than "800px", is "1024"
+              page_dimensions_Array[1] = 1024;
+            } // END OF if STATEMENT -- height <= 800
+          } else  {
+            if (window_width <= 1366) {
+            // The width value of a device with a browser width of roughly "1366px", 
+            // which also is a common browser width of a laptop display, is "1366"
+            //
+            // The height value of a device with a browser width of roughly "1366px", 
+            // which also is a common browser width of a laptop display, is "768"
+              page_dimensions_Array[0] = 1366;
+              page_dimensions_Array[1] = 768;
+            } else {
+              if (window_width <= 1600) {
+              // The width value of a device with a browser width of roughly "1600px", 
+              // which also is a common browser width of a desktop or laptop display, is "1600"
+              // 
+              // The height value of a device with a browser width of roughly "1600px", 
+              // which also is a common browser width of a desktop or laptop display, is "900"
+                page_dimensions_Array[0] = 1600;
+                page_dimensions_Array[1] = 900;
               } else {
-                if (window_width <= 1600) {
-                // The width value of a device with a browser width of roughly "1600px", 
-                // which also is a common browser width of a desktop or laptop display, is "1600"
+                // If the browser width of a display is greater than "1600px", 
+                // the width value is "1900"
                 // 
-                // The height value of a device with a browser width of roughly "1600px", 
-                // which also is a common browser width of a desktop or laptop display, is "900"
-                  page_dimensions_Array[0] = 1600;
-                  page_dimensions_Array[1] = 900;
-                } else {
-                  // If the browser width of a display is greater than "1600px", 
-                  // the width value is "1900"
-                  // 
-                  // If the browser width of a display is greater than "1600px", 
-                  // the height value is "1020"
-                  page_dimensions_Array[0] = 1920;
-                  page_dimensions_Array[1] = 1020;
-                }
-              }
-            }
-          }
-        }
-    }
-  } 
+                // If the browser width of a display is greater than "1600px", 
+                // the height value is "1020"
+                page_dimensions_Array[0] = 1920;
+                page_dimensions_Array[1] = 1020;
+              } // END OF if STATEMENT -- <= 1600
+            } // END OF if STATEMENT -- <= 1366
+          } // END OF if STATEMENT -- <= 1280
+        } // END OF if STATEMENT -- <= 1024 
+      } // END OF if STATEMENT -- <= 980
+    } // END OF if STATEMENT -- <= 640
+  }  // END OF if STATEMENT -- < 360
   
   return page_dimensions_Array;
   // Once the width and height values have been calculated, 
@@ -262,7 +264,7 @@ function urlInfo() {
   } else  {
     url_info_Array[0] = section_value;
     url_info_Array[1] = position_value;
-  }
+  } // END OF if STATEMENT
 
   /* IF STATEMENT LOGIC ************** **************** **************** **************** 
    *  I - If the value of, "position_string", CANNOT BE FOUND WITHIN, "url_hash".
@@ -536,7 +538,7 @@ function cssAdjustment()  {
     // The above HTML element lacks text to describe the navigation function of this element.
     // The Method, ".html", adds the descriptive text, "Press to view the next section", 
     // to the HTML element. 
-  } // END OF IF STATEMENT
+  } // END OF if STATEMENT
 
   /* IF STATEMENT LOGIC ************** **************** **************** **************** 
    *  I - If the height of the browser has a value greater than "1260".
@@ -734,12 +736,12 @@ function setupPage()  {
         
         bkgrnd_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + page_dimensions_Array[0] +
                                     "x" + page_dimensions_Array[1] + ".jpg')";
-      }
+      } // END OF if STATEMENT
       
       $(this).css(bkgrnd_css);
       
       inc_bkgrnd++;
-    }
+    } 
   ); // END OF .each METHOD
 
   /* .each STATEMENT LOGIC ************** **************** **************** **************** 
@@ -1118,7 +1120,7 @@ function animateFormPanes(section_value) {
 
     $(page_1_selector).css("display", "block");
     $(page_1_selector).fadeTo(time_value, 1);
-  }
+  } // END OF IF STATEMENT
   /* if STATEMENT LOGIC ************** **************** **************** **************** 
    *  I - The first form pane is visible. 
    *    A. Fade out the first form pane.
@@ -1319,7 +1321,7 @@ function animatePageElements()  {
         sctn_nav_selector = "#nav-sctn_" + section_value;
 
         $(sctn_nav_selector).fadeTo(time_value, 1);
-      }
+      } // END OF IF STATEMENT
       /* if STATEMENT LOGIC ************* **************** **************** **************** 
       *  I - If the current Section being processed by "animatePageElements" 
       *      has a Section Value of "3" or "4", fade the current intrapage navigation 
@@ -1366,7 +1368,7 @@ function animatePageElements()  {
     } else {
       if ($(info_selector).css("opacity") === 0 && page_dimensions_Array[0] !== 980) {
         animateInfoElement();
-      }
+      } // END OF IF STATEMENT
       /* if STATEMENT LOGIC ************* **************** **************** **************** 
       *  I - If the value of the CSS property, "opacity", for the HTML element identified 
       *      by the selector, "#info", is equal to "0" and the browser width is NOT 
@@ -1433,11 +1435,11 @@ function animatePageElements()  {
     //
     // The default values held by, "css_1", are "0" for "opacity" and "-($("#nav").width())".
     // for "width".
-    var css_2 = new Object(); // "display": "none"
+    var css_2 = new Object();
     // Holds the value for the CSS property, "display".
     //
     // The default value held by, "css_2", is "none" for "display".
-    var css_3 = new Object(); // "left": 
+    var css_3 = new Object();
     // Holds the value for the CSS property, "left".
     //
     // The default value held by, "css_3", is "-($("#nav").width())" for "left".
@@ -1473,7 +1475,7 @@ function animatePageElements()  {
     // The default values held by, "css_10", are the value held by the variable, "nav_position"
     // and the value held by the variable, "nav_width" for "left". 
     // for "width".
-    var css_11 = new Object(); // "width": $(window).width() - $("#nav").width()
+    var css_11 = new Object();
     // Holds the value for the CSS property, "width".
     //
     // The default value held by, "css_11", is the value held by the variable, "nav_position" 
@@ -1489,16 +1491,28 @@ function animatePageElements()  {
     // which were visible before being made invisible while a user selects 
     // an intrapage navigation option.
     var copy_elements_Array = new Array();
-   
     
     var inc_1 = new Number();
     // Is used as an incrementer within a loop using the jQuery Method, ".each".
     
-    window_height = $(window).height();
     window_width = $(window).width();
+    // Passes the value of the browser width, as calcualted by the jQuery Method, ".width", 
+    // to "window_width".
+    window_height = $(window).height();
+    // Passes the value of the browser height, as calcualted by the jQuery Method, ".width", 
+    // to "window_height".
     
     nav_width = -($(next_nav_selector).width());
+    // Calculates the width of the HTML element using the selector held by "next_nav_selector",  
+    // inverts that value and passes it to "nav_width".
+    // 
+    // The value is the default value of the CSS property, "left", and is used to place the 
+    // "menu" HTML element using the selector "nav" out of the view of the browser window.
     nav_position = window_width - nav_width;
+    // Calculates the difference of the value held by "window_width" and "nav_width".
+    // 
+    // The value is used to place the HTML elements using the selectors, "#cntainr" and "#bkgrnd", 
+    // directly to the right of the "menu" HTML element when it is made visible.
 
     nav_1_selector = "#nav";
     nav_2_selector = "#nav-bkgrnd";
@@ -1570,7 +1584,6 @@ function animatePageElements()  {
     };
 
     if ($(nav_1_selector).css("left") === "0px")  {
-    
       $(nav_4_selector).css("height", window_height);
       
       if ($(nav_selector).css("left") === "0px")  {
@@ -1580,20 +1593,34 @@ function animatePageElements()  {
             $(nav_5_selector).animate(css_3);
           }
         );
-      }
+      } // END OF IF STATEMENT
 
       copy_elements_url_Array = url_hash.split("=");
-      
+      // The String value held by, "url_hash", is split into individual Strings 
+      // which are seperated by the Character, "=", and passed into the Array, "copy_elements_url_Array".
+
       copy_elements_length = copy_elements_url_Array.length;
+      // Passes the total length of elements within the Array, "copy_elements_url_Array" 
+      // to "copy_elements_length".
 
       for (inc_1 = 0; inc_1 < copy_elements_length; inc_1++)  {
         wndows_selector = "#wndow-sctn_" + (inc_1 + 1);
-
+        // Sets the value of "wndow_selector" to the combination of the String value, "#wndow-sctn_1" 
+        // and the numberical sum of the variable, "inc_1", and the number "1".
+       
         if (!isNan(copy_elements_Array[inc_1 * 1])) {
           copy_selector = ".copy:nth-child(" + ((copy_elements_url_Array[inc_1 * 1]) + 3) + ")";
-        
+          // Sets "copy_selector" to the value which is the result of combining three elements. 
+          // The String value, ".copy:nth-child(". The result of the following mathmatical statement:
+          // "((copy_elements_url_Array[inc_1 + 1]) + 3)". And the Character, ")".
+
           $(wndows_selector).children(copy_selector).css(css_4);
-        }
+          // Makes the above HTML element visible within the browser window. 
+          //
+          // An example a selector which matches the above HTML element if were the "second pane" 
+          // within the "first pane" is:
+          // "$("#wndow-sctn_1").children(".copy:nth-child(4)).css("display", "block");".
+        } // END OF if STATEMENT
       }
 
       $(wndow_selector).css(css_5);
