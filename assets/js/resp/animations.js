@@ -1374,49 +1374,126 @@ function animatePageElements()  {
       * **************** **************** **************** **************** **************** */
     }
   } else  {
-    var nav_1_selector = new String();
-    var nav_2_selector = new String();
-    var nav_3_selector = new String();
-    var nav_4_selector = new String();
-    var nav_5_selector = new String();
-
-    var options_1_selector = new String();
-    var options_2_selctor = new String();
-    var options_3_selector = new String();
-
-    var wndows_selector = new String();
-    var wndow_selector = new String();
-    var cntainr_selector = new String();
-    var bkgrnd_selector = new String();
-    var sctn_nav_selector = new String();
-    var headr_selector = new String();
-    var next_nav_selector = new String();
-
-    var copy_values_string = new String();
-    var bkgrnd_value_string = new String();
-
     var window_height = new Number();
     var window_width = new Number();
+
     var nav_width = new Number();
     var copy_elements_length = new Number();
 
-    var inc_1 = new Number();
+    var nav_1_selector = new String();
+    // Holds a String value of, "#nav", which is the selector of an HTML element.
+    var nav_2_selector = new String();
+    // Holds a String value of, "#nav-bkgrnd", which is the selector of an HTML element.  
+    var nav_3_selector = new String();
+    // Holds a String value of, "#nav-brdr", which is the selector of an HTML element.
+    var nav_4_selector = new String();
+    // Holds a String value which is the result of combining the values 
+    // of "nav_1_selector" and "nav_2_selector" with the String value of ", " 
+    // added in between the values held by those variables.
+    var nav_5_selector = new String();
+    // Holds a String value which is the result of combining the values 
+    // of "nav_1_selector", "nav_2_selector", and "nav_3_selector" with the String value of ", " 
+    // added in between the values held by those variables. 
+    
+    var options_1_selector = new String();
+    // Holds a String value of, "#options", which is the selector of an HTML element.
+    var options_2_selctor = new String();
+    // Holds a String value of, "#options > span", which is the selector of various HTML elements.
+    var options_3_selector = new String();
+    // Holds a String value which is the result of combining the values 
+    // of "options_1_selector" and "options_2_selector" with the String value of ", " 
+    // added in between the values held by those variables.
+
+    var cntainr_selector = new String();
+    // Holds a String value of, "#cntainr", which is the selector of an HTML element.
+    var wndow_selector = new String();
+    // Holds a String value of, ".wndow", which is the selector of various HTML elements.
+    var bkgrnd_selector = new String();
+    // Holds a String value of, "#bkgrnd", which is the selector of an HTML element.
+    var sctn_nav_selector = new String();
+    // Holds a String value of, ".sctn_nav", which is the selector of an HTML element.
+    var headr_selector = new String();
+    // Holds a String value of, ".headr", which is the selector of an HTML element.
+    var next_nav_selector = new String();
+    // Holds a String value of, "#prev-sctn, #next-sctn", which is the selector of various HTML elements.
+    var multiple_selector = new String();
+    // Holds a String value of, ".sctn_nav, .copy, .headr, .sctn_nav, #prev-sctn, #next-sctn", 
+    // which is the selector of various HTML elements.
+    var wndows_selector = new String();
+    // Holds a String value which is the result of combining the String value, "#wndow-sctn_", 
+    // and the numberical sum of the variable, "inc_1" and the number "1".
+
+    var bkgrnd_value_string = new String();
+    // Holds the String value, "bkgrnd=nav", which serves as a URL GET variable.
+    var copy_values_string = new String();
+    // Holds the String value, "&copyValues", which serves as a URL GET variable name.
+    
+    var css_1 = new Object();
+    // Holds the values for the CSS properties, "opacity" and "width".
+    //
+    // The default values held by, "css_1", are "0" for "opacity" and "-($("#nav").width())".
+    // for "width".
+    var css_2 = new Object(); // "display": "none"
+    // Holds the value for the CSS property, "display".
+    //
+    // The default value held by, "css_2", is "none" for "display".
+    var css_3 = new Object(); // "left": 
+    // Holds the value for the CSS property, "left".
+    //
+    // The default value held by, "css_3", is "-($("#nav").width())" for "left".
+    var css_4 = new Object(); 
+    // Holds the value for the CSS property, "display".
+    //
+    // The default value held by, "css_4", is "block" for "display".
+    var css_5 = new Object();
+    // Holds the value for the CSS property, "width".
+    //
+    // The default value held by, "css_5", is "$(window).width()" for "width".
+    var css_6 = new Object();
+    // Holds the value for the CSS property, "display".
+    //
+    // The default value held by, "css_6", is "table" for "display"..
+    var css_7 = new Object();
+    // Holds the values for the CSS properties, "width" and "left".
+    //
+    // The default values held by, "css_7", are "$(window).width()" for width and "0px" for "left". 
+    // for "width".
+    var css_8 = new Object();
+    // Holds the value for the CSS property, "left".
+    //
+    // The default value held by, "css_8", is "table" for "display".
+    var css_9 = new Object();
+    // Holds the values for the CSS properties, "left" and "opacity".
+    //
+    // The default values held by, "css_9", are "0px for "left" and "1" for "opacity". 
+    // for "width".
+    var css_10 = new Object();
+    // Holds the values for the CSS properties, "width" and "left".
+    //
+    // The default values held by, "css_10", are the value held by the variable, "nav_position"
+    // and the value held by the variable, "nav_width" for "left". 
+    // for "width".
+    var css_11 = new Object(); // "width": $(window).width() - $("#nav").width()
+    // Holds the value for the CSS property, "width".
+    //
+    // The default value held by, "css_11", is the value held by the variable, "nav_position" 
+    // for "width".
 
     var copy_elements_url_Array = new Array();
+    // Holds individual Strings which are the result of using the Javascript Method, ".split".
+    // 
+    // The String value held by the variable, "url_hash", is split into an Array of Strings
+    // which are seperated by the Character, "=".
+    // 
+    // The values in the Array are used to determine the HTML elements within a given section 
+    // which were visible before being made invisible while a user selects 
+    // an intrapage navigation option.
     var copy_elements_Array = new Array();
-
-    var css_1 = new Object(); // "opacity": 0, "width": -($("#nav").width())
-    var css_2 = new Object(); // "display": "none"
-    var css_3 = new Object(); // "left": -($("#nav").width())
-    var css_4 = new Object(); // "display": "block"
-    var css_5 = new Object(); // "width": $(window).width()
-    var css_6 = new Object(); // "display": "table"
-    var css_7 = new Object(); // "width": $(window).width(), "left": "0px"
-    var css_8 = new Object(); // "left": "0px"
-    var css_9 = new Object(); // "left": "0px", "opacity", 1
-    var css_10 = new Object(); // "width": $(window).width() - $("#nav").width(), "left": $("#nav").width()
-    var css_11 = new Object(); // "width": $(window).width() - $("#nav").width()
-
+   
+    
+    var inc_1 = new Number();
+    // Is used as an incrementer within a loop using the jQuery Method, ".each".
+    
     window_height = $(window).height();
     window_width = $(window).width();
     
@@ -1508,8 +1585,6 @@ function animatePageElements()  {
       copy_elements_url_Array = url_hash.split("=");
       
       copy_elements_length = copy_elements_url_Array.length;
-
-      copy_elements_Array = copy_elements_url_Array[copy_elements_length - 1];
 
       for (inc_1 = 0; inc_1 < copy_elements_length; inc_1++)  {
         wndows_selector = "#wndow-sctn_" + (inc_1 + 1);
