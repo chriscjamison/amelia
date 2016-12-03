@@ -1013,6 +1013,23 @@ function animateInfoElement() {
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
 function sortCopyElements(section_value) {
+
+  var visible_copy_elements = new Array();
+  // Holds an Array which is created when the JavaScript Method, ".split", is run on the 
+  // the String value held by the JavaScript Method, "window.location.hash".
+  // 
+  // The Array will consist of multiple elements which include characters which respresent 
+  // the ".copy" HTML element which appeared visible within the webpage before the 
+  // side navigation was activated.
+
+
+  visible_copy_elements = window.location.hash.split(",");
+
+  visible_copy_elements.each(
+    function () {
+      window.alert("this = " + this);
+    }
+  );
   /* **************** **************** **************** **************** **************** 
    * sortCopyElements determines which HTML content within a given "section" 
    * is made visible.
@@ -1021,7 +1038,7 @@ function sortCopyElements(section_value) {
    * sort through the HTML content to find the HTML element using the selector, ".copy", 
    * which holds the content which a visitor wants to view.
    * **************** *************** **************** **************** **************** */
-  var wndow_selector = new String();
+  /*var wndow_selector = new String();
   // Holds a String which matches the selector of the ".copy" HTML element which is 
   // being examined by the logic of an ".each" jQuery Method.
   
@@ -1039,13 +1056,9 @@ function sortCopyElements(section_value) {
   
   $(wndow_selector).each(
     function () {
-      if ($(this).css("display") === "block") {
-        position_value = inc;
-      }
-      
-      inc++;
+      window.alert("$(wndow_selector).length = " + $(wndow_selector).length);
     }
-  ); // END OF .each METHOD
+  ); // END OF .each METHOD*/
 
   /* .each METHOD LOGIC ************* **************** **************** **************** 
    *  I - For every ".copy" HTML element, determine if the value 
@@ -1055,13 +1068,13 @@ function sortCopyElements(section_value) {
    *    B. Increment the value of "inc".  
    * **************** **************** **************** **************** **************** */
   
-  url_hash = "#" + sectionValue + "?pos=" + positionValue;
+  /*url_hash = "#" + sectionValue + "?pos=" + positionValue;
   // Assemble the URL hash which will determine which location within the page 
   // that the browser will display after "sortCopyElements" is complete.  
   window.location.hash = url_hash;
   // Set the URL hash to the value contained within, "url_hash".
 
-  setTimeout(function() {displayVerticalNav();}, time_value);
+  setTimeout(function() {displayVerticalNav();}, time_value);*/
   // Activates the function, "displayVerticalNav", which displays intrapage navigation.
   //
   // "displayVerticalNav" is activated after a period which is equal to the 
@@ -1263,4 +1276,163 @@ function animateSctnNavLinks(sctn_nav_link_element) {
     $(sctn_nav_link_element).fadeTo((nav_transition_time / 2), 1);
     $(sctn_nav_link_element).css("display", "none");    
   }
+}
+
+function animateSideNav() {
+  var nav_selector = new String();
+  // Holds the String value of the selector, "nav".
+  var options_selector = new String();
+  // Holds the String value of the selector, "#options".
+  var nav_bkgrnd_selector = new String();
+  // Holds the String value of the selector, "#nav-bkgrnd".
+  var nav_brdr_selector = new String();
+  // Holds the String value of the selector, "#nav-brdr".
+  var cntainr_selector = new String();
+  // Holds the String value of the selector, "#cntainr".
+  var wndow_selector = new String();
+  // Holds the String value of the selector, ".wndow".
+  var copy_selector = new String();
+  // Holds the String value of the selector, ".copy".
+  var info_selector = new String();
+  // Holds the String value of the selector, "#info".
+  var bkgrnd_selector = new String();
+  // Holds the String value of the selector, "#bkgrnd".
+
+  var nav_element = new Object();
+  // Holds the jQuery Object of the content of the HTML element 
+  // identified by the selector, "nav".
+  var options_element = new Object();
+  // Holds the jQuery Object of the content of the HTML element 
+  // identified by the selector, "#options".
+  var nav_bkgrnd_element = new Object();
+  // Holds the jQuery Object of the content of the HTML element 
+  // identified by the selector, "#nav-bkgrnd".
+  var nav_brdr_element = new Object();
+  // Holds the jQuery Object of the content of the HTML element 
+  // identified by the selector, "#nav-brdr".
+  var cntainr_element = new Object();
+  // Holds the jQuery Object of the content of the HTML element 
+  // identified by the selector, "#cntainr".
+  var wndow_element = new Object();
+  // Holds an individual jQuery Object which is a subset 
+  // of the HTML elements identified by the selector, ".wndow".
+  // 
+  // This Object is created while the individual elements of the 
+  // ".wndow" HTML elements are being processed by the jQuery 
+  // Method, ".each".
+  // 
+  // The CSS values of the HTML element held by "wndow_element" 
+  // are changed within the ".each" Method.  
+  var wndow_elements = new Array();
+  // Holds all of the HTML elements within the webpage which are 
+  // identified by the selector, ".wndow".
+  //
+  // The ".wndow" HTML elements contain ".copy" HTML elements which 
+  // hold the content of the different Sections of the webpage.
+  var info_element = new Object();
+  // Holds the jQuery object of the content of the HTML element 
+  // identified by the selector, "#info".
+  var copy_elements = new Array();
+  // Holds all of the HTML elements within the webpage which are 
+  // identified by the selector, ".copy".
+  //
+  // The ".copy" HTML elements contain the HTML content of the different 
+  // Sections of the webpage.
+  var bkgrnd_element = new Object();
+  // Holds the jQuery object of the content of the HTML element 
+  // identified by the selector, "#bkgrnd".
+  var nav_width = new Number();
+  // Holds the numberical value of the width of the HTML element 
+  // identified by the selector, "nav".
+  var element_width = new Number();
+  // Holds the numberical value of the calculated width of HTML elements 
+  // identified by the selectors, "#cntainr" and #bkgrnd".
+  // 
+  // Both of the HTML elements, "#cntainr" and "#bkgrnd" have the value 
+  // of their widths changed to the difference of the total width 
+  // of the browser window and the width of the HTML element identified 
+  // by the selector, "nav".
+  var window_width = new Number();
+  // Holds the numberical value of the width of the browser window.
+
+  nav_selector = "nav";
+  options_selector = "#options";
+  nav_bkgrnd_selector = "#nav-bkgrnd";
+  nav_brdr_selector = "#nav-brdr";
+  cntainr_selector = "#cntainr";
+  wndow_selector = ".wndow";
+  copy_selector = ".copy";
+  info_selector = "#info";
+  bkgrnd_selector = "#bkgrnd";
+
+  nav_element = $(nav_selector);
+  options_element = $(options_selector);
+  nav_bkgrnd_element = $(nav_bkgrnd_selector);
+  nav_brdr_element = $(nav_brdr_selector);
+  cntainr_element = $(cntainr_selector);
+  wndow_elements = $(wndow_selector);
+  info_element = $(info_selector);
+  bkgrnd_element = $(bkgrnd_selector);
+
+  nav_width = $(nav_selector).width();
+  // window.alert("nav_width = " + nav_width);
+  // window.alert("$(" + nav_selector + ").css(\"left\") = " + $(nav_element).css("left"));
+  if ($(nav_element).css("left") !== "0px")  {
+    element_width = $(window).width() - nav_width;
+
+    $(nav_element).css("left", "0px");
+    $(options_element).css({"left": "0px", "display": "block", "opacity": 1});
+    $(nav_bkgrnd_element).css("left", "0px");
+    $(nav_brdr_element).css("left", "0px");
+
+    $(cntainr_element).css("left", nav_width);
+    $(bkgrnd_element).css("left", nav_width);
+
+    $(cntainr_element).width(element_width);
+    $(bkgrnd_element).width(element_width);
+    $(wndow_elements).width(element_width);
+
+    $(info_element).css("display", "none");
+
+    $(copy_selector).css("display", "none");
+
+
+  } else  {
+    window_width = $(window).width();
+    // window.alert("1");
+    $(nav_element).css("left", -nav_width);
+    $(options_element).css("left", -nav_width);
+    $(nav_bkgrnd_element).css("left", -nav_width);
+    $(nav_brdr_element).css("left", -nav_width);
+
+    $(cntainr_element).css("left", "0px");
+    $(bkgrnd_element).css("left", "0px");
+
+    $(cntainr_element).width(window_width);
+    $(bkgrnd_element).width(window_width);
+    $(wndow_elements).width(window_width);
+
+    $(info_element).css("display", "block");
+
+    
+  }
+  
+
+  /*wndow_elements.each(
+    function () {
+      wndow_element = this;
+
+      // $(wndow_element).width()
+      copy_elements = $(this).children(copy_selector);
+
+      // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+
+      copy_elements.each(
+        function () {
+          window.alert("$(copy_elements).css(\"width\") = " + $(copy_elements).css("width"));
+        }
+      );
+      
+    }
+  );*/
 }

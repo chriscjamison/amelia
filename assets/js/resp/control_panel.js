@@ -39,8 +39,9 @@ $(document).ready(
     
     $("#nav-link").on("click", 
       function () {
-        determineCopyElements();
         navLinkHoverState();
+        determineCopyElements();
+        animateSideNav();
       }
     );
     

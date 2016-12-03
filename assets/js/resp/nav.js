@@ -49,7 +49,7 @@ function navLinkHoverState() {
       if ($(options_selector).css("opacity") === "0")  {
         cycleNavLink("base");
       } else {
-        cycleNavLink("click_1")
+        cycleNavLink("click_1");
       }      
     break;
 
@@ -105,7 +105,99 @@ function determineCopyElements()  {
   // Holds the value of the String returned by the JavaScript METHOD, 
   // "window.location.hash"
 
-  var 
+  var wndow_elements = new Object();
+  // Holds the HTML elements identified by the selector, ".wndow".
+  var copy_elements = new Object();
+  // Holds the HTML elements identified by the selector, ".copy".
+  var visible_elements_hash = new String();
+  // Holds the value for each HTML element using the selector, ".copy", 
+  // within a parent HTML element using the selector, "#wndow_sctn-X", 
+  // within a String which becomes the URL Hash for this webpage once 
+  // this function is complete.
+  var visible_element_value = new String();
 
+  wndow_elements = $(".wndow");
+  // copy_elements = $(".copy");
+  visible_elements_hash = "copyValues=";
+  url_hash = window.location.hash;
+  // window.alert("copy_elements.length = " + copy_elements.length);
+  // window.alert("wndow_elements.length = " + wndow_elements.length);
 
+  if (url_hash.indexOf("copyValues") === -1)  {
+    $(wndow_elements).each(
+    function () {
+      var inc = new Number();
+      var wndow_element = this;
+      // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+      if ($(wndow_element).children(".copy").length > 0)  {
+        copy_elements = $(this).children(".copy");
+        
+
+        $(copy_elements).each(
+          function () {
+            // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
+            var copy_element = this;
+            
+            if ($(copy_element).css("display") === "none")  {
+              inc++;
+            }
+          }
+        ); 
+
+        if (visible_elements_hash.charAt(visible_elements_hash.length - 1) === "=") {
+          if (inc === $(wndow_element).children(".copy").length)  {
+            visible_element_value = "0";
+          } else  {
+            visible_element_value = inc;
+          }
+        } else  {
+          if (inc === $(wndow_element).children(".copy").length)  {
+            visible_element_value = ",0";
+          } else  {
+            visible_element_value = "," + inc;
+          }
+        }
+
+        visible_elements_hash = visible_elements_hash + visible_element_value;
+        // window.alert("$(" + $(this).attr("id") + ").children(\".copy\").css(\"display\") = " + $(this).children(".copy").css("display"));
+      }
+      
+    }
+  );
+
+  if (window.location.hash.indexOf("#") === -1) {
+    visible_elements_hash = "#" + visible_elements_hash;
+  } else  {
+    visible_elements_hash = "?" + visible_elements_hash;
+  }
+  
+  visible_elements_hash = window.location.hash + visible_elements_hash;
+  // window.alert("visible_elements_hash = " + visible_elements_hash);
+  } else  {
+    var copy_selector = new String();
+    var wndow_selector = new String();
+
+    var copy_elements = new Array();
+    var wndow_element = new Object();
+    var copy_element = new Object();
+    
+    var inc = new Number();
+
+    copy_selector = ".copy";
+    wndow_selector = "#wndow-sctn_";
+
+    copy_elements = $(copy_selector);
+    wndow_element = $(wndow_selector);
+
+    inc = 1;
+
+    copy_elements.each(
+      function () {
+        copy_element = this;
+      }
+    )
+  }
+  
+
+  window.location.hash = visible_elements_hash;
 }
