@@ -1023,13 +1023,6 @@ function sortCopyElements(section_value) {
   // side navigation was activated.
 
 
-  visible_copy_elements = window.location.hash.split(",");
-
-  visible_copy_elements.each(
-    function () {
-      window.alert("this = " + this);
-    }
-  );
   /* **************** **************** **************** **************** **************** 
    * sortCopyElements determines which HTML content within a given "section" 
    * is made visible.
@@ -1038,10 +1031,12 @@ function sortCopyElements(section_value) {
    * sort through the HTML content to find the HTML element using the selector, ".copy", 
    * which holds the content which a visitor wants to view.
    * **************** *************** **************** **************** **************** */
-  /*var wndow_selector = new String();
+  var wndow_selector = new String();
   // Holds a String which matches the selector of the ".copy" HTML element which is 
   // being examined by the logic of an ".each" jQuery Method.
-  
+  var copy_selector = new String();
+  var copy_elements = new Array();
+  var copy_element = new Object();
   var position_value = new Number();
   // Holds a Number which identifies the individual, ".copy" HTML element containing 
   // the HTML content which a visitor wants to view.
@@ -1052,14 +1047,21 @@ function sortCopyElements(section_value) {
   // "inc" is used to increment through various ".copy" HTML elements which 
   // are identified by the selector held by "wndow_selector".
   
-  wndow_selector = "#wndow-" + section_value + " > .copy";
-  
-  $(wndow_selector).each(
-    function () {
-      window.alert("$(wndow_selector).length = " + $(wndow_selector).length);
-    }
-  ); // END OF .each METHOD*/
+  copy_selector = "#wndow-" + section_value + " > .copy";
+  // copy_selector = "#wndow-" + section_value + " > .copy:first-of-type";
 
+  copy_elements = $(wndow_selector);
+
+  $(copy_elements).each(
+    function () {
+      copy_element = this;
+
+      if ($(copy_element).css("display") === "none")  {
+        inc++;
+      }
+    }
+  );
+  
   /* .each METHOD LOGIC ************* **************** **************** **************** 
    *  I - For every ".copy" HTML element, determine if the value 
    *      of the CSS property, "display", is "block". 
@@ -1068,13 +1070,15 @@ function sortCopyElements(section_value) {
    *    B. Increment the value of "inc".  
    * **************** **************** **************** **************** **************** */
   
-  /*url_hash = "#" + sectionValue + "?pos=" + positionValue;
+  position_value = inc;
+
+  url_hash = "#" + section_value + "?pos=" + position_value;
   // Assemble the URL hash which will determine which location within the page 
   // that the browser will display after "sortCopyElements" is complete.  
   window.location.hash = url_hash;
   // Set the URL hash to the value contained within, "url_hash".
 
-  setTimeout(function() {displayVerticalNav();}, time_value);*/
+  // setTimeout(function() {displayVerticalNav();}, time_value);
   // Activates the function, "displayVerticalNav", which displays intrapage navigation.
   //
   // "displayVerticalNav" is activated after a period which is equal to the 
@@ -1180,15 +1184,7 @@ function animatePageElements()  {
    *       after a menu option is activated.
    * **************** *************** **************** **************** **************** */
   
-  var url_hash = new String ();
-  // Holds the string which is returned by the HTML DOM property, "window.location.hash".
   
-  url_hash = window.location.hash;
-  // The current URL hash that is returned from, "window.location.hash", 
-  // is passed to url_hash.
-  //
-  // The Method, "window.location.hash", is a JavaScript DOM Method.
-  // window.alert("url_hash.indexOf(\"base\") = " + url_hash.indexOf("base"));
   
    
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
@@ -1374,14 +1370,28 @@ function animateSideNav() {
   info_element = $(info_selector);
   bkgrnd_element = $(bkgrnd_selector);
 
-  nav_width = $(nav_selector).width();
-  // window.alert("nav_width = " + nav_width);
-  // window.alert("$(" + nav_selector + ").css(\"left\") = " + $(nav_element).css("left"));
+  nav_width = $(nav_element).width();
+  // The width of the HTML element using the selector, "#nav" is 
+  // calculated using the jQuery Method, ".width();
+  // 
+  // That value is passed onto the variable, "nav_width".
+  
   if ($(nav_element).css("left") !== "0px")  {
     element_width = $(window).width() - nav_width;
+    // The difference of the width of the browser window and the value held ]
+    // by "nav_width" is passed onto the variable "element_width".
+    //
+    // The value contained by, "element_width", is used to resize the HTML elements 
+    // containing the HTML content of the entire webpage, "#cntainr", 
+    // the background images of the webpage, "#bkgrnd", and the HTML elements 
+    // held within each Section of the webpage, ".wndow".
 
     $(nav_element).css("left", "0px");
+    // The CSS value of the property, "left", is set to "0px".
+    //
+    // The change in value brings the HTML element, "nav", into view.
     $(options_element).css({"left": "0px", "display": "block", "opacity": 1});
+    
     $(nav_bkgrnd_element).css("left", "0px");
     $(nav_brdr_element).css("left", "0px");
 
@@ -1399,7 +1409,6 @@ function animateSideNav() {
 
   } else  {
     window_width = $(window).width();
-    // window.alert("1");
     $(nav_element).css("left", -nav_width);
     $(options_element).css("left", -nav_width);
     $(nav_bkgrnd_element).css("left", -nav_width);
@@ -1416,23 +1425,4 @@ function animateSideNav() {
 
     
   }
-  
-
-  /*wndow_elements.each(
-    function () {
-      wndow_element = this;
-
-      // $(wndow_element).width()
-      copy_elements = $(this).children(copy_selector);
-
-      // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
-
-      copy_elements.each(
-        function () {
-          window.alert("$(copy_elements).css(\"width\") = " + $(copy_elements).css("width"));
-        }
-      );
-      
-    }
-  );*/
 }

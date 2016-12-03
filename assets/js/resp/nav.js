@@ -125,79 +125,98 @@ function determineCopyElements()  {
 
   if (url_hash.indexOf("copyValues") === -1)  {
     $(wndow_elements).each(
-    function () {
-      var inc = new Number();
-      var wndow_element = this;
-      // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
-      if ($(wndow_element).children(".copy").length > 0)  {
-        copy_elements = $(this).children(".copy");
-        
+      function () {
+        var inc = new Number();
+        var wndow_element = this;
+        // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+        if ($(wndow_element).children(".copy").length > 0)  {
+          copy_elements = $(this).children(".copy");
+          
 
-        $(copy_elements).each(
-          function () {
-            // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
-            var copy_element = this;
-            
-            if ($(copy_element).css("display") === "none")  {
-              inc++;
+          $(copy_elements).each(
+            function () {
+              // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
+              var copy_element = this;
+              
+              if ($(copy_element).css("display") === "none")  {
+                inc++;
+              }
+            }
+          ); 
+
+          if (visible_elements_hash.charAt(visible_elements_hash.length - 1) === "=") {
+            if (inc === $(wndow_element).children(".copy").length)  {
+              visible_element_value = "0";
+            } else  {
+              visible_element_value = inc;
+            }
+          } else  {
+            if (inc === $(wndow_element).children(".copy").length)  {
+              visible_element_value = ",0";
+            } else  {
+              visible_element_value = "," + inc;
             }
           }
-        ); 
 
-        if (visible_elements_hash.charAt(visible_elements_hash.length - 1) === "=") {
-          if (inc === $(wndow_element).children(".copy").length)  {
-            visible_element_value = "0";
-          } else  {
-            visible_element_value = inc;
-          }
-        } else  {
-          if (inc === $(wndow_element).children(".copy").length)  {
-            visible_element_value = ",0";
-          } else  {
-            visible_element_value = "," + inc;
-          }
+          visible_elements_hash = visible_elements_hash + visible_element_value;
+          // window.alert("$(" + $(this).attr("id") + ").children(\".copy\").css(\"display\") = " + $(this).children(".copy").css("display"));
         }
-
-        visible_elements_hash = visible_elements_hash + visible_element_value;
-        // window.alert("$(" + $(this).attr("id") + ").children(\".copy\").css(\"display\") = " + $(this).children(".copy").css("display"));
-      }
       
-    }
-  );
+      }
+    );
 
-  if (window.location.hash.indexOf("#") === -1) {
-    visible_elements_hash = "#" + visible_elements_hash;
+    if (window.location.hash.indexOf("#") === -1) {
+      visible_elements_hash = "#" + visible_elements_hash;
+    } else  {
+      visible_elements_hash = "?" + visible_elements_hash;
+    }
+    
+    visible_elements_hash = window.location.hash + visible_elements_hash;
+    // window.alert("visible_elements_hash = " + visible_elements_hash);
+
+    window.location.hash = visible_elements_hash;
   } else  {
-    visible_elements_hash = "?" + visible_elements_hash;
-  }
-  
-  visible_elements_hash = window.location.hash + visible_elements_hash;
-  // window.alert("visible_elements_hash = " + visible_elements_hash);
-  } else  {
+    var url_hash_data = new Array();
+    var url_hash_values = new Array();
+    var url_hash_string = new String();
+
     var copy_selector = new String();
     var wndow_selector = new String();
 
+    var wndow_elements = new Array();
     var copy_elements = new Array();
     var wndow_element = new Object();
     var copy_element = new Object();
-    
+
     var inc = new Number();
 
-    copy_selector = ".copy";
-    wndow_selector = "#wndow-sctn_";
+    inc = 0;
 
-    copy_elements = $(copy_selector);
-    wndow_element = $(wndow_selector);
+    // copy_selector = ".copy";
+    wndow_selector = ".wndow";
 
-    inc = 1;
+    wndow_elements = $(wndow_selector);
 
-    copy_elements.each(
+    url_hash_data = url_hash.split("=");
+
+    url_hash_values = url_hash_data[1].split(",");
+
+    $(wndow_elements).each(
       function () {
-        copy_element = this;
-      }
-    )
-  }
-  
+        wndow_element = this;
+        
+        if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
+          copy_selector = ".copy:nth-child(" + url_hash_values[inc] + ")";
+          // window.alert("copy_selector = " + copy_selector);
+          $(wndow_element).children(copy_selector).css("display", "block");
 
-  window.location.hash = visible_elements_hash;
+          inc++;
+        }
+      }
+    );
+
+    url_hash_data = url_hash.split("copyValues");
+    
+    window.location.hash = url_hash_data[0].substring(0, (url_hash_data[0].length - 1));
+  }
 }

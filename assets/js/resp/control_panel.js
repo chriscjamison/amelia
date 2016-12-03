@@ -353,7 +353,7 @@ $(document).ready(
     $(window).on("hashchange",
       function () {
         if (url_hash.indexOf("copyValues") === -1) {
-          // animatePageElements();
+          animatePageElements();
         }
         
         if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
