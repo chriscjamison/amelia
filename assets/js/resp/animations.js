@@ -12,7 +12,7 @@
    *    Scans the hash, as referenced by, "window.location.hash" 
    *    for the "Section" and "Position" values.
    * 
-   *  cssAdjustment
+   *  cssAdjustmentCopy
    *    Adjusts the placement of various HTML elements within the browser window 
    *    based upon the parameters of the browser a visitor is viewing.
    * 
@@ -1172,7 +1172,7 @@ function animateFormPanes(section_value) {
 
 function animatePageElements()  {
   /* **************** **************** **************** **************** **************** 
-   * "animateePageElements" Triggers a sequence of modifications of CSS values and 
+   * "animatePageElements" triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
    * activates a menu option, intrapage, or intrasection option.
    * 
@@ -1184,9 +1184,89 @@ function animatePageElements()  {
    *       after a menu option is activated.
    * **************** *************** **************** **************** **************** */
   
+  var url_hash = new String();
+  // Holds the String value of the URL hash 
   
+  var section_value_index_num = new Number();
+  // Holds a Number representing the location within the URL hash where the 
+  // Section Value is listed.
+  var position_value_index_num = new Number();
+  // Holds a Number representing the location within the URL hash where the 
+  // Position Valueis listed.
+
+  var section_search_string = new String();
+  // Holds a String, "#sctn_", which is searched for within the URL hash.
+  var position_search_string = new String();
+  // Holds a String, "pos=", which is searched for within the URL hash.
+  var section_value = new String();
+  // Holds the String value of the Section Value listed in the URL hash.
+  var position_value = new String();
+  // Holds the String value of the Position Value listed in the URL hash.
   
-   
+  var wndow_selector = new String();
+  // Holds the String value of the selector, "#wndow-sctn_X".
+  var copy_selector = new String();
+  // Holds the String value of the selector, ".copy:nth_child(X)".
+  var headr_selector = new String();
+  // Holds the String value of the selector, ".headr.sctn_X".
+  var div_selector = new String();
+  // Holds the String value of the selector, "div".
+  //
+  // Is used to define Children elements of the HTML element identified 
+  // by the selector used in, "copy_selector".
+
+  var css_1 = new Object();
+  // Holds the values for the CSS properties, "display".
+  //
+  // The default value is, "block".
+  var css_2 = new Object();
+  // Holds the values for the CSS properties, "opacity".
+  //
+  // The default value is, "1".
+
+  var wndow_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X".
+  var copy_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
+  var headr_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
+
+  url_hash = window.location.hash;
+
+  section_search_string = "#sctn_;";
+  position_search_string = "pos=";
+
+  section_value_index_num = url_hash.indexOf(section_search_string);
+  section_value_index_num = section_value_index_num + section_search_string.length;
+  section_value = url_hash.charAt(section_value_index_num);
+
+  position_value_index_num = url_hash.indexOf(position_search_string);
+  position_value_index_num = position_value_index_num + position_search_string.length;
+  position_value = url_hash.charAt(position_value_index_num);
+
+  copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (position_value + 3) + ")";
+  headr_selector = ".headr.sctn_" + section_value;
+  div_selector = "div";
+
+  copy_element = $(copy_selector);
+  headr_element = $(headr_selector);
+
+  css_1 = {
+    "display": "block"
+  };
+
+  css_2 = {
+    "opacity": 1
+  };
+  
+  $(copy_element).css(css_1);
+  window.alert("time_value = " + time_value);
+  $(headr_element).fadeTo(time_value, 1, 
+    function () {
+      $(copy_element).children(div_selector).fadeTo(time_value, 1);
+    }
+  );
+  
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function animateSctnNav(sctn_nav_element) {
