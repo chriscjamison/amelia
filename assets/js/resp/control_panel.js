@@ -102,7 +102,80 @@ $(document).ready(
     
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
-        var current_location = new Number();
+        var url_hash = new String();
+
+        var section_search_string = new String();
+        var current_section_string = new String();
+        var replace_section_string = new String();
+
+        var section_value = new String();
+
+        var sub_nav_element = new Object();
+        var sub_nav_selector = new String();
+
+        var wndow_selector = new String();
+        var wndow_elements = new Array();
+        var num_of_wndow_elements = new Number();
+
+        url_hash = window.location.hash;
+
+        section_search_string = "sctn_";
+
+        section_value = url_hash.charAt(url_hash.indexOf(section_search_string) + section_search_string.length);
+
+        current_section_string = "sctn_" + section_value;
+
+        sub_nav_element = $(this);
+        
+        sub_nav_selector = $(sub_nav_element).attr("id");
+        
+        // console.log("sub_nav_selector = " + sub_nav_selector);
+        console.log("section_value.typeof = " + typeof section_value);
+        console.log("section_value = " + section_value);
+        if (sub_nav_selector === "prev-sctn") {
+          if (section_value === "1")  {
+            section_value = "main";
+          } else  {
+            section_value = parseInt(section_value) - 1;
+          }
+          
+        } else  {
+          wndow_selector = ".wndow";
+          wndow_elements = $(wndow_selector);
+          num_of_wndow_elements = wndow_elements.length;
+          
+          if (section_value === "") {
+            section_value = 1;
+          } else  {
+            section_value = parseInt(section_value);
+            
+            if (section_value < num_of_wndow_elements - 1)  {
+              section_value = parseInt(section_value) + 1;
+            } else {
+              section_value = "none";
+            }
+          }
+        }
+
+        if (section_value !== "none") {
+          if (url_hash.indexOf(section_search_string) === -1) {
+            url_hash = "sctn_1?pos=0";            
+          } else {
+            if (section_value === "main") {
+              url_hash = "sctn_main";
+            } else  {
+              replace_section_string = "sctn_" + section_value;
+
+              url_hash.replace(section_search_string, replace_section_string); 
+            }
+          }
+        }
+        // console.log("url_hash = " + url_hash);
+        window.location.hash = url_hash;
+
+
+
+        /*var current_location = new Number();
         var wndow_height = new Number();
         var location_num = new Number();
         var new_location = new Number();
@@ -180,7 +253,7 @@ $(document).ready(
         
         setTimeout(function () {$(this).css("backgroundPosition", sctn_bkgrnd_position)}, time_value);
         
-        setTimeout(function () {url_hash = url_hash;}, (time_value * 1.5));
+        setTimeout(function () {url_hash = url_hash;}, (time_value * 1.5));*/
       }
     );
     
