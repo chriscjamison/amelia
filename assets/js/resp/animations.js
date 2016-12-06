@@ -36,6 +36,9 @@
    *    of various HTML elements which fire when a user 
    *    activates a menu option, intrapage, or intrasection option.
    * **************** *************** **************** **************** **************** */
+var time_value = new Number();
+
+time_value = 400;
 
 function parseWindowDimensions() {
   /* **************** **************** **************** **************** **************** 
@@ -468,7 +471,7 @@ function cssAdjustment()  {
       backgroundPosition: "0px -234px"
     };
 
-    nav_sctn_css =  {
+    nav_sctn_css = {
       width: "6.8em",
       height: "6.56em",
       margin: "0 auto"
@@ -1078,7 +1081,7 @@ function sortCopyElements(section_value) {
   window.location.hash = url_hash;
   // Set the URL hash to the value contained within, "url_hash".
 
-  // setTimeout(function() {displayVerticalNav();}, time_value);
+  setTimeout(function() {displayVerticalNav();}, time_value);
   // Activates the function, "displayVerticalNav", which displays intrapage navigation.
   //
   // "displayVerticalNav" is activated after a period which is equal to the 
@@ -1185,7 +1188,7 @@ function animatePageElements()  {
    * **************** *************** **************** **************** **************** */
   
   var url_hash = new String();
-  // Holds the String value of the URL hash 
+  // Holds the String value of the URL hash
   
   var section_value_index_num = new Number();
   // Holds a Number representing the location within the URL hash where the 
@@ -1193,6 +1196,12 @@ function animatePageElements()  {
   var position_value_index_num = new Number();
   // Holds a Number representing the location within the URL hash where the 
   // Position Valueis listed.
+  var bkgrnd_element_x_position = new Number();
+  // Holds a Number which the product of the calculated width of the browser window 
+  // and "position_value".
+  // 
+  // This value is used to determine the CSS value of the property, "left", 
+  // of the background of a Section.
 
   var section_search_string = new String();
   // Holds a String, "#sctn_", which is searched for within the URL hash.
@@ -1203,10 +1212,14 @@ function animatePageElements()  {
   var position_value = new String();
   // Holds the String value of the Position Value listed in the URL hash.
   
+  var nav_selector = new String();
+  // Holds the String value of the selector, "nav".
   var wndow_selector = new String();
   // Holds the String value of the selector, "#wndow-sctn_X".
-  var copy_selector = new String();
-  // Holds the String value of the selector, ".copy:nth_child(X)".
+  var all_copy_selector = new String();
+  // Holds the String value of the selector, "#wndow-sctn_X > .copy".
+  var single_copy_selector = new String();
+  // Holds the String value of the selector, "#wndow-sctn_X > .copy:nth_child(Y)".
   var headr_selector = new String();
   // Holds the String value of the selector, ".headr.sctn_X".
   var div_selector = new String();
@@ -1214,58 +1227,103 @@ function animatePageElements()  {
   //
   // Is used to define Children elements of the HTML element identified 
   // by the selector used in, "copy_selector".
+  var bkgrnd_selector = new Object();
+  // Holds the String value of the selector, "#bkgrnd-sctn_X".
+
+  var nav_element = new Object();
+  var nav_width = new String();
 
   var css_1 = new Object();
   // Holds the values for the CSS properties, "display".
   //
-  // The default value is, "block".
+  // The default value is, "none".
   var css_2 = new Object();
-  // Holds the values for the CSS properties, "opacity".
+  // Holds the values for the CSS properties, "display".
   //
-  // The default value is, "1".
+  // The default value is, "block".
 
+  var nav_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "nav".
   var wndow_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X".
-  var copy_element = new Object();
+  var all_copy_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, ".copy".
+  var single_copy_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
   var headr_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
+  var bkgrnd_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
 
-  url_hash = window.location.hash;
-
-  section_search_string = "#sctn_;";
-  position_search_string = "pos=";
-
-  section_value_index_num = url_hash.indexOf(section_search_string);
-  section_value_index_num = section_value_index_num + section_search_string.length;
-  section_value = url_hash.charAt(section_value_index_num);
-
-  position_value_index_num = url_hash.indexOf(position_search_string);
-  position_value_index_num = position_value_index_num + position_search_string.length;
-  position_value = url_hash.charAt(position_value_index_num);
-
-  copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (position_value + 3) + ")";
-  headr_selector = ".headr.sctn_" + section_value;
-  div_selector = "div";
-
-  copy_element = $(copy_selector);
-  headr_element = $(headr_selector);
-
-  css_1 = {
-    "display": "block"
-  };
-
-  css_2 = {
-    "opacity": 1
-  };
+  var page_dimensions_Array = new Array();
   
-  $(copy_element).css(css_1);
-  window.alert("time_value = " + time_value);
-  $(headr_element).fadeTo(time_value, 1, 
-    function () {
-      $(copy_element).children(div_selector).fadeTo(time_value, 1);
+  
+  var bkgrnd_element_path = new String();
+
+
+  nav_selector = "nav";
+  nav_element = $(nav_selector);
+  
+  // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
+  if ($(nav_element).css("left") !== "0px") {
+    url_hash = window.location.hash;
+
+    section_search_string = "#sctn_;";
+    position_search_string = "pos=";
+
+    section_value_index_num = url_hash.indexOf(section_search_string);
+    section_value_index_num = section_value_index_num + section_search_string.length;
+    section_value = url_hash.charAt(section_value_index_num);
+
+    position_value_index_num = url_hash.indexOf(position_search_string);
+    position_value_index_num = position_value_index_num + position_search_string.length;
+    position_value = url_hash.charAt(position_value_index_num);
+
+    all_copy_selector = "#wndow-sctn_" + section_value + " > .copy";
+    single_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 3) + ")";
+    
+    headr_selector = ".headr.sctn_" + section_value;
+    div_selector = "div";
+    bkgrnd_selector = "#bkgrnd-sctn_" + section_value;
+
+    all_copy_element = $(all_copy_selector);
+    single_copy_element = $(single_copy_selector);
+    headr_element = $(headr_selector);
+    bkgrnd_element = $(bkgrnd_selector);
+
+    css_1 = {
+      display: "none"
+    };
+
+    css_2 = {
+      display: "block"
+    };
+    
+    page_dimensions_Array = parseWindowDimensions();
+
+    bkgrnd_element_x_position = page_dimensions_Array[0] * parseInt(position_value);
+
+    bkgrnd_element_x_position =  "-" + bkgrnd_element_x_position.toString() + "px 0px";
+
+    // window.alert("bkgrnd_element_x_position = " + bkgrnd_element_x_position);
+
+    $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
+
+    $(all_copy_element).css(css_1);
+    $(single_copy_element).css(css_2)
+    
+    if ($(headr_element).css("opacity") === "0") {
+      $(headr_element).fadeTo(time_value, 1, 
+        function () {
+          $(single_copy_element).children(div_selector).fadeTo(time_value, 1);
+        }
+      );
+    } else {
+      $(single_copy_element).children(div_selector).fadeTo(time_value, 1);
     }
-  );
+    
+  }
+  
   
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
@@ -1367,6 +1425,8 @@ function animateSideNav() {
   // Holds the String value of the selector, "#cntainr".
   var wndow_selector = new String();
   // Holds the String value of the selector, ".wndow".
+  var headr_selector = new String();
+  // Holds the String value of the selector, ".headr".
   var copy_selector = new String();
   // Holds the String value of the selector, ".copy".
   var info_selector = new String();
@@ -1405,6 +1465,12 @@ function animateSideNav() {
   //
   // The ".wndow" HTML elements contain ".copy" HTML elements which 
   // hold the content of the different Sections of the webpage.
+  var headr_elements = new Array();
+  // Holds all of the HTML elements within the webpage which are 
+  // identified by the selector, ".headr".
+  //
+  // The ".wndow" HTML elements contain ".headr" HTML elements which 
+  // hold the content of the different Sections of the webpage.
   var info_element = new Object();
   // Holds the jQuery object of the content of the HTML element 
   // identified by the selector, "#info".
@@ -1437,6 +1503,7 @@ function animateSideNav() {
   nav_brdr_selector = "#nav-brdr";
   cntainr_selector = "#cntainr";
   wndow_selector = ".wndow";
+  headr_selector = ".headr";
   copy_selector = ".copy";
   info_selector = "#info";
   bkgrnd_selector = "#bkgrnd";
@@ -1447,6 +1514,8 @@ function animateSideNav() {
   nav_brdr_element = $(nav_brdr_selector);
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
+  headr_elements = $(headr_selector);
+  copy_elements = $(copy_selector);
   info_element = $(info_selector);
   bkgrnd_element = $(bkgrnd_selector);
 
@@ -1455,7 +1524,7 @@ function animateSideNav() {
   // calculated using the jQuery Method, ".width();
   // 
   // That value is passed onto the variable, "nav_width".
-  
+
   if ($(nav_element).css("left") !== "0px")  {
     element_width = $(window).width() - nav_width;
     // The difference of the width of the browser window and the value held ]
@@ -1484,7 +1553,8 @@ function animateSideNav() {
 
     $(info_element).css("display", "none");
 
-    $(copy_selector).css("display", "none");
+    $(headr_elements).css("display", "none");
+    $(copy_elements).css("display", "none");
 
 
   } else  {
@@ -1502,7 +1572,7 @@ function animateSideNav() {
     $(wndow_elements).width(window_width);
 
     $(info_element).css("display", "block");
-
+    $(headr_elements).css("display", "table");
     
   }
 }

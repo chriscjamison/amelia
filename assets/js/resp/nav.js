@@ -104,7 +104,7 @@ function determineCopyElements()  {
   var url_hash = new String();
   // Holds the value of the String returned by the JavaScript METHOD, 
   // "window.location.hash"
-
+  
   var wndow_elements = new Object();
   // Holds the HTML elements identified by the selector, ".wndow".
   var copy_elements = new Object();
@@ -117,18 +117,17 @@ function determineCopyElements()  {
   var visible_element_value = new String();
 
   wndow_elements = $(".wndow");
-  // copy_elements = $(".copy");
+  
   visible_elements_hash = "copyValues=";
+  
   url_hash = window.location.hash;
-  // window.alert("copy_elements.length = " + copy_elements.length);
-  // window.alert("wndow_elements.length = " + wndow_elements.length);
-
+  
   if (url_hash.indexOf("copyValues") === -1)  {
     $(wndow_elements).each(
       function () {
         var inc = new Number();
         var wndow_element = this;
-        // window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
+
         if ($(wndow_element).children(".copy").length > 0)  {
           copy_elements = $(this).children(".copy");
           
@@ -165,10 +164,14 @@ function determineCopyElements()  {
       }
     );
 
-    if (window.location.hash.indexOf("#") === -1) {
+    if (url_hash.indexOf("#") === -1) {
       visible_elements_hash = "#" + visible_elements_hash;
     } else  {
-      visible_elements_hash = "?" + visible_elements_hash;
+      if (url_hash.indexOf("?") === -1) {
+        visible_elements_hash = "?" + visible_elements_hash;
+      } else {
+        visible_elements_hash = "&" + visible_elements_hash;
+      }
     }
     
     visible_elements_hash = window.location.hash + visible_elements_hash;
@@ -176,9 +179,8 @@ function determineCopyElements()  {
 
     window.location.hash = visible_elements_hash;
   } else  {
-    var url_hash_data = new Array();
-    var url_hash_values = new Array();
-    var url_hash_string = new String();
+    var url_hash_data_Array = new Array();
+    var url_hash_values_Array = new Array();
 
     var copy_selector = new String();
     var wndow_selector = new String();
@@ -189,34 +191,44 @@ function determineCopyElements()  {
     var copy_element = new Object();
 
     var inc = new Number();
+    var url_hash_data_array_value = new Number();
 
     inc = 0;
 
-    // copy_selector = ".copy";
     wndow_selector = ".wndow";
 
     wndow_elements = $(wndow_selector);
 
-    url_hash_data = url_hash.split("=");
-
-    url_hash_values = url_hash_data[1].split(",");
+    url_hash_data_Array = url_hash.split("=");
+    
+    if (url_hash_data_Array[1].indexOf("copyValues") !== -1)  {
+      url_hash_data_array_value = 2;
+    } else {
+      if (url_hash_data_Array[1].indexOf("bkgrnd") !== -1)  {
+        url_hash_data_array_value = 3;
+      } else {
+        url_hash_data_array_value = 1;
+      }
+    }
+    
+    url_hash_values_Array = url_hash_data_Array[url_hash_data_array_value].split(",");
 
     $(wndow_elements).each(
       function () {
         wndow_element = this;
         
         if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
-          copy_selector = ".copy:nth-child(" + url_hash_values[inc] + ")";
-          // window.alert("copy_selector = " + copy_selector);
-          $(wndow_element).children(copy_selector).css("display", "block");
+          copy_selector = $(wndow_element).attr("id") + " > .copy:nth-child(" + url_hash_values_Array[inc] + ")";
+          
+          $(copy_selector).css("display", "block");
 
           inc++;
         }
       }
     );
 
-    url_hash_data = url_hash.split("copyValues");
+    url_hash_data_Array = url_hash.split("copyValues");
     
-    window.location.hash = url_hash_data[0].substring(0, (url_hash_data[0].length - 1));
+    window.location.hash = url_hash_data_Array[0].substring(0, (url_hash_data_Array[0].length - 1));
   }
 }

@@ -1,13 +1,16 @@
-var time_value = new Number(400);
-var window_margin = new Number(150);
-var wndow_height = new Number();
-var current_position = new Number();
-
 $(document).ready(
   function () {
+    var time_value = new Number();
+    var window_margin = new Number();
+    var wndow_height = new Number();
+    var current_position = new Number();
+
     var url_string = new String();
     var url_hash = new String();
 
+    time_value = 400;
+    window_margin = 150;
+    
     url_string = window.location.href;
     url_hash = window.location.hash;
 
@@ -19,7 +22,7 @@ $(document).ready(
 
     form_selectors = "#form-sctn_6 .form-page_1";
 
-    if (url_hash === "#sctn_6?pos=1&bkgrnd=base" && 
+    if (url_hash === "#sctn_6?pos=1" && 
         url_hash.indexOf("copyValues") === -1)  {
       $(form_selectors).css("display", "block");
       $(form_selectors).fadeTo(time_value, 1);
@@ -81,7 +84,7 @@ $(document).ready(
                 setTimeout(
                   function () {
                     if (section_value !== "sctn_main") {
-                      url_hash = section_value + "?pos=0&bkgrnd=base";  
+                      url_hash = section_value + "?pos=0";  
                     } else  {
                       url_hash = section_value + "?bkgrnd=base";  
                     }
@@ -253,7 +256,7 @@ $(document).ready(
 
     $("input#sctn_1-start").on("click", 
       function () {
-        window.location.hash = "#sctn_1?pos=1&bkgrnd=base";
+        window.location.hash = "#sctn_1?pos=1";
 
         $("#form-sctn_1 .form-page_1").css("display", "block");
         $("#form-sctn_1 .form-page_1").fadeTo(time_value, 1);
@@ -262,19 +265,19 @@ $(document).ready(
 
     $("input#sctn_5-start").on("click", 
       function () {
-        window.location.hash = "#sctn_5?pos=1&bkgrnd=base";
+        window.location.hash = "#sctn_5?pos=1";
       }
     );
     
     $("input#sctn_5-cntct").click(
       function () {
-        window.location.hash = "#sctn_6?pos=1&bkgrnd=base";
+        window.location.hash = "#sctn_6?pos=1";
       }
     );
 
     $("input#sctn_6-start").click(
       function () {
-        window.location.hash = "#sctn_6?pos=1&bkgrnd=base";
+        window.location.hash = "#sctn_6?pos=1";
 
         $("#form-sctn_6 .form-page_1").css("display", "block");
         $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
@@ -307,7 +310,7 @@ $(document).ready(
         
         if ((current_position === 0) && 
             (url_hash.indexOf("sctn_main") === -1)) {
-          window.location.hash = "#sctn_main?bkgrnd=base";
+          window.location.hash = "#sctn_main";
         }
         
         if ((current_position >= wndow_height) && 
@@ -353,7 +356,7 @@ $(document).ready(
     $(window).on("hashchange",
       function () {
         if (url_hash.indexOf("copyValues") === -1) {
-          animatePageElements(time_value);
+          animatePageElements();
         }
         
         if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
@@ -365,7 +368,6 @@ $(document).ready(
     );
 
     setupPage();
-    // setTimeout(animatePageElements, time_value);
     
     $(window).on("resize", 
       function () {
