@@ -232,3 +232,95 @@ function determineCopyElements()  {
     window.location.hash = url_hash_data_Array[0].substring(0, (url_hash_data_Array[0].length - 1));
   }
 }
+
+function interSectionNav(inter_nav_element)  {
+  var url_hash = new String();
+
+  var section_search_string = new String();
+  var current_section_string = new String();
+  var replace_section_string = new String();
+
+  var section_value = new String();
+
+  var sub_nav_selector = new String();
+
+  var wndow_selector = new String();
+  var wndow_elements = new Array();
+  var num_of_wndow_elements = new Number();
+  
+  var scroll_to_num = new Number();
+
+  var complete_called = false;
+
+  url_hash = window.location.hash;
+
+  section_search_string = "sctn_";
+
+  section_value = url_hash.charAt(url_hash.indexOf(section_search_string) + section_search_string.length);
+
+  current_section_string = "sctn_" + section_value;
+
+  sub_nav_selector = $(inter_nav_element).attr("id");
+  
+  wndow_selector = ".wndow";
+  wndow_elements = $(wndow_selector);
+  num_of_wndow_elements = wndow_elements.length;
+
+  if (sub_nav_selector === "prev-sctn") {
+    if (section_value === "1")  {
+      section_value = "main";
+    } else  {
+      section_value = parseInt(section_value) - 1;
+    }
+    
+  } else  {
+    if (section_value === "" || section_value === "main" || section_value === "m") {
+      section_value = 1;
+    } else  {
+      section_value = parseInt(section_value);
+      
+      if (section_value < num_of_wndow_elements - 1)  {
+        section_value = parseInt(section_value) + 1;
+      } else {
+        section_value = "none";
+      }
+    }
+  }
+
+  if (section_value !== "none") {
+    if (url_hash.indexOf(section_search_string) === -1) {
+      url_hash = "sctn_1?pos=0";
+    } else {
+      if (section_value === "" || section_value === "main") {
+        url_hash = "sctn_main";
+      } else  {
+        replace_section_string = "sctn_" + section_value;
+
+        url_hash.replace(section_search_string, replace_section_string);
+      }
+    }
+  }
+  
+
+  if (section_value === "main") {
+    scroll_to_num = 0;
+  } else  {
+    scroll_to_num = parseInt(section_value) * $(wndow_selector).height();
+  }
+  
+  window.location.hash = url_hash;
+
+  
+  $("html, body").animate(
+      { scrollTop: scroll_to_num },
+      {
+        complete : function(){
+          if (!complete_called) {
+              complete_called = true;
+          }
+        }
+      }
+  );
+  
+  setTimeout(function() {displayVerticalNav();}, nav_transition_time);
+}
