@@ -590,6 +590,23 @@ function cssAdjustment()  {
    *       describes the navigation function of the element.
    * **************** **************** **************** **************** **************** */
 
+  if ((page_dimensions_Array[0] === 1920) && 
+      ((window.navigator.userAgent.indexOf("Mobile") !== -1) ||  
+      (window.navigator.userAgent.indexOf("Tablet") !== -1))) {
+    info_css = {
+      bottom: "8.25em",
+      right: "9em"
+    }
+
+    nav_css = {
+      right: "54em", 
+      bottom: "6em"
+    };
+
+    $("#info").css(info_css);
+    $("#prev-sctn, #next-sctn").css(nav_css);
+  }
+
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
 function setupPage()  {
@@ -856,7 +873,7 @@ function animateInfoElement() {
       "bottom": "1.56em"
     };
     
-   prev_sctn_css = {
+    prev_sctn_css = {
       "height": "25px"
     };
     
@@ -871,44 +888,6 @@ function animateInfoElement() {
     nav_link_css = {
       "opacity": 1
     };
-    
-    $("#info").animate(info_css);
-    // Animates the HTML element identified by the selector, "#info" 
-    // from it's initial "visible" position and "hides" it from view 
-    // by scrolling "#info" up and out of view. 
-    // 
-    // The animation is initiated by the jQuery Method, ".animate".
-    $("#next-sctn > span").html("");
-    // The description above the "arrow", held by the HTML element 
-    // identified by the selector, "#next-sctn > span", is stripped 
-    // 
-    // The text is stripped using the jQuery Method, ".html".
-    $("#next-sctn").css(next_sctn_css);
-    // The "arrow", which is used to lead the visitor to the next section 
-    // is placed near the center-bottom of the browser window. 
-    // Also, the size of the "arrow" is decreased.
-    //
-    // The position size are changed using the jQuery Method, ".css".
-  
-    $("#prev-sctn").css(next_sctn_height_css);
-    // The "arrow", which is used to lead the visitor to the previous section 
-    // has it's size decreased.
-    
-    $("#prev-sctn > span, #next-sctn > span").animate(nav_sctn_css);
-    // Fades the HTML elements which holds "arrows" which serve as links 
-    // to intrapage navigation are brought into view.
-    // 
-    // The elements brought into view are animated using the 
-    // jQuery Method, ".animate".    
-    $("nav, #nav-bkgrnd, #nav-brdr").css(nav_css);
-    // The intrapage navigation HTML elements are made available for view.
-    // 
-    // The elements brought into view are made visible using the 
-    // jQuery Method, ".css".
-    $("#nav-link").animate(nav_link_css, 800);
-    // The "hamburger navigation icon" is the only element will be viewable.
-    // 
-    // The "icon" is made viewable by using the jQuery Method, ".animate".		
   } else {
     var logo_1_css = new Object();
     // Holds the value for the CSS property, "display".
@@ -1431,6 +1410,8 @@ function animateSideNav() {
   // Holds the String value of the selector, ".copy".
   var info_selector = new String();
   // Holds the String value of the selector, "#info".
+  var sctn_nav_selector = new String();
+  // Holds the String value of the selector, ".sctn_nav".
   var bkgrnd_selector = new String();
   // Holds the String value of the selector, "#bkgrnd".
 
@@ -1483,6 +1464,10 @@ function animateSideNav() {
   var bkgrnd_element = new Object();
   // Holds the jQuery object of the content of the HTML element 
   // identified by the selector, "#bkgrnd".
+  var sctn_nav_element = new Object();
+  // Holds the jQuery object of the content of the HTML element 
+  // identified by the selector, ".sctn_nav".
+
   var nav_width = new Number();
   // Holds the numberical value of the width of the HTML element 
   // identified by the selector, "nav".
@@ -1506,7 +1491,8 @@ function animateSideNav() {
   headr_selector = ".headr";
   copy_selector = ".copy";
   info_selector = "#info";
-  bkgrnd_selector = "#bkgrnd";
+  sctn_nav_selector = ".sctn_nav"
+  bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
 
   nav_element = $(nav_selector);
   options_element = $(options_selector);
@@ -1517,6 +1503,7 @@ function animateSideNav() {
   headr_elements = $(headr_selector);
   copy_elements = $(copy_selector);
   info_element = $(info_selector);
+  sctn_nav_element = $(sctn_nav_selector);
   bkgrnd_element = $(bkgrnd_selector);
 
   nav_width = $(nav_element).width();
@@ -1535,44 +1522,91 @@ function animateSideNav() {
     // the background images of the webpage, "#bkgrnd", and the HTML elements 
     // held within each Section of the webpage, ".wndow".
 
-    $(nav_element).css("left", "0px");
+    var css_1 = new Object();
+    var css_2 = new Object();
+    var css_3 = new Object();
+    var css_4 = new Object();
+
+    css_1 = {
+      left: "0px"
+    };
+
+    css_2 = {
+      left: "0px",
+      display: "block", 
+      opacity: 1
+    };
+
+    css_3 = {
+      left: nav_width
+    };
+
+    css_4 = {
+      display: "none"
+    };
+
+
+    $(nav_element).css(css_1);
     // The CSS value of the property, "left", is set to "0px".
     //
     // The change in value brings the HTML element, "nav", into view.
-    $(options_element).css({"left": "0px", "display": "block", "opacity": 1});
+    $(options_element).css(css_2);
     
-    $(nav_bkgrnd_element).css("left", "0px");
-    $(nav_brdr_element).css("left", "0px");
+    $(nav_bkgrnd_element).css(css_1);
+    $(nav_brdr_element).css(css_1);
 
-    $(cntainr_element).css("left", nav_width);
-    $(bkgrnd_element).css("left", nav_width);
+    $(cntainr_element).css(css_3);
+    $(bkgrnd_element).css(css_3);
 
     $(cntainr_element).width(element_width);
     $(bkgrnd_element).width(element_width);
     $(wndow_elements).width(element_width);
 
-    $(info_element).css("display", "none");
+    $(info_element).css(css_4);
 
-    $(headr_elements).css("display", "none");
-    $(copy_elements).css("display", "none");
-
+    $(headr_elements).css(css_4);
+    $(copy_elements).css(css_4);
+    $(sctn_nav_element).css(css_4);
 
   } else  {
-    window_width = $(window).width();
-    $(nav_element).css("left", -nav_width);
-    $(options_element).css("left", -nav_width);
-    $(nav_bkgrnd_element).css("left", -nav_width);
-    $(nav_brdr_element).css("left", -nav_width);
+    var css_6 = new Object();
+    var css_7 = new Object();
+    var css_8 = new Object();
+    var css_9 = new Object();
 
-    $(cntainr_element).css("left", "0px");
-    $(bkgrnd_element).css("left", "0px");
+    window_width = $(window).width();
+    
+    css_6 = {
+      left: -nav_width
+    };
+
+    css_7 = {
+      left: "0px"
+    };
+
+    css_8 = {
+      display: "block"
+    };
+
+    css_9 = {
+      display: "table"
+    };
+
+    $(nav_element).css(css_6);
+    $(options_element).css(css_6);
+    $(nav_bkgrnd_element).css(css_6);
+    $(nav_brdr_element).css(css_6);
+
+    $(cntainr_element).css(css_7);
+    $(bkgrnd_element).css(css_7);
 
     $(cntainr_element).width(window_width);
+    $(sctn_nav_element).width(window_width);
     $(bkgrnd_element).width(window_width);
     $(wndow_elements).width(window_width);
 
-    $(info_element).css("display", "block");
-    $(headr_elements).css("display", "table");
+    $(info_element).css(css_8);
+    $(headr_elements).css(css_9);
     
   }
 }

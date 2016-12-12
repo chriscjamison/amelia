@@ -99,13 +99,14 @@ $(document).ready(
         
       }
     );
-    
+        
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
         interSectionNav(this);
       }
     );
     
+
     $(".sctn_nav > div > span").on("mouseover",
 			function () {
         var sctn_nav_selector = new String();

@@ -249,7 +249,7 @@ body {
 
 .sctn_2-blok_2 > span + div {
   width: 53.5em;
-  height: auto;
+  height: inherit;
   margin: 0 auto;
   position: relative;
   top: 1.5em;
@@ -1058,7 +1058,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1330px) {
+@media screen and (min-width: 1330px) and (max-width: 1890px) {
   #cntnr {
     width: 1366px;
   }
@@ -1127,6 +1127,92 @@ body {
     float: left;
     clear: none;
   }
+}
+
+@media screen and (min-width: 1910px) {
+  .headr {
+    width: 120em;
+  }
+
+  .copy {
+    width: 121.8em !important;
+    height: 87.1%;
+    margin-left: 11.5em;
+  }
+  
+  #wndow-sctn_2 > .copy {
+    width: 105.8em !important;
+    margin-left: 27.5em;
+  }
+
+  #wndow-sctn_6 > .copy {
+    width: 105.3em;
+    margin-left: 28em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_2-blok, 
+  .sctn_2-blok_2, 
+  .sctn_3-blok,
+  .sctn_4-blok,
+  .sctn_5-blok {
+    font-size: 1.1em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-blok {
+    position: relative;
+    left: 31.75em;
+  }
+  
+  .sctn_2-spcr {
+    display: inline-block;
+  }
+
+  .sctn_2-blok_2 {
+    width: 70.75em;
+    height: 13.1em;
+    left: 0;
+  }
+
+  .sctn_2-blok_2 > span + div {
+    width: 61.25em;
+  }
+
+  .sctn_2-blok_2 > span > div {
+    width: 81.8em;
+    height: inherit;
+  }
+
+  .sctn_2-blok_2 > span + div > span:first-of-type {
+    margin-left: 0;
+  }
+
+  .sctn_2-blok_2 > span + div > span {
+    padding: 2em 2em 1.1em 2em;
+  }
+  
+  .sctn_3-blok, 
+  .sctn_4-blok, 
+  .sctn_5-blok, 
+  .sctn_6-blok,
+  .sctn_6-blok_2 {
+    width: 32.5em;
+  }
+  
+  .sctn_5-blok {
+    left: 9.5em;
+  }
+
+  .sctn_6-blok {
+    margin-right: 4.5em;
+  }
+  
+  .sctn_6-spcr {
+    width: 32.5em;
+  }
+
 }
 
 html[data-useragent*='Windows NT 6.3'] .sctn_4-blok > div {

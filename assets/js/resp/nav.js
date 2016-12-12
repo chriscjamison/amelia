@@ -324,3 +324,14 @@ function interSectionNav(inter_nav_element)  {
   
   setTimeout(function() {displayVerticalNav();}, nav_transition_time);
 }
+
+function interSectionNavHoverState(inter_section_nav_element) {
+  var backgroundPosition = new String();
+
+  if ($(inter_section_nav_element).attr("id") === "prev-sctn")  {
+    background_position = "0px -111px";
+  } else  {
+    background_position = "0px -253px";
+  }
+  $(inter_section_nav_element).css("backgroundPosition", background_position);
+}

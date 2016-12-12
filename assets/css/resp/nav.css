@@ -170,17 +170,21 @@ nav {
   opacity: 0;
 }
 
+#next-sctn {
+  background-position: 0px -209px;
+}
+
 #prev-sctn:hover,
 #next-sctn:hover {
   cursor: pointer;  
 }
 
 #prev-sctn:hover {
-  background-position: 0px -111px;
+  background-position: 0px -111px !important;
 }
 
 #next-sctn:hover {
-  background-position: 0px -235px;
+  background-position: 0px -235px !important;
 }
 
 .base-prev-sctn {
@@ -503,8 +507,6 @@ div.sctn_nav > div > div a:hover {
     display: inline-table;
     font-size: 1.25em;
   };
-    
-  
 }
 
 @media screen and (min-width: 1340px) {
@@ -569,5 +571,29 @@ div.sctn_nav > div > div a:hover {
   #prev-sctn, 
   #next-sctn {
     right: 38.3em;
+  }
+}
+
+@media screen and (min-width: 1900px) {
+  nav, 
+  #nav-brdr,
+  #nav-bkgrnd, 
+  #options {
+    width: 20.5em;
+  }
+
+  nav, 
+  #nav-bkgrnd {
+    height: 67.5em;
+  }
+
+  #options {
+    height: initial;
+  }
+
+  #options > span {
+    width: 12.4em;
+    height: 2.15em;
+    margin: 0.75em;
   }
 }
