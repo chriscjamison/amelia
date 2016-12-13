@@ -109,25 +109,28 @@ function determineCopyElements()  {
   // Holds the HTML elements identified by the selector, ".wndow".
   var copy_elements = new Object();
   // Holds the HTML elements identified by the selector, ".copy".
-  var visible_elements_hash = new String();
+  var visible_elements_var = new String();
   // Holds the value for each HTML element using the selector, ".copy", 
   // within a parent HTML element using the selector, "#wndow_sctn-X", 
   // within a String which becomes the URL Hash for this webpage once 
   // this function is complete.
   var visible_element_value = new String();
 
+  var inc = new Number();
+
   wndow_elements = $(".wndow");
   
-  visible_elements_hash = "copyValues=";
+  visible_elements_var = "copyValues=";
   
   url_hash = window.location.hash;
-  
+
   if (url_hash.indexOf("copyValues") === -1)  {
     $(wndow_elements).each(
       function () {
-        var inc = new Number();
         var wndow_element = this;
-
+        
+        inc = 0;
+        window.alert("$(\"" + $(wndow_element).attr("id") + "\").children(\".copy\").length = " + $(wndow_element).children(".copy").length);
         if ($(wndow_element).children(".copy").length > 0)  {
           copy_elements = $(this).children(".copy");
           
@@ -136,28 +139,45 @@ function determineCopyElements()  {
             function () {
               // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
               var copy_element = this;
-              
+              window.alert("inc = " + inc);
               if ($(copy_element).css("display") === "none")  {
+                window.alert("inc = " + inc);
                 inc++;
               }
             }
           ); 
 
-          if (visible_elements_hash.charAt(visible_elements_hash.length - 1) === "=") {
+         
+          // window.alert("visible_elements_var.charAt(" + (visible_elements_var.length - 1) + ") = " + visible_elements_var.charAt(visible_elements_var.length - 1));
+
+          if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
+            
             if (inc === $(wndow_element).children(".copy").length)  {
-              visible_element_value = "0";
+              visible_element_value = "-";
             } else  {
-              visible_element_value = inc;
+              if ($(wndow_element).children(".copy").length === 1)  {
+                visible_element_value = 3;
+              } else  {
+                visible_element_value = inc;
+              }
+               window.alert("$(\"" + $(wndow_element).attr("id") + "\").attr(\"id\") = " + $(wndow_element).attr("id"));
+              //  window.alert("inc = " + inc);
             }
           } else  {
+            // window.alert("inc = " + inc);
+            
             if (inc === $(wndow_element).children(".copy").length)  {
-              visible_element_value = ",0";
+              visible_element_value = ",-";
             } else  {
-              visible_element_value = "," + inc;
+              if ($(wndow_element).children(".copy").length === 1)  {
+                visible_element_value = "," + 3;
+              } else  {
+                visible_element_value = "," + inc;
+              }
             }
           }
 
-          visible_elements_hash = visible_elements_hash + visible_element_value;
+          visible_elements_var = visible_elements_var + visible_element_value;
           // window.alert("$(" + $(this).attr("id") + ").children(\".copy\").css(\"display\") = " + $(this).children(".copy").css("display"));
         }
       
@@ -165,19 +185,19 @@ function determineCopyElements()  {
     );
 
     if (url_hash.indexOf("#") === -1) {
-      visible_elements_hash = "#" + visible_elements_hash;
+      visible_elements_var = "#" + visible_elements_var;
     } else  {
       if (url_hash.indexOf("?") === -1) {
-        visible_elements_hash = "?" + visible_elements_hash;
+        visible_elements_var = "?" + visible_elements_var;
       } else {
-        visible_elements_hash = "&" + visible_elements_hash;
+        visible_elements_var = "&" + visible_elements_var;
       }
     }
     
-    visible_elements_hash = window.location.hash + visible_elements_hash;
-    // window.alert("visible_elements_hash = " + visible_elements_hash);
+    visible_elements_var = window.location.hash + visible_elements_var;
+    // window.alert("visible_elements_var = " + visible_elements_var);
 
-    window.location.hash = visible_elements_hash;
+    window.location.hash = visible_elements_var;
   } else  {
     var url_hash_data_Array = new Array();
     var url_hash_values_Array = new Array();
@@ -218,11 +238,14 @@ function determineCopyElements()  {
         wndow_element = this;
         
         if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
-          copy_selector = $(wndow_element).attr("id") + " > .copy:nth-child(" + url_hash_values_Array[inc] + ")";
+          window.alert("inc = " + inc);
+          if (url_hash_values_Array[inc] !== "-") {
+            copy_selector = $(wndow_element).attr("id") + " > .copy:nth-child(" + url_hash_values_Array[inc] + ")";
           
-          $(copy_selector).css("display", "block");
+            $(copy_selector).css("display", "block");
 
-          inc++;
+            inc++;
+          }
         }
       }
     );

@@ -1146,7 +1146,7 @@ body {
   }
 
   #wndow-sctn_6 > .copy {
-    width: 105.3em;
+    width: 105.3em !important;
     margin-left: 28em;
   }
 
@@ -1155,7 +1155,10 @@ body {
   .sctn_2-blok_2, 
   .sctn_3-blok,
   .sctn_4-blok,
-  .sctn_5-blok {
+  .sctn_5-blok > p, 
+  #sctn_5-desc-3 > span + span + span ~ span span, 
+  #sctn_6-desc-1 > p, 
+  .sctn_6-blok-2 > span {
     font-size: 1.1em;
   }
 
@@ -1195,7 +1198,8 @@ body {
   
   .sctn_3-blok, 
   .sctn_4-blok, 
-  .sctn_5-blok, 
+  .sctn_5-blok,
+  #sctn_5-desc-2,  
   .sctn_6-blok,
   .sctn_6-blok_2 {
     width: 32.5em;
@@ -1205,12 +1209,49 @@ body {
     left: 9.5em;
   }
 
+  #sctn_5-desc-3 > span {
+    padding: 1.67em;
+  }
+
+  #sctn_5-desc-3 > span + span + span ~ span span {
+    margin-top: 0.6em;
+  }
+
   .sctn_6-blok {
     margin-right: 4.5em;
   }
-  
+
+  #sctn_6-desc-1 > p {
+    line-height: 1.8em;
+  }
+
   .sctn_6-spcr {
     width: 32.5em;
+  }
+
+  .sctn_6-blok-2 {
+    width: 17em;
+  }
+
+  .sctn_6-blok-2 > div {
+    width: 13.75em;
+  }
+
+  #sctn_6-info-1 {
+    width: 28.8em;
+  }
+  
+  #sctn_6-info-1 > span {
+    width: 24em;
+    margin: 0 auto;
+  }
+
+  #sctn_6-info-1 > span > span {
+    font-size: 1.25em;
+  }
+
+  #sctn_6-info-2 > div {
+    width: 29.5em;
   }
 
 }

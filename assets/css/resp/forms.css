@@ -410,6 +410,11 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 }
 
 @media screen and (min-width: 1910px) {
+	#form-sctn_1 {
+		margin-left: 20em;
+		position: relative;
+	}
+
 	input[type=button],
 	input[type=submit] {
 		font-size: 1.1em;
@@ -417,8 +422,11 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 	#sctn_6-start {
 		position: relative;
-		left: 18.5em;
 		letter-spacing: 0px;
+	}
+
+	#sctn_6-map {
+		margin-top: 0.85em;
 	}
 }
 

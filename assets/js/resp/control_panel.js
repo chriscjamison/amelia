@@ -1,19 +1,19 @@
+var time_value = new Number();
+var window_margin = new Number();
+var wndow_height = new Number();
+var current_position = new Number();
+
+var url_string = new String();
+var url_hash = new String();
+
+time_value = 400;
+window_margin = 150;
+
+url_string = window.location.href;
+url_hash = window.location.hash;
+
 $(document).ready(
   function () {
-    var time_value = new Number();
-    var window_margin = new Number();
-    var wndow_height = new Number();
-    var current_position = new Number();
-
-    var url_string = new String();
-    var url_hash = new String();
-
-    time_value = 400;
-    window_margin = 150;
-    
-    url_string = window.location.href;
-    url_hash = window.location.hash;
-
     if (url_string.indexOf("rateValue") != -1) {      
       $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url.indexOf("rateValue") + 10), url_string.length));
     }
@@ -217,6 +217,8 @@ $(document).ready(
         animateFormPanes("sctn_6");
       }
     );
+
+    setupPage();
        
     $(window).on("scroll", 
       function () {
@@ -278,7 +280,10 @@ $(document).ready(
     
     $(window).on("hashchange",
       function () {
-        if (url_hash.indexOf("copyValues") === -1) {
+        url_hash = window.location.hash;
+        window.alert("window.location.hash = " + window.location.hash);
+        if (url_hash.indexOf("copyValues") === -1 && 
+            url_hash !== "") {
           animatePageElements();
         }
         
@@ -289,8 +294,6 @@ $(document).ready(
         }
       }
     );
-
-    setupPage();
     
     $(window).on("resize", 
       function () {
@@ -298,5 +301,7 @@ $(document).ready(
         animatePageElements();
       }
     );
+
+
   }
 );
