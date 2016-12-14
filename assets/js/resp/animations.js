@@ -422,7 +422,7 @@ function cssAdjustment()  {
       // 
       // The Method, "css", is meant to alter the HTML element, "#prev-sctn", to best 
       // render within a desktop or laptop browser.
-      $(next_sctn_span_element, prev_sctn_span_element).css(next_sctn_2_css);  
+      $(next_sctn_span_element).css(next_sctn_2_css);  
       // The HTML elements identified by the selectors, 
       // "#prev-sctn > span" and "#next-sctn > span", are formatted by 
       // using the CSS properties held by the Object, "prev_sctn_css".
@@ -430,7 +430,7 @@ function cssAdjustment()  {
       // The Method, "css", is meant to alter the HTML elements, 
       // "#prev-sctn > span" and "#next-sctn > span" to best  
       // render within a desktop or laptop browser.
-      
+      $(prev_sctn_span_element).css(next_sctn_2_css);
       
         
       if (page_dimensions_Array[0] > 1900)  {
@@ -1131,6 +1131,7 @@ function sortCopyElements(section_value) {
   window.location.hash = url_hash;
   // Set the URL hash to the value contained within, "url_hash".
 
+  
   setTimeout(function() {displayVerticalNav();}, time_value);
   // Activates the function, "displayVerticalNav", which displays intrapage navigation.
   //
@@ -1314,10 +1315,10 @@ function animatePageElements()  {
   nav_selector = "nav";
   nav_element = $(nav_selector);
   
+  url_hash = window.location.hash;
   // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
-  if ($(nav_element).css("left") !== "0px") {
-    url_hash = window.location.hash;
-
+  if ($(nav_element).css("left") !== "0px" && 
+      url_hash.indexOf("sctn_main") === -1) {
     section_search_string = "#sctn_;";
     position_search_string = "pos=";
 
@@ -1331,7 +1332,7 @@ function animatePageElements()  {
 
     all_copy_selector = "#wndow-sctn_" + section_value + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 3) + ")";
-    window.alert("single_copy_selector = " + single_copy_selector);
+    // window.alert("single_copy_selector = " + single_copy_selector);
     headr_selector = ".headr.sctn_" + section_value;
     div_selector = "div";
     bkgrnd_selector = "#bkgrnd-sctn_" + section_value;
@@ -1679,5 +1680,91 @@ function animateSideNav() {
     $(info_element).css(css_8);
     $(headr_elements).css(css_9);
     
+  }
+}
+
+function displaySectionContent()  {
+  var wndow_height = new Number();
+  var current_position = new Number();
+
+  var headr_selector = new String();
+
+  var headr_element = new String();
+
+// window.alert("displaySectionContent");
+  var url_hash = new String();
+  
+  wndow_height = $(".wndow").height(); 
+        
+  current_position = $(window).scrollTop();  
+  // window.alert("current_position = " + current_position);
+  // window.alert("wndow_height = " + wndow_height);
+
+
+  url_hash = window.location.hash;
+
+  if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
+      (url_hash.indexOf("sctn_main") === -1) && 
+      (current_position > 1)) {
+    animateInfoElement();
+  }
+
+  if ((current_position === 0) && 
+      (url_hash.indexOf("sctn_main") === -1) && 
+       ($("#info").css("opacity") !== "0")) {
+      window.location.hash = "#sctn_main";    
+  }
+
+  if ((current_position >= wndow_height) && 
+      (current_position < wndow_height + window_margin))  {
+    if ($(".headr.sctn_1").css("opacity") === "0")  {
+      animatePageElements();
+    }
+
+    sortCopyElements("sctn_1");
+  } 
+ 
+  if ((current_position >= wndow_height * 2) && 
+      (current_position < (wndow_height * 2) + window_margin))  {
+    if ($(".headr.sctn_2").css("opacity") === "0")  {
+      animatePageElements();
+    }
+    // window.alert("2");
+    sortCopyElements("sctn_2");
+  }   
+
+  if ((current_position >= wndow_height * 3) && 
+      (current_position < (wndow_height * 3) + window_margin))  {
+    if ($(".headr.sctn_3").css("opacity") === "0")  {
+      animatePageElements();
+    }
+
+    sortCopyElements("sctn_3");
+  } 
+
+  if ((current_position >= wndow_height * 4) && 
+      (current_position < (wndow_height * 4) + window_margin))  {
+    if ($(".headr.sctn_4").css("opacity") === "0")  {
+      animatePageElements();
+    }
+
+    sortCopyElements("sctn_4");
+  }
+
+  if ((current_position >= wndow_height * 5) && 
+      (current_position < (wndow_height * 5) + window_margin))  {
+    if ($(".headr.sctn_5").css("opacity") === "0")  {
+      animatePageElements();
+    }
+    
+    sortCopyElements("sctn_5");
+  }
+
+  if (current_position >= wndow_height * 6)  {
+    if ($(".headr.sctn_6").css("opacity") === "0")  {
+      animatePageElements();
+    }
+    
+    sortCopyElements("sctn_6");
   }
 }

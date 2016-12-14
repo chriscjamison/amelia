@@ -130,7 +130,7 @@ function determineCopyElements()  {
         var wndow_element = this;
         
         inc = 0;
-        window.alert("$(\"" + $(wndow_element).attr("id") + "\").children(\".copy\").length = " + $(wndow_element).children(".copy").length);
+        // window.alert("$(\"" + $(wndow_element).attr("id") + "\").children(\".copy\").length = " + $(wndow_element).children(".copy").length);
         if ($(wndow_element).children(".copy").length > 0)  {
           copy_elements = $(this).children(".copy");
           
@@ -139,9 +139,9 @@ function determineCopyElements()  {
             function () {
               // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
               var copy_element = this;
-              window.alert("inc = " + inc);
+              // window.alert("inc = " + inc);
               if ($(copy_element).css("display") === "none")  {
-                window.alert("inc = " + inc);
+                // window.alert("inc = " + inc);
                 inc++;
               }
             }
@@ -160,7 +160,7 @@ function determineCopyElements()  {
               } else  {
                 visible_element_value = inc;
               }
-               window.alert("$(\"" + $(wndow_element).attr("id") + "\").attr(\"id\") = " + $(wndow_element).attr("id"));
+              //  window.alert("$(\"" + $(wndow_element).attr("id") + "\").attr(\"id\") = " + $(wndow_element).attr("id"));
               //  window.alert("inc = " + inc);
             }
           } else  {
@@ -238,7 +238,7 @@ function determineCopyElements()  {
         wndow_element = this;
         
         if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
-          window.alert("inc = " + inc);
+          // window.alert("inc = " + inc);
           if (url_hash_values_Array[inc] !== "-") {
             copy_selector = $(wndow_element).attr("id") + " > .copy:nth-child(" + url_hash_values_Array[inc] + ")";
           

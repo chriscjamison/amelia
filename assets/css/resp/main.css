@@ -1078,8 +1078,8 @@ body {
   #info {
     width: 19.5em;
     height: 27.2em;
-    bottom: 14.5em;
-    right: 7em;
+    bottom: 8.75em;
+    right: 8.75em;
   }
 
   #sctn_1-desc-1 {
@@ -1240,7 +1240,7 @@ body {
   #sctn_6-info-1 {
     width: 28.8em;
   }
-  
+
   #sctn_6-info-1 > span {
     width: 24em;
     margin: 0 auto;

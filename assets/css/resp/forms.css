@@ -94,7 +94,7 @@
 #sctn_1-start {
 	margin: 0 0 0.8em 0;
 	position: relative;
-	left: 22.5em;
+	left: 18.25em;
 }
 
 #sctn_1-next,
@@ -411,10 +411,14 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 @media screen and (min-width: 1910px) {
 	#form-sctn_1 {
-		margin-left: 20em;
+		margin-left: 21em;
 		position: relative;
 	}
 
+	#sctn_1-start {
+		left: 22.5em;
+	}
+	
 	input[type=button],
 	input[type=submit] {
 		font-size: 1.1em;

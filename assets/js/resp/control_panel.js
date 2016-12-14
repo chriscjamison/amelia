@@ -219,73 +219,22 @@ $(document).ready(
     );
 
     setupPage();
-       
+    displaySectionContent();
+
     $(window).on("scroll", 
       function () {
-        
-        wndow_height = $(".wndow").height(); 
-        
-        current_position = $(window).scrollTop();  
-        
-        if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
-            (url_hash.indexOf("sctn_main") === -1) && 
-            (current_position > 1)) {
-          animateInfoElement();
-        }
-        
-        if ((current_position === 0) && 
-            (url_hash.indexOf("sctn_main") === -1)) {
-          window.location.hash = "#sctn_main";
-        }
-        
-        if ((current_position >= wndow_height) && 
-            (current_position < wndow_height + window_margin) && 
-            (url_hash.indexOf("sctn_1") === -1))  {
-              
-          sortCopyElements("sctn_1");
-        } 
-        
-        if ((current_position >= wndow_height * 2) && 
-            (current_position < (wndow_height * 2) + window_margin) && 
-            (url_hash.indexOf("sctn_2") === -1))  {
-           sortCopyElements("sctn_2");
-        }   
-        
-        if ((current_position >= wndow_height * 3) && 
-            (current_position < (wndow_height * 3) + window_margin) && 
-            (url_hash.indexOf("sctn_3") === -1))  {
-          sortCopyElements("sctn_3");
-        } 
-        
-        if ((current_position >= wndow_height * 4) && 
-            (current_position < (wndow_height * 4) + window_margin) && 
-            (url_hash.indexOf("sctn_4") === -1))  {
-           sortCopyElements("sctn_4");
-        }
-        
-        if ((current_position >= wndow_height * 5) && 
-            (current_position < (wndow_height * 5) + window_margin) && 
-            (url_hash.indexOf("sctn_5") === -1))  {
-          sortCopyElements("sctn_5");
-        }
-      
-        if ((current_position >= wndow_height * 6) && 
-            (url_hash.indexOf("sctn_6") === -1))  {
-          sortCopyElements("sctn_6");
-        }
-
-        
+        displaySectionContent();
       }
     );
     
     $(window).on("hashchange",
       function () {
         url_hash = window.location.hash;
-        window.alert("window.location.hash = " + window.location.hash);
-        if (url_hash.indexOf("copyValues") === -1 && 
+        
+       /* if (url_hash.indexOf("copyValues") === -1 && 
             url_hash !== "") {
           animatePageElements();
-        }
+        }*/
         
         if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
             url_hash.indexOf("copyValues") === -1)  {
