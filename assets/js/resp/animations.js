@@ -876,7 +876,7 @@ function setupPage()  {
   // The value of, "time_period" is defined as a global variable and is located
   // near the top of this file.
 
-  setTimeout(animateInfoElement, time_value * 2);
+  // setTimeout(animateInfoElement, time_value * 2);
 } /* **************** END OF FUNCTION "setupPage" **************** */
 
 
@@ -1229,7 +1229,7 @@ function animatePageElements()  {
    * "animatePageElements" triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
    * activates a menu option, intrapage, or intrasection option.
-   * 
+   *  
    * The function has a number of purposes.
    *    1. Determine the hash of the URL, if there is one.
    *    2  Allow for the page elements to be rendered within the browser.
@@ -1241,9 +1241,7 @@ function animatePageElements()  {
   var url_hash = new String();
   // Holds the String value of the URL hash
   
-  var section_value_index_num = new Number();
-  // Holds a Number representing the location within the URL hash where the 
-  // Section Value is listed.
+  
   var position_value_index_num = new Number();
   // Holds a Number representing the location within the URL hash where the 
   // Position Valueis listed.
@@ -1253,7 +1251,7 @@ function animatePageElements()  {
   // 
   // This value is used to determine the CSS value of the property, "left", 
   // of the background of a Section.
-
+  
   var section_search_string = new String();
   // Holds a String, "#sctn_", which is searched for within the URL hash.
   var position_search_string = new String();
@@ -1273,6 +1271,8 @@ function animatePageElements()  {
   // Holds the String value of the selector, "#wndow-sctn_X > .copy:nth_child(Y)".
   var headr_selector = new String();
   // Holds the String value of the selector, ".headr.sctn_X".
+  var sub_nav_selector = new String();
+  // Holds the String value of the selector, "#nav-sctn_X".
   var div_selector = new String();
   // Holds the String value of the selector, "div".
   //
@@ -1295,6 +1295,10 @@ function animatePageElements()  {
 
   var nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "nav".
+  var cntainr_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#cntainr".
+  var wndow_elements = new Array();
+  // Holds the contents of the HTML elements identified by the selector, ".wndow".
   var wndow_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X".
   var all_copy_element = new Object();
@@ -1305,41 +1309,44 @@ function animatePageElements()  {
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
   var bkgrnd_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
+  var sub_nav_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
   var page_dimensions_Array = new Array();
   
-  
   var bkgrnd_element_path = new String();
 
-
+  var window_margin = new Number();
+  var current_position = new Number();
+  
   nav_selector = "nav";
   nav_element = $(nav_selector);
-  
+
   url_hash = window.location.hash;
   // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
   if ($(nav_element).css("left") !== "0px" && 
+      url_hash !== "" && 
       url_hash.indexOf("sctn_main") === -1) {
-    section_search_string = "#sctn_;";
-    position_search_string = "pos=";
+    current_position = $(window).scrollTop();
 
-    section_value_index_num = url_hash.indexOf(section_search_string);
-    section_value_index_num = section_value_index_num + section_search_string.length;
-    section_value = url_hash.charAt(section_value_index_num);
+    section_value = determineCurrentSection(current_position);
 
-    position_value_index_num = url_hash.indexOf(position_search_string);
-    position_value_index_num = position_value_index_num + position_search_string.length;
-    position_value = url_hash.charAt(position_value_index_num);
+    wndow_selector = "#wndow-sctn_" + section_value.toString();
 
-    all_copy_selector = "#wndow-sctn_" + section_value + " > .copy";
-    single_copy_selector = "#wndow-sctn_" + section_value + " > .copy:nth-child(" + (parseInt(position_value) + 3) + ")";
+    position_value = determineVisibleCopyElement(wndow_selector);
+
+    all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
+    single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
     // window.alert("single_copy_selector = " + single_copy_selector);
-    headr_selector = ".headr.sctn_" + section_value;
+    headr_selector = ".headr.sctn_" + section_value.toString();
     div_selector = "div";
-    bkgrnd_selector = "#bkgrnd-sctn_" + section_value;
+    sub_nav_selector = "#nav-sctn_" + section_value.toString();
+    bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
 
     all_copy_element = $(all_copy_selector);
     single_copy_element = $(single_copy_selector);
     headr_element = $(headr_selector);
+    sub_nav_element = $(sub_nav_selector);
     bkgrnd_element = $(bkgrnd_selector);
 
     css_1 = {
@@ -1352,7 +1359,7 @@ function animatePageElements()  {
     
     page_dimensions_Array = parseWindowDimensions();
 
-    bkgrnd_element_x_position = page_dimensions_Array[0] * parseInt(position_value);
+    bkgrnd_element_x_position = page_dimensions_Array[0] * position_value;
 
     bkgrnd_element_x_position =  "-" + bkgrnd_element_x_position.toString() + "px 0px";
 
@@ -1361,22 +1368,73 @@ function animatePageElements()  {
     $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
 
     $(all_copy_element).css(css_1);
-    $(single_copy_element).css(css_2)
+    $(single_copy_element).css(css_2);
+    $(sub_nav_element).css(css_2);
     
     if ($(headr_element).css("opacity") === "0") {
       $(headr_element).fadeTo(time_value, 1, 
         function () {
-          $(single_copy_element).children(div_selector).fadeTo(time_value, 1);
+          $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
+            function () {
+              if (section_value === 3 || 
+                  section_value === 4)  {
+                $(sub_nav_element).fadeTo(time_value, 1);
+              }
+            }
+          );
         }
       );
     } else {
-      $(single_copy_element).children(div_selector).fadeTo(time_value, 1);
+      $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
+        function () {
+          if (section_value === 3 || 
+              section_value === 4)  {
+            $(sub_nav_element).fadeTo(time_value, 1);
+          }
+        }
+      );
     }
-    
+  }
+} /* **************** END OF FUNCTION "animatePageElements" **************** */
+
+function displayVerticalNav() {
+  var current_position = new Number();
+  var wndow_height = new Number();
+  var page_scroll_margin = new Number();
+
+  var sctn_on_css = new Object();
+  var sctn_off_css = new Object();
+
+  sctn_on_css = {
+    display: "block",
+    opacity: 1
+  };
+
+  sctn_off_css = {
+    display: "none", 
+    opacity: 0
   }
   
+  page_scroll_margin = 5;
+  wndow_height = $(".wndow").height();
+  current_position = $(window).scrollTop();
   
-} /* **************** END OF FUNCTION "animatePageElements" **************** */
+  if (current_position === 0)  {
+    $("#prev-sctn").css(sctn_off_css);
+  } else {
+    if ($("#prev-sctn").css("display") === "none")  {
+      $("#prev-sctn").css(sctn_on_css);
+    }
+    
+    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height))  {
+      $("#next-sctn").css(sctn_off_css);
+    } else {
+      if ($("#next-sctn").css("display") === "none") {
+        $("#next-sctn").css(sctn_on_css);
+      }
+    }
+  }
+}
 
 function animateSctnNav(sctn_nav_element) {
   var sctn_nav_link = new String();
@@ -1683,11 +1741,51 @@ function animateSideNav() {
   }
 }
 
-function displaySectionContent()  {
+function determineCurrentSection(current_position)  {
+  var cntainr_height = new Number();
+  // Holds a Number which represents the value of the CSS property, "height"
+  // for the HTML element using the selector, "#cntainr".
   var wndow_height = new Number();
+  // Holds a Number which represents the value of the CSS property, "height" 
+  // for an single instance of the HTML element using the selector, ".wndow".
+  var section_value_num = new Number();
+  // Holds a Number representing the location within the URL hash where the 
+  // Section Value is listed.
+  var window_margin = new Number();
+
+  var cntainr_element = new Object();
+  var wndows_elements = new Array();
+
+  var cntainr_selector = new String();
+  // Holds the String value of the selector, "#cntainr".
+  var wndows_selector = new String();
+  // Holds the String value of the selector, ".wndow".
+
+
+  cntainr_selector = "#cntainr";
+  wndows_selector = ".wndow";
+
+  cntainr_element = $(cntainr_selector);
+  wndows_elements = $(wndows_selector);
+
+  cntainr_height = $(cntainr_element).height();
+  wndow_height = $(wndows_elements).height();
+
+  window_margin = 0.05;
+
+  section_value_num = Math.floor(current_position / wndow_height + window_margin); 
+
+  return section_value_num;
+}
+
+function setURL()  {
+  var wndow_height = new Number();
+  var window_margin = new Number();
   var current_position = new Number();
 
   var headr_selector = new String();
+  var section_value = new String();
+  var position_value = new String();
 
   var headr_element = new String();
 
@@ -1695,11 +1793,10 @@ function displaySectionContent()  {
   var url_hash = new String();
   
   wndow_height = $(".wndow").height(); 
-        
+  window_margin = 150;
+
   current_position = $(window).scrollTop();  
   // window.alert("current_position = " + current_position);
-  // window.alert("wndow_height = " + wndow_height);
-
 
   url_hash = window.location.hash;
 
@@ -1712,9 +1809,30 @@ function displaySectionContent()  {
   if ((current_position === 0) && 
       (url_hash.indexOf("sctn_main") === -1) && 
        ($("#info").css("opacity") !== "0")) {
-      window.location.hash = "#sctn_main";    
+      url_hash = "#sctn_main";
+      
+      setTimeout(displayVerticalNav, time_value * 2);
+          
+  } else {
+    section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
+
+    position_value = determineVisibleCopyElement(section_value);
+
+    url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
+
+    if (url_hash === "#sctn_0?pos=0") {
+      url_hash = "#sctn_main";
+    }
   }
 
+
+  // window.alert("url_hash = " + url_hash);
+
+  if (url_hash !== window.location.hash)  {
+    window.location.hash = url_hash;
+  }
+}
+/*
   if ((current_position >= wndow_height) && 
       (current_position < wndow_height + window_margin))  {
     if ($(".headr.sctn_1").css("opacity") === "0")  {
@@ -1729,7 +1847,9 @@ function displaySectionContent()  {
     if ($(".headr.sctn_2").css("opacity") === "0")  {
       animatePageElements();
     }
-    // window.alert("2");
+    /*window.alert("wndow_height = " + wndow_height);
+    window.alert("current_position = " + current_position);
+    window.alert("window_margin = " + window_margin);
     sortCopyElements("sctn_2");
   }   
 
@@ -1766,5 +1886,34 @@ function displaySectionContent()  {
     }
     
     sortCopyElements("sctn_6");
+  } */
+
+function determineVisibleCopyElement(wndow_selector)  {
+  var wndow_element = new Object();
+  var copy_elements = new Array();
+  
+  var wndow_element_copy_length = new Number();
+  var inc = new Number();
+      
+  wndow_element = $(wndow_selector);   
+
+  wndow_element_copy_length = $(wndow_element).children(".copy").length;
+  
+  visible_copy_element_val = 0;
+  
+  if (wndow_element_copy_length > 0)  {
+    copy_elements = $(this).children(".copy");
+    
+    $(copy_elements).each(
+      function () {
+        var copy_element = this;
+        
+        if ($(copy_element).css("display") === "none")  {
+          visible_copy_element_val++;
+        }
+      }
+    );
   }
+
+  return visible_copy_element_val;
 }

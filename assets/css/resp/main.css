@@ -1166,7 +1166,7 @@ body {
   .sctn_3-blok, 
   .sctn_4-blok {
     position: relative;
-    left: 31.75em;
+    left: 31.75em !important;
   }
   
   .sctn_2-spcr {

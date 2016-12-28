@@ -574,7 +574,7 @@ div.sctn_nav > div > div a:hover {
   }
 }
 
-@media screen and (min-width: 1900px) {
+@media screen and (min-width: 1890px) {
   nav, 
   #nav-brdr,
   #nav-bkgrnd, 
@@ -595,5 +595,9 @@ div.sctn_nav > div > div a:hover {
     width: 12.4em;
     height: 2.15em;
     margin: 0.75em;
+  }
+
+  .sctn_nav {
+    width: 119em !important;  
   }
 }

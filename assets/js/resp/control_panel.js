@@ -218,12 +218,17 @@ $(document).ready(
       }
     );
 
-    setupPage();
-    displaySectionContent();
+    $(window).on("load", 
+      function () {
+        setupPage();
+        animatePageElements();
+      }
+    );
+    
 
     $(window).on("scroll", 
       function () {
-        displaySectionContent();
+        setURL();
       }
     );
     
@@ -231,10 +236,10 @@ $(document).ready(
       function () {
         url_hash = window.location.hash;
         
-       /* if (url_hash.indexOf("copyValues") === -1 && 
+        if (url_hash.indexOf("copyValues") === -1 && 
             url_hash !== "") {
           animatePageElements();
-        }*/
+        }
         
         if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
             url_hash.indexOf("copyValues") === -1)  {

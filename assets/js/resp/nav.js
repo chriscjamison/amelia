@@ -61,45 +61,6 @@ function navLinkHoverState() {
   }
 } // END OF FUNCTION navLinkHoverState
 
-function displayVerticalNav() {
-  var current_position = new Number();
-  var wndow_height = new Number();
-  var page_scroll_margin = new Number();
-
-  var sctn_on_css = new Object();
-  var sctn_off_css = new Object();
-
-  sctn_on_css = {
-    display: "block",
-    opacity: 1
-  };
-
-  sctn_off_css = {
-    display: "none", 
-    opacity: 0
-  }
-  
-  page_scroll_margin = 5;
-  wndow_height = $(".wndow").height();
-  current_position = $(window).scrollTop();
-  
-  if (current_position === 0)  {
-    $("#prev-sctn").css(sctn_off_css);
-  } else {
-    if ($("#prev-sctn").css("display") === "none")  {
-      $("#prev-sctn").css(sctn_on_css);
-    }
-    
-    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height))  {
-      $("#next-sctn").css(sctn_off_css);
-    } else {
-      if ($("#next-sctn").css("display") === "none") {
-        $("#next-sctn").css(sctn_on_css);
-      }
-    }
-  }
-}
-
 function determineCopyElements()  {
   var url_hash = new String();
   // Holds the value of the String returned by the JavaScript METHOD, 
@@ -127,60 +88,34 @@ function determineCopyElements()  {
   if (url_hash.indexOf("copyValues") === -1)  {
     $(wndow_elements).each(
       function () {
-        var wndow_element = this;
-        
-        inc = 0;
-        // window.alert("$(\"" + $(wndow_element).attr("id") + "\").children(\".copy\").length = " + $(wndow_element).children(".copy").length);
-        if ($(wndow_element).children(".copy").length > 0)  {
-          copy_elements = $(this).children(".copy");
-          
+        current_window_id = $(this).attr("id");
+        wndow_element = this;
 
-          $(copy_elements).each(
-            function () {
-              // window.alert("$(this).attr(\"class\") = " + $(this).attr("class"));
-              var copy_element = this;
-              // window.alert("inc = " + inc);
-              if ($(copy_element).css("display") === "none")  {
-                // window.alert("inc = " + inc);
-                inc++;
-              }
-            }
-          ); 
+        visible_copy_element_num = determineVisibleCopyElement(current_window_id);
 
-         
-          // window.alert("visible_elements_var.charAt(" + (visible_elements_var.length - 1) + ") = " + visible_elements_var.charAt(visible_elements_var.length - 1));
-
-          if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
-            
-            if (inc === $(wndow_element).children(".copy").length)  {
-              visible_element_value = "-";
-            } else  {
-              if ($(wndow_element).children(".copy").length === 1)  {
-                visible_element_value = 3;
-              } else  {
-                visible_element_value = inc;
-              }
-              //  window.alert("$(\"" + $(wndow_element).attr("id") + "\").attr(\"id\") = " + $(wndow_element).attr("id"));
-              //  window.alert("inc = " + inc);
-            }
+        if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
+          if (visible_copy_element_num === $(wndow_element).children(".copy").length)  {
+            visible_element_value = "-";
           } else  {
-            // window.alert("inc = " + inc);
-            
-            if (inc === $(wndow_element).children(".copy").length)  {
-              visible_element_value = ",-";
+            if ($(wndow_element).children(".copy").length === 1)  {
+              visible_element_value = 3;
             } else  {
-              if ($(wndow_element).children(".copy").length === 1)  {
-                visible_element_value = "," + 3;
-              } else  {
-                visible_element_value = "," + inc;
-              }
+              visible_element_value = visible_copy_element_num;
             }
           }
-
-          visible_elements_var = visible_elements_var + visible_element_value;
-          // window.alert("$(" + $(this).attr("id") + ").children(\".copy\").css(\"display\") = " + $(this).children(".copy").css("display"));
+        } else  {
+          if (inc === $(wndow_element).children(".copy").length)  {
+            visible_element_value = ",-";
+          } else  {
+            if ($(wndow_element).children(".copy").length === 1)  {
+              visible_element_value = "," + 3;
+            } else  {
+              visible_element_value = "," + visible_copy_element_num;
+            }
+          }
         }
-      
+
+        visible_elements_var = visible_elements_var + visible_element_value;
       }
     );
 
@@ -259,11 +194,13 @@ function determineCopyElements()  {
 function interSectionNav(inter_nav_element)  {
   var url_hash = new String();
 
+  var current_position = new Number();
+
   var section_search_string = new String();
   var current_section_string = new String();
   var replace_section_string = new String();
 
-  var section_value = new String();
+  var section_value = new Number();
 
   var sub_nav_selector = new String();
 
@@ -277,9 +214,13 @@ function interSectionNav(inter_nav_element)  {
 
   url_hash = window.location.hash;
 
+  current_position = $(window).scrollTop();
+
+  section_value = determineCurrentSection(current_position);
+  
   section_search_string = "sctn_";
 
-  section_value = url_hash.charAt(url_hash.indexOf(section_search_string) + section_search_string.length);
+  // section_value = url_hash.charAt(url_hash.indexOf(section_search_string) + section_search_string.length);
 
   current_section_string = "sctn_" + section_value;
 
@@ -293,17 +234,15 @@ function interSectionNav(inter_nav_element)  {
     if (section_value === "1")  {
       section_value = "main";
     } else  {
-      section_value = parseInt(section_value) - 1;
+      section_value = section_value - 1;
     }
     
   } else  {
     if (section_value === "" || section_value === "main" || section_value === "m") {
       section_value = 1;
     } else  {
-      section_value = parseInt(section_value);
-      
       if (section_value < num_of_wndow_elements - 1)  {
-        section_value = parseInt(section_value) + 1;
+        section_value = section_value + 1;
       } else {
         section_value = "none";
       }
@@ -317,9 +256,9 @@ function interSectionNav(inter_nav_element)  {
       if (section_value === "" || section_value === "main") {
         url_hash = "sctn_main";
       } else  {
-        replace_section_string = "sctn_" + section_value;
+        // replace_section_string = "sctn_" + section_value;
 
-        url_hash.replace(section_search_string, replace_section_string);
+        // url_hash.replace(section_search_string, replace_section_string);
       }
     }
   }
@@ -328,11 +267,8 @@ function interSectionNav(inter_nav_element)  {
   if (section_value === "main") {
     scroll_to_num = 0;
   } else  {
-    scroll_to_num = parseInt(section_value) * $(wndow_selector).height();
+    scroll_to_num = section_value * $(wndow_selector).height();
   }
-  
-  window.location.hash = url_hash;
-
   
   $("html, body").animate(
       { scrollTop: scroll_to_num },
@@ -345,6 +281,8 @@ function interSectionNav(inter_nav_element)  {
       }
   );
   
+  // window.location.hash = url_hash;
+
   setTimeout(function() {displayVerticalNav();}, nav_transition_time);
 }
 
