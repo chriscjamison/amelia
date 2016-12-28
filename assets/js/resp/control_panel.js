@@ -220,8 +220,17 @@ $(document).ready(
 
     $(window).on("load", 
       function () {
+        var url_hash = new String();
+
+        url_hash = window.location.hash;
+        
         setupPage();
-        animatePageElements();
+
+        if (url_hash === "")  {
+          animateInfoElement();
+        } else  {
+          animatePageElements();
+        }
       }
     );
     

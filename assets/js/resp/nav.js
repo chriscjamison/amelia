@@ -202,11 +202,10 @@ function interSectionNav(inter_nav_element)  {
 
   var section_value = new Number();
 
+
   var sub_nav_selector = new String();
 
   var wndow_selector = new String();
-  var wndow_elements = new Array();
-  var num_of_wndow_elements = new Number();
   
   var scroll_to_num = new Number();
 
@@ -231,7 +230,7 @@ function interSectionNav(inter_nav_element)  {
   num_of_wndow_elements = wndow_elements.length;
 
   if (sub_nav_selector === "prev-sctn") {
-    if (section_value === "1")  {
+    if (section_value === 1)  {
       section_value = "main";
     } else  {
       section_value = section_value - 1;
@@ -255,10 +254,6 @@ function interSectionNav(inter_nav_element)  {
     } else {
       if (section_value === "" || section_value === "main") {
         url_hash = "sctn_main";
-      } else  {
-        // replace_section_string = "sctn_" + section_value;
-
-        // url_hash.replace(section_search_string, replace_section_string);
       }
     }
   }
@@ -281,7 +276,13 @@ function interSectionNav(inter_nav_element)  {
       }
   );
   
-  // window.location.hash = url_hash;
+  /*section_value = determineCurrentSection(current_position);
+
+  wndow_selector = "#wndow-sctn_" + section_value.toString();
+  
+  url_hash = "#sctn_" + (determineCurrentSection(current_position)).toString() + "?pos=" + (determineVisibleCopyElement(wndow_selector)).toString();
+  
+  window.location.hash = url_hash;*/
 
   setTimeout(function() {displayVerticalNav();}, nav_transition_time);
 }

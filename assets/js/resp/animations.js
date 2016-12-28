@@ -740,7 +740,7 @@ function setupPage()  {
   //  
   // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
   
-  var bkgrnd_1_selector = new String();
+  var bkgrnd_div_selector = new String();
   // Holds a String representing the selector of the HTML element being modified by 
   // the jQuery Method, ".each".
   //
@@ -814,9 +814,10 @@ function setupPage()  {
   $("#bkgrnd > div").each(
     function () {
       if (inc_bkgrnd > 0) {
-        bkgrnd_1_selector = "#wndow-sctn_" + inc_bkgrnd;
+        bkgrnd_div_selector = "#wndow-sctn_" + inc_bkgrnd;
+        bkgrnd_div_element = $(bkgrnd_div_selector);
         
-        bkgrnd_width =  page_dimensions_Array[0] * $(bkgrnd_1_selector).children(".copy").length;
+        bkgrnd_width =  page_dimensions_Array[0] * $(bkgrnd_div_element).children(".copy").length;
         bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + page_dimensions_Array[1] + 
                             ".jpg')";      
@@ -1331,9 +1332,11 @@ function animatePageElements()  {
 
     section_value = determineCurrentSection(current_position);
 
-    wndow_selector = "#wndow-sctn_" + section_value.toString();
+    position_search_string = "pos=";
+    position_value_index_num = url_hash.indexOf(position_search_string);
+    position_value = parseInt(url_hash.charAt(position_value_index_num + position_search_string.length));
 
-    position_value = determineVisibleCopyElement(wndow_selector);
+    // window.alert("position_value = " + position_value);
 
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
@@ -1774,6 +1777,7 @@ function determineCurrentSection(current_position)  {
   window_margin = 0.05;
 
   section_value_num = Math.floor(current_position / wndow_height + window_margin); 
+// window.alert("section_value_num = " + section_value_num);
 
   return section_value_num;
 }
@@ -1814,14 +1818,16 @@ function setURL()  {
       setTimeout(displayVerticalNav, time_value * 2);
           
   } else {
-    section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
+    if (determineCurrentSection(current_position) !== Infinity) {
+      section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
 
-    position_value = determineVisibleCopyElement(section_value);
+      position_value = determineVisibleCopyElement(section_value);
 
-    url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
+      url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
 
-    if (url_hash === "#sctn_0?pos=0") {
-      url_hash = "#sctn_main";
+      if (url_hash === "#sctn_0?pos=0") {
+        url_hash = "#sctn_main";
+      }
     }
   }
 
