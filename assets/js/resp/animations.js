@@ -1919,15 +1919,15 @@ function determineVisibleCopyElement(wndow_selector)  {
   wndow_element = $(wndow_selector);   
 
   wndow_element_copy_length = $(wndow_element).children(".copy").length;
-  // window.alert("wndow_element_copy_length = " + wndow_element_copy_length);
+  
   visible_copy_element_val = 0;
   is_copy_element_invisible = true;
-  if (wndow_element_copy_length > 0 && 
+
+  if (wndow_element_copy_length > 1 && 
       $(wndow_element).children(".headr").css("opacity") === "1")  {
     copy_elements = $(wndow_element).children(".copy");
-    
 
-    while (visible_copy_element_val < copy_elements.length && is_copy_element_invisible === true) {
+    while (visible_copy_element_val < wndow_element_copy_length && is_copy_element_invisible === true) {
       copy_selector = ".copy:nth-child(" + (visible_copy_element_val + 3).toString() + ")";
 
       if ($(wndow_element).children(copy_selector).css("display") === "none") {
