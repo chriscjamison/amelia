@@ -1385,6 +1385,17 @@ function animatePageElements()  {
               }
             }
           );
+
+          if ((section_value === 1 && position_value === 1) || 
+              (section_value === 1 && position_value === 2) || 
+              (section_value === 6 && position_value === 1) || 
+              (section_value === 6 && position_value === 2))  {
+            var form_section_value = new String();
+
+            form_section_value = "sctn_" + section_value.toString();
+            
+            animateFormPanes(form_section_value);      
+          }
         }
       );
     } else {
@@ -1899,26 +1910,32 @@ function determineVisibleCopyElement(wndow_selector)  {
   var copy_elements = new Array();
   
   var wndow_element_copy_length = new Number();
-  var inc = new Number();
+  var visible_copy_element_val = new Number();
+
+  var copy_selector = new String();
+
+  var is_copy_element_invisible = new Boolean();
       
   wndow_element = $(wndow_selector);   
 
   wndow_element_copy_length = $(wndow_element).children(".copy").length;
-  
+  // window.alert("wndow_element_copy_length = " + wndow_element_copy_length);
   visible_copy_element_val = 0;
-  
-  if (wndow_element_copy_length > 0)  {
-    copy_elements = $(this).children(".copy");
+  is_copy_element_invisible = true;
+  if (wndow_element_copy_length > 0 && 
+      $(wndow_element).children(".headr").css("opacity") === "1")  {
+    copy_elements = $(wndow_element).children(".copy");
     
-    $(copy_elements).each(
-      function () {
-        var copy_element = this;
-        
-        if ($(copy_element).css("display") === "none")  {
-          visible_copy_element_val++;
-        }
+
+    while (visible_copy_element_val < copy_elements.length && is_copy_element_invisible === true) {
+      copy_selector = ".copy:nth-child(" + (visible_copy_element_val + 3).toString() + ")";
+
+      if ($(wndow_element).children(copy_selector).css("display") === "none") {
+        visible_copy_element_val++;
+      } else  {
+        is_copy_element_invisible = false;
       }
-    );
+    }
   }
 
   return visible_copy_element_val;
