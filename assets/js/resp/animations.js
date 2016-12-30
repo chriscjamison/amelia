@@ -1324,6 +1324,7 @@ function animatePageElements()  {
   nav_element = $(nav_selector);
 
   url_hash = window.location.hash;
+  // window.alert("url_hash = " + url_hash);
   // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
   if ($(nav_element).css("left") !== "0px" && 
       url_hash !== "" && 
@@ -1676,7 +1677,6 @@ function animateSideNav() {
     };
 
     css_2 = {
-      left: "0px",
       display: "block", 
       opacity: 1
     };
@@ -1689,29 +1689,19 @@ function animateSideNav() {
       display: "none"
     };
 
-
-    $(nav_element).css(css_1);
-    // The CSS value of the property, "left", is set to "0px".
-    //
-    // The change in value brings the HTML element, "nav", into view.
-    $(options_element).css(css_2);
-    
-    $(nav_bkgrnd_element).css(css_1);
-    $(nav_brdr_element).css(css_1);
-
-    $(cntainr_element).css(css_3);
-    $(bkgrnd_element).css(css_3);
-
-    $(cntainr_element).width(element_width);
-    $(bkgrnd_element).width(element_width);
-    $(wndow_elements).width(element_width);
-
     $(info_element).css(css_4);
 
     $(headr_elements).css(css_4);
     $(copy_elements).css(css_4);
     $(sctn_nav_element).css(css_4);
+    $(options_element).css(css_2);
 
+    $(nav_element).animate(css_1, (time_value / 1.5))
+    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
+    $(nav_brdr_element).animate(css_1, (time_value / 1.5));
+    $(options_element).animate(css_1, (time_value / 1.5));
+    $(cntainr_element).animate(css_3, (time_value / 1.5));
+    $(bkgrnd_element).animate(css_3, (time_value / 1.5));
   } else  {
     var css_6 = new Object();
     var css_7 = new Object();
@@ -1736,13 +1726,15 @@ function animateSideNav() {
       display: "table"
     };
 
-    $(nav_element).css(css_6);
-    $(options_element).css(css_6);
-    $(nav_bkgrnd_element).css(css_6);
-    $(nav_brdr_element).css(css_6);
-
-    $(cntainr_element).css(css_7);
-    $(bkgrnd_element).css(css_7);
+    $(options_element).animate(css_6, time_value, 
+      function () {
+        $(nav_element).animate(css_6, time_value / 2);
+        $(nav_bkgrnd_element).animate(css_6, time_value);
+        $(nav_brdr_element).animate(css_6, time_value);
+        $(cntainr_element).animate(css_7, time_value);
+        $(bkgrnd_element).animate(css_7, time_value);
+      }
+    );
 
     $(cntainr_element).width(window_width);
     $(sctn_nav_element).width(window_width);
@@ -1804,14 +1796,12 @@ function setURL()  {
 
   var headr_element = new String();
 
-// window.alert("displaySectionContent");
   var url_hash = new String();
   
   wndow_height = $(".wndow").height(); 
   window_margin = 150;
 
   current_position = $(window).scrollTop();  
-  // window.alert("current_position = " + current_position);
 
   url_hash = window.location.hash;
 
@@ -1831,9 +1821,13 @@ function setURL()  {
   } else {
     if (determineCurrentSection(current_position) !== Infinity) {
       section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
-
-      position_value = determineVisibleCopyElement(section_value);
-
+      // window.alert("$(\"" + section_value + ").children(\".headr\").css(\"opacity\") = " + $(section_value).children(".headr").css("opacity"));
+      if ($(section_value).children(".headr").css("opacity") === "1") {
+        position_value = determineVisibleCopyElement(section_value);  
+      } else  {
+        position_value = 0;
+      }
+      
       url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
 
       if (url_hash === "#sctn_0?pos=0") {
@@ -1842,68 +1836,10 @@ function setURL()  {
     }
   }
 
-
-  // window.alert("url_hash = " + url_hash);
-
   if (url_hash !== window.location.hash)  {
     window.location.hash = url_hash;
   }
 }
-/*
-  if ((current_position >= wndow_height) && 
-      (current_position < wndow_height + window_margin))  {
-    if ($(".headr.sctn_1").css("opacity") === "0")  {
-      animatePageElements();
-    }
-
-    sortCopyElements("sctn_1");
-  } 
- 
-  if ((current_position >= wndow_height * 2) && 
-      (current_position < (wndow_height * 2) + window_margin))  {
-    if ($(".headr.sctn_2").css("opacity") === "0")  {
-      animatePageElements();
-    }
-    /*window.alert("wndow_height = " + wndow_height);
-    window.alert("current_position = " + current_position);
-    window.alert("window_margin = " + window_margin);
-    sortCopyElements("sctn_2");
-  }   
-
-  if ((current_position >= wndow_height * 3) && 
-      (current_position < (wndow_height * 3) + window_margin))  {
-    if ($(".headr.sctn_3").css("opacity") === "0")  {
-      animatePageElements();
-    }
-
-    sortCopyElements("sctn_3");
-  } 
-
-  if ((current_position >= wndow_height * 4) && 
-      (current_position < (wndow_height * 4) + window_margin))  {
-    if ($(".headr.sctn_4").css("opacity") === "0")  {
-      animatePageElements();
-    }
-
-    sortCopyElements("sctn_4");
-  }
-
-  if ((current_position >= wndow_height * 5) && 
-      (current_position < (wndow_height * 5) + window_margin))  {
-    if ($(".headr.sctn_5").css("opacity") === "0")  {
-      animatePageElements();
-    }
-    
-    sortCopyElements("sctn_5");
-  }
-
-  if (current_position >= wndow_height * 6)  {
-    if ($(".headr.sctn_6").css("opacity") === "0")  {
-      animatePageElements();
-    }
-    
-    sortCopyElements("sctn_6");
-  } */
 
 function determineVisibleCopyElement(wndow_selector)  {
   var wndow_element = new Object();
@@ -1920,23 +1856,59 @@ function determineVisibleCopyElement(wndow_selector)  {
 
   wndow_element_copy_length = $(wndow_element).children(".copy").length;
   
-  visible_copy_element_val = 0;
+  visible_copy_element_val = 3;
   is_copy_element_invisible = true;
-
-  if (wndow_element_copy_length > 1 && 
-      $(wndow_element).children(".headr").css("opacity") === "1")  {
-    copy_elements = $(wndow_element).children(".copy");
-
-    while (visible_copy_element_val < wndow_element_copy_length && is_copy_element_invisible === true) {
-      copy_selector = ".copy:nth-child(" + (visible_copy_element_val + 3).toString() + ")";
-
+  // window.alert("wndow_selector = " + wndow_selector);
+  if (wndow_selector !== "#wndow-sctn_main")  {
+    // window.alert("wndow_selector = " + wndow_selector);
+    while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
+           is_copy_element_invisible === true) {
+      copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
+      // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
       if ($(wndow_element).children(copy_selector).css("display") === "none") {
         visible_copy_element_val++;
       } else  {
         is_copy_element_invisible = false;
       }
     }
+    
+    if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
+        is_copy_element_invisible === true)  {
+      visible_copy_element_val = -1;
+    } else {
+      visible_copy_element_val = visible_copy_element_val - 3;
+    }
   }
 
   return visible_copy_element_val;
+}
+
+function animateMenuOptions(option_element) {
+  var css_1 = new Object();
+  var css_2 = new Object();
+
+  var time_value_1 = new Number();
+  var time_value_2 = new Number();
+ 
+  css_1 = {
+    "backgroundColor": "#ccc", 
+    "color": "#000"
+  };
+
+  css_2 = {
+    "backgroundColor": "#000", 
+    "color": "#fff"
+  };
+
+  time_value_1 = time_value / 2;
+  time_value_2 = time_value / 4;
+  // time_value_3 = time_value * 1.5;
+  // window.alert("$(\"" + $(option_element).attr("id") + "\").css(\"backgroundColor\") = " + $(option_element).css("backgroundColor"));
+  if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
+    $(option_element).animate(css_1, time_value_1);
+  } else {
+    $(option_element).animate(css_2, time_value_2);
+  }
+
+
 }

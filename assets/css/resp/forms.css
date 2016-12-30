@@ -418,10 +418,18 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	#sctn_1-start {
 		left: 22.5em;
 	}
-	
+
 	input[type=button],
 	input[type=submit] {
 		font-size: 1.1em;
+	}
+
+	#form-sctn_5 {
+		margin-left: 19.4em;
+	}
+
+	#form-sctn_6 {
+		margin-left: 3em;
 	}
 
 	#sctn_6-start {

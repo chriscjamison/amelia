@@ -15,7 +15,7 @@ url_hash = window.location.hash;
 $(document).ready(
   function () {
     if (url_string.indexOf("rateValue") != -1) {      
-      $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url.indexOf("rateValue") + 10), url_string.length));
+      $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url_string.indexOf("rateValue") + 10), url_string.length));
     }
 
     var form_selectors = new String();
@@ -42,63 +42,48 @@ $(document).ready(
     
     $("#nav-link").on("click", 
       function () {
-        navLinkHoverState();
         determineCopyElements();
+        navLinkHoverState();
         animateSideNav();
+      }
+    );
+    
+    $("#options > span").on("mouseover", 
+      function () {
+        var option_element = new Object();
+
+        option_element = this;
+
+        animateMenuOptions(option_element);
+      }
+    );
+
+    $("#options > span").on("mouseout", 
+      function () {
+        // window.alert("1");
+        var option_element = new Object();
+
+        option_element = this;
+
+        animateMenuOptions(option_element);
       }
     );
     
     $("#options > span").on("click",
       function () {
-        var section_value = new String();
+        var option_element = new Object();
 
-        var time_value_1 = new Number();
-        var time_value_2 = new Number();
-        var time_value_3 = new Number();
-        
-        var options_1_css = new Object();
-        var options_2_css = new Object();
+        option_element = this;
 
-        options_1_css = {
-          "backgroundColor": "#ccc", 
-          "color": "#000"
-        };
-
-        options_2_css = {
-          "backgroundColor": "#000", 
-          "color": "#fff"
-        };
-
-        section_value = $(this).attr("id");
-
-        time_value_1 = time_value / 4;
-        time_value_2 = time_value / 2;
-        time_value_3 = time_value * 1.5;
-
-        $(this).animate(options_1_css, time_value_1, 
-          function () {
-            $(this).animate(options_2_css, time_value_2, 
-              function () {
-                animatePageElements();
-                
-                setTimeout(
-                  function () {
-                    if (section_value !== "sctn_main") {
-                      url_hash = section_value + "?pos=0";  
-                    } else  {
-                      url_hash = section_value + "?bkgrnd=base";  
-                    }
-                  }, time_value_3
-                );
-              }
-            );
-          }
-        );
-        
+        determineCopyElements();
+        animateSideNav();
+        animateMenuOptions(option_element);
         navLinkHoverState();
-        
+        activateSideNav(option_element);
       }
     );
+
+
         
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
@@ -205,7 +190,8 @@ $(document).ready(
         $("#form-sctn_6 .form-page_1").css("display", "block");
         $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
       }
-    )
+    );
+
     $("input#sctn_6-map").click(
       function () {
         window.location.href = "https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027";
@@ -226,7 +212,8 @@ $(document).ready(
         
         setupPage();
 
-        if (url_hash === "")  {
+        if (url_hash === "" || 
+            url_hash === "#sctn_main")  {
           animateInfoElement();
         } else  {
           animatePageElements();

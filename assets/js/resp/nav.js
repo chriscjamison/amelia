@@ -84,38 +84,35 @@ function determineCopyElements()  {
   visible_elements_var = "copyValues=";
   
   url_hash = window.location.hash;
-
-  if (url_hash.indexOf("copyValues") === -1)  {
+  // window.alert("url_hash.indexOf(\"" + visible_elements_var + ") = " + url_hash.indexOf(visible_elements_var));
+  if (url_hash.indexOf(visible_elements_var) === -1)  {
     $(wndow_elements).each(
       function () {
-        current_window_id = $(this).attr("id");
         wndow_element = this;
 
-        visible_copy_element_num = determineVisibleCopyElement(current_window_id);
+        current_window_id = "#" + $(wndow_element).attr("id");
+        // window.alert("current_window_id = " + current_window_id);
 
-        if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
-          if (visible_copy_element_num === $(wndow_element).children(".copy").length)  {
-            visible_element_value = "-";
-          } else  {
-            if ($(wndow_element).children(".copy").length === 1)  {
-              visible_element_value = 3;
+        if (current_window_id !== "#wndow-sctn_main")  {
+          visible_copy_element_num = determineVisibleCopyElement(current_window_id);
+
+          if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
+            if (visible_copy_element_num === -1)  {
+              visible_element_value = "-";
             } else  {
-              visible_element_value = visible_copy_element_num;
+              visible_element_value = visible_copy_element_num.toString();
+            }
+          } else  {
+            if (visible_copy_element_num === -1)  {
+              visible_element_value = ",-";
+            } else  {
+              visible_element_value = "," + visible_copy_element_num.toString();
             }
           }
-        } else  {
-          if (inc === $(wndow_element).children(".copy").length)  {
-            visible_element_value = ",-";
-          } else  {
-            if ($(wndow_element).children(".copy").length === 1)  {
-              visible_element_value = "," + 3;
-            } else  {
-              visible_element_value = "," + visible_copy_element_num;
-            }
-          }
+          
+          visible_elements_var = visible_elements_var + visible_element_value;
         }
-
-        visible_elements_var = visible_elements_var + visible_element_value;
+        
       }
     );
 
@@ -133,6 +130,7 @@ function determineCopyElements()  {
     // window.alert("visible_elements_var = " + visible_elements_var);
 
     window.location.hash = visible_elements_var;
+ 
   } else  {
     var url_hash_data_Array = new Array();
     var url_hash_values_Array = new Array();
@@ -145,6 +143,8 @@ function determineCopyElements()  {
     var wndow_element = new Object();
     var copy_element = new Object();
 
+    var css_1 = new Object();
+
     var inc = new Number();
     var url_hash_data_array_value = new Number();
 
@@ -154,39 +154,53 @@ function determineCopyElements()  {
 
     wndow_elements = $(wndow_selector);
 
-    url_hash_data_Array = url_hash.split("=");
+    css_1 = {
+      display: "block"
+    };
     
-    if (url_hash_data_Array[1].indexOf("copyValues") !== -1)  {
+    url_hash_data_Array = url_hash.split("=");
+
+    // window.alert("url_hash_data_Array = " + url_hash_data_Array);
+
+    if (url_hash_data_Array[0].indexOf("copyValues") === -1)  {
       url_hash_data_array_value = 2;
     } else {
-      if (url_hash_data_Array[1].indexOf("bkgrnd") !== -1)  {
-        url_hash_data_array_value = 3;
-      } else {
-        url_hash_data_array_value = 1;
-      }
+      url_hash_data_array_value = 1;
     }
     
+    // window.alert("url_hash_data_Array[2] = " + url_hash_data_Array[2]);
+
     url_hash_values_Array = url_hash_data_Array[url_hash_data_array_value].split(",");
 
+
+
+    // window.alert("url_hash_values_Array = " + url_hash_values_Array);
     $(wndow_elements).each(
       function () {
         wndow_element = this;
-        
+        // window.alert("$(\"" + $(wndow_element).attr("id") + ") = " + $(wndow_element).attr("id"));
         if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
-          // window.alert("inc = " + inc);
+          // window.alert("url_hash_values_Array[" + inc + "] = " + url_hash_values_Array[inc]);
           if (url_hash_values_Array[inc] !== "-") {
-            copy_selector = $(wndow_element).attr("id") + " > .copy:nth-child(" + url_hash_values_Array[inc] + ")";
-          
-            $(copy_selector).css("display", "block");
+            copy_selector = "#" + $(wndow_element).attr("id") + " > .copy:nth-child(" + (parseInt(url_hash_values_Array[inc]) + 3) + ")";
+            // window.alert("copy_selector = " + copy_selector);
+            $(copy_selector).css(css_1);
 
-            inc++;
+            if (($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "3" ||
+                ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "4")  {
+              var sub_nav_selector = "#nav-sctn_" + ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1);
+
+              $(sub_nav_selector).css(css_1);
+            }
           }
+          
+          inc++;
         }
       }
     );
 
     url_hash_data_Array = url_hash.split("copyValues");
-    
+    // window.alert("url_hash_data_Array[0].substring(0, " + (url_hash_data_Array[0].length - 1).toString() + ") = " + url_hash_data_Array[0].substring(0, (url_hash_data_Array[0].length - 1)));
     window.location.hash = url_hash_data_Array[0].substring(0, (url_hash_data_Array[0].length - 1));
   }
 }
@@ -296,4 +310,29 @@ function interSectionNavHoverState(inter_section_nav_element) {
     background_position = "0px -253px";
   }
   $(inter_section_nav_element).css("backgroundPosition", background_position);
+}
+
+function activateSideNav(option_element)  {
+  var section_value = new String();
+  var scroll_to_value = new Number();
+    
+  section_value = $(option_element).attr("id");
+
+  if (section_value === "sctn_main") {
+    scroll_to_value = 0;  
+  } else {
+    var wndow_selector = new String();
+    var wndow_elements = new Object();
+    var wndow_height = new Number();
+
+    wndow_selector = ".wndow";
+    wndow_elements = $(wndow_selector);
+
+    wndow_height = $(wndow_elements).height();
+    
+    scroll_to_value = parseInt(section_value.charAt(section_value.length - 1)) * wndow_height;  
+  }
+
+  $(window).scrollTop(scroll_to_value);
+
 }
