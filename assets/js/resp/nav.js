@@ -1,75 +1,67 @@
 // nav.js
-var nav_transition_time = 500;
-
-function cycleNavLink(hover_state)  {
-  nav_class = "nav-" + hover_state;
-  
-  if (hover_state === "base" || 
-      hover_state === "hover")  {
-        $("#nav-link").fadeTo((nav_transition_time / 4), 0, 
-          function () {
-            $("#nav-link").removeClass();
-            $("#nav-link").addClass(nav_class);
-            $("#nav-link").fadeTo((nav_transition_time / 8), 1);
-          }
-        );
-  } else {
-        // animateSideNav();
-
-        
-  }
-} // END OF cycleNavLink
+var time_value = 500;
 
 function navLinkHoverState(new_class) {  
+  // window.alert("new_class = " + new_class);
   var nav_link_selector = new String();
   var headr_selector = new String();
+  var nav_selector = new String();
   
   var nav_link_element = new Object();
   var headr_element = new Array();
+  var nav_element = new Object();
+
+  var current_class = new String();
 
   var headr_css_display_val = new String();
+  var nav_css_left_val = new String();
 
   nav_link_selector = "#nav-link";
   headr_selector = ".headr";
+  nav_selector = "nav";
 
   nav_link_element = $(nav_link_selector);
   headr_element = $(headr_selector);
+  nav_element = $(nav_selector);
 
   headr_css_display_val = $(headr_element).css("display");
+  nav_css_left_val = $(nav_element).css("left");
 
+  current_class = $(nav_link_element).attr("class");
+// window.alert("current_class = " + current_class);
   new_class = "nav-" + new_class;
 
   if (new_class === "nav-base" && 
-      headr_css_display_val === "table") {
-    $(nav_link_element).fadeTo((nav_transition_time / 4), 0, 
+      nav_css_left_val !== "0px") {
+    $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
         $(nav_link_element).addClass("nav-base");
-        $(nav_link_element).fadeTo((nav_transition_time / 8), 1);
+        $(nav_link_element).fadeTo((time_value / 8), 1);
       }
     );
   }
-  
+   
   if (new_class === "nav-hover" && 
       headr_css_display_val === "table") {
-    $(nav_link_element).fadeTo((nav_transition_time / 4), 0, 
+    $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
         $(nav_link_element).addClass("nav-hover");
-        $(nav_link_element).fadeTo((nav_transition_time / 8), 1);
+        $(nav_link_element).fadeTo((time_value / 8), 1);
       }
     );
   }
   
   if (new_class === "nav-click")  {
-    $(nav_link_element).fadeTo((nav_transition_time / 3), 0, 
+    $(nav_link_element).fadeTo((time_value / 3), 0, 
       function () {
         $(nav_link_element).removeClass();
         $(nav_link_element).addClass("nav-click_1");
-        $(nav_link_element).fadeTo((nav_transition_time / 3), 1);
+        $(nav_link_element).fadeTo((time_value / 3), 1);
         $(nav_link_element).removeClass();
         $(nav_link_element).addClass("nav-click_2");
-        $(nav_link_element).fadeTo((nav_transition_time / 3), 1);
+        $(nav_link_element).fadeTo((time_value / 3), 1);
       }
     );
   }
@@ -198,13 +190,21 @@ function determineCopyElements()  {
           if (url_hash_values_Array[inc] !== "-") {
             copy_selector = "#" + $(wndow_element).attr("id") + " > .copy:nth-child(" + (parseInt(url_hash_values_Array[inc]) + 3) + ")";
             // window.alert("copy_selector = " + copy_selector);
-            $(copy_selector).css(css_1);
+            setTimeout(
+              function () {
+                $(copy_selector).css(css_1);
+              }, (time_value * 2)
+            );
 
             if (($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "3" ||
                 ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "4")  {
               var sub_nav_selector = "#nav-sctn_" + ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1);
 
-              $(sub_nav_selector).css(css_1);
+              setTimeout(
+                function () {
+                  $(sub_nav_selector).css(css_1);
+                }, (time_value * 2)
+              );
             }
           }
           
@@ -312,7 +312,7 @@ function interSectionNav(inter_nav_element)  {
   
   window.location.hash = url_hash;*/
 
-  setTimeout(function() {displayVerticalNav();}, nav_transition_time);
+  setTimeout(function() {displayVerticalNav();}, time_value);
 }
 
 function interSectionNavHoverState(inter_section_nav_element) {

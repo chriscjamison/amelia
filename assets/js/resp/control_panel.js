@@ -81,13 +81,13 @@ $(document).ready(
         var option_element = new Object();
 
         option_element = this;
-
+        
         determineCopyElements();
         animateSideNav();
         
         setTimeout(
           function () {
-            navLinkHoverState();
+            navLinkHoverState("base");
             activateSideNav(option_element);
           }, (time_value * 1.5));
       }
@@ -221,12 +221,16 @@ $(document).ready(
         url_hash = window.location.hash;
         
         setupPage();
-
+        // window.alert("url_hash = " + url_hash);
         if (url_hash === "" || 
             url_hash === "#sctn_main")  {
           animateInfoElement();
-        } else  {
-          animatePageElements();
+        } else {
+          setTimeout(
+            function () {
+              setPageInitialLocation(url_hash);
+            }, (time_value / 2)
+          ); 
         }
       }
     );
@@ -234,17 +238,38 @@ $(document).ready(
 
     $(window).on("scroll", 
       function () {
+        var url_hash = new String();
+
+        /*var info_selector = new String();
+        var info_element = new Object();
+
+        var info_css_opacity_val = new String();
+        
+        url_hash = window.location.hash;
+        
+        info_selector = "#info";
+        info_element = $(info_selector);
+
+        info_css_opacity_val = $(info_element).css("opacity");*/
+        
         setURL();
+
+        if (url_hash === "#sctn_main" && 
+            info_css_opacity_val === "0") {
+          animateInfoElement();
+        }
       }
     );
     
     $(window).on("hashchange",
       function () {
+        var url_hash = new String();
+
         url_hash = window.location.hash;
         
         if (url_hash.indexOf("copyValues") === -1 && 
             url_hash !== "") {
-          animatePageElements();
+          animatePageElements(); 
         }
         
         if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
@@ -258,10 +283,9 @@ $(document).ready(
     $(window).on("resize", 
       function () {
         setupPage();
+        setURL();
         animatePageElements();
       }
     );
-
-
   }
 );

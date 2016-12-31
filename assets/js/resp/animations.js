@@ -1500,7 +1500,7 @@ function animateSctnNav(sctn_nav_element) {
     if (sctn_nav_background_position_y === "-35px" && 
         $(sctn_nav_link).css("display") === "block") {
       $(sctn_nav_element).css(sctn_nav_click1_css);
-      setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (nav_transition_time / 4));
+      setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (time_value / 4));
       $(sctn_nav_element).css(sctn_nav_click2_css);
     } else {
       if (sctn_nav_background_position_y === "0px" || 
@@ -1522,16 +1522,16 @@ function animateSctnNav(sctn_nav_element) {
     }
   }
   
-  $(sctn_nav_element).fadeTo((nav_transition_time / 2), 1);
+  $(sctn_nav_element).fadeTo((time_value / 2), 1);
 }
 
 function animateSctnNavLinks(sctn_nav_link_element) {
   if ($(sctn_nav_link_element).css("display") === "none")  {
     $(sctn_nav_link_element).css("opacity", 0);
     $(sctn_nav_link_element).css("display", "block");
-    $(sctn_nav_link_element).fadeTo((nav_transition_time / 2), 1);
+    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
   } else {
-    $(sctn_nav_link_element).fadeTo((nav_transition_time / 2), 1);
+    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
     $(sctn_nav_link_element).css("display", "none");    
   }
 }
@@ -1732,17 +1732,19 @@ function animateSideNav() {
         $(nav_bkgrnd_element).animate(css_6, time_value);
         $(nav_brdr_element).animate(css_6, time_value);
         $(cntainr_element).animate(css_7, time_value);
-        $(bkgrnd_element).animate(css_7, time_value);
+        $(bkgrnd_element).animate(css_7, time_value, 
+          function () {
+            $(cntainr_element).width(window_width);
+            $(sctn_nav_element).width(window_width);
+            $(bkgrnd_element).width(window_width);
+            $(wndow_elements).width(window_width);
+
+            $(info_element).css(css_8);
+            $(headr_elements).css(css_9);
+          }
+        );
       }
     );
-
-    $(cntainr_element).width(window_width);
-    $(sctn_nav_element).width(window_width);
-    $(bkgrnd_element).width(window_width);
-    $(wndow_elements).width(window_width);
-
-    $(info_element).css(css_8);
-    $(headr_elements).css(css_9);
   }
 }
 
@@ -1901,13 +1903,69 @@ function animateMenuOptions(option_element) {
 
   time_value_1 = time_value / 2;
   time_value_2 = time_value / 4;
-  // time_value_3 = time_value * 1.5;
-  // window.alert("$(\"" + $(option_element).attr("id") + "\").css(\"backgroundColor\") = " + $(option_element).css("backgroundColor"));
+  
   if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
     $(option_element).animate(css_1, time_value_1);
   } else {
     $(option_element).animate(css_2, time_value_2);
   }
+}
 
+function setPageInitialLocation(url_hash)  {
+  var section_value = new String();
+  var position_value = new String();
+  
+  var wndow_selector = new String();
+  var headr_selector = new String();
+  var copy_selector = new String();
+  
+  var wndow_element = new Object();
+  var headr_element = new Object();
+  var copy_element = new Object();
 
+  var wndow_height = new Number();
+
+  var css_1 = new Object();
+  var css_2 = new Object();
+
+  scroll_to_value = new Number();
+
+  url_hash = window.location.hash;
+  // window.alert("url_hash = " + url_hash);
+
+  section_value = url_hash.charAt(6);
+  position_value = url_hash.charAt(12);
+
+  css_1 = {
+    display: "table", 
+    opacity: 1
+  };
+
+  css_2 = {
+    display: "block"
+  };
+
+  section_value = parseInt(section_value);
+  position_value = parseInt(position_value);
+  // window.alert("section_value = " + section_value);
+  wndow_selector = ".wndow";
+  headr_selector = ".headr.sctn_" + section_value.toString();
+  copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
+  // window.alert("copy_selector = " + copy_selector);
+  wndow_element = $(wndow_selector);
+  headr_element = $(headr_selector);
+  copy_element = $(copy_selector);
+
+  wndow_height = $(wndow_element).height();
+  scroll_to_value = section_value * wndow_height;
+ 
+
+  $(headr_element).css(css_1);
+  $(copy_element).css(css_2);
+//  window.alert("scroll_to_value = " + scroll_to_value);
+  $(window).scrollTop(scroll_to_value);
+
+  setURL();
+
+  animatePageElements();
 }
