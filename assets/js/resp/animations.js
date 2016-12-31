@@ -1743,7 +1743,6 @@ function animateSideNav() {
 
     $(info_element).css(css_8);
     $(headr_elements).css(css_9);
-    
   }
 }
 

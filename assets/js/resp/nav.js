@@ -6,58 +6,72 @@ function cycleNavLink(hover_state)  {
   
   if (hover_state === "base" || 
       hover_state === "hover")  {
-        $("#nav-link").fadeTo((nav_transition_time / 2), 0, 
+        $("#nav-link").fadeTo((nav_transition_time / 4), 0, 
           function () {
             $("#nav-link").removeClass();
             $("#nav-link").addClass(nav_class);
-            $("#nav-link").fadeTo((nav_transition_time / 2), 1);
+            $("#nav-link").fadeTo((nav_transition_time / 8), 1);
           }
         );
   } else {
         // animateSideNav();
 
-        $("#nav-link").fadeTo((nav_transition_time / 2), 0, 
-          function () {
-            $("#nav-link").removeClass();
-            $("#nav-link").addClass("click_1");
-            $("#nav-link").fadeTo((nav_transition_time / 2), 1);
-            $("#nav-link").removeClass();
-            $("#nav-link").addClass("click_2");
-            $("#nav-link").fadeTo((nav_transition_time / 2), 1);
-          }
-        );
+        
   }
 } // END OF cycleNavLink
 
-function navLinkHoverState() {  
-  var current_class = new String();
-
+function navLinkHoverState(new_class) {  
   var nav_link_selector = new String();
-  var options_selector = new String();
-
-  options_selector = "#options";
-  nav_link_selector = "#nav-link";
-
-  current_class = $(nav_link_selector).attr("class");
+  var headr_selector = new String();
   
-  switch (current_class)  {
-    case "nav-base":
-      cycleNavLink("hover");        
-    break;
+  var nav_link_element = new Object();
+  var headr_element = new Array();
 
-    case "nav-hover":
-      if ($(options_selector).css("opacity") === "0")  {
-        cycleNavLink("base");
-      } else {
-        cycleNavLink("click_1");
-      }      
-    break;
+  var headr_css_display_val = new String();
 
-    case "nav-click_2":
-      if ($(options_selector).css("opacity") === "1")  {
-        cycleNavLink("base");
-      }      
-    break;
+  nav_link_selector = "#nav-link";
+  headr_selector = ".headr";
+
+  nav_link_element = $(nav_link_selector);
+  headr_element = $(headr_selector);
+
+  headr_css_display_val = $(headr_element).css("display");
+
+  new_class = "nav-" + new_class;
+
+  if (new_class === "nav-base" && 
+      headr_css_display_val === "table") {
+    $(nav_link_element).fadeTo((nav_transition_time / 4), 0, 
+      function () {
+        $(nav_link_element).removeClass();
+        $(nav_link_element).addClass("nav-base");
+        $(nav_link_element).fadeTo((nav_transition_time / 8), 1);
+      }
+    );
+  }
+  
+  if (new_class === "nav-hover" && 
+      headr_css_display_val === "table") {
+    $(nav_link_element).fadeTo((nav_transition_time / 4), 0, 
+      function () {
+        $(nav_link_element).removeClass();
+        $(nav_link_element).addClass("nav-hover");
+        $(nav_link_element).fadeTo((nav_transition_time / 8), 1);
+      }
+    );
+  }
+  
+  if (new_class === "nav-click")  {
+    $(nav_link_element).fadeTo((nav_transition_time / 3), 0, 
+      function () {
+        $(nav_link_element).removeClass();
+        $(nav_link_element).addClass("nav-click_1");
+        $(nav_link_element).fadeTo((nav_transition_time / 3), 1);
+        $(nav_link_element).removeClass();
+        $(nav_link_element).addClass("nav-click_2");
+        $(nav_link_element).fadeTo((nav_transition_time / 3), 1);
+      }
+    );
   }
 } // END OF FUNCTION navLinkHoverState
 

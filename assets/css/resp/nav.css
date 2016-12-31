@@ -27,22 +27,22 @@ nav {
 	background-repeat: no-repeat;
 }
 
-.nav-link-base {
+.nav-base {
 	background-position: 0 0;
 	cursor: default;
 }
 
-.nav-link-hover {
+.nav-hover {
 	background-position: 0 -50px;
 	cursor: pointer;
 }
 
-.nav-link-click_1 {
+.nav-click_1 {
 	background-position: 0 -100px;
 	cursor: pointer;
 }
 
-.nav-link-click_2 {
+.nav-click_2 {
 	background-position: 0 -150px;
 	cursor: pointer;
 }
@@ -574,7 +574,7 @@ div.sctn_nav > div > div a:hover {
   }
 }
 
-@media screen and (min-width: 1890px) {
+@media screen and (min-width: 1910px) {
   nav, 
   #nav-brdr,
   #nav-bkgrnd, 
@@ -598,6 +598,7 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 119em !important;  
+    width: 119em !important; 
+    top: 38em !important;
   }
 }

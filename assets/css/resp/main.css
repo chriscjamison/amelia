@@ -1205,6 +1205,14 @@ body {
     width: 32.5em;
   }
   
+  .sctn_3-blok > span {
+    font-size: 2em;
+  }
+  
+  .sctn_4-blok div {
+    top: -0.6em !important;
+  }
+
   .sctn_5-blok {
     left: 16.5em;
   }

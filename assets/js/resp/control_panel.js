@@ -30,25 +30,33 @@ $(document).ready(
     
     $("#nav-link").on("mouseover", 
       function () {
-        navLinkHoverState();
+        navLinkHoverState("hover");
       }
     );
 
     $("#nav-link").on("mouseout", 
       function () {
-        navLinkHoverState(); 
+        navLinkHoverState("base"); 
       }
     );
     
     $("#nav-link").on("click", 
       function () {
         determineCopyElements();
-        navLinkHoverState();
+        
         animateSideNav();
+      
+        navLinkHoverState("click");
       }
     );
     
-    $("#options > span").on("mouseover", 
+   /* $("nav").on("mouseout", 
+      function () {
+        cycleNavLink("base");
+      }
+    );*/
+
+    $("#options > span").on("mouseenter", 
       function () {
         var option_element = new Object();
 
@@ -58,9 +66,8 @@ $(document).ready(
       }
     );
 
-    $("#options > span").on("mouseout", 
+    $("#options > span").on("mouseleave", 
       function () {
-        // window.alert("1");
         var option_element = new Object();
 
         option_element = this;
@@ -77,9 +84,12 @@ $(document).ready(
 
         determineCopyElements();
         animateSideNav();
-        animateMenuOptions(option_element);
-        navLinkHoverState();
-        activateSideNav(option_element);
+        
+        setTimeout(
+          function () {
+            navLinkHoverState();
+            activateSideNav(option_element);
+          }, (time_value * 1.5));
       }
     );
 
