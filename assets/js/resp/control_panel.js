@@ -1,7 +1,5 @@
 var time_value = new Number();
 var window_margin = new Number();
-var wndow_height = new Number();
-var current_position = new Number();
 
 var url_string = new String();
 var url_hash = new String();
@@ -50,13 +48,7 @@ $(document).ready(
       }
     );
     
-   /* $("nav").on("mouseout", 
-      function () {
-        cycleNavLink("base");
-      }
-    );*/
-
-    $("#options > span").on("mouseenter", 
+   $("#options > span").on("mouseenter", 
       function () {
         var option_element = new Object();
 
@@ -116,27 +108,32 @@ $(document).ready(
 
     $(".sctn_nav > div > span").on("mouseout",
 			function () {
-        var sctnNavElement = new String();
-        var sctnNavLinkElement = new String();
+        var sctn_nav_selector = new String();
+        var sctn_nav_link_selector = new String();
 
-        var sctnNavBaseCSS = new Object();
+        var sctn_nav_element = new Object();
+        var sctn_nav_link_selector = new Object();
 
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctnNavLinkElement = "#" + $(this).parent().parent().attr("id") + " > div > div";
+        var css_1 = new Object();
+
+        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
+        sctn_nav_link_selector = "#" + $(this).parent().parent().attr("id") + " > div > div";
         
-        sctnNavBaseCSS = {
-          backgroundPositionY: "0px"
+        sctn_nav_element = $(sctn_nav_selector);
+        sctn_nav_link_element = $(sctn_nav_link_selector);
+
+        css_1 = {
+          backgroundPosition: "0px 0px"
         };
 
-        if ($(sctnNavLinkElement).css("display") === "none" && 
-            $(sctnNavElement).css("backgroundPositionY") === "0px") {
-          $(sctnNavElement).css(sctnNavBaseCSS);
+        if ($(sctn_nav_link_element).css("display") === "none" && 
+            $(sctn_nav_element).css("backgroundPosition") === "0px 0px") {
+          $(sctn_nav_element).css(sctnNavBaseCSS);
         } else {
-          if ($(sctnNavElement).css("backgroundPositionY") !== "-105px")  {
+          if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
             animateSctnNav(sctnNavElement);
           }
         }
-        
 			}
 		);
 
@@ -238,23 +235,23 @@ $(document).ready(
 
     $(window).on("scroll", 
       function () {
-        var url_hash = new String();
+        var current_position = new Number();
 
-        /*var info_selector = new String();
+        var info_selector = new String();
         var info_element = new Object();
 
         var info_css_opacity_val = new String();
         
-        url_hash = window.location.hash;
+        current_position = $(window).scrollTop();
         
         info_selector = "#info";
         info_element = $(info_selector);
 
-        info_css_opacity_val = $(info_element).css("opacity");*/
+        info_css_opacity_val = $(info_element).css("opacity");
         
         setURL();
 
-        if (url_hash === "#sctn_main" && 
+        if (current_position === 0 && 
             info_css_opacity_val === "0") {
           animateInfoElement();
         }
