@@ -1,41 +1,4 @@
-//animations.js
-
-/* **************** **************** **************** **************** **************** 
-   * "animations.js" holds the various functions which modify various HTML elements 
-   * and create transition type animations using those elements.
-   * 
-   * ~~~ LIST OF FUNCTIONS ~~~
-   *  parseWindowDimensions 
-   *    Collects the width and height of the browser.
-   * 
-   *  urlInfo 
-   *    Scans the hash, as referenced by, "window.location.hash" 
-   *    for the "Section" and "Position" values.
-   * 
-   *  cssAdjustmentCopy
-   *    Adjusts the placement of various HTML elements within the browser window 
-   *    based upon the parameters of the browser a visitor is viewing.
-   * 
-   *  setupPage 
-   *    Initializes the rendering of the HTML elements within the browser window.
-   *  
-   *  animateInfoElement
-   *    Animates the content of the HTML element defined by the selector, "#info".
-   * 
-   *  sortCopyElements
-   *    Determines which HTML content within a given "Section" is made visible.
-   *    - Uses parameter - "section_value":String
-   * 
-   *  animateFormPanes
-   *    Animates the content of the HTML elementw which make up 
-   *    the Screening, Rate, and Contact forms.
-   *    - Uses parameter - "section_value":String
-   * 
-   *  animatePageElements
-   *    Triggers a sequence of modifications of CSS values and properties and animations 
-   *    of various HTML elements which fire when a user 
-   *    activates a menu option, intrapage, or intrasection option.
-   * **************** *************** **************** **************** **************** */
+// animtn.js
 var time_value = new Number();
 
 time_value = 400;
@@ -189,18 +152,14 @@ function urlInfo() {
    *  and Position value reference.
    * **************** **************** **************** **************** **************** */
   
-  var url_hash = new String();
+  var url_pathname = new String();
   // Holds the string which is returned by the HTML DOM property, "window.location.hash".
-
-  var section_string = new String();
-  // Holds the string, "sctn_", which is searched for within, "url_hash".
-  var position_string = new String();
-  // Holds the string, "pos=", which is searched for within, "url_hash".
+  var url_href = new String();
   
-  var section_index_num = new Number();
+  var section_char_val = new Number();
   // Holds the value that the Method, "indexOf", returns 
   // when the string, "sctn_" is searched for within, "url_hash". 
-  var position_index_num = new Number();
+  var position_char_val = new Number();
   // Holds the value that the Method, "indexOf", returns 
   // when the string, "pos=" is searched for within, "url_hash".
   
@@ -220,6 +179,7 @@ function urlInfo() {
   // The length of the string held by, "section_string", 
   // is added to the value within, "section_index_num", to 
   // capture the character stored at the end of the search string, "section_string".
+  
   var url_info_Array = new Array();
   // Holds the String values referencing the Section Value and Position Value 
   // which are contained within the string held by, "url_hash".
@@ -227,45 +187,34 @@ function urlInfo() {
   // The array is passed on to the functions which call, "urlInfo"; 
   // "setupPage" and "animatePageElements".
 
-  url_hash = window.location.hash; 
+  url_pathname = window.location.pathname; 
   // The value of, "window.location.hash", is stored within, "url_hash".
+  url_href = window.location.href;
 
-  section_string = "sctn_";
-  // The string, "sctn_", is stored within, "section_string". 
-  //
-  // NOTE: If the hash name is changed within the HTML of index.htm, 
-  // the value stored within, "section_string", must be changed.
-  position_string = "pos=";
-  // The string, "pos=", is stored within, "position_string". 
-  
-  section_index_num = url_hash.indexOf(section_string);
-  // The Method, "indexOf", searches, "url_hash", for the string held by, "section_string".
-  // 
-  // The value produced by, "indexOf", is stored within, "section_index_num".
-  position_index_num = url_hash.indexOf("pos=");
-  // The Method, "indexOf", searches, "url_hash", for the string held by, "position_string".
-  // 
-  // The value produced by, "indexOf", is stored within, "position_index_num".
+  section_char_val = url_pathname.length - 2;
+  position_char_val = url_href.length - 5;
 
-  section_value = url_hash.charAt(section_index_num + section_string.length);
+  section_value = url_pathname.charAt(section_char_val);
   // "section_value" collects the character stored within, "url_hash" that lies 
   // at the end of the string stored within, "section_string".
   //
   // The value of "section_value" is also the Section Value contained within 
   // the hash value contained in the URL.
   
-  position_value = url_hash.charAt(position_index_num + position_string.length);
+  position_value = url_href.charAt(position_char_val);
   // "section_value" collects the character stored within, "url_hash" that lies 
   // at the end of the string stored within, "section_string".
   //
   // The value of "section_value" is also the Section Value contained within 
   // the hash value contained in the URL.
 
-  if (position_index_num === -1)  {
+  if (section_value === "t" || 
+      section_value === "c")  {
     url_info_Array[0] = "main";
+    url_info_Array[1] = "0";
   } else  {
-    url_info_Array[0] = section_value;
-    url_info_Array[1] = position_value;
+    url_info_Array[0] = parseInt(section_value);
+    url_info_Array[1] = parseInt(position_value);
   } // END OF if STATEMENT
 
   /* if STATEMENT LOGIC ************** **************** **************** **************** 
@@ -286,7 +235,224 @@ function urlInfo() {
   // either, "setupPage", or, "animatePageElements", that called "urlInfo".
 
 } /* **************** END OF FUNCTION "urlInfo" **************** */
-    
+
+function setupPage()  {
+  /* **************** **************** **************** **************** **************** 
+   * setupPage initializes the rendering of the HTML elements 
+   * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
+   *   
+   * This function also initializes the placement of the intrapage navigation 
+   * which uses "arrows". These arrows appear on the far-right side of the browser window 
+   * within a desktop or laptop display and in the top and bottom middle 
+   * of a mobile display .
+   * 
+   * Based upon the width and height values calculated by, "parseWindowDimensions", 
+   * which are returned to the Array, "page_dimensions_Array", the values 
+   * of the CSS properties, "width" and "height" are applied to the HTML elements using 
+   * the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd". 
+   * 
+   * The HTML elements, using the selectors, "#bkgrnd > div", has it's, "background image", 
+   * property set by a jQuery bit of code which loads images based upon the 
+   * "width" and "height" values passed on to the Array, "page_dimensions_Array".
+   * **************** **************** **************** **************** **************** */
+
+  var page_dimensions_Array = new Array();
+  // Holds the "width" and "height" values of the browser window.
+  // 
+  // The width and height values are call by "parseWindowDimensions" and passed on 
+  // to "page_dimensions_Array".
+  
+  var page_height = new Number();
+  // Holds the total height of the loaded web page.
+  // 
+  // "page_height" is calculated by multiplying the height of the browser frame, 
+  // as it is calculated by the jQuery Method, "$(window).height()", 
+  // and the total number of HTML elements using the selector, ".wndow".
+
+  var cntainr_selector = new String();
+  var wndow_selector = new String();
+  var copy_selector = new String();
+  var bkgrnd_selector = new String();
+
+  var cntainr_element = new Object();
+  var wndow_elements = new Array();
+  var copy_element = new Object();
+  var bkgrnd_element = new Object();
+
+  var section_value;
+
+  var background_width = new Number();
+  
+  var cntainr_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#cntainr". 
+  var wndow_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML elements 
+  // identified by the selector, ".wndow". 
+  var bkgrnd_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML element 
+  // identified by the selector, "#bkgrnd". 
+  var copy_css = new Object();
+  // Holds the CSS properties and values of "width" and "height".
+  // 
+  // The values contained within this object, format the HTML elements 
+  // identified by the selector, ".copy". 
+  
+  var inc_bkgrnd = new Number();
+  // Holds a number which represents the Section Value of the background image 
+  // loaded within a given HTML element using the selector, "#bkgrnd > div".
+  //  
+  // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
+  
+  var bkgrnd_div_selector = new String();
+  // Holds a String representing the selector of the HTML element being modified by 
+  // the jQuery Method, ".each".
+  //
+  // The HTML element is one of the many elements defined 
+  // by the selector, "#bkgrnd > div".
+
+  var bkgrnd_div_element = new Object();
+
+  var bkgrnd_img_value = new String();
+  // Holds a String defining the value of the CSS property, "background-image", 
+  // which is used within the jQuery Method, ".each", as it is used for 
+  // the HTML elements using the selectors, "#bkgrnd > div".
+  
+  cssAdjustment();
+  // cssAdjusment is called to render various HTML elements of the webpage 
+  // within the browser window.
+
+  page_dimensions_Array = parseWindowDimensions();
+  // The calculated values for the "width" and "height" of various 
+  // HTML elements of the webpage within the browser window 
+  // are passed on to "page_dimensions_Array".
+  page_height = $(window).height();
+  // The value for "page_height" is determined by multiplying the value 
+  // calculated by the jQuery Method, "$(window).height()", and 
+  // the number of HTML elements using the selector, ".wndow".
+  
+  cntainr_selector = "#cntainr";
+  wndow_selector = "#wndow";
+  copy_selector = "#copy";
+  bkgrnd_selector = "#bkgrnd";
+
+  cntainr_element = $(cntainr_selector);
+  wndow_element = $(wndow_selector);
+  copy_element = $(copy_selector);
+  bkgrnd_element = $(bkgrnd_selector);
+
+  cntainr_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_height
+  };
+  
+  wndow_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_dimensions_Array[1]
+  }; 
+  
+  copy_css = {
+    "height": page_dimensions_Array[1]
+  };
+  
+  bkgrnd_css = {
+    "width": page_dimensions_Array[0],
+    "height": page_dimensions_Array[1]
+  };
+  
+  $(cntainr_element).css(cntainr_css);
+  // The values of the CSS properties, "width" and "height" are modified 
+  // using the jQuery Method, ".css".
+  //
+  // The HTML element using the selector, "#cntainr", has it's CSS 
+  // values of "width" and "height" set to equal the width 
+  // of the browser window and the height of the webpage.
+  $(wndow_element).css(wndow_css);
+  // The values of the CSS properties, "width" and "height" are modified
+  // using the jQuery Method, ".css".
+  //
+  // The HTML elements using the selector, ".wndow", have its CSS 
+  // values set to match the values of the browser width and height, 
+  // as calculated by "parseWindowDimensions". 
+  
+  $(bkgrnd_element).css(bkgrnd_css);
+  // The values of the CSS properties, "width" and "height" are modified 
+  // using the jQuery Method, ".css".
+  //
+  // The HTML element using the selector, "#bkgrnd", has its CSS 
+  // values set to match the values of the browser width and height, 
+  // as calculated by "parseWindowDimensions". 
+   
+  inc_bkgrnd = 0;
+  // "inc_bkgrnd" serves as an incrementer which increases in value as 
+  // the jQuery Method, ".each", cycles through the HTML elements defined 
+  // by the selector, "#bkgrnd > div".
+
+  url_info_Array = urlInfo();
+
+  section_value = url_info_Array[0];
+  
+  bkgrnd_div_selector = "#bkgrnd > div";
+  bkgrnd_div_element = $(bkgrnd_div_selector);
+
+  switch (section_value)  {
+    case "main":
+      background_width = 1920;
+    break;
+
+    case 1:
+      background_width = 7680;
+    break;
+
+    case 2:
+      background_width = 1920;
+    break;
+
+    case 3:
+      background_width = 7680;
+    break;
+
+    case 4:
+      background_width = 7680;
+    break;
+
+    case 5:
+      background_width = 5760;
+    break;
+
+    case 6:
+      background_width = 5760;
+    break;
+  }
+
+  bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
+                      url_info_Array[0] + "/" + (background_width).toString() + "x" + (page_dimensions_Array[1]).toString() + 
+                      ".jpg')";      
+
+  bkgrnd_css.backgroundImage = bkgrnd_img_value;
+  
+  $(bkgrnd_div_element).css(bkgrnd_css);
+
+  // setTimeout(displayVerticalNav, time_value * 2);
+  // The intrapage navigation, which appears on the far-right side of the browser 
+  // within a desktop or laptop display, or in the middle of the page 
+  // within a mobile display is activate.
+  // 
+  // The function runs after a period of time after the other HTML elements of the web page 
+  // are rendered. The time period is twice the value held by the variable, "time_value".
+  // 
+  // The value of, "time_period" is defined as a global variable and is located
+  // near the top of this file.
+
+  // setTimeout(animateInfoElement, time_value * 2);
+} /* **************** END OF FUNCTION "setupPage" **************** */
+
 function cssAdjustment()  {
   /* **************** **************** **************** **************** **************** 
    *  cssAdjustment adjusts the placement within the browser window of various 
@@ -517,7 +683,7 @@ function cssAdjustment()  {
     // These values format the HTML elements using the selectors, 
     // "#prev-sctn > span" and "#next-sctn > span".
 
-    copy_selector = ".copy";
+    copy_selector = "#copy";
 
     copy_element = $(copy_selector);
     
@@ -548,27 +714,6 @@ function cssAdjustment()  {
       margin: "0 auto"
     };
    
-    /*$(copy_elements).each(
-      function () {
-        switch ($(this).parent().attr("id").charAt(11))  {
-          case "1":
-            copy_css.width = "48.13em";
-          break;
-        } // END OF SWITCH STATEMENT
-        
-        /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
-         *  I - If the parent of this ".copy" element is #wndow-sctn_1"
-         *    A.  Set the "width" of the element to "48.13em". 
-         * **************** **************** **************** **************** **************** */
-        /*
-        $(this).css(copy_css);
-        // Sets the value of the CSS property as they are held within the Object, "copy_css".
-        //
-        // The current HTML element, ".copy", is positioned in the middle of the page, just below 
-        // the HTML element using the selector, ".headr", for the section being cycled through.
-      }
-    ); // END OF .each METHOD
-*/
     $(info_element).css(info_4_css);
     // Sets the CSS properties, "width" and "height", of the HTML element using the selector, "#info", 
     // using the values held by, "info_4_css".
@@ -679,207 +824,6 @@ function cssAdjustment()  {
   }
 
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
-
-function setupPage()  {
-  /* **************** **************** **************** **************** **************** 
-   * setupPage initializes the rendering of the HTML elements 
-   * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
-   *   
-   * This function also initializes the placement of the intrapage navigation 
-   * which uses "arrows". These arrows appear on the far-right side of the browser window 
-   * within a desktop or laptop display and in the top and bottom middle 
-   * of a mobile display .
-   * 
-   * Based upon the width and height values calculated by, "parseWindowDimensions", 
-   * which are returned to the Array, "page_dimensions_Array", the values 
-   * of the CSS properties, "width" and "height" are applied to the HTML elements using 
-   * the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd". 
-   * 
-   * The HTML elements, using the selectors, "#bkgrnd > div", has it's, "background image", 
-   * property set by a jQuery bit of code which loads images based upon the 
-   * "width" and "height" values passed on to the Array, "page_dimensions_Array".
-   * **************** **************** **************** **************** **************** */
-
-  var page_dimensions_Array = new Array();
-  // Holds the "width" and "height" values of the browser window.
-  // 
-  // The width and height values are call by "parseWindowDimensions" and passed on 
-  // to "page_dimensions_Array".
-  
-  var page_height = new Number();
-  // Holds the total height of the loaded web page.
-  // 
-  // "page_height" is calculated by multiplying the height of the browser frame, 
-  // as it is calculated by the jQuery Method, "$(window).height()", 
-  // and the total number of HTML elements using the selector, ".wndow".
-  
-  var cntainr_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object, format the HTML element 
-  // identified by the selector, "#cntainr". 
-  var wndow_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object, format the HTML elements 
-  // identified by the selector, ".wndow". 
-  var bkgrnd_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object, format the HTML element 
-  // identified by the selector, "#bkgrnd". 
-  var copy_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object, format the HTML elements 
-  // identified by the selector, ".copy". 
-  
-  var inc_bkgrnd = new Number();
-  // Holds a number which represents the Section Value of the background image 
-  // loaded within a given HTML element using the selector, "#bkgrnd > div".
-  //  
-  // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
-  
-  var bkgrnd_div_selector = new String();
-  // Holds a String representing the selector of the HTML element being modified by 
-  // the jQuery Method, ".each".
-  //
-  // The HTML element is one of the many elements defined 
-  // by the selector, "#bkgrnd > div".
-  var bkgrnd_img_value = new String();
-  // Holds a String defining the value of the CSS property, "background-image", 
-  // which is used within the jQuery Method, ".each", as it is used for 
-  // the HTML elements using the selectors, "#bkgrnd > div".
-  
-  cssAdjustment();
-  // cssAdjusment is called to render various HTML elements of the webpage 
-  // within the browser window.
-
-  page_dimensions_Array = parseWindowDimensions();
-  // The calculated values for the "width" and "height" of various 
-  // HTML elements of the webpage within the browser window 
-  // are passed on to "page_dimensions_Array".
-  page_height = $(window).height() * $(".wndow").length;
-  // The value for "page_height" is determined by multiplying the value 
-  // calculated by the jQuery Method, "$(window).height()", and 
-  // the number of HTML elements using the selector, ".wndow".
-  
-  cntainr_css = {
-    "width": page_dimensions_Array[0],
-    "height": page_height
-  };
-  
-  wndow_css = {
-    "width": page_dimensions_Array[0],
-    "height": page_dimensions_Array[1]
-  };
-  
-  copy_css = {
-    "height": page_dimensions_Array[1]
-  };
-  
-  bkgrnd_css = {
-    "width": page_dimensions_Array[0],
-    "height": page_dimensions_Array[1]
-  };
-  
-  $("#cntainr").css(cntainr_css);
-  // The values of the CSS properties, "width" and "height" are modified 
-  // using the jQuery Method, ".css".
-  //
-  // The HTML element using the selector, "#cntainr", has it's CSS 
-  // values of "width" and "height" set to equal the width 
-  // of the browser window and the height of the webpage.
-  $(".wndow").css(wndow_css);
-  // The values of the CSS properties, "width" and "height" are modified
-  // using the jQuery Method, ".css".
-  //
-  // The HTML elements using the selector, ".wndow", have its CSS 
-  // values set to match the values of the browser width and height, 
-  // as calculated by "parseWindowDimensions". 
-  
-  $("#bkgrnd").css(bkgrnd_css);
-  // The values of the CSS properties, "width" and "height" are modified 
-  // using the jQuery Method, ".css".
-  //
-  // The HTML element using the selector, "#bkgrnd", has its CSS 
-  // values set to match the values of the browser width and height, 
-  // as calculated by "parseWindowDimensions". 
-   
-  inc_bkgrnd = 0;
-  // "inc_bkgrnd" serves as an incrementer which increases in value as 
-  // the jQuery Method, ".each", cycles through the HTML elements defined 
-  // by the selector, "#bkgrnd > div".
-
-  $("#bkgrnd > div").each(
-    function () {
-      if (inc_bkgrnd > 0) {
-        bkgrnd_div_selector = "#wndow-sctn_" + inc_bkgrnd;
-        bkgrnd_div_element = $(bkgrnd_div_selector);
-        
-        bkgrnd_width =  page_dimensions_Array[0] * $(bkgrnd_div_element).children(".copy").length;
-        bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
-                            inc_bkgrnd + "/" + bkgrnd_width + "x" + page_dimensions_Array[1] + 
-                            ".jpg')";      
-
-        bkgrnd_css.backgroundImage = bkgrnd_img_value;
-      } else  {
-        
-        bkgrnd_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + page_dimensions_Array[0] +
-                                    "x" + page_dimensions_Array[1] + ".jpg')";
-      } // END OF if STATEMENT
-      
-      $(this).css(bkgrnd_css);
-      
-      inc_bkgrnd++;
-    } 
-  ); // END OF .each METHOD
-
-  /* .each STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - If the value of "inc_bkgrnd" is greater than "0".
-   *    A. If the background being modified is not the background for "#sctn_main".
-   *      1. Set the value of "bkgrnd_1_selector" equal to the combination of 
-   *         the string, "#wndow-sctn_" and the value of "inc_bkgrnd".
-   *            a. The value of, "bkgrnd_1_selector", serves as selector which is modified 
-   *               within this Method.
-   *      2. Calculate the value of the width of a background image by multiplying 
-   *         the value of the browser width and height 
-   *         as calculated by "parseWindowDimensions" and store that value within 
-   *         "bkgrnd_width".
-   *      3. Determine the value of the String which will serve as the value 
-   *         for the CSS property, "background-image".
-   *            a. The string is made up of the path to the file which holds the 
-   *               background image which is loaded within the HTML element being 
-   *               modified by this Method.
-   *      4. The value, determined in Step I-A-3, is added to the Object, "bkgrnd_css". 
-   *  II - If the value of "inc_bkgrnd" is "0".
-   *      A. Determine the valueof the String which will serve as the value 
-   *         for the CSS property, "background-image".
-   *            a. The string is made up of the path to the file which holds the 
-   *               background image which is loaded within the HTML element being 
-   *               modified by this Method.
-   *  III - Set the CSS values of the HTML element, defined by the selector 
-   *        held by "bkgrnd_selector".
-   *      A. The CSS properties, "width", "height", and "background-image", are modified 
-   *         by the values held within the Object, "bkgrnd_css".
-   *  IV - The value of "inc_bkgrnd" increased by "1".
-   * 
-   * **************** **************** **************** **************** **************** */
-
-  setTimeout(displayVerticalNav, time_value * 2);
-  // The intrapage navigation, which appears on the far-right side of the browser 
-  // within a desktop or laptop display, or in the middle of the page 
-  // within a mobile display is activate.
-  // 
-  // The function runs after a period of time after the other HTML elements of the web page 
-  // are rendered. The time period is twice the value held by the variable, "time_value".
-  // 
-  // The value of, "time_period" is defined as a global variable and is located
-  // near the top of this file.
-
-  // setTimeout(animateInfoElement, time_value * 2);
-} /* **************** END OF FUNCTION "setupPage" **************** */
-
 
 function animateInfoElement() {
   /* **************** **************** **************** **************** **************** 
@@ -1066,81 +1010,6 @@ function animateInfoElement() {
 
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
-function sortCopyElements(section_value) {
-
-  var visible_copy_elements = new Array();
-  // Holds an Array which is created when the JavaScript Method, ".split", is run on the 
-  // the String value held by the JavaScript Method, "window.location.hash".
-  // 
-  // The Array will consist of multiple elements which include characters which respresent 
-  // the ".copy" HTML element which appeared visible within the webpage before the 
-  // side navigation was activated.
-
-
-  /* **************** **************** **************** **************** **************** 
-   * sortCopyElements determines which HTML content within a given "section" 
-   * is made visible.
-   * 
-   * The function accepts the parameter, "section_value", which directs the function to 
-   * sort through the HTML content to find the HTML element using the selector, ".copy", 
-   * which holds the content which a visitor wants to view.
-   * **************** *************** **************** **************** **************** */
-  var wndow_selector = new String();
-  // Holds a String which matches the selector of the ".copy" HTML element which is 
-  // being examined by the logic of an ".each" jQuery Method.
-  var copy_selector = new String();
-  var copy_elements = new Array();
-  var copy_element = new Object();
-  var position_value = new Number();
-  // Holds a Number which identifies the individual, ".copy" HTML element containing 
-  // the HTML content which a visitor wants to view.
-  
-  var inc = new Number();
-  // Holds an incrementer used by an ".each" jQuery Method.
-  // 
-  // "inc" is used to increment through various ".copy" HTML elements which 
-  // are identified by the selector held by "wndow_selector".
-  
-  copy_selector = "#wndow-" + section_value + " > .copy";
-  // copy_selector = "#wndow-" + section_value + " > .copy:first-of-type";
-
-  copy_elements = $(wndow_selector);
-
-  $(copy_elements).each(
-    function () {
-      copy_element = this;
-
-      if ($(copy_element).css("display") === "none")  {
-        inc++;
-      }
-    }
-  );
-  
-  /* .each METHOD LOGIC ************* **************** **************** **************** 
-   *  I - For every ".copy" HTML element, determine if the value 
-   *      of the CSS property, "display", is "block". 
-   *    A. If the CSS value of the current ".copy" HTML element is set to "block".
-   *       1. Set "position_value" to the value of "inc".
-   *    B. Increment the value of "inc".  
-   * **************** **************** **************** **************** **************** */
-  
-  position_value = inc;
-
-  url_hash = "#" + section_value + "?pos=" + position_value;
-  // Assemble the URL hash which will determine which location within the page 
-  // that the browser will display after "sortCopyElements" is complete.  
-  window.location.hash = url_hash;
-  // Set the URL hash to the value contained within, "url_hash".
-
-  
-  setTimeout(function() {displayVerticalNav();}, time_value);
-  // Activates the function, "displayVerticalNav", which displays intrapage navigation.
-  //
-  // "displayVerticalNav" is activated after a period which is equal to the 
-  // value of "time_value".
-
-} /* **************** END OF FUNCTION "sortCopyElements" **************** */
-
 function animateFormPanes(section_value) {
   /* **************** **************** **************** **************** **************** 
    * animateFormPanes animates the content of the HTML elements which make up 
@@ -1239,170 +1108,56 @@ function animatePageElements()  {
    *       after a menu option is activated.
    * **************** *************** **************** **************** **************** */
   
-  var url_hash = new String();
-  // Holds the String value of the URL hash
-  
-  
-  var position_value_index_num = new Number();
-  // Holds a Number representing the location within the URL hash where the 
-  // Position Valueis listed.
-  var bkgrnd_element_x_position = new Number();
-  // Holds a Number which the product of the calculated width of the browser window 
-  // and "position_value".
-  // 
-  // This value is used to determine the CSS value of the property, "left", 
-  // of the background of a Section.
-  
-  var section_search_string = new String();
-  // Holds a String, "#sctn_", which is searched for within the URL hash.
-  var position_search_string = new String();
-  // Holds a String, "pos=", which is searched for within the URL hash.
-  var section_value = new String();
+  var section_value;
   // Holds the String value of the Section Value listed in the URL hash.
-  var position_value = new String();
+  var position_value;
   // Holds the String value of the Position Value listed in the URL hash.
   
-  var nav_selector = new String();
-  // Holds the String value of the selector, "nav".
-  var wndow_selector = new String();
+  var div_selector = new String();
   // Holds the String value of the selector, "#wndow-sctn_X".
-  var all_copy_selector = new String();
-  // Holds the String value of the selector, "#wndow-sctn_X > .copy".
-  var single_copy_selector = new String();
+  var copy_selector = new String();
   // Holds the String value of the selector, "#wndow-sctn_X > .copy:nth_child(Y)".
   var headr_selector = new String();
   // Holds the String value of the selector, ".headr.sctn_X".
   var sub_nav_selector = new String();
-  // Holds the String value of the selector, "#nav-sctn_X".
-  var div_selector = new String();
-  // Holds the String value of the selector, "div".
-  //
-  // Is used to define Children elements of the HTML element identified 
-  // by the selector used in, "copy_selector".
-  var bkgrnd_selector = new Object();
-  // Holds the String value of the selector, "#bkgrnd-sctn_X".
-
-  var nav_element = new Object();
-  var nav_width = new String();
-
+  
   var css_1 = new Object();
   // Holds the values for the CSS properties, "display".
   //
   // The default value is, "none".
-  var css_2 = new Object();
-  // Holds the values for the CSS properties, "display".
-  //
-  // The default value is, "block".
-
-  var nav_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "nav".
-  var cntainr_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#cntainr".
-  var wndow_elements = new Array();
-  // Holds the contents of the HTML elements identified by the selector, ".wndow".
-  var wndow_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X".
-  var all_copy_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, ".copy".
-  var single_copy_element = new Object();
+  
+  var copy_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
   var headr_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
-  var bkgrnd_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
   var sub_nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
-  var page_dimensions_Array = new Array();
+  var url_info_Array = new Array();
+
+  url_info_Array = urlInfo();
+
+  section_value = url_info_Array[0];
+  position_value = url_info_Array[1];
+
+  copy_selector = "#copy";
+  headr_selector = ".headr";
+  sub_nav_selector = ".sctn_nav" + section_value.toString();
   
-  var bkgrnd_element_path = new String();
-
-  var window_margin = new Number();
-  var current_position = new Number();
+  copy_element = $(copy_selector);
+  headr_element = $(headr_selector);
+  sub_nav_element = $(sub_nav_selector);
   
-  nav_selector = "nav";
-  nav_element = $(nav_selector);
-
-  section_search_string = "sctn_main";
-
-  url_hash = window.location.hash;
-  // window.alert("url_hash = " + url_hash);
-  // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
-  if ($(nav_element).css("left") !== "0px" && 
-      url_hash !== "" && 
-      url_hash.indexOf(section_search_string) === -1) {
-    current_position = $(window).scrollTop();
-
-    section_value = determineCurrentSection(current_position);
-
-    position_search_string = "pos=";
-    position_value_index_num = url_hash.indexOf(position_search_string);
-    position_value = parseInt(url_hash.charAt(position_value_index_num + position_search_string.length));
-
-    // window.alert("position_value = " + position_value);
-
-    all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
-    single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
-    // window.alert("single_copy_selector = " + single_copy_selector);
-    headr_selector = ".headr.sctn_" + section_value.toString();
-    div_selector = "div";
-    sub_nav_selector = "#nav-sctn_" + section_value.toString();
-    bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
-
-    all_copy_element = $(all_copy_selector);
-    single_copy_element = $(single_copy_selector);
-    headr_element = $(headr_selector);
-    sub_nav_element = $(sub_nav_selector);
-    bkgrnd_element = $(bkgrnd_selector);
-
-    css_1 = {
-      display: "none"
-    };
-
-    css_2 = {
-      display: "block"
-    };
+  css_1 = {
+    display: "block"
+  };
+  
+  $(copy_element).css(css_1);
+  $(sub_nav_element).css(css_1);
     
-    page_dimensions_Array = parseWindowDimensions();
-
-    bkgrnd_element_x_position = page_dimensions_Array[0] * position_value;
-
-    bkgrnd_element_x_position =  "-" + bkgrnd_element_x_position.toString() + "px 0px";
-
-    // window.alert("bkgrnd_element_x_position = " + bkgrnd_element_x_position);
-
-    $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
-
-    $(all_copy_element).css(css_1);
-    $(single_copy_element).css(css_2);
-    $(sub_nav_element).css(css_2);
-    
-    if ($(headr_element).css("opacity") === "0") {
-      $(headr_element).fadeTo(time_value, 1, 
-        function () {
-          $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
-            function () {
-              if (section_value === 3 || 
-                  section_value === 4)  {
-                $(sub_nav_element).fadeTo(time_value, 1);
-              }
-            }
-          );
-
-          if ((section_value === 1 && position_value === 1) || 
-              (section_value === 1 && position_value === 2) || 
-              (section_value === 6 && position_value === 1) || 
-              (section_value === 6 && position_value === 2))  {
-            var form_section_value = new String();
-
-            form_section_value = "sctn_" + section_value.toString();
-            
-            animateFormPanes(form_section_value);      
-          }
-        }
-      );
-    } else {
-      $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
+  $(headr_element).fadeTo(time_value, 1, 
+    function () {
+      $(copy_element).children(div_selector).fadeTo(time_value, 1, 
         function () {
           if (section_value === 3 || 
               section_value === 4)  {
@@ -1410,48 +1165,21 @@ function animatePageElements()  {
           }
         }
       );
-    }
-  }
-} /* **************** END OF FUNCTION "animatePageElements" **************** */
 
-function displayVerticalNav() {
-  var current_position = new Number();
-  var wndow_height = new Number();
-  var page_scroll_margin = new Number();
+      if ((section_value === 1 && position_value === 1) || 
+          (section_value === 1 && position_value === 2) || 
+          (section_value === 5 && position_value === 1) || 
+          (section_value === 6 && position_value === 1) || 
+          (section_value === 6 && position_value === 2))  {
+        var form_section_value = new String();
 
-  var sctn_on_css = new Object();
-  var sctn_off_css = new Object();
-
-  sctn_on_css = {
-    display: "block",
-    opacity: 1
-  };
-
-  sctn_off_css = {
-    display: "none", 
-    opacity: 0
-  }
-  
-  page_scroll_margin = 5;
-  wndow_height = $(".wndow").height();
-  current_position = $(window).scrollTop();
-  
-  if (current_position === 0)  {
-    $("#prev-sctn").css(sctn_off_css);
-  } else {
-    if ($("#prev-sctn").css("display") === "none")  {
-      $("#prev-sctn").css(sctn_on_css);
-    }
-    
-    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height))  {
-      $("#next-sctn").css(sctn_off_css);
-    } else {
-      if ($("#next-sctn").css("display") === "none") {
-        $("#next-sctn").css(sctn_on_css);
+        form_section_value = "sctn_" + section_value;
+        
+        animateFormPanes(form_section_value);      
       }
     }
-  }
-}
+  );
+} /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function animateSctnNav(sctn_nav_element) {
   var sctn_nav_link = new String();
@@ -1636,7 +1364,7 @@ function animateSideNav() {
   cntainr_selector = "#cntainr";
   wndow_selector = ".wndow";
   headr_selector = ".headr";
-  copy_selector = ".copy";
+  copy_selector = "#copy";
   info_selector = "#info";
   sctn_nav_selector = ".sctn_nav"
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
@@ -1750,142 +1478,6 @@ function animateSideNav() {
   }
 }
 
-function determineCurrentSection(current_position)  {
-  var cntainr_height = new Number();
-  // Holds a Number which represents the value of the CSS property, "height"
-  // for the HTML element using the selector, "#cntainr".
-  var wndow_height = new Number();
-  // Holds a Number which represents the value of the CSS property, "height" 
-  // for an single instance of the HTML element using the selector, ".wndow".
-  var section_value_num = new Number();
-  // Holds a Number representing the location within the URL hash where the 
-  // Section Value is listed.
-  var window_margin = new Number();
-
-  var cntainr_element = new Object();
-  var wndows_elements = new Array();
-
-  var cntainr_selector = new String();
-  // Holds the String value of the selector, "#cntainr".
-  var wndows_selector = new String();
-  // Holds the String value of the selector, ".wndow".
-
-
-  cntainr_selector = "#cntainr";
-  wndows_selector = ".wndow";
-
-  cntainr_element = $(cntainr_selector);
-  wndows_elements = $(wndows_selector);
-
-  cntainr_height = $(cntainr_element).height();
-  wndow_height = $(wndows_elements).height();
-
-  window_margin = 0.05;
-
-  section_value_num = Math.floor(current_position / wndow_height + window_margin); 
-// window.alert("section_value_num = " + section_value_num);
-
-  return section_value_num;
-}
-
-function setURL()  {
-  var wndow_height = new Number();
-  var window_margin = new Number();
-  var current_position = new Number();
-
-  var headr_selector = new String();
-  var section_value = new String();
-  var position_value = new String();
-
-  var headr_element = new String();
-
-  var url_hash = new String();
-  
-  wndow_height = $(".wndow").height(); 
-  window_margin = 150;
-
-  current_position = $(window).scrollTop();  
-
-  url_hash = window.location.hash;
-
-  if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
-      (url_hash.indexOf("sctn_main") === -1) && 
-      (current_position > 1)) {
-    animateInfoElement();
-  }
-
-  if ((current_position === 0) && 
-      (url_hash.indexOf("sctn_main") === -1) && 
-       ($("#info").css("opacity") !== "0")) {
-      url_hash = "#sctn_main";
-      
-      setTimeout(displayVerticalNav, time_value * 2);
-          
-  } else {
-    if (determineCurrentSection(current_position) !== Infinity) {
-      section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
-      // window.alert("$(\"" + section_value + ").children(\".headr\").css(\"opacity\") = " + $(section_value).children(".headr").css("opacity"));
-      if ($(section_value).children(".headr").css("opacity") === "1") {
-        position_value = determineVisibleCopyElement(section_value);  
-      } else  {
-        position_value = 0;
-      }
-      
-      url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
-
-      if (url_hash === "#sctn_0?pos=0") {
-        url_hash = "#sctn_main";
-      }
-    }
-  }
-
-  if (url_hash !== window.location.hash)  {
-    window.location.hash = url_hash;
-  }
-}
-
-function determineVisibleCopyElement(wndow_selector)  {
-  var wndow_element = new Object();
-  var copy_elements = new Array();
-  
-  var wndow_element_copy_length = new Number();
-  var visible_copy_element_val = new Number();
-
-  var copy_selector = new String();
-
-  var is_copy_element_invisible = new Boolean();
-      
-  wndow_element = $(wndow_selector);   
-
-  wndow_element_copy_length = $(wndow_element).children(".copy").length;
-  
-  visible_copy_element_val = 3;
-  is_copy_element_invisible = true;
-  // window.alert("wndow_selector = " + wndow_selector);
-  if (wndow_selector !== "#wndow-sctn_main")  {
-    // window.alert("wndow_selector = " + wndow_selector);
-    while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
-           is_copy_element_invisible === true) {
-      copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
-      // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
-      if ($(wndow_element).children(copy_selector).css("display") === "none") {
-        visible_copy_element_val++;
-      } else  {
-        is_copy_element_invisible = false;
-      }
-    }
-    
-    if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
-        is_copy_element_invisible === true)  {
-      visible_copy_element_val = -1;
-    } else {
-      visible_copy_element_val = visible_copy_element_val - 3;
-    }
-  }
-
-  return visible_copy_element_val;
-}
-
 function animateMenuOptions(option_element) {
   var css_1 = new Object();
   var css_2 = new Object();
@@ -1911,63 +1503,4 @@ function animateMenuOptions(option_element) {
   } else {
     $(option_element).animate(css_2, time_value_2);
   }
-}
-
-function setPageInitialLocation(url_hash)  {
-  var section_value = new String();
-  var position_value = new String();
-  
-  var wndow_selector = new String();
-  var headr_selector = new String();
-  var copy_selector = new String();
-  
-  var wndow_element = new Object();
-  var headr_element = new Object();
-  var copy_element = new Object();
-
-  var wndow_height = new Number();
-
-  var css_1 = new Object();
-  var css_2 = new Object();
-
-  scroll_to_value = new Number();
-
-  url_hash = window.location.hash;
-  // window.alert("url_hash = " + url_hash);
-
-  section_value = url_hash.charAt(6);
-  position_value = url_hash.charAt(12);
-
-  css_1 = {
-    display: "table", 
-    opacity: 1
-  };
-
-  css_2 = {
-    display: "block"
-  };
-
-  section_value = parseInt(section_value);
-  position_value = parseInt(position_value);
-  // window.alert("section_value = " + section_value);
-  wndow_selector = ".wndow";
-  headr_selector = ".headr.sctn_" + section_value.toString();
-  copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
-  // window.alert("copy_selector = " + copy_selector);
-  wndow_element = $(wndow_selector);
-  headr_element = $(headr_selector);
-  copy_element = $(copy_selector);
-
-  wndow_height = $(wndow_element).height();
-  scroll_to_value = section_value * wndow_height;
- 
-
-  $(headr_element).css(css_1);
-  $(copy_element).css(css_2);
-//  window.alert("scroll_to_value = " + scroll_to_value);
-  $(window).scrollTop(scroll_to_value);
-
-  setURL();
-
-  animatePageElements();
 }

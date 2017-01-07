@@ -1,0 +1,604 @@
+/* nav.css */
+nav {
+	width: 20.45em;
+	height: auto;
+  top: 0;
+  position: fixed;
+  left: -20.45em;
+	z-index: 2;
+}
+
+.nav-base {
+  position: fixed !important;
+}
+
+.nav-click {
+  position: absolute !important;
+}
+
+#nav-link {
+	width: 3.13em;
+	height: 3.13em;
+	position: fixed;
+	top: 25px;
+	left: 25px;
+	z-index: 5;
+	background-image: url('/amelia/assets/img/nav/nav.png');
+	background-repeat: no-repeat;
+}
+
+.nav-base {
+	background-position: 0 0;
+	cursor: default;
+}
+
+.nav-hover {
+	background-position: 0 -50px;
+	cursor: pointer;
+}
+
+.nav-click_1 {
+	background-position: 0 -100px;
+	cursor: pointer;
+}
+
+.nav-click_2 {
+	background-position: 0 -150px;
+	cursor: pointer;
+}
+
+#nav-bkgrnd {
+	width: 20.45em;
+	height: 100%;
+	position: fixed;
+  left: -20.45em;
+	z-index: 3;
+	background-color: #666;
+}
+
+#nav-brdr {
+	width: 20.45em;
+	height: 6.25em;
+	position: fixed;
+  left: -20.45em;
+	z-index: 3;
+	background-color: #444;
+}
+
+#options {
+	width: 17.25em;
+	height: inherit;
+  display: none;
+  position: fixed;
+	top: 6.56em;
+  left: 25px;
+  opacity: 0;
+	z-index: 4;
+}
+
+.options-base {
+  display: none;
+  opacity: 0;
+}
+
+.options-click {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.option-base {
+  background-color: #000 !important;
+  color: #fff !important;
+  cursor: default !important;
+}
+
+.option-hover {
+	background-color: #808080 !important;
+	color: #fff !important;
+	cursor: pointer !important;
+}
+
+.option-click {
+	background-color: #A6A6A6 !important;
+	color: #000 !important;
+}
+
+#options > span {
+	width: 12.4em;
+	height: 2.35em;
+	margin: 1em;
+	padding: 1em;
+	display: block;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25em;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
+.bkgrnd-base {
+  width: 61.25em !important;
+  left: 0px !important;
+}
+
+.bkgrnd-click {
+  width: 40.94em !important;
+  left: 20.45em !important;
+}
+
+.cntainr-base {
+  width: 61.25em !important;
+  left: 0px !important;
+}
+
+.cntainr-click {
+  width: 40.94em !important;
+  left: 20.45em !important;
+}
+
+.wndow-base {
+  width: 61.25em !important;
+  left: 0px !important;
+  display: block !important;
+}
+
+.wndow-click {
+  width: 40.94em !important;
+  left: 20.45em !important;
+  display: none !important;
+}
+
+#prev-sctn,
+#next-sctn {
+	width: 12.5em;
+	height: 3.75em;
+	position: fixed;
+	right: 33.8em;
+	bottom: 1.56em;
+	z-index: 5;
+	background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+  background-repeat: no-repeat;
+  background-position: 0 -209px;
+  cursor: default;
+}
+
+#prev-sctn {
+  top: 1.06em;
+  padding-top: 1.88em;
+  display: none;
+  background-position: 0 0;
+  opacity: 0;
+}
+
+#next-sctn {
+  background-position: 0px -209px;
+}
+
+#prev-sctn:hover,
+#next-sctn:hover {
+  cursor: pointer;  
+}
+
+#prev-sctn:hover {
+  background-position: 0px -111px !important;
+}
+
+#next-sctn:hover {
+  background-position: 0px -235px !important;
+}
+
+.base-prev-sctn {
+  background-position: 0 0;
+  cursor: default;
+}
+
+.click-prev-sctn {
+  background-position: 0 -111px !important;
+  cursor: pointer;
+}
+
+.base-next-sctn {
+  background-position: 0 -209px !important;
+  cursor: default;
+}
+
+.click-next-sctn {
+  background-position: 0 -320px !important;
+  cursor: pointer;
+}
+
+#prev-sctn > span,
+#next-sctn > span {
+	width: 11.25em;
+	height: 2.5em;
+	margin: 0 auto 50px auto;
+	display: block;
+	font-family: 'Franklin Gothic Medium', sans-serif;
+  font-size: 0.8em;
+	color: #fff;	
+	text-align: center;
+	line-height: 1.25em;
+	letter-spacing: 1px;
+}
+
+div.sctn_nav {
+	width: 61.25em;
+	height: 8.44em;
+	position: absolute;
+	top: 39.38em;
+	opacity: 0;
+}
+
+div.sctn_nav > div {
+	width: 46.25em;
+	height: inherit;
+	margin: 0 auto;
+}
+
+div.sctn_nav > div > span {
+	width: 9.38em;
+	height: 2.19em;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	background-position: 0px 0px;
+	color: #fff;
+	cursor: auto;	
+} 
+
+div.sctn_nav > div > span:hover {
+  cursor: pointer;
+}
+
+#nav-sctn_3 > div > span {
+	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
+}
+
+#nav-sctn_4 > div > span {
+	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
+}
+
+div.sctn_nav > div > span.base-sctn_nav {
+	background-position: 0px 0px;
+	cursor: default;
+	opacity: 1;
+}
+
+div.sctn_nav > div > span.hover-sctn_nav {
+	background-position: 0px -35px;
+	cursor: pointer;
+	opacity: 1;
+}
+
+div.sctn_nav > div > span.active-sctn_nav {
+	background-position: 0px -70px;
+	cursor: pointer;
+	opacity: 1;
+}
+
+div.sctn_nav > div > span.click-sctn_nav {
+	background-position: 0px -105px;
+	cursor: pointer;
+	opacity: 1;
+}
+
+div.sctn_nav > div > div {
+	width: 46.25em;
+	height: 2.19em;
+	margin: 0 auto;
+	position: absolute;
+	display: none;
+}
+
+div.sctn_nav > div > div > a {
+	width: 6.56em;
+	height: 1.38em;
+	display: block;
+	float: left;
+	margin: 0 0.94em;
+	padding: 0.19em 0 0.38em 0;
+	background-color: #000;
+	border: 2px solid #222;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 1px;
+	cursor: pointer; 
+}
+
+div.sctn_nav > div > div a:hover {
+	background-color: #333;
+}
+
+@media screen and (width: 980px) {
+  nav, 
+  #nav-bkgrnd, 
+  #nav-brdr, 
+  #options {
+	  width: 61.25em;
+    height: 108.75em;
+    left: -61.25em;
+    display: none;
+  }
+  
+  #nav-brdr {
+    height: 12.25em;
+  }
+  
+  #nav-link {
+    width: 100px;
+    height: 100px;
+    top: 50px;
+    left: 50px;
+    background-image: url('/amelia/assets/img/nav/nav_mobile.png');
+    opacity: 0;
+  }
+  
+  .nav-link-base {
+    background-position: 0 0;
+  }
+
+  .nav-link-hover {
+    background-position: 0 -100px;
+  }
+
+  .nav-link-click_1 {
+    background-position: 0 -200px;
+  }
+
+  .nav-link-click_2 {
+    background-position: 0 -300px;
+  }
+  
+  #options {
+	  top: 12em;
+  }  
+  
+  #options > span {
+    margin: 0.9em auto;
+    font-size: 2.5em;  
+  }
+  
+  #prev-sctn, 
+  #next-sctn {
+    height: 8.25em;
+    bottom: 37em;
+    right: 24.1em;
+  }
+  
+  #next-sctn {
+    background-position-y: -137px
+  }
+  
+  #prev-sctn > span,
+  #next-sctn > span {
+    width: 6.8em;
+    height: 6.56em;
+    margin: 0 auto;
+    font-size: 1.8em;
+  }
+  
+  .sctn_nav {
+    width: 61.2em !important;
+    height: 4.38em !important; 
+    top: 67em !important;
+  }
+  
+  div.sctn_nav > div {
+	  width: 18.8em;
+  }
+  
+  div.sctn_nav > div > span {
+    width: 18.8em;
+    height: 4.38em;
+  }
+  
+  #nav-sctn_3 > div > span {
+    background-color: #000;
+    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3-mble.png');
+  }
+  
+  #nav-sctn_4 > div > span {
+    background-color: #000;
+    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
+  }
+  
+  div.sctn_nav > div > div {
+    width: 18.8em;
+    height: 27.19em;
+    margin: 2em 0;
+  }
+  
+  div.sctn_nav > div > div > a {
+    width: 9.3em;
+    height: 1.5em;
+    margin: 0.65em 0;
+    padding: 0.5em 0 0.25em 0;
+    font: 400 2em "Franklin Gothic Medium", sans-serif
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .options-click {
+    display: inline-table !important;
+    opacity: 1 !important;
+  }
+
+  .bkgrnd-base {
+    width: 80em !important;
+  }
+
+  .bkgrnd-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+  
+  .cntainr-base {
+    width: 80em !important;
+    left: 0px !important;
+  }
+
+  .cntainr-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+
+  .wndow-base {
+    width: 80em !important;
+  }
+
+  .wndow-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+
+  .sctn_nav {
+    width: 80em !important;
+    height: 6.1em !important;
+    top: 34.375em !important;
+  }
+  
+  .sctn_nav > div {
+    width: 49em !important;
+  }
+  
+  .sctn_nav > div > div {
+    width: 49.25em !important;
+    height: 3.54em !important;
+  }
+  
+  .sctn_nav > div > div > a {
+    width: 7.56em !important;
+    height: 1em !important;
+    margin: 1em !important;
+    padding: 0.27em 0 0.38em 0 !important;
+  }
+  
+  #prev-sctn, 
+  #next-sctn {
+    right: 33.8em;
+  }
+  
+}
+
+@media screen and (min-width: 1260px) and (min-height: 980) {
+  nav {
+    width: 32em;
+    left: -32em;
+  }
+  
+  #nav-bkgrnd {
+    width: 32em;
+    left: -32em;
+  }
+  
+  #nav-brdr {
+    width: 32em;
+    left: -32em;
+  }
+  
+  #options {
+    width: 32em;
+  }
+  
+  #options > span {
+    width: 8.61em;
+    display: inline-table;
+    font-size: 1.25em;
+  };
+}
+
+@media screen and (min-width: 1340px) {
+  nav {
+    width: 39.1em;
+    left: -39.1em;
+  }
+
+  #nav-bkgrnd {
+    width: 39.1em;
+    left: -39.1em;
+  }
+
+  #nav-brdr {
+    width: 39.1em;
+    left: -39.1em;
+  }
+  
+  #options {
+    width: 39.1em;
+    left: -39.1em;
+  }
+
+  #options > span {
+    width: 11.6em;
+    float: left;
+  }
+  
+  .bkgrnd-base {
+    width: 85.375em !important;
+  }
+
+  .bkgrnd-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+
+  .cntainr-base {
+    width: 85.375em !important;
+    left: 0px !important;
+  }
+
+  .cntainr-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+
+  .wndow-base {
+    width: 85.375em !important;
+  }
+
+  .wndow-click {
+    width: 46.25em !important;
+    left: 39.1em !important;
+  }
+
+  .sctn_nav {
+    width: 85.375em !important;
+    top: 34.375em !important;
+  }
+  
+  #prev-sctn, 
+  #next-sctn {
+    right: 38.3em;
+  }
+}
+
+@media screen and (min-width: 1910px) {
+  nav, 
+  #nav-brdr,
+  #nav-bkgrnd, 
+  #options {
+    width: 20.5em;
+  }
+
+  nav, 
+  #nav-bkgrnd {
+    height: 67.5em;
+  }
+
+  #options {
+    height: initial;
+  }
+
+  #options > span {
+    width: 12.4em;
+    height: 2.15em;
+    margin: 0.75em;
+  }
+
+  .sctn_nav {
+    width: 119em !important; 
+    top: 38em !important;
+  }
+}

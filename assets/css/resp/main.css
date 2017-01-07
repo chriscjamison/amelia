@@ -156,17 +156,6 @@ body {
   border-bottom: 3px solid;
 }
 
-#sctn_1-desc-2 {
-	background-color: #9e7a75;
-	color: #f0c7ab;
-}
-
-#sctn_1-desc-3 {
-	/*left: 500px;*/
-	background-color: #9a633f;
-	color: #f0f2ee;
-}
-
 #sctn_1-desc-1 {
 	padding: 1em 2em;
 	background-color: #d2e6db;
@@ -183,6 +172,17 @@ body {
 
 #sctn_1-desc-1 > p + p:first-line {
 	font-weight: 400;
+}
+
+#sctn_1-desc-2 {
+	background-color: #9e7a75;
+	color: #f0c7ab;
+}
+
+#sctn_1-desc-3 {
+	/*left: 500px;*/
+	background-color: #9a633f;
+	color: #f0f2ee;
 }
 
 /** SECTION 2 *************************************************************************************** */

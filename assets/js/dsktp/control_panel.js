@@ -1,31 +1,21 @@
-var time_value = new Number();
-var window_margin = new Number();
+$(document).ready( 
+  function ()	{
+    var time_value = new Number();
+    var url_pathname = new String();
 
-var url_string = new String();
-var url_hash = new String();
+    time_value = 400;
+    url_pathname = window.location.pathname;
 
-time_value = 400;
-window_margin = 150;
+    setupPage();
 
-url_string = window.location.href;
-url_hash = window.location.hash;
-
-$(document).ready(
-  function () {
-    if (url_string.indexOf("rateValue") != -1) {      
-      $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url_string.indexOf("rateValue") + 10), url_string.length));
-    }
-
-    var form_selectors = new String();
-
-    form_selectors = "#form-sctn_6 .form-page_1";
-
-    if (url_hash === "#sctn_6?pos=1" && 
-        url_hash.indexOf("copyValues") === -1)  {
-      $(form_selectors).css("display", "block");
-      $(form_selectors).fadeTo(time_value, 1);
+    if (url_pathname === "/amelia/sc/" || 
+        url_pathname === "/amelia/sc/index.htm")  {
+      animateInfoElement();
+    } else {
+      animatePageElements();
     }
     
+
     $("#nav-link").on("mouseover", 
       function () {
         navLinkHoverState("hover");
@@ -40,8 +30,6 @@ $(document).ready(
     
     $("#nav-link").on("click", 
       function () {
-        determineCopyElements();
-        
         animateSideNav();
       
         navLinkHoverState("click");
@@ -74,7 +62,6 @@ $(document).ready(
 
         option_element = this;
         
-        determineCopyElements();
         animateSideNav();
         
         setTimeout(
@@ -210,79 +197,6 @@ $(document).ready(
         animateFormPanes("sctn_6");
       }
     );
-
-    $(window).on("load", 
-      function () {
-        var url_hash = new String();
-
-        url_hash = window.location.hash;
-        
-        setupPage();
-        // window.alert("url_hash = " + url_hash);
-        if (url_hash === "" || 
-            url_hash === "#sctn_main")  {
-          animateInfoElement();
-        } else {
-          setTimeout(
-            function () {
-              setPageInitialLocation(url_hash);
-            }, (time_value / 2)
-          ); 
-        }
-      }
-    );
-    
-
-    $(window).on("scroll", 
-      function () {
-        var current_position = new Number();
-
-        var info_selector = new String();
-        var info_element = new Object();
-
-        var info_css_opacity_val = new String();
-        
-        current_position = $(window).scrollTop();
-        
-        info_selector = "#info";
-        info_element = $(info_selector);
-
-        info_css_opacity_val = $(info_element).css("opacity");
-        
-        setURL();
-
-        if (current_position === 0 && 
-            info_css_opacity_val === "0") {
-          animateInfoElement();
-        }
-      }
-    );
-    
-    $(window).on("hashchange",
-      function () {
-        var url_hash = new String();
-
-        url_hash = window.location.hash;
-        
-        if (url_hash.indexOf("copyValues") === -1 && 
-            url_hash !== "") {
-          animatePageElements(); 
-        }
-        
-        if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
-            url_hash.indexOf("copyValues") === -1)  {
-          $("#form-sctn_6 .form-page_1").css("display", "block");
-          $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
-        }
-      }
-    );
-    
-    $(window).on("resize", 
-      function () {
-        setupPage();
-        setURL();
-        animatePageElements();
-      }
-    );
   }
 );
+

@@ -1,4 +1,7 @@
-// menu.js
+// nav.js
+var time_value = new Number();
+
+time_value = 500;
 
 $(document).ready(
 	function()	{
