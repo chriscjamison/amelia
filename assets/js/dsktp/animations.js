@@ -1,7 +1,7 @@
 // animtn.js
 var time_value = new Number();
 
-time_value = 400;
+time_value = 500;
 
 function parseWindowDimensions() {
   /* **************** **************** **************** **************** **************** 
@@ -179,6 +179,9 @@ function urlInfo() {
   // The length of the string held by, "section_string", 
   // is added to the value within, "section_index_num", to 
   // capture the character stored at the end of the search string, "section_string".
+  var url_section_location = new Number();
+
+  var url_search_string = new String();
   
   var url_info_Array = new Array();
   // Holds the String values referencing the Section Value and Position Value 
@@ -187,13 +190,22 @@ function urlInfo() {
   // The array is passed on to the functions which call, "urlInfo"; 
   // "setupPage" and "animatePageElements".
 
+  url_search_string = ".htm";
+
   url_pathname = window.location.pathname; 
   // The value of, "window.location.hash", is stored within, "url_hash".
   url_href = window.location.href;
 
-  section_char_val = url_pathname.length - 2;
+  if (url_pathname.indexOf(url_search_string) === -1) {
+    url_section_location = 2
+  } else {
+    url_section_location = 12;
+  }
+  
+  section_char_val = url_pathname.length - url_section_location;
   position_char_val = url_href.length - 5;
 
+  
   section_value = url_pathname.charAt(section_char_val);
   // "section_value" collects the character stored within, "url_hash" that lies 
   // at the end of the string stored within, "section_string".
@@ -208,8 +220,11 @@ function urlInfo() {
   // The value of "section_value" is also the Section Value contained within 
   // the hash value contained in the URL.
 
-  if (section_value === "t" || 
-      section_value === "c")  {
+  
+
+// window.alert("section_char_value = " + section_char_val);
+  if ((section_value === "t" || 
+      section_value === "c"))  {
     url_info_Array[0] = "main";
     url_info_Array[1] = "0";
   } else  {
@@ -217,6 +232,7 @@ function urlInfo() {
     url_info_Array[1] = parseInt(position_value);
   } // END OF if STATEMENT
 
+// window.alert("url_info_Array[0] = " + url_info_Array[0]);
   /* if STATEMENT LOGIC ************** **************** **************** **************** 
    *  I - If the value of, "position_string", CANNOT BE FOUND WITHIN, "url_hash".
    *    A.  Store values within "url_info_Array" 
@@ -280,6 +296,7 @@ function setupPage()  {
   var bkgrnd_element = new Object();
 
   var section_value;
+  var position_value;
 
   var background_width = new Number();
   
@@ -349,7 +366,7 @@ function setupPage()  {
 
   cntainr_css = {
     "width": page_dimensions_Array[0],
-    "height": page_height
+    "height": page_dimensions_Array[1]
   };
   
   wndow_css = {
@@ -397,37 +414,38 @@ function setupPage()  {
   url_info_Array = urlInfo();
 
   section_value = url_info_Array[0];
+  position_value = url_info_Array[1];
   
   bkgrnd_div_selector = "#bkgrnd > div";
   bkgrnd_div_element = $(bkgrnd_div_selector);
 
   switch (section_value)  {
     case "main":
-      background_width = 1920;
+      background_width = page_dimensions_Array[0];
     break;
 
     case 1:
-      background_width = 7680;
+      background_width = page_dimensions_Array[0] * 4;
     break;
 
     case 2:
-      background_width = 1920;
+      background_width = page_dimensions_Array[0];
     break;
 
     case 3:
-      background_width = 7680;
+      background_width = page_dimensions_Array[0] * 4;
     break;
 
     case 4:
-      background_width = 7680;
+      background_width = page_dimensions_Array[0] * 4;
     break;
 
     case 5:
-      background_width = 5760;
+      background_width = page_dimentions_Array[0] * 3;
     break;
 
     case 6:
-      background_width = 5760;
+      background_width = page_dimensions_Array[0] * 3;
     break;
   }
 
@@ -599,7 +617,7 @@ function cssAdjustment()  {
       $(prev_sctn_span_element).css(next_sctn_2_css);
       
         
-      if (page_dimensions_Array[0] > 1900)  {
+      if (page_dimensions_Array[0] > 1910)  {
         $(info_element).css(info_1_css);
         // The HTML element identified by the selector, "#prev-sctn", is formatted by 
         // using the CSS properties held by the Object, "prev_sctn_css".
@@ -618,7 +636,7 @@ function cssAdjustment()  {
         info_1_css = {
           "width": "38.6em",
           "height": "15.2em",
-          "bottom": "9.2em"
+          "bottom": "7.5em"
         };
         
         info_3_css = {
@@ -946,7 +964,7 @@ function animateInfoElement() {
     time_value_1 = time_value * 2;
     time_value_2 = time_value * 1.5;
 
-    $("#wndow-sctn_main").show("drop", time_value_1);
+    $("#wndow").show("drop", time_value_1);
     // This jQuery Method, "show", "drops" or animates the panel which serves 
     // as the background of the logo and other items on the landing page 
     // down from the top of the browser window.
@@ -1010,87 +1028,41 @@ function animateInfoElement() {
 
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
-function animateFormPanes(section_value) {
+function animateFormPanes() {
   /* **************** **************** **************** **************** **************** 
    * animateFormPanes animates the content of the HTML elements which make up 
    * the Screening, Rate, and Contact forms.
    * **************** *************** **************** **************** **************** */
 
-  var form_id = new String();
-  // Holds the selector of the HTML form which, "animateFormPanes", is modifying.
-  //
-  // The value held by, "form_id", is made up of the String snippet, "#form-" 
-  // and the Section Value parameter which is passed to, "animateFormPanes", when 
-  // a button which triggers an action of the form which is a request 
-  // for more form options.
-  
-  var page_1_selector = new String();
+  var clmn_1_selector = new String();
   // Holds the selector of the "<DIV>" element which holds the HTML content which 
   // makes up form options for the Screening, Rate, or Contact form.
   //
   // This variable holds the selector of the first "page" of a given form.
-  var page_2_selector = new String();
+  var clmn_2_selector = new String();
   // Holds the selector of the "<DIV>" element which holds the HTML content which 
   // makes up form options for the Screening, Rate, or Contact form.
   //
   // This variable holds the selector of the second "page" of a given form.
-  
-  form_id = "#form-" + section_value; 
-  // Sets the value of, "form_id", to the combination of the String, "#form", 
-  // and the value held by, "section_value".w
-  //
-  // This statement defines part of the selector of the form which, "animateFormPanes", 
-  // will alter.
+  var clmn_selector = new String();
 
-  page_1_selector = form_id + " .form-page_1";
-  page_2_selector = form_id + " .form-page_2";
-  // Sets the values of the selectors, held by, "page_1_selector" and "page_2_selector"
-  // which are a combination of the String value held by "form_id" and the String to follow.
-  //
-  // The variables are used to determine which form "pane" is visible and also 
-  // to animate and make visible or make invisible each form pane depending 
-  // on the form pane a visitor is viewing and interacting with.
+  var clmn_element = new Object();
+  var clmn_1_element = new Object();
+  var clmn_2_element = new Object();
 
- if ($(page_1_selector).css("display") === "block")  {
-    $(page_1_selector).fadeTo(time_value, 0);
-    $(page_1_selector).css("display", "none");
+  var css_1 = new Object();
+  var css_2 = new Object();
 
-    $(page_2_selector).css("display", "block");
-    $(page_2_selector).fadeTo(time_value, 1);
-  } else  {
-    $(page_2_selector).fadeTo(time_value, 0);
-    $(page_2_selector).css("display", "none");
+  clmn_selector = ".clmn";
 
-    $(page_1_selector).css("display", "block");
-    $(page_1_selector).fadeTo(time_value, 1);
-  } // END OF if STATEMENT
+  clmn_element = $(clmn_selector);
 
-  /* if STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - The first form pane is visible. 
-   *    A. Fade out the first form pane.
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".
-   *        a. "time_value" is a global variable which sets the amount of time an 
-   *           an animation is to last.
-   *    B. Make the first form pane invisible.
-   *      1. The first form pane has it's CSS property, "display", set to "none".
-   *    C. Make the second form pane visible.
-   *      1. The second form pane has it's CSS property, "display", set to "block". 
-   *    D. Fade in the second window pane
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".    
-   *  II - The second form pane is visible.
-   *    A. Fade out the second form pane.
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".
-   *    B. Make the second form pane invisible.
-   *      1. The second form pane has it's CSS property, "display", set to "none".
-   *    C. Make the first form pane visible.
-   *      1. The first form pane has it's CSS property, "display", set to "block". 
-   *    D. Fade in the first window pane
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".       
-   * **************** **************** **************** **************** **************** */
+  if ($(clmn_element).css("opacity") === "0")  {
+    $(clmn_element).fadeTo(time_value, 1);
+  } else {
+    $(clmn_element).css("opacity", 0);
+    $(clmn_element).fadeTo(time_value, 1);
+  }
 
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
@@ -1112,6 +1084,12 @@ function animatePageElements()  {
   // Holds the String value of the Section Value listed in the URL hash.
   var position_value;
   // Holds the String value of the Position Value listed in the URL hash.
+  var bkgrnd_position = new Number();
+  var bkgrnd_location = new Number();
+
+  var page_dimensions_Array = new Array();
+  var url_info_Array = new Array();
+
   
   var div_selector = new String();
   // Holds the String value of the selector, "#wndow-sctn_X".
@@ -1120,7 +1098,8 @@ function animatePageElements()  {
   var headr_selector = new String();
   // Holds the String value of the selector, ".headr.sctn_X".
   var sub_nav_selector = new String();
-  
+  var bkgrnd_selector = new String();
+
   var css_1 = new Object();
   // Holds the values for the CSS properties, "display".
   //
@@ -1132,8 +1111,7 @@ function animatePageElements()  {
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
   var sub_nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
-
-  var url_info_Array = new Array();
+  var bkgrnd_element = new Object();
 
   url_info_Array = urlInfo();
 
@@ -1143,18 +1121,34 @@ function animatePageElements()  {
   copy_selector = "#copy";
   headr_selector = ".headr";
   sub_nav_selector = ".sctn_nav" + section_value.toString();
-  
+  bkgrnd_selector = "#bkgrnd > div";
+
   copy_element = $(copy_selector);
   headr_element = $(headr_selector);
   sub_nav_element = $(sub_nav_selector);
-  
+  bkgrnd_element = $(bkgrnd_selector);
+
+  page_dimensions_Array = parseWindowDimensions();
+  bkgrnd_location = page_dimensions_Array[0];
+
+  bkgrnd_position = (page_dimensions_Array[0] * position_value).toString();
+
+  bkgrnd_position = "-" + bkgrnd_position + " 0px";
+
+  // window.alert("position_value = " + position_value);
+
   css_1 = {
     display: "block"
   };
   
+  css_2 = {
+    backgroundPosition: bkgrnd_position
+  };
+
   $(copy_element).css(css_1);
   $(sub_nav_element).css(css_1);
-    
+  $(bkgrnd_element).css(css_2);
+
   $(headr_element).fadeTo(time_value, 1, 
     function () {
       $(copy_element).children(div_selector).fadeTo(time_value, 1, 
@@ -1195,28 +1189,28 @@ function animateSctnNav(sctn_nav_element) {
   var resp_sctn_nav_click_css = new Object();
         
   sctn_nav_base_css = {
-    backgroundPositionY: "0px"
+    backgroundPosition : "0px 0px"
   };
 
   sctn_nav_hover_css = {
-    backgroundPositionY: "-35px"
+    backgroundPosition: "0px -35px"
   };
 
   sctn_nav_click1_css = {
-    backgroundPositionY: "-70px"
+    backgroundPosition: "0px -70px"
   };
 
   sctn_nav_click2_css = {
-    backgroundPositionY: "-105px"
+    backgroundPosition: "0px -105px"
   };
 
   resp_sctn_nav_base_css = {
-    backgroundPositionY: "0px", 
+    backgroundPosition: "0px 0px", 
     backgroundColor: "#000"
   };
 
   resp_sctn_nav_click_css = {
-    backgroundPositionY: "-210px", 
+    backgroundPosition: "0px -210px", 
     backgroundColor: "#666"
   };
 

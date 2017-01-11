@@ -4,36 +4,38 @@
 		
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/menu.css">
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/main.css">
-		
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/main.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/nav.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/forms.css">
+
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
-		<script src="/amelia/assets/js/dsktp/menu.js"></script>
-		<script src="/amelia/assets/js/dsktp/animtn.js"></script>
+		<script src="/amelia/assets/js/dsktp/control_panel.js"></script>
+		<script src="/amelia/assets/js/dsktp/nav.js"></script>
+		<script src="/amelia/assets/js/dsktp/animations.js"></script>
+		<script src="/amelia/assets/js/dsktp/forms.js"></script>
 	</head>
 	
-	<body onload="animateElements(3); resizeBackground('3');">
-		<div id="menu">
-			<span class="menu-base" id="menu-link"></span>
+	<body>
+		<nav>
+			<span class="nav-base" id="nav-link"></span>
 			<div id="options">
-				<span id="home">Welcome</span>
-				<span id="sctn-1">Is Therapy Right for You?</span>
-				<span id="sctn-2">Credentials</span>
-				<span id="sctn-3">Specialities</span>
-				<span id="sctn-4">Testimonials</span>
-				<span id="sctn-5">Insurance & Rates</span>
-				<span id="sctn-6">Contact Amelia Xavier</span>
+				<span id="sctn_main">Welcome</span>
+				<span id="sctn_1">Is Therapy Right for You?</span>
+				<span id="sctn_2">Credentials</span>
+				<span id="sctn_3">Specialities</span>
+				<span id="sctn_4">Testimonials</span>
+				<span id="sctn_5">Insurance &amp; Rates</span>
+				<span id="sctn_6">Contact Amelia Xavier</span>
 			</div>
-			<div id="menu-bkgrnd">
-				<div id="menu-brdr"></div>
+			<div id="nav-bkgrnd">
+				<div id="nav-brdr"></div>
 			</div>
-		</div>
+		</nav>
 		<div id="cntainr">
-			<div class="headr sctn_3">Specialties</div>
-			
+			<div class="headr sctn_3"><span>Specialties</span></div>
 			<div id="copy">
-				<div class="sctn_3-blok" id="sctn_3-desc">
+				<div class="sctn_3-blok" id="sctn_3-desc-1">
 					<p>
 						Praesent accumsan, ipsum nec laoreet aliquam, eros neque placerat massa, at pretium velit dolor 
 						sed augue. Phasellus venenatis neque sed posuere condimentum. Lorem ipsum dolor sit amet, consectetur 
@@ -51,21 +53,16 @@
 					<div>
 						<span>&nbsp;</span>
 						<div>
-							<a href="sctn_3-a.htm">Grief</a>
-							<a href="sctn_3-b.htm">Trauma</a>
-							<a href="sctn_3-c.htm">Depression</a>
+							<a href="page_1.htm">Grief</a>
+							<a href="page_2.htm">Trauma</a>
+							<a href="page_3.htm">Depression</a>
 						</div>
 					</div>
 				</div>
-							
-				<div id="next-sctn">
-					<span>Click to view the next section</span>
-				</div>
 			</div>
 		</div>
-		
 		<div id="bkgrnd">
-			<div class="page_bkgrnd" id="bkgrnd-sctn_3"></div>
+			<div></div>
 		</div>
 	</body>	
 </html>

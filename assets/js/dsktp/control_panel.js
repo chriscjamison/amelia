@@ -2,9 +2,11 @@ $(document).ready(
   function ()	{
     var time_value = new Number();
     var url_pathname = new String();
+    var base_url_value = new String();
 
     time_value = 400;
     url_pathname = window.location.pathname;
+    base_url_value = "http://localhost/amelia/sc/";
 
     setupPage();
 
@@ -150,18 +152,9 @@ $(document).ready(
       }
 		);
     
-    $("#sctn_1-prev, #sctn_1-next").click(
-      function () {
-        animateFormPanes("sctn_1");
-      }
-    );
-
     $("input#sctn_1-start").on("click", 
       function () {
-        window.location.hash = "#sctn_1?pos=1";
-
-        $("#form-sctn_1 .form-page_1").css("display", "block");
-        $("#form-sctn_1 .form-page_1").fadeTo(time_value, 1);
+        formData("start");
       }
     );
 
@@ -197,6 +190,23 @@ $(document).ready(
         animateFormPanes("sctn_6");
       }
     );
+
+    $(window).on("load", 
+      function () {
+        var url_pathname = new String();
+
+        url_pathname = window.location.pathname;
+        // window.alert("url_pathname = " + url_pathname);
+
+        // window.alert("url_pathname.indexOf(\"/1/\") = " + url_pathname.indexOf("/1/"));
+        // window.alert("url_pathname.indexOf(\"page_1.htm\") = " + url_pathname.indexOf("page_1.htm"));
+        if ((url_pathname.indexOf("/1/") !== -1 && url_pathname.indexOf("page_1.htm") !== -1)) {
+          setTimeout(
+            function () {
+              formData("set_1");
+            }, (time_value * 1.25));
+        }
+      });
   }
 );
 
