@@ -71,7 +71,7 @@ function formData(question_value) {
   if (question_value === "start")  {
     window.location.href = base_url_value + section_value + "/page_1.htm";
   } 
-  // window.alert("section_value = " + section_value);
+  
   if (question_value === "set_1") {
     question_num = 1;
   } else {
@@ -90,6 +90,30 @@ function formData(question_value) {
   loadFormContent(question_data_Array);
   
   animateFormPanes();  
+}
+
+function setRateValue(rate_value_search_string) {
+  var rate_value_selector = new String();
+  var rate_value_element = new Object();
+
+  var rate_value_location = new Number();
+
+  var url_string = new String();
+
+  url_string = window.location.href;
+  // window.alert("rate_value_search_string = " + rate_value_search_string);
+  rate_value_selector = "#sctn_5-desc-6 > span > span > sup + span";
+  
+  rate_value_element = $(rate_value_selector);
+  
+  rate_value_location = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
+
+  // window.alert("url_string.indexOf(rate_value_search_string) = " + url_string.indexOf(rate_value_search_string));
+
+  // window.alert("rate_value_search_string.length + 1 = " + (rate_value_search_string.length + 1));
+  
+
+  $(rate_value_element).text(url_string.slice(rate_value_location, url_string.length));
 }
 
  

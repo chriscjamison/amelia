@@ -1,37 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>Amelia Xavier Counseling ~ Insurance & Rates ~</title>
+		<title>Amelia Xavier Counseling ~ Insurance &amp; Rates ~</title>
 		
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/menu.css">
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/main.css">
-		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/forms.css">
-		
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/main.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/nav.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/forms.css">
+
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
-		<script src="/amelia/assets/js/dsktp/menu.js"></script>
-		<script src="/amelia/assets/js/dsktp/animtn.js"></script>
+		<script src="/amelia/assets/js/dsktp/control_panel.js"></script>
+		<script src="/amelia/assets/js/dsktp/nav.js"></script>
+		<script src="/amelia/assets/js/dsktp/animations.js"></script>
+		<script src="/amelia/assets/js/dsktp/forms.js"></script>
 	</head>
-	
-	<body onload="animateElements(5); resizeBackground('5');">
-		<div id="menu">
-			<span class="menu-base" id="menu-link"></span>
+	<body>
+		<nav>
+			<span class="nav-base" id="nav-link"></span>
 			<div id="options">
-				<span id="home">Welcome</span>
-				<span id="sctn-1">Is Therapy Right for You?</span>
-				<span id="sctn-2">Credentials</span>
-				<span id="sctn-3">Specialities</span>
-				<span id="sctn-4">Testimonials</span>
-				<span id="sctn-5">Insurance & Rates</span>
-				<span id="sctn-6">Contact Amelia Xavier</span>
+				<span id="sctn_main">Welcome</span>
+				<span id="sctn_1">Is Therapy Right for You?</span>
+				<span id="sctn_2">Credentials</span>
+				<span id="sctn_3">Specialities</span>
+				<span id="sctn_4">Testimonials</span>
+				<span id="sctn_5">Insurance &amp; Rates</span>
+				<span id="sctn_6">Contact Amelia Xavier</span>
 			</div>
-			<div id="menu-bkgrnd">
-				<div id="menu-brdr"></div>
+			<div id="nav-bkgrnd">
+				<div id="nav-brdr"></div>
 			</div>
-		</div>
+		</nav>
 		<div id="cntainr">
-			<div class="headr sctn_5">Insurance & Rates</div>
+			<div class="headr sctn_5"><span>Insurance &amp; Rates</span></div>
 			<div id="copy">
 				<div class="sctn_5-blok" id="sctn_5-desc-1">
 					<p>
@@ -40,7 +41,6 @@
 						adipiscing elit. Quisque ut molestie est. Quisque arcu ipsum, tempor et feugiat nec, vehicula et lorem. 
 						Nulla facilisi.
 					</p>
-					
 					<p>
 						Ut at nulla sed dolor congue pellentesque non sodales lorem. Sed gravida nulla venenatis 
 						vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
@@ -50,30 +50,24 @@
 				
 				<div class="sctn_5-blok" id="sctn_5-desc-2">
 					<span>Insurance Services Accepted</span>
-					<div id="sctn_5-logos">
-						<div id="sctn_5-logo_1"></div>
-						<div id="sctn_5-logo_2"></div>
-						<div id="sctn_5-logo_3"></div>
-					</div>
 				</div>
 				
 				<div class="sctn_5-blok" id="sctn_5-desc-3">
-					<span>Medicare & Medicaid Accepted</span>
+					<span><span></span></span>
+					<span><span></span></span>
+					<span><span></span></span>
+					<span><span>Medicare</span></span>
+					<span><span>Medicaid</span></span>
 				</div>
 				
 				<div class="sctn_5-blok" id="sctn_5-desc-4">
-					<span>A sliding scale rate can be granted based upon your monthly income and expenses</span>
-					<input type="button" name="list-income" value="List Income" id="sctn_5-bttn" />
-				</div>
-											
-				<div id="next-sctn">
-					<span>Click to view the next section</span>
+					<p>A sliding scale rate can be granted based upon your monthly income and expenses</p>
+					<input type="button" name="list-income" value="List Income" id="sctn_5-start" />
 				</div>
 			</div>
 		</div>
-		
 		<div id="bkgrnd">
-			<div class="page_bkgrnd" id="bkgrnd-sctn_5"></div>
+			<div></div>
 		</div>
 	</body>	
 </html>

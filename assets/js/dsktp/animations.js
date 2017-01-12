@@ -181,8 +181,9 @@ function urlInfo() {
   // capture the character stored at the end of the search string, "section_string".
   var url_section_location = new Number();
 
-  var url_search_string = new String();
-  
+  var url_search_string_1 = new String();
+  var url_search_string_2 = new String();
+
   var url_info_Array = new Array();
   // Holds the String values referencing the Section Value and Position Value 
   // which are contained within the string held by, "url_hash".
@@ -190,16 +191,21 @@ function urlInfo() {
   // The array is passed on to the functions which call, "urlInfo"; 
   // "setupPage" and "animatePageElements".
 
-  url_search_string = ".htm";
+  url_search_string_1 = ".htm";
+  url_search_string_2 = "index";
 
   url_pathname = window.location.pathname; 
   // The value of, "window.location.hash", is stored within, "url_hash".
   url_href = window.location.href;
 
-  if (url_pathname.indexOf(url_search_string) === -1) {
+  if (url_pathname.indexOf(url_search_string_1) === -1) {
     url_section_location = 2
   } else {
-    url_section_location = 12;
+    if (url_pathname.indexOf(url_search_string_2) === -1) {
+      url_section_location = 12;
+    } else {
+      url_section_location = 11;
+    }
   }
   
   section_char_val = url_pathname.length - url_section_location;
@@ -441,7 +447,7 @@ function setupPage()  {
     break;
 
     case 5:
-      background_width = page_dimentions_Array[0] * 3;
+      background_width = page_dimensions_Array[0] * 3;
     break;
 
     case 6:
@@ -1104,6 +1110,8 @@ function animatePageElements()  {
   // Holds the values for the CSS properties, "display".
   //
   // The default value is, "none".
+  var css_2 = new Object();
+  var css_3 = new Object();
   
   var copy_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
@@ -1120,8 +1128,9 @@ function animatePageElements()  {
 
   copy_selector = "#copy";
   headr_selector = ".headr";
-  sub_nav_selector = ".sctn_nav" + section_value.toString();
+  sub_nav_selector = "#nav-sctn_" + section_value.toString();
   bkgrnd_selector = "#bkgrnd > div";
+  div_selector = "div";
 
   copy_element = $(copy_selector);
   headr_element = $(headr_selector);
@@ -1145,9 +1154,18 @@ function animatePageElements()  {
     backgroundPosition: bkgrnd_position
   };
 
+  css_3 = {
+    opacity: 0
+  };
+
   $(copy_element).css(css_1);
   $(sub_nav_element).css(css_1);
   $(bkgrnd_element).css(css_2);
+
+  if (section_value === 3 || 
+      section_value === 4)  {
+    div_selector = "div:first-of-type";
+  }
 
   $(headr_element).fadeTo(time_value, 1, 
     function () {

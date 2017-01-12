@@ -509,7 +509,7 @@ div.sctn_nav > div > div a:hover {
   };
 }
 
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1340px) and (max-width: 1890px) {
   nav {
     width: 39.1em;
     left: -39.1em;
@@ -564,8 +564,31 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 85.375em !important;
-    top: 34.375em !important;
+    width: 71.25em !important;
+    top: 27em !important;
+  }
+
+  .sctn_nav > div {
+    width: 49em !important;
+  }
+
+  #sctn_3-desc-1 + #nav-sctn_3 > div, 
+  #sctn_4-desc-1 + #nav-sctn_4 > div {
+    width: 36.5em !important;
+  }
+
+  .sctn_nav > div > span {
+    width: 10.5em !important;
+    height: 2.49em !important;
+  }
+
+  .sctn_nav > div > div {
+    height: 3.55em !important;
+  }
+
+  #sctn_3-desc-1 + #nav-sctn_3 > div > div, 
+  #sctn_4-desc-1 + #nav-sctn_4 > div > div {
+    width: 36.75em !important;
   }
   
   #prev-sctn, 

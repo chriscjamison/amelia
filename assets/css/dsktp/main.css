@@ -116,7 +116,7 @@ body {
 
 .sctn_1-blok, 
 .sctn_3-blok,
-.sctn_4.blok {
+.sctn_4-blok {
 	width: 32.5em;
 	height: initial;
   min-height: 320px;
@@ -320,7 +320,7 @@ body {
 }
 
 #sctn_3-desc-2 > span, 
-#scnt_3-desc-2 p {
+#sctn_3-desc-2 p {
 	color: #ebebe9;
 }
 
@@ -395,52 +395,52 @@ body {
 	text-align: right;
 }
 
-#sctn_4-desc {
+#sctn_4-desc-1 {
   min-height: 320px;
 	background-color: #fcd36a;
 }
 
-#sctn_4a {
+#sctn_4-desc-2 {
 	background-color: #6b3825;
 }
 
-#sctn_4a p {
+#sctn_4-desc-2 p, {
 	color: #e9e1de;
 }
 
-#sctn_4a div {
+#sctn_4-desc-2 div {
 	color: #c6926a;
 }
 
-#sctn_4a span {
+#sctn_4-desc-2 span {
 	color: #e3c766;
 }
 
-#sctn_4b {
+#sctn_4-desc-3 {
 	background-color: #db9b75;
 }
 
-#sctn_4b div {
+#sctn_4-desc-3 div {
 	color: #f7e6ba;
 }
 
-#sctn_4b p {
+#sctn_4-desc-3 p {
 	color: #320f13;
 }
 
-#sctn_4b span {
+#sctn_4-desc-3 span {
 	color: #f2f1ec;
 }
 
-#sctn_4c {
+#sctn_4-desc-4 {
 	background-color: #6c708d;
 }
 
-#sctn_4c div {
+#sctn_4-desc-4 div {
 	color: #c9babf;
 }
 
-#sctn_4c p {
+#sctn_4-desc-4 p {
 	color: #271916;
 }
 
@@ -1059,15 +1059,15 @@ body {
   #info {
     width: 19.5em;
     height: 27.2em;
-    bottom: 5.75em;
+    bottom: 8.75em;
     right: 8.75em;
   }
 
   .sctn_1-blok, 
-  .sctn_3-blok {
-    left: 21.5em;
+  .sctn_3-blok, 
+  .sctn_4-blok {
+    left: 17.5em;
   }
-  
   #sctn_1-desc-2 {
     left: 0em;
   }

@@ -2,11 +2,15 @@ $(document).ready(
   function ()	{
     var time_value = new Number();
     var url_pathname = new String();
+    var url_href = new String();
     var base_url_value = new String();
+    var rate_value_search_string = new String();
 
     time_value = 400;
     url_pathname = window.location.pathname;
+    url_href = window.location.href;
     base_url_value = "http://localhost/amelia/sc/";
+    rate_value_search_string = "rateValue=";
 
     setupPage();
 
@@ -17,6 +21,11 @@ $(document).ready(
       animatePageElements();
     }
     
+    // window.alert("url_pathname = " + url_href);
+    if (url_href.indexOf(rate_value_search_string) !== -1) {   
+      // window.alert("rate_value_search_string = " + rate_value_search_string);   
+      setRateValue(rate_value_search_string);
+    }
 
     $("#nav-link").on("mouseover", 
       function () {
@@ -160,7 +169,7 @@ $(document).ready(
 
     $("input#sctn_5-start").on("click", 
       function () {
-        window.location.hash = "#sctn_5?pos=1";
+        formData("start");
       }
     );
     
