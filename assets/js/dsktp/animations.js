@@ -1324,6 +1324,7 @@ function animateSctnNavLinks(sctn_nav_element) {
   };
 
   sctn_nav_div_selector = "#" + $(sctn_nav_element).parent().parent().attr("id") + " > div > div";
+  // window.alert("sctn_nav_div_selector = " + sctn_nav_div_selector);
   sctn_nav_div_element = $(sctn_nav_div_selector);
 
   // window.alert("sctn_nav_div_selector = " + sctn_nav_div_selector);
