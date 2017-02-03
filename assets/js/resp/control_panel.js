@@ -4,16 +4,20 @@ var window_margin = new Number();
 var url_string = new String();
 var url_hash = new String();
 
+var rate_value_search_string = new String();
+
 time_value = 400;
 window_margin = 150;
 
 url_string = window.location.href;
 url_hash = window.location.hash;
 
+rate_value_search_string = "rateValue=";
+
 $(document).ready(
   function () {
-    if (url_string.indexOf("rateValue") != -1) {      
-      $("#sctn_5-desc-6 > span > span > sup + span").text(url_string.slice((url_string.indexOf("rateValue") + 10), url_string.length));
+    if (url_string.indexOf(rate_value_search_string) !== -1) {      
+      setRateValue(rate_value_search_string);
     }
 
     var form_selectors = new String();

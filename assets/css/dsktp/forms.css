@@ -1,5 +1,4 @@
-#qstnair,
-#cntct_form {
+#qstnair {
 	height: initial;
 	z-index: 6;
 }
@@ -16,7 +15,9 @@
 	height: auto;
   margin-bottom: 1.25em;
 	padding: 2em;
+	display: none;
 	background-color: #fff;
+	opacity: 0;
 }
 
 .form_cntnt > span {
@@ -111,7 +112,9 @@
 
 #sctn_1-prev,
 #sctn_6-prev {
+	position: relative;
 	float: right;
+	right: 7.75em;
 }
 
 #sctn_6-map {
@@ -149,7 +152,8 @@ input[type=button],
 input[type=submit] {
 	width: 125px;
 	height: 50px;
-	margin: 0 0 0 1.2em;
+	position: absolute;
+	margin: 3.5em 0 0 20em;
 	background-color: #40BDE8;
 	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
 	color: #221763;
@@ -164,16 +168,20 @@ input[type=submit]:hover {
 
 input#sctn_5-start {
 	margin: 0.35em 0 0.7em 0;
+	position: relative;
   float: right;
   
 }
 
 input#sctn_5-sbmt {
+	margin: 1em 0;
+	position: relative;
 	float: right;
 }
 
 input#sctn_5-cntct {
   margin: 0 0 0.7em 0;
+	position: relative;
 	float: right;
   letter-spacing: -0.7px;
 }
@@ -411,11 +419,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 }
 
 @media screen and (min-width: 1910px) {
-	#form-sctn_1 {
-		margin-left: 21em;
-		position: relative;
-	}
-
 	#sctn_1-start {
 		left: 22.5em;
 	}
@@ -438,8 +441,20 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		letter-spacing: 0px;
 	}
 
+	#sctn_6-next {
+		margin: 1em 0;
+		float: right;
+	}
+
 	#sctn_6-map {
 		margin-top: 0.85em;
 	}
+
+	input[name='cntct-name'], 
+	input[name='cntct-email'], 
+	#sctn_6-no_4 textarea {
+		width: 18em;
+	}
+
 }
 

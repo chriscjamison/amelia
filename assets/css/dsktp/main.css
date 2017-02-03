@@ -725,32 +725,25 @@ body {
 #sctn_6-info-2 > div > div > span {
   display: block;
 }
-/*
-#sctn_6-info-2 > div {
-  width: 10.7em;
-  height: 7em;
-  margin: 0;
-  padding: 0;
-}*/
 
-#sctn_6-desc-1 > p:first-line {
+#sctn_6-desc-1 {
+	width: 25%;
+	top: 175px;
+	left: 800px;
+	padding: 1em 2em;
+	margin-bottom: 20em;
+	position: relative;
+	background-color: #ffe0b6;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+	color: #442b2f;
+}
+
+#sctn_6-desc-1 > span {
+	display: block;
+	margin-bottom: 0.5em;
+	border-bottom: 2px solid;
+	font-size: 2.5em;
 	font-weight: 700;
-}
-
-#sctn_6-desc-1 > p + p:first-line {
-	font-weight: 400;
-}
-
-#sctn_6-desc-1 > p ~ p {
-  padding-bottom: 1.5em;
-  border-bottom: 3px solid;
-}
-
-.sctn_6-spcr {
-  width: 28.9em;
-  height: 1em;
-  position: relative;
-  clear: both;
 }
 
 #sctn_6-desc-2 {
@@ -772,58 +765,6 @@ body {
 #sctn_6-desc-2 > p {
   line-height: 1.7em;
 }
-
-#sctn_6-cntainr {
-	width: 79%;
-	height: 360px;
-	position: relative;
-	top: 175px;
-	left: 175px;
-}
-
-.sctn_6-clmn {
-	float: left;
-}
-
-.sctn_6-clmn div {
-	width: 240px;
-	margin: 0 1.5em 1.5em 0;
-	padding: 1em 1.5em;
-	background-color: #6a403e;
-	font: 400 0.9em "Glegoo", "Palatino", serif;
-	color: #fbf3de;
-}
-
-#sctn_6-desc-2 span {
-	display: block;
-}
-
-.sctn_6-desc-2-title,
-.sctn_6-desc-3-title {
-	width: 100%;
-	display: block;
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-bottom: 0.6em;
-	border-bottom: 2px solid;
-}
-
-.sctn_6-desc-3 > ol {
-	margin-top: 1em;
-	padding-left: 1.5em;
-}
-
-.sctn_6-desc-3 ol > li {
-	font: 400 0.9em "Glegoo", "Palatino", serif;
-}
-
-#sctn_6-desc-4 {
-	width: 640px;
-	height: 360px;
-	margin: 0;
-	padding: 1.6em 1.5em;
-}
-
 
 @media screen and (width: 980px) {
   #info {
@@ -1075,13 +1016,6 @@ body {
   #sctn_1-desc-3 {
     left: 30em;
   }
- /* #wndow-sctn_1 > .copy,
-  #wndow-sctn_2 > .copy,
-  #wndow-sctn_5 > .copy,
-  #wndow-sctn_6 > .copy {
-    width: 82.25em !important;
-    margin-left: 11.5em;
-  }*/
 
   .sctn_2-spcr {
     display: inline-block;
@@ -1119,24 +1053,26 @@ body {
 }
 
 @media screen and (min-width: 1910px) {
-  .headr {
-    width: 120em;
+  .headr.sctn_2 + #copy {
+    width: 105.8em !important;
+    margin-left: 27.5em;
   }
 
+  .headr.sctn_1 + #copy,
+  .headr.sctn_5 + #copy, 
+  .headr.sctn_6 + #copy {
+    width: 105.3em !important;
+    margin-left: 28em;
+  }
+  
   #copy {
     width: 121.8em !important;
     height: 87.1%;
     margin-left: 11.5em;
   }
-  
-  .copy-sctn_2 {
-    width: 105.8em !important;
-    margin-left: 27.5em;
-  }
 
-  .copy-sctn_6 {
-    width: 105.3em !important;
-    margin-left: 28em;
+  .headr {
+    width: 120em;
   }
 
   .sctn_1-blok, 
@@ -1151,12 +1087,28 @@ body {
     font-size: 1.1em;
   }
 
-  .sctn_1-blok, 
+  .sctn_1-blok 
   .sctn_3-blok, 
   .sctn_4-blok {
     position: relative;
-    left: 31.75em !important;
   }
+
+  .sctn_1-blok  {
+    left: 16.75em;
+  }
+
+  #sctn_1-desc-2 {
+    left: 0;
+  }
+
+  #sctn_1-desc-3 {
+    left: 20em;
+  }
+
+  .sctn_3-blok, 
+  .sctn_4-blok {
+    left: 31.75em !important;
+  }  
   
   .sctn_2-spcr {
     display: inline-block;
@@ -1203,7 +1155,7 @@ body {
   }
 
   .sctn_5-blok {
-    left: 16.5em;
+    left: 0em;
   }
 
   #sctn_5-desc-3 > span {
@@ -1250,7 +1202,6 @@ body {
   #sctn_6-info-2 > div {
     width: 29.5em;
   }
-
 }
 
 html[data-useragent*='Windows NT 6.3'] .sctn_4-blok > div {

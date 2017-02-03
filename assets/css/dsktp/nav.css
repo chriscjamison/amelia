@@ -621,7 +621,16 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 119em !important; 
+    width: 110em !important; 
     top: 38em !important;
+  }
+
+  .sctn_nav > div > span {
+    width: 10.5em !important;
+    height: 2.45em !important;
+  }
+
+  #sctn_3-desc-1 + #nav-sctn_3 > div > span + div > a:first-of-type {
+    margin-left: 5.95em !important;
   }
 }

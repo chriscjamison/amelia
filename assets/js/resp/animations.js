@@ -1971,3 +1971,47 @@ function setPageInitialLocation(url_hash)  {
 
   animatePageElements();
 }
+
+function setRateValue(rate_value_search_string) {
+  var rate_value_location = new Number();
+
+  var rate_value_result = new String();
+
+  var url_string = new String();
+
+  url_string = window.location.href;
+  
+  rate_value_location = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
+
+  rate_value_result = url_string.slice(rate_value_location, url_string.length);
+
+  if (rate_value_result === "0")  {
+    var blok_selector = new String();
+    var blok_element = new Object();
+
+    var css_1 = new Object();
+    
+    blok_selector = "#sctn_5-desc-6 > span > span:first-of-type";
+
+    blok_element = $(blok_selector);
+    
+    css_1 = {
+      color: "#fff",
+      "font-size": "6em", 
+      "font-weight": "600", 
+    }
+
+    $(blok_element).text("No Cost");
+
+    $(blok_element).css(css_1);
+  } else  {
+    var span_selector = new String();
+    var span_element = new Object();
+
+    span_selector = "#sctn_5-desc-6 > span > span > sup + span";
+  
+    span_element = $(span_selector);
+    
+    $(span_element).text(url_string.slice(rate_value_location, url_string.length));
+  }
+}

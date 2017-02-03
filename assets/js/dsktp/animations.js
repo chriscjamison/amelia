@@ -1144,8 +1144,6 @@ function animatePageElements()  {
 
   bkgrnd_position = "-" + bkgrnd_position + " 0px";
 
-  // window.alert("position_value = " + position_value);
-
   css_1 = {
     display: "block"
   };
@@ -1194,87 +1192,148 @@ function animatePageElements()  {
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function animateSctnNav(sctn_nav_element) {
-  var sctn_nav_link = new String();
+  var sctn_nav_div_selector = new String();
+  var sctn_nav_div_element = new String();
   
-  var sctn_nav_background_position_y = new String();
+  var sctn_nav_background_position = new String();
 
-  var sctn_nav_base_css = new Object();
-  var sctn_nav_hover_css = new Object();
-  var sctn_nav_click1_css = new Object();
-  var sctn_nav_click2_css = new Object();
+  var css_1 = new Object();
+  var css_2 = new Object();
+  var css_3 = new Object();
+  var css_4 = new Object();
+  var css_5 = new Object();
+  var css_6 = new Object();
+  var css_7 = new Object();
 
-  var resp_sctn_nav_base_css = new Object();
-  var resp_sctn_nav_click_css = new Object();
+  var index_string_1 = new String();
+  var index_string_2 = new String();
+
+  var background_position_value_1 = new String();
+  var background_position_value_2 = new String();
+  var background_position_value_3 = new String();
+
+  var display_value_1 = new String();
+  var display_value_2 = new String();
         
-  sctn_nav_base_css = {
+  css_1 = {
     backgroundPosition : "0px 0px"
   };
 
-  sctn_nav_hover_css = {
+  css_2 = {
     backgroundPosition: "0px -35px"
   };
 
-  sctn_nav_click1_css = {
+  css_3 = {
     backgroundPosition: "0px -70px"
   };
 
-  sctn_nav_click2_css = {
+  css_4 = {
     backgroundPosition: "0px -105px"
   };
 
-  resp_sctn_nav_base_css = {
+  css_5 = {
     backgroundPosition: "0px 0px", 
     backgroundColor: "#000"
   };
 
-  resp_sctn_nav_click_css = {
+  css_6 = {
     backgroundPosition: "0px -210px", 
     backgroundColor: "#666"
   };
 
-  sctn_nav_link = sctn_nav_element.slice(0, 12) + " > div > div";
-  
-  sctn_nav_background_position_y = $(sctn_nav_element).css("backgroundPositionY");
-  $(sctn_nav_element).css("opacity", 0);
+  css_7 = {
+    opacity: 0
+  };
 
-  if (window.navigator.userAgent.indexOf("Mobile") === -1 && 
-      window.navigator.userAgent.indexOf("Tablet") === -1)  {
-    if (sctn_nav_background_position_y === "-35px" && 
-        $(sctn_nav_link).css("display") === "block") {
-      $(sctn_nav_element).css(sctn_nav_click1_css);
-      setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (time_value / 4));
-      $(sctn_nav_element).css(sctn_nav_click2_css);
+  index_string_1 = "Mobile";
+  index_string_2 = "Tablet";
+  
+  background_position_value_1 = "0px -35px";
+  background_position_value_2 = "0px 0px";
+  background_position_value_3 = "0% 0%";
+  background_position_value_4 = "0px -70px";
+
+  display_value_1 = "block";
+  display_value_2 = "none";
+
+  sctn_nav_div_selector = "#" + $(sctn_nav_element).parent().parent().attr("id") + " > div > div";
+  sctn_nav_div_element = $(sctn_nav_div_selector);
+  
+  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
+  
+  $(sctn_nav_element).css(css_7);
+
+  if (window.navigator.userAgent.indexOf(index_string_1) === -1 && 
+      window.navigator.userAgent.indexOf(index_string_2) === -1)  {
+    if (sctn_nav_background_position === background_position_value_1 && 
+        $(sctn_nav_div_element).css("display") === display_value_1) {
+      $(sctn_nav_element).css(css_3);
+
+      setTimeout(
+        function () {
+          $(sctn_nav_element).css(css_7)
+        }, (time_value / 4)
+      );
+
+      setTimeout(
+        function () {
+          $(sctn_nav_element).css(css_4);    
+        }, (time_value / 3)
+      );      
     } else {
-      if (sctn_nav_background_position_y === "0px" || 
-          sctn_nav_background_position_y === "0%") {
-        $(sctn_nav_element).css(sctn_nav_hover_css);
+      if (sctn_nav_background_position === background_position_value_2 || 
+          sctn_nav_background_position === background_position_value_3) {
+        $(sctn_nav_element).css(css_2);
       } else {
-        if ($(sctn_nav_link).css("display") === "none") {
-          $(sctn_nav_element).css(sctn_nav_base_css);
+        if ($(sctn_nav_div_element).css("display") === display_value_2 && 
+            sctn_nav_background_position !== background_position_value_4) {
+          $(sctn_nav_element).css(css_1);
         }
-        
       }
     }
   } else {
-    if (sctn_nav_background_position_y === "0px" && 
-        $(sctn_nav_link).css("display") === "block") {
-      $(sctn_nav_element).css(resp_sctn_nav_click_css);
+    if (sctn_nav_background_position === background_position_value_2 && 
+        $(sctn_nav_div_element).css("display") === display_value_1) {
+      $(sctn_nav_element).css(css_6);
     } else {
-      $(sctn_nav_element).css(resp_sctn_nav_base_css);
+      $(sctn_nav_element).css(css_5);
     }
   }
   
   $(sctn_nav_element).fadeTo((time_value / 2), 1);
 }
 
-function animateSctnNavLinks(sctn_nav_link_element) {
-  if ($(sctn_nav_link_element).css("display") === "none")  {
-    $(sctn_nav_link_element).css("opacity", 0);
-    $(sctn_nav_link_element).css("display", "block");
-    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
+function animateSctnNavLinks(sctn_nav_element) {
+  var sctn_nav_div_selector = new String();
+  var sctn_nav_div_element = new Object();
+
+  var css_1 = new Object();
+  var css_2 = new Object();
+  var css_3 = new Object();
+
+  css_1 = {
+    opacity: 0
+  };
+
+  css_2 = {
+    display: "block"
+  };
+
+  css_3 = {
+    display: "none"
+  };
+
+  sctn_nav_div_selector = "#" + $(sctn_nav_element).parent().parent().attr("id") + " > div > div";
+  sctn_nav_div_element = $(sctn_nav_div_selector);
+
+  // window.alert("sctn_nav_div_selector = " + sctn_nav_div_selector);
+  if ($(sctn_nav_div_element).css("display") === "none")  {
+    $(sctn_nav_div_element).css(css_1);
+    $(sctn_nav_div_element).css(css_2);
+    $(sctn_nav_div_element).fadeTo((time_value / 2), 1);
   } else {
-    $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
-    $(sctn_nav_link_element).css("display", "none");    
+    $(sctn_nav_div_element).fadeTo((time_value / 2), 1);
+    $(sctn_nav_div_element).css(css_3);    
   }
 }
 
@@ -1388,7 +1447,7 @@ function animateSideNav() {
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
   headr_elements = $(headr_selector);
-  copy_elements = $(copy_selector);
+  copy_element = $(copy_selector);
   info_element = $(info_selector);
   sctn_nav_element = $(sctn_nav_selector);
   bkgrnd_element = $(bkgrnd_selector);
@@ -1419,8 +1478,7 @@ function animateSideNav() {
     };
 
     css_2 = {
-      display: "block", 
-      opacity: 1
+      display: "block"
     };
 
     css_3 = {
@@ -1434,16 +1492,23 @@ function animateSideNav() {
     $(info_element).css(css_4);
 
     $(headr_elements).css(css_4);
-    $(copy_elements).css(css_4);
+    $(copy_element).css(css_4);
     $(sctn_nav_element).css(css_4);
     $(options_element).css(css_2);
 
-    $(nav_element).animate(css_1, (time_value / 1.5))
-    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
-    $(nav_brdr_element).animate(css_1, (time_value / 1.5));
-    $(options_element).animate(css_1, (time_value / 1.5));
-    $(cntainr_element).animate(css_3, (time_value / 1.5));
-    $(bkgrnd_element).animate(css_3, (time_value / 1.5));
+    $(nav_element).animate(css_1, (time_value / 1.5), 
+      function () {
+        $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
+        $(nav_brdr_element).animate(css_1, (time_value / 1.5));
+        $(options_element).animate(css_1, (time_value / 1.5), 
+          function () {
+            $(options_element).fadeTo((time_value / 1.5), 1);
+          }
+        );
+        $(cntainr_element).animate(css_3, (time_value / 1.5));
+        $(bkgrnd_element).animate(css_3, (time_value / 1.5));
+      }
+    );
   } else  {
     var css_6 = new Object();
     var css_7 = new Object();
@@ -1461,11 +1526,13 @@ function animateSideNav() {
     };
 
     css_8 = {
-      display: "block"
+      display: "block", 
+      opacity: 0
     };
 
     css_9 = {
-      display: "table"
+      display: "table", 
+      opacity: 0
     };
 
     $(options_element).animate(css_6, time_value, 
@@ -1480,9 +1547,19 @@ function animateSideNav() {
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
             $(wndow_elements).width(window_width);
+            $(copy_element).css(css_8);
 
-            $(info_element).css(css_8);
-            $(headr_elements).css(css_9);
+            $(copy_element).fadeTo((time_value / 2), 1, 
+              function () {
+                if ($(info_element))  {
+                  $(info_element).css(css_8);
+                  $(info_element).fadeTo((time_value / 2), 1);
+                } else {
+                  $(headr_elements).css(css_9);
+                  $(headr_elements).fadeTo((time_value / 2), 1);
+                }
+              }
+            );
           }
         );
       }

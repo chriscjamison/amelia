@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Amelia Xavier Counseling ~ Contact Amelia Xavier ~</title>
+		
+		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/main.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/nav.css">
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/forms.css">
+
+		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
+		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
+		<script src="/amelia/assets/js/dsktp/control_panel.js"></script>
+		<script src="/amelia/assets/js/dsktp/nav.js"></script>
+		<script src="/amelia/assets/js/dsktp/animations.js"></script>
+		<script src="/amelia/assets/js/dsktp/forms.js"></script>
+	</head>
+	<body>
+		<nav>
+			<span class="nav-base" id="nav-link"></span>
+			<div id="options">
+				<span id="sctn_main">Welcome</span>
+				<span id="sctn_1">Is Therapy Right for You?</span>
+				<span id="sctn_2">Credentials</span>
+				<span id="sctn_3">Specialities</span>
+				<span id="sctn_4">Testimonials</span>
+				<span id="sctn_5">Insurance &amp; Rates</span>
+				<span id="sctn_6">Contact Amelia Xavier</span>
+			</div>
+			<div id="nav-bkgrnd">
+				<div id="nav-brdr"></div>
+			</div>
+		</nav>
+		<div id="cntainr">
+			<div class="headr sctn_6"><span>Contact Amelia Xavier</span></div>
+			<div id="copy">
+				<div id="qstnair">
+					<form method="get" action="/amelia/assets/php/dsktp/contact.php" name="form-sctn_6">
+						<div class="clmn" id="clmn_1">
+							<div class="form_cntnt" id="sctn_6-no_1">
+								<span>Enter in your first name below:</span>
+								<fieldset>
+									<input type="text" size="40" maxlength="40" name="cntct-name" />
+								</fieldset>	
+							</div>
+							<div class="form_cntnt" id="sctn_6-no_3">
+								<span>Please select an option that best matches your need:</span>
+								<fieldset>
+									<p>
+										<input type="radio" name="need" value="cnsltatn" id="need-cnsltatn" />
+										<label for="cnsltatn">Consultation</label>
+									</p>
+									<p>
+										<input type="radio" name="need" value="mke-appntmnt" id="mke-appntmnt" />
+										<label for="mke-appntmnt">Make Appointment</label>
+									</p>
+									<p>
+										<input type="radio" name="need" value="cancl-appntmnt" id="cancl-appntmnt" />
+										<label for="cancl-appntmnt">Cancel Appointment</label>
+									</p>
+									<p>
+										<input type="radio" name="need" value="bllng" id="need-bllng" />
+										<label for="bllng">Billing / Insurance</label>
+									</p>
+									<p>
+										<input type="radio" name="need" value="other" id="need-other" />
+										<label for="other">Other</label>
+									</p>
+									<p>
+										<input type="text" name="need-other" value="" id="need-other-text" />
+									</p>
+								</fieldset>	
+							</div>
+						</div>
+						<div class="clmn" id="clmn_2">
+							<div class="form_cntnt" id="sctn_6-no_2">
+								<span>Please enter your email or phone number below:</span>
+								<fieldset>
+									<p>
+										<input type="radio" name="phone_email" value="email" id="cntct-email" />
+										<label for="appntmnt">Email Address</label>
+									</p>
+									<p>
+										<input type="radio" name="phone_email" value="phone" id="cntct-phone" />
+										<label for="cnsltatn">Phone Number</label>
+									</p>
+									<input type="email" size="40" maxlength="40" name="cntct-email" />
+								</fieldset>
+								<input type="button" name="sctn_6-next" value="Next" id="sctn_6-next" />
+							</div>
+							<div class="form_cntnt" id="sctn_6-no_4">
+								<span>Please enter your message for Amelia below:</span>
+								<fieldset>
+									<textarea name="msg" cols="39" rows="10" id="msg"></textarea>
+								</fieldset>
+								<input type="button" name="sctn_6-sbmt" value="Send Message" id="sctn_6-sbmt" />
+								<input type="button" name="sctn_6-prev" value="Previous" id="sctn_6-prev" />
+							</div>
+						</div>
+					</form>
+				</div>	
+			</div>
+		</div>
+		<div id="bkgrnd">
+			<div></div>
+		</div>
+	</body>	
+</html>
