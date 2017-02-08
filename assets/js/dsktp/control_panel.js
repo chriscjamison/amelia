@@ -140,16 +140,6 @@ $(document).ready(
 			}
 		);
 
-		/*$(".sctn_nav > div > div > a").on("click",
-			function () {
-        var sctn_nav_menu_link_element = new Object();
-
-        sctn_nav_menu_link_element = $(this).parent().parent().child("span");
-
-        animateSctnNavLinks(sctn_nav_menu_link_element);
-      }
-		);*/
-    
     $("input#sctn_1-start").on("click", 
       function () {
         window.location.href = base_url_value + "sctn/1/page_1.htm";
@@ -159,6 +149,7 @@ $(document).ready(
     $("input#sctn_1-prev, input#sctn_1-next").on("click", 
       function () {
         swapQuestions("sctn_1");
+        validateQuestions("sctn_1");
       }
     );
     
@@ -186,6 +177,36 @@ $(document).ready(
       }
     );
     
+    $("input#sctn_6-name").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-name");
+      }
+    );
+
+    $("input#sctn_6-name").blur( 
+      function () {
+        validateQuestionField("reset", "sctn_6-name");
+      }
+    );
+
+    $("input#sctn_6-email").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-email");
+      }
+    );
+
+    $("input#sctn_6-email").mouseout( 
+      function () {
+        validateQuestionField("reset", "sctn_6-email");
+      }
+    );
+
+    $("input[name='phone_email']").change( 
+      function () {
+        validateQuestionField("reset", "sctn_6-email");
+      }
+    );
+
     $("#sctn_6-prev, #sctn_6-next").click(
       function () {
         swapQuestions("sctn_6");

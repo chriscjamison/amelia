@@ -447,6 +447,7 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 
 	#sctn_6-map {
+		position: relative !important;
 		margin-top: 0.85em;
 	}
 

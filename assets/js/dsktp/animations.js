@@ -1447,7 +1447,7 @@ function animateSideNav() {
   nav_brdr_element = $(nav_brdr_selector);
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
-  headr_elements = $(headr_selector);
+  headr_element = $(headr_selector);
   copy_element = $(copy_selector);
   info_element = $(info_selector);
   sctn_nav_element = $(sctn_nav_selector);
@@ -1490,11 +1490,26 @@ function animateSideNav() {
       display: "none"
     };
 
-    $(info_element).css(css_4);
-
-    $(headr_elements).css(css_4);
-    $(copy_element).css(css_4);
-    $(sctn_nav_element).css(css_4);
+    if ($(headr_element).length > 0)  {
+      $(headr_element).fadeTo((time_value / 2), 0, 
+        function () {
+          $(copy_element).fadeTo((time_value / 2), 0);
+          $(copy_element).css(css_4);
+          
+          if ($(sctn_nav_element).html() !== undefined)  {
+            $(sctn_nav_element).fadeTo((time_value / 2), 0);
+            $(sctn_nav_element).css(css_4);
+          }
+        }
+      );
+    } else {
+      $(info_element).fadeTo((time_value / 2), 0, 
+        function () {
+          $(info_element).css(css_4);
+        }
+      );
+    }
+        
     $(options_element).css(css_2);
 
     $(nav_element).animate(css_1, (time_value / 1.5), 
@@ -1533,7 +1548,7 @@ function animateSideNav() {
 
     css_9 = {
       display: "table", 
-      opacity: 0
+      opacity: 0 
     };
 
     $(options_element).animate(css_6, time_value, 
@@ -1548,19 +1563,24 @@ function animateSideNav() {
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
             $(wndow_elements).width(window_width);
-            $(copy_element).css(css_8);
-
-            $(copy_element).fadeTo((time_value / 2), 1, 
-              function () {
-                if ($(info_element))  {
-                  $(info_element).css(css_8);
-                  $(info_element).fadeTo((time_value / 2), 1);
-                } else {
-                  $(headr_elements).css(css_9);
-                  $(headr_elements).fadeTo((time_value / 2), 1);
+            
+            if ($(headr_element).length > 0)  {
+              $(headr_element).css(css_9);
+              $(headr_element).fadeTo((time_value / 2), 1, 
+                function () {
+                  $(copy_element).css(css_8);
                 }
+              );
+              $(copy_element).fadeTo((time_value / 2), 1);
+              
+              if ($(sctn_nav_element).html() !== undefined)  {
+                $(sctn_nav_element).css(css_8);
+                $(sctn_nav_element).fadeTo((time_value / 2), 1);
               }
-            );
+            } else {
+             $(info_element).css(css_8);
+             $(info_element).fadeTo(time_value, 1);
+            }
           }
         );
       }
