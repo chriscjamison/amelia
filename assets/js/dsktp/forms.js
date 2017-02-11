@@ -87,64 +87,279 @@ function validateQuestionField(validation_type, question_value)  {
   var input_selector = new String();
   var input_element = new Object();
 
-  var css_1 = new Object();
-  var css_2 = new Object();
-
-  input_selector = "#" + question_value;
-  input_element = $(input_selector);
-
-  css_1 = {
-    border: "2px solid #bbb", 
-    color: "#000"
-  };
-  
-  css_2 = {
-    border: "2px solid #971b1e", 
-    color: "#971b1e"
-  };
-
   switch (question_value) {
-    case "sctn_6-name": 
-      if ($(input_element).val() === "Please enter your first name")  {
-        $(input_element).css(css_1);
-        $(input_element).val("");
-      } else if (validation_type === "reset" && 
-                 $(input_element).val().length <= 2)  {
-        $(input_element).css(css_2);
-        $(input_element).val("Please enter your first name");
+    case "sctn_1-no_1":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();  
+      
+      var checked_selector = new String();
+      var checked_element = new Object(); 
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+        
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      checked_selector = "input:checked";
+      checked_element = $(checked_selector);
+
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+      
+      if (validation_type === "reset" && 
+          $(checked_element).attr("name") === undefined) {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
       }
     break;
 
-    case "sctn_6-email":
-      var radio_selector_1 = new String();
-      var radio_element_1 = new Object();
+    case "sctn_1-no_3":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();  
       
-      var phone_number_nums_Array = new Array();
-
-      radio_selector_1 = "input:checked";
+      var checked_selector = new String();
+      var checked_element = new Object(); 
       
-      radio_element_1 = $(radio_selector_1);
-      // window.alert("validation_type = " + validation_type);
-      // window.alert("$(input_element).val() = " + $(input_element).val());
+      var css_1 = new Object();
+      var css_2 = new Object();
+      
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      checked_selector = "#" + question_value + " > fieldset > p > input:checked";
+      checked_element = $(checked_selector);
+      
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
 
-      if ($(radio_element_1).attr("id") === "sctn_6-field-email") {
-        if ($(input_element).val() === "Please enter a valid email address") {
-          $(input_element).css(css_1);
-          $(input_element).val("");
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+        
+      if (validation_type === "reset" && 
+          $(checked_element).attr("name") === undefined) {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
+      }
+    break;
+
+    case "sctn_1-no_4":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();  
+      
+      var option_selector = new String();
+      var option_element = new Object();
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+        
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      option_selector = "#" + question_value + " > fieldset > div > select > option:selected";
+      option_element = $(option_selector);
+      
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+        
+      
+      if (validation_type === "reset" && 
+          $(option_element).val() === "default") {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
+      }
+    break;
+
+    case "sctn_5-no_1":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();
+
+      var checked_selector = new String();
+      var checked_element = new Object(); 
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+        
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      checked_selector = "input:checked";
+      checked_element = $(checked_selector);
+      
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+        
+      if (validation_type === "reset" && 
+          ($(checked_element).attr("name") === undefined ||  
+           $(checked_element).attr("name") === "monthly_income")) {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
+      }
+    break;
+
+    case "sctn_5-no_2":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();  
+      
+      var checked_selector = new String();
+      var checked_element = new Object(); 
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+        
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      checked_selector = "input:checked";
+      checked_element = $(checked_selector);
+      
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+              
+      if (validation_type === "reset" && 
+          $(checked_element).attr("name") === undefined) {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
+      }
+    break;
+    
+    case "sctn_6-no_1":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object(); 
+
+      var field_selector = new String();
+      var field_element = new Object();
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+      var css_3 = new Object();
+      var css_4 = new Object();
+
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+
+      field_selector = "#" + question_value + " > fieldset > input";
+      field_element = $(field_selector);
+      
+      css_1 = {
+        borderColor: "#cfd7a3"
+      };
+
+      css_2 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+        
+      css_3 = {
+        color: "#000"
+      };
+
+      css_4 = {
+        color: "rgb(151, 27, 30)"
+      };
+
+      if ($(field_element).val() === "Please enter your first name")  {
+        $(fieldset_element).css(css_1);
+        $(field_element).css(css_3);
+        $(field_element).val("");
+      } else if (validation_type === "reset" && 
+                 $(field_element).val().length <= 2)  {
+        $(fieldset_element).css(css_2);
+        $(field_element).css(css_4);
+        $(field_element).val("Please enter your first name");
+      }
+    break;
+
+    case "sctn_6-no_2":
+      var fieldset_selector = new String();
+      var field_element = new Object();
+      
+      var checked_selector = new String();
+      var checked_element = new Object();
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+      var css_3 = new Object();
+      var css_4 = new Object();
+
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+
+      field_selector = "#sctn_6-field-email";
+      field_element = $(field_selector);
+
+      checked_selector = "input:checked";
+      checked_element = $(checked_selector);
+      
+      css_1 = {
+        borderColor: "#cfd7a3"
+      };
+
+      css_2 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_3 = {
+        color: "#000"
+      };
+
+      css_4 = {
+        color: "rgb(151, 27, 30)"
+      };
+// window.alert("validation_type = " + validation_type);
+// window.alert("$(field_element).val().length = " + $(field_element).val().length);
+      if ($(checked_element).attr("id") === "sctn_6-email") {
+        if (validation_type === "start" && 
+            $(field_element).val() === "Please enter a valid email address") {
+          $(fieldset_element).css(css_1);
+          $(field_element).val("");
         } else {
           if (validation_type === "reset" && 
-              $(radio_element_1).attr("id") === "sctn_6-field-email" && 
-              ($(input_element).val().indexOf("@") === -1 || 
-              ($(input_element).val().indexOf(".com") === -1 && 
-               $(input_element).val().indexOf(".net") === -1 && 
-               $(input_element).val().indexOf(".org") === -1 && 
-               $(input_element).val().indexOf(".edu") === -1 && 
-               $(input_element).val().indexOf(".mil") === -1)))  {
-            $(input_element).css(css_2);
-            $(input_element).val("Please enter a valid email address");
+              ($(field_element).val().length === 0) ||  
+              ($(field_element).val().indexOf("@") === -1 || 
+              ($(field_element).val().indexOf(".com") === -1 && 
+               $(field_element).val().indexOf(".net") === -1 && 
+               $(field_element).val().indexOf(".org") === -1 && 
+               $(field_element).val().indexOf(".edu") === -1 && 
+               $(field_element).val().indexOf(".mil") === -1)))  {
+            $(fieldset_element).css(css_2);
+            $(field_element).css(css_4);
+            $(field_element).val("Please enter a valid email address");
+// window.alert("2");
           }
         }
-      } else if ($(radio_element_1).attr("id") === "sctn_6-field-phone") {
+      } else if ($(checked_element).attr("id") === "sctn_6-phone") {
         var phone_number_val = new String();
         var search_char_index_num = new Number();
         var phone_number_search_vals_Array = new Array();
@@ -152,8 +367,8 @@ function validateQuestionField(validation_type, question_value)  {
         var inc = new Number();
         var inc_2 = new Number();
 
-        phone_number_val = $(input_element).val();
-window.alert("phone_number_val = " + phone_number_val);
+        phone_number_val = $(field_element).val();
+        
         phone_number_search_vals_Array = [
           "(", 
           ")", 
@@ -170,54 +385,24 @@ window.alert("phone_number_val = " + phone_number_val);
             inc++;
           }
         }
-
-        /*phone_number_val = phone_number_val.replace("(", "");
-        phone_number_val = phone_number_val.replace(")", "");
-        phone_number_val = phone_number_val.replace("-", "");
-        phone_number_val = phone_number_val.replace(" ", "");*/
-        /*if (phone_number_val.indexOf("(") > -1) {
-          search_char_index_num = phone_number_val.indexOf("(");
-
-          if (search_char_index_num !== 0)  {
-            phone_number_val = phone_number_val.slice(0, search_char_index_num);
-
-            if (search_char_index_num !== phone_number_val.length - 1)  {
-              phone_number_val = phone_number_val + phone_number_val.slice((search_char_index + 1), (phone_number_val.length - 1))
-            }
-          } else {
-            phone_number_val = phone_number_val.slice(1, (phone_number_val.length - 1))
-          }
-          
-          if (phone_number_val.indexOf(")") > -1) {
-            search_char_index_num = phone_number_val.indexOf("(");
-            phone_number_nums_Array[0] = phone_number_nums_Array[0]
-          }
-        }*/
-
-        /*if (phone_number_val.indexOf("-") > -1) {
-          var inc = new Number();
-
-          phone_number_nums_Array = phone_number_val.split("-");
-
-          phone_number_val = phone_number_nums_Array[0];
-
-          for (inc = 1; inc < phone_number_nums_Array.length; inc++)  {
-            phone_number_val = phone_number_val + phone_number_nums_Array[inc];
-          }
-        }
-        */window.alert("phone_number_val = " + phone_number_val);
-        if (validation_type === "reset" && 
-            $(input_element).val() === "Please enter your phone number again") {
-          $(input_element).css(css_1);
-          $(input_element).val(""); 
-        } else if ($(input_element).val() !== "" && 
-                   phone_number_val.length !== 10) {
-          $(input_element).css(css_2);
-          $(input_element).val("Please enter your phone number again");
+        
+        if ($(field_element).val() === "Please enter your phone number") {
+          $(fieldset_element).css(css_1);
+          $(field_element).css(css_3);
+          $(field_element).val(""); 
+        } else if (validation_type === "reset" && 
+                   (phone_number_val.length === 0 ||  
+                   (phone_number_val.length < 10 || 
+                    phone_number_val.length > 10))) {
+          $(fieldset_element).css(css_2);
+          $(field_element).css(css_4)
+          $(field_element).val("Please enter your phone number");
         }
       }
     break;
   }
+
+
 }  
   
   

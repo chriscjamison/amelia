@@ -145,17 +145,76 @@ $(document).ready(
         window.location.href = base_url_value + "sctn/1/page_1.htm";
       }
     );
+    
+    $("#sctn_1-no_1 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_1-no_1");
+      }
+    );
+
+    $("#sctn_1-no_1 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_1");
+      }
+    );
+
+    $("#sctn_1-no_3 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_1-no_3");
+      }
+    );
+
+    $("#sctn_1-no_3 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_3");
+      }
+    );
+
+    $("#sctn_1-no_4 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_1-no_4");
+      }
+    );
+
+    $("#sctn_1-no_4 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_4");
+      }
+    );
 
     $("input#sctn_1-prev, input#sctn_1-next").on("click", 
       function () {
         swapQuestions("sctn_1");
-        validateQuestions("sctn_1");
       }
     );
     
     $("input#sctn_5-start").on("click", 
       function () {
         window.location.href = base_url_value + "sctn/5/page_1.htm";
+      }
+    );
+    
+    $("#sctn_5-no_1 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_5-no_1");
+      }
+    );
+
+    $("#sctn_5-no_1 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_5-no_1");
+      }
+    );
+
+    $("#sctn_5-no_2 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_5-no_2");
+      }
+    );
+
+    $("#sctn_5-no_2 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_5-no_2");
       }
     );
     
@@ -177,33 +236,59 @@ $(document).ready(
       }
     );
     
-    $("input#sctn_6-name").mouseenter( 
+    $("#sctn_6-no_1 > fieldset").mouseenter( 
       function () {
-        validateQuestionField("start", "sctn_6-name");
+        validateQuestionField("start", "sctn_6-no_1");
       }
     );
 
-    $("input#sctn_6-name").blur( 
+    $("#sctn_6-no_1 > fieldset").mouseleave( 
       function () {
-        validateQuestionField("reset", "sctn_6-name");
+        validateQuestionField("reset", "sctn_6-no_1");
       }
     );
 
-    $("input#sctn_6-email").mouseenter( 
+    $("#sctn_6-no_2 > fieldset").mouseenter( 
       function () {
-        validateQuestionField("start", "sctn_6-email");
+        validateQuestionField("start", "sctn_6-no_2");
       }
     );
 
-    $("input#sctn_6-email").mouseout( 
+    $("#sctn_6-no_2 > fieldset").mouseleave( 
       function () {
-        validateQuestionField("reset", "sctn_6-email");
+        validateQuestionField("reset", "sctn_6-no_2");
       }
     );
 
     $("input[name='phone_email']").change( 
       function () {
-        validateQuestionField("reset", "sctn_6-email");
+        var field_selector = new String();
+        var fieldset_selector = new String();
+
+        var field_element = new Object();
+        var fieldset_element = new Object();
+        
+        var css_1 = new Object();
+        var css_2 = new Object();
+
+        field_selector = "#sctn_6-field-email";
+        field_element = $(field_selector);
+
+        fieldset_selector = "#sctn_6-no_2 > fieldset";
+        fieldset_element = $(fieldset_selector);
+
+        css_1 = {
+          color: "#000"
+        };
+
+        css_2 = {
+          borderColor: "#cfd7a3"
+        };
+
+        $(field_element).css(css_1);
+        $(fieldset_element).css(css_2);
+        $("input#sctn_6-field-email").val("");
+        // validateQuestionField("change", "sctn_6-no_2");
       }
     );
 

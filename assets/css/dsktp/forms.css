@@ -215,7 +215,7 @@ input[type=range] {
 
 select {
 	font: 400 1.3em "Franklin Gothic Medium";
-	width: 150px;
+	width: 9.25em;
 	margin: 0.7em auto 0.5em auto;
 	display: block;
 }
