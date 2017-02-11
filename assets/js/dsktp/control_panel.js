@@ -260,7 +260,7 @@ $(document).ready(
       }
     );
 
-    $("#sctn_6-no_2 > fieldset > input[name='phone_email']").change( 
+    $("#sctn_6-no_2 > fieldset > p > input[type='radio']").change( 
       function () {
         var field_selector = new String();
         var fieldset_selector = new String();

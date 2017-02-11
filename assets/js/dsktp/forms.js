@@ -84,33 +84,40 @@ function swapQuestions(section_value) {
 }
 
 function validateQuestionField(validation_type, question_value)  {
-  var input_selector = new String();
-  var input_element = new Object();
+  var fieldset_selector = new String();
+  var fieldset_element = new Object();  
+
+  var css_1 = new Object();
+  var css_2 = new Object();
+  var css_3 = new Object();
+  var css_4 = new Object();
+
+  fieldset_selector = "#" + question_value + " > fieldset";
+  fieldset_element = $(fieldset_selector);
+
+   css_1 = {
+      borderColor: "rgb(151, 27, 30)"
+    };
+
+    css_2 = {
+      borderColor: "#cfd7a3"
+    };
+      
+    css_3 = {
+      color: "#000"
+    };
+
+    css_4 = {
+      color: "rgb(151, 27, 30)"
+    };
 
   switch (question_value) {
     case "sctn_1-no_1":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();  
-      
       var checked_selector = new String();
       var checked_element = new Object(); 
 
-      var css_1 = new Object();
-      var css_2 = new Object();
-        
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
       checked_selector = "input:checked";
       checked_element = $(checked_selector);
-
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
       
       if (validation_type === "reset" && 
           $(checked_element).attr("name") === undefined) {
@@ -122,29 +129,12 @@ function validateQuestionField(validation_type, question_value)  {
     break;
 
     case "sctn_1-no_3":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();  
-      
       var checked_selector = new String();
       var checked_element = new Object(); 
-      
-      var css_1 = new Object();
-      var css_2 = new Object();
-      
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
-      checked_selector = "#" + question_value + " > fieldset > p > input:checked";
-      checked_element = $(checked_selector);
-      
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
 
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
-        
+      checked_selector = fieldset_selector + " > p > input:checked";
+      checked_element = $(checked_selector);
+       
       if (validation_type === "reset" && 
           $(checked_element).attr("name") === undefined) {
         $(fieldset_element).css(css_1);
@@ -155,30 +145,12 @@ function validateQuestionField(validation_type, question_value)  {
     break;
 
     case "sctn_1-no_4":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();  
-      
       var option_selector = new String();
       var option_element = new Object();
 
-      var css_1 = new Object();
-      var css_2 = new Object();
-        
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
-      option_selector = "#" + question_value + " > fieldset > div > select > option:selected";
+      option_selector = fieldset_selector + " > div > select > option:selected";
       option_element = $(option_selector);
-      
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
-        
-      
+            
       if (validation_type === "reset" && 
           $(option_element).val() === "default") {
         $(fieldset_element).css(css_1);
@@ -189,28 +161,11 @@ function validateQuestionField(validation_type, question_value)  {
     break;
 
     case "sctn_5-no_1":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();
-
       var checked_selector = new String();
       var checked_element = new Object(); 
 
-      var css_1 = new Object();
-      var css_2 = new Object();
-        
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
-      checked_selector = "input:checked";
+      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
       checked_element = $(checked_selector);
-      
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
         
       if (validation_type === "reset" && 
           ($(checked_element).attr("name") === undefined ||  
@@ -223,29 +178,12 @@ function validateQuestionField(validation_type, question_value)  {
     break;
 
     case "sctn_5-no_2":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();  
-      
       var checked_selector = new String();
       var checked_element = new Object(); 
-
-      var css_1 = new Object();
-      var css_2 = new Object();
-        
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
-      checked_selector = "input:checked";
+ 
+      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
       checked_element = $(checked_selector);
       
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
-              
       if (validation_type === "reset" && 
           $(checked_element).attr("name") === undefined) {
         $(fieldset_element).css(css_1);
@@ -256,92 +194,39 @@ function validateQuestionField(validation_type, question_value)  {
     break;
     
     case "sctn_6-no_1":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object(); 
-
       var field_selector = new String();
       var field_element = new Object();
 
-      var css_1 = new Object();
-      var css_2 = new Object();
-      var css_3 = new Object();
-      var css_4 = new Object();
-
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-
-      field_selector = "#" + question_value + " > fieldset > input";
+      field_selector = fieldset_selector + " > input";
       field_element = $(field_selector);
       
-      css_1 = {
-        borderColor: "#cfd7a3"
-      };
-
-      css_2 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-        
-      css_3 = {
-        color: "#000"
-      };
-
-      css_4 = {
-        color: "rgb(151, 27, 30)"
-      };
-
-      if ($(field_element).val() === "Please enter your first name")  {
-        $(fieldset_element).css(css_1);
+     if ($(field_element).val() === "Please enter your first name")  {
+        $(fieldset_element).css(css_2);
         $(field_element).css(css_3);
         $(field_element).val("");
       } else if (validation_type === "reset" && 
                  $(field_element).val().length <= 2)  {
-        $(fieldset_element).css(css_2);
+        $(fieldset_element).css(css_1);
         $(field_element).css(css_4);
         $(field_element).val("Please enter your first name");
       }
     break;
 
     case "sctn_6-no_2":
-      var fieldset_selector = new String();
-      var field_element = new Object();
-      
       var checked_selector = new String();
       var checked_element = new Object();
-
-      var css_1 = new Object();
-      var css_2 = new Object();
-      var css_3 = new Object();
-      var css_4 = new Object();
-
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
 
       field_selector = "#sctn_6-field-email";
       field_element = $(field_selector);
 
-      checked_selector = "input:checked";
+      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
       checked_element = $(checked_selector);
-      
-      css_1 = {
-        borderColor: "#cfd7a3"
-      };
-
-      css_2 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_3 = {
-        color: "#000"
-      };
-
-      css_4 = {
-        color: "rgb(151, 27, 30)"
-      };
       
       if ($(checked_element).attr("id") === "sctn_6-email") {
         if (validation_type === "start" && 
             $(field_element).val() === "Please enter a valid email address") {
           $(fieldset_element).css(css_1);
+          $(field_element).css(css_3);
           $(field_element).val("");
         } else {
           if (validation_type === "reset" && 
@@ -385,14 +270,14 @@ function validateQuestionField(validation_type, question_value)  {
         }
         
         if ($(field_element).val() === "Please enter your phone number") {
-          $(fieldset_element).css(css_1);
+          $(fieldset_element).css(css_2);
           $(field_element).css(css_3);
           $(field_element).val(""); 
         } else if (validation_type === "reset" && 
                    (phone_number_val.length === 0 ||  
                    (phone_number_val.length < 10 || 
                     phone_number_val.length > 10))) {
-          $(fieldset_element).css(css_2);
+          $(fieldset_element).css(css_1);
           $(field_element).css(css_4)
           $(field_element).val("Please enter your phone number");
         }
@@ -400,29 +285,12 @@ function validateQuestionField(validation_type, question_value)  {
     break;
 
     case "sctn_6-no_3":
-      var fieldset_selector = new String();
-      var fieldset_element = new Object();
-
       var checked_selector = new String();
       var checked_element = new Object(); 
 
-      var css_1 = new Object();
-      var css_2 = new Object();
-        
-      fieldset_selector = "#" + question_value + " > fieldset";
-      fieldset_element = $(fieldset_selector);
-      
-      checked_selector = "input:checked";
+      checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
       checked_element = $(checked_selector);
       
-      css_1 = {
-        borderColor: "rgb(151, 27, 30)"
-      };
-
-      css_2 = {
-        borderColor: "#cfd7a3"
-      };
-        
       if (validation_type === "reset" && 
           $(checked_element).attr("name") === undefined) {
         $(fieldset_element).css(css_1);
@@ -432,14 +300,7 @@ function validateQuestionField(validation_type, question_value)  {
       }
     break;
   }
-
-
 }  
-  
-  
-
-
-
 
 function setRateValue(rate_value_search_string) {
   var rate_value_location = new Number();
