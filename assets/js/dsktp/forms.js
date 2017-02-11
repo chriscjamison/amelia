@@ -337,8 +337,7 @@ function validateQuestionField(validation_type, question_value)  {
       css_4 = {
         color: "rgb(151, 27, 30)"
       };
-// window.alert("validation_type = " + validation_type);
-// window.alert("$(field_element).val().length = " + $(field_element).val().length);
+      
       if ($(checked_element).attr("id") === "sctn_6-email") {
         if (validation_type === "start" && 
             $(field_element).val() === "Please enter a valid email address") {
@@ -356,7 +355,6 @@ function validateQuestionField(validation_type, question_value)  {
             $(fieldset_element).css(css_2);
             $(field_element).css(css_4);
             $(field_element).val("Please enter a valid email address");
-// window.alert("2");
           }
         }
       } else if ($(checked_element).attr("id") === "sctn_6-phone") {
@@ -398,6 +396,39 @@ function validateQuestionField(validation_type, question_value)  {
           $(field_element).css(css_4)
           $(field_element).val("Please enter your phone number");
         }
+      }
+    break;
+
+    case "sctn_6-no_3":
+      var fieldset_selector = new String();
+      var fieldset_element = new Object();
+
+      var checked_selector = new String();
+      var checked_element = new Object(); 
+
+      var css_1 = new Object();
+      var css_2 = new Object();
+        
+      fieldset_selector = "#" + question_value + " > fieldset";
+      fieldset_element = $(fieldset_selector);
+      
+      checked_selector = "input:checked";
+      checked_element = $(checked_selector);
+      
+      css_1 = {
+        borderColor: "rgb(151, 27, 30)"
+      };
+
+      css_2 = {
+        borderColor: "#cfd7a3"
+      };
+        
+      if (validation_type === "reset" && 
+          $(checked_element).attr("name") === undefined) {
+        $(fieldset_element).css(css_1);
+      } else if (validation_type === "start" && 
+                 $(fieldset_element).css("borderColor") === "rgb(151, 27, 30)") {
+        $(fieldset_element).css(css_2);
       }
     break;
   }

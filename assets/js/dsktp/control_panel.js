@@ -260,7 +260,7 @@ $(document).ready(
       }
     );
 
-    $("input[name='phone_email']").change( 
+    $("#sctn_6-no_2 > fieldset > input[name='phone_email']").change( 
       function () {
         var field_selector = new String();
         var fieldset_selector = new String();
@@ -288,7 +288,18 @@ $(document).ready(
         $(field_element).css(css_1);
         $(fieldset_element).css(css_2);
         $("input#sctn_6-field-email").val("");
-        // validateQuestionField("change", "sctn_6-no_2");
+      }
+    );
+
+    $("#sctn_6-no_3 > fieldset").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-no_3");
+      }
+    );
+
+    $("#sctn_6-no_3 > fieldset").mouseleave( 
+      function () {
+        validateQuestionField("reset", "sctn_6-no_3");
       }
     );
 
