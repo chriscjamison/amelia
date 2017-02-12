@@ -654,7 +654,7 @@ body {
 
 #sctn_6-info-1 {
   width: 28.9em;
-  height: 5.5em;
+  height: 2.75em;
   min-height: inherit;
   margin-top: 2.5em;
   padding-bottom: 0;
@@ -1025,12 +1025,13 @@ body {
   }
 
   .sctn_6-blok-2 {
+    width: 16em;
     height: 12em !important;
     margin-bottom: 1em;
   }
 
   .sctn_6-blok-2 > div {
-    width: 12.05em !important;
+    width: 12.7em !important;
   }
 
   #sctn_6-info-2 > div {
@@ -1038,23 +1039,32 @@ body {
   }
 
   .sctn_6-spcr {
-    width: 35.4em;
-    height: 0.8em;
+    width: 70em;
+    height: 0;
     float: left;
     clear: none;
   }
 }
 
 @media screen and (min-width: 1910px) {
+  .headr.sctn_1 + #copy {
+    width: 105.3em !important;
+    margin-left: 28em;
+  }
+
+  .headr.sctn_1 + #copy > #qstnair, 
+  .headr.sctn_5 + #copy > #qstnair {
+    left: 3.5em;
+  }
+
   .headr.sctn_2 + #copy {
     width: 105.8em !important;
     margin-left: 27.5em;
   }
 
-  .headr.sctn_1 + #copy,
   .headr.sctn_5 + #copy {
-    width: 105.3em !important;
-    margin-left: 28em;
+    width: 105em !important;
+    margin-left: 27.25em;
   }
 
   .headr.sctn_6 + #copy {
@@ -1062,6 +1072,10 @@ body {
     margin-left: 30.75em;
   }
   
+  .headr.sctn_6 + #copy > #qstnair {
+    left: 0.75em;
+  }
+
   #copy {
     width: 121.8em !important;
     height: 87.1%;
@@ -1184,6 +1198,7 @@ body {
 
   #sctn_6-info-1 {
     width: 28.8em;
+    height: 5.5em;
   }
 
   #sctn_6-info-1 > span {

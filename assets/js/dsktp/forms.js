@@ -302,6 +302,109 @@ function validateQuestionField(validation_type, question_value)  {
   }
 }  
 
+function validateForm()  {
+  var form_questions_selector = new String();
+  var form_questions_elements = new Object();
+
+  var fieldset_element = new Object();
+  var input_elements = new Object();
+  var textarea_element = new Object();
+  var range_element = new Object();
+  var select_element = new Object();
+
+  var questions_num_val = new Number();
+  var inc = new Number();
+
+  var complete_field_flag = new Boolean;
+  var input_element_checked_flag = new Boolean;
+            
+  var complete_field_flag_Array = new Array();
+
+  form_questions_selector = ".form_cntnt";
+  form_questions_elements = $(form_questions_selector);
+  
+  questions_num_val = $(form_questions_elements).length;
+
+  inc = 0;
+  
+  $(form_questions_elements).each(
+    function () {
+      complete_field_flag = false;
+      input_element_checked_flag = false;
+      
+      input_elements = $(this).find("fieldset").find("input");
+      textarea_element = $(this).find("textarea");
+      select_element = $(this).find("select");
+      
+      $(input_elements).each(
+        function () {
+          var input_element = new Object();
+          var input_element_val = new String();
+          var input_element_type = new String();                  
+          
+          input_element = this;
+          
+          input_element_val = $(input_element).val();
+          input_element_type = $(input_element).attr("type");
+
+          if ((input_element_type === "text" || 
+              input_element_type === "email" ||
+              input_element_type === "tel") && 
+              (input_element_val.length > 0) && 
+              (input_element_val !== "Please enter your first name" && 
+               input_element_val !== "Please enter a valid email address" &&
+               input_element_val !== "Please enter your phone number")) {
+            complete_field_flag = true;
+            
+          } else if (input_element_type === "radio")  {
+            var radio_element_property = new String();
+
+            radio_element_property = $(input_element).prop("checked");
+            
+            if (radio_element_property === true) {
+              input_element_checked_flag = true;             
+            } 
+          } else if (input_element_type === "checkbox") {
+            var checkbox_element_property = new String();
+
+            checkbox_element_property = $(input_element).prop("checked");
+
+            if (checkbox_element_property === true)  {
+              input_element_checked_flag = true;
+            }
+          } else if (input_element_type === "range") {
+            complete_field_flag = true;  
+          }
+        }
+      );
+      
+      if ($(textarea_element).val() !== undefined) {
+        complete_field_flag = true;
+      } else if ($(select_element).val() !== undefined)  {
+        if ($(select_element).val() !== "default")  {
+          complete_field_flag = true;
+        } 
+      }
+
+      if (input_element_checked_flag === true)  {
+        complete_field_flag = true;
+      }
+
+      complete_field_flag_Array[inc] = complete_field_flag;
+
+      inc++;
+    }
+  );
+
+  for (inc = 0; inc < complete_field_flag_Array.length; inc++)  {
+    if (complete_field_flag_Array[inc] === false) {
+      complete_field_flag = false;
+    }
+  }
+
+  return complete_field_flag;
+}
+
 function setRateValue(rate_value_search_string) {
   var rate_value_location = new Number();
 

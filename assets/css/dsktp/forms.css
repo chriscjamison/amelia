@@ -1,5 +1,6 @@
 #qstnair {
 	height: initial;
+	position: absolute;
 	z-index: 6;
 }
 
@@ -86,6 +87,48 @@
 	opacity: 0;
 }
 
+
+#alrt {
+	width: inherit;
+	height: inherit;
+	display: table;
+	position: absolute;
+	background-color: #ddd;
+	opacity: 0.95;
+	z-index: 7;
+}
+
+#alrt > div {
+	width: 22em;
+	height: 10em;
+	display: table-cell;
+	font: 400 0.9em 'Glegoo', 'Palatino', serif;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#alrt > div > div {
+	width: 36em;
+	height: 15.75em;
+	margin: 0 auto;
+	padding: 1em 2em;
+	text-align: left;
+	background-color: #971b1e;
+	color: #fff;
+}
+
+#alrt > div > div > span {
+	display: block;
+	border-bottom: 2px solid #fff;
+	font-size: 2.5em;
+	font-weight: 600;
+	text-align: left;
+}
+
+#alrt > div > div > p {
+	text-align: left;
+}
+
 #quiz-bttn,
 #cntct-bttn {
 	width: 100%;
@@ -119,12 +162,14 @@
 
 #sctn_6-map {
   margin: 0;
+	position: relative;
   float: right;
 }
 
 #sctn_6-start {
   margin: 0.7em 0 0.7em 0;
-  float: right;
+  position: relative;
+	float: right;
   letter-spacing: -0.7px;
 }
 
@@ -426,14 +471,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	input[type=button],
 	input[type=submit] {
 		font-size: 1.1em;
-	}
-
-	#form-sctn_5 {
-		margin-left: 19.4em;
-	}
-
-	#form-sctn_6 {
-		margin-left: 3em;
 	}
 
 	#sctn_6-start {

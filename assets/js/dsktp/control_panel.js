@@ -264,10 +264,18 @@ $(document).ready(
       function () {
         var field_selector = new String();
         var fieldset_selector = new String();
+        var radio_selector = new String();
 
         var field_element = new Object();
         var fieldset_element = new Object();
-        
+        var radio_elements = new Object();
+
+        var radio_element = new Object();
+        var radio_element_property = new String();
+        var radio_element_num = new Number();
+
+        var inc = new Number();
+
         var css_1 = new Object();
         var css_2 = new Object();
 
@@ -277,16 +285,6 @@ $(document).ready(
         fieldset_selector = "#sctn_6-no_2 > fieldset";
         fieldset_element = $(fieldset_selector);
 
-        css_1 = {
-          color: "#000"
-        };
-
-        css_2 = {
-          borderColor: "#cfd7a3"
-        };
-
-        $(field_element).css(css_1);
-        $(fieldset_element).css(css_2);
         $("input#sctn_6-field-email").val("");
       }
     );
@@ -309,9 +307,51 @@ $(document).ready(
       }
     );
 
-    $("input#sctn_6-sbmt").click(
-      function () {
-        window.location.href = base_url_value + "sctn/6/page_2.htm";
+    
+    $("form#form-sctn_1, form#form-sctn_5, form#form-sctn_6").submit(
+      function (event) {
+        var form_complete_flag = new Boolean;
+  
+        form_complete_flag = validateForm();
+
+        if (form_complete_flag === false) {
+          var alert_div_element = new String();
+
+          var cntainr_selector = new String();
+          var cntainr_element = new Object();
+
+          var alrt_selector = new String();
+          var alrt_element = new Object();
+
+          alert_div_element = 
+            "<div id=\"alrt\">" + 
+            "  <div>" + 
+            "    <div>" + 
+            "      <span>Alert</span>" + 
+            "      <p>This form needs more information than you provided.</p>" +
+            "      <p>Please check the question fields that are surrounded by red borders.</p>" +  
+            "      <p>Click the screen to close this alert.</p></div>" + 
+            "    </div>" + 
+            "  </div>" + 
+            "</div>";
+
+          cntainr_selector = "#cntainr";
+          cntainr_element = $(cntainr_selector);
+
+          $(cntainr_element).prepend(alert_div_element);
+
+          $("#alrt").click(
+            function () {
+              $(this).fadeTo(time_value, 0, 
+                function () {
+                  $(this).detach();
+                }
+              );
+            }
+          );
+
+          event.preventDefault();
+        }
       }
     );
 
@@ -337,7 +377,14 @@ $(document).ready(
               swapQuestions("sctn_6");
             }, (time_value * 1.25));
         }
-      });
+      }
+    );
+
+    $(window).on("resize", 
+      function () {
+        setupPage();
+      }
+    );
   }
 );
 
