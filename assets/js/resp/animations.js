@@ -1182,7 +1182,7 @@ function animateFormPanes(section_value) {
   // to animate and make visible or make invisible each form pane depending 
   // on the form pane a visitor is viewing and interacting with.
 
- if ($(page_1_selector).css("display") === "block")  {
+  if ($(page_1_selector).css("display") === "block")  {
     $(page_1_selector).fadeTo(time_value, 0);
     $(page_1_selector).css("display", "none");
 
@@ -1334,12 +1334,13 @@ function animatePageElements()  {
     current_position = $(window).scrollTop();
 
     section_value = determineCurrentSection(current_position);
-
+// window.alert("section_value = " + section_value);
     position_search_string = "pos=";
     position_value_index_num = url_hash.indexOf(position_search_string);
+// window.alert("position_value_index_num = " + position_value_index_num);
     position_value = parseInt(url_hash.charAt(position_value_index_num + position_search_string.length));
 
-    // window.alert("position_value = " + position_value);
+// window.alert("position_value = " + position_value);
 
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
@@ -1389,19 +1390,70 @@ function animatePageElements()  {
             }
           );
 
-          if ((section_value === 1 && position_value === 1) || 
-              (section_value === 1 && position_value === 2) || 
-              (section_value === 6 && position_value === 1) || 
-              (section_value === 6 && position_value === 2))  {
+          /*if ((section_value === 1 && position_value === 1) ||
+              (section_value === 5 && position_value === 1) || 
+              (section_value === 6 && position_value === 1))  {
             var form_section_value = new String();
 
+            var form_clmn_selector_1 = new String();
+            var form_clmn_selector_2 = new String();
+            var form_clmn_element_1 = new Object();
+            var form_clmn_element_2 = new Object();
+
             form_section_value = "sctn_" + section_value.toString();
-            
-            animateFormPanes(form_section_value);      
-          }
+
+            form_clmn_selector_1 = "#form-" + form_section_value + " .form-page_1";
+            form_clmn_selector_2 = "#form-" + form_section_value + " .form-page_2";
+
+            form_clmn_element_1 = $(form_clmn_selector_1);
+            form_clmn_element_2 = $(form_clmn_selector_2);
+
+    // window.alert("$(form_clmn_selector).css(\"display\") = " + $(form_clmn_selector).css("display"));
+            if ($(form_clmn_element_2) === undefined) {
+              if ($(form_clmn_element_1).css("display") === "none") {
+                animateFormPanes(form_section_value);
+              }
+            } else {
+              if ($(form_clmn_element_1).css("display") === "none" && 
+                  $(form_clmn_element_2).css("display") === "none") {
+                animateFormPanes(form_section_value);
+              }
+            }
+          }*/
         }
       );
     } else {
+      /*if ((section_value === 1 && position_value === 1)
+          (section_value === 5 && position_value === 1) || 
+          (section_value === 6 && position_value === 1))  {
+        var form_section_value = new String();
+
+        var form_clmn_selector_1 = new String();
+        var form_clmn_selector_2 = new String();
+        var form_clmn_element_1 = new Object();
+        var form_clmn_element_2 = new Object();
+
+        form_section_value = "sctn_" + section_value.toString();
+
+        form_clmn_selector_1 = "#form-" + form_section_value + " .form-page_1";
+        form_clmn_selector_2 = "#form-" + form_section_value + " .form-page_2";
+
+        form_clmn_element_1 = $(form_clmn_selector_1);
+        form_clmn_element_2 = $(form_clmn_selector_2);
+
+// window.alert("$(form_clmn_selector).css(\"display\") = " + $(form_clmn_selector).css("display"));
+        if ($(form_clmn_element_2) === undefined) {
+          if ($(form_clmn_element_1).css("display") === "none") {
+            animateFormPanes(form_section_value);
+          }
+        } else {
+          if ($(form_clmn_element_1).css("display") === "none" && 
+              $(form_clmn_element_2).css("display") === "none") {
+            animateFormPanes(form_section_value);
+          }
+        }
+      }*/
+
       $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
         function () {
           if (section_value === 3 || 
@@ -1844,48 +1896,6 @@ function setURL()  {
   }
 }
 
-function determineVisibleCopyElement(wndow_selector)  {
-  var wndow_element = new Object();
-  var copy_elements = new Array();
-  
-  var wndow_element_copy_length = new Number();
-  var visible_copy_element_val = new Number();
-
-  var copy_selector = new String();
-
-  var is_copy_element_invisible = new Boolean();
-      
-  wndow_element = $(wndow_selector);   
-
-  wndow_element_copy_length = $(wndow_element).children(".copy").length;
-  
-  visible_copy_element_val = 3;
-  is_copy_element_invisible = true;
-  // window.alert("wndow_selector = " + wndow_selector);
-  if (wndow_selector !== "#wndow-sctn_main")  {
-    // window.alert("wndow_selector = " + wndow_selector);
-    while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
-           is_copy_element_invisible === true) {
-      copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
-      // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
-      if ($(wndow_element).children(copy_selector).css("display") === "none") {
-        visible_copy_element_val++;
-      } else  {
-        is_copy_element_invisible = false;
-      }
-    }
-    
-    if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
-        is_copy_element_invisible === true)  {
-      visible_copy_element_val = -1;
-    } else {
-      visible_copy_element_val = visible_copy_element_val - 3;
-    }
-  }
-
-  return visible_copy_element_val;
-}
-
 function animateMenuOptions(option_element) {
   var css_1 = new Object();
   var css_2 = new Object();
@@ -1937,6 +1947,8 @@ function setPageInitialLocation(url_hash)  {
 
   section_value = url_hash.charAt(6);
   position_value = url_hash.charAt(12);
+// window.alert("section_value = " + section_value);
+// window.alert("position_value = " + position_value);
 
   css_1 = {
     display: "table", 
@@ -1967,51 +1979,7 @@ function setPageInitialLocation(url_hash)  {
 //  window.alert("scroll_to_value = " + scroll_to_value);
   $(window).scrollTop(scroll_to_value);
 
-  setURL();
+  // setURL();
 
-  animatePageElements();
-}
-
-function setRateValue(rate_value_search_string) {
-  var rate_value_location = new Number();
-
-  var rate_value_result = new String();
-
-  var url_string = new String();
-
-  url_string = window.location.href;
-  
-  rate_value_location = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
-
-  rate_value_result = url_string.slice(rate_value_location, url_string.length);
-
-  if (rate_value_result === "0")  {
-    var blok_selector = new String();
-    var blok_element = new Object();
-
-    var css_1 = new Object();
-    
-    blok_selector = "#sctn_5-desc-6 > span > span:first-of-type";
-
-    blok_element = $(blok_selector);
-    
-    css_1 = {
-      color: "#fff",
-      "font-size": "6em", 
-      "font-weight": "600", 
-    }
-
-    $(blok_element).text("No Cost");
-
-    $(blok_element).css(css_1);
-  } else  {
-    var span_selector = new String();
-    var span_element = new Object();
-
-    span_selector = "#sctn_5-desc-6 > span > span > sup + span";
-  
-    span_element = $(span_selector);
-    
-    $(span_element).text(url_string.slice(rate_value_location, url_string.length));
-  }
+  // animatePageElements();
 }

@@ -167,24 +167,77 @@ $(document).ready(
       }
 		);
     
+    $("input#sctn_1-start").on("click", 
+      function () {
+        window.location.hash = "#sctn_1?pos=1";
+
+        animateFormPanes("start", "sctn_1");
+      }
+    );
+
+    $("#sctn_1-no_1 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_1");
+      }
+    );
+
+    $("#sctn_1-no_3 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_1-no_3");
+      }
+    );
+
+    $("#sctn_1-no_3 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_3");
+      }
+    );
+
+    $("#sctn_1-no_4 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_1-no_4");
+      }
+    );
+
+    $("#sctn_1-no_4 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_1-no_4");
+      }
+    );
+
     $("#sctn_1-prev, #sctn_1-next").click(
       function () {
         animateFormPanes("sctn_1");
       }
     );
 
-    $("input#sctn_1-start").on("click", 
-      function () {
-        window.location.hash = "#sctn_1?pos=1";
-
-        $("#form-sctn_1 .form-page_1").css("display", "block");
-        $("#form-sctn_1 .form-page_1").fadeTo(time_value, 1);
-      }
-    );
-
     $("input#sctn_5-start").on("click", 
       function () {
         window.location.hash = "#sctn_5?pos=1";
+      }
+    );
+
+    $("#sctn_5-no_1 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_5-no_1");
+      }
+    );
+
+    $("#sctn_5-no_1 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_5-no_1");
+      }
+    );
+
+    $("#sctn_5-no_2 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_5-no_2");
+      }
+    );
+
+    $("#sctn_5-no_2 > fieldset").mouseenter(
+      function () {
+        validateQuestionField("start", "sctn_5-no_2");
       }
     );
     
@@ -203,6 +256,71 @@ $(document).ready(
       }
     );
 
+    $("#sctn_6-no_1 > fieldset").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-no_1");
+      }
+    );
+
+    $("#sctn_6-no_1 > fieldset").mouseleave( 
+      function () {
+        validateQuestionField("reset", "sctn_6-no_1");
+      }
+    );
+
+    $("#sctn_6-no_2 > fieldset").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-no_2");
+      }
+    );
+
+    $("#sctn_6-no_2 > fieldset").mouseleave( 
+      function () {
+        validateQuestionField("reset", "sctn_6-no_2");
+      }
+    );
+
+    $("#sctn_6-no_2 > fieldset > p > input[type='radio']").change( 
+      function () {
+        var field_selector = new String();
+        var fieldset_selector = new String();
+        var radio_selector = new String();
+
+        var field_element = new Object();
+        var fieldset_element = new Object();
+        var radio_elements = new Object();
+
+        var radio_element = new Object();
+        var radio_element_property = new String();
+        var radio_element_num = new Number();
+
+        var inc = new Number();
+
+        var css_1 = new Object();
+        var css_2 = new Object();
+
+        field_selector = "#sctn_6-field-email";
+        field_element = $(field_selector);
+
+        fieldset_selector = "#sctn_6-no_2 > fieldset";
+        fieldset_element = $(fieldset_selector);
+
+        $("input#sctn_6-field-email").val("");
+      }
+    );
+
+    $("#sctn_6-no_3 > fieldset").mouseenter( 
+      function () {
+        validateQuestionField("start", "sctn_6-no_3");
+      }
+    );
+
+    $("#sctn_6-no_3 > fieldset").mouseleave( 
+      function () {
+        validateQuestionField("reset", "sctn_6-no_3");
+      }
+    );
+
     $("input#sctn_6-map").click(
       function () {
         window.location.href = "https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027";
@@ -215,6 +333,59 @@ $(document).ready(
       }
     );
 
+    $("#form-sctn_1, #form-sctn_5, #form-sctn_6").submit(
+      function (event) {
+        var form_complete_flag = new Boolean;
+        
+        var id_string = new String();
+        var section_value = new String();
+
+        id_string = $(this).attr("id");
+        section_value = id_string.slice(6);
+ window.alert("section_value = " + section_value);    
+        /*form_complete_flag = validateForm();
+
+        if (form_complete_flag === false) {
+          var alert_div_element = new String();
+
+          var cntainr_selector = new String();
+          var cntainr_element = new Object();
+
+          var alrt_selector = new String();
+          var alrt_element = new Object();
+
+          alert_div_element = 
+            "<div id=\"alrt\">" + 
+            "  <div>" + 
+            "    <div>" + 
+            "      <span>Alert</span>" + 
+            "      <p>This form needs more information than you provided.</p>" +
+            "      <p>Please check the question fields that are surrounded by red borders.</p>" +  
+            "      <p>Click the screen to close this alert.</p></div>" + 
+            "    </div>" + 
+            "  </div>" + 
+            "</div>";
+
+          cntainr_selector = "#cntainr";
+          cntainr_element = $(cntainr_selector);
+
+          $(cntainr_element).prepend(alert_div_element);
+
+          $("#alrt").click(
+            function () {
+              $(this).fadeTo(time_value, 0, 
+                function () {
+                  $(this).detach();
+                }
+              );
+            }
+          );
+
+          event.preventDefault();
+        }*/
+      }
+    );
+
     $(window).on("load", 
       function () {
         var url_hash = new String();
@@ -222,16 +393,24 @@ $(document).ready(
         url_hash = window.location.hash;
         
         setupPage();
-        // window.alert("url_hash = " + url_hash);
         if (url_hash === "" || 
             url_hash === "#sctn_main")  {
           animateInfoElement();
         } else {
+          animatePageElements();
+
+
           setTimeout(
             function () {
-              setPageInitialLocation(url_hash);
-            }, (time_value / 2)
+              // setPageInitialLocation(url_hash);
+            }, (time_value * 2)
           ); 
+
+          setTimeout(
+            function () {
+              animateFormPanes();
+            }, (time_value * 1.25)
+          );
         }
       }
     );
@@ -270,13 +449,19 @@ $(document).ready(
         
         if (url_hash.indexOf("copyValues") === -1 && 
             url_hash !== "") {
-          animatePageElements(); 
-        }
-        
-        if (url_hash.indexOf("#sctn_6?pos=1") > -1 && 
-            url_hash.indexOf("copyValues") === -1)  {
-          $("#form-sctn_6 .form-page_1").css("display", "block");
-          $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
+          animatePageElements();
+
+          setTimeout(
+            function () {
+              // setPageInitialLocation(url_hash);
+              
+              setTimeout(
+                function () {
+                  animateFormPanes();
+                }, (time_value * 1.25)
+              );
+            }, (time_value * 4)
+          ); 
         }
       }
     );
@@ -284,8 +469,20 @@ $(document).ready(
     $(window).on("resize", 
       function () {
         setupPage();
-        setURL();
+        
         animatePageElements();
+
+        setTimeout(
+          function () {
+            setPageInitialLocation(url_hash);
+
+            setTimeout(
+              function () {
+                animateFormPanes();
+              }, (time_value * 1.25)
+            );
+          }, (time_value * 1.25)
+        ); 
       }
     );
   }

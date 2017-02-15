@@ -66,6 +66,49 @@ function navLinkHoverState(new_class) {
   }
 } // END OF FUNCTION navLinkHoverState
 
+
+function determineVisibleCopyElement(wndow_selector)  {
+  var wndow_element = new Object();
+  var copy_elements = new Array();
+  
+  var wndow_element_copy_length = new Number();
+  var visible_copy_element_val = new Number();
+
+  var copy_selector = new String();
+
+  var copy_element_visible_flag = new Boolean();
+      
+  wndow_element = $(wndow_selector);   
+
+  wndow_element_copy_length = $(wndow_element).children(".copy").length;
+  
+  visible_copy_element_val = 3;
+  copy_element_visible_flag = true;
+  // window.alert("wndow_selector = " + wndow_selector);
+  if (wndow_selector !== "#wndow-sctn_main")  {
+    // window.alert("wndow_selector = " + wndow_selector);
+    while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
+           copy_element_visible_flag === true) {
+      copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
+      // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
+      if ($(wndow_element).children(copy_selector).css("display") === "none") {
+        visible_copy_element_val++;
+      } else  {
+        copy_element_visible_flag = false;
+      }
+    }
+// window.alert("visible_copy_element_val = " + visible_copy_element_val);
+    if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
+        copy_element_visible_flag === true)  {
+      visible_copy_element_val = -1;
+    } else {
+      visible_copy_element_val = visible_copy_element_val - 3;
+    }
+  }
+
+  return visible_copy_element_val;
+}
+
 function determineCopyElements()  {
   var url_hash = new String();
   // Holds the value of the String returned by the JavaScript METHOD, 
@@ -122,7 +165,7 @@ function determineCopyElements()  {
     );
 
     if (url_hash.indexOf("#") === -1) {
-      visible_elements_var = "#" + visible_elements_var;
+      visible_elements_var = "#";
     } else  {
       if (url_hash.indexOf("?") === -1) {
         visible_elements_var = "?" + visible_elements_var;
@@ -220,10 +263,8 @@ function interSectionNav(inter_nav_element)  {
   var replace_section_string = new String();
 
   var section_value = new Number();
-
-
+  
   var sub_nav_selector = new String();
-
   var wndow_selector = new String();
   
   var scroll_to_num = new Number();
@@ -301,7 +342,7 @@ function activateSideNav(option_element)  {
   var scroll_to_value = new Number();
     
   section_value = $(option_element).attr("id");
-
+  
   if (section_value === "sctn_main") {
     scroll_to_value = 0;  
   } else {
@@ -316,6 +357,6 @@ function activateSideNav(option_element)  {
     
     scroll_to_value = parseInt(section_value.charAt(section_value.length - 1)) * wndow_height;  
   }
-
+  
   $(window).scrollTop(scroll_to_value);
 }
