@@ -727,9 +727,9 @@ function cssAdjustment()  {
     };
     
     next_sctn_css = {
-      right: "24.1em",
+      right: "20.2em",
       backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPosition: "0px -234px"
+      backgroundPosition: "0px -193px"
     };
 
     nav_sctn_css = {

@@ -878,6 +878,10 @@ function setupPage()  {
    * 
    * **************** **************** **************** **************** **************** */
 
+  setPageInitialLocation();
+  
+  animatePageElements();
+
   setTimeout(displayVerticalNav, time_value * 2);
   // The intrapage navigation, which appears on the far-right side of the browser 
   // within a desktop or laptop display, or in the middle of the page 
@@ -1405,13 +1409,11 @@ function animatePageElements()  {
     $(single_copy_element).css(css_2);
     $(sub_nav_element).css(css_2);
     
-    if ($(headr_element).css("opacity") === "0") {
-      $(headr_element).fadeTo(time_value, 1, 
-        function () {
-          fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
-        }
-      );
-    }
+    $(headr_element).fadeTo(time_value, 1, 
+      function () {
+        fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
+      }
+    );
   }
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
@@ -1457,7 +1459,7 @@ function displayVerticalNav() {
 function animateSctnNav(sctn_nav_element) {
   var sctn_nav_link = new String();
   
-  var sctn_nav_background_position_y = new String();
+  var sctn_nav_background_position = new String();
 
   var sctn_nav_base_css = new Object();
   var sctn_nav_hover_css = new Object();
@@ -1468,46 +1470,46 @@ function animateSctnNav(sctn_nav_element) {
   var resp_sctn_nav_click_css = new Object();
         
   sctn_nav_base_css = {
-    backgroundPositionY: "0px"
+    backgroundPosition: "0px 0px"
   };
 
   sctn_nav_hover_css = {
-    backgroundPositionY: "-35px"
+    backgroundPosition: "0px -35px"
   };
 
   sctn_nav_click1_css = {
-    backgroundPositionY: "-70px"
+    backgroundPosition: "0px -70px"
   };
 
   sctn_nav_click2_css = {
-    backgroundPositionY: "-105px"
+    backgroundPosition: "0px -105px"
   };
 
   resp_sctn_nav_base_css = {
-    backgroundPositionY: "0px", 
+    backgroundPosition: "0px 0px", 
     backgroundColor: "#000"
   };
 
   resp_sctn_nav_click_css = {
-    backgroundPositionY: "-210px", 
+    backgroundPosition: "0px -210px", 
     backgroundColor: "#666"
   };
 
   sctn_nav_link = sctn_nav_element.slice(0, 12) + " > div > div";
   
-  sctn_nav_background_position_y = $(sctn_nav_element).css("backgroundPositionY");
+  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
   $(sctn_nav_element).css("opacity", 0);
 
   if (window.navigator.userAgent.indexOf("Mobile") === -1 && 
       window.navigator.userAgent.indexOf("Tablet") === -1)  {
-    if (sctn_nav_background_position_y === "-35px" && 
+    if (sctn_nav_background_position === "0px -35px" && 
         $(sctn_nav_link).css("display") === "block") {
       $(sctn_nav_element).css(sctn_nav_click1_css);
       setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (time_value / 4));
       $(sctn_nav_element).css(sctn_nav_click2_css);
     } else {
-      if (sctn_nav_background_position_y === "0px" || 
-          sctn_nav_background_position_y === "0%") {
+      if (sctn_nav_background_position === "0px 0px" || 
+          sctn_nav_background_position === "0% 0%") {
         $(sctn_nav_element).css(sctn_nav_hover_css);
       } else {
         if ($(sctn_nav_link).css("display") === "none") {
@@ -1517,7 +1519,7 @@ function animateSctnNav(sctn_nav_element) {
       }
     }
   } else {
-    if (sctn_nav_background_position_y === "0px" && 
+    if (sctn_nav_background_position === "0px 0px" && 
         $(sctn_nav_link).css("display") === "block") {
       $(sctn_nav_element).css(resp_sctn_nav_click_css);
     } else {
@@ -1771,7 +1773,6 @@ function determineCurrentSection(current_position)  {
   var wndows_selector = new String();
   // Holds the String value of the selector, ".wndow".
 
-
   cntainr_selector = "#cntainr";
   wndows_selector = ".wndow";
 
@@ -1826,7 +1827,7 @@ function setURL()  {
     if (determineCurrentSection(current_position) !== Infinity) {
       section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
       // window.alert("$(\"" + section_value + ").children(\".headr\").css(\"opacity\") = " + $(section_value).children(".headr").css("opacity"));
-      if ($(section_value).children(".headr").css("opacity") === "1") {
+      if (current_position >= wndow_height) {
         position_value = determineVisibleCopyElement(section_value);  
       } else  {
         position_value = 0;
@@ -1915,7 +1916,6 @@ function setPageInitialLocation()  {
   wndow_height = $(wndow_element).height();
   scroll_to_value = section_value * wndow_height;
  
-
   $(copy_element).css(css_1);
   
   $(window).scrollTop(scroll_to_value);
@@ -1924,14 +1924,21 @@ function setPageInitialLocation()  {
 function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {
   $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
+      var form_selector = new String();
+      var form_element = new Object();
+
       if (section_value === 3 || 
           section_value === 4)  {
         $(sub_nav_element).fadeTo(time_value, 1);
       }
 
-      if (section_value === 1 && position_value === 1 || 
+      form_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
+      form_element = $(form_selector);
+
+      if ($(form_element).css("opacity") === "0" && 
+          (section_value === 1 && position_value === 1 || 
           section_value === 5 && position_value === 1 || 
-          section_value === 6 && position_value === 1)  {
+          section_value === 6 && position_value === 1))  {
         animateFormPanes();
       }
     }

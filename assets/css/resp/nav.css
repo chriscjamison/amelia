@@ -311,6 +311,12 @@ div.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
 
+@media screen and (min-width: 360px) and (max-width: 414px) {
+  #next-sctn {
+    height: 9.25em;
+    bottom: 37em;
+  }
+}
 @media screen and (width: 980px) {
   nav, 
   #nav-bkgrnd, 

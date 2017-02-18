@@ -163,7 +163,7 @@ $(document).ready(
 				var current_sctn_nav_element = "#" + current_sctn_nav_id + " > div > div";
 				         
         animateSctnNavLinks(current_sctn_nav_element);
-        animateSctnNav(current_sctn_nav_id_string;
+        animateSctnNav(current_sctn_nav_id_string);
       }
 		);
     
@@ -340,16 +340,19 @@ $(document).ready(
         var id_string = new String();
         var section_value = new String();
 
+        var form_selector = new String();
+        var form_element = new Object();
+
         id_string = $(this).attr("id");
-        section_value = id_string.slice(6);
- window.alert("section_value = " + section_value);    
-        /*form_complete_flag = validateForm();
+        section_value = id_string.substring(5);
+        
+        form_complete_flag = validateForm(section_value);
 
         if (form_complete_flag === false) {
           var alert_div_element = new String();
 
-          var cntainr_selector = new String();
-          var cntainr_element = new Object();
+          var wndow_selector = new String();
+          var wndow_element = new Object();
 
           var alrt_selector = new String();
           var alrt_element = new Object();
@@ -366,10 +369,10 @@ $(document).ready(
             "  </div>" + 
             "</div>";
 
-          cntainr_selector = "#cntainr";
-          cntainr_element = $(cntainr_selector);
+          wndow_selector = "#wndow-" + section_value;
+          wndow_element = $(wndow_selector);
 
-          $(cntainr_element).prepend(alert_div_element);
+          $(wndow_element).prepend(alert_div_element);
 
           $("#alrt").click(
             function () {
@@ -382,7 +385,7 @@ $(document).ready(
           );
 
           event.preventDefault();
-        }*/
+        }
       }
     );
 
@@ -393,12 +396,10 @@ $(document).ready(
         url_hash = window.location.hash;
         
         setupPage();
+
         if (url_hash === "" || 
             url_hash === "#sctn_main")  {
           animateInfoElement();
-        } else {
-          setPageInitialLocation();
-          animatePageElements();
         }
       }
     );

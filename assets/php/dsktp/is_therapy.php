@@ -57,9 +57,9 @@
   }
   
   if ($total_score < 150) {
-    $url_string = "2";
-  } else {
     $url_string = "3";
+  } else {
+    $url_string = "2";
   }
 ?>
 

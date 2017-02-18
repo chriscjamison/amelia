@@ -84,6 +84,47 @@
 	opacity: 0;
 }
 
+#alrt {
+	width: inherit;
+	height: inherit;
+	display: table;
+	position: absolute;
+	background-color: #ddd;
+	opacity: 0.95;
+	z-index: 7;
+}
+
+#alrt > div {
+	width: 22em;
+	height: 10em;
+	display: table-cell;
+	font: 400 0.9em 'Glegoo', 'Palatino', serif;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#alrt > div > div {
+	width: 36em;
+	height: 15.75em;
+	margin: 0 auto;
+	padding: 1em 2em;
+	text-align: left;
+	background-color: #971b1e;
+	color: #fff;
+}
+
+#alrt > div > div > span {
+	display: block;
+	border-bottom: 2px solid #fff;
+	font-size: 2.5em;
+	font-weight: 600;
+	text-align: left;
+}
+
+#alrt > div > div > p {
+	text-align: left;
+}
+
 #quiz-bttn,
 #cntct-bttn {
 	width: 100%;
