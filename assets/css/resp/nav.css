@@ -580,6 +580,7 @@ div.sctn_nav > div > div a:hover {
   #nav-bkgrnd, 
   #options {
     width: 20.5em;
+    left: -20.5em;
   }
 
   nav, 

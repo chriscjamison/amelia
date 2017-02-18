@@ -1176,16 +1176,10 @@ function animatePageElements()  {
         }
       );
 
-      if ((section_value === 1 && position_value === 1) || 
-          (section_value === 1 && position_value === 2) || 
+      if ((section_value === 1 && position_value === 1)
           (section_value === 5 && position_value === 1) || 
-          (section_value === 6 && position_value === 1) || 
-          (section_value === 6 && position_value === 2))  {
-        var form_section_value = new String();
-
-        form_section_value = "sctn_" + section_value;
-        
-        animateFormPanes(form_section_value);      
+          (section_value === 6 && position_value === 1))  {
+        animateFormPanes();      
       }
     }
   );

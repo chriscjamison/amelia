@@ -713,6 +713,9 @@ function setupPage()  {
   // as it is calculated by the jQuery Method, "$(window).height()", 
   // and the total number of HTML elements using the selector, ".wndow".
   
+  var nav_width = new Number();
+  var nav_left_val = new Number();
+  
   var cntainr_css = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
@@ -733,6 +736,7 @@ function setupPage()  {
   // 
   // The values contained within this object, format the HTML elements 
   // identified by the selector, ".copy". 
+  var nav_css = new Object();
   
   var inc_bkgrnd = new Number();
   // Holds a number which represents the Section Value of the background image 
@@ -763,7 +767,9 @@ function setupPage()  {
   // The value for "page_height" is determined by multiplying the value 
   // calculated by the jQuery Method, "$(window).height()", and 
   // the number of HTML elements using the selector, ".wndow".
-  
+  nav_width = $("nav").width();
+  nav_left_val = -nav_width;
+
   cntainr_css = {
     "width": page_dimensions_Array[0],
     "height": page_height
@@ -782,6 +788,10 @@ function setupPage()  {
     "width": page_dimensions_Array[0],
     "height": page_dimensions_Array[1]
   };
+
+  nav_css = {
+    left: nav_left_val
+  }
   
   $("#cntainr").css(cntainr_css);
   // The values of the CSS properties, "width" and "height" are modified 
@@ -805,6 +815,8 @@ function setupPage()  {
   // The HTML element using the selector, "#bkgrnd", has its CSS 
   // values set to match the values of the browser width and height, 
   // as calculated by "parseWindowDimensions". 
+
+  $("nav").css(nav_css);
    
   inc_bkgrnd = 0;
   // "inc_bkgrnd" serves as an incrementer which increases in value as 
@@ -1141,12 +1153,15 @@ function sortCopyElements(section_value) {
 
 } /* **************** END OF FUNCTION "sortCopyElements" **************** */
 
-function animateFormPanes(section_value) {
+function animateFormPanes() {
   /* **************** **************** **************** **************** **************** 
    * animateFormPanes animates the content of the HTML elements which make up 
    * the Screening, Rate, and Contact forms.
    * **************** *************** **************** **************** **************** */
-
+  var url_hash = new String();
+  var section_value = new String();
+  var section_search_string = new String();
+  var position_search_string = new String();
   var form_id = new String();
   // Holds the selector of the HTML form which, "animateFormPanes", is modifying.
   //
@@ -1154,7 +1169,10 @@ function animateFormPanes(section_value) {
   // and the Section Value parameter which is passed to, "animateFormPanes", when 
   // a button which triggers an action of the form which is a request 
   // for more form options.
-  
+
+  var section_search_index_val = new Number();
+  var position_search_index_val = new Number();
+
   var page_1_selector = new String();
   // Holds the selector of the "<DIV>" element which holds the HTML content which 
   // makes up form options for the Screening, Rate, or Contact form.
@@ -1166,7 +1184,17 @@ function animateFormPanes(section_value) {
   //
   // This variable holds the selector of the second "page" of a given form.
   
-  form_id = "#form-" + section_value; 
+  url_hash = window.location.hash;
+
+  section_search_string = "sctn_";
+  position_search_string = "pos=1";
+
+  section_search_index_val = url_hash.indexOf(section_search_string) + section_search_string.length;
+  position_search_index_val = url_hash.indexOf(position_search_string);
+
+  section_value = url_hash.charAt(section_search_index_val);
+  
+  form_id = "#form-sctn_" + section_value; 
   // Sets the value of, "form_id", to the combination of the String, "#form", 
   // and the value held by, "section_value".w
   //
@@ -1197,32 +1225,31 @@ function animateFormPanes(section_value) {
   } // END OF if STATEMENT
 
   /* if STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - The first form pane is visible. 
-   *    A. Fade out the first form pane.
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".
-   *        a. "time_value" is a global variable which sets the amount of time an 
-   *           an animation is to last.
-   *    B. Make the first form pane invisible.
-   *      1. The first form pane has it's CSS property, "display", set to "none".
-   *    C. Make the second form pane visible.
-   *      1. The second form pane has it's CSS property, "display", set to "block". 
-   *    D. Fade in the second window pane
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".    
-   *  II - The second form pane is visible.
-   *    A. Fade out the second form pane.
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".
-   *    B. Make the second form pane invisible.
-   *      1. The second form pane has it's CSS property, "display", set to "none".
-   *    C. Make the first form pane visible.
-   *      1. The first form pane has it's CSS property, "display", set to "block". 
-   *    D. Fade in the first window pane
-   *      1. The time span which the animation runs is equal to the value of 
-   *         the variable, "time_value".       
-   * **************** **************** **************** **************** **************** */
-
+  *  I - The first form pane is visible. 
+  *    A. Fade out the first form pane.
+  *      1. The time span which the animation runs is equal to the value of 
+  *         the variable, "time_value".
+  *        a. "time_value" is a global variable which sets the amount of time an 
+  *           an animation is to last.
+  *    B. Make the first form pane invisible.
+  *      1. The first form pane has it's CSS property, "display", set to "none".
+  *    C. Make the second form pane visible.
+  *      1. The second form pane has it's CSS property, "display", set to "block". 
+  *    D. Fade in the second window pane
+  *      1. The time span which the animation runs is equal to the value of 
+  *         the variable, "time_value".    
+  *  II - The second form pane is visible.
+  *    A. Fade out the second form pane.
+  *      1. The time span which the animation runs is equal to the value of 
+  *         the variable, "time_value".
+  *    B. Make the second form pane invisible.
+  *      1. The second form pane has it's CSS property, "display", set to "none".
+  *    C. Make the first form pane visible.
+  *      1. The first form pane has it's CSS property, "display", set to "block". 
+  *    D. Fade in the first window pane
+  *      1. The time span which the animation runs is equal to the value of 
+  *         the variable, "time_value".       
+  * **************** **************** **************** **************** **************** */
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animatePageElements()  {
@@ -1340,7 +1367,7 @@ function animatePageElements()  {
 // window.alert("position_value_index_num = " + position_value_index_num);
     position_value = parseInt(url_hash.charAt(position_value_index_num + position_search_string.length));
 
-// window.alert("position_value = " + position_value);
+//  window.alert("position_value = " + position_value);
 
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
@@ -1381,85 +1408,7 @@ function animatePageElements()  {
     if ($(headr_element).css("opacity") === "0") {
       $(headr_element).fadeTo(time_value, 1, 
         function () {
-          $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
-            function () {
-              if (section_value === 3 || 
-                  section_value === 4)  {
-                $(sub_nav_element).fadeTo(time_value, 1);
-              }
-            }
-          );
-
-          /*if ((section_value === 1 && position_value === 1) ||
-              (section_value === 5 && position_value === 1) || 
-              (section_value === 6 && position_value === 1))  {
-            var form_section_value = new String();
-
-            var form_clmn_selector_1 = new String();
-            var form_clmn_selector_2 = new String();
-            var form_clmn_element_1 = new Object();
-            var form_clmn_element_2 = new Object();
-
-            form_section_value = "sctn_" + section_value.toString();
-
-            form_clmn_selector_1 = "#form-" + form_section_value + " .form-page_1";
-            form_clmn_selector_2 = "#form-" + form_section_value + " .form-page_2";
-
-            form_clmn_element_1 = $(form_clmn_selector_1);
-            form_clmn_element_2 = $(form_clmn_selector_2);
-
-    // window.alert("$(form_clmn_selector).css(\"display\") = " + $(form_clmn_selector).css("display"));
-            if ($(form_clmn_element_2) === undefined) {
-              if ($(form_clmn_element_1).css("display") === "none") {
-                animateFormPanes(form_section_value);
-              }
-            } else {
-              if ($(form_clmn_element_1).css("display") === "none" && 
-                  $(form_clmn_element_2).css("display") === "none") {
-                animateFormPanes(form_section_value);
-              }
-            }
-          }*/
-        }
-      );
-    } else {
-      /*if ((section_value === 1 && position_value === 1)
-          (section_value === 5 && position_value === 1) || 
-          (section_value === 6 && position_value === 1))  {
-        var form_section_value = new String();
-
-        var form_clmn_selector_1 = new String();
-        var form_clmn_selector_2 = new String();
-        var form_clmn_element_1 = new Object();
-        var form_clmn_element_2 = new Object();
-
-        form_section_value = "sctn_" + section_value.toString();
-
-        form_clmn_selector_1 = "#form-" + form_section_value + " .form-page_1";
-        form_clmn_selector_2 = "#form-" + form_section_value + " .form-page_2";
-
-        form_clmn_element_1 = $(form_clmn_selector_1);
-        form_clmn_element_2 = $(form_clmn_selector_2);
-
-// window.alert("$(form_clmn_selector).css(\"display\") = " + $(form_clmn_selector).css("display"));
-        if ($(form_clmn_element_2) === undefined) {
-          if ($(form_clmn_element_1).css("display") === "none") {
-            animateFormPanes(form_section_value);
-          }
-        } else {
-          if ($(form_clmn_element_1).css("display") === "none" && 
-              $(form_clmn_element_2).css("display") === "none") {
-            animateFormPanes(form_section_value);
-          }
-        }
-      }*/
-
-      $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
-        function () {
-          if (section_value === 3 || 
-              section_value === 4)  {
-            $(sub_nav_element).fadeTo(time_value, 1);
-          }
+          fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
         }
       );
     }
@@ -1923,7 +1872,7 @@ function animateMenuOptions(option_element) {
   }
 }
 
-function setPageInitialLocation(url_hash)  {
+function setPageInitialLocation()  {
   var section_value = new String();
   var position_value = new String();
   
@@ -1951,11 +1900,6 @@ function setPageInitialLocation(url_hash)  {
 // window.alert("position_value = " + position_value);
 
   css_1 = {
-    display: "table", 
-    opacity: 1
-  };
-
-  css_2 = {
     display: "block"
   };
 
@@ -1963,23 +1907,33 @@ function setPageInitialLocation(url_hash)  {
   position_value = parseInt(position_value);
   // window.alert("section_value = " + section_value);
   wndow_selector = ".wndow";
-  headr_selector = ".headr.sctn_" + section_value.toString();
   copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
-  // window.alert("copy_selector = " + copy_selector);
+  
   wndow_element = $(wndow_selector);
-  headr_element = $(headr_selector);
   copy_element = $(copy_selector);
 
   wndow_height = $(wndow_element).height();
   scroll_to_value = section_value * wndow_height;
  
 
-  $(headr_element).css(css_1);
-  $(copy_element).css(css_2);
-//  window.alert("scroll_to_value = " + scroll_to_value);
+  $(copy_element).css(css_1);
+  
   $(window).scrollTop(scroll_to_value);
+}
 
-  // setURL();
+function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {
+  $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
+    function () {
+      if (section_value === 3 || 
+          section_value === 4)  {
+        $(sub_nav_element).fadeTo(time_value, 1);
+      }
 
-  // animatePageElements();
+      if (section_value === 1 && position_value === 1 || 
+          section_value === 5 && position_value === 1 || 
+          section_value === 6 && position_value === 1)  {
+        animateFormPanes();
+      }
+    }
+  );
 }

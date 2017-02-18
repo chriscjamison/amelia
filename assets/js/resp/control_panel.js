@@ -135,7 +135,7 @@ $(document).ready(
           $(sctn_nav_element).css(sctnNavBaseCSS);
         } else {
           if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
-            animateSctnNav(sctnNavElement);
+            animateSctnNav(sctn_nav_element);
           }
         }
 			}
@@ -143,27 +143,27 @@ $(document).ready(
 
     $(".sctn_nav > div > span").on("click",
 			function () {
-        var sctnNavVisibleCSS = new Object();
-        var sctnNavElement = new String();
-        var sctnNavLinkElement = new String();
+        var sctn_nav_visible_element = new Object();
+        var sctn_nav_element = new String();
+        var sctn_nav_link_element = new String();
         
-        sctnNavElement = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctnNavLinkElement = "#" + $(this).parent().parent().attr("id") + " > div > div";
+        sctn_nav_element = "#" + $(this).parent().parent().attr("id") + " > div > span";
+        sctn_nav_link_element = "#" + $(this).parent().parent().attr("id") + " > div > div";
         
-        animateSctnNavLinks(sctnNavLinkElement);
+        animateSctnNavLinks(sctn_nav_link_element);
         
-        animateSctnNav(sctnNavElement);
+        animateSctnNav(sctn_nav_element);
 			}
 		);
 
 		$(".sctn_nav > div > div > a").on("click",
 			function () {
-				var currentSctnNavID = $(this).parent().parent().parent().attr("id");
-				var currentSctnNavIDString = "#" + currentSctnNavID + " > div > span";
-				var currentSctnNavElement = "#" + currentSctnNavID + " > div > div";
+				var current_sctn_nav_id = $(this).parent().parent().parent().attr("id");
+				var current_sctn_nav_id_string = "#" + current_sctn_nav_id + " > div > span";
+				var current_sctn_nav_element = "#" + current_sctn_nav_id + " > div > div";
 				         
-        animateSctnNavLinks(currentSctnNavElement);
-        animateSctnNav(currentSctnNavIDString);
+        animateSctnNavLinks(current_sctn_nav_element);
+        animateSctnNav(current_sctn_nav_id_string;
       }
 		);
     
@@ -171,7 +171,7 @@ $(document).ready(
       function () {
         window.location.hash = "#sctn_1?pos=1";
 
-        animateFormPanes("start", "sctn_1");
+        animateFormPanes();
       }
     );
 
@@ -207,7 +207,7 @@ $(document).ready(
 
     $("#sctn_1-prev, #sctn_1-next").click(
       function () {
-        animateFormPanes("sctn_1");
+        animateFormPanes();
       }
     );
 
@@ -329,7 +329,7 @@ $(document).ready(
     
     $("#sctn_6-prev, #sctn_6-next").click(
       function () {
-        animateFormPanes("sctn_6");
+        animateFormPanes();
       }
     );
 
@@ -397,20 +397,8 @@ $(document).ready(
             url_hash === "#sctn_main")  {
           animateInfoElement();
         } else {
+          setPageInitialLocation();
           animatePageElements();
-
-
-          setTimeout(
-            function () {
-              // setPageInitialLocation(url_hash);
-            }, (time_value * 2)
-          ); 
-
-          setTimeout(
-            function () {
-              animateFormPanes();
-            }, (time_value * 1.25)
-          );
         }
       }
     );
@@ -449,19 +437,35 @@ $(document).ready(
         
         if (url_hash.indexOf("copyValues") === -1 && 
             url_hash !== "") {
-          animatePageElements();
+          var nav_selector = new String();
+          var nav_element = new Object();
+          var nav_width_string = new String();
+          var nav_width_val = new Number();
+          var nav_left_string = new String();
+          var nav_left_val = new Number();
+          var px_search_string = new String();
+          var px_search_index_num = new Number();
 
-          setTimeout(
-            function () {
-              // setPageInitialLocation(url_hash);
-              
-              setTimeout(
-                function () {
-                  animateFormPanes();
-                }, (time_value * 1.25)
-              );
-            }, (time_value * 4)
-          ); 
+          nav_selector = "nav";
+          nav_element = $(nav_selector);
+          
+          nav_width_string = $(nav_element).css("width");
+          nav_left_string = $(nav_element).css("left");
+
+          px_search_string = "px";
+          px_search_index_num = nav_width_string.indexOf(px_search_string);
+
+          nav_width_val = nav_width_string.substring(0, px_search_index_num);
+          nav_width_val = parseInt(nav_width_val);
+
+          px_search_index_num = nav_left_string.indexOf(px_search_string);
+          nav_left_val = nav_left_string.substring(1, px_search_index_num);
+          nav_left_val = parseFloat(nav_left_val);
+          nav_left_val = Math.round(nav_left_val);
+
+          if (nav_width_val === nav_left_val) {
+            animatePageElements();
+          }
         }
       }
     );
@@ -476,12 +480,12 @@ $(document).ready(
           function () {
             setPageInitialLocation(url_hash);
 
-            setTimeout(
+            /*setTimeout(
               function () {
                 animateFormPanes();
               }, (time_value * 1.25)
-            );
-          }, (time_value * 1.25)
+            );*/
+          }, (time_value *3)
         ); 
       }
     );
