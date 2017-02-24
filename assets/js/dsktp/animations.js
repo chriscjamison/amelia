@@ -511,6 +511,9 @@ function cssAdjustment()  {
   var next_sctn_span_element = new Object();
   var prev_sctn_span_element = new Object();
 
+  var window_width = new Number();
+  var window_height = new Number();
+
   var next_sctn_1_css = new Object();
   // Holds CSS properties and values of "width", "height", "paddingTop", "right", bottom", 
   // "backgroundImage", and "backgroundPosition".
@@ -543,6 +546,9 @@ function cssAdjustment()  {
   page_dimensions_Array = parseWindowDimensions();
   // The width and height of the browser window is passed to "pageDimensions_Array" by 
   // the function, "parseWindowDimensions".
+
+  window_width = page_dimensions_Array[0];
+  window_height = page_dimensions_Array[1];
   
   info_selector = "#info";
   info_img_selector = "#info > img";
@@ -558,7 +564,7 @@ function cssAdjustment()  {
   next_sctn_span_element = $(next_sctn_span_selector);
   prev_sctn_span_element = $(prev_sctn_span_selector);
   
-  if (page_dimensions_Array[0] >= 1260)  {
+  if (window_width >= 1260)  {
     if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
         (window.navigator.userAgent.indexOf("Tablet") === -1))  {
       next_sctn_1_css = {
@@ -623,7 +629,7 @@ function cssAdjustment()  {
       $(prev_sctn_span_element).css(next_sctn_2_css);
       
         
-      if (page_dimensions_Array[0] > 1910)  {
+      if (window_width > 1900)  {
         $(info_element).css(info_1_css);
         // The HTML element identified by the selector, "#prev-sctn", is formatted by 
         // using the CSS properties held by the Object, "prev_sctn_css".
@@ -642,7 +648,7 @@ function cssAdjustment()  {
         info_1_css = {
           "width": "38.6em",
           "height": "15.2em",
-          "bottom": "7.5em"
+          "bottom": "9.2em"
         };
         
         info_3_css = {
@@ -678,7 +684,7 @@ function cssAdjustment()  {
     }
   } // END OF if STATEMENT
     
-  if ($(window).width() === 980)  {
+  if (window_width === 980)  {
     var copy_selector = new String();
 
     var copy_element = new Object();
@@ -707,7 +713,7 @@ function cssAdjustment()  {
     // These values format the HTML elements using the selectors, 
     // "#prev-sctn > span" and "#next-sctn > span".
 
-    copy_selector = "#copy";
+    copy_selector = ".copy";
 
     copy_element = $(copy_selector);
     
@@ -716,9 +722,15 @@ function cssAdjustment()  {
     };
         
     info_4_css = {
-      "width": page_dimensions_Array[0],
-      "height": (page_dimensions_Array[1] * 0.7)
+      "width": page_dimensions_Array[0], 
     };
+    
+    if (window_height === 1308) {
+      info_4_css.height = window_height * 0.92;
+    } else {
+      info_4_css.height = window_height * 0.7;
+    }
+    
     
     info_5_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
@@ -727,9 +739,9 @@ function cssAdjustment()  {
     };
     
     next_sctn_css = {
-      right: "20.2em",
+      height: "3em", 
       backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPosition: "0px -193px"
+      backgroundPosition: "0px -420px"
     };
 
     nav_sctn_css = {
@@ -738,6 +750,27 @@ function cssAdjustment()  {
       margin: "0 auto"
     };
    
+    /*$(copy_elements).each(
+      function () {
+        switch ($(this).parent().attr("id").charAt(11))  {
+          case "1":
+            copy_css.width = "48.13em";
+          break;
+        } // END OF SWITCH STATEMENT
+        
+        /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
+         *  I - If the parent of this ".copy" element is #wndow-sctn_1"
+         *    A.  Set the "width" of the element to "48.13em". 
+         * **************** **************** **************** **************** **************** */
+        /*
+        $(this).css(copy_css);
+        // Sets the value of the CSS property as they are held within the Object, "copy_css".
+        //
+        // The current HTML element, ".copy", is positioned in the middle of the page, just below 
+        // the HTML element using the selector, ".headr", for the section being cycled through.
+      }
+    ); // END OF .each METHOD
+*/
     $(info_element).css(info_4_css);
     // Sets the CSS properties, "width" and "height", of the HTML element using the selector, "#info", 
     // using the values held by, "info_4_css".

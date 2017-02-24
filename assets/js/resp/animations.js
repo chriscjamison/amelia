@@ -321,6 +321,9 @@ function cssAdjustment()  {
   var next_sctn_span_element = new Object();
   var prev_sctn_span_element = new Object();
 
+  var window_width = new Number();
+  var window_height = new Number();
+
   var next_sctn_1_css = new Object();
   // Holds CSS properties and values of "width", "height", "paddingTop", "right", bottom", 
   // "backgroundImage", and "backgroundPosition".
@@ -353,6 +356,9 @@ function cssAdjustment()  {
   page_dimensions_Array = parseWindowDimensions();
   // The width and height of the browser window is passed to "pageDimensions_Array" by 
   // the function, "parseWindowDimensions".
+
+  window_width = page_dimensions_Array[0];
+  window_height = page_dimensions_Array[1];
   
   info_selector = "#info";
   info_img_selector = "#info > img";
@@ -368,7 +374,7 @@ function cssAdjustment()  {
   next_sctn_span_element = $(next_sctn_span_selector);
   prev_sctn_span_element = $(prev_sctn_span_selector);
   
-  if (page_dimensions_Array[0] >= 1260)  {
+  if (window_width >= 1260)  {
     if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
         (window.navigator.userAgent.indexOf("Tablet") === -1))  {
       next_sctn_1_css = {
@@ -433,7 +439,7 @@ function cssAdjustment()  {
       $(prev_sctn_span_element).css(next_sctn_2_css);
       
         
-      if (page_dimensions_Array[0] > 1900)  {
+      if (window_width > 1900)  {
         $(info_element).css(info_1_css);
         // The HTML element identified by the selector, "#prev-sctn", is formatted by 
         // using the CSS properties held by the Object, "prev_sctn_css".
@@ -488,7 +494,7 @@ function cssAdjustment()  {
     }
   } // END OF if STATEMENT
     
-  if ($(window).width() === 980)  {
+  if (window_width === 980)  {
     var copy_selector = new String();
 
     var copy_element = new Object();
@@ -526,9 +532,15 @@ function cssAdjustment()  {
     };
         
     info_4_css = {
-      "width": page_dimensions_Array[0],
-      "height": (page_dimensions_Array[1] * 0.7)
+      "width": page_dimensions_Array[0], 
     };
+    
+    if (window_height === 1308) {
+      info_4_css.height = window_height * 0.92;
+    } else {
+      info_4_css.height = window_height * 0.7;
+    }
+    
     
     info_5_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
@@ -537,9 +549,9 @@ function cssAdjustment()  {
     };
     
     next_sctn_css = {
-      right: "24.1em",
+      height: "3em", 
       backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPosition: "0px -234px"
+      backgroundPosition: "0px -420px"
     };
 
     nav_sctn_css = {
@@ -957,25 +969,36 @@ function animateInfoElement() {
     };
     
     next_sctn_css = {
-      "height": "35px", 
-      "bottom": "1.56em"
+      height: "3em", 
+      bottom: "3.56em", 
+      backgroundPosition: "0px -418px"
     };
     
     prev_sctn_css = {
-      "height": "25px"
+      height: "1.56em"
     };
     
     nav_sctn_css = {
-      "display": "block"
+      display: "block"
     };
     
     nav_css = {
-      "display": "block"
+      display: "block"
     };
-    
+    /*
     nav_link_css = {
       "opacity": 1
-    };
+    };*/
+
+    $("#info").animate(info_css, time_value, 
+      function () {
+        $("#next-sctn").css(next_sctn_css);
+        $("#prev-sctn").css(prev_sctn_css);
+        $("nav").css(nav_css);
+        $("#next-sctn > span").detach();
+        $("#nav-link").fadeTo(time_value, 1);
+      });
+    
   } else {
     var logo_1_css = new Object();
     // Holds the value for the CSS property, "display".
@@ -1081,81 +1104,6 @@ function animateInfoElement() {
    * **************** **************** **************** **************** **************** */
 
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
-
-function sortCopyElements(section_value) {
-
-  var visible_copy_elements = new Array();
-  // Holds an Array which is created when the JavaScript Method, ".split", is run on the 
-  // the String value held by the JavaScript Method, "window.location.hash".
-  // 
-  // The Array will consist of multiple elements which include characters which respresent 
-  // the ".copy" HTML element which appeared visible within the webpage before the 
-  // side navigation was activated.
-
-
-  /* **************** **************** **************** **************** **************** 
-   * sortCopyElements determines which HTML content within a given "section" 
-   * is made visible.
-   * 
-   * The function accepts the parameter, "section_value", which directs the function to 
-   * sort through the HTML content to find the HTML element using the selector, ".copy", 
-   * which holds the content which a visitor wants to view.
-   * **************** *************** **************** **************** **************** */
-  var wndow_selector = new String();
-  // Holds a String which matches the selector of the ".copy" HTML element which is 
-  // being examined by the logic of an ".each" jQuery Method.
-  var copy_selector = new String();
-  var copy_elements = new Array();
-  var copy_element = new Object();
-  var position_value = new Number();
-  // Holds a Number which identifies the individual, ".copy" HTML element containing 
-  // the HTML content which a visitor wants to view.
-  
-  var inc = new Number();
-  // Holds an incrementer used by an ".each" jQuery Method.
-  // 
-  // "inc" is used to increment through various ".copy" HTML elements which 
-  // are identified by the selector held by "wndow_selector".
-  
-  copy_selector = "#wndow-" + section_value + " > .copy";
-  // copy_selector = "#wndow-" + section_value + " > .copy:first-of-type";
-
-  copy_elements = $(wndow_selector);
-
-  $(copy_elements).each(
-    function () {
-      copy_element = this;
-
-      if ($(copy_element).css("display") === "none")  {
-        inc++;
-      }
-    }
-  );
-  
-  /* .each METHOD LOGIC ************* **************** **************** **************** 
-   *  I - For every ".copy" HTML element, determine if the value 
-   *      of the CSS property, "display", is "block". 
-   *    A. If the CSS value of the current ".copy" HTML element is set to "block".
-   *       1. Set "position_value" to the value of "inc".
-   *    B. Increment the value of "inc".  
-   * **************** **************** **************** **************** **************** */
-  
-  position_value = inc;
-
-  url_hash = "#" + section_value + "?pos=" + position_value;
-  // Assemble the URL hash which will determine which location within the page 
-  // that the browser will display after "sortCopyElements" is complete.  
-  window.location.hash = url_hash;
-  // Set the URL hash to the value contained within, "url_hash".
-
-  
-  setTimeout(function() {displayVerticalNav();}, time_value);
-  // Activates the function, "displayVerticalNav", which displays intrapage navigation.
-  //
-  // "displayVerticalNav" is activated after a period which is equal to the 
-  // value of "time_value".
-
-} /* **************** END OF FUNCTION "sortCopyElements" **************** */
 
 function animateFormPanes() {
   /* **************** **************** **************** **************** **************** 
@@ -1368,8 +1316,15 @@ function animatePageElements()  {
 // window.alert("section_value = " + section_value);
     position_search_string = "pos=";
     position_value_index_num = url_hash.indexOf(position_search_string);
+
+    if (position_value_index_num === -1)  {
+      position_value = "0";
+    } else {
+      position_value = url_hash.charAt(position_value_index_num + position_search_string.length);
+    }
 // window.alert("position_value_index_num = " + position_value_index_num);
-    position_value = parseInt(url_hash.charAt(position_value_index_num + position_search_string.length));
+    
+    position_value = parseInt(position_value);
 
 //  window.alert("position_value = " + position_value);
 
@@ -1562,6 +1517,7 @@ function animateSideNav() {
   // Holds the String value of the selector, "#info".
   var sctn_nav_selector = new String();
   // Holds the String value of the selector, ".sctn_nav".
+  var prev_next_sctn_selector = new String();
   var bkgrnd_selector = new String();
   // Holds the String value of the selector, "#bkgrnd".
 
@@ -1617,6 +1573,7 @@ function animateSideNav() {
   var sctn_nav_element = new Object();
   // Holds the jQuery object of the content of the HTML element 
   // identified by the selector, ".sctn_nav".
+  var prev_next_sctn_element = new Object();
 
   var nav_width = new Number();
   // Holds the numberical value of the width of the HTML element 
@@ -1631,6 +1588,9 @@ function animateSideNav() {
   // by the selector, "nav".
   var window_width = new Number();
   // Holds the numberical value of the width of the browser window.
+  var wndow_width = new Number();
+  
+  var page_dimensions_Array = new Array();
 
   nav_selector = "nav";
   options_selector = "#options";
@@ -1641,7 +1601,8 @@ function animateSideNav() {
   headr_selector = ".headr";
   copy_selector = ".copy";
   info_selector = "#info";
-  sctn_nav_selector = ".sctn_nav"
+  sctn_nav_selector = ".sctn_nav";
+  prev_next_sctn_selector = "#prev-sctn, #next-sctn";
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
 
   nav_element = $(nav_selector);
@@ -1654,6 +1615,7 @@ function animateSideNav() {
   copy_elements = $(copy_selector);
   info_element = $(info_selector);
   sctn_nav_element = $(sctn_nav_selector);
+  prev_next_sctn_element = $(prev_next_sctn_selector);
   bkgrnd_element = $(bkgrnd_selector);
 
   nav_width = $(nav_element).width();
@@ -1661,9 +1623,14 @@ function animateSideNav() {
   // calculated using the jQuery Method, ".width();
   // 
   // That value is passed onto the variable, "nav_width".
+  
+  window_width = $(window).width();
+  page_dimensions_Array = parseWindowDimensions();
+  wndow_width = page_dimensions_Array[0];
+
 
   if ($(nav_element).css("left") !== "0px")  {
-    element_width = $(window).width() - nav_width;
+    element_width = window_width - nav_width;
     // The difference of the width of the browser window and the value held ]
     // by "nav_width" is passed onto the variable "element_width".
     //
@@ -1678,35 +1645,62 @@ function animateSideNav() {
     var css_4 = new Object();
 
     css_1 = {
-      left: "0px"
+      left: "0px", 
+      opacity: 1
     };
 
     css_2 = {
+      display: "block"
+    };
+
+    css_3 = {
       display: "block", 
       opacity: 1
     };
 
-    css_3 = {
+    css_4 = {
       left: nav_width
     };
 
-    css_4 = {
-      display: "none"
+    css_5 = {
+      width: (wndow_width - nav_width),
+      left: nav_width
     };
 
-    $(info_element).css(css_4);
+    css_6 = {
+      display: "none"
+    };
+    
+    $(info_element).css(css_6);
 
-    $(headr_elements).css(css_4);
-    $(copy_elements).css(css_4);
-    $(sctn_nav_element).css(css_4);
-    $(options_element).css(css_2);
+    $(headr_elements).css(css_6);
+    $(copy_elements).css(css_6);
+    $(sctn_nav_element).css(css_6);
+    
+    $(options_element).css(css_3);
 
     $(nav_element).animate(css_1, (time_value / 1.5))
     $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
     $(nav_brdr_element).animate(css_1, (time_value / 1.5));
     $(options_element).animate(css_1, (time_value / 1.5));
-    $(cntainr_element).animate(css_3, (time_value / 1.5));
-    $(bkgrnd_element).animate(css_3, (time_value / 1.5));
+
+    if (wndow_width === 980)  {
+      $(nav_element).css(css_2);
+      $(nav_bkgrnd_element).css(css_2);
+      $(nav_brdr_element).css(css_2);
+      $(bkgrnd_element).css(css_5);
+      
+      css_5 = css_5 + css_6;
+
+      $(cntainr_element).css(css_5);
+      $(wndow_elements).css(css_5);
+      $(prev_next_sctn_element).css(css_6);
+    } else {
+      $(cntainr_element).animate(css_4, (time_value / 1.5));
+      $(bkgrnd_element).animate(css_4, (time_value / 1.5));
+    }
+    
+    
   } else  {
     var css_6 = new Object();
     var css_7 = new Object();
@@ -1736,6 +1730,14 @@ function animateSideNav() {
         $(nav_element).animate(css_6, time_value / 2);
         $(nav_bkgrnd_element).animate(css_6, time_value);
         $(nav_brdr_element).animate(css_6, time_value);
+
+        if (wndow_width === 980)  {
+          $(cntainr_element).css(css_8);
+          $(wndow_elements).css(css_7);
+          $(bkgrnd_element).css(css_8);
+          $(prev_next_sctn_element).css(css_8);
+        }
+
         $(cntainr_element).animate(css_7, time_value);
         $(bkgrnd_element).animate(css_7, time_value, 
           function () {
@@ -1826,13 +1828,17 @@ function setURL()  {
   } else {
     if (determineCurrentSection(current_position) !== Infinity) {
       section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
-      // window.alert("$(\"" + section_value + ").children(\".headr\").css(\"opacity\") = " + $(section_value).children(".headr").css("opacity"));
+      
       if (current_position >= wndow_height) {
         position_value = determineVisibleCopyElement(section_value);  
       } else  {
         position_value = 0;
       }
       
+      if (position_value === -1)  {
+        position_value = 0;
+      }
+
       url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
 
       if (url_hash === "#sctn_0?pos=0") {
@@ -1904,21 +1910,26 @@ function setPageInitialLocation()  {
     display: "block"
   };
 
-  section_value = parseInt(section_value);
-  position_value = parseInt(position_value);
-  // window.alert("section_value = " + section_value);
-  wndow_selector = ".wndow";
-  copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
-  
-  wndow_element = $(wndow_selector);
-  copy_element = $(copy_selector);
+  if (section_value !== "m" &&  
+      section_value !== "")  {
+    section_value = parseInt(section_value);
+    position_value = parseInt(position_value);
+    // window.alert("section_value = " + section_value);
+    wndow_selector = ".wndow";
+    copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
+    
+    wndow_element = $(wndow_selector);
+    copy_element = $(copy_selector);
 
-  wndow_height = $(wndow_element).height();
-  scroll_to_value = section_value * wndow_height;
- 
-  $(copy_element).css(css_1);
+    wndow_height = $(wndow_element).height();
+    scroll_to_value = section_value * wndow_height;
   
-  $(window).scrollTop(scroll_to_value);
+    $(copy_element).css(css_1);
+    
+    $(window).scrollTop(scroll_to_value);
+  } else  {
+    $(window).scrollTop(0);
+  }
 }
 
 function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {

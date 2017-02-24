@@ -180,11 +180,11 @@ nav {
 }
 
 #prev-sctn:hover {
-  background-position: 0px -111px !important;
+  background-position: 0px -111px;
 }
 
 #next-sctn:hover {
-  background-position: 0px -235px !important;
+  background-position: 0px -235px;
 }
 
 .base-prev-sctn {
@@ -311,12 +311,6 @@ div.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
 
-@media screen and (min-width: 360px) and (max-width: 414px) {
-  #next-sctn {
-    height: 9.25em;
-    bottom: 37em;
-  }
-}
 @media screen and (width: 980px) {
   nav, 
   #nav-bkgrnd, 
@@ -341,19 +335,19 @@ div.sctn_nav > div > div a:hover {
     opacity: 0;
   }
   
-  .nav-link-base {
+  .nav-base {
     background-position: 0 0;
   }
 
-  .nav-link-hover {
+  .nav-hover {
     background-position: 0 -100px;
   }
 
-  .nav-link-click_1 {
+  .nav-click_1 {
     background-position: 0 -200px;
   }
 
-  .nav-link-click_2 {
+  .nav-click_2 {
     background-position: 0 -300px;
   }
   
@@ -368,15 +362,24 @@ div.sctn_nav > div > div a:hover {
   
   #prev-sctn, 
   #next-sctn {
-    height: 8.25em;
-    bottom: 37em;
-    right: 24.1em;
+    width: 22.2em;
+    height: 3em;
+    right: 19.2em;
   }
   
   #next-sctn {
-    background-position-y: -137px
+    bottom: 38em;
+    background-position: 0px -310px
   }
   
+  #prev-sctn:hover {
+    background-position: 0px 0px;
+  }
+
+  #next-sctn:hover {
+    background-position: 0px -310px;
+  }
+
   #prev-sctn > span,
   #next-sctn > span {
     width: 6.8em;
@@ -384,6 +387,7 @@ div.sctn_nav > div > div a:hover {
     margin: 0 auto;
     font-size: 1.8em;
   }
+  
   
   .sctn_nav {
     width: 61.2em !important;
@@ -422,6 +426,30 @@ div.sctn_nav > div > div a:hover {
     margin: 0.65em 0;
     padding: 0.5em 0 0.25em 0;
     font: 400 2em "Franklin Gothic Medium", sans-serif
+  }
+}
+
+@media screen and (width: 980px) and (max-height: 1310px) {
+  #options > span {
+    font-size: 1.85em;
+  }
+  
+  #next-sctn {
+    bottom: 11em;
+  }
+
+  .sctn_nav {
+    top: 47em !important;
+  }
+  
+  .sctn_nav > div > div {
+    margin: 0 !important;
+  }
+
+  .sctn_nav > div > div > a {
+    height: 1.5em !important;
+    margin: 0.65em 0 0.65em 1.2em !important;
+    font: 400 1.6em "Frankin Gothic Medium", sans-serif !important;
   }
 }
 

@@ -131,7 +131,6 @@ body {
 	padding: 1em 2em;
 	position: absolute;
 	z-index: 2;
-	font-size: 0.9em;
 	opacity: 0;
 }
 
@@ -482,7 +481,7 @@ body {
 .sctn_5-blok p {
 	font-size: 0.95em;
 	text-indent: 1.3em;
-	line-height: 1.8em;
+	line-height: 1.6em;
 }
 
 #sctn_5-desc-1 {
@@ -845,7 +844,6 @@ body {
 	padding: 1.6em 1.5em;
 }
 
-
 @media screen and (width: 980px) {
   #info {
     background-color: #977348;
@@ -885,9 +883,14 @@ body {
     font-size: 3em;
   }
 
+  .copy {
+    width: 50.55em;
+    height: 111.7em;
+    margin-left: 14.5em;
+  }
+
   .sctn_1-blok {
     width: 18em;
-    font-size: 1.75em;
   }
 
   .sctn_2-blok {
@@ -900,8 +903,8 @@ body {
   }
 
   .sctn_2-blok_2 {
-    width: 49em;
-    margin-left: 4.5em;
+    width: 48.55em;
+    margin-left: 5em;
     top: 2em;
     left: 0;
   }
@@ -936,7 +939,7 @@ body {
     width: 36em;
   }
 
-
+  .sctn_1-blok > p,
   .sctn_3-blok > p,
   .sctn_4-blok > p,
   .sctn_5-blok > p,
@@ -975,6 +978,76 @@ body {
 
   #sctn_6-info-2 > div {
     width: 19.5em;
+  }
+}
+
+@media screen and (width: 980px) and (max-height: 1310px) {
+  .copy {
+    width: 55.05em;
+    height: 81.7em;
+    margin-left: 13em;
+  }
+
+  #wndow-sctn_2 > .copy:first-of-type {
+    width: 54.25em;
+    margin-left: 13.75em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-blok,
+  .sctn_5-blok,
+  .sctn_6-blok,
+  #sctn_5-desc-2,
+  #sctn_6-info-1 {
+    width: 39em;
+  }
+
+  .sctn_1-blok > p, 
+  .sctn_3-blok > p, 
+  .sctn_5-blok > p, 
+  .sctn_6-blok > p,
+  #sctn_6-info-1 > span > span, 
+  .sctn_6-blok-2 > div {
+    font-size: 1.5em;
+  }
+
+  .sctn_2-blok > ul, 
+  .sctn_6-blok-2 > span {
+    font-size: 1.5em;
+  }
+
+  .sctn_2-blok > ul > li {
+    margin: 0.25em;
+  }
+
+  .sctn_2-blok_2 > span {
+    margin-left: 5em;
+    font-size: 1.5em;
+  }
+
+
+  .sctn_2-blok_2 > span + div > span {
+    margin: 0.25em 4em 0.25em 3.5em;
+    padding: 0.45em 0 0 0;
+    font-size: 1.4em;
+  }
+
+  .sctn_6-blok-2 {
+    width: 20em;
+    height: 17.8em;
+    margin-bottom: 0;
+  }
+
+  .sctn_6-blok-2 > div {
+    width: 10em;
+  }
+  #sctn_6-info-2 {
+    width: 43em;
+  }
+
+  #sctn_6-info-2 > div {
+    width: 25.25em;
   }
 }
 

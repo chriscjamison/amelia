@@ -89,10 +89,9 @@ $(document).ready(
       }
     );
 
-
-        
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
+// window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
         interSectionNav(this);
       }
     );
@@ -132,7 +131,7 @@ $(document).ready(
 
         if ($(sctn_nav_link_element).css("display") === "none" && 
             $(sctn_nav_element).css("backgroundPosition") === "0px 0px") {
-          $(sctn_nav_element).css(sctnNavBaseCSS);
+          $(sctn_nav_element).css(sctn_nav_link_element);
         } else {
           if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
             animateSctnNav(sctn_nav_element);
@@ -392,14 +391,20 @@ $(document).ready(
     $(window).on("load", 
       function () {
         var url_hash = new String();
+        var page_dimensions_Array = new Array();
+        var window_width = new Number();
 
         url_hash = window.location.hash;
+        page_dimensions_Array = parseWindowDimensions();
+        window_width = page_dimensions_Array[0];
         
         setupPage();
 
         if (url_hash === "" || 
             url_hash === "#sctn_main")  {
-          animateInfoElement();
+          if (window_width > 980) {
+            animateInfoElement();
+          }
         }
       }
     );
@@ -465,7 +470,17 @@ $(document).ready(
           nav_left_val = Math.round(nav_left_val);
 
           if (nav_width_val === nav_left_val) {
+            var current_position = new Number();
+
+            current_position = $(window).scrollTop();
+            
             animatePageElements();
+
+            setTimeout(
+              function () {
+                displayVerticalNav();
+              }, time_value
+            ); 
           }
         }
       }
@@ -474,21 +489,8 @@ $(document).ready(
     $(window).on("resize", 
       function () {
         setupPage();
-        
-        animatePageElements();
-
-        setTimeout(
-          function () {
-            setPageInitialLocation(url_hash);
-
-            /*setTimeout(
-              function () {
-                animateFormPanes();
-              }, (time_value * 1.25)
-            );*/
-          }, (time_value *3)
-        ); 
       }
     );
+
   }
 );

@@ -132,15 +132,14 @@ function determineCopyElements()  {
   visible_elements_var = "copyValues=";
   
   url_hash = window.location.hash;
-  // window.alert("url_hash.indexOf(\"" + visible_elements_var + ") = " + url_hash.indexOf(visible_elements_var));
+  
   if (url_hash.indexOf(visible_elements_var) === -1)  {
     $(wndow_elements).each(
       function () {
         wndow_element = this;
 
         current_window_id = "#" + $(wndow_element).attr("id");
-        // window.alert("current_window_id = " + current_window_id);
-
+        
         if (current_window_id !== "#wndow-sctn_main")  {
           visible_copy_element_num = determineVisibleCopyElement(current_window_id);
 
@@ -264,13 +263,18 @@ function interSectionNav(inter_nav_element)  {
 
   var section_value = new Number();
   
-  var sub_nav_selector = new String();
+  var sctn_nav_selector = new String();
+  
   var wndow_selector = new String();
+  var wndow_elements = new Object();
+
+  var wndow_height = new Number();
   
   var scroll_to_num = new Number();
 
   var complete_called = false;
 
+  
   url_hash = window.location.hash;
 
   current_position = $(window).scrollTop();
@@ -281,15 +285,18 @@ function interSectionNav(inter_nav_element)  {
 
   current_section_string = "sctn_" + section_value;
 
-  sub_nav_selector = $(inter_nav_element).attr("id");
+  sctn_nav_selector = $(inter_nav_element).attr("id");
   
   wndow_selector = ".wndow";
   wndow_elements = $(wndow_selector);
+
+  wndow_height = $(wndow_elements).height();
   num_of_wndow_elements = wndow_elements.length;
 
-  if (sub_nav_selector === "prev-sctn") {
+  if (sctn_nav_selector === "prev-sctn") {
     if (section_value === 1)  {
       section_value = "main";
+      scroll_to_num = 0;
     } else  {
       section_value = section_value - 1;
     }
@@ -317,21 +324,46 @@ function interSectionNav(inter_nav_element)  {
   }
   
 
-  if (section_value === "main") {
-    scroll_to_num = 0;
+  if (section_value === "main" || section_value === 1) {
+    var page_dimensions_Array = new Array();
+    var window_width = new Number();
+
+    page_dimensions_Array = parseWindowDimensions();
+    window_width = page_dimensions_Array[0];
+// window.alert("window_width = " + window_width);
+    if (window_width <= 980)  {
+      var info_selector = new String();
+      var info_element = new Object();
+      var info_top_val = new String();
+
+      info_selector = "#info";
+      info_element = $(info_selector);
+      info_top_val = $(info_element).css("top");
+
+      if (info_top_val === "0px") {
+        animateInfoElement();
+      } 
+      
+      if ((sctn_nav_selector === "prev-sctn" && section_value === "main") || 
+          (sctn_nav_selector === "next-sctn" && info_top_val === "0px")) {
+        scroll_to_num = 0;
+      } else {
+        scroll_to_num = section_value * wndow_height;
+      }
+    } 
   } else  {
-    scroll_to_num = section_value * $(wndow_selector).height();
+    scroll_to_num = section_value * wndow_height;
   }
   
   $("html, body").animate(
-      { scrollTop: scroll_to_num },
-      {
-        complete : function(){
-          if (!complete_called) {
-              complete_called = true;
-          }
+    { scrollTop: scroll_to_num },
+    {
+      complete : function(){
+        if (!complete_called) {
+            complete_called = true;
         }
       }
+    }
   );
   
   setTimeout(function() {displayVerticalNav();}, time_value);

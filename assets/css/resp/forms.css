@@ -143,11 +143,11 @@
 	float: right;
 }
 
-#sctn_6-next {
+/*#sctn_6-next {
 	position: relative;
 	top: 3em;
 	right: -1.6em;
-}
+}*/
 
 #sctn_1-prev,
 #sctn_6-prev {
@@ -359,7 +359,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 }
 
 @media screen and (width: 980px) {
-
 	input[type=button],
 	input[type=submit] {
 		width: 6em;
@@ -367,6 +366,15 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		margin: 0 0 0 1.2em;
 		background-color: #40BDE8;
 		font: 400 2.5em "Franklin Gothic Medium", sans-serif;
+	}
+
+	input[type='text'], 
+	input[type='email'] {
+		width: 14em;
+	}
+
+	select {
+		width: 6.75em;
 	}
 	
 	.clmn {
@@ -396,6 +404,9 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 	
 	input#sctn_1-start {
+		position: relative;
+		float: right;
+		left: 0em;
 		font-size: 1.5em;
 	}
 	
@@ -418,7 +429,31 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		width: 7.7em;
 		margin-left: 0.7em;
 		letter-spacing: 0;
-		
+	}
+
+	p:not(#foo) > input[type=checkbox] + label {
+		padding-top: 0.05em;
+	}
+}
+
+@media screen and (width: 980px) and (max-height: 1310px) {
+	.clmn {
+		width: 41.75em;
+	}
+
+	.form_cntnt {
+		font-size: 1.14em;
+	}
+
+	input[type='button'], 
+	input[type='submit'] {
+		font-size: 2em;
+	}
+
+	input[type='text'], 
+	input[type='email'], 
+	fieldset > textarea {
+		width: 21.5em;
 	}
 }
 
