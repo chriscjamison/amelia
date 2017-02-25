@@ -12,19 +12,6 @@ $(document).ready(
     base_url_value = "http://localhost/amelia/sc/";
     rate_value_search_string = "rateValue=";
 
-    setupPage();
-
-    if (url_pathname === "/amelia/sc/" || 
-        url_pathname === "/amelia/sc/index.htm")  {
-      animateInfoElement();
-    } else {
-      animatePageElements();
-    }
-    
-    if (url_href.indexOf(rate_value_search_string) !== -1) {
-      setRateValue(rate_value_search_string);
-    }
-
     $("#nav-link").on("mouseover", 
       function () {
         navLinkHoverState("hover");
@@ -78,6 +65,12 @@ $(document).ready(
             navLinkHoverState("base");
             activateSideNav(option_element);
           }, (time_value * 2.5));
+      }
+    );
+
+    $("#next-sctn").on("click", 
+      function () {
+        animateInfoElement();
       }
     );
     
@@ -184,7 +177,7 @@ $(document).ready(
 
     $("input#sctn_1-prev, input#sctn_1-next").on("click", 
       function () {
-        swapQuestions("sctn_1");
+        animateFormPanes();
       }
     );
     
@@ -303,7 +296,7 @@ $(document).ready(
 
     $("#sctn_6-prev, #sctn_6-next").click(
       function () {
-        swapQuestions("sctn_6");
+        animateFormPanes();
       }
     );
 
@@ -357,6 +350,21 @@ $(document).ready(
 
     $(window).on("load", 
       function () {
+        setupPage();
+
+        if ((url_pathname === "/amelia/sc/" || 
+            url_pathname === "/amelia/sc/index.htm") && 
+            (window.navigator.userAgent.indexOf("Mobile") === -1) && 
+            (window.navigator.userAgent.indexOf("Tablet") === -1))  {
+          animateInfoElement();
+        } else {
+          animatePageElements();
+        }
+        
+        if (url_href.indexOf(rate_value_search_string) !== -1) {
+          setRateValue(rate_value_search_string);
+        }
+
         if ((url_pathname.indexOf("/1/") !== -1 && url_pathname.indexOf("page_1.htm") !== -1)) {
           setTimeout(
             function () {

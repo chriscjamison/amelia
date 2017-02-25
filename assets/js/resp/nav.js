@@ -313,17 +313,16 @@ function interSectionNav(inter_nav_element)  {
     }
   }
 
-  if (section_value !== "none") {
-    if (url_hash.indexOf(section_search_string) === -1) {
-      url_hash = "sctn_1?pos=0";
-    } else {
-      if (section_value === "" || section_value === "main") {
-        url_hash = "sctn_main";
+   if (section_value === "" || section_value === "main") {
+      url_hash = "sctn_main";
+    } else if (section_value !== "none")  {
+      if (url_hash.indexOf(section_search_string) === -1) {
+        url_hash = "sctn_1?pos=0";
+
+        scroll_to_num = wndow_height;
       }
     }
-  }
   
-
   if (section_value === "main" || section_value === 1) {
     var page_dimensions_Array = new Array();
     var window_width = new Number();
@@ -343,13 +342,13 @@ function interSectionNav(inter_nav_element)  {
       if (info_top_val === "0px") {
         animateInfoElement();
       } 
-      
-      if ((sctn_nav_selector === "prev-sctn" && section_value === "main") || 
-          (sctn_nav_selector === "next-sctn" && info_top_val === "0px")) {
-        scroll_to_num = 0;
-      } else {
-        scroll_to_num = section_value * wndow_height;
-      }
+    }
+
+    if ((sctn_nav_selector === "prev-sctn" && section_value === "main") || 
+        (sctn_nav_selector === "next-sctn" && info_top_val === "0px")) {
+      scroll_to_num = 0;
+    } else {
+      scroll_to_num = section_value * wndow_height;
     } 
   } else  {
     scroll_to_num = section_value * wndow_height;

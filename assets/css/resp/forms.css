@@ -182,7 +182,7 @@ fieldset {
 
 fieldset > div {
 	margin: 0 auto;
-	width: 264px;
+	width: 20.3em;
 }
 
 input[type=button],
@@ -246,7 +246,7 @@ input[type=range] {
 }
 
 select {
-	font: 400 1.3em "Franklin Gothic Medium";
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 	width: 150px;
 	margin: 0.7em auto 0.5em auto;
 	display: block;
@@ -407,7 +407,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		position: relative;
 		float: right;
 		left: 0em;
-		font-size: 1.5em;
 	}
 	
 	input#sctn_5-sbmt {

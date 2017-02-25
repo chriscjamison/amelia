@@ -685,187 +685,42 @@ function cssAdjustment()  {
   } // END OF if STATEMENT
     
   if (window_width === 980)  {
-    var copy_selector = new String();
+    var nav_link_selector = new String();
+    var nav_link_element = new Object();
 
-    var copy_element = new Object();
-
-    var copy_css = new Object();
-    // Holds the CSS value for the property, "marginLeft", which is used to 
-    // position the HTML elements using the selector, ".copy", to appear 
-    // within the browser window as they were designed.
-    var info_4_css = new Object();
-    // Holds the CSS values for the properties, "width" and "height". 
-    // 
-    // These values format the HTML element using the selector, "#info".
-    var info_5_css = new Object();
-    // Holds the HTML attributes, "src", "width", and "height", for the 
-    // HTML element using the selector, "#info > img".
-    //
-    // These attributes format the HTML element using the selector, "#info > img".
-    var next_sctn_css = new Object();
-    // Holds the CSS values for the properties, "right", "backgroundImage", 
-    // and "backgroundPosition".
-    //
-    // These values format the HTML element using the selector, "#next-sctn".
-    var nav_sctn_css = new Object();
-    // Holds the CSS values for the properties, "width", "height", and "margin".
-    //
-    // These values format the HTML elements using the selectors, 
-    // "#prev-sctn > span" and "#next-sctn > span".
-
-    copy_selector = ".copy";
-
-    copy_element = $(copy_selector);
+    var nav_link_css = new Object();
+    var info_img_css= new Object();
     
-    copy_css = {
-      "marginLeft": "14.5em",
-    };
-        
-    info_4_css = {
-      "width": page_dimensions_Array[0], 
+    nav_link_selector = "#nav-link";
+    nav_link_element = $(nav_link_selector);
+    
+    nav_link_css = {
+      opacity: 0
     };
     
-    if (window_height === 1308) {
-      info_4_css.height = window_height * 0.92;
-    } else {
-      info_4_css.height = window_height * 0.7;
-    }
-    
-    
-    info_5_css = {
+    info_img_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
       "width": "480", 
       "height": "455"
     };
+  
+    if (!$(info_element))  {
+      $(nav_link_element).css(nav_link_css);
+    }
     
-    next_sctn_css = {
-      height: "3em", 
-      backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPosition: "0px -420px"
-    };
-
-    nav_sctn_css = {
-      width: "6.8em",
-      height: "6.56em",
-      margin: "0 auto"
-    };
+    $(info_img_element).attr(info_img_css);
    
-    /*$(copy_elements).each(
-      function () {
-        switch ($(this).parent().attr("id").charAt(11))  {
-          case "1":
-            copy_css.width = "48.13em";
-          break;
-        } // END OF SWITCH STATEMENT
-        
-        /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
-         *  I - If the parent of this ".copy" element is #wndow-sctn_1"
-         *    A.  Set the "width" of the element to "48.13em". 
-         * **************** **************** **************** **************** **************** */
-        /*
-        $(this).css(copy_css);
-        // Sets the value of the CSS property as they are held within the Object, "copy_css".
-        //
-        // The current HTML element, ".copy", is positioned in the middle of the page, just below 
-        // the HTML element using the selector, ".headr", for the section being cycled through.
-      }
-    ); // END OF .each METHOD
-*/
-    $(info_element).css(info_4_css);
-    // Sets the CSS properties, "width" and "height", of the HTML element using the selector, "#info", 
-    // using the values held by, "info_4_css".
-    // 
-    // The HTML element, "#info", is formatted to take up the full width of the browser window, 
-    // and "70%" of the height of that browser window.
-    $(info_img_element).attr(info_5_css);
-    // Sets the HTML attributes, "src", "width", and "height", of the HTML element 
-    // using the selector, "#info > img", using the values held by, "info_5_css".
-    // 
-    // The HTML element, "#info > img", is passed these attributes to display a smaller 
-    // image to fit a mobile browser.
-
-    $(next_sctn_element).css(next_sctn_css);
-    // Sets the CSS properties, "right", "backgroundImage", "backgroundPosition", 
-    // of the HTML element using the selector, "#next-sctn", using the values held by, 
-    // "next_sctn_css".
-    //
-    // These values are passed to the HTML element, "#next-sctn", to format this element 
-    // to function as a navigation button within a mobile browser.
-    $(next_sctn_span_element, prev_sctn_span_element).css(nav_sctn_css);
-    // Sets the CSS properties, "width", "height", and "margin", of the HTML elements 
-    // using the selectors, "#prev-sctn > span" and "#next-sctn > span", using values 
-    // held by, "nav_sctn_css".
-    // 
-    // The HTML elements, "#prev-sctn > span" and "#next-sctn > span", are formatted 
-    // to have a smaller width and height than these elements would have within the 
-    // default desktop or laptop display. The elements also are horizontally centered 
-    // within the browser window.
-
-    $(prev_sctn_span_element).html("");
-    // Removes the HTML from the HTML element using the selector, "#prev-sctn > span".
-    //
-    // The above HTML element has text to describe the navigation function of this element.
-    // The Method, ".html", strips that HTML.
-    $(next_sctn_span_element).html("Press to view the next section");
-    // Sets the HTML from the HTML element using the selector, "#next-sctn > span"
-    // to "Press to view the next section".
-    //
-    // The above HTML element lacks text to describe the navigation function of this element.
-    // The Method, ".html", adds the descriptive text, "Press to view the next section", 
-    // to the HTML element. 
+    if (window.navigator.userAgent.indexOf("Mobile") === -1 &&   
+        window.navigator.userAgent.indexOf("Tablet") === -1)  {
+      $(next_sctn_element).detach();
+    }
   } // END OF if STATEMENT
 
-  /* IF STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - If the height of the browser has a value greater than "1260".
-   *    A. If the browser is NOT a mobile browser.
-   *      1. Initialize the values of the Objects which will contain CSS properties 
-   *         and values meant to format various HTML elements.
-   *         a. The HTML element using the selector, "#next-sctn", which also serves 
-   *            as a navigation button, is formatted to fit a desktop or laptop display.
-   *         b. The HTML element using the selector, "#prev-sctn", which also serves 
-   *            as a navigation button, is formatted to fit a desktop or laptop display.
-   *         c. The HTML elements using the selectors, 
-   *            "#prev-sctn > span" and "#next-sctn > span", which holds text which 
-   *            describes the function of the corresponding naviation buttons.
-   *         d. The HTML element using the selector, "#info", is positioned on the page 
-   *            in the place is it designed to appear within a desktop or laptop display.
-   *         e. The HTML element using the selector, "#info > img", is 
-   *            to format the IMG contained within the tag using the selector, "#info" 
-   *            to appear on a display larger than the mobile version 
-   *            which serves as the default.
-   *         f. The HTML element using the selector, "#prev-sctn > span", is passed text 
-   *            which describes the function of the navigation button it is associated with.
-   *         g. The HTML element using the selector, "#next-sctn > span", is passed text 
-   *            which describes the function of the navigation button it is associated with.
-   *  II - If the width of the browser is "980".
-   *    A. Initialize Objects to hold CSS properties and values.
-   *    B. Cycle through every HTML element using the selector, ".copy".
-   *      1. If the current HTML element has a parent HTML element which uses 
-   *         the selector, "#wndow-sctn_1".
-   *         a. Set the width of the current HTML element to, "48.13em".
-   *      2. Set the value of the CSS property, "marginLeft", to "14.5em".
-   *    C. The HTML element, "#info", is formatted to take up the width 
-   *       of the browser window and 70% of the height of the browser window.
-   *    D. The HTML element using the selector, "#info > img", is passed HTML attributes 
-   *       which formats the element to best fit within a mobile browser.
-   *    E. The HTML element using the selector, "#next-sctn", is passed CSS values 
-   *       which sets the image of the navigation "arrow" to a smaller size than the 
-   *       default desktop or laptop display. The HTML element is also horizontally 
-   *       centered within the browser window.
-   *    F. The HTML elements using the selectors, 
-   *       "#prev-sctn > span" and "#next-sctn > span", are passed CSS values which format
-   *       the HTML elements to a smaller width and height than the default desktop or 
-   *       laptop display. These HTML elements are also horizontally centered within the 
-   *       browser window.
-   *    G. The HTML element using the selector, "#prev-sctn > span", 
-   *       has its HTML stripped.
-   *    H. The HTML element using the selector, "#next-sctn > span", has HTML 
-   *       describes the navigation function of the element.
-   * **************** **************** **************** **************** **************** */
+  
 
   if ((page_dimensions_Array[0] === 1920) && 
-      ((window.navigator.userAgent.indexOf("Mobile") !== -1) ||  
-      (window.navigator.userAgent.indexOf("Tablet") !== -1))) {
+      (window.navigator.userAgent.indexOf("Mobile") !== -1 ||  
+      window.navigator.userAgent.indexOf("Tablet") !== -1)) {
     info_6_css = {
       bottom: "8.25em",
       right: "9em"
@@ -942,25 +797,34 @@ function animateInfoElement() {
     };
     
     next_sctn_css = {
-      "height": "35px", 
-      "bottom": "1.56em"
+      height: "3em", 
+      bottom: "3.56em", 
+      backgroundPosition: "0px -418px"
     };
     
     prev_sctn_css = {
-      "height": "25px"
+      height: "1.56em"
     };
     
     nav_sctn_css = {
-      "display": "block"
+      display: "block"
     };
     
     nav_css = {
-      "display": "block"
+      display: "block"
     };
-    
+    /*
     nav_link_css = {
       "opacity": 1
-    };
+    };*/
+
+    $("#info").animate(info_css, time_value, 
+      function () {
+        $("#next-sctn").detach();
+        $("nav").css(nav_css);
+        $("#nav-link").fadeTo(time_value, 1);
+      });
+    
   } else {
     var logo_1_css = new Object();
     // Holds the value for the CSS property, "display".
@@ -1003,7 +867,7 @@ function animateInfoElement() {
     time_value_1 = time_value * 2;
     time_value_2 = time_value * 1.5;
 
-    $("#wndow").show("drop", time_value_1);
+    $("#wndow-sctn_main").show("drop", time_value_1);
     // This jQuery Method, "show", "drops" or animates the panel which serves 
     // as the background of the logo and other items on the landing page 
     // down from the top of the browser window.
@@ -1083,24 +947,59 @@ function animateFormPanes() {
   // makes up form options for the Screening, Rate, or Contact form.
   //
   // This variable holds the selector of the second "page" of a given form.
-  var clmn_selector = new String();
+  
+  var page_1_selector = new String();
+  var page_2_selector = new String();
+  
+  var page_1_element = new Object();
+  var page_2_element = new Object();
 
-  var clmn_element = new Object();
-  var clmn_1_element = new Object();
-  var clmn_2_element = new Object();
+  var section_value = new Number();
+  
+  var url_info_Array = new Array();
 
   var css_1 = new Object();
   var css_2 = new Object();
 
-  clmn_selector = ".clmn";
+  page_1_selector = ".form-page_1";
+  page_2_selector = ".form-page_2";
+  
+  page_1_element = $(page_1_selector);
+  page_2_element = $(page_2_selector);
 
-  clmn_element = $(clmn_selector);
+  css_1 = {
+    display: "none"
+  };
 
-  if ($(clmn_element).css("opacity") === "0")  {
-    $(clmn_element).fadeTo(time_value, 1);
-  } else {
-    $(clmn_element).css("opacity", 0);
-    $(clmn_element).fadeTo(time_value, 1);
+  css_2 = {
+    display: "block"
+  };
+
+  url_info_Array = urlInfo();
+
+  section_value = url_info_Array[0];
+
+  if (section_value === 5)  {
+    $(page_1_element).css(css_2);
+    $(page_1_element).fadeTo(time_value, 1);
+  } else  {
+    if ($(page_1_element).css("opacity") === "0")  {
+      $(page_2_element).fadeTo((time_value / 2), 0, 
+        function () {
+          $(page_2_element).css(css_1);
+          $(page_1_element).css(css_2);
+          $(page_1_element).fadeTo(time_value, 1);
+        }
+      );
+    } else {
+      $(page_1_element).fadeTo((time_value / 2), 0, 
+        function () {
+          $(page_1_element).css(css_1);
+          $(page_2_element).css(css_2);
+          $(page_2_element).fadeTo(time_value, 1);
+        }
+      );
+    }
   }
 
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
@@ -1209,7 +1108,7 @@ function animatePageElements()  {
         }
       );
 
-      if ((section_value === 1 && position_value === 1)
+      if ((section_value === 1 && position_value === 1) || 
           (section_value === 5 && position_value === 1) || 
           (section_value === 6 && position_value === 1))  {
         animateFormPanes();      
@@ -1386,6 +1285,7 @@ function animateSideNav() {
   // Holds the String value of the selector, "#info".
   var sctn_nav_selector = new String();
   // Holds the String value of the selector, ".sctn_nav".
+  var prev_next_sctn_selector = new String();
   var bkgrnd_selector = new String();
   // Holds the String value of the selector, "#bkgrnd".
 
@@ -1441,6 +1341,7 @@ function animateSideNav() {
   var sctn_nav_element = new Object();
   // Holds the jQuery object of the content of the HTML element 
   // identified by the selector, ".sctn_nav".
+  var prev_next_sctn_element = new Object();
 
   var nav_width = new Number();
   // Holds the numberical value of the width of the HTML element 
@@ -1455,6 +1356,9 @@ function animateSideNav() {
   // by the selector, "nav".
   var window_width = new Number();
   // Holds the numberical value of the width of the browser window.
+  var wndow_width = new Number();
+  
+  var page_dimensions_Array = new Array();
 
   nav_selector = "nav";
   options_selector = "#options";
@@ -1463,9 +1367,9 @@ function animateSideNav() {
   cntainr_selector = "#cntainr";
   wndow_selector = ".wndow";
   headr_selector = ".headr";
-  copy_selector = "#copy";
+  copy_selector = ".copy";
   info_selector = "#info";
-  sctn_nav_selector = ".sctn_nav"
+  sctn_nav_selector = ".sctn_nav";
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
 
   nav_element = $(nav_selector);
@@ -1474,8 +1378,8 @@ function animateSideNav() {
   nav_brdr_element = $(nav_brdr_selector);
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
-  headr_element = $(headr_selector);
-  copy_element = $(copy_selector);
+  headr_elements = $(headr_selector);
+  copy_elements = $(copy_selector);
   info_element = $(info_selector);
   sctn_nav_element = $(sctn_nav_selector);
   bkgrnd_element = $(bkgrnd_selector);
@@ -1485,9 +1389,14 @@ function animateSideNav() {
   // calculated using the jQuery Method, ".width();
   // 
   // That value is passed onto the variable, "nav_width".
+  
+  window_width = $(window).width();
+  page_dimensions_Array = parseWindowDimensions();
+  wndow_width = page_dimensions_Array[0];
+
 
   if ($(nav_element).css("left") !== "0px")  {
-    element_width = $(window).width() - nav_width;
+    element_width = window_width - nav_width;
     // The difference of the width of the browser window and the value held ]
     // by "nav_width" is passed onto the variable "element_width".
     //
@@ -1502,7 +1411,8 @@ function animateSideNav() {
     var css_4 = new Object();
 
     css_1 = {
-      left: "0px"
+      left: "0px", 
+      opacity: 1
     };
 
     css_2 = {
@@ -1510,48 +1420,50 @@ function animateSideNav() {
     };
 
     css_3 = {
-      left: nav_width
+      display: "block", 
+      opacity: 1
     };
 
     css_4 = {
-      display: "none"
+      left: nav_width
     };
 
-    if ($(headr_element).length > 0)  {
-      $(headr_element).fadeTo((time_value / 2), 0, 
-        function () {
-          $(copy_element).fadeTo((time_value / 2), 0);
-          $(copy_element).css(css_4);
-          
-          if ($(sctn_nav_element).html() !== undefined)  {
-            $(sctn_nav_element).fadeTo((time_value / 2), 0);
-            $(sctn_nav_element).css(css_4);
-          }
-        }
-      );
-    } else {
-      $(info_element).fadeTo((time_value / 2), 0, 
-        function () {
-          $(info_element).css(css_4);
-        }
-      );
-    }
-        
-    $(options_element).css(css_2);
+    css_5 = {
+      width: (wndow_width - nav_width),
+      left: nav_width
+    };
 
-    $(nav_element).animate(css_1, (time_value / 1.5), 
-      function () {
-        $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
-        $(nav_brdr_element).animate(css_1, (time_value / 1.5));
-        $(options_element).animate(css_1, (time_value / 1.5), 
-          function () {
-            $(options_element).fadeTo((time_value / 1.5), 1);
-          }
-        );
-        $(cntainr_element).animate(css_3, (time_value / 1.5));
-        $(bkgrnd_element).animate(css_3, (time_value / 1.5));
-      }
-    );
+    css_6 = {
+      display: "none"
+    };
+    
+    $(info_element).css(css_6);
+
+    $(headr_elements).css(css_6);
+    $(copy_elements).css(css_6);
+    $(sctn_nav_element).css(css_6);
+    
+    $(options_element).css(css_3);
+
+    $(nav_element).animate(css_1, (time_value / 1.5))
+    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
+    $(nav_brdr_element).animate(css_1, (time_value / 1.5));
+    $(options_element).animate(css_1, (time_value / 1.5));
+
+    if (wndow_width === 980)  {
+      $(nav_element).css(css_2);
+      $(nav_bkgrnd_element).css(css_2);
+      $(nav_brdr_element).css(css_2);
+      $(bkgrnd_element).css(css_5);
+      
+      css_5 = css_5 + css_6;
+
+      $(cntainr_element).css(css_5);
+      $(wndow_elements).css(css_5);
+    } else {
+      $(cntainr_element).animate(css_4, (time_value / 1.5));
+      $(bkgrnd_element).animate(css_4, (time_value / 1.5));
+    }    
   } else  {
     var css_6 = new Object();
     var css_7 = new Object();
@@ -1569,13 +1481,11 @@ function animateSideNav() {
     };
 
     css_8 = {
-      display: "block", 
-      opacity: 0
+      display: "block"
     };
 
     css_9 = {
-      display: "table", 
-      opacity: 0 
+      display: "table"
     };
 
     $(options_element).animate(css_6, time_value, 
@@ -1583,6 +1493,13 @@ function animateSideNav() {
         $(nav_element).animate(css_6, time_value / 2);
         $(nav_bkgrnd_element).animate(css_6, time_value);
         $(nav_brdr_element).animate(css_6, time_value);
+
+        if (wndow_width === 980)  {
+          $(cntainr_element).css(css_8);
+          $(wndow_elements).css(css_7);
+          $(bkgrnd_element).css(css_8);
+        }
+
         $(cntainr_element).animate(css_7, time_value);
         $(bkgrnd_element).animate(css_7, time_value, 
           function () {
@@ -1590,24 +1507,9 @@ function animateSideNav() {
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
             $(wndow_elements).width(window_width);
-            
-            if ($(headr_element).length > 0)  {
-              $(headr_element).css(css_9);
-              $(headr_element).fadeTo((time_value / 2), 1, 
-                function () {
-                  $(copy_element).css(css_8);
-                }
-              );
-              $(copy_element).fadeTo((time_value / 2), 1);
-              
-              if ($(sctn_nav_element).html() !== undefined)  {
-                $(sctn_nav_element).css(css_8);
-                $(sctn_nav_element).fadeTo((time_value / 2), 1);
-              }
-            } else {
-             $(info_element).css(css_8);
-             $(info_element).fadeTo(time_value, 1);
-            }
+
+            $(sctn_nav_element).css(css_8);
+            $(headr_elements).css(css_9);
           }
         );
       }

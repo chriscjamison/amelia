@@ -319,7 +319,6 @@ div.sctn_nav > div > div a:hover {
 	  width: 61.25em;
     height: 108.75em;
     left: -61.25em;
-    display: none;
   }
   
   #nav-brdr {
@@ -332,22 +331,22 @@ div.sctn_nav > div > div a:hover {
     top: 50px;
     left: 50px;
     background-image: url('/amelia/assets/img/nav/nav_mobile.png');
-    opacity: 0;
+    opacity: 1;
   }
   
-  .nav-link-base {
+  .nav-base {
     background-position: 0 0;
   }
 
-  .nav-link-hover {
+  .nav-hover {
     background-position: 0 -100px;
   }
 
-  .nav-link-click_1 {
+  .nav-click_1 {
     background-position: 0 -200px;
   }
 
-  .nav-link-click_2 {
+  .nav-click_2 {
     background-position: 0 -300px;
   }
   
@@ -360,23 +359,17 @@ div.sctn_nav > div > div a:hover {
     font-size: 2.5em;  
   }
   
-  #prev-sctn, 
   #next-sctn {
-    height: 8.25em;
-    bottom: 37em;
-    right: 24.1em;
+    width: 22.2em;
+    height: 10em;
+    right: 19.2em;
+    bottom: 11em;
+    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-position: 0px -355px;
   }
   
-  #next-sctn {
-    background-position-y: -137px
-  }
-  
-  #prev-sctn > span,
-  #next-sctn > span {
-    width: 6.8em;
-    height: 6.56em;
-    margin: 0 auto;
-    font-size: 1.8em;
+  #next-sctn:hover {
+    background-position: 0px -310px;
   }
   
   .sctn_nav {
@@ -416,6 +409,37 @@ div.sctn_nav > div > div a:hover {
     margin: 0.65em 0;
     padding: 0.5em 0 0.25em 0;
     font: 400 2em "Franklin Gothic Medium", sans-serif
+  }
+}
+
+@media screen and (width: 980px) and (max-height: 1310px) {
+  #options > span {
+    font-size: 1.85em;
+  }
+  
+  #next-sctn {
+    bottom: 11.25em;
+  }
+
+  #next-sctn > span {
+    width: 8.9em;
+    height: 2.56em;
+    margin: 0 auto;
+    font-size: 1.75em;
+  }
+
+  .sctn_nav {
+    top: 47em !important;
+  }
+  
+  .sctn_nav > div > div {
+    margin: 0 !important;
+  }
+
+  .sctn_nav > div > div > a {
+    height: 1.5em !important;
+    margin: 0.65em 0 0.65em 1.2em !important;
+    font: 400 1.6em "Franklin Gothic Medium", sans-serif !important;
   }
 }
 

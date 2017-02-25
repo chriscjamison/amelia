@@ -523,70 +523,12 @@ function cssAdjustment()  {
     // These values format the HTML elements using the selectors, 
     // "#prev-sctn > span" and "#next-sctn > span".
 
-    copy_selector = ".copy";
-
-    copy_element = $(copy_selector);
-    
-    copy_css = {
-      "marginLeft": "14.5em",
-    };
-        
-    info_4_css = {
-      "width": page_dimensions_Array[0], 
-    };
-    
-    if (window_height === 1308) {
-      info_4_css.height = window_height * 0.92;
-    } else {
-      info_4_css.height = window_height * 0.7;
-    }
-    
-    
     info_5_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
       "width": "480", 
       "height": "455"
     };
-    
-    next_sctn_css = {
-      height: "3em", 
-      backgroundImage: "url('/amelia/assets/img/nav/next/resp/next-sctn.png')", 
-      backgroundPosition: "0px -420px"
-    };
 
-    nav_sctn_css = {
-      width: "6.8em",
-      height: "6.56em",
-      margin: "0 auto"
-    };
-   
-    /*$(copy_elements).each(
-      function () {
-        switch ($(this).parent().attr("id").charAt(11))  {
-          case "1":
-            copy_css.width = "48.13em";
-          break;
-        } // END OF SWITCH STATEMENT
-        
-        /* SWITCH STATEMENT LOGIC ********* **************** **************** **************** 
-         *  I - If the parent of this ".copy" element is #wndow-sctn_1"
-         *    A.  Set the "width" of the element to "48.13em". 
-         * **************** **************** **************** **************** **************** */
-        /*
-        $(this).css(copy_css);
-        // Sets the value of the CSS property as they are held within the Object, "copy_css".
-        //
-        // The current HTML element, ".copy", is positioned in the middle of the page, just below 
-        // the HTML element using the selector, ".headr", for the section being cycled through.
-      }
-    ); // END OF .each METHOD
-*/
-    $(info_element).css(info_4_css);
-    // Sets the CSS properties, "width" and "height", of the HTML element using the selector, "#info", 
-    // using the values held by, "info_4_css".
-    // 
-    // The HTML element, "#info", is formatted to take up the full width of the browser window, 
-    // and "70%" of the height of that browser window.
     $(info_img_element).attr(info_5_css);
     // Sets the HTML attributes, "src", "width", and "height", of the HTML element 
     // using the selector, "#info > img", using the values held by, "info_5_css".
@@ -594,14 +536,14 @@ function cssAdjustment()  {
     // The HTML element, "#info > img", is passed these attributes to display a smaller 
     // image to fit a mobile browser.
 
-    $(next_sctn_element).css(next_sctn_css);
+    // $(next_sctn_element).css(next_sctn_css);
     // Sets the CSS properties, "right", "backgroundImage", "backgroundPosition", 
     // of the HTML element using the selector, "#next-sctn", using the values held by, 
     // "next_sctn_css".
     //
     // These values are passed to the HTML element, "#next-sctn", to format this element 
     // to function as a navigation button within a mobile browser.
-    $(next_sctn_span_element, prev_sctn_span_element).css(nav_sctn_css);
+    // $(next_sctn_span_element, prev_sctn_span_element).css(nav_sctn_css);
     // Sets the CSS properties, "width", "height", and "margin", of the HTML elements 
     // using the selectors, "#prev-sctn > span" and "#next-sctn > span", using values 
     // held by, "nav_sctn_css".

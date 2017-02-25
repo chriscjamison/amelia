@@ -365,9 +365,10 @@ div.sctn_nav > div > div a:hover {
     width: 22.2em;
     height: 3em;
     right: 19.2em;
+    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
   }
   
-  #next-sctn {
+  #next-sctn { 
     bottom: 38em;
     background-position: 0px -310px
   }
@@ -435,7 +436,16 @@ div.sctn_nav > div > div a:hover {
   }
   
   #next-sctn {
+    height: 10em;
     bottom: 11em;
+    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-position: 0px -310px;
+  }
+
+  #next-sctn > span {
+    width: 6.8em;
+    height: 5.56em;
+    margin: 0 auto;
   }
 
   .sctn_nav {
@@ -449,7 +459,7 @@ div.sctn_nav > div > div a:hover {
   .sctn_nav > div > div > a {
     height: 1.5em !important;
     margin: 0.65em 0 0.65em 1.2em !important;
-    font: 400 1.6em "Frankin Gothic Medium", sans-serif !important;
+    font: 400 1.6em "Franklin Gothic Medium", sans-serif !important;
   }
 }
 
@@ -513,7 +523,6 @@ div.sctn_nav > div > div a:hover {
   #next-sctn {
     right: 33.8em;
   }
-  
 }
 
 @media screen and (min-width: 1260px) and (min-height: 980) {
