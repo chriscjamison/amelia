@@ -847,7 +847,8 @@ body {
 @media screen and (width: 980px) {
   #info {
     background-color: #977348;
-    width: 980px;
+    width: 61.25em;
+    height: 76em;
     position: absolute;
     top: 0;
     left: 0;
@@ -889,10 +890,6 @@ body {
     margin-left: 14.5em;
   }
 
-  .sctn_1-blok {
-    width: 18em;
-  }
-
   .sctn_2-blok {
     width: 39em;
     margin-right: 0;
@@ -930,6 +927,7 @@ body {
     line-height: 1.6em;
   }
 
+  .sctn_1-blok, 
   .sctn_3-blok,
   .sctn_4-blok,
   .sctn_5-blok,

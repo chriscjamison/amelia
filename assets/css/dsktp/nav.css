@@ -71,7 +71,6 @@ nav {
   display: none;
   position: fixed;
 	top: 6.56em;
-  left: 25px;
   opacity: 0;
 	z-index: 4;
 }
@@ -286,10 +285,17 @@ div.sctn_nav > div > div {
 	width: 46.25em;
 	height: 2.19em;
 	margin: 0 auto;
-	position: absolute;
+	position: relative;
 	display: none;
 }
 
+div.sctn_nav > div > div > div {
+  width: 4.25em;
+  height: 0;
+  float: left;
+  margin: 1em; 
+}
+    
 div.sctn_nav > div > div > a {
 	width: 6.56em;
 	height: 1.38em;
@@ -331,7 +337,6 @@ div.sctn_nav > div > div a:hover {
     top: 50px;
     left: 50px;
     background-image: url('/amelia/assets/img/nav/nav_mobile.png');
-    opacity: 1;
   }
   
   .nav-base {
@@ -363,7 +368,7 @@ div.sctn_nav > div > div a:hover {
     width: 22.2em;
     height: 10em;
     right: 19.2em;
-    bottom: 11em;
+    bottom: 38em;
     background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
     background-position: 0px -355px;
   }
@@ -372,6 +377,13 @@ div.sctn_nav > div > div a:hover {
     background-position: 0px -310px;
   }
   
+  #next-sctn > span {
+    width: 8.9em;
+    height: 2.56em;
+    margin: 0 auto;
+    font-size: 1.75em;
+  }
+
   .sctn_nav {
     width: 61.2em !important;
     height: 4.38em !important; 
@@ -401,6 +413,10 @@ div.sctn_nav > div > div a:hover {
     width: 18.8em;
     height: 27.19em;
     margin: 2em 0;
+  }
+
+  div.sctn_nav > div > div > div {
+    margin: 0;
   }
   
   div.sctn_nav > div > div > a {
@@ -645,15 +661,21 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 110em !important; 
+    width: 119em !important; 
     top: 38em !important;
   }
 
+  .sctn_nav > div > div {
+    width: 49em !important;
+    height: 3.54em !important;
+  }
+  
+/*
   .sctn_nav > div > span {
     width: 10.5em !important;
     height: 2.45em !important;
   }
-
+*/
   #sctn_3-desc-1 + #nav-sctn_3 > div > span + div > a:first-of-type {
     margin-left: 5.95em !important;
   }

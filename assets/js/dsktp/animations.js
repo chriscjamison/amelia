@@ -564,35 +564,9 @@ function cssAdjustment()  {
   next_sctn_span_element = $(next_sctn_span_selector);
   prev_sctn_span_element = $(prev_sctn_span_selector);
   
-  if (window_width >= 1260)  {
-    if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
-        (window.navigator.userAgent.indexOf("Tablet") === -1))  {
-      next_sctn_1_css = {
-        "width": "5em",
-        "height": "5.3em",
-        "paddingTop": "0",
-        "right": "1.56em",
-        "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/nav/next/next-sctn.png')",
-        "backgroundPosition": "0px -145px"
-      };
-      
-      prev_sctn_css = {
-        "width": "5em",
-        "height": "4em",
-        "paddingTop": "1.3em",
-        "right": "1.56em",
-        "bottom": "1.56em",
-        "backgroundImage": "url('/amelia/assets/img/nav/next/next-sctn.png')",
-        "backgroundPosition": "0px 0px"
-      };
-      
-      next_sctn_2_css = {
-        "width": "5em",
-        "height": "3.12em"
-      };
-
-      info_1_css = {
+  if (window_width > 980)  {
+    
+    /*  info_1_css = {
         "width": "19.5em",
         "height": "27.2em",
         "bottom": "8.75em",
@@ -604,87 +578,51 @@ function cssAdjustment()  {
         "width": "200", 
         "height": "190"
       };
-      
-      
-      $(next_sctn_element).css(next_sctn_1_css);
-      // The HTML element identified by the selector, "#next-sctn", is formatted by 
-      // using the CSS properties held by the Object, "next_sctn_1_css".
-      // 
-      // The Method, "css", is meant to alter the HTML element, "#next-sctn", to best 
-      // render within a desktop or laptop browser.
-      $(prev_sctn_element).css(prev_sctn_css);
+*/
+    if (window_width > 1900)  {
+      $(info_element).css(info_1_css);
       // The HTML element identified by the selector, "#prev-sctn", is formatted by 
       // using the CSS properties held by the Object, "prev_sctn_css".
       // 
       // The Method, "css", is meant to alter the HTML element, "#prev-sctn", to best 
       // render within a desktop or laptop browser.
-      $(next_sctn_span_element).css(next_sctn_2_css);  
-      // The HTML elements identified by the selectors, 
-      // "#prev-sctn > span" and "#next-sctn > span", are formatted by 
-      // using the CSS properties held by the Object, "prev_sctn_css".
-      // 
-      // The Method, "css", is meant to alter the HTML elements, 
-      // "#prev-sctn > span" and "#next-sctn > span" to best  
-      // render within a desktop or laptop browser.
-      $(prev_sctn_span_element).css(next_sctn_2_css);
+
+      var ul_selector = new String();
+      var li_selector = new String();
+
+      var ul_element = new Object();
+      var li_element = new Object();
+
+      var info_3_css = new Object();
+
+      info_1_css = {
+        "width": "38.6em",
+        "height": "15.2em",
+        "bottom": "9.2em"
+      };
       
-        
-      if (window_width > 1900)  {
-        $(info_element).css(info_1_css);
-        // The HTML element identified by the selector, "#prev-sctn", is formatted by 
-        // using the CSS properties held by the Object, "prev_sctn_css".
-        // 
-        // The Method, "css", is meant to alter the HTML element, "#prev-sctn", to best 
-        // render within a desktop or laptop browser.
+      info_3_css = {
+        margin: "0px"
+      };
 
-        var ul_selector = new String();
-        var li_selector = new String();
+      ul_selector = "#info > ul";
+      li_selector = "#info ul li:first-of-type";
 
-        var ul_element = new Object();
-        var li_element = new Object();
+      ul_element = $(ul_selector);
+      li_element = $(li_selector);
 
-        var info_3_css = new Object();
-
-        info_1_css = {
-          "width": "38.6em",
-          "height": "15.2em",
-          "bottom": "9.2em"
-        };
-        
-        info_3_css = {
-          margin: "0px"
-        };
-
-        ul_selector = "#info > ul";
-        li_selector = "#info ul li:first-of-type";
-
-        ul_element = $(ul_selector);
-        li_element = $(li_selector);
-
-        $(ul_element).css(info_3_css);
-        $(li_element).css(info_3_css);
-        $(info_element).css(info_1_css);
-      }
-      
-      $(info_img_element).attr(info_2_css);
-      // The HTML element identified by the selector, "#info > img", is formatted by 
-      // using the CSS properties held by the Object, "info_2_css".
-      // 
-      // The Method, "css", is meant to alter the HTML element, "#info > img", to best 
-      // render within a desktop or laptop browser.
-    
-      $(prev_sctn_span_element).html("Click to view the previous section");
-      // The navigation "arrow" which navigates a visitor from one section 
-      // to the previous section has the text, "Click to view the previous section", 
-      // added to the SPAN element holding the "arrow".
-      $(next_sctn_span_element).html("Click to view the next section");
-      // The navigation "arrow" which navigates a visitor from one section 
-      // to the next section has the text, "Click to view the next section", 
-      // added to the SPAN element holding the "arrow".
+      $(ul_element).css(info_3_css);
+      $(li_element).css(info_3_css);
+      $(info_element).css(info_1_css);
     }
-  } // END OF if STATEMENT
+      
+      // $(info_img_element).attr(info_2_css);
     
-  if (window_width === 980)  {
+    if ((window.navigator.userAgent.indexOf("Mobile") === -1) && 
+        (window.navigator.userAgent.indexOf("Tablet") === -1))  {
+      $(next_sctn_element).detach();
+    }
+  } else if (window_width === 980)  {
     var nav_link_selector = new String();
     var nav_link_element = new Object();
 
@@ -704,37 +642,13 @@ function cssAdjustment()  {
       "height": "455"
     };
   
-    if (!$(info_element))  {
+    if ($(info_element).html() !== undefined)  {
       $(nav_link_element).css(nav_link_css);
+
+      $(info_img_element).attr(info_img_css);
     }
     
-    $(info_img_element).attr(info_img_css);
-   
-    if (window.navigator.userAgent.indexOf("Mobile") === -1 &&   
-        window.navigator.userAgent.indexOf("Tablet") === -1)  {
-      $(next_sctn_element).detach();
-    }
   } // END OF if STATEMENT
-
-  
-
-  if ((page_dimensions_Array[0] === 1920) && 
-      (window.navigator.userAgent.indexOf("Mobile") !== -1 ||  
-      window.navigator.userAgent.indexOf("Tablet") !== -1)) {
-    info_6_css = {
-      bottom: "8.25em",
-      right: "9em"
-    }
-
-    nav_css = {
-      right: "54em", 
-      bottom: "6em"
-    };
-
-    $(info_element).css(info_6_css);
-    $(next_sctn_element, prev_sctn_element).css(nav_css);
-  }
-
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
 function animateInfoElement() {
@@ -984,19 +898,34 @@ function animateFormPanes() {
     $(page_1_element).fadeTo(time_value, 1);
   } else  {
     if ($(page_1_element).css("opacity") === "0")  {
-      $(page_2_element).fadeTo((time_value / 2), 0, 
+      $(page_1_element).fadeTo((time_value / 2), 0);
+      $(page_2_element).css(css_1);
+      $(page_1_element).fadeTo(time_value, 1);
+      // $(page_1_element).css(css_2);
+
+      /*$(page_2_element).fadeTo((time_value / 2), 0, 
         function () {
           $(page_2_element).css(css_1);
-          $(page_1_element).css(css_2);
-          $(page_1_element).fadeTo(time_value, 1);
+
+          setTimeout(
+            function () {
+              $(page_1_element).css(css_2);
+              $(page_1_element).fadeTo(time_value, 1);
+            }, (time_value / 2)
+          );
         }
-      );
+      );*/
     } else {
       $(page_1_element).fadeTo((time_value / 2), 0, 
         function () {
           $(page_1_element).css(css_1);
-          $(page_2_element).css(css_2);
-          $(page_2_element).fadeTo(time_value, 1);
+          setTimeout(
+            function () {
+              $(page_2_element).css(css_2);
+              $(page_2_element).fadeTo(time_value, 1);
+            }, (time_value / 2)
+          );    
+          
         }
       );
     }
@@ -1118,8 +1047,10 @@ function animatePageElements()  {
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function animateSctnNav(sctn_nav_element) {
-  var sctn_nav_div_selector = new String();
-  var sctn_nav_div_element = new String();
+  var sctn_nav_link_selector = new String();
+  var sctn_nav_link_element = new Object();
+
+  var sctn_nav_id_val = new String();
   
   var sctn_nav_background_position = new String();
 
@@ -1129,20 +1060,16 @@ function animateSctnNav(sctn_nav_element) {
   var css_4 = new Object();
   var css_5 = new Object();
   var css_6 = new Object();
-  var css_7 = new Object();
 
-  var index_string_1 = new String();
-  var index_string_2 = new String();
+  sctn_nav_id_val = $(sctn_nav_element).parent().parent().attr("id");
 
-  var background_position_value_1 = new String();
-  var background_position_value_2 = new String();
-  var background_position_value_3 = new String();
+  sctn_nav_link_selector = "#" + sctn_nav_id_val + " > div > div";
+  sctn_nav_link_element = $(sctn_nav_link_selector);
 
-  var display_value_1 = new String();
-  var display_value_2 = new String();
-        
+  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
+  
   css_1 = {
-    backgroundPosition : "0px 0px"
+    backgroundPosition: "0px 0px"
   };
 
   css_2 = {
@@ -1167,59 +1094,41 @@ function animateSctnNav(sctn_nav_element) {
     backgroundColor: "#666"
   };
 
-  css_7 = {
-    opacity: 0
-  };
+  $(sctn_nav_element).css("opacity", 0);
 
-  index_string_1 = "Mobile";
-  index_string_2 = "Tablet";
-  
-  background_position_value_1 = "0px -35px";
-  background_position_value_2 = "0px 0px";
-  background_position_value_3 = "0% 0%";
-  background_position_value_4 = "0px -70px";
-
-  display_value_1 = "block";
-  display_value_2 = "none";
-
-  sctn_nav_div_selector = "#" + $(sctn_nav_element).parent().parent().attr("id") + " > div > div";
-  sctn_nav_div_element = $(sctn_nav_div_selector);
-  
-  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
-  
-  $(sctn_nav_element).css(css_7);
-
-  if (window.navigator.userAgent.indexOf(index_string_1) === -1 && 
-      window.navigator.userAgent.indexOf(index_string_2) === -1)  {
-    if (sctn_nav_background_position === background_position_value_1 && 
-        $(sctn_nav_div_element).css("display") === display_value_1) {
-      $(sctn_nav_element).css(css_3);
-
-      setTimeout(
-        function () {
-          $(sctn_nav_element).css(css_7)
-        }, (time_value / 4)
-      );
-
-      setTimeout(
-        function () {
-          $(sctn_nav_element).css(css_4);    
-        }, (time_value / 3)
-      );      
-    } else {
-      if (sctn_nav_background_position === background_position_value_2 || 
-          sctn_nav_background_position === background_position_value_3) {
+  if (window.navigator.userAgent.indexOf("Mobile") === -1 &&  
+      window.navigator.userAgent.indexOf("Tablet") === -1)  {
+    switch (sctn_nav_background_position) {
+      case "0px 0px":
         $(sctn_nav_element).css(css_2);
-      } else {
-        if ($(sctn_nav_div_element).css("display") === display_value_2 && 
-            sctn_nav_background_position !== background_position_value_4) {
+      break;
+
+      case "0% 0%":
+        $(sctn_nav_element).css(css_2);
+      break;
+
+      case "0px -35px":
+        if ($(sctn_nav_link_element).css("display") === "none") {
           $(sctn_nav_element).css(css_1);
+        } else if ($(sctn_nav_link_element).css("display") === "block") {
+          $(sctn_nav_element).css(css_3);
+
+          $(sctn_nav_element).fadeTo((time_value / 3), 1);
+          $(sctn_nav_element).fadeTo((time_value / 3), 0);
+
+          $(sctn_nav_element).css(css_4);
+        }      
+      break;
+
+      case "0px -105px":
+        if ($(sctn_nav_link_element).css("display") === "none") {
+          $(sctn_nav_element).css(css_2);
         }
-      }
+      break;
     }
   } else {
-    if (sctn_nav_background_position === background_position_value_2 && 
-        $(sctn_nav_div_element).css("display") === display_value_1) {
+    if (sctn_nav_background_position === "0px 0px" && 
+        $(sctn_nav_link_element).css("display") === "block") {
       $(sctn_nav_element).css(css_6);
     } else {
       $(sctn_nav_element).css(css_5);
@@ -1443,13 +1352,10 @@ function animateSideNav() {
     $(copy_elements).css(css_6);
     $(sctn_nav_element).css(css_6);
     
-    $(options_element).css(css_3);
-
-    $(nav_element).animate(css_1, (time_value / 1.5))
+    $(nav_element).animate(css_1, (time_value / 1.5));
     $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
     $(nav_brdr_element).animate(css_1, (time_value / 1.5));
-    $(options_element).animate(css_1, (time_value / 1.5));
-
+    
     if (wndow_width === 980)  {
       $(nav_element).css(css_2);
       $(nav_bkgrnd_element).css(css_2);
@@ -1460,9 +1366,17 @@ function animateSideNav() {
 
       $(cntainr_element).css(css_5);
       $(wndow_elements).css(css_5);
+      $(options_element).css(css_2);
+      $(options_element).animate(css_1, (time_value / 2));
     } else {
       $(cntainr_element).animate(css_4, (time_value / 1.5));
-      $(bkgrnd_element).animate(css_4, (time_value / 1.5));
+      $(bkgrnd_element).animate(css_4, (time_value / 1.5), 
+        function () {
+          $(options_element).css(css_2);
+          $(options_element).animate(css_1, (time_value / 2));
+        });
+      // 
+      
     }    
   } else  {
     var css_6 = new Object();

@@ -762,7 +762,8 @@ body {
 @media screen and (width: 980px) {
   #info {
     background-color: #977348;
-    width: 980px;
+    width: 61.25em;
+    height: 74em;
     position: absolute;
     top: 0;
     left: 0;
@@ -798,18 +799,42 @@ body {
     font-size: 3em;
   }
 
-  .copy {
-    width: 50.55em;
+  #copy {
+    width: 54.55em;
     height: 111.7em;
-    margin-left: 14.5em;
+    margin-left: 13.5em;
   }
 
-  .sctn_1-blok {
-    width: 18em;
+  .headr.sctn_2 + #copy {
+    width: 53.1em;
+    margin-left: 15em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_2-blok, 
+  .sctn_3-blok,
+  .sctn_4-blok,
+  .sctn_5-blok,
+  .sctn_6-blok,
+  #sctn_5-desc-2,
+  #sctn_6-info-1  {
+    width: 36em;
+  }
+
+  .sctn_1-blok > p,
+  .sctn_3-blok > p,
+  .sctn_4-blok > p,
+  .sctn_5-blok > p,
+  #sctn_5-desc-2 > span,
+  #sctn_5-desc-7 > p,
+  .sctn_6-blok > p,
+  .sctn_6-blok-2 > span,
+  #sctn_6-info-1 > span > span,
+  .sctn_6-blok-2 > div {
+    font-size: 1.75em;
   }
 
   .sctn_2-blok {
-    width: 39em;
     margin-right: 0;
   }
 
@@ -819,7 +844,7 @@ body {
 
   .sctn_2-blok_2 {
     width: 48.55em;
-    margin-left: 5em;
+    margin-left: 4em;
     top: 2em;
     left: 0;
   }
@@ -843,28 +868,6 @@ body {
     display: block;
     font-size: 2em;
     line-height: 1.6em;
-  }
-
-  .sctn_3-blok,
-  .sctn_4-blok,
-  .sctn_5-blok,
-  .sctn_6-blok,
-  #sctn_5-desc-2,
-  #sctn_6-info-1  {
-    width: 36em;
-  }
-
-  .sctn_1-blok > p,
-  .sctn_3-blok > p,
-  .sctn_4-blok > p,
-  .sctn_5-blok > p,
-  #sctn_5-desc-2 > span,
-  #sctn_5-desc-7 > p,
-  .sctn_6-blok > p,
-  .sctn_6-blok-2 > span,
-  #sctn_6-info-1 > span > span,
-  .sctn_6-blok-2 > div {
-    font-size: 1.75em;
   }
 
   .sctn_4-blok > span {

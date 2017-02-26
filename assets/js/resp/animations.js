@@ -1354,73 +1354,91 @@ function displayVerticalNav() {
 }
 
 function animateSctnNav(sctn_nav_element) {
-  var sctn_nav_link = new String();
+  var sctn_nav_link_selector = new String();
+  var sctn_nav_link_element = new Object();
+
+  var sctn_nav_id_val = new String();
   
   var sctn_nav_background_position = new String();
 
-  var sctn_nav_base_css = new Object();
-  var sctn_nav_hover_css = new Object();
-  var sctn_nav_click1_css = new Object();
-  var sctn_nav_click2_css = new Object();
+  var css_1 = new Object();
+  var css_2 = new Object();
+  var css_3 = new Object();
+  var css_4 = new Object();
+  var css_5 = new Object();
+  var css_6 = new Object();
 
-  var resp_sctn_nav_base_css = new Object();
-  var resp_sctn_nav_click_css = new Object();
-        
-  sctn_nav_base_css = {
+  sctn_nav_id_val = $(sctn_nav_element).parent().parent().attr("id");
+
+  sctn_nav_link_selector = "#" + sctn_nav_id_val + " > div > div";
+  sctn_nav_link_element = $(sctn_nav_link_selector);
+
+  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
+  
+  css_1 = {
     backgroundPosition: "0px 0px"
   };
 
-  sctn_nav_hover_css = {
+  css_2 = {
     backgroundPosition: "0px -35px"
   };
 
-  sctn_nav_click1_css = {
+  css_3 = {
     backgroundPosition: "0px -70px"
   };
 
-  sctn_nav_click2_css = {
+  css_4 = {
     backgroundPosition: "0px -105px"
   };
 
-  resp_sctn_nav_base_css = {
+  css_5 = {
     backgroundPosition: "0px 0px", 
     backgroundColor: "#000"
   };
 
-  resp_sctn_nav_click_css = {
+  css_6 = {
     backgroundPosition: "0px -210px", 
     backgroundColor: "#666"
   };
 
-  sctn_nav_link = sctn_nav_element.slice(0, 12) + " > div > div";
-  
-  sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
   $(sctn_nav_element).css("opacity", 0);
 
-  if (window.navigator.userAgent.indexOf("Mobile") === -1 && 
+  if (window.navigator.userAgent.indexOf("Mobile") === -1 &&  
       window.navigator.userAgent.indexOf("Tablet") === -1)  {
-    if (sctn_nav_background_position === "0px -35px" && 
-        $(sctn_nav_link).css("display") === "block") {
-      $(sctn_nav_element).css(sctn_nav_click1_css);
-      setTimeout(function () {$(sctn_nav_element).css("opacity", 0)}, (time_value / 4));
-      $(sctn_nav_element).css(sctn_nav_click2_css);
-    } else {
-      if (sctn_nav_background_position === "0px 0px" || 
-          sctn_nav_background_position === "0% 0%") {
-        $(sctn_nav_element).css(sctn_nav_hover_css);
-      } else {
-        if ($(sctn_nav_link).css("display") === "none") {
-          $(sctn_nav_element).css(sctn_nav_base_css);
+    switch (sctn_nav_background_position) {
+      case "0px 0px":
+        $(sctn_nav_element).css(css_2);
+      break;
+
+      case "0% 0%":
+        $(sctn_nav_element).css(css_2);
+      break;
+
+      case "0px -35px":
+        if ($(sctn_nav_link_element).css("display") === "none") {
+          $(sctn_nav_element).css(css_1);
+        } else if ($(sctn_nav_link_element).css("display") === "block") {
+          $(sctn_nav_element).css(css_3);
+
+          $(sctn_nav_element).fadeTo((time_value / 3), 1);
+          $(sctn_nav_element).fadeTo((time_value / 3), 0);
+
+          $(sctn_nav_element).css(css_4);
+        }      
+      break;
+
+      case "0px -105px":
+        if ($(sctn_nav_link_element).css("display") === "none") {
+          $(sctn_nav_element).css(css_2);
         }
-        
-      }
+      break;
     }
   } else {
     if (sctn_nav_background_position === "0px 0px" && 
-        $(sctn_nav_link).css("display") === "block") {
-      $(sctn_nav_element).css(resp_sctn_nav_click_css);
+        $(sctn_nav_link_element).css("display") === "block") {
+      $(sctn_nav_element).css(css_6);
     } else {
-      $(sctn_nav_element).css(resp_sctn_nav_base_css);
+      $(sctn_nav_element).css(css_5);
     }
   }
   

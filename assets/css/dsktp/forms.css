@@ -15,9 +15,7 @@
 	height: auto;
   margin-bottom: 1.25em;
 	padding: 2em;
-	display: none;
 	background-color: #fff;
-	opacity: 0;
 }
 
 .form_cntnt > span {
@@ -138,11 +136,11 @@
 #sctn_1-start {
 	margin: 0 0 0.8em 0;
 	position: relative;
-	float: right;
 }
 
 #sctn_1-next,
 #sctn_6-next {
+	margin-top: 0;
 	float: right;
 }
 
@@ -156,7 +154,7 @@
 #sctn_6-prev {
 	position: relative;
 	float: right;
-	right: 7.75em;
+	right: 1.5em;
 }
 
 #sctn_6-map {
@@ -197,7 +195,7 @@ input[type=submit] {
 	width: 125px;
 	height: 50px;
 	position: relative;
-	margin: 3.5em 0 0 20em;
+	/*margin: 3.5em 0 0 20em;*/
 	background-color: #40BDE8;
 	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
 	color: #221763;
@@ -406,6 +404,18 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 	.form_cntnt fieldset div span:first-child {
 		margin-left: 0.25em;
+	}
+
+	#alrt > div {
+		width: 22em;
+		height: 10em;
+		font: 400 1.5em "Glegoo", "Palatino", serif;
+	}
+
+	#alrt > div > div {
+		width: 22em;
+		height: 17.75em;
+		padding: 1em 3em;
 	}
 
 	fieldset > div {

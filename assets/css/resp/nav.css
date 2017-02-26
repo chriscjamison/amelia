@@ -363,7 +363,7 @@ div.sctn_nav > div > div a:hover {
   #prev-sctn, 
   #next-sctn {
     width: 22.2em;
-    height: 3em;
+    height: 10em;
     right: 19.2em;
     background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
   }

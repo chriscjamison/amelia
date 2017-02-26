@@ -100,11 +100,13 @@ $(document).ready(
     $(".sctn_nav > div > span").on("mouseover",
 			function () {
         var sctn_nav_selector = new String();
+        var sctn_nav_element = new Object();
 
         sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
+        sctn_nav_element = $(sctn_nav_selector);
 
-        if ($(sctn_nav_selector).css("backgroundPosition") !== "0px -105px")  {
-          animateSctnNav(sctn_nav_selector);
+        if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
+          animateSctnNav(sctn_nav_element);
         }
 			}
 		);
@@ -112,37 +114,19 @@ $(document).ready(
     $(".sctn_nav > div > span").on("mouseout",
 			function () {
         var sctn_nav_selector = new String();
-        var sctn_nav_link_selector = new String();
-
         var sctn_nav_element = new Object();
-        var sctn_nav_link_selector = new Object();
-
-        var css_1 = new Object();
-
-        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
-        sctn_nav_link_selector = "#" + $(this).parent().parent().attr("id") + " > div > div";
         
+        sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
         sctn_nav_element = $(sctn_nav_selector);
-        sctn_nav_link_element = $(sctn_nav_link_selector);
-
-        css_1 = {
-          backgroundPosition: "0px 0px"
-        };
-
-        if ($(sctn_nav_link_element).css("display") === "none" && 
-            $(sctn_nav_element).css("backgroundPosition") === "0px 0px") {
-          $(sctn_nav_element).css(sctn_nav_link_element);
-        } else {
-          if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
-            animateSctnNav(sctn_nav_element);
-          }
+        
+        if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
+          animateSctnNav(sctn_nav_element);
         }
 			}
 		);
 
     $(".sctn_nav > div > span").on("click",
 			function () {
-        var sctn_nav_visible_element = new Object();
         var sctn_nav_element = new String();
         var sctn_nav_link_element = new String();
         
