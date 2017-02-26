@@ -836,7 +836,7 @@ function setupPage()  {
   
   animatePageElements();
 
-  setTimeout(displayVerticalNav, time_value * 2);
+  setTimeout(displayVerticalNav, (time_value * 1.25));
   // The intrapage navigation, which appears on the far-right side of the browser 
   // within a desktop or laptop display, or in the middle of the page 
   // within a mobile display is activate.
@@ -1052,98 +1052,66 @@ function animateFormPanes() {
    * animateFormPanes animates the content of the HTML elements which make up 
    * the Screening, Rate, and Contact forms.
    * **************** *************** **************** **************** **************** */
-  var url_hash = new String();
-  var section_value = new String();
-  var section_search_string = new String();
-  var position_search_string = new String();
-  var form_id = new String();
-  // Holds the selector of the HTML form which, "animateFormPanes", is modifying.
-  //
-  // The value held by, "form_id", is made up of the String snippet, "#form-" 
-  // and the Section Value parameter which is passed to, "animateFormPanes", when 
-  // a button which triggers an action of the form which is a request 
-  // for more form options.
 
-  var section_search_index_val = new Number();
-  var position_search_index_val = new Number();
-
-  var page_1_selector = new String();
+  var clmn_1_selector = new String();
   // Holds the selector of the "<DIV>" element which holds the HTML content which 
   // makes up form options for the Screening, Rate, or Contact form.
   //
   // This variable holds the selector of the first "page" of a given form.
-  var page_2_selector = new String();
+  var clmn_2_selector = new String();
   // Holds the selector of the "<DIV>" element which holds the HTML content which 
   // makes up form options for the Screening, Rate, or Contact form.
   //
   // This variable holds the selector of the second "page" of a given form.
   
-  url_hash = window.location.hash;
-
-  section_search_string = "sctn_";
-  position_search_string = "pos=1";
-
-  section_search_index_val = url_hash.indexOf(section_search_string) + section_search_string.length;
-  position_search_index_val = url_hash.indexOf(position_search_string);
-
-  section_value = url_hash.charAt(section_search_index_val);
+  var page_1_selector = new String();
+  var page_2_selector = new String();
   
-  form_id = "#form-sctn_" + section_value; 
-  // Sets the value of, "form_id", to the combination of the String, "#form", 
-  // and the value held by, "section_value".w
-  //
-  // This statement defines part of the selector of the form which, "animateFormPanes", 
-  // will alter.
+  var page_1_element = new Object();
+  var page_2_element = new Object();
 
-  page_1_selector = form_id + " .form-page_1";
-  page_2_selector = form_id + " .form-page_2";
-  // Sets the values of the selectors, held by, "page_1_selector" and "page_2_selector"
-  // which are a combination of the String value held by "form_id" and the String to follow.
-  //
-  // The variables are used to determine which form "pane" is visible and also 
-  // to animate and make visible or make invisible each form pane depending 
-  // on the form pane a visitor is viewing and interacting with.
+  var section_value = new Number();
+  
+  var url_info_Array = new Array();
 
-  if ($(page_1_selector).css("display") === "block")  {
-    $(page_1_selector).fadeTo(time_value, 0);
-    $(page_1_selector).css("display", "none");
+  var css_1 = new Object();
+  var css_2 = new Object();
 
-    $(page_2_selector).css("display", "block");
-    $(page_2_selector).fadeTo(time_value, 1);
+  url_info_Array = urlInfo();
+
+  section_value = url_info_Array[0];
+
+  page_1_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
+  page_2_selector = "#form-sctn_" + section_value.toString() + " .form-page_2";
+  
+  page_1_element = $(page_1_selector);
+  page_2_element = $(page_2_selector);
+
+  css_1 = {
+    display: "none"
+  };
+
+  css_2 = {
+    display: "block"
+  };
+
+  if (section_value === 5)  {
+    $(page_1_element).css(css_2);
+    $(page_1_element).fadeTo(time_value, 1);
   } else  {
-    $(page_2_selector).fadeTo(time_value, 0);
-    $(page_2_selector).css("display", "none");
+    if ($(page_1_element).css("opacity") === "0")  {
+      $(page_2_element).fadeTo(time_value, 0);
+      $(page_2_element).css(css_1);
+      $(page_1_element).css(css_2);
+      $(page_1_element).fadeTo(time_value, 1);
+    } else {
+      $(page_1_element).fadeTo(time_value, 0);
+      $(page_1_element).css(css_1);
+      $(page_2_element).css(css_2);
+      $(page_2_element).fadeTo(time_value, 1);  
+    }
+  }
 
-    $(page_1_selector).css("display", "block");
-    $(page_1_selector).fadeTo(time_value, 1);
-  } // END OF if STATEMENT
-
-  /* if STATEMENT LOGIC ************** **************** **************** **************** 
-  *  I - The first form pane is visible. 
-  *    A. Fade out the first form pane.
-  *      1. The time span which the animation runs is equal to the value of 
-  *         the variable, "time_value".
-  *        a. "time_value" is a global variable which sets the amount of time an 
-  *           an animation is to last.
-  *    B. Make the first form pane invisible.
-  *      1. The first form pane has it's CSS property, "display", set to "none".
-  *    C. Make the second form pane visible.
-  *      1. The second form pane has it's CSS property, "display", set to "block". 
-  *    D. Fade in the second window pane
-  *      1. The time span which the animation runs is equal to the value of 
-  *         the variable, "time_value".    
-  *  II - The second form pane is visible.
-  *    A. Fade out the second form pane.
-  *      1. The time span which the animation runs is equal to the value of 
-  *         the variable, "time_value".
-  *    B. Make the second form pane invisible.
-  *      1. The second form pane has it's CSS property, "display", set to "none".
-  *    C. Make the first form pane visible.
-  *      1. The first form pane has it's CSS property, "display", set to "block". 
-  *    D. Fade in the first window pane
-  *      1. The time span which the animation runs is equal to the value of 
-  *         the variable, "time_value".       
-  * **************** **************** **************** **************** **************** */
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
 function animatePageElements()  {
@@ -1429,7 +1397,7 @@ function animateSctnNav(sctn_nav_element) {
 
       case "0px -105px":
         if ($(sctn_nav_link_element).css("display") === "none") {
-          $(sctn_nav_element).css(css_2);
+          $(sctn_nav_element).css(css_1);
         }
       break;
     }
@@ -1639,10 +1607,10 @@ function animateSideNav() {
     
     $(options_element).css(css_3);
 
-    $(nav_element).animate(css_1, (time_value / 1.5))
-    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
-    $(nav_brdr_element).animate(css_1, (time_value / 1.5));
-    $(options_element).animate(css_1, (time_value / 1.5));
+    $(nav_element).animate(css_1, time_value)
+    $(nav_bkgrnd_element).animate(css_1, time_value);
+    $(nav_brdr_element).animate(css_1, time_value);
+    $(options_element).animate(css_1, time_value);
 
     if (wndow_width === 980)  {
       $(nav_element).css(css_2);
@@ -1656,8 +1624,8 @@ function animateSideNav() {
       $(wndow_elements).css(css_5);
       $(prev_next_sctn_element).css(css_6);
     } else {
-      $(cntainr_element).animate(css_4, (time_value / 1.5));
-      $(bkgrnd_element).animate(css_4, (time_value / 1.5));
+      $(cntainr_element).animate(css_4, time_value);
+      $(bkgrnd_element).animate(css_4, time_value);
     }
     
     
@@ -1687,7 +1655,7 @@ function animateSideNav() {
 
     $(options_element).animate(css_6, time_value, 
       function () {
-        $(nav_element).animate(css_6, time_value / 2);
+        $(nav_element).animate(css_6, time_value);
         $(nav_bkgrnd_element).animate(css_6, time_value);
         $(nav_brdr_element).animate(css_6, time_value);
 
@@ -1783,7 +1751,7 @@ function setURL()  {
        ($("#info").css("opacity") !== "0")) {
       url_hash = "#sctn_main";
       
-      setTimeout(displayVerticalNav, time_value * 2);
+      setTimeout(displayVerticalNav, (time_value * 1.25));
           
   } else {
     if (determineCurrentSection(current_position) !== Infinity) {
@@ -1908,8 +1876,8 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
 
       if ($(form_element).css("opacity") === "0" && 
           (section_value === 1 && position_value === 1 || 
-          section_value === 5 && position_value === 1 || 
-          section_value === 6 && position_value === 1))  {
+           section_value === 5 && position_value === 1 || 
+           section_value === 6 && position_value === 1))  {
         animateFormPanes();
       }
     }

@@ -504,7 +504,7 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 
 	#form-sctn_6 {
-		margin-left: 3em;
+		margin-left: 2em;
 	}
 
 	#sctn_6-start {

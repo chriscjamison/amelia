@@ -898,36 +898,14 @@ function animateFormPanes() {
     $(page_1_element).fadeTo(time_value, 1);
   } else  {
     if ($(page_1_element).css("opacity") === "0")  {
-      $(page_1_element).fadeTo((time_value / 2), 0);
+      $(page_2_element).fadeTo(time_value, 0);
       $(page_2_element).css(css_1);
       $(page_1_element).fadeTo(time_value, 1);
-      // $(page_1_element).css(css_2);
-
-      /*$(page_2_element).fadeTo((time_value / 2), 0, 
-        function () {
-          $(page_2_element).css(css_1);
-
-          setTimeout(
-            function () {
-              $(page_1_element).css(css_2);
-              $(page_1_element).fadeTo(time_value, 1);
-            }, (time_value / 2)
-          );
-        }
-      );*/
     } else {
-      $(page_1_element).fadeTo((time_value / 2), 0, 
-        function () {
-          $(page_1_element).css(css_1);
-          setTimeout(
-            function () {
-              $(page_2_element).css(css_2);
-              $(page_2_element).fadeTo(time_value, 1);
-            }, (time_value / 2)
-          );    
-          
-        }
-      );
+      $(page_1_element).fadeTo(time_value, 0);
+      $(page_1_element).css(css_1);
+      $(page_2_element).css(css_2);
+      $(page_2_element).fadeTo(time_value, 1);  
     }
   }
 
@@ -1352,9 +1330,9 @@ function animateSideNav() {
     $(copy_elements).css(css_6);
     $(sctn_nav_element).css(css_6);
     
-    $(nav_element).animate(css_1, (time_value / 1.5));
-    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.5));
-    $(nav_brdr_element).animate(css_1, (time_value / 1.5));
+    $(nav_element).animate(css_1, (time_value / 1.25));
+    $(nav_bkgrnd_element).animate(css_1, (time_value / 1.25));
+    $(nav_brdr_element).animate(css_1, (time_value / 1.25));
     
     if (wndow_width === 980)  {
       $(nav_element).css(css_2);
@@ -1367,13 +1345,13 @@ function animateSideNav() {
       $(cntainr_element).css(css_5);
       $(wndow_elements).css(css_5);
       $(options_element).css(css_2);
-      $(options_element).animate(css_1, (time_value / 2));
+      $(options_element).animate(css_1, (time_value / 1.25));
     } else {
-      $(cntainr_element).animate(css_4, (time_value / 1.5));
-      $(bkgrnd_element).animate(css_4, (time_value / 1.5), 
+      $(cntainr_element).animate(css_4, (time_value / 1.25));
+      $(bkgrnd_element).animate(css_4, (time_value / 1.25), 
         function () {
           $(options_element).css(css_2);
-          $(options_element).animate(css_1, (time_value / 2));
+          $(options_element).animate(css_1, (time_value / 1.25));
         });
       // 
       

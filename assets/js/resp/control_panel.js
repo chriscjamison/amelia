@@ -119,7 +119,7 @@ $(document).ready(
         sctn_nav_selector = "#" + $(this).parent().parent().attr("id") + " > div > span";
         sctn_nav_element = $(sctn_nav_selector);
         
-        if ($(sctn_nav_element).css("backgroundPosition") !== "0px -105px")  {
+        if ($(sctn_nav_element).css("backgroundPosition") !== "0px 0px")  {
           animateSctnNav(sctn_nav_element);
         }
 			}
@@ -134,7 +134,6 @@ $(document).ready(
         sctn_nav_link_element = "#" + $(this).parent().parent().attr("id") + " > div > div";
         
         animateSctnNavLinks(sctn_nav_link_element);
-        
         animateSctnNav(sctn_nav_element);
 			}
 		);
@@ -233,9 +232,6 @@ $(document).ready(
     $("input#sctn_6-start").click(
       function () {
         window.location.hash = "#sctn_6?pos=1";
-
-        $("#form-sctn_6 .form-page_1").css("display", "block");
-        $("#form-sctn_6 .form-page_1").fadeTo(time_value, 1);
       }
     );
 
@@ -463,7 +459,7 @@ $(document).ready(
             setTimeout(
               function () {
                 displayVerticalNav();
-              }, time_value
+              }, (time_value * 1.25)
             ); 
           }
         }
