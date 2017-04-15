@@ -83,23 +83,23 @@ function determineVisibleCopyElement(wndow_selector)  {
   wndow_element_copy_length = $(wndow_element).children(".copy").length;
   
   visible_copy_element_val = 3;
-  copy_element_visible_flag = true;
+  copy_element_visible_flag = false;
   // window.alert("wndow_selector = " + wndow_selector);
   if (wndow_selector !== "#wndow-sctn_main")  {
     // window.alert("wndow_selector = " + wndow_selector);
     while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
-           copy_element_visible_flag === true) {
+           copy_element_visible_flag === false) {
       copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
       // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
       if ($(wndow_element).children(copy_selector).css("display") === "none") {
         visible_copy_element_val++;
       } else  {
-        copy_element_visible_flag = false;
+        copy_element_visible_flag = true;
       }
     }
 // window.alert("visible_copy_element_val = " + visible_copy_element_val);
     if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
-        copy_element_visible_flag === true)  {
+        copy_element_visible_flag === false)  {
       visible_copy_element_val = -1;
     } else {
       visible_copy_element_val = visible_copy_element_val - 3;

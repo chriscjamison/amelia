@@ -567,7 +567,9 @@ body {
 }
 
 #sctn_6-desc-1 > p {
-  line-height: 1.7em;
+  margin-bottom: 1.7em;
+  padding-bottom: 1.5em;
+  line-height: 1.7em;    
   border-bottom: 3px solid;
 }
 
@@ -1114,7 +1116,7 @@ body {
   #sctn_5-desc-3 > span + span + span ~ span span, 
   #sctn_6-desc-1 > p, 
   .sctn_6-blok-2 > span {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .sctn_1-blok 
@@ -1199,23 +1201,21 @@ body {
   }
 
   #sctn_6-desc-1 > p {
-    margin-bottom: 0.5em;
-    padding-bottom: 1em;
-    border-bottom: 3px solid;
-    line-height: 1.8em;
+   line-height: 1.8em;
   }
 
   .sctn_6-spcr {
     width: 32.5em;
+    height: 1em;
     clear: both;
   }
 
   .sctn_6-blok-2 {
-    width: 16.1em;
+    width: 17em;
   }
 
   .sctn_6-blok-2 > div {
-    width: 12.75em;
+    width: 13.7em;
   }
 
   #sctn_6-info-1 {

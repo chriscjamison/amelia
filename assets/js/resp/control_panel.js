@@ -9,13 +9,13 @@ var rate_value_search_string = new String();
 time_value = 400;
 window_margin = 150;
 
-url_string = window.location.href;
-url_hash = window.location.hash;
-
 rate_value_search_string = "rateValue=";
 
 $(document).ready(
   function () {
+    url_string = window.location.href;
+    url_hash = window.location.hash;
+
     if (url_string.indexOf(rate_value_search_string) !== -1) {      
       setRateValue(rate_value_search_string);
     }
@@ -406,7 +406,7 @@ $(document).ready(
 
         info_css_opacity_val = $(info_element).css("opacity");
         
-        setURL();
+        setURL(current_position, url_hash);
 
         if (current_position === 0 && 
             info_css_opacity_val === "0") {

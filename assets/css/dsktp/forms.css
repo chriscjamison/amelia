@@ -523,8 +523,8 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 
 	#sctn_6-start {
+		margin: 0 0 0.8em 0;
 		position: relative;
-		letter-spacing: 0px;
 	}
 
 	#sctn_6-next {

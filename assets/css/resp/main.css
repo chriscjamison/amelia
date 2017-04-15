@@ -439,7 +439,7 @@ body {
 }
 
 #sctn_5-desc-3 > span {
-  width: 105px;
+  width: 115px;
   height: 45px;
   padding: 1em;
   display: inline-block;
@@ -630,7 +630,7 @@ body {
 .sctn_6-blok-2 > div > span {
   display: block;
   line-height: 1.7em;
-  color: #231f20;
+  color: #302e1e;
 }
 
 .sctn_6-blok-2 > span {
@@ -1144,9 +1144,14 @@ body {
     margin-left: 39.75em;
   }
 
+  #wndow-sctn_5 > .copy {
+    width: 98.5em !important;
+    margin-left: 20.5em;
+  }  
+  
   #wndow-sctn_6 > .copy {
-    width: 105.3em !important;
-    margin-left: 28em;
+    width: 97em !important;
+    margin-left: 22em;
   }
 
   .sctn_1-blok, 
@@ -1231,10 +1236,6 @@ body {
   
   .sctn_4-blok div {
     top: -0.6em !important;
-  }
-
-  .sctn_5-blok {
-    left: 16.5em;
   }
 
   #sctn_5-desc-3 > span {

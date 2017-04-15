@@ -1720,25 +1720,28 @@ function determineCurrentSection(current_position)  {
   return section_value_num;
 }
 
-function setURL()  {
+function setURL(current_position, url_hash)  {
   var wndow_height = new Number();
   var window_margin = new Number();
   var current_position = new Number();
 
   var headr_selector = new String();
+  var info_selector = new String();
   var section_value = new String();
   var position_value = new String();
 
-  var headr_element = new String();
+  var headr_element = new Object();
+  var info_element = new Object();
 
-  var url_hash = new String();
-  
+  var info_opacity_value = new String();
+
   wndow_height = $(".wndow").height(); 
   window_margin = 150;
 
-  current_position = $(window).scrollTop();  
+  info_selector = "#info";
+  info_element = $(info_selector);
 
-  url_hash = window.location.hash;
+  info_opacity_value = $(info_element).css("opacity");
 
   if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
       (url_hash.indexOf("sctn_main") === -1) && 
@@ -1748,7 +1751,7 @@ function setURL()  {
 
   if ((current_position === 0) && 
       (url_hash.indexOf("sctn_main") === -1) && 
-       ($("#info").css("opacity") !== "0")) {
+       (info_opacity_value === "0")) {
       url_hash = "#sctn_main";
       
       setTimeout(displayVerticalNav, (time_value * 1.25));
