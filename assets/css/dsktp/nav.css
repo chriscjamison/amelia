@@ -604,8 +604,8 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 71.25em !important;
-    top: 27em !important;
+    width: 85.25em !important;
+    top: 33em !important;
   }
 
   .sctn_nav > div {
@@ -616,7 +616,7 @@ div.sctn_nav > div > div a:hover {
   #sctn_4-desc-1 + #nav-sctn_4 > div {
     width: 36.5em !important;
   }
-
+/*
   .sctn_nav > div > span {
     width: 10.5em !important;
     height: 2.49em !important;
@@ -625,7 +625,7 @@ div.sctn_nav > div > div a:hover {
   .sctn_nav > div > div {
     height: 3.55em !important;
   }
-
+*/
   #sctn_3-desc-1 + #nav-sctn_3 > div > div, 
   #sctn_4-desc-1 + #nav-sctn_4 > div > div {
     width: 36.75em !important;
@@ -662,7 +662,7 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 119em !important; 
-    top: 38em !important;
+    top: 42em !important;
   }
 
   .sctn_nav > div > div {
@@ -670,12 +670,6 @@ div.sctn_nav > div > div a:hover {
     height: 3.54em !important;
   }
   
-/*
-  .sctn_nav > div > span {
-    width: 10.5em !important;
-    height: 2.45em !important;
-  }
-*/
   #sctn_3-desc-1 + #nav-sctn_3 > div > span + div > a:first-of-type {
     margin-left: 5.95em !important;
   }

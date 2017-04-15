@@ -5,7 +5,7 @@
 }
 
 .clmn {
-	width: 32.6em;
+	width: 32.2em;
 	height: auto;
   display: inline-block;
 	margin-right: 4.5em;	
@@ -135,19 +135,13 @@
 #sctn_1-start {
 	margin: 0 0 0.8em 0;
 	position: relative;
-	left: 18.25em;
+	float: right;
 }
 
 #sctn_1-next,
 #sctn_6-next {
 	float: right;
 }
-
-/*#sctn_6-next {
-	position: relative;
-	top: 3em;
-	right: -1.6em;
-}*/
 
 #sctn_1-prev,
 #sctn_6-prev {
@@ -486,12 +480,8 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 @media screen and (min-width: 1910px) {
 	#form-sctn_1 {
-		margin-left: 21em;
+		margin-left: 12.75em;
 		position: relative;
-	}
-
-	#sctn_1-start {
-		left: 22.5em;
 	}
 
 	input[type=button],
@@ -509,7 +499,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 	#sctn_6-start {
 		position: relative;
-		letter-spacing: 0px;
 	}
 
 	#sctn_6-map {

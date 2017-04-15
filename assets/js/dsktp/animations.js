@@ -125,7 +125,7 @@ function parseWindowDimensions() {
                 // If the browser width of a display is greater than "1600px", 
                 // the height value is "1020"
                 page_dimensions_Array[0] = 1920;
-                page_dimensions_Array[1] = 1020;
+                page_dimensions_Array[1] = 1080;
               } // END OF if STATEMENT -- <= 1600
             } // END OF if STATEMENT -- <= 1366
           } // END OF if STATEMENT -- <= 1280
@@ -598,7 +598,7 @@ function cssAdjustment()  {
       info_1_css = {
         "width": "38.6em",
         "height": "15.2em",
-        "bottom": "9.2em"
+        "bottom": "14em"
       };
       
       info_3_css = {

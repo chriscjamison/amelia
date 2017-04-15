@@ -607,8 +607,8 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    width: 85.375em !important;
-    top: 34.375em !important;
+    width: 85.38em !important;
+    top: 39.38em !important;
   }
   
   #prev-sctn, 
@@ -643,6 +643,6 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 119em !important; 
-    top: 38em !important;
+    top: 42em !important;
   }
 }
