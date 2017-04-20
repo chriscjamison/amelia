@@ -669,28 +669,61 @@ function setupPage()  {
   
   var nav_width = new Number();
   var nav_left_val = new Number();
-  
-  var cntainr_css = new Object();
+
+  var cntainr_selector = new String();
+  // Holds the CSS selector, "#cntainr".
+  var wndow_selector = new String();
+  // Holds the CSS selector, ".wndow".
+  var copy_css = new String();
+  // Holds the CSS selector, ".copy".
+  var bkgrnd_selector = new String();
+  // Holds the CSS selector, "#bkgrnd".
+  var nav_selector = new String();
+  // Holds the CSS selectors, "nav, #nav-bkgrnd, #nav-brdr".
+  var bkgrnd_div_sub_selector = new String();
+  // Holds the CSS selector, "#bkgrnd > div".
+  var wndow_sctn_selector = new String();
+  // Holds the CSS selector, "#wndow-sctn_X".
+
+  var cntainr_element = new Object();
+  // Holds the jQuery Object for the HTML DOM element using the selector, "#cntainr".
+  var wndow_elements = new Object();
+  // Holds the jQuery Object for the HTML DOM elements using the selector, ".wndow".
+  var copy_elements = new Object();
+  // Holds the jQuery Object for the HTML DOM elements using the selector, ".copy".
+  var bkgrnd_element = new Object();
+  // Holds the jQuery Object for the HTML DOM element using the selector, "#bkgrnd".
+  var nav_elements = new Object();
+  // Holds the jQuery Object for the HTML DOM elements using the selectors, "nav, #nav-bkgrnd, #nav-brdr".
+  var bkgrnd_div_sub_elements = new Object();
+  // Holds the jQuery Object for the HTML DOM elements using the selector, "#bkgrnd > div".
+  var wndow_sctn_element = new Object();
+  // Holds the jQuery for the HTML DOM element referenced within the selector contained within 
+  // the variable, "wndow_sctn_selector".
+  //
+  // The selector will follow the following format, "#wndow-sctn_X", with X representing a 
+  // Section Value identifying an individual section.
+
+  var css_1 = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
   // The values contained within this object, format the HTML element 
   // identified by the selector, "#cntainr". 
-  var wndow_css = new Object();
+  var css_2 = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
   // The values contained within this object, format the HTML elements 
   // identified by the selector, ".wndow". 
-  var bkgrnd_css = new Object();
+  var css_3 = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
   // The values contained within this object, format the HTML element 
   // identified by the selector, "#bkgrnd". 
-  var copy_css = new Object();
+  var css_4 = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
   // The values contained within this object, format the HTML elements 
   // identified by the selector, ".copy". 
-  var nav_css = new Object();
   
   var inc_bkgrnd = new Number();
   // Holds a number which represents the Section Value of the background image 
@@ -698,16 +731,16 @@ function setupPage()  {
   //  
   // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
   
-  var bkgrnd_div_selector = new String();
-  // Holds a String representing the selector of the HTML element being modified by 
-  // the jQuery Method, ".each".
-  //
-  // The HTML element is one of the many elements defined 
-  // by the selector, "#bkgrnd > div".
   var bkgrnd_img_value = new String();
   // Holds a String defining the value of the CSS property, "background-image", 
   // which is used within the jQuery Method, ".each", as it is used for 
   // the HTML elements using the selectors, "#bkgrnd > div".
+  
+  var bkgrnd_width = new String();
+  // Holds the width of the background image as calculated by multiplying the width returned to the Array, 
+  // "page_dimensions_Array[0]", by the number of ".copy" HTML DIV elements within a given Section.
+  var bkgrnd_height = new String();
+  // Holds the height of the background image as returne to the Array, "page_dimensions_Array[1]".
   
   cssAdjustment();
   // cssAdjusment is called to render various HTML elements of the webpage 
@@ -724,37 +757,45 @@ function setupPage()  {
   nav_width = $("nav").width();
   nav_left_val = -nav_width;
 
-  cntainr_css = {
+  cntainr_selctor = "#cntainr";
+  wndow_selector = ".wndow";
+  bkgrnd_selector = "#bkgrnd";
+  nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
+  bkgrnd_div_sub_selector = "#bkgrnd > div";
+
+  cntainr_element = $(cntainr_selector);
+  wndow_elements = $(wndow_selector);
+  bkgrnd_element = $(bkgrnd_selector);
+  nav_elements = $(nav_selector);
+  bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
+
+  css_1 = {
     "width": page_dimensions_Array[0],
     "height": page_height
   };
   
-  wndow_css = {
+  css_2 = {
     "width": page_dimensions_Array[0],
     "height": page_dimensions_Array[1]
   };
   
-  copy_css = {
-    "height": page_dimensions_Array[1]
-  };
-  
-  bkgrnd_css = {
+  css_3 = {
     "width": page_dimensions_Array[0],
     "height": page_dimensions_Array[1]
   };
 
-  nav_css = {
-    left: nav_left_val
+  css_4 = {
+    "left": nav_left_val
   }
   
-  $("#cntainr").css(cntainr_css);
+  $(cntainr_element).css(css_1);
   // The values of the CSS properties, "width" and "height" are modified 
   // using the jQuery Method, ".css".
   //
   // The HTML element using the selector, "#cntainr", has it's CSS 
   // values of "width" and "height" set to equal the width 
   // of the browser window and the height of the webpage.
-  $(".wndow").css(wndow_css);
+  $(wndow_elements).css(css_2);
   // The values of the CSS properties, "width" and "height" are modified
   // using the jQuery Method, ".css".
   //
@@ -762,7 +803,7 @@ function setupPage()  {
   // values set to match the values of the browser width and height, 
   // as calculated by "parseWindowDimensions". 
   
-  $("#bkgrnd").css(bkgrnd_css);
+  $(bkgrnd_element).css(css_3);
   // The values of the CSS properties, "width" and "height" are modified 
   // using the jQuery Method, ".css".
   //
@@ -770,32 +811,36 @@ function setupPage()  {
   // values set to match the values of the browser width and height, 
   // as calculated by "parseWindowDimensions". 
 
-  $("nav").css(nav_css);
+  $(nav_elements).css(css_4);
    
   inc_bkgrnd = 0;
   // "inc_bkgrnd" serves as an incrementer which increases in value as 
   // the jQuery Method, ".each", cycles through the HTML elements defined 
   // by the selector, "#bkgrnd > div".
 
-  $("#bkgrnd > div").each(
+  $(bkgrnd_div_sub_elements).each(
     function () {
       if (inc_bkgrnd > 0) {
-        bkgrnd_div_selector = "#wndow-sctn_" + inc_bkgrnd;
-        bkgrnd_div_element = $(bkgrnd_div_selector);
+        wndow_sctn_selector = "#wndow-sctn_" + inc_bkgrnd;
+        wndow_sctn_element = $(wndow_sctn_selector);
         
-        bkgrnd_width =  page_dimensions_Array[0] * $(bkgrnd_div_element).children(".copy").length;
+        bkgrnd_width =  (page_dimensions_Array[0] * $(wndow_sctn_element).children(".copy").length).toString();
+        bkgrnd_height = page_dimensions_Array[1].toString();
+
         bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
-                            inc_bkgrnd + "/" + bkgrnd_width + "x" + page_dimensions_Array[1] + 
+                            inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
 
-        bkgrnd_css.backgroundImage = bkgrnd_img_value;
+        css_3.backgroundImage = bkgrnd_img_value;
       } else  {
+        bkgrnd_width = page_dimensions_Array[0].toString();
+        bkgrnd_height = page_dimensions_Array[1].toString();
         
-        bkgrnd_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + page_dimensions_Array[0] +
-                                    "x" + page_dimensions_Array[1] + ".jpg')";
+        css_3.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
+                                    "x" + bkgrnd_height + ".jpg')";
       } // END OF if STATEMENT
       
-      $(this).css(bkgrnd_css);
+      $(this).css(css_3);
       
       inc_bkgrnd++;
     } 
@@ -836,7 +881,11 @@ function setupPage()  {
   
   animatePageElements();
 
-  setTimeout(displayVerticalNav, (time_value * 1.25));
+  setTimeout(
+    function () {
+      displayVerticalNav();
+    }, (time_value * 1.25)
+  );
   // The intrapage navigation, which appears on the far-right side of the browser 
   // within a desktop or laptop display, or in the middle of the page 
   // within a mobile display is activate.
@@ -1285,37 +1334,59 @@ function animatePageElements()  {
 function displayVerticalNav() {
   var current_position = new Number();
   var wndow_height = new Number();
-  var page_scroll_margin = new Number();
+  var wndow_location_margin = new Number();
+  
+  var css_1 = new Object();
+  var css_2 = new Object();
 
-  var sctn_on_css = new Object();
-  var sctn_off_css = new Object();
+  var prev_sctn_selector = new String();
+  // Holds the CSS selector, "#prev-sctn".
+  var next_sctn_selector = new String();
+  // Holds the CSS selector, "#next-sctn".
+  var wndow_selector = new String();
+  // Holds the CSS selector, ".wndow".
 
-  sctn_on_css = {
+  var prev_sctn_element = new Object();
+  // Holds the jQuery Object for the HTML DOM element using the selector, "#prev-sctn".
+  var next_sctn_element = new Object();
+  // Holds the jQuery Object for the HTML DOM element using the selector, "#next-sctn".
+  var wndow_elements = new Object();
+  // Holds the jQuery Object for the HTML DOM elements using the selector, ".wndow".
+
+  css_1 = {
     display: "block",
     opacity: 1
   };
 
-  sctn_off_css = {
+  css_2 = {
     display: "none", 
     opacity: 0
   }
   
-  page_scroll_margin = 5;
   wndow_height = $(".wndow").height();
   current_position = $(window).scrollTop();
+  wndow_location_margin = 100;
+
+  prev_sctn_selector = "#prev-sctn";
+  next_sctn_selector = "#next-sctn";
+
+  prev_sctn_element = $(prev_sctn_selector);
+  next_sctn_element = $(next_sctn_selector);
   
   if (current_position === 0)  {
-    $("#prev-sctn").css(sctn_off_css);
+    $(prev_sctn_element).css(css_2);
+    $(next_sctn_element).css(css_1);
   } else {
-    if ($("#prev-sctn").css("display") === "none")  {
-      $("#prev-sctn").css(sctn_on_css);
+    if ($(prev_sctn_element).css("display") === "none")  {
+      $(prev_sctn_element).css(css_1);
     }
     
-    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height))  {
-      $("#next-sctn").css(sctn_off_css);
+    if (current_position >= ((wndow_height * ($(".wndow").length - 1)) - wndow_height - wndow_location_margin))  {
+      $(next_sctn_element).css(css_2);
+      $(prev_sctn_element).css(css_1);
     } else {
-      if ($("#next-sctn").css("display") === "none") {
-        $("#next-sctn").css(sctn_on_css);
+      if ($(next_sctn_element).css("display") === "none") {
+        $(next_sctn_element).css(css_1);
       }
     }
   }
@@ -1556,8 +1627,7 @@ function animateSideNav() {
   page_dimensions_Array = parseWindowDimensions();
   wndow_width = page_dimensions_Array[0];
 
-
-  if ($(nav_element).css("left") !== "0px")  {
+if ($(nav_element).css("left") !== "0px")  {
     element_width = window_width - nav_width;
     // The difference of the width of the browser window and the value held ]
     // by "nav_width" is passed onto the variable "element_width".
@@ -1571,6 +1641,8 @@ function animateSideNav() {
     var css_2 = new Object();
     var css_3 = new Object();
     var css_4 = new Object();
+    var css_5 = new Object();
+    var css_6 = new Object();
 
     css_1 = {
       left: "0px", 
@@ -1583,6 +1655,7 @@ function animateSideNav() {
 
     css_3 = {
       display: "block", 
+      left: -nav_width, 
       opacity: 1
     };
 
@@ -1612,7 +1685,8 @@ function animateSideNav() {
     $(nav_brdr_element).animate(css_1, time_value);
     $(options_element).animate(css_1, time_value);
 
-    if (wndow_width === 980)  {
+    if (wndow_width === 980 || 
+        wndow_width === 1024)  {
       $(nav_element).css(css_2);
       $(nav_bkgrnd_element).css(css_2);
       $(nav_brdr_element).css(css_2);
@@ -1627,8 +1701,6 @@ function animateSideNav() {
       $(cntainr_element).animate(css_4, time_value);
       $(bkgrnd_element).animate(css_4, time_value);
     }
-    
-    
   } else  {
     var css_6 = new Object();
     var css_7 = new Object();
@@ -1723,7 +1795,7 @@ function determineCurrentSection(current_position)  {
 function setURL(current_position, url_hash)  {
   var wndow_height = new Number();
   var window_margin = new Number();
-  var current_position = new Number();
+  // var current_position = new Number();
 
   var headr_selector = new String();
   var info_selector = new String();
@@ -1752,15 +1824,12 @@ function setURL(current_position, url_hash)  {
   if ((current_position === 0) && 
       (url_hash.indexOf("sctn_main") === -1) && 
        (info_opacity_value === "0")) {
-      url_hash = "#sctn_main";
-      
-      setTimeout(displayVerticalNav, (time_value * 1.25));
-          
+      url_hash = "#sctn_main";     
   } else {
     if (determineCurrentSection(current_position) !== Infinity) {
       section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
       
-      if (current_position >= wndow_height) {
+      if (current_position >= (wndow_height - window_margin)) {
         position_value = determineVisibleCopyElement(section_value);  
       } else  {
         position_value = 0;
@@ -1781,6 +1850,12 @@ function setURL(current_position, url_hash)  {
   if (url_hash !== window.location.hash)  {
     window.location.hash = url_hash;
   }
+
+  setTimeout(
+    function () {
+      displayVerticalNav();
+      }, (time_value * 1.25)
+  );  
 }
 
 function animateMenuOptions(option_element) {

@@ -450,6 +450,31 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 }
 
+@media screen and (width: 1024px) and (max-height: 1510px) {
+	#form-sctn_1 {
+		margin-left: 2.5em;
+	}
+
+	#sctn_5-sbmt {
+		letter-spacing: -1px;
+	}
+
+	#sctn_5-cntct, 
+	#sctn_6-start, 
+	#sctn_6-sbmt {
+		letter-spacing: -1.8px !important;
+	}
+
+	#form-sctn_5, 
+	#form-sctn_6 {
+		margin-left: 0.25em;
+	}
+	
+	#sctn_6-map {
+		margin: 0.8em 0.1em 0 0;
+	}	
+}
+
 @media screen and (min-width: 1260px) {
   .clmn {
     vertical-align: top;
@@ -473,6 +498,14 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		font-size: 0.9em;
 	}
 	
+	#sctn_5-cntct {
+		letter-spacing: -1.7px !important;
+	}
+
+	#sctn_6-start {
+		letter-spacing: -1.7px;
+	}
+
 	#sctn_6-map {
 		margin-top: 0.75em;
 	}

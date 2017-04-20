@@ -103,7 +103,7 @@ nav {
 	color: #000 !important;
 }
 
-#options > span {
+#options > a {
 	width: 12.4em;
 	height: 2.35em;
 	margin: 1em;
@@ -355,7 +355,7 @@ div.sctn_nav > div > div a:hover {
 	  top: 12em;
   }  
   
-  #options > span {
+  #options > a {
     margin: 0.9em auto;
     font-size: 2.5em;  
   }
@@ -364,7 +364,7 @@ div.sctn_nav > div > div a:hover {
   #next-sctn {
     width: 22.2em;
     height: 10em;
-    right: 19.2em;
+    right: 19em;
     background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
   }
   
@@ -431,7 +431,7 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
-  #options > span {
+  #options > a {
     font-size: 1.85em;
   }
   
@@ -463,6 +463,59 @@ div.sctn_nav > div > div a:hover {
   }
 }
 
+@media screen and (width: 1024px) and (max-height: 1510px) {
+  nav, 
+  #options, 
+  #nav-bkgrnd, 
+  #nav-brdr {
+    width: 24.7em;
+  }
+
+  nav {
+    height: 93.75em;
+  }
+  
+  #options > a {
+    font-size: 1.5em;
+  }
+
+  #prev-sctn, 
+  #next-sctn {
+    width: 22.5em;
+    right: 20.5em;
+  }
+
+  #prev-sctn > span, 
+  #next-sctn > span {
+    display: none;
+  }
+
+  #next-sctn {
+    background-position: 0px -405px;
+    bottom: 1em;
+  }
+
+  #prev-sctn:hover {
+    background-position: 0px 0px !important;
+  }
+
+  #next-sctn:hover {
+    background-position: 0px -405px !important;
+  }
+
+  .sctn_nav {
+    width: 64em !important;
+  }
+
+  .sctn_nav > div {
+    width: 43.25em !important;
+  }
+
+  .sctn_nav > div > div {
+    height: 2.75em !important;
+    margin-top: 1.5em !important;
+  }
+}
 @media screen and (min-width: 1260px) {
   .options-click {
     display: inline-table !important;
@@ -545,7 +598,7 @@ div.sctn_nav > div > div a:hover {
     width: 32em;
   }
   
-  #options > span {
+  #options > a {
     width: 8.61em;
     display: inline-table;
     font-size: 1.25em;
@@ -573,7 +626,7 @@ div.sctn_nav > div > div a:hover {
     left: -39.1em;
   }
 
-  #options > span {
+  #options > a {
     width: 11.6em;
     float: left;
   }
@@ -635,7 +688,7 @@ div.sctn_nav > div > div a:hover {
     height: initial;
   }
 
-  #options > span {
+  #options > a {
     width: 12.4em;
     height: 2.15em;
     margin: 0.75em;

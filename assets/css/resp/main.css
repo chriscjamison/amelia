@@ -55,8 +55,7 @@ body {
 }
 
 .copy {
-  width: 875px;
-	margin: 8.15em 0 0 17.5em;
+  margin: 8.15em 0 0 17.5em;
 	display: none;
 	position: absolute;
   float: left;
@@ -403,10 +402,9 @@ body {
 	opacity: 0;
 }
 
-.sctn_5-blok p {
-	font-size: 0.95em;
+.sctn_5-blok > p {
 	text-indent: 1.3em;
-	line-height: 1.6em;
+	line-height: 1.7em;
 }
 
 #sctn_5-desc-1 {
@@ -439,7 +437,7 @@ body {
 }
 
 #sctn_5-desc-3 > span {
-  width: 115px;
+  width: 113px;
   height: 45px;
   padding: 1em;
   display: inline-block;
@@ -567,6 +565,7 @@ body {
   width: 28.9em;
   margin-right: 2.5em;
 	padding: 1em 2em;
+  position: relative;
   float: left;
 	opacity: 0;
 }
@@ -644,9 +643,8 @@ body {
 #sctn_6-info-2 {
   width: 32.8em;
   height: 12.15em;
-  margin-top: 10em;
+  margin-top: 1em;
   position: relative;
-  left: 3.7em;
 }
 
 #sctn_6-info-2 > div {
@@ -696,57 +694,6 @@ body {
   line-height: 1.7em;
 }
 
-/*#sctn_6-cntainr {
-	width: 79%;
-	height: 360px;
-	position: relative;
-	top: 175px;
-	left: 175px;
-}
-
-.sctn_6-clmn {
-	float: left;
-}
-
-.sctn_6-clmn div {
-	width: 240px;
-	margin: 0 1.5em 1.5em 0;
-	padding: 1em 1.5em;
-	background-color: #6a403e;
-	font: 400 0.9em "Glegoo", "Palatino", serif;
-	color: #fbf3de;
-}
-
-#sctn_6-desc-2 span {
-	display: block;
-}
-
-.sctn_6-desc-2-title,
-.sctn_6-desc-3-title {
-	width: 100%;
-	display: block;
-	font-size: 1.2em;
-	font-weight: 700;
-	margin-bottom: 0.6em;
-	border-bottom: 2px solid;
-}
-
-.sctn_6-desc-3 > ol {
-	margin-top: 1em;
-	padding-left: 1.5em;
-}
-
-.sctn_6-desc-3 ol > li {
-	font: 400 0.9em "Glegoo", "Palatino", serif;
-}
-
-#sctn_6-desc-4 {
-	width: 640px;
-	height: 360px;
-	margin: 0;
-	padding: 1.6em 1.5em;
-}*/
-
 @media screen and (width: 980px) {
   #info {
     background-color: #977348;
@@ -771,7 +718,7 @@ body {
     width: 100%;
     position: absolute;
     margin: 0;
-    top: 33.75em  ;
+    top: 13.5em  ;
     display: block;
     opacity: 1;
     font-size: 2.5em;
@@ -788,31 +735,26 @@ body {
   }
 
   .copy {
-    width: 50.55em;
-    height: 111.7em;
-    margin-left: 14.5em;
+    width: 51em;
+    height: 100.7em;
+    margin-left: 10.25em;
   }
-
+  
   .sctn_2-blok {
     width: 39em;
     margin-right: 0;
   }
 
-  .sctn_2-blok > ul {
-    font-size: 2em;
-  }
-
   .sctn_2-blok_2 {
-    width: 48.55em;
-    margin-left: 5em;
+    width: 43em;
+    margin-left: 8em;
     top: 2em;
     left: 0;
   }
 
   .sctn_2-blok_2 > span {
     width: 8.5em;
-    margin-left: 2.5em;
-    font-size: 2em;
+    margin-left: 2.3em;
   }
 
   .sctn_2-blok_2 > span + div {
@@ -826,11 +768,11 @@ body {
     margin: 0.25em 0;
     padding: 0.45em 0 1em 0;
     display: block;
-    font-size: 2em;
     line-height: 1.6em;
   }
 
   .sctn_1-blok, 
+  .sctn_2-blok_2 > span + div > span
   .sctn_3-blok,
   .sctn_4-blok,
   .sctn_5-blok,
@@ -841,8 +783,12 @@ body {
   }
 
   .sctn_1-blok > p,
+  .sctn_2-blok > ul, 
+  .sctn_2-blok_2 > span, 
+  .sctn_2-blok_2 > span + div > span, 
   .sctn_3-blok > p,
   .sctn_4-blok > p,
+  .sctn_4-blok > span, 
   .sctn_5-blok > p,
   #sctn_5-desc-2 > span,
   #sctn_5-desc-7 > p,
@@ -853,12 +799,21 @@ body {
     font-size: 1.75em;
   }
 
-  .sctn_4-blok > span {
-    font-size: 2em;
-  }
+  .sctn_1-blok,
+  .sctn_3-blok, 
+  .sctn_4-blok,
+  .sctn_6-blok {
+    width: 36.25em;
+  } 
 
   .sctn_4-blok > div {
     top: -0.55em;
+  }
+
+  .sctn_5-blok > p, 
+  .sctn_6-blok > p, 
+  .sctn_6-blok-2 > div {
+    font-size: 1.5em;
   }
 
   #sctn_5-desc-3 > span {
@@ -873,12 +828,104 @@ body {
     margin-bottom: 1.75em;
   }
 
+  .sctn_6-blok-2 > div {
+    width: 9.25em;
+  }
+
   #sctn_6-info-2 {
     width: 40em;
+    height: 19em;
   }
 
   #sctn_6-info-2 > div {
-    width: 19.5em;
+    width: 23.5em;
+  }
+}
+
+@media screen and (width: 1024px) and (max-height: 1510px)  {
+  #info {
+    width: 45.6em;
+    height: 17em;
+    bottom: 17em;
+    left: 10.5em;
+  }
+
+  #info img {
+    margin: 1.7em;
+  }
+
+  #info ul {
+    font-size: 1.25em;
+  }
+
+  .copy {
+    height: 77.25em;
+  }
+
+  #wndow-sctn_main {
+    width: 64em;
+    height: 93.75em;
+  }
+
+  #wndow-sctn_1 > .copy, 
+  #wndow-sctn_3 > .copy, 
+  #wndow-sctn_4 > .copy {
+    width: 50.75em;
+    margin-left: 13.25em;
+  }
+
+  #wndow-sctn_2 > .copy {
+    width: 46.5em;
+  }
+
+  #wndow-sctn_5 > .copy, 
+  #wndow-sctn_6 > .copy {
+    width: 48.5em;
+    margin-left: 15.5em;
+  }
+
+  .headr {
+    width: 64em;
+  }
+
+  .sctn_2-blok_2 {
+    width: 64em;
+  }
+
+  .sctn_2-blok_2 > span + div > span {
+    padding-top: 1em;
+  }
+
+  .sctn_4-blok > div {
+    top: -0.6em;
+  }
+
+  #sctn_5-desc-3 > span {
+    width: 119px;
+  }
+
+  #sctn_5-desc-3 > span > span {
+    margin: 0.5em 0.6em 0 0.25em;
+  }
+
+  #sctn_5-desc-3 > span + span + span ~ span span {
+    margin-top: 0.55em;
+  }
+
+  #sctn_6-info-1 {
+    margin: 2.5em 0 1.5em 0;
+  }
+
+  #sctn_6-info-1 > span {
+    padding-bottom: 1em;
+  }
+
+  #sctn_6-info-2 > div {
+    width: 29.5em;
+  }
+
+  .sctn_6-blok-2 > div {
+    width: 12em;
   }
 }
 
@@ -1051,6 +1098,7 @@ body {
 
   .copy {
     height: 39.85em;
+    font-size: 0.95em;
   }
 
   #info {
@@ -1061,24 +1109,31 @@ body {
   }
 
   #wndow-sctn_1 > .copy {
-    width: 77.3em !important;
-    margin-left: 7em;
+    width: 79em !important;
+    margin-left: 9.75em;
+  }
+
+  #wndow-sctn_2 > .copy {
+    width: 75.5em !important;
+    margin-left: 13.25em;
   }
 
   #wndow-sctn_3 > .copy, 
   #wndow-sctn_4 > .copy {
-    width: 60.55em !important;
-    margin-left: 23.75em;
+    width: 62.5em !important;
+    margin-left: 26.5em;
   }
 
-  
-  #wndow-sctn_2 > .copy,
-  #wndow-sctn_5 > .copy,
+  #wndow-sctn_5 > .copy {
+    width: 79.5em !important;
+    margin-left: 9.25em;
+  }
+
   #wndow-sctn_6 > .copy {
-    width: 82.25em !important;
-    margin-left: 11.5em;
+    width: 78.5em !important;
+    margin-left: 10.25em;
   }
-
+  
   #sctn_1-desc-1 {
     left: 17em;
   }
@@ -1115,7 +1170,7 @@ body {
   }
 
   .sctn_6-spcr {
-    width: 35.4em;
+    width: 72em;
     height: 0.8em;
     float: left;
     clear: none;
@@ -1283,6 +1338,8 @@ body {
 
   #sctn_6-info-2 > div {
     width: 29.5em;
+    margin-top: 10em;
+    left: 3.7em;
   }
 }
 

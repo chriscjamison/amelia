@@ -128,6 +128,7 @@ function determineCopyElements()  {
   var inc = new Number();
 
   wndow_elements = $(".wndow");
+// window.alert("wndow_elements.length = " + wndow_elements.length);
   
   visible_elements_var = "copyValues=";
   
@@ -139,10 +140,10 @@ function determineCopyElements()  {
         wndow_element = this;
 
         current_window_id = "#" + $(wndow_element).attr("id");
-        
+// window.alert("current_window_id = " + current_window_id);       
         if (current_window_id !== "#wndow-sctn_main")  {
           visible_copy_element_num = determineVisibleCopyElement(current_window_id);
-
+// window.alert("url_hash.charAt(" + (visible_elements_var.length - 1).toString() + ") = " + url_hash.charAt(visible_elements_var.length - 1));
           if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
             if (visible_copy_element_num === -1)  {
               visible_element_value = "-";
@@ -158,13 +159,14 @@ function determineCopyElements()  {
           }
           
           visible_elements_var = visible_elements_var + visible_element_value;
+// window.alert("visible_element_var = " + visible_elements_var);
         }
         
       }
     );
 
     if (url_hash.indexOf("#") === -1) {
-      visible_elements_var = "#";
+      visible_elements_var = "#" + visible_elements_var;
     } else  {
       if (url_hash.indexOf("?") === -1) {
         visible_elements_var = "?" + visible_elements_var;
@@ -175,6 +177,7 @@ function determineCopyElements()  {
     
     visible_elements_var = window.location.hash + visible_elements_var;
     // window.alert("visible_elements_var = " + visible_elements_var);
+// window.alert("visible_elements_var = " + visible_elements_var);
 
     window.location.hash = visible_elements_var;
  
@@ -365,7 +368,11 @@ function interSectionNav(inter_nav_element)  {
     }
   );
   
-  setTimeout(function() {displayVerticalNav();}, time_value);
+  setTimeout(
+    function() {
+      displayVerticalNav();
+    }, time_value
+  );
 }
 
 function activateSideNav(option_element)  {
