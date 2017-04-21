@@ -389,7 +389,6 @@ div.sctn_nav > div > div a:hover {
     font-size: 1.8em;
   }
   
-  
   .sctn_nav {
     width: 61.2em !important;
     height: 4.38em !important; 
@@ -449,14 +448,21 @@ div.sctn_nav > div > div a:hover {
   }
 
   .sctn_nav {
-    top: 47em !important;
+    top: 57em !important;
   }
   
+  .sctn_nav > div {
+    width: 61.8em !important;
+  }
+
   .sctn_nav > div > div {
+    width: 61em !important;
+    height: 6.19em !important;
     margin: 0 !important;
   }
 
   .sctn_nav > div > div > a {
+    width: 8em !important;
     height: 1.5em !important;
     margin: 0.65em 0 0.65em 1.2em !important;
     font: 400 1.6em "Franklin Gothic Medium", sans-serif !important;

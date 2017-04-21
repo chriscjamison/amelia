@@ -1381,7 +1381,7 @@ function displayVerticalNav() {
       $(prev_sctn_element).css(css_1);
     }
     
-    if (current_position >= ((wndow_height * ($(".wndow").length - 1)) - wndow_height - wndow_location_margin))  {
+    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height - wndow_location_margin))  {
       $(next_sctn_element).css(css_2);
       $(prev_sctn_element).css(css_1);
     } else {
