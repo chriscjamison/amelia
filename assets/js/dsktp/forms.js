@@ -217,7 +217,7 @@ function validateQuestionField(validation_type, question_value)  {
   }
 }  
 
-function validateForm()  {
+function validateForm(section_value)  {
   var form_questions_selector = new String();
   var form_questions_elements = new Object();
 
@@ -235,7 +235,7 @@ function validateForm()  {
             
   var complete_field_flag_Array = new Array();
 
-  form_questions_selector = ".form_cntnt";
+  form_questions_selector = "#form-" + section_value + " .form_cntnt";
   form_questions_elements = $(form_questions_selector);
   
   questions_num_val = $(form_questions_elements).length;

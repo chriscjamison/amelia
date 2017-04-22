@@ -44,11 +44,29 @@ $(document).ready(
     
     $("#nav-link").on("click", 
       function () {
+        var nav_selector = new String();
+        var nav_element = new Object();
+        
+        var nav_left_value = new String();
+        
+        nav_selector = "nav";
+        nav_element = $(nav_selector);
+
+        nav_left_value = $(nav_element).css("left");
+
+        if (nav_left_value === "0px") {
+          setTimeout(
+            function () {
+              navLinkHoverState("base");
+            }, (time_value * 2.5)
+          );
+        } else {
+          navLinkHoverState("click");
+        }
+        
         determineCopyElements();
         
-        animateSideNav();
-      
-        navLinkHoverState("click");
+        animateSideNav();        
       }
     );
     
@@ -261,30 +279,7 @@ $(document).ready(
 
     $("#sctn_6-no_2 > fieldset > p > input[type='radio']").change( 
       function () {
-        var field_selector = new String();
-        var fieldset_selector = new String();
-        var radio_selector = new String();
-
-        var field_element = new Object();
-        var fieldset_element = new Object();
-        var radio_elements = new Object();
-
-        var radio_element = new Object();
-        var radio_element_property = new String();
-        var radio_element_num = new Number();
-
-        var inc = new Number();
-
-        var css_1 = new Object();
-        var css_2 = new Object();
-
-        field_selector = "#sctn_6-field-email";
-        field_element = $(field_selector);
-
-        fieldset_selector = "#sctn_6-no_2 > fieldset";
-        fieldset_element = $(fieldset_selector);
-
-        $("input#sctn_6-field-email").val("");
+       $("input#sctn_6-field-email").val("");
       }
     );
 

@@ -452,7 +452,7 @@ div.sctn_nav > div > div a:hover {
   }
   
   .sctn_nav > div {
-    width: 61.8em !important;
+    width: 61em !important;
   }
 
   .sctn_nav > div > div {
@@ -475,6 +475,7 @@ div.sctn_nav > div > div a:hover {
   #nav-bkgrnd, 
   #nav-brdr {
     width: 24.7em;
+    left: -24.7em;
   }
 
   nav {
@@ -511,6 +512,7 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 64em !important;
+    top: 54em !important;
   }
 
   .sctn_nav > div {
@@ -522,6 +524,7 @@ div.sctn_nav > div > div a:hover {
     margin-top: 1.5em !important;
   }
 }
+
 @media screen and (min-width: 1260px) {
   .options-click {
     display: inline-table !important;

@@ -395,7 +395,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	
 	.form_cntnt {
 		font-size: 1.5em;
-		opacity: 1;
 	}
 	
 	.form_cntnt fieldset div span {
@@ -404,18 +403,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 
 	.form_cntnt fieldset div span:first-child {
 		margin-left: 0.25em;
-	}
-
-	#alrt > div {
-		width: 22em;
-		height: 10em;
-		font: 400 1.5em "Glegoo", "Palatino", serif;
-	}
-
-	#alrt > div > div {
-		width: 22em;
-		height: 17.75em;
-		padding: 1em 3em;
 	}
 
 	fieldset > div {
@@ -432,11 +419,6 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		left: 0em;
 	}
 	
-	input#sctn_1-prev, 
-	input#sctn_6-prev {
-		right: 0;
-	}
-
 	input#sctn_5-sbmt {
 		width: 7em;
 	}
@@ -484,6 +466,31 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 	}
 }
 
+@media screen and (width: 1024px) and (max-height: 1510px) {
+	#form-sctn_1 {
+		margin-left: 2.5em;
+	}
+
+	#sctn_5-sbmt {
+		letter-spacing: -1px;
+	}
+
+	#sctn_5-cntct, 
+	#sctn_6-start, 
+	#sctn_6-sbmt {
+		letter-spacing: -1.8px !important;
+	}
+
+	#form-sctn_5, 
+	#form-sctn_6 {
+		margin-left: 0.25em;
+	}
+	
+	#sctn_6-map {
+		margin: 0.8em 0.1em 0 0;
+	}	
+}
+
 @media screen and (min-width: 1260px) {
   .clmn {
     vertical-align: top;
@@ -507,14 +514,23 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		font-size: 0.9em;
 	}
 	
+	#sctn_5-cntct {
+		letter-spacing: -1.7px !important;
+	}
+
+	#sctn_6-start {
+		letter-spacing: -1.7px;
+	}
+
 	#sctn_6-map {
 		margin-top: 0.75em;
 	}
 }
 
 @media screen and (min-width: 1910px) {
-	#sctn_1-start {
-		left: 22.5em;
+	#form-sctn_1 {
+		margin-left: 12.75em;
+		position: relative;
 	}
 
 	input[type=button],
@@ -522,26 +538,19 @@ p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
 		font-size: 1.1em;
 	}
 
+	#form-sctn_5 {
+		margin-left: 4em;
+	}
+
+	#form-sctn_6 {
+		margin-left: 1em;
+	}
+
 	#sctn_6-start {
-		margin: 0 0 0.8em 0;
 		position: relative;
 	}
 
-	#sctn_6-next {
-		margin: 1em 0;
-		float: right;
-	}
-
 	#sctn_6-map {
-		position: relative !important;
 		margin-top: 0.85em;
 	}
-
-	input[name='cntct-name'], 
-	input[name='cntct-email'], 
-	#sctn_6-no_4 textarea {
-		width: 18em;
-	}
-
 }
-

@@ -1159,11 +1159,9 @@ function animateSideNav() {
   var nav_bkgrnd_selector = new String();
   // Holds the String value of the selector, "#nav-bkgrnd".
   var nav_brdr_selector = new String();
-  // Holds the String value of the selector, "#nav-brdr".
+  // Holds the Stri ng value of the selector, "#nav-brdr".
   var cntainr_selector = new String();
   // Holds the String value of the selector, "#cntainr".
-  var wndow_selector = new String();
-  // Holds the String value of the selector, ".wndow".
   var headr_selector = new String();
   // Holds the String value of the selector, ".headr".
   var copy_selector = new String();
@@ -1191,22 +1189,6 @@ function animateSideNav() {
   var cntainr_element = new Object();
   // Holds the jQuery Object of the content of the HTML element 
   // identified by the selector, "#cntainr".
-  var wndow_element = new Object();
-  // Holds an individual jQuery Object which is a subset 
-  // of the HTML elements identified by the selector, ".wndow".
-  // 
-  // This Object is created while the individual elements of the 
-  // ".wndow" HTML elements are being processed by the jQuery 
-  // Method, ".each".
-  // 
-  // The CSS values of the HTML element held by "wndow_element" 
-  // are changed within the ".each" Method.  
-  var wndow_elements = new Array();
-  // Holds all of the HTML elements within the webpage which are 
-  // identified by the selector, ".wndow".
-  //
-  // The ".wndow" HTML elements contain ".copy" HTML elements which 
-  // hold the content of the different Sections of the webpage.
   var headr_elements = new Array();
   // Holds all of the HTML elements within the webpage which are 
   // identified by the selector, ".headr".
@@ -1252,9 +1234,8 @@ function animateSideNav() {
   nav_bkgrnd_selector = "#nav-bkgrnd";
   nav_brdr_selector = "#nav-brdr";
   cntainr_selector = "#cntainr";
-  wndow_selector = ".wndow";
   headr_selector = ".headr";
-  copy_selector = ".copy";
+  copy_selector = "#copy";
   info_selector = "#info";
   sctn_nav_selector = ".sctn_nav";
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
@@ -1264,7 +1245,6 @@ function animateSideNav() {
   nav_bkgrnd_element = $(nav_bkgrnd_selector);
   nav_brdr_element = $(nav_brdr_selector);
   cntainr_element = $(cntainr_selector);
-  wndow_elements = $(wndow_selector);
   headr_elements = $(headr_selector);
   copy_elements = $(copy_selector);
   info_element = $(info_selector);
@@ -1307,7 +1287,8 @@ function animateSideNav() {
     };
 
     css_3 = {
-      display: "block", 
+      display: "block",
+      left: -nav_width,  
       opacity: 1
     };
 
@@ -1334,7 +1315,8 @@ function animateSideNav() {
     $(nav_bkgrnd_element).animate(css_1, (time_value / 1.25));
     $(nav_brdr_element).animate(css_1, (time_value / 1.25));
     
-    if (wndow_width === 980)  {
+    if (wndow_width === 980 || 
+        wndow_width === 1024)  {
       $(nav_element).css(css_2);
       $(nav_bkgrnd_element).css(css_2);
       $(nav_brdr_element).css(css_2);
@@ -1343,7 +1325,6 @@ function animateSideNav() {
       css_5 = css_5 + css_6;
 
       $(cntainr_element).css(css_5);
-      $(wndow_elements).css(css_5);
       $(options_element).css(css_2);
       $(options_element).animate(css_1, (time_value / 1.25));
     } else {
@@ -1388,7 +1369,7 @@ function animateSideNav() {
 
         if (wndow_width === 980)  {
           $(cntainr_element).css(css_8);
-          $(wndow_elements).css(css_7);
+          $(copy_elements).css(css_7);
           $(bkgrnd_element).css(css_8);
         }
 
@@ -1398,7 +1379,7 @@ function animateSideNav() {
             $(cntainr_element).width(window_width);
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
-            $(wndow_elements).width(window_width);
+            $(copy_elements).width(window_width);
 
             $(sctn_nav_element).css(css_8);
             $(headr_elements).css(css_9);

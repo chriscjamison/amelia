@@ -40,5 +40,5 @@
 ?>
 
 <html>
-  <script>window.location.href = "http://localhost/amelia/sc/resp/index.htm#sctn_6?pos=2";</script>
+  <script>window.location.href = "http://localhost/amelia/sc/6/page_2.htm";</script>
 </html>

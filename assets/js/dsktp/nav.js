@@ -12,8 +12,7 @@ function navLinkHoverState(new_class) {
   var current_class = new String();
 
   var headr_css_display_val = new String();
-  var nav_css_left_val = new String();
-
+  
   nav_link_selector = "#nav-link";
   headr_selector = ".headr";
   nav_selector = "nav";
@@ -23,14 +22,12 @@ function navLinkHoverState(new_class) {
   nav_element = $(nav_selector);
 
   headr_css_display_val = $(headr_element).css("display");
-  nav_css_left_val = $(nav_element).css("left");
 
   current_class = $(nav_link_element).attr("class");
 
   new_class = "nav-" + new_class;
 
-  if (new_class === "nav-base" && 
-      nav_css_left_val !== "0px") {
+  if (new_class === "nav-base") {
     $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
@@ -41,7 +38,7 @@ function navLinkHoverState(new_class) {
   }
    
   if (new_class === "nav-hover" && 
-			(($(".headr") || headr_css_display_val === "table"))) {
+      headr_css_display_val === "table") {
     $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
