@@ -327,15 +327,33 @@ $(document).ready(
 
     $(window).on("load", 
       function () {
+        var page_dimensions_Array = new Array();
+        
+        var body_height = new Number();
+
+        var animate_page_flag = new Boolean();
+
         setupPage();
 
-        if ((url_pathname === "/amelia/sc/" || 
-            url_pathname === "/amelia/sc/index.htm") && 
-            (window.navigator.userAgent.indexOf("Mobile") === -1) && 
-            (window.navigator.userAgent.indexOf("Tablet") === -1))  {
-          animateInfoElement();
-        } else {
+        page_dimensions_Array = parseWindowDimensions();
+
+        body_height = page_dimensions_Array[1];
+
+
+        if (url_pathname === "/amelia/sc/" || 
+            url_pathname === "/amelia/sc/index.htm") {
+          if (window.navigator.userAgent.indexOf("Mobile") === -1 && 
+              window.navigator.userAgent.indexOf("Tablet") === -1) {
+            if (body_height <= 1308)  {
+              animate_page_flag = false;
+            } 
+          }
+        }
+
+        if (animate_page_flag === true) {
           animatePageElements();
+        } else {
+          animateInfoElement();
         }
         
         if (url_href.indexOf(rate_value_search_string) !== -1) {

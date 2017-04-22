@@ -843,6 +843,8 @@ function animateInfoElement() {
    * 
    * **************** **************** **************** **************** **************** */
 
+  $("#next-sctn").css("display", "none");
+
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
 function animateFormPanes() {
