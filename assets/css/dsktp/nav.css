@@ -311,6 +311,12 @@ div.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
 
+.sctn_nav > div > div > div:first-of-type {
+  width: 6.25em;
+  height: inherit;
+  float: left;
+}
+
 @media screen and (width: 980px) {
   nav, 
   #nav-bkgrnd, 
@@ -676,7 +682,7 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 85.38em !important;
-    top: 39.38em !important;
+    top: 33em !important;
   }
   
   #prev-sctn, 
