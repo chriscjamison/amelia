@@ -641,7 +641,7 @@ div.sctn_nav > div > div a:hover {
   }
   
   .bkgrnd-base {
-    width: 85.375em !important;
+    width: 85.38em !important;
   }
 
   .bkgrnd-click {
@@ -660,7 +660,7 @@ div.sctn_nav > div > div a:hover {
   }
 
   .wndow-base {
-    width: 85.375em !important;
+    width: 85.38em !important;
   }
 
   .wndow-click {
@@ -670,7 +670,7 @@ div.sctn_nav > div > div a:hover {
 
   .sctn_nav {
     width: 85.38em !important;
-    top: 39.38em !important;
+    top: 33em !important;
   }
   
   #prev-sctn, 
