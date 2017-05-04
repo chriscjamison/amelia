@@ -825,7 +825,7 @@ function setupPage()  {
         wndow_sctn_element = $(wndow_sctn_selector);
         
         bkgrnd_width =  (page_dimensions_Array[0] * $(wndow_sctn_element).children(".copy").length).toString();
-        bkgrnd_height = page_dimensions_Array[1].toString();
+        bkgrnd_height = (page_dimensions_Array[1]).toString();
 
         bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
@@ -833,8 +833,8 @@ function setupPage()  {
 
         css_3.backgroundImage = bkgrnd_img_value;
       } else  {
-        bkgrnd_width = page_dimensions_Array[0].toString();
-        bkgrnd_height = page_dimensions_Array[1].toString();
+        bkgrnd_width = (page_dimensions_Array[0]).toString();
+        bkgrnd_height = (page_dimensions_Array[1]).toString();
         
         css_3.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
                                     "x" + bkgrnd_height + ".jpg')";
@@ -1288,7 +1288,7 @@ function animatePageElements()  {
 //  window.alert("position_value = " + position_value);
 
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
-    single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
+    single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
     // window.alert("single_copy_selector = " + single_copy_selector);
     headr_selector = ".headr.sctn_" + section_value.toString();
     div_selector = "div";

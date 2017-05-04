@@ -79,7 +79,7 @@ function determineVisibleCopyElement(wndow_selector)  {
 
   wndow_element_copy_length = $(wndow_element).children(".copy").length;
   
-  visible_copy_element_val = 3;
+  visible_copy_element_val = 2;
   copy_element_visible_flag = false;
   // window.alert("wndow_selector = " + wndow_selector);
   if (wndow_selector !== "#wndow-sctn_main")  {
@@ -88,7 +88,8 @@ function determineVisibleCopyElement(wndow_selector)  {
            copy_element_visible_flag === false) {
       copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
       // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
-      if ($(wndow_element).children(copy_selector).css("display") === "none") {
+      if ($(wndow_element).children(copy_selector).css("display") === "none" || 
+          $(wndow_element).children(copy_selector).css("display") === undefined) {
         visible_copy_element_val++;
       } else  {
         copy_element_visible_flag = true;

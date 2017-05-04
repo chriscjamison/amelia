@@ -1,18 +1,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
+<!-- FILENAME: index.htm // The "One Page" version of this template -->
 	<head>
+		<!-- TITLE -->
 		<title>Welcome to Amelia Xavier Counseling ~ Austin, TX 78709 ~</title>
+		<!-- WEB FONT REFERENCE LINKS -->
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
+		<!-- STYLESHEET REFERENCE LINKS -->
 		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/resp/main.css">
     <link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/resp/nav.css">
 		<link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/resp/forms.css">
+		<!-- jQUERY REFERENCE LINKS -->
 		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
 		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
+		<!-- THEME JAVASCRIPT REFERENCE LINKS -->
 		<script src="/amelia/assets/js/resp/nav.js"></script>
 		<script src="/amelia/assets/js/resp/animations.js"></script>
 		<script src="/amelia/assets/js/resp/forms.js"></script>
 		<script src="/amelia/assets/js/resp/control_panel.js"></script>
 	</head>
 	<body>
+		<!-- INTERSECTION NAVIGATION -->
 		<nav>
 			<a class="nav-base" id="nav-link"></a>
 			<div id="options">
@@ -29,8 +36,8 @@
 			</div>
 		</nav>
 		<div id="cntainr">
+			<!-- *** "LANDING SECTION" *** -->
 			<div class="wndow" id="wndow-sctn_main">
-				<a name="sctn_main"></a>
 				<div id="info">
 					<img src="/amelia/assets/img/logo/lg.png" width="200" height="190" border="0" alt="Amelia Xavier Conseling :: Austin, TX 78709" id="logo" />
 					<ul>
@@ -39,10 +46,12 @@
 						<li>Specializes in Child Psychology</li>
 					</ul>
 				</div>
+			<!-- END of LANDING SECTION -->
 			</div>
+			<!-- *** SECTION #1 *** -->
 			<div class="wndow" id="wndow-sctn_1">
-				<a name="sctn_1"></a>
 				<div class="headr sctn_1"><span>Is Therapy Right for You?</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-desc-1">
 						<p>
@@ -56,14 +65,21 @@
 							of the quiz will determine if my theraputic method is	a good match to offer you relief from 
 							your symptoms.
 						</p>
+						<!-- BUTTON which navigates to FORM TYPE #1 (Pre-screen) -->
 						<input type="button" name="quiz-start" value="Start Quiz" id="sctn_1-start" />
 					</div>
 				</div>
+				<!-- END of WINDOW PANE #1 -->
+				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div id="form-sctn_1">
-					<form name="form_quiz" type="GET" action="/amelia/assets/php/resp/is_therapy.php" id="form-quiz">
+					<!-- FORM TYPE #1 -->
+					<form type="GET" action="/amelia/assets/php/resp/form_1.php" name="form-sctn_1" id="form-sctn_1">
+						<!-- "LEFT COLUMN FOR FORM TYPE #1" -->
 						<div class="clmn" id="sctn_1-clmn-1">
+							<!-- Page #1 for FORM TYPE #1 -->
 							<div class="form-page_1">
+								<!-- Form Question #1 -->
 								<div class="form_cntnt" id="sctn_1-no_1">
 									<span>Question <sup>#</sup>1:</span>
 									<span>What is the quality of your recent emotional health?</span>
@@ -86,7 +102,9 @@
 									</fieldset>	
 								</div>
 							</div>
+							<!-- END of Form Question #1 -->
 							<div class="form-page_2">
+								<!-- Form Question #3 -->
 								<div class="form_cntnt" id="sctn_1-no_3">
 									<span><strong>Question <sup>#</sup>3: </strong></span>
 									<span>
@@ -121,11 +139,17 @@
 											<label for="othr">Other</label>
 										</p>
 									</fieldset>
+								<!-- END of Form Question #3 -->
 								</div>
+							<!-- END of Page #1 for FORM TYPE #1 -->
 							</div>
+						<!-- END of LEFT COLUMN FOR FORM TYPE #1 -->
 						</div>
+						<!-- RIGHT COLUMN FOR FORM TYPE #1 -->"
 						<div class="clmn" id="sctn_1-clmn-2">
+							<!-- Page #2 for FORM TYPE #1 -->
 							<div class="form-page_1">
+								<!-- Form Question #2 -->
 								<div class="form_cntnt" id="sctn_1-no_2">
 									<span>Question <sup>#</sup>2:</span>
 									<span>How difficult has your emotional health made your life?</span>
@@ -159,10 +183,15 @@
 											<span>Significant</span>
 										</div>
 									</fieldset>
+								<!-- END of Form Question #2 -->
 								</div>
+								<!-- "Next Button" for "FORM TYPE #1" -->
 								<input type="button" name="sctn_1-next" value="Next" id="sctn_1-next" />
+							<!-- END of Page #1 of FORM TYPE #1 -->
 							</div>
+							<!-- Page #2 of FORM TYPE #1 -->
 							<div class="form-page_2">
+								<!-- Form Question #4 -->
 								<div class="form_cntnt" id="sctn_1-no_4">
 									<span><strong>Question <sup>#</sup>4: </strong></span>
 									<span>
@@ -179,14 +208,22 @@
 											</select>
 										</div>
 									</fieldset>
+								<!-- END of Form Question #4 -->
 								</div>
+								<!-- BUTTON to Submit FORM TYPE #1 -->
 								<input type="submit" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" />
+								<!-- BUTTON to view Previous set of questions for "FORM TYPE #1" -->
 								<input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" />
+							<!-- END of Page #2 of FORM TYPE #1 -->
 							</div>
+						<!-- END of RIGHT COLUMN of FORM TYPE #1 -->
 						</div>
+					<!-- END of FORM TYPE #1 -->
 					</form>
-					</div>	
+					</div>
+				<!-- END of WINDOW PANE #2 -->
 				</div>
+				<!-- WINDOW PANE #3 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-desc-2">
 						<span>Yes</span>
@@ -198,7 +235,9 @@
 							nec. Mauris at metus eros. Nunc condimentum dignissim magna ac aliquet.
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #3 -->
 				</div>
+				<!-- WINDOW PANE #4 -->
 				<div class="copy">
 					<div class="sctn_1-blok" id="sctn_1-desc-3">
 						<span>No</span>
@@ -215,11 +254,14 @@
 							facilisis tortor.
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #4 -->
 				</div>
 			</div>
+			<!-- *** SECTION #2 -->
 			<div class="wndow" id="wndow-sctn_2">
-				<a name="sctn_2"></a>
+				<!-- Header for SECTION #2 -->
 				<div class="headr sctn_2"><span>Credentials</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_2-blok">
 						<img src="/amelia/assets/img/sctn/2/logo-missouri.png" width="277" height="90" alt="University of Missouri" title="University of Missouri" />
@@ -248,11 +290,15 @@
               <span>Specialization in Cognitive - Behaviorial Therapy</span>
             </div>	
 					</div>
+				<!-- END of WINDOW PANE #1 -->
 				</div>
+			<!-- END of SECTION #2 -->
 			</div>
+			<!-- *** SECTION #3 *** -->
 			<div class="wndow" id="wndow-sctn_3">
-				<a name="sctn_3"></a>
+				<!-- Header for SECTION #3 -->
 				<div class="headr sctn_3"><span>Specialties</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_3-blok" id="sctn_3-desc-1">
 						<p>
@@ -266,7 +312,9 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus.
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #1 -->
 				</div>
+				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div class="sctn_3-blok" id="sctn_3-desc-2">
 						<span>Grief</span>
@@ -281,7 +329,9 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #2 -->
 				</div>
+				<!-- WINDOW PANE #3 -->
 				<div class="copy">
 					<div class="sctn_3-blok" id="sctn_3-desc-3">
 						<span>Trauma</span>
@@ -296,7 +346,9 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #3 -->
 				</div>
+				<!-- WINDOW PANE #4 -->
 				<div class="copy">
 					<div class="sctn_3-blok" id="sctn_3-desc-4">
 						<span>Depression</span>
@@ -311,8 +363,10 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #4 -->
 				</div>
-				<div class="sctn_nav sub_nav" id="nav-sctn_3">
+				<!-- INTRASECTION NAVIGATION for SECTION #3 -->
+				<div class="sctn_nav" id="nav-sctn_3">
 					<div>
 						<span>&nbsp;</span>
 						<div>
@@ -322,12 +376,15 @@
 							<a href="#sctn_3?pos=3">Depression</a>
 						</div>
 					</div>
+				<!-- END of INTRASECTION NAVIGATION for SECTION #3 -->
 				</div>
+			<!-- END OF SECTION #3 -->
 			</div>
-      
+      <!-- *** SECTION #4 *** -->
 			<div class="wndow" id="wndow-sctn_4">
-				<a name="sctn_4"></a>
+				<!-- Header for SECTION #4 -->
 				<div class="headr sctn_4"><span>Testimonials</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_4-blok" id="sctn_4-desc-1">
 						<p>
@@ -339,7 +396,9 @@
 							Etiam vel lorem non arcu pharetra eleifend vitae nec metus. 
 						</p>
 					</div>
+				<!-- END of WINDOW PANE #1 -->
 				</div>
+				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div class="sctn_4-blok" id="sctn_4-desc-2">
 						<p>
@@ -353,7 +412,9 @@
 						<span>Owen</span>
             <div>&ldquo;</div>
 					</div>
+				<!-- END of WINDOW PANE #2 -->
 				</div>
+				<!-- WINDOW PANE #3 -->
 				<div class="copy">
 					<div class="sctn_4-blok" id="sctn_4-desc-3">
 						<p>
@@ -367,7 +428,9 @@
 						<span>Hendrich</span>
             <div>&ldquo;</div>
 					</div>
+				<!-- END OF WINDOW PANE #3 -->
 				</div>
+				<!-- WINDOW PANE #4 -->
 				<div class="copy">
 					<div class="sctn_4-blok" id="sctn_4-desc-4">
 						<p>
@@ -378,7 +441,9 @@
 						<span>Reagan</span>
             <div>&ldquo;</div>
 					</div>
+				<!-- END of WINDOW PANE #4 -->
 				</div>
+				<!-- INTRAPAGE NAVIGATION for SECTION #4 -->
 				<div class="sctn_nav" id="nav-sctn_4">
 					<div>
 						<span>&nbsp;</span>
@@ -389,11 +454,15 @@
 							<a href="#sctn_4?pos=3">Reagan</a>
 						</div>
 					</div>
+				<!-- END of INTRASECTION NAVIGATION for SECTION #4 -->
 				</div>
+			<!-- END of SECTION #4 -->
 			</div>
+			<!-- *** SECTION #5 *** -->
 			<div class="wndow" id="wndow-sctn_5">
-				<a name="sctn_5"></a>
+				<!-- Header for SECTION #5 -->
 				<div class="headr sctn_5"><span>Insurance &amp; Rates</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_5-blok" id="sctn_5-desc-1">
 						<p>
@@ -407,29 +476,33 @@
 							vehicula mattis.
 						</p>
 					</div>
-					
 					<div class="sctn_5-blok" id="sctn_5-desc-2">
 						<span>Insurance Services Accepted</span>
 					</div>
-					
-          <div class="sctn_5-blok" id="sctn_5-desc-3">
+					<div class="sctn_5-blok" id="sctn_5-desc-3">
             <span><span></span></span>
             <span><span></span></span>
             <span><span></span></span>
             <span><span>Medicare</span></span>
             <span><span>Medicaid</span></span>
           </div>
-          
-					<div class="sctn_5-blok" id="sctn_5-desc-4">
+          <div class="sctn_5-blok" id="sctn_5-desc-4">
 						<p>A sliding scale rate can be granted based upon your monthly income and expenses</p>
+						<!-- BUTTON which navigates to FORM TYPE #2 (Rate calculator) -->
 						<input type="button" name="list-income" value="List Income" id="sctn_5-start" />
 					</div>
+				<!-- END OF WINDOW PANE #1 -->
 				</div>
+				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div id="form-sctn_5">
-						<form name="form-rates" type="GET" action="/amelia/assets/php/resp/rates.php" id="form-rates">
+						<!-- FORM TYPE #2 -->
+						<form type="GET" action="/amelia/assets/php/resp/form_2.php" name="form-sctn_5" id="form-sctn_5">
+						<!-- LEFT COLUMN for FORM TYPE #2 -->
 						<div class="clmn" id="sctn_5-clmn-1">
+							<!-- Page #1 for FORM TYPE #2 -->
 							<div class="form-page_1">
+								<!-- Form Question #1 -->
 								<div class="form_cntnt" id="sctn_5-no_1">
 									<span><strong>Question <sup>#</sup>1: </strong></span>
 									<span>
@@ -461,11 +534,17 @@
 											<label for="5">5 or more</label>
 										</p>
 									</fieldset>	
+								<!-- END of Form Question #1 -->
 								</div>
+							<!-- END of Page #1 of FORM TYPE #2 -->
 							</div>
+						<!-- END of LEFT COLUMN for FORM TYPE #2 -->
 						</div>
+						<!-- RIGHT COLUMN for FORM TYPE #2 -->
 						<div class="clmn" id="sctn_5-clmn-2">
+							<!-- Page #1 of FORM TYPE #2 -->
 							<div class="form-page_1">
+								<!-- Form Question #2 -->
 								<div class="form_cntnt" id="sctn_5-no_2">
 									<span><strong>Question <sup>#</sup>2: </strong></span>
 									<span>
@@ -493,18 +572,24 @@
 											<label for="more-than-2000">More than $6,000</label>
 										</p>
 									</fieldset>	
+								<!-- END of Form Question #2 -->
 								</div>
+								<!-- BUTTON to Submit FORM TYPE #2 -->
 								<input type="submit" name="sctn_5-sbmt" value="Find Out Rate" id="sctn_5-sbmt" />
+							<!-- END of Page #1 for FORM TYPE #2 -->
 							</div>
 						</div>
+						<!-- END of FORM TYPE #2 -->
 						</form>			
 					</div>
+				<!-- END of WINDOW PANE #2 -->
 				</div>
+				<!-- WINDOW PANE #3 -->
 				<div class="copy">
 					<div class="sctn_5-blok" id="sctn_5-desc-5">
 						<span>Sliding Scale Rate</span>
 					</div>
-          
+					<!-- Content block that FORM TYPE #2 updates -->
           <div class="sctn_5-blok" id="sctn_5-desc-6">
 						<span>
               <span><sup>$</sup><span>45</span><span>/hour</span>
@@ -516,13 +601,18 @@
 							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
 							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
 						</p>
+						<!-- BUTTON which navigates to FORM TYPE #3 (Contact form) -->
             <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_5-cntct" />
 					</div>
+				<!-- END of WINDOW PANE #3 -->
 				</div>
+			<!-- END of SECTION #5 -->
 			</div>
+			<!-- *** SECTION #6 *** -->
 			<div class="wndow" id="wndow-sctn_6">
-				<a name="sctn_6"></a>
+				<!-- Header for SECTION #6 -->
 				<div class="headr sctn_6"><span>Contact Amelia Xavier</span></div>
+				<!-- WINDOW PANE #1 -->
 				<div class="copy">
 					<div class="sctn_6-blok" id="sctn_6-desc-1">
             <p>
@@ -530,6 +620,7 @@
               Nulla facilisi. Cras hendrerit suscipit suscipit. Nunc ut augue consequat, gravida diam in, 
               tincidunt nisi. Aenean maximus tincidunt nisl a vehicula. 
             </p>
+						<!-- BUTTON which navigates to FORM TYPE #3 (Contact form) -->
             <input type="button" name="contact_amelia" value="Contact Amelia" id="sctn_6-start" />
 					</div>
           <div class="sctn_6-blok" id="sctn_6-info-1">
@@ -545,6 +636,7 @@
 								<span>Suite 4D</span>
 								<span>Austin, TX 78705</span>
 							</div>
+							<!-- BUTTON for navigation to external map -->
            		<input type="button" name="view_map" value="View Map" id="sctn_6-map" />
             </div>
           </div>
@@ -563,20 +655,30 @@
               <span><strong>Fax Number: </strong><br />512-555-4516</span>
             </div>
           </div>
+				<!-- END of WINDOW PANE #1 -->	
 				</div>
+				<!-- WINDOW PANE #2 -->
 				<div class="copy">
 					<div id="form-sctn_6">
-						<form method="POST" name="cntct_info" action="/amelia/assets/php/resp/contact.php" id="form-sctn_6">
+						<!-- FORM TYPE #3 -->
+						<form method="POST" action="/amelia/assets/php/resp/form_3.php" name="form-sctn_6" id="form-sctn_6">
+						<!-- LEFT COLUMN for FORM TYPE #3 -->
 						<div class="clmn" id="sctn_6-clmn-1">
+							<!-- Page #1 for FORM TYPE #3 -->
 							<div class="form-page_1">
+								<!-- Form Question #1 -->
 								<div class="form_cntnt" id="sctn_6-no_1">
 									<span>Enter in your first name below:</span>
 									<fieldset>
 										<input type="text" size="34" maxlength="40" name="cntct_name" id="sctn_6-name" />
 									</fieldset>	
+								<!-- END of Form Question #1 -->
 								</div>
+							<!-- END of Page #1 for FORM TYPE #3 -->
 							</div>
+							<!-- Page #2 for FORM TYPE #3 -->
 							<div class="form-page_2">
+								<!-- Form Question #3 -->
 								<div class="form_cntnt" id="sctn_6-no_3">
 									<span>Please select an option that best matches your need:</span>
 									<fieldset>
@@ -604,11 +706,17 @@
 											<input type="text" name="need-othr" value="" id="need-othr-text" />
 										</p>
 									</fieldset>	
+								<!-- END of Form Question #3 -->
 								</div>
+							<!-- END of Page #2 for FORM TYPE #3 -->
 							</div>
+						<!-- END of LEFT COLUMN for FORM TYPE #3 -->
 						</div>
+						<!-- RIGHT COLUMN for FORM TYPE #3 -->
 						<div class="clmn" id="sctn_6-clmn-2">
+							<!-- Page #1 for FORM TYPE #3 -->
 							<div class="form-page_1">
+								<!-- Form Question #2 -->
 								<div class="form_cntnt" id="sctn_6-no_2">
 									<span>Please enter your email or phone number below:</span>
 									<fieldset>
@@ -622,23 +730,36 @@
 										</p>
 										<input type="email" size="34" maxlength="40" name="cntct_method" id="sctn_6-field-email" />
 									</fieldset>
+								<!-- END of Form Question #2 -->
 								</div>
+								<!-- BUTTON to view Page #2 of FORM TYPE #3 -->
 								<input type="button" name="sctn_6-next" value="Next" id="sctn_6-next" />
+							<!-- END of Page #2 for FORM TYPE #3 -->
 							</div>
+							<!-- Page #2 for FORM TYPE #3 -->
 							<div class="form-page_2">
+								<!-- Form Question #4 -->
 								<div class="form_cntnt" id="sctn_6-no_4">
 									<span>Please enter your message for Amelia below:</span>
 									<fieldset>
 										<textarea name="msg" cols="33" rows="10" id="msg"></textarea>
 									</fieldset>
+								<!-- END of Form Question #4 -->
 								</div>
+								<!-- BUTTON to Submit FORM TYPE #3 -->
 								<input type="submit" name="sctn_6-sbmt" value="Send Message" id="sctn_6-sbmt" />
+								<!-- BUTTON to view Page #1 of FORM TYPE #3 -->
 								<input type="button" name="sctn_6-prev" value="Previous" id="sctn_6-prev" />
+							<!-- END of Page #2 of FORM TYPE #3 -->
 							</div>
+						<!-- END of RIGHT COLUMN for FORM TYPE #3 -->
 						</div>
+						<!-- END of FORM TYPE #3 -->
 						</form>
 					</div>
+				<!-- END of WINDOW PANE #2 -->
 				</div>
+				<!-- WINDOW PANE #3 -->
 				<div class="copy">
 					<div class="sctn_6-blok" id="sctn_6-desc-2">
 						<span>Thank You!</span>
@@ -646,17 +767,20 @@
               In ante ipsum, hendrerit non metus sed, ullamcorper lobortis felis. Mauris imperdiet hendrerit 
               neque vel pretium. Curabitur dictum ornare est, nec volutpat elit.
             </p>
-					</div>					
+					</div>
+				<!-- END of WINDOW PANE #3 -->					
 				</div>
+			<!-- END of SECTION #6 -->
 			</div>
 		</div>
+		<!-- ARROW-BASED INTERSECTION NAVIGATION -->
     <div id="prev-sctn">
 			<span>Click to view the previous section</span>
 		</div>
 		<div id="next-sctn">
 			<span>Click to view the next section</span>
 		</div>
-    
+    <!-- BACKGROUND IMAGES -->
 		<div id="bkgrnd">
 			<div id="bkgrnd-sctn_main"></div>
 			<div id="bkgrnd-sctn_1"></div>
@@ -665,6 +789,7 @@
 			<div id="bkgrnd-sctn_4"></div>
 			<div id="bkgrnd-sctn_5"></div>
 			<div id="bkgrnd-sctn_6"></div>
+		<!-- END of BACKGROUND IMAGES -->
 		</div>
 	</body>	
 </html>
