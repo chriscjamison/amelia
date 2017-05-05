@@ -246,7 +246,7 @@ body {
 	text-align: center;
   opacity: 0;
 }
-/* Formats the bloks which contain the largest and above the secondary blocks within SECTION #2 */
+/* Formats the blocks which contain the largest and above the secondary blocks within SECTION #2 */
 
 .sctn_2-blok > img {
   margin-bottom: 0.4em;
@@ -358,7 +358,7 @@ body {
 }
 /* Formats a <span> element which contains a text header for the 'block' within each 
  * sub-section. The <span> elements appear within the <div> elements using the selectors, 
- * 'sctn_3-desc-2', 'sctn_1-desc-3', & 'sctn_1-desc-4'.
+ * 'sctn_3-desc-2', 'sctn_3-desc-3', & 'sctn_3-desc-4'.
  */
 
 .sctn_3-blok > p {
@@ -377,52 +377,36 @@ body {
 
 #sctn_3-desc-2 {
   background-color: #987566;
+  color: #fffcfb;
 }
 /* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #3'. */
 
-#sctn_3-desc-2 > span, 
-#sctn_3-desc-2 p {
-	color: #fffcfb;
-}
-/* Formats the color of the text held blocks contained within the 'SECOND WINDOW PANE' 
- * of 'SECTION #3'.
- */
-
 #sctn_3-desc-3 {
   background-color: #988c66;
+  color: #fffbee;
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
 
-#sctn_3-desc-3 > span, 
-#sctn_3-desc-3 p {
-	color: #fffbee;
-}
-
 #sctn_3-desc-4 {
 	background-color: #988366;
+  color: #fff8ee;
 }
 /* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
 
-#sctn_3-desc-4 > span, 
-#sctn_3-desc-4 p {
-	color: #fff8ee;
-}
-
 /* ---- SECTION 4 ---- */
-
-#bkgrnd-sctn_4 {
-	background-repeat: no-repeat;
-}
 
 .headr.sctn_4 {
 	background-color: #c8586a;
 }
+/* Formats the color of the <div> which holds the title of 'SECTION #4'. */
 
-.sctn_4-blok p {
+.sctn_4-blok > p {
 	text-indent: 1em;
   line-height: 1.7em;
-
 }
+/* Formats <p> elements which are contained with an individual block contained 
+ * within 'SECTION 43'.
+ */
 
 .sctn_4-blok > div {
 	position: absolute;
@@ -430,6 +414,9 @@ body {
 	left: 0.06em;
 	font-size: 12em;
 }
+/* Formats <div> elements which appear as quotation marks above the blocks 
+ * contained within 'SECTION #4'.
+ */
 
 .sctn_4-blok > span {
 	width: 100%;
@@ -440,56 +427,83 @@ body {
 	font-weight: 800;
 	text-align: right;
 }
+/* Formats a <span> element which contains a text header for the 'block' within each 
+ * sub-section. The <span> elements appear within the <div> elements using the selectors, 
+ * 'sctn_4-desc-2', 'sctn_4-desc-3', & 'sctn_4-desc-4'.
+ */
 
 #sctn_4-desc-1 {
 	background-color: #a33042;
   color: #fbdadf;
 }
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
 
 #sctn_4-desc-2 {
 	background-color: #ffd6bc;
   color: #ac6133
 }
+/* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
 
 #sctn_4-desc-2 div {
 	color: #fbbc95;
 }
+/* Formats the quotation marks which appear above the block 
+ * within the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+ */
 
 #sctn_4-desc-2 span {
 	color: #d48b5d;
 }
+/* Formats a <span> element which are contained within a  block 
+ * within the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+ */
 
 #sctn_4-desc-3 {
   background-color: #FBBC95;
   color: #AC6133;
 }
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 
 #sctn_4-desc-3 div {
   color: #FFF2DE;
 }
+/* Formats the quotation marks which appear above the block 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #4'. 
+ */
 
 #sctn_4-desc-3 span {
   color: #AC7F33;
 }
+/* Formats a <span> element which are contained within a  block 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #4'. 
+ */
 
 #sctn_4-desc-4 {
   background-color: #fbd595;
   color: #AC7F33;
 }
+/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #4'. */
 
 #sctn_4-desc-4 div {
   color: #FFF2DE;
 }
+/* Formats the quotation marks which appear above the block 
+ * within the 'FOURTH WINDOW PANE' of 'SECTION #4'. 
+ */
 
 #sctn_4-desc-4 span {
   color: #D3A75D;
 }
+/* Formats a <span> element which are contained within a  block 
+ * within the 'FOURTH WINDOW PANE' of 'SECTION #4'. 
+ */
 
 /* ---- SECTION 5 ---- */
 
 .headr.sctn_5 {
 	background-color: #3C667B;
 }
+/* Formats the color of the <div> which holds the title of 'SECTION #5'. */
 
 .sctn_5-blok {
 	width: 28.9em;
@@ -498,17 +512,24 @@ body {
 	position: relative;
 	opacity: 0;
 }
+/* Formats the blocks which are contained with SECTION #5. */
 
 .sctn_5-blok > p {
 	text-indent: 1.3em;
 	line-height: 1.7em;
 }
+/* Formats the <p> elements which hold the text content that is contained by a <div> element
+ * using the class, '.sctn_5-blok'.
+ */
 
 #sctn_5-desc-1 {
   float: left;
 	background-color: #96C5AA;
 	color: #216F43;
 }
+/* Formats the block which contains text content but does not include a <button> element 
+ * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-2 {
 	width: 28.9em;
@@ -518,6 +539,8 @@ body {
   float: left;
   background-color: #5F8395;
 }
+/* Formats the block which serves as a header which appears within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #5'. */
 
 #sctn_5-desc-2 > span {
   margin: 0.1em 0 1em 0;
@@ -527,11 +550,15 @@ body {
 	font-weight: 600;
 	text-align: center;
 }
+/* Formats the text content of a block which appears within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #5'. */
 
 #sctn_5-desc-3 {
-	background-color: none;
-  float: left;
+	float: left;
 }
+/* Formats a <div> element which serves as a container for various <span> elements 
+ * which contain either logos or text. 
+ */
 
 #sctn_5-desc-3 > span {
   width: 113px;
@@ -541,6 +568,7 @@ body {
   background-repeat: no-repeat;
   background-color: #C1D1D9;
 }
+/* Formats <span> elements which contains a logo or text content */
 
 #sctn_5-desc-3 > span > span {
   width: 105px;
@@ -550,6 +578,9 @@ body {
   background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px 0px;
 }
+/* Formats a <span> element which contain a logo. This logo is contained by 
+ * the block which appears on the upper-left, underneath the header block.
+ */
 
 #sctn_5-desc-3 > span + span > span {
   width: 105px;
@@ -559,6 +590,9 @@ body {
   background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px -28px;
 }
+/* Formats a <span> element which contain a logo. This logo is contained by 
+ * the block which appears on the upper-middle, underneath the header block.
+ */
 
 #sctn_5-desc-3 > span + span + span > span {
   width: 105px;
@@ -568,6 +602,9 @@ body {
   background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px -47px;
 }
+/* Formats a <span> element which contain a logo. This logo is contained by 
+ * the block which appears on the upper-right, underneath the header block.
+ */
 
 #sctn_5-desc-3 > span + span + span ~ span span {
   height: 45px;
@@ -575,23 +612,32 @@ body {
   text-align: center;
   background-image: none;
 }
+/* Formats <span> elements which contain text. Theses elements appear
+ * below a row of <span> elements which contain logos.
+ */
 
 #sctn_5-desc-4 {
 	float: left;
 	background-color: #C1D1D9;
 	color: #214D62;
 }
+/* Formats the block which contains text content but DOES include a <button> element 
+ * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-4 > p {
   padding-bottom: 0.9em;
 	border-bottom: 2px solid;
 }
+/* Formats the <p> element which appears in the block underneath the collection of <span> elements 
+ * containing logos and text. */
 
 #sctn_5-desc-5 {
 	background-color: #96C5AA;
 	color: #408B61;
 }
-
+/* Formats the block which serves as a header for the content that is contained 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. */
 #sctn_5-desc-5 > span {
 	display: block;
 	font-size: 2em;
