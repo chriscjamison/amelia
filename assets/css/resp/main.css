@@ -152,7 +152,7 @@ body {
 }
 /* Formats the list-items which are contained within the <div> using the selctor, "#info". */
 
-/* ---- SECTION 1 ---- */
+/* ---- 'SECTION #1' ---- */
 .headr.sctn_1 {
 	background-color: #92676c;
 }
@@ -228,7 +228,7 @@ body {
  * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
  */
 
-/* ---- SECTION 2 ---- */
+/* ---- 'SECTION #2' ---- */
 
 .headr.sctn_2 {
 	background-color: #744725;
@@ -246,7 +246,7 @@ body {
 	text-align: center;
   opacity: 0;
 }
-/* Formats the blocks which contain the largest and above the secondary blocks within SECTION #2 */
+/* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
 
 .sctn_2-blok > img {
   margin-bottom: 0.4em;
@@ -341,7 +341,7 @@ body {
  * depending on its width and height. 
  */
 
-/* ---- SECTION 3 ---- */
+/* ---- 'SECTION #3' ---- */
 
 .headr.sctn_3 {
 	background-color: #b7a68e;
@@ -393,7 +393,7 @@ body {
 }
 /* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
 
-/* ---- SECTION 4 ---- */
+/* ---- 'SECTION #4' ---- */
 
 .headr.sctn_4 {
 	background-color: #c8586a;
@@ -405,7 +405,7 @@ body {
   line-height: 1.7em;
 }
 /* Formats <p> elements which are contained with an individual block contained 
- * within 'SECTION 43'.
+ * within 'SECTION #4'.
  */
 
 .sctn_4-blok > div {
@@ -498,7 +498,7 @@ body {
  * within the 'FOURTH WINDOW PANE' of 'SECTION #4'. 
  */
 
-/* ---- SECTION 5 ---- */
+/* ---- 'SECTION #5' ---- */
 
 .headr.sctn_5 {
 	background-color: #3C667B;
@@ -512,7 +512,7 @@ body {
 	position: relative;
 	opacity: 0;
 }
-/* Formats the blocks which are contained with SECTION #5. */
+/* Formats the blocks which are contained with 'SECTION #5'. */
 
 .sctn_5-blok > p {
 	text-indent: 1.3em;
@@ -630,21 +630,26 @@ body {
 	border-bottom: 2px solid;
 }
 /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
- * containing logos and text. */
+ * containing logos and text.
+ */
 
 #sctn_5-desc-5 {
 	background-color: #96C5AA;
 	color: #408B61;
 }
 /* Formats the block which serves as a header for the content that is contained 
- * within the 'THIRD WINDOW PANE' of 'SECTION #5'. */
- 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+
 #sctn_5-desc-5 > span {
 	display: block;
 	font-size: 2em;
 	font-weight: 700;
   text-align: center;
 }
+/* Formats the text of the block which serves as a header for the content contained 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-6 {
   min-height: 225px;
@@ -652,6 +657,9 @@ body {
   float: left;
   background-color: #216F43;
 }
+/* Formats a block that appears below the block that serves as a header 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
 
 #sctn_5-desc-6 > span {
   width: 100%;
@@ -659,12 +667,18 @@ body {
   display: table;
   float: 1em;
 }
+/* Formats a block that serves as a container for text copy that appears below the block 
+ * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-6 > span > span {
 	display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
+/* Formats a block that serves as a container for text copy that appears below the block 
+ * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-6 > span > span > sup {
 	position: absolute;
@@ -672,18 +686,27 @@ body {
 	font-size: 2.5em;
   color: #C8CBDF;
 }
+/* Formats the dollar sign that appears in the block below the block that serves as a header  
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-6 > span > span > span {
   font-size: 10em;
   letter-spacing: -10px;
   color: #fff;
 }
+/* Formats the numberical value that appears in the block below the block that serves as a header  
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-6 > span > span > span + span {
   font-size: 1.5em;
   letter-spacing: 0;
   color: #96C5AA;
 }
+/* Formats the text, '/hour', that appears in the below the block that serves as a header 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
 #sctn_5-desc-7 {
   min-height: 225px;
@@ -692,27 +715,36 @@ body {
   background-color: #C8CBDF;
 	color: #2A326B;
 }
+/* Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
+ * of 'SECTION #5'.
+ */
 
 #sctn_5-desc-7 > p {
 	padding-bottom: 0.9em;
   font-size: 0.95em;
   border-bottom: 2px solid;
 }
+/* Formats <p> elements which appear within a block that appears on the right of the page 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+ */
 
-/* ---- SECTION 6 ---- */
+/* ---- 'SECTION #6' ---- */
 
 .headr.sctn_6 {
 	background-color: #46483b;
 }
+/* Formats the color of the <div> which holds the title of 'SECTION #6'. */
 
 .sctn_6-blok {
-  width: 28.9em;
   margin-right: 2.5em;
 	padding: 1em 2em;
   position: relative;
   float: left;
 	opacity: 0;
 }
+/* Formats the blocks which appears directly underneath the header within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 #sctn_6-desc-1 {
 	padding: 1em 2em;
@@ -720,6 +752,9 @@ body {
 	background-color: #a7ab92;
   color: #2A2E13;
 }
+/* Formats the block which appears directly underneath the header on the left hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-desc-1 > p {
   margin-bottom: 0.5em;
@@ -727,6 +762,9 @@ body {
   line-height: 1.7em;
   border-bottom: 3px solid;
 }
+/* Formats the <p> elements which are contained by the block which appears directly underneath the header 
+ * on the left hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-info-1 {
   width: 28.9em;
@@ -736,6 +774,9 @@ body {
   color: #fff;
   background-color: #971b1e;
 }
+/* Formats the block which appears directly underneath the header on the right hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-info-1 > span {
   width: 100%;
@@ -743,6 +784,9 @@ body {
   display: table;
   background: none;
 }
+/* Formats a block that serves as a container for text copy that appears directly underneath the header 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'. 
+ */
 
 #sctn_6-info-1 > span > span {
   font-size: 1em;
@@ -753,6 +797,9 @@ body {
   text-align: center;
   background: none;
 }
+/* Formats a <span> element which is contained by the block which appears directly underneath the header 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 .sctn_6-blok-2 {
   width: 15.25em;
@@ -761,6 +808,9 @@ body {
   float: left;
   opacity: 0;
 }
+/* Formats the blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 .sctn_6-blok-2 > div {
   width: 7.5em;
@@ -769,12 +819,9 @@ body {
   float: left;
   background-color: #b0ae97;
 }
-
-.sctn_6-blok-2 > div > span {
-  display: block;
-  line-height: 1.7em;
-  color: #302e1e;
-}
+/* Formats the blocks which contain office information within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 .sctn_6-blok-2 > span {
   padding: 1em 1.7em;
@@ -783,6 +830,18 @@ body {
   color: #b0ae97;
   background-color: #302e1e;
 }
+/* Formats blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+
+.sctn_6-blok-2 > div > span {
+  display: block;
+  line-height: 1.7em;
+  color: #302e1e;
+}
+/* Formats the text within blocks which contain office information within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 #sctn_6-info-2 {
   width: 32.8em;
@@ -790,10 +849,16 @@ body {
   margin-top: 1em;
   position: relative;
 }
+/* Formats a block which serves as a header for location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-info-2 > div {
   width: 15.75em;
 }
+/* Formats a block which serves as a container of location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-info-2 > div > div {
   width: 9.61em;
@@ -801,15 +866,16 @@ body {
   padding: 0;
 	float: left;
 }
+/* Formats a block which serves as a container of <span> elements which appears on the right hand side 
+ * of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-info-2 > div > div > span {
   display: block;
 }
-
-#sctn_6-desc-1 > p ~ p {
-  padding-bottom: 1.5em;
-  border-bottom: 3px solid;
-}
+/* Formats <span> elements which contain location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 .sctn_6-spcr {
   width: 28.9em;
@@ -817,6 +883,7 @@ body {
   position: relative;
   clear: both;
 }
+/* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
 
 #sctn_6-desc-2 {
  padding: 1em 2em;
@@ -825,6 +892,9 @@ body {
 	background-color: #A7AB92;
 	color: #2C2F1E;
 }
+/* Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 #sctn_6-desc-2 > span {
 	display: block;
@@ -833,10 +903,16 @@ body {
 	font-size: 2.5em;
 	font-weight: 600;
 }
+/* Formats the <span> element which serves as a header for the block directly underneath the header  
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 #sctn_6-desc-2 > p {
   line-height: 1.7em;
 }
+/* Formats the <p> elements which are contained within a block that appears directly underneath the header  
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
 
 @media screen and (width: 980px) {
   #info {
