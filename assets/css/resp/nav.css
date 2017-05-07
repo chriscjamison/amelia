@@ -1,4 +1,21 @@
-/* nav.css */
+/* Filename: nav.css 
+ *  + Contains the CSS styling for all of the navigation elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the content or form elements. 
+ * 
+ *  + All measurements are given in terms of 'em' except for background position values which are 
+ *    given in terms of 'px'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1600x900
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+
 nav {
 	width: 20.45em;
 	height: auto;
@@ -7,14 +24,25 @@ nav {
   left: -20.45em;
 	z-index: 2;
 }
+/* Formats the <nav> element which contains the inter-sectional navigation. */
 
 .nav-base {
   position: fixed !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the side panel  
+ * which contains the menu options which slides 'out' of the left of the page. 
+ * This class sets the <nav> element to appear in a 'fixed' location 
+ * in the browser window.
+ */
 
 .nav-click {
   position: absolute !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the side panel
+ * which contains the menu options which slides out of the left of the page.
+ * This class sets the <nav> element to appear in a location that is 
+ * determined by the CSS properties and values set by 'nav.js'. 
+ */
 
 #nav-link {
 	width: 3.13em;
@@ -26,26 +54,44 @@ nav {
 	background-image: url('/amelia/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
+/* Formats a <div> element which serves as the menu 'button'. */
 
 .nav-base {
 	background-position: 0 0;
 	cursor: default;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the default, 'base', click state.
+ */
 
 .nav-hover {
 	background-position: 0 -50px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the mouseover, or 'hover', click state.
+ */
 
 .nav-click_1 {
 	background-position: 0 -100px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is a 'click' state that is only meant to be visible for the duration 
+ * of the clicking of the mouse.
+ */
 
 .nav-click_2 {
 	background-position: 0 -150px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the state which appears when the navigation panel is open. 
+ */
 
 #nav-bkgrnd {
 	width: 20.45em;
@@ -55,6 +101,9 @@ nav {
 	z-index: 3;
 	background-color: #666;
 }
+/* Formats a <div> element which serves as a background to the inter-sectional 
+ * menu options. 
+ */
 
 #nav-brdr {
 	width: 20.45em;
@@ -64,6 +113,9 @@ nav {
 	z-index: 3;
 	background-color: #444;
 }
+/* Formats a <div> element which appears at the top of the inter-sectional navigation 
+ * menu. 
+ */
 
 #options {
 	width: 17.25em;
@@ -75,33 +127,56 @@ nav {
   opacity: 0;
 	z-index: 4;
 }
+/* Formats a <div> element which holds of the individual menu options in the 
+ * inter-sectional menu panel.
+ */
 
 .options-base {
   display: none;
   opacity: 0;
 }
+/* Sets a class which is used to alter the 'click-state' of the collection of menu options 
+ * which is contained in the navigation panel.
+ * This click-state is the base state.
+ */
 
 .options-click {
   display: block !important;
   opacity: 1 !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the collection of menu options  
+ * which is contained in the navigation panel.
+ * This state is activated once the navigation panel has been activated.
+ */
 
 .option-base {
   background-color: #000 !important;
   color: #fff !important;
   cursor: default !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'base' click state.
+ */
 
 .option-hover {
 	background-color: #808080 !important;
 	color: #fff !important;
 	cursor: pointer !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'hover' click state.
+ */
 
 .option-click {
 	background-color: #A6A6A6 !important;
 	color: #000 !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'click' click state.
+ */
 
 #options > a {
 	width: 12.4em;
@@ -115,38 +190,9 @@ nav {
 	color: #fff;
 	cursor: pointer;
 }
-
-.bkgrnd-base {
-  width: 61.25em !important;
-  left: 0px !important;
-}
-
-.bkgrnd-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-}
-
-.cntainr-base {
-  width: 61.25em !important;
-  left: 0px !important;
-}
-
-.cntainr-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-}
-
-.wndow-base {
-  width: 61.25em !important;
-  left: 0px !important;
-  display: block !important;
-}
-
-.wndow-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-  display: none !important;
-}
+/* Formats the <a> elements which serve as menu options in the inter-sectional 
+ * menu.
+ */
 
 #prev-sctn,
 #next-sctn {
@@ -161,6 +207,9 @@ nav {
   background-position: 0 -209px;
   cursor: default;
 }
+/* Formats <div> elements which act as inter-sectional navigation which appears 
+ * along the right side of the page.
+ */
 
 #prev-sctn {
   top: 1.06em;
@@ -169,42 +218,31 @@ nav {
   background-position: 0 0;
   opacity: 0;
 }
+/* Formats a <div> element which moves the page upward through previously viewed 
+ * sections. 
+ */
 
 #next-sctn {
   background-position: 0px -209px;
 }
+/* Formats a <div> element which moves the page upward through yet-to-be-viewed 
+ * sections. 
+ */
 
 #prev-sctn:hover,
 #next-sctn:hover {
   cursor: pointer;  
 }
+/* Sets the cursor state based upon the click-state of the <div> elements, 
+ * '#prev-sctn' and '#next-sctn'. 
+ */
 
 #prev-sctn:hover {
-  background-position: 0px -111px;
+  background-position: 0px -111px !important;
 }
 
 #next-sctn:hover {
-  background-position: 0px -235px;
-}
-
-.base-prev-sctn {
-  background-position: 0 0;
-  cursor: default;
-}
-
-.click-prev-sctn {
-  background-position: 0 -111px !important;
-  cursor: pointer;
-}
-
-.base-next-sctn {
-  background-position: 0 -209px !important;
-  cursor: default;
-}
-
-.click-next-sctn {
-  background-position: 0 -320px !important;
-  cursor: pointer;
+  background-position: 0px -235px !important;
 }
 
 #prev-sctn > span,
