@@ -240,10 +240,16 @@ nav {
 #prev-sctn:hover {
   background-position: 0px -111px !important;
 }
+/* More formatting for the cursor state based upon the click-state 
+ * of the <div> element, '#prev-sctn'. 
+ */
 
 #next-sctn:hover {
   background-position: 0px -235px !important;
 }
+/* More formatting for the cursor state based upon the click-state 
+ * of the <div> element, '#next-sctn'. 
+ */
 
 #prev-sctn > span,
 #next-sctn > span {
@@ -258,22 +264,28 @@ nav {
 	line-height: 1.25em;
 	letter-spacing: 1px;
 }
+/* Formats the text descriptions of the inter-sectional navigation 
+ * which appears on the right of the page.
+ */
 
-div.sctn_nav {
+.sctn_nav {
 	width: 61.25em;
 	height: 8.44em;
 	position: absolute;
 	top: 39.38em;
 	opacity: 0;
 }
-
-div.sctn_nav > div {
+/* Formats a <div> element which contains the intra-sectional navigation 
+ * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
+ */
+ 
+.sctn_nav > div {
 	width: 46.25em;
 	height: inherit;
 	margin: 0 auto;
 }
-
-div.sctn_nav > div > span {
+/* Formats the */
+.sctn_nav > div > span {
 	width: 9.38em;
 	height: 2.19em;
 	display: block;
@@ -284,7 +296,7 @@ div.sctn_nav > div > span {
 	cursor: auto;	
 } 
 
-div.sctn_nav > div > span:hover {
+.sctn_nav > div > span:hover {
   cursor: pointer;
 }
 
@@ -296,31 +308,31 @@ div.sctn_nav > div > span:hover {
 	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
 }
 
-div.sctn_nav > div > span.base-sctn_nav {
+.sctn_nav > div > span.base-sctn_nav {
 	background-position: 0px 0px;
 	cursor: default;
 	opacity: 1;
 }
 
-div.sctn_nav > div > span.hover-sctn_nav {
+.sctn_nav > div > span.hover-sctn_nav {
 	background-position: 0px -35px;
 	cursor: pointer;
 	opacity: 1;
 }
 
-div.sctn_nav > div > span.active-sctn_nav {
+.sctn_nav > div > span.active-sctn_nav {
 	background-position: 0px -70px;
 	cursor: pointer;
 	opacity: 1;
 }
 
-div.sctn_nav > div > span.click-sctn_nav {
+.sctn_nav > div > span.click-sctn_nav {
 	background-position: 0px -105px;
 	cursor: pointer;
 	opacity: 1;
 }
 
-div.sctn_nav > div > div {
+.sctn_nav > div > div {
 	width: 46.25em;
 	height: 2.19em;
 	margin: 0 auto;
@@ -328,7 +340,7 @@ div.sctn_nav > div > div {
 	display: none;
 }
 
-div.sctn_nav > div > div > a {
+.sctn_nav > div > div > a {
 	width: 6.56em;
 	height: 1.38em;
 	display: block;
@@ -345,7 +357,7 @@ div.sctn_nav > div > div > a {
 	cursor: pointer; 
 }
 
-div.sctn_nav > div > div a:hover {
+.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
 
