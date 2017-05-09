@@ -7,7 +7,6 @@
  * 
  *  + The responsive breaklines fall according to the following browser dimensions:
  *    - 1920x1020
- *    - 1600x900
  *    - 1366x768
  *    - 1280x1024
  *    - 1280x800
@@ -284,7 +283,11 @@ nav {
 	height: inherit;
 	margin: 0 auto;
 }
-/* Formats the */
+/* Formats the <div> element which serves as a container for the <div> and <span> 
+ * elements which make up the inter-sectional navigation for 'SECTION #3' 
+ * and 'SECTION #4'.
+ */
+
 .sctn_nav > div > span {
 	width: 9.38em;
 	height: 2.19em;
@@ -295,42 +298,68 @@ nav {
 	color: #fff;
 	cursor: auto;	
 } 
+/* Formats the <span> element which serves as the menu-button for the intra-sectional 
+ * navigation for 'SECTION #3' and 'SECTION #4'. 
+ */
 
 .sctn_nav > div > span:hover {
   cursor: pointer;
 }
+/* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
+ * which serves as the menu-button for the intra-sectional navigation. 
+ */
 
 #nav-sctn_3 > div > span {
 	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
 }
+/* Formats the background-image of the <span> element which serves as the 
+ * menu-button for the intra-sectional navigation for 'SECTION #3'.
+ */
 
 #nav-sctn_4 > div > span {
 	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
 }
+/* Formats the background-image of the <span> element which serves as the 
+ * menu-button for the intra-sectional navigation for 'SECTION #4'.
+ */
 
 .sctn_nav > div > span.base-sctn_nav {
 	background-position: 0px 0px;
 	cursor: default;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the base click state.
+ */
 
 .sctn_nav > div > span.hover-sctn_nav {
 	background-position: 0px -35px;
 	cursor: pointer;
 	opacity: 1;
 }
-
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
 .sctn_nav > div > span.active-sctn_nav {
 	background-position: 0px -70px;
 	cursor: pointer;
 	opacity: 1;
 }
-
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the active click state.
+ */
 .sctn_nav > div > span.click-sctn_nav {
 	background-position: 0px -105px;
 	cursor: pointer;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the click state which is set once the menu-button has been clicked.
+ */
 
 .sctn_nav > div > div {
 	width: 46.25em;
@@ -339,6 +368,9 @@ nav {
 	position: absolute;
 	display: none;
 }
+/* Formats the <div> element which contains the <a> elements which serve as 
+ * menu-options of the intra-sectional navigation.
+ */
 
 .sctn_nav > div > div > a {
 	width: 6.56em;
@@ -356,12 +388,19 @@ nav {
 	letter-spacing: 1px;
 	cursor: pointer; 
 }
+/* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
 
 .sctn_nav > div > div a:hover {
 	background-color: #333;
 }
+/* Formats the click-state for the <a> elements which serves as menu-options
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
 
 @media screen and (width: 980px) {
+  /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
+
   nav, 
   #nav-bkgrnd, 
   #nav-brdr, 
@@ -480,6 +519,10 @@ nav {
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  * This breakpoint is optimized to fit the iPad. 
+  */
+
   #options > a {
     font-size: 1.85em;
   }
@@ -520,6 +563,10 @@ nav {
 }
 
 @media screen and (width: 1024px) and (max-height: 1510px) {
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  * This breakpoint is optimized to fit the iPad Pro. 
+  */
+
   nav, 
   #options, 
   #nav-bkgrnd, 
@@ -576,38 +623,9 @@ nav {
 }
 
 @media screen and (min-width: 1260px) {
-  .options-click {
-    display: inline-table !important;
-    opacity: 1 !important;
-  }
-
-  .bkgrnd-base {
-    width: 80em !important;
-  }
-
-  .bkgrnd-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-  
-  .cntainr-base {
-    width: 80em !important;
-    left: 0px !important;
-  }
-
-  .cntainr-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .wndow-base {
-    width: 80em !important;
-  }
-
-  .wndow-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
+  /* This CSS breakpoint affects browsers which have a width of at least 1260px. 
+  * This breakpoint is optimized to fit resolutions of 1280x800. 
+  */
 
   .sctn_nav {
     width: 80em !important;
@@ -638,6 +656,10 @@ nav {
 }
 
 @media screen and (min-width: 1260px) and (min-height: 980) {
+ /* This CSS breakpoint affects browsers which have a width more than 1260px and a height greater than 980px. 
+  * This breakpoint is optimized to fit resolutions of 1280x1024.
+  */
+
   nav {
     width: 32em;
     left: -32em;
@@ -664,7 +686,11 @@ nav {
   };
 }
 
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1340px) and (max-width: 1890px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1890px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
+  */
+
   nav {
     width: 39.1em;
     left: -39.1em;
@@ -690,34 +716,6 @@ nav {
     float: left;
   }
   
-  .bkgrnd-base {
-    width: 85.38em !important;
-  }
-
-  .bkgrnd-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .cntainr-base {
-    width: 85.375em !important;
-    left: 0px !important;
-  }
-
-  .cntainr-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .wndow-base {
-    width: 85.38em !important;
-  }
-
-  .wndow-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
   .sctn_nav {
     width: 85.38em !important;
     top: 33em !important;
@@ -730,6 +728,10 @@ nav {
 }
 
 @media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px.. 
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+   
   nav, 
   #nav-brdr,
   #nav-bkgrnd, 
