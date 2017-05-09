@@ -1,4 +1,20 @@
-/* nav.css */
+/* Filename: nav.css 
+ *  + Contains the CSS styling for all of the navigation elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the content or form elements. 
+ * 
+ *  + All measurements are given in terms of 'em' except for background position values which are 
+ *    given in terms of 'px'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+
 nav {
 	width: 20.45em;
 	height: auto;
@@ -7,14 +23,25 @@ nav {
   left: -20.45em;
 	z-index: 2;
 }
+/* Formats the <nav> element which contains the inter-sectional navigation. */
 
 .nav-base {
   position: fixed !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the side panel  
+ * which contains the menu options which slides 'out' of the left of the page. 
+ * This class sets the <nav> element to appear in a 'fixed' location 
+ * in the browser window.
+ */
 
 .nav-click {
   position: absolute !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the side panel
+ * which contains the menu options which slides out of the left of the page.
+ * This class sets the <nav> element to appear in a location that is 
+ * determined by the CSS properties and values set by 'nav.js'. 
+ */
 
 #nav-link {
 	width: 3.13em;
@@ -26,26 +53,44 @@ nav {
 	background-image: url('/amelia/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
+/* Formats a <div> element which serves as the menu 'button'. */
 
 .nav-base {
 	background-position: 0 0;
 	cursor: default;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the default, 'base', click state.
+ */
 
 .nav-hover {
 	background-position: 0 -50px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the mouseover, or 'hover', click state.
+ */
 
 .nav-click_1 {
 	background-position: 0 -100px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is a 'click' state that is only meant to be visible for the duration 
+ * of the clicking of the mouse.
+ */
 
 .nav-click_2 {
 	background-position: 0 -150px;
 	cursor: pointer;
 }
+/* Sets a class which is used to alter the 'click-state' of the menu icon 
+ * appears in the upper left of the page. 
+ * This is the state which appears when the navigation panel is open. 
+ */
 
 #nav-bkgrnd {
 	width: 20.45em;
@@ -55,6 +100,9 @@ nav {
 	z-index: 3;
 	background-color: #666;
 }
+/* Formats a <div> element which serves as a background to the inter-sectional 
+ * menu options. 
+ */
 
 #nav-brdr {
 	width: 20.45em;
@@ -64,6 +112,9 @@ nav {
 	z-index: 3;
 	background-color: #444;
 }
+/* Formats a <div> element which appears at the top of the inter-sectional navigation 
+ * menu. 
+ */
 
 #options {
 	width: 17.25em;
@@ -75,33 +126,56 @@ nav {
   opacity: 0;
 	z-index: 4;
 }
+/* Formats a <div> element which holds of the individual menu options in the 
+ * inter-sectional menu panel.
+ */
 
 .options-base {
   display: none;
   opacity: 0;
 }
+/* Sets a class which is used to alter the 'click-state' of the collection of menu options 
+ * which is contained in the navigation panel.
+ * This click-state is the base state.
+ */
 
 .options-click {
   display: block !important;
   opacity: 1 !important;
 }
+/* Sets a class which is used to alter the 'click-state' of the collection of menu options  
+ * which is contained in the navigation panel.
+ * This state is activated once the navigation panel has been activated.
+ */
 
 .option-base {
   background-color: #000 !important;
   color: #fff !important;
   cursor: default !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'base' click state.
+ */
 
 .option-hover {
 	background-color: #808080 !important;
 	color: #fff !important;
 	cursor: pointer !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'hover' click state.
+ */
 
 .option-click {
 	background-color: #A6A6A6 !important;
 	color: #000 !important;
 }
+/* Sets a class which is used to alter the 'click-state' of a menu option 
+ * which is contained in the navigation panel.
+ * This class represents the 'click' click state.
+ */
 
 #options > a {
 	width: 12.4em;
@@ -115,38 +189,9 @@ nav {
 	color: #fff;
 	cursor: pointer;
 }
-
-.bkgrnd-base {
-  width: 61.25em !important;
-  left: 0px !important;
-}
-
-.bkgrnd-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-}
-
-.cntainr-base {
-  width: 61.25em !important;
-  left: 0px !important;
-}
-
-.cntainr-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-}
-
-.wndow-base {
-  width: 61.25em !important;
-  left: 0px !important;
-  display: block !important;
-}
-
-.wndow-click {
-  width: 40.94em !important;
-  left: 20.45em !important;
-  display: none !important;
-}
+/* Formats the <a> elements which serve as menu options in the inter-sectional 
+ * menu.
+ */
 
 #prev-sctn,
 #next-sctn {
@@ -161,6 +206,9 @@ nav {
   background-position: 0 -209px;
   cursor: default;
 }
+/* Formats <div> elements which act as inter-sectional navigation which appears 
+ * along the right side of the page.
+ */
 
 #prev-sctn {
   top: 1.06em;
@@ -169,43 +217,40 @@ nav {
   background-position: 0 0;
   opacity: 0;
 }
+/* Formats a <div> element which moves the page upward through previously viewed 
+ * sections. 
+ */
 
 #next-sctn {
   background-position: 0px -209px;
 }
+/* Formats a <div> element which moves the page upward through yet-to-be-viewed 
+ * sections. 
+ */
 
 #prev-sctn:hover,
 #next-sctn:hover {
   cursor: pointer;  
 }
+/* Sets the cursor state based upon the click-state of the <div> elements, 
+ * '#prev-sctn' and '#next-sctn'. 
+ */
 
 #prev-sctn:hover {
   background-position: 0px -111px;
 }
+/* More formatting for the cursor state based upon the click-state 
+ * of the <div> element, '#prev-sctn'. 
+ * This is the hover click-state.
+ */
 
 #next-sctn:hover {
   background-position: 0px -235px;
 }
-
-.base-prev-sctn {
-  background-position: 0 0;
-  cursor: default;
-}
-
-.click-prev-sctn {
-  background-position: 0 -111px !important;
-  cursor: pointer;
-}
-
-.base-next-sctn {
-  background-position: 0 -209px !important;
-  cursor: default;
-}
-
-.click-next-sctn {
-  background-position: 0 -320px !important;
-  cursor: pointer;
-}
+/* More formatting for the cursor state based upon the click-state 
+ * of the <div> element, '#next-sctn'. 
+ * This is the hover click-state.
+ */
 
 #prev-sctn > span,
 #next-sctn > span {
@@ -220,22 +265,32 @@ nav {
 	line-height: 1.25em;
 	letter-spacing: 1px;
 }
+/* Formats the text descriptions of the inter-sectional navigation 
+ * which appears on the right of the page.
+ */
 
-div.sctn_nav {
+.sctn_nav {
 	width: 61.25em;
 	height: 8.44em;
 	position: absolute;
 	top: 39.38em;
 	opacity: 0;
 }
+/* Formats a <div> element which contains the intra-sectional navigation 
+ * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
+ */
 
-div.sctn_nav > div {
+.sctn_nav > div {
 	width: 46.25em;
 	height: inherit;
 	margin: 0 auto;
 }
+/* Formats the <div> element which serves as a container for the <div> and <span> 
+ * elements which make up the inter-sectional navigation for 'SECTION #3' 
+ * and 'SECTION #4'.
+ */
 
-div.sctn_nav > div > span {
+.sctn_nav > div > span {
 	width: 9.38em;
 	height: 2.19em;
 	display: block;
@@ -244,53 +299,84 @@ div.sctn_nav > div > span {
 	background-position: 0px 0px;
 	color: #fff;
 	cursor: auto;	
-} 
+}
+/* Formats the <span> element which serves as the menu-button for the intra-sectional 
+ * navigation for 'SECTION #3' and 'SECTION #4'. 
+ */
 
-div.sctn_nav > div > span:hover {
+.sctn_nav > div > span:hover {
   cursor: pointer;
 }
+/* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
+ * which serves as the menu-button for the intra-sectional navigation. 
+ */
 
 #nav-sctn_3 > div > span {
 	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
 }
+/* Formats the background-image of the <span> element which serves as the 
+ * menu-button for the intra-sectional navigation for 'SECTION #3'.
+ */
 
 #nav-sctn_4 > div > span {
 	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
 }
+/* Formats the background-image of the <span> element which serves as the 
+ * menu-button for the intra-sectional navigation for 'SECTION #4'.
+ */
 
-div.sctn_nav > div > span.base-sctn_nav {
+.sctn_nav > div > span.base-sctn_nav {
 	background-position: 0px 0px;
 	cursor: default;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the base click state.
+ */
 
-div.sctn_nav > div > span.hover-sctn_nav {
+.sctn_nav > div > span.hover-sctn_nav {
 	background-position: 0px -35px;
 	cursor: pointer;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
 
-div.sctn_nav > div > span.active-sctn_nav {
+.sctn_nav > div > span.active-sctn_nav {
 	background-position: 0px -70px;
 	cursor: pointer;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the active click state.
+ */
 
-div.sctn_nav > div > span.click-sctn_nav {
+.sctn_nav > div > span.click-sctn_nav {
 	background-position: 0px -105px;
 	cursor: pointer;
 	opacity: 1;
 }
+/* Formats the click-state for the <span> element which serves as the menu-button 
+ * for the intra-sectional navigation.
+ * This is the click state which is set once the menu-button has been clicked.
+ */
 
-div.sctn_nav > div > div {
+.sctn_nav > div > div {
 	width: 46.25em;
 	height: 2.19em;
 	margin: 0 auto;
 	position: absolute;
 	display: none;
 }
+/* Formats the <div> element which contains the <a> elements which serve as 
+ * menu-options of the intra-sectional navigation.
+ */
 
-div.sctn_nav > div > div > a {
+.sctn_nav > div > div > a {
 	width: 6.56em;
 	height: 1.38em;
 	display: block;
@@ -306,18 +392,28 @@ div.sctn_nav > div > div > a {
 	letter-spacing: 1px;
 	cursor: pointer; 
 }
+/* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
 
-div.sctn_nav > div > div a:hover {
+.sctn_nav > div > div a:hover {
 	background-color: #333;
 }
+/* Formats the click-state for the <a> elements which serves as menu-options
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
 
 .sctn_nav > div > div > div:first-of-type {
   width: 6.25em;
   height: inherit;
   float: left;
 }
+/* Formats a <div> element which is used for proper spacing in the intra-sectional navigation 
+ * which appears on the landing pages of 'SECTION #3' and 'SECTION #4'.
+ */
 
 @media screen and (width: 980px) {
+  /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
+  
   nav, 
   #nav-bkgrnd, 
   #nav-brdr, 
@@ -401,11 +497,11 @@ div.sctn_nav > div > div a:hover {
     top: 67em !important;
   }
   
-  div.sctn_nav > div {
+  .sctn_nav > div {
 	  width: 18.8em;
   }
   
-  div.sctn_nav > div > span {
+  .sctn_nav > div > span {
     width: 18.8em;
     height: 4.38em;
   }
@@ -420,13 +516,13 @@ div.sctn_nav > div > div a:hover {
     background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
   }
   
-  div.sctn_nav > div > div {
+  .sctn_nav > div > div {
     width: 18.8em;
     height: 27.19em;
     margin: 2em 0;
   }
   
-  div.sctn_nav > div > div > a {
+  .sctn_nav > div > div > a {
     width: 9.3em;
     height: 1.5em;
     margin: 0.65em 0;
@@ -436,6 +532,10 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  * This breakpoint is optimized to fit the iPad. 
+  */
+
   #options > a {
     font-size: 1.85em;
   }
@@ -476,6 +576,10 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (width: 1024px) and (max-height: 1510px) {
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  * This breakpoint is optimized to fit the iPad Pro. 
+  */
+  
   nav, 
   #options, 
   #nav-bkgrnd, 
@@ -538,37 +642,13 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (min-width: 1260px) {
+  /* This CSS breakpoint affects browsers which have a width of at least 1260px. 
+  * This breakpoint is optimized to fit resolutions of 1280x800. 
+  */
+
   .options-click {
     display: inline-table !important;
     opacity: 1 !important;
-  }
-
-  .bkgrnd-base {
-    width: 80em !important;
-  }
-
-  .bkgrnd-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-  
-  .cntainr-base {
-    width: 80em !important;
-    left: 0px !important;
-  }
-
-  .cntainr-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .wndow-base {
-    width: 80em !important;
-  }
-
-  .wndow-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
   }
 
   .sctn_nav {
@@ -600,6 +680,10 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (min-width: 1260px) and (min-height: 980) {
+  /* This CSS breakpoint affects browsers which have a width more than 1260px and a height greater than 980px. 
+  * This breakpoint is optimized to fit resolutions of 1280x1024.
+  */
+
   nav {
     width: 32em;
     left: -32em;
@@ -626,7 +710,11 @@ div.sctn_nav > div > div a:hover {
   };
 }
 
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1340px) and (max-width: 1890px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1890px. 
+  * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
+  */
+
   nav {
     width: 39.1em;
     left: -39.1em;
@@ -652,34 +740,6 @@ div.sctn_nav > div > div a:hover {
     float: left;
   }
   
-  .bkgrnd-base {
-    width: 85.375em !important;
-  }
-
-  .bkgrnd-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .cntainr-base {
-    width: 85.375em !important;
-    left: 0px !important;
-  }
-
-  .cntainr-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
-  .wndow-base {
-    width: 85.375em !important;
-  }
-
-  .wndow-click {
-    width: 46.25em !important;
-    left: 39.1em !important;
-  }
-
   .sctn_nav {
     width: 85.38em !important;
     top: 33em !important;
@@ -692,6 +752,10 @@ div.sctn_nav > div > div a:hover {
 }
 
 @media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px.. 
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+   
   nav, 
   #nav-brdr,
   #nav-bkgrnd, 

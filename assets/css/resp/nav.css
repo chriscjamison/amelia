@@ -342,6 +342,7 @@ nav {
  * for the intra-sectional navigation.
  * This is the hover click state.
  */
+
 .sctn_nav > div > span.active-sctn_nav {
 	background-position: 0px -70px;
 	cursor: pointer;
@@ -351,6 +352,7 @@ nav {
  * for the intra-sectional navigation.
  * This is the active click state.
  */
+ 
 .sctn_nav > div > span.click-sctn_nav {
 	background-position: 0px -105px;
 	cursor: pointer;
@@ -484,11 +486,11 @@ nav {
     top: 67em !important;
   }
   
-  div.sctn_nav > div {
+  .sctn_nav > div {
 	  width: 18.8em;
   }
   
-  div.sctn_nav > div > span {
+  .sctn_nav > div > span {
     width: 18.8em;
     height: 4.38em;
   }
@@ -503,13 +505,13 @@ nav {
     background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
   }
   
-  div.sctn_nav > div > div {
+  .sctn_nav > div > div {
     width: 18.8em;
     height: 27.19em;
     margin: 2em 0;
   }
   
-  div.sctn_nav > div > div > a {
+  .sctn_nav > div > div > a {
     width: 9.3em;
     height: 1.5em;
     margin: 0.65em 0;
@@ -731,7 +733,7 @@ nav {
   /* This CSS breakpoint affects browsers which have a width more than 1910px.. 
    * This breakpoint is optimized to fit resolutions of 1920x1020px.
    */
-   
+
   nav, 
   #nav-brdr,
   #nav-bkgrnd, 
