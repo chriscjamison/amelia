@@ -1659,3 +1659,7 @@ body {
 html[data-useragent*='Windows NT 6.3'] .sctn_4-blok > div {
   top: -0.6em;
 }
+/* Formats a <div> element which holds quotation marks 
+ * which appears within 'SECTION #4'.
+ * This statement affect only Internet Explorer browsers.
+ */
