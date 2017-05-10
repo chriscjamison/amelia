@@ -1,3 +1,20 @@
+/* Filename: forms.css 
+ *  + Contains the CSS styling for all of the form elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the navigation or content elements 
+ * 
+ *  + All measurements are given in terms of 'em' except for background position values which are 
+ *    given in terms of 'px'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+
 .clmn {
 	width: 32.2em;
 	height: auto;
