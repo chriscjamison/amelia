@@ -352,7 +352,7 @@ nav {
  * for the intra-sectional navigation.
  * This is the active click state.
  */
- 
+
 .sctn_nav > div > span.click-sctn_nav {
 	background-position: 0px -105px;
 	cursor: pointer;
@@ -521,7 +521,7 @@ nav {
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
-  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  /* This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
   * This breakpoint is optimized to fit the iPad. 
   */
 
@@ -565,7 +565,7 @@ nav {
 }
 
 @media screen and (width: 1024px) and (max-height: 1510px) {
-  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
+  /* This CSS breakpoint affects browsers which have a width of 1024px and a height less than 1510px. 
   * This breakpoint is optimized to fit the iPad Pro. 
   */
 

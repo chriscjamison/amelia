@@ -1067,6 +1067,99 @@ body {
     width: 23.5em;
   }
 }
+@media screen and (width: 980px) and (max-height: 1310px) {
+ /* This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
+  * This breakpoint is optimized to fit the iPad. 
+  */
+
+  #info {
+    height: 72em;
+  }
+  
+  #copy {
+    width: 51em;
+    height: 73.7em;
+    margin-left: 10.25em;
+  }
+
+  .sctn_1-blok, 
+  .sctn_3-blok, 
+  .sctn_4-blok,
+  .sctn_5-blok,
+  .sctn_6-blok,
+  #sctn_5-desc-2,
+  #sctn_6-info-1 {
+    width: 36em;
+  }
+
+  .sctn_1-blok > p, 
+  .sctn_2-blok > ul,
+  .sctn_2-blok-2 > span, 
+  .sctn_3-blok > p,
+  .sctn_4-blok > p, 
+  .sctn_5-blok > p, 
+  .sctn_6-blok > p,
+  #sctn_6-info-1 > span > span, 
+  .sctn_6-blok-2 > span,
+  .sctn_6-blok-2 > div {
+    font-size: 1.5em !important;
+  }
+
+  .sctn_5-blok > p, 
+  .sctn_6-blok > p, 
+  .sctn_6-blok-2 > div {
+    font-size: 1.25em !important;
+  }
+
+  .sctn_2-blok > ul > li {
+    margin: 0.25em;
+  }
+
+  .sctn_2-spcr {
+    width: 41.1em;
+    height: 2em;
+  }
+  
+  .sctn_2-blok-2 {
+    margin-left: 0;
+    top: 1em;
+  }
+
+  .sctn_2-blok-2 > span {
+    margin-left: 8.5em;
+  }
+
+  .sctn_2-blok-2 > span + div {
+    top: 1em;
+  }
+
+  .sctn_2-blok-2 > span + div > span {
+    width: 8.2em;
+    height: 8em;
+    margin: 0.25em 1.25em 0.25em 0em;
+    padding: 1em;
+    font-size: 1.25em;
+  }
+
+  .sctn_6-blok-2 {
+    width: 19em;
+    height: 20.3em;
+    margin-bottom: 0;
+  }
+
+  .sctn_6-blok-2 > div {
+    width: 12em;
+  }
+
+  #sctn_6-info-2 {
+    width: 40em;
+    height: 16em;
+  }
+
+  #sctn_6-info-2 > div {
+    width: 28.75em;
+  }
+}
 
 @media screen and (width: 1024px) and (max-height: 1510px)  {
  /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
@@ -1092,11 +1185,6 @@ body {
     height: 77.25em;
   }
 
-  /*#wndow-sctn_main {
-    width: 64em;
-    height: 93.75em;
-  }
-*/
   .headr.sctn_1 + #copy, 
   .headr.sctn_3 + #copy, 
   .headr.sctn_4 + #copy {
@@ -1183,105 +1271,6 @@ body {
 
   .sctn_6-blok-2 > div {
     width: 9em;
-  }
-}
-
-@media screen and (width: 980px) and (max-height: 1310px) {
- /* This CSS breakpoint affects browsers which have a width of 1024px and a height of 1510px. 
-  * This breakpoint is optimized to fit the iPad. 
-  */
-
-  #info {
-    height: 72em;
-  }
-  
-  #copy {
-    width: 51em;
-    height: 73.7em;
-    margin-left: 10.25em;
-  }
-
- /* .headr.sctn_2 > .copy:first-of-type {
-    width: 54.25em;
-    margin-left: 13.75em;
-  }*/
-
-  .sctn_1-blok, 
-  .sctn_3-blok, 
-  .sctn_4-blok,
-  .sctn_5-blok,
-  .sctn_6-blok,
-  #sctn_5-desc-2,
-  #sctn_6-info-1 {
-    width: 36em;
-  }
-
-  .sctn_1-blok > p, 
-  .sctn_2-blok > ul,
-  .sctn_2-blok-2 > span, 
-  .sctn_3-blok > p,
-  .sctn_4-blok > p, 
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p,
-  #sctn_6-info-1 > span > span, 
-  .sctn_6-blok-2 > span,
-  .sctn_6-blok-2 > div {
-    font-size: 1.5em !important;
-  }
-
-  .sctn_5-blok > p, 
-  .sctn_6-blok > p, 
-  .sctn_6-blok-2 > div {
-    font-size: 1.25em !important;
-  }
-
-  .sctn_2-blok > ul > li {
-    margin: 0.25em;
-  }
-
-  .sctn_2-spcr {
-    width: 41.1em;
-    height: 2em;
-  }
-  
-  .sctn_2-blok-2 {
-    margin-left: 0;
-    top: 1em;
-  }
-
-  .sctn_2-blok-2 > span {
-    margin-left: 8.5em;
-  }
-
-  .sctn_2-blok-2 > span + div {
-    top: 1em;
-  }
-
-  .sctn_2-blok-2 > span + div > span {
-    width: 8.2em;
-    height: 8em;
-    margin: 0.25em 1.25em 0.25em 0em;
-    padding: 1em;
-    font-size: 1.25em;
-  }
-
-  .sctn_6-blok-2 {
-    width: 19em;
-    height: 20.3em;
-    margin-bottom: 0;
-  }
-
-  .sctn_6-blok-2 > div {
-    width: 12em;
-  }
-
-  #sctn_6-info-2 {
-    width: 40em;
-    height: 16em;
-  }
-
-  #sctn_6-info-2 > div {
-    width: 28.75em;
   }
 }
 
