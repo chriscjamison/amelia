@@ -150,140 +150,85 @@
  * 
  * ******************************************************************************************** */
 
-var time_value = new Number();
-
-time_value = 400;
-
 function parseWindowDimensions() {
   /* **************** **************** **************** **************** **************** 
-   *  parseWindowDimensions collects the width and height of the 'window' DOM element 
-   *  by using the jQuery methods "$(window).width()" and "$(window).height()". 
+   *  Reads the browser width and height and returns numerical values of width and height 
+   *  which are used by various functions to layout HTML elements in appropriate places 
+   *  within the webpage. 
    * 
    *  Once the dimensions are gathered from the browser a numerical value is set 
    *  which corresponds with the background images for the indiviual ".wndow" elements.
    * 
-   *  The numberical values of the height and width are passed through to the place 
-   *  of the function call by way of the Array - page_dimensions_Array.
+   *  The numerical values of the height and width are passed through to the place 
+   *  of the function call using the Array, 'page_dimensions_Array'.
    * **************** **************** **************** **************** **************** */
 
   var window_width = new Number(); 
   // Holds the numerical value of the width of the visible area of the browser. 
-  // Captured by the Method "$(window).width()"
+  // Captured by the jQuery Method "$(window).width()"
   
   var window_height = new Number();
   // Holds the numerical value of the height of the visible area of the browser. 
-  // Captured by the Method "$(window).height()"
+  // Captured by the jQuery Method "$(window).height()"
   
   var page_dimensions_Array = new Array();
   // Holds the calculated values of the width and height of the visible area of the browser. 
-  // The value is calculated by the Variables "window_width" and "window_height".
+  // The value is calculated by the variables "window_width" and "window_height".
 
   window_width = $(window).width();
-  // Width of the visible area of the browser is captured.
+  // Equal to the width of the visible area of the browser.
   window_height = $(window).height();
-  // Height of the visible area of the browser is captured.
+  // Equal to the height of the visible area of the browser.
   
- /* **************** **************** **************** **************** **************** 
-  * The following IF statement sets a calculated numerical constant based upon the 
-  * width and height values of "window_width" and "window_height" 
-  * **************** **************** **************** **************** **************** */
-
-  if (window_width < 360) {
-    // If the window width is roughly 360px, the browser is likely a mobile device.
-    // 
-    // The height of the display of a mobile device, with the width of 360px is 540px.
-    //
-    // The dimensions of the background image for a browser 
-    // with a width of 360px are "360px x 540px" 
-    page_dimensions_Array[0] = 360;
-    page_dimensions_Array[1] = 540;
+  if (window_width <= 980) {
+  // The width of the browser of a iPhone or iPad.
+    page_dimensions_Array[0] = 980;
+    
+    if (window_height <= 1308)  {
+    // If the height of the browser is less than or equal to 1308, the browser 
+    // has the dimensions of 980x1308px. These dimensions are the same as an iPad.
+      page_dimensions_Array[1] = 1308;  
+    } else  {
+    // Otherwise the browser has the dimensions of 980x1740px.
+    // These dimensions are the same as an iPhone.
+      page_dimensions_Array[1] = 1740;
+    } // END OF if STATEMENT -- height > 1308
   } else {
-    if (window_width <= 640) {
-      // The width value of a background image of a modern mobile device 
-      // with a width of roughly 640px is "640"
-        
-      page_dimensions_Array[0] = 640;
-      
-      if (window_height > 1000)  {
-        // The height value of a modern mobile device with a typical width 
-        // of "640px" is "1136"
-
-        page_dimensions_Array[1] = 1136;
-      } // END OF if STATEMENT -- height > 1000  
+    if (window_width <= 1024) {
+    // The browser has the dimensions of 1024x1500. These dimensions are 
+    // the same as an iPad Pro.
+      page_dimensions_Array[0] = 1024;
+      page_dimensions_Array[1] = 1500;
     } else {
-      if (window_width <= 980) {
-        // The width value of a typical mobile device with a browser width 
-        // of roughly "980px", also the typical width of an iPad, is "980"  
-          
-        page_dimensions_Array[0] = 980;
+      if (window_width <= 1280) {
+      // The width of a browser with a width of 1280px.
+        page_dimensions_Array[0] = 1280;
         
-        if (window_height > 1308)  {
-        // The width value of a mobile device with a height of roughly "1300px", 
-        // also the typical height of an iPad, is "1740"
-          page_dimensions_Array[1] = 1740;
-        } else  {
-        // The width value of a mobile device with a height of roughly "1300px" is "1308"
-          page_dimensions_Array[1] = 1308;  
-        } // END OF if STATEMENT -- height > 1308
-      } else {
-        if (window_width <= 1024) {
-          // The width value of a mobile device with a width of roughly "1024px", 
-          // also a common width of a smartphone, is "1024"
-          // 
-          // The height value of a mobile device with a width of roughly "1024px", 
-          // also a common width of a smartphone, is "1500"
-
-          page_dimensions_Array[0] = 1024;
-          page_dimensions_Array[1] = 1500;
+        if (window_height <= 800) {
+        // If the height of the browser is less than or equal to 800px, the browser has  
+        // the dimensions of 1280x800px.
+          page_dimensions_Array[1] = 800;
         } else {
-          if (window_width <= 1280) {
-            // The width value of a device with a width of roughly "1280px", 
-            // also a common width of a laptop display, is "1280".
-            page_dimensions_Array[0] = 1280;
-            
-            if (window_height <= 800) {
-              // The height value of a device with a width of roughly "1280px", 
-              // which also has a browser height of less than "800px", is "800"
-              page_dimensions_Array[1] = 800;
-            } else {
-              // The height value of a device with a width of roughly "1280px", 
-              // which also has a browser height of greater than "800px", is "1024"
-              page_dimensions_Array[1] = 1024;
-            } // END OF if STATEMENT -- height <= 800
-          } else  {
-            if (window_width <= 1366) {
-            // The width value of a device with a browser width of roughly "1366px", 
-            // which also is a common browser width of a laptop display, is "1366"
-            //
-            // The height value of a device with a browser width of roughly "1366px", 
-            // which also is a common browser width of a laptop display, is "768"
-              
-              page_dimensions_Array[0] = 1366;
-              page_dimensions_Array[1] = 768;
-            } else {
-              if (window_width <= 1600) {
-              // The width value of a device with a browser width of roughly "1600px", 
-              // which also is a common browser width of a desktop or laptop display, is "1600"
-              // 
-              // The height value of a device with a browser width of roughly "1600px", 
-              // which also is a common browser width of a desktop or laptop display, is "900"
-                page_dimensions_Array[0] = 1600;
-                page_dimensions_Array[1] = 900;
-              } else {                
-                // If the browser width of a display is greater than "1600px", 
-                // the width value is "1900"
-                // 
-                // If the browser width of a display is greater than "1600px", 
-                // the height value is "1020"
-                page_dimensions_Array[0] = 1920;
-                page_dimensions_Array[1] = 1080;
-              } // END OF if STATEMENT -- <= 1600
-            } // END OF if STATEMENT -- <= 1366
-          } // END OF if STATEMENT -- <= 1280
-        } // END OF if STATEMENT -- <= 1024 
-      } // END OF if STATEMENT -- <= 980
-    } // END OF if STATEMENT -- <= 640
-  }  // END OF if STATEMENT -- < 360
+        // Otherwise the browser has the dimensions of 1280x1024px.
+          page_dimensions_Array[1] = 1024;
+        } // END OF if STATEMENT -- height <= 800
+      } else  {
+        if (window_width <= 1366) {
+        // The browser has the dimensions of 1366x768px.
+          page_dimensions_Array[0] = 1366;
+          page_dimensions_Array[1] = 768;
+        } else {
+          if (window_width <= 1600) {
+            page_dimensions_Array[0] = 1600;
+            page_dimensions_Array[1] = 900;
+          } else {                
+            page_dimensions_Array[0] = 1920;
+            page_dimensions_Array[1] = 1080;
+          } // END OF if STATEMENT -- <= 1600
+        } // END OF if STATEMENT -- <= 1366
+      } // END OF if STATEMENT -- <= 1280
+    } // END OF if STATEMENT -- <= 1024 
+  } // END OF if STATEMENT -- <= 980
   
   return page_dimensions_Array;
   // Once the width and height values have been calculated, 
@@ -748,7 +693,7 @@ function cssAdjustment()  {
 
 } /* **************** END OF FUNCTION "cssAdjustment" **************** */
 
-function setupPage()  {
+function setupPage(time_value)  {
   /* **************** **************** **************** **************** **************** 
    * setupPage initializes the rendering of the HTML elements 
    * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".

@@ -6,7 +6,7 @@ var url_hash = new String();
 
 var rate_value_search_string = new String();
 
-time_value = 400;
+time_value = 500;
 window_margin = 150;
 
 url_string = window.location.href;
@@ -373,7 +373,7 @@ $(document).ready(
         page_dimensions_Array = parseWindowDimensions();
         window_width = page_dimensions_Array[0];
         
-        setupPage();
+        setupPage(time_value);
 
         if (url_hash === "" || 
             url_hash === "#sctn_main")  {
