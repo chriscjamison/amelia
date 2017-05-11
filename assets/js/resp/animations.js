@@ -1,41 +1,155 @@
-//animations.js
+/* Filename: animations.js
+ *  Contains all JavaScript functions and behavior that controls the layout 
+ *  and physical appearance of the webpage using the 'One Page' template.
+ * 
+ *  --- NOTE! ---
+ *  + JavaScript statements and functions which are triggered by interacting 
+ *    with HTML DOM elements of the webpage are contained within, 'control_panel.js'.
+ *  + JavaScript functions which assist the page with navigation are located within, 'nav.js'.
+ *  + JavaScript functions which are called when a user interacts with a form located 
+ *    on the webpage are contained within, 'forms.js'.
+ * 
+ *  --- FUNCTIONS CONTAINED WITHIN 'animations.js' ---
+ *    parseWindowDimensions
+ *      Reads the browser width and height and returns numerical values of width and height 
+ *      which are used by various functions to layout HTML elements in appropriate places 
+ *      within the webpage.
+ *      
+ *      Called by: 
+ *        + cssAdjustment
+ *        + setupPage
+ *        + animateInfoElement
+ *        + animatePageElements
+ *        + animateSideNav
+ *        + interSectionNav (nav.js)
+ *    
+ *    urlInfo
+ *      Parses the URL for data which correlates with the Section being viewed and the content 
+ *      visible within that given Section.
+ *      
+ *      Called by:
+ *        +  animateFormPanes
+ * 
+ *    cssAdjustment
+ *      Adjusts the CSS values of HTML elements based upon the width and height of the 
+ *      browser window.
+ * 
+ *      Called by:
+ *        + setupPage
+ * 
+ *    setupPage 
+ *      Initializes the layout of various HTML elements once the page has loaded or resized.
+ *      
+ *      Called by:
+ *        + $(window).on("resize") (control_panel.js)
+ *        + $(window).on("load") (control_panel.js)
+ * 
+ *    animateInfoElement
+ *      Animates the content of the HTML element using the selector, "#info", which appears 
+ *      on the 'MAIN LANDING PAGE'.
+ * 
+ *      Called by:
+ *        + setURL
+ *        + interSectionNav (nav.js)
+ *        + $(window).on("load") (control_panel.js)
+ *        + $(window).on("scroll") (control_panel.js)
+ * 
+ *    animateFormPanes
+ *      Animates HTML elements which are contained within the forms located 
+ *      within the web page.
+ * 
+ *      Called by:
+ *        + fadeCopyElements
+ *      
+ *    animatePageElements
+ *      Animates HTML elements of a given Section which has not been 
+ *      within the visible browser window. Elements such as the HTML elements 
+ *      using the selector, ".headr", are made visible once a user has navigated 
+ *      to an unseen Section.
+ * 
+ *      Called by:
+ *        + setupPage
+ *        + $(window).on("hashchange") (control_panel.js)
+ * 
+ *    displayVerticalNav
+ *      Displays the inter-sectional navigation which appears as two white arrows located 
+ *      on the right hand side of the browser window, within a desktop browser 
+ *      or along the top and bottom of the browser window within a mobile browser.
+ *  
+ *      Called by:
+ *        + setupPage
+ *        + setURL
+ *        + interSectionNav (nav.js)
+ *        + $(window).on("hashchange") (control_panel.js) *        
+ * 
+ *    animateSctnNav
+ *        Animates the click-states of the menu-icon for the intra-sectional navigation 
+ *        which appears within, 'SECTION #3' and 'SECTION #4'.
+ * 
+ *        Called by:
+ *          + $(".sctn_nav > div > span").on("mouseover") (control_panel.js)
+ *          + $(".sctn_nav > div > span").on("mouseout") (control_panel.js)
+ *          + $(".sctn_nav > div > span").on("click") (control_panel.js)
+ *          + $(".sctn_nav > div > div > a").on("click") (control_panel.js)
+ * 
+ * 
+ *    animateSctnNavLinks
+ *      Animates the click-states of the links contained within the intra-sectional navigation 
+ *      which appears within, 'SECTION #3' and 'SECTION #4'.
+ * 
+ *      Called by:
+ *        + $(".sctn_nav > div > span").on("click") (control_panel.js)
+ *        + $(".sctn_nav > div > div > a").on("click") (control_panel.js)        
+ * 
+ *    animateSideNav
+ *      Animates the movement of the inter-sectional navigation that appears on the left hand 
+ *      side of the browser window.
+ *    
+ *      Called by:
+ *        + $("#nav-link").on("click") (control_panel.js)
+ *        + $("#options > a").on("click") (control_panel.js)
+ * 
+ *    determineCurrentSection
+ *      Returns a numerical value which represents the Section which is visible 
+ *      within the browser window. 
+ *      
+ *      Called by:
+ *        + animatePageElements
+ *        + setURL
+ *        + interSectionNav (nav.js)        
+ * 
+ *    setURL
+ *      Sets the hash of the URL to a value which matches the Section and the Position 
+ *      within the Section which is viewable.
+ * 
+ *      Called by:
+ *        + $(window).on("scroll") (control_panel.js)
+ * 
+ *    animateMenuOptions
+ *      Animates the appearance of the click-states for the menu-options of the inter-sectional 
+ *      navigation which appears on the left hand side of the browser window.
+ * 
+ *      Called by:
+ *        + $("#options > a").on("mouseenter") (control_panel.js)
+ *        + $("#options > a").on("mouseleave") (control_panel.js)
+ * 
+ *    setPageInitialLocation
+ *      Once the webpage loads, the scroll-bar is moved to the position within the webpage 
+ *      that the Section is viewable. Also, the HTML element, '.copy', that is viewable 
+ *      within the Section is made viewable.
+ * 
+ *      Called by: 
+ *        setupPage
+ *        
+ *    fadeCopyElements
+ *      Fades in the HTML elements which are contained within a HTML element, '.copy',
+ *      of a given Section which had been invisible. 
+ * 
+ *      Called by: 
+ *        animatePageElements
+ * 
+ * ******************************************************************************************** */
 
-/* **************** **************** **************** **************** **************** 
-   * "animations.js" holds the various functions which modify various HTML elements 
-   * and create transition type animations using those elements.
-   * 
-   * ~~~ LIST OF FUNCTIONS ~~~
-   *  parseWindowDimensions 
-   *    Collects the width and height of the browser.
-   * 
-   *  urlInfo 
-   *    Scans the hash, as referenced by, "window.location.hash" 
-   *    for the "Section" and "Position" values.
-   * 
-   *  cssAdjustmentCopy
-   *    Adjusts the placement of various HTML elements within the browser window 
-   *    based upon the parameters of the browser a visitor is viewing.
-   * 
-   *  setupPage 
-   *    Initializes the rendering of the HTML elements within the browser window.
-   *  
-   *  animateInfoElement
-   *    Animates the content of the HTML element defined by the selector, "#info".
-   * 
-   *  sortCopyElements
-   *    Determines which HTML content within a given "Section" is made visible.
-   *    - Uses parameter - "section_value":String
-   * 
-   *  animateFormPanes
-   *    Animates the content of the HTML elementw which make up 
-   *    the Screening, Rate, and Contact forms.
-   *    - Uses parameter - "section_value":String
-   * 
-   *  animatePageElements
-   *    Triggers a sequence of modifications of CSS values and properties and animations 
-   *    of various HTML elements which fire when a user 
-   *    activates a menu option, intrapage, or intrasection option.
-   * **************** *************** **************** **************** **************** */
 var time_value = new Number();
 
 time_value = 400;
