@@ -629,6 +629,33 @@ nav {
   * This breakpoint is optimized to fit resolutions of 1280x800. 
   */
 
+  #prev-sctn {
+    height: 4em;
+    padding-top: 1.3em;
+    background-position: 0px 0px;
+  }
+
+  #next-sctn {
+    height: 5.3em;
+    padding-top: 0;
+    background-position: 0px -145px;
+  }
+
+  #prev-sctn, 
+  #next-sctn {
+    width: 5em;
+    padding-top: 1.3em;
+    right: 1.56em;
+    bottom: 1.56em;
+    background-image: url('/amelia/assets/img/nav/next/next-sctn.png');
+  }
+
+  #prev-sctn > span, 
+  #next-sctn > span {
+    width: 5em;
+    height: 3.12em;
+  }
+  
   .sctn_nav {
     width: 80em !important;
     height: 6.1em !important;
@@ -649,11 +676,6 @@ nav {
     height: 1em !important;
     margin: 1em !important;
     padding: 0.27em 0 0.38em 0 !important;
-  }
-  
-  #prev-sctn, 
-  #next-sctn {
-    right: 33.8em;
   }
 }
 
