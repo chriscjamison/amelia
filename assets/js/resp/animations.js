@@ -475,7 +475,7 @@ function cssAdjustment()  {
       $(prev_sctn_element).css(inter_nav_2_css);
       // The inter-sectional navigation which consists of white arrows 
       // appears in the middle top and middle bottom of the browser window.
-      
+
     } // END OF if STATEMENT which is triggered if the window_width is 1920.
   } // END of if STATEMENT which is triggered if the browser is for a mobile device.
 
@@ -519,13 +519,13 @@ function cssAdjustment()  {
     
     info_img_element = $(info_img_selector);
     // "info_img_element" now holds the jQuery Object 
-    // for the selector, "#info img".
+    // for the HTML elements refered to by the selector, "#info img".
     next_sctn_span_element = $(next_sctn_span_selector);
     prev_sctn_span_element = $(prev_sctn_span_selector);
     // "prev_sctn_span_element" holds the jQuery Object 
-    // for the selector, "#prev-sctn > span".
+    // for the HTML elements refered to by the selector, "#prev-sctn > span".
     // "next_sctn_span_element" holds the jQuery Object 
-    // for the selector, "#next-sctn > span".
+    // for the HTML elements refered to by the selector, "#next-sctn > span".
 
     info_img_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
@@ -561,7 +561,7 @@ function setupPage(time_value)  {
    * setupPage initializes the rendering of the HTML elements 
    * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
    *   
-   * This function also initializes the placement of the intrapage navigation 
+   * This function also initializes the placement of the inter-sectional navigation 
    * which uses "arrows". These arrows appear on the far-right side of the browser window 
    * within a desktop or laptop display and in the top and bottom middle 
    * of a mobile display .
@@ -588,84 +588,126 @@ function setupPage(time_value)  {
   // "page_height" is calculated by multiplying the height of the browser frame, 
   // as it is calculated by the jQuery Method, "$(window).height()", 
   // and the total number of HTML elements using the selector, ".wndow".
+  var wndow_width = new Number();
+  // Holds the width of the HTML elements using the selector, ".wndow".
+  // 
+  // "wndow_width" is calculated by using the value returned to the first index 
+  // of the Array, "page_dimensions_Array".
+  var wndow_height = new Number();
+  // Holds the height of the HTML elements using the selector, ".wndow".
+  // 
+  // "wndow_width" is calculated by using the value returned to the second index 
+  // of the Array, "page_dimensions_Array".
+  var num_wndow_elements = new Number();
+  // Holds the total number of HTML elements that are refrerred by the selector, ".wndow".
   
   var nav_width = new Number();
+  // Holds the numerical width of the inter-sectional navigation 
+  // which appears on the left side of the browser window, 
+  // or the HTML element, <nav>.
   var nav_left_val = new Number();
+  // Holds the result of multiplying the value held by "nav_width" by -1.
 
   var cntainr_selector = new String();
-  // Holds the CSS selector, "#cntainr".
+  // Holds the selector for the <div> element which contains all of the 
+  // content of the webpage.
+  //
+  // The value passed to the variable is, "#cntainr".
   var wndow_selector = new String();
-  // Holds the CSS selector, ".wndow".
+  // Holds the selector for the <div> elements which contain the individual 
+  // Sections of the webpage.
+  //
+  // The value passed to the variable is, ".wndow".
   var copy_css = new String();
-  // Holds the CSS selector, ".copy".
+  // Holds the selector for the <div> elements which contain the individual 
+  // portions of a particular Section of the webpage.
+  // 
+  // The value passed to the variable is, ".copy".
   var bkgrnd_selector = new String();
-  // Holds the CSS selector, "#bkgrnd".
+  // Holds the selector for the <div> elements which contain the 
+  // background images for the individual Sections.
+  // 
+  // The value passed to this variable is, "#bkgrnd".
   var nav_selector = new String();
-  // Holds the CSS selectors, "nav, #nav-bkgrnd, #nav-brdr".
+  // Holds the selectors for the inter-sectional navigation which appears 
+  // on the left hand side of the browser window.
+  //
+  // The value passed to this variable is, "nav, #nav-bkgrnd, #nav-brdr".
   var bkgrnd_div_sub_selector = new String();
-  // Holds the CSS selector, "#bkgrnd > div".
+  // Holds the selector for the <div> element which contains the a particular  
+  // background image for a given Section.
+  // 
+  // The value passed to this variable is, "#bkgrnd > div".
   var wndow_sctn_selector = new String();
-  // Holds the CSS selector, "#wndow-sctn_X".
+  // Holds a selector for an individual Section which is worked on by 
+  // a jQuery Loop which cycles through an background image.
+  //
+  // The value passed to this variable would be "#wndow-sctn_1" when the 
+  // Loop works on the first HTML element which is refrerred to by,
+  // "#bkgrnd > div".
 
   var cntainr_element = new Object();
-  // Holds the jQuery Object for the HTML DOM element using the selector, "#cntainr".
+  // Holds the jQuery Object that referes to the HTML element 
+  // using the selector, "#cntainr".
   var wndow_elements = new Object();
-  // Holds the jQuery Object for the HTML DOM elements using the selector, ".wndow".
+  // Holds the jQuery Object that refers to the HTML elements 
+  // using the selector, ".wndow".
   var copy_elements = new Object();
-  // Holds the jQuery Object for the HTML DOM elements using the selector, ".copy".
+  // Holds the jQuery Object that refers to the HTML elements 
+  // using the selector, ".copy".
   var bkgrnd_element = new Object();
-  // Holds the jQuery Object for the HTML DOM element using the selector, "#bkgrnd".
+  // Holds the jQuery Object that refers to the HTML element
+  // using the selector, "#bkgrnd".
   var nav_elements = new Object();
-  // Holds the jQuery Object for the HTML DOM elements using the selectors, "nav, #nav-bkgrnd, #nav-brdr".
+  // Holds the jQuery Object that refers to the HTML elements 
+  // using the selectors, "nav, #nav-bkgrnd, #nav-brdr".
   var bkgrnd_div_sub_elements = new Object();
-  // Holds the jQuery Object for the HTML DOM elements using the selector, "#bkgrnd > div".
+  // Holds the jQuery Object that refers to the HTML elements 
+  // using the selector, "#bkgrnd > div".
   var wndow_sctn_element = new Object();
-  // Holds the jQuery for the HTML DOM element referenced within the selector contained within 
+  // Holds the jQuery Object that refers to the HTML element 
+  // referenced within the selector contained within 
   // the variable, "wndow_sctn_selector".
   //
-  // The selector will follow the following format, "#wndow-sctn_X", with X representing a 
-  // Section Value identifying an individual section.
+  // The selector would be, "#wndow-sctn_1", when 
+  // the jQuery Loop works on the first HTML element which is referred 
+  // to by, "#bkgrnd > div"."
 
-  var css_1 = new Object();
+  var cntainr_css = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
-  // The values contained within this object, format the HTML element 
-  // identified by the selector, "#cntainr". 
-  var css_2 = new Object();
+  // The values held in this object represent the browser width of the 
+  // webpage and the height of the webpage.
+  var width_height_css = new Object();
   // Holds the CSS properties and values of "width" and "height".
   // 
-  // The values contained within this object, format the HTML elements 
-  // identified by the selector, ".wndow". 
-  var css_3 = new Object();
-  // Holds the CSS properties and values of "width" and "height".
+  // The values contained within this object represent the width 
+  // and height of a particular "window" of the webpage.
+  var nav_css = new Object();
+  // Holds the CSS property and value for "left".
   // 
-  // The values contained within this object, format the HTML element 
-  // identified by the selector, "#bkgrnd". 
-  var css_4 = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object, format the HTML elements 
-  // identified by the selector, ".copy". 
+  // The value contained within this object is the value held by "nav_left_val".
   
   var inc_bkgrnd = new Number();
   // Holds a number which represents the Section Value of the background image 
-  // loaded within a given HTML element using the selector, "#bkgrnd > div".
+  // loaded for an individual "window".
   //  
-  // "inc_bkgrnd" is used within the String held by "bkgrnd_img_value".
+  // "inc_bkgrnd" is used by a jQuery Loop that cycles through the background-images 
+  // which are referred to using the selector, "#bkgrnd > div".
   
   var bkgrnd_img_value = new String();
   // Holds a String defining the value of the CSS property, "background-image", 
-  // which is used within the jQuery Method, ".each", as it is used for 
-  // the HTML elements using the selectors, "#bkgrnd > div".
+  // which is used within the jQuery Method, ".each", as it cycles through the 
+  // background images using the selector, "#bkgrnd > div".
   
   var bkgrnd_width = new String();
   // Holds the width of the background image as calculated by multiplying the width returned to the Array, 
   // "page_dimensions_Array[0]", by the number of ".copy" HTML DIV elements within a given Section.
   var bkgrnd_height = new String();
-  // Holds the height of the background image as returne to the Array, "page_dimensions_Array[1]".
+  // Holds the height of the background image as returned to the Array, "page_dimensions_Array[1]".
   
   cssAdjustment();
-  // cssAdjusment is called to render various HTML elements of the webpage 
+  // "cssAdjusment" is called to render various HTML elements of the webpage 
   // within the browser window.
 
   page_dimensions_Array = parseWindowDimensions();
@@ -677,63 +719,64 @@ function setupPage(time_value)  {
   // calculated by the jQuery Method, "$(window).height()", and 
   // the number of HTML elements using the selector, ".wndow".
   nav_width = $("nav").width();
+  // "nav_width" now holds the calculated width of the HTML element, <nav>.
   nav_left_val = -nav_width;
+  // "nav_left_val" now holds the product of the value held by "nav_width" by -1;
 
   cntainr_selctor = "#cntainr";
+  // "cntainr_selector" now holds, "#cntainr".
   wndow_selector = ".wndow";
+  // "wndow_selector" now holds, ".wndow".
   bkgrnd_selector = "#bkgrnd";
+  // "bkgrnd_selector" now holds, "#bkgrnd".
   nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
+  // "nav_selector" now holds, "nav, #nav-bkgrnd, #nav-brdr".
   bkgrnd_div_sub_selector = "#bkgrnd > div";
+  // "bkgrnd_div_sub_selector" = "#bkgrnd > div".
 
   cntainr_element = $(cntainr_selector);
+  // "cntainr_element" now holds the jQuery Object 
+  // for the HTML element refered to by the selector, "#info img".
   wndow_elements = $(wndow_selector);
+  // "wndow_elements" now holds the jQuery Object 
+  // for the HTML elements refered to by the selector, ".wndow".
   bkgrnd_element = $(bkgrnd_selector);
+  // "bkgrnd_element" now holds the jQuery Object 
+  // for the HTML element refered to by the selector, "#bkgrnd".
   nav_elements = $(nav_selector);
+  // "nav_elements" now holds the jQuery Object 
+  // for the HTML elements refered to 
+  // by the selector, "nav, #nav-bkgrnd, #nav-brdr".
   bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
+  // "bkgrnd_div_sub_elements" now holds the jQuery Object 
+  // for the HTML elements refered to by the selector, "bkgrnd_div_sub_elements".
 
-  css_1 = {
+  cntainr_css = {
     "width": page_dimensions_Array[0],
     "height": page_height
   };
   
-  css_2 = {
+  width_height_css = {
     "width": page_dimensions_Array[0],
     "height": page_dimensions_Array[1]
   };
   
-  css_3 = {
-    "width": page_dimensions_Array[0],
-    "height": page_dimensions_Array[1]
-  };
-
-  css_4 = {
+  nav_css = {
     "left": nav_left_val
   }
   
-  $(cntainr_element).css(css_1);
-  // The values of the CSS properties, "width" and "height" are modified 
-  // using the jQuery Method, ".css".
-  //
-  // The HTML element using the selector, "#cntainr", has it's CSS 
-  // values of "width" and "height" set to equal the width 
-  // of the browser window and the height of the webpage.
-  $(wndow_elements).css(css_2);
-  // The values of the CSS properties, "width" and "height" are modified
-  // using the jQuery Method, ".css".
-  //
-  // The HTML elements using the selector, ".wndow", have its CSS 
-  // values set to match the values of the browser width and height, 
-  // as calculated by "parseWindowDimensions". 
-  
-  $(bkgrnd_element).css(css_3);
-  // The values of the CSS properties, "width" and "height" are modified 
-  // using the jQuery Method, ".css".
-  //
-  // The HTML element using the selector, "#bkgrnd", has its CSS 
-  // values set to match the values of the browser width and height, 
-  // as calculated by "parseWindowDimensions". 
-
-  $(nav_elements).css(css_4);
+  $(cntainr_element).css(cntainr_css);
+  // The HTML element using the selector, "#cntainr", is formatted to 
+  // fit the dimensions of the webpage.
+  $(wndow_elements).css(width_height_css);
+  // The HTML elements using the selector, ".wndow", is formatted to fit 
+  // dimensions of a given "window".
+  $(bkgrnd_element).css(width_height_css);
+  // The HTML element using the selector, "#bkgrnd", is is formatted to fit 
+  // dimensions of a given "window".
+  $(nav_elements).css(nav_css);
+  // The HTML elements using the selector, "nav, #nav-bkgrnd, #nav-brdr", 
+  // are placed off of the left hand side of the browser window.
    
   inc_bkgrnd = 0;
   // "inc_bkgrnd" serves as an incrementer which increases in value as 
@@ -743,65 +786,81 @@ function setupPage(time_value)  {
   $(bkgrnd_div_sub_elements).each(
     function () {
       if (inc_bkgrnd > 0) {
+      // If the individual <div> element, which is a part of the set of <div> elements that this 
+      // loop cycles through is not the first <div> element, then this condition is triggered.
         wndow_sctn_selector = "#wndow-sctn_" + inc_bkgrnd;
+        // "wndow_sctn_selector" now holds a selector which identifies the HTML element 
+        // which the loop is processing.
+        // 
+        // The value of "wndow_sctn_selector" would be "#wndow-sctn_1" if the second <div> 
+        // element, within the set of HTML elements referred to by the selector, "#bkgrnd > div".
         wndow_sctn_element = $(wndow_sctn_selector);
+        // "wndow_sctn_element" now holds the jQuery Object for the selector which is held by 
+        // "wndow_sctn_selector".
         
-        bkgrnd_width =  (page_dimensions_Array[0] * $(wndow_sctn_element).children(".copy").length).toString();
-        bkgrnd_height = (page_dimensions_Array[1]).toString();
+        wndow_width = page_dimensions_Array[0];
+        wndow_height = page_dimensions_Array[1];
+        // "wndow_width" holds the width of the HTML elements using the selector, ".wndow" and uses the 
+        // value held by the first index of the Array, "page_dimensions_Array".
+        // "wndow_height" holds the height of the HTML elements using the selector, ".wndow" and 
+        // uses the second index of the Array, "page_dimensions_Array".
+
+        num_wndow_elements = $(wndow_sctn_element).children(".copy").length
+        // "num_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
+  
+        bkgrnd_width =  (wndow_width * num_wndow_elements).toString();
+        bkgrnd_height = (wndow_height).toString();
+        // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
+        // multiplies it by the number of HTML elements using the selector, ".wndow" and making a string 
+        // from the product.
+        //
+        // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
+        // to a String.
 
         bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
+        // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
+        // 
+        // The value of "bkgrnd_img_value" would be "url('/amelia/assets/img/sctn/1/1920x1020.jpg')" 
+        // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
+        // a browser window which had a width of 1920px and a height of 1020px.
 
-        css_3.backgroundImage = bkgrnd_img_value;
+        width_height_css.backgroundImage = bkgrnd_img_value;
+        // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
+        // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } else  {
-        bkgrnd_width = (page_dimensions_Array[0]).toString();
-        bkgrnd_height = (page_dimensions_Array[1]).toString();
-        
-        css_3.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
+        bkgrnd_width = wndow_width.toString();
+        bkgrnd_height = wndow_height.toString();
+        // "bkgrnd_width" holds a String which is made by converting the value of "wndow_width" 
+        // to a String.
+        //
+        // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
+        // to a String.
+
+        width_height_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
                                     "x" + bkgrnd_height + ".jpg')";
+         // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
+        // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } // END OF if STATEMENT
       
-      $(this).css(css_3);
+      $(this).css(width_height_css);
+      // The <div> element which this loop is processing has its CSS formatted to fit the width and 
+      // height of the browser window along with its background image.
       
       inc_bkgrnd++;
+      // "inc_bkgrnd", or the number representing the <div> element that this Loop is processed 
+      // is incremented.
     } 
   ); // END OF .each METHOD
 
-  /* .each STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - If the value of "inc_bkgrnd" is greater than "0".
-   *    A. If the background being modified is not the background for "#sctn_main".
-   *      1. Set the value of "bkgrnd_1_selector" equal to the combination of 
-   *         the string, "#wndow-sctn_" and the value of "inc_bkgrnd".
-   *            a. The value of, "bkgrnd_1_selector", serves as selector which is modified 
-   *               within this Method.
-   *      2. Calculate the value of the width of a background image by multiplying 
-   *         the value of the browser width and height 
-   *         as calculated by "parseWindowDimensions" and store that value within 
-   *         "bkgrnd_width".
-   *      3. Determine the value of the String which will serve as the value 
-   *         for the CSS property, "background-image".
-   *            a. The string is made up of the path to the file which holds the 
-   *               background image which is loaded within the HTML element being 
-   *               modified by this Method.
-   *      4. The value, determined in Step I-A-3, is added to the Object, "bkgrnd_css". 
-   *  II - If the value of "inc_bkgrnd" is "0".
-   *      A. Determine the valueof the String which will serve as the value 
-   *         for the CSS property, "background-image".
-   *            a. The string is made up of the path to the file which holds the 
-   *               background image which is loaded within the HTML element being 
-   *               modified by this Method.
-   *  III - Set the CSS values of the HTML element, defined by the selector 
-   *        held by "bkgrnd_selector".
-   *      A. The CSS properties, "width", "height", and "background-image", are modified 
-   *         by the values held within the Object, "bkgrnd_css".
-   *  IV - The value of "inc_bkgrnd" increased by "1".
-   * 
-   * **************** **************** **************** **************** **************** */
-
   setPageInitialLocation();
+  // "setPageInitialLocation" is called to pass on the Section and Position values of the webpage 
+  // which is viewable to the URL.
   
   animatePageElements();
+  // "animatePageElements" is called to animate the blocks that are contained within an individual 
+  // "window".
 
   setTimeout(
     function () {
@@ -814,11 +873,7 @@ function setupPage(time_value)  {
   // 
   // The function runs after a period of time after the other HTML elements of the web page 
   // are rendered. The time period is twice the value held by the variable, "time_value".
-  // 
-  // The value of, "time_period" is defined as a global variable and is located
-  // near the top of this file.
 
-  // setTimeout(animateInfoElement, time_value * 2);
 } /* **************** END OF FUNCTION "setupPage" **************** */
 
 
