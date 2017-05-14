@@ -702,7 +702,7 @@ function setupPage(time_value)  {
   
   var bkgrnd_width = new String();
   // Holds the width of the background image as calculated by multiplying the width returned to the Array, 
-  // "page_dimensions_Array[0]", by the number of ".copy" HTML DIV elements within a given Section.
+  // "page_dimensions_Array[0]", by the number of ".copy" HTML div elements within a given Section.
   var bkgrnd_height = new String();
   // Holds the height of the background image as returned to the Array, "page_dimensions_Array[1]".
   
@@ -877,7 +877,7 @@ function setupPage(time_value)  {
 } /* **************** END OF FUNCTION "setupPage" **************** */
 
 
-function animateInfoElement() {
+function animateInfoElement(time_value) {
   /* **************** **************** **************** **************** **************** 
    * animateInfoElement animates the content of the HTML element 
    * defined by the selector, "#info".
@@ -898,6 +898,8 @@ function animateInfoElement() {
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
   if (page_dimensions_Array[0] === 980) {
+  // If the width of the browser is equal to "980px", animate the HTML elements 
+  // contained by, "#info", to conform to a mobile browser. 
     var info_css = new Object();
     // Holds the value for the CSS property, "top"
     // 
@@ -953,10 +955,6 @@ function animateInfoElement() {
     nav_css = {
       display: "block"
     };
-    /*
-    nav_link_css = {
-      "opacity": 1
-    };*/
 
     $("#info").animate(info_css, time_value, 
       function () {
@@ -968,6 +966,8 @@ function animateInfoElement() {
       });
     
   } else {
+  // Otherwise, animate the HTML elements contained by, "#info", 
+  // to conform to a desktop or laptop browser.
     var logo_1_css = new Object();
     // Holds the value for the CSS property, "display".
     // 
@@ -1032,44 +1032,26 @@ function animateInfoElement() {
     // The CSS values are applied using the jQuery Method, ".css".
 
     $("#info > img").delay(time_value).fadeTo(time_value_2, 1, 
+    // Fade the HTML element, using the selector, "#info > img" 
+    // from an opacity of "0" to "1".
       function () {
         $("#info ul li").css(logo_3_css);
         $("#info ul").css(logo_4_css);
-        
+        // Make the HTML elements using the selector, "#info ul li" visible.
+        // Make the HTML element using the selector, "#info ul" visible.
+
         $("#info ul li").each(
           function () {
             $(this).delay(time_value * 0.75).fadeTo(time_value_2, 1);
+            // For every bullet point, 
+            // or HTML element identified by the selector, "#info ul li", fade in 
+            // that bullet point over a time span of a value calculated by multiplying 
+            // the value of "time_value" by "1.5".
           }
         );		
 			}
 		); // END OF METHOD .fadeTo
-    /* .fadeTo STATEMENT LOGIC ********* **************** **************** **************** 
-     *  I - Fade the HTML element, using the selector, "#info > img" 
-     *      from an opacity of "0" to "1".
-     *    A. Only run this function after delaying for a time span of a value calculated 
-     *       by multiplying the value of "time_value" by "2".
-     *  II - Set the CSS values of various HTML elements to allow those elements 
-     *       top appear visible.
-     *    A. Make the HTML elements using the selector, "#info ul li" visible.
-     *    B. Make the HTML element using the selector, "#info ul" visible.
-     *  III - Fade in the individual bullet points.
-     *    A. For every bullet point, 
-     *       or HTML element identified by the selector, "#info ul li", fade in 
-     *       that bullet point over a time span of a value calculated by multiplying 
-     *       the value of "time_value" by "1.5".
-     * **************** **************** **************** **************** **************** */
-
   } // END OF if STATEMENT
-
-  /* if STATEMENT LOGIC ************** **************** **************** **************** 
-   *  I - If the width of the browser is equal to "980px", 
-   *      animate the HTML elements contained by, "#info", to conform 
-   *      to a mobile browser. 
-   *      from an opacity of "0" to "1".
-   *  II - Otherwise, animate the HTML elements contained by, "#info", 
-   *       to conform to a desktop or laptop browser.
-   * 
-   * **************** **************** **************** **************** **************** */
 
 } /* **************** END OF FUNCTION "animateInfoElement" **************** */
 
@@ -1080,63 +1062,119 @@ function animateFormPanes() {
    * **************** *************** **************** **************** **************** */
 
   var clmn_1_selector = new String();
-  // Holds the selector of the "<DIV>" element which holds the HTML content which 
-  // makes up form options for the Screening, Rate, or Contact form.
-  //
   // This variable holds the selector of the first "page" of a given form.
   var clmn_2_selector = new String();
-  // Holds the selector of the "<DIV>" element which holds the HTML content which 
-  // makes up form options for the Screening, Rate, or Contact form.
-  //
   // This variable holds the selector of the second "page" of a given form.
   
   var page_1_selector = new String();
+  // This variable holds the selector of the "first page" of a form from a given Section.
+  // 
+  // The selector would be, "#form-sctn_1 . form-page_1", if the form which this function 
+  // processes was the form contained with "#wndow-sctn_1".
   var page_2_selector = new String();
-  
+  // This variable holds the selector of the "second page" of a form from a given Section.
+  // 
+  // The selector would be, "#form-sctn_1 . form-page_2", if the form which this function 
+  // processes was the form contained with "#wndow-sctn_1".
   var page_1_element = new Object();
+  // This variable holds the jQuery Object that refers to the HTML element which 
+  // contains the "first page" of a given form.
   var page_2_element = new Object();
+  // This variable holds the jQuery Object that refers to the HTML element which 
+  // contains the "second page" of a given form.
 
   var section_value = new Number();
-  
+  // This variable holds a number which represents the Section which is viewable and contains 
+  // the form this function processes.
+
   var url_info_Array = new Array();
+  // Holds the Section and Position value which matches the "window" of the Section 
+  // which is now visible.
+  // 
+  // The Section and Position value are passed to this Array 
+  // from the function, "urlInfo".
 
-  var css_1 = new Object();
-  var css_2 = new Object();
-
+  var page_off = new Object();
+  // Holds the value for the CSS property, "display".
+  // 
+  // The value contained within this object make the given page of a form invisible.
+  var page_on = new Object();
+  // Holds the value for the CSS property, "display".
+  // 
+  // The value contained within this object make the given page of a form visible.
+  
   url_info_Array = urlInfo();
+  // "url_info_Array" holds the Section and Position values that are 
+  // stored within the URL.
 
   section_value = url_info_Array[0];
+  // "section_value" now holds the Section value that was held 
+  // by the first index of "url_info_Array".
 
   page_1_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
   page_2_selector = "#form-sctn_" + section_value.toString() + " .form-page_2";
-  
+  // "page_1_selector" now holds the selector used by the HTML element which contains 
+  // the "first page" of the form this function is processing.
+  //
+  // "page_2_selector" now holds the selector used by the HTML element which contains 
+  // the "second page" of the form this function is processing.
+
   page_1_element = $(page_1_selector);
   page_2_element = $(page_2_selector);
+  // "page_1_element" now holds the jQuery Object for the HTML element referred 
+  // by the selector which defines the "first page" of the form this function 
+  // is processing.
+  //
+  // "page_2_element" now holds the jQuery Object for the HTML element referred 
+  // by the selector which defines the "second page" of the form this function 
+  // is processing.
 
-  css_1 = {
+  page_off = {
     display: "none"
   };
 
-  css_2 = {
+  page_on = {
     display: "block"
   };
 
   if (section_value === 5)  {
-    $(page_1_element).css(css_2);
+  // If the form this function is processing is held within 'SECTION #5', then 
+  // it is 'FORM TYPE #2', which only has one page.
+    $(page_1_element).css(page_on);
+    // The first page is now able to be displayed.
     $(page_1_element).fadeTo(time_value, 1);
+    // The "opacity" of the page is moved over time from 0 to 1.
   } else  {
+  // Otherwise, if the form this function is processing is 'FORM TYPE #1' 
+  // or 'FORM TYPE #6', then the "opacity" of the first page 
+  // needs to be checked.
+
     if ($(page_1_element).css("opacity") === "0")  {
+    // If the first page is not visible, this condition is triggered.
       $(page_2_element).fadeTo(time_value, 0);
-      $(page_2_element).css(css_1);
-      $(page_1_element).css(css_2);
+      // The opacity of the second page is moved over time from 1 to 0.
+      $(page_2_element).css(page_off);
+      // The second page is now invisible.
+      $(page_1_element).css(page_on);
+      // The first page is now able to be displayed.
       $(page_1_element).fadeTo(time_value, 1);
+      // The opacity of the first page is moved over time from 0 to 1.
     } else {
+    // Otherwise the second page needs to be made visible and the first 
+    // page needs to be made invisible.
+
       $(page_1_element).fadeTo(time_value, 0);
-      $(page_1_element).css(css_1);
-      $(page_2_element).css(css_2);
+      // The opacity of the first page is moved from 1 to 0.
+      $(page_1_element).css(page_off);
+      // The first page is now invisible.
+      $(page_2_element).css(page_on);
+      // The second page is now able to be displayed.
       $(page_2_element).fadeTo(time_value, 1);  
-    }
-  }
+      // The opacity of the second page is moved over time from 0 to 1.
+    } // END OF if STATEMENT which is triggered if the opacity 
+      // of the first page this form which this function is processing is 0.
+  } // END OF if STATEMENT which is triggered if the Section value 
+  // of the form this function is processing is 5.
 
 } /* **************** END OF FUNCTION "animateFormPanes" **************** */
 
@@ -1156,7 +1194,6 @@ function animatePageElements()  {
   
   var url_hash = new String();
   // Holds the String value of the URL hash
-  
   
   var position_value_index_num = new Number();
   // Holds a Number representing the location within the URL hash where the 
@@ -1198,18 +1235,6 @@ function animatePageElements()  {
   // Holds the String value of the selector, "#bkgrnd-sctn_X".
 
   var nav_element = new Object();
-  var nav_width = new String();
-
-  var css_1 = new Object();
-  // Holds the values for the CSS properties, "display".
-  //
-  // The default value is, "none".
-  var css_2 = new Object();
-  // Holds the values for the CSS properties, "display".
-  //
-  // The default value is, "block".
-
-  var nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "nav".
   var cntainr_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#cntainr".
@@ -1228,6 +1253,17 @@ function animatePageElements()  {
   var sub_nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
+  var nav_width = new String();
+
+  var element_off = new Object();
+  // Holds the values for the CSS properties, "display".
+  //
+  // The default value is, "none".
+  var element_on = new Object();
+  // Holds the values for the CSS properties, "display".
+  //
+  // The default value is, "block".
+  
   var page_dimensions_Array = new Array();
   
   var bkgrnd_element_path = new String();
