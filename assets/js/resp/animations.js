@@ -164,12 +164,7 @@ function parseWindowDimensions() {
    * **************** **************** **************** **************** **************** */
 
   var window_width = new Number(); 
-  // Holds the numerical value of the width of the visible area of the browser. 
-  // Captured by the jQuery Method "$(window).width()"
-  
   var window_height = new Number();
-  // Holds the numerical value of the height of the visible area of the browser. 
-  // Captured by the jQuery Method "$(window).height()"
   
   var page_dimensions_Array = new Array();
   // Holds the calculated values of the width and height of the visible area of the browser. 
@@ -251,8 +246,7 @@ function urlInfo() {
    * **************** **************** **************** **************** **************** */
   
   var url_hash = new String();
-  // Holds the string which is returned by the HTML DOM property, "window.location.hash".
-
+  
   var section_string = new String();
   // Holds the string, "sctn_", which is searched for within, "url_hash".
   var position_string = new String();
@@ -282,12 +276,7 @@ function urlInfo() {
   // is added to the value within, "section_index_num", to 
   // capture the character stored at the end of the search string, "section_string".
   var url_info_Array = new Array();
-  // Holds the String values referencing the Section Value and Position Value 
-  // which are contained within the string held by, "url_hash".
-  //
-  // The array is passed on to the functions which call, "urlInfo"; 
-  // "setupPage" and "animatePageElements".
-
+  
   url_hash = window.location.hash; 
   // The value of, "window.location.hash", is stored within, "url_hash".
 
@@ -382,41 +371,22 @@ function cssAdjustment()  {
 
     var prev_sctn_selector = new String();
     var next_sctn_selector = new String();
-    // These variables hold Selectors which define the inter-sectional navigation 
-    // which appear as two white arrows.
-    //
-    // The values passed to these variables are, "#prev-sctn" for "prev_sctn_selector" 
-    // and "#next-sctn" for "next_sctn_selector".
-
     var prev_sctn_element = new Object();
     var next_sctn_element = new Object();
-    // These variables hold jQuery Objects which refer to HTML elements 
-    // using the selectors defined by, "prev_sctn_selector" for "prev_sctn_element" 
-    // and "next_sctn_selector" for "next_sctn_element".
-
+    
     prev_sctn_selector = "#prev-sctn";
     next_sctn_selector = "#next-sctn";
-    // "prev_sctn_selector" now holds "#prev-sctn" 
-    // and "next_sctn_selector" holds "#next-sctn".
-
+   
     prev_sctn_element = $(prev_sctn_selector);
     next_sctn_element = $(next_sctn_selector);
-    // "prev_sctn_element" now holds the jQuery Object 
-    // for the selector, "#prev-sctn" and 
-    // "next_sctn_element" holds the jQuery Object
-    // for the selector, "#next-sctn".
-
+    
     if (window_width >= 1260 && 
         window_width < 1920)  {
     // If the width of the browser is greater than 1260 yet less than 1920, 
     // this condition is triggered.
 
       var inter_nav_css = new Object();
-      // Holds the value of the CSS property, "right"", 
-      //
-      // The values contained within this object, format the HTML elements 
-      // identified by the selectors, "#prev-sctn" and "#next-sctn".
-  
+      
       inter_nav_css = {
         right: "33.6em"
       };
@@ -431,32 +401,16 @@ function cssAdjustment()  {
   
     if (window_width === 1920)  {  
       var info_selector = new String();
-      // This variable holds the selector for the block of content which contains the logo 
-      // that appears within the main landing page.
-      //
-      // The value passed to this variable is, "#info".
-
+      
       var info_element = new Object();
-      // This variable holds the jQuery Object that refers to the HTML element using 
-      // the selector, "#info".
       
       var info_css = new Object();
-      // Holds the CSS properties and values of "bottom", and "right".
-      // 
-      // The values contained within this object, format the HTML element 
-      // using the selector, "#info". 
       var inter_nav_2_css = new Object();
-      // Holds the values of the CSS properties, "right" and "bottom".
-      // 
-      // The values contained with this object format the HTML elements using 
-      // the selectors, "#prev-sctn" and "#next-sctn".
-
+     
       info_selector = "#info";
-      // "info_selector" now holds, "#info".
-
+      
       info_element = $(info_selector);
-      // "info_element" now holds the jQuery Object for the selector, "#info".
-
+      
       info_css = {
         bottom: "8.25em",
         right: "9em"
@@ -481,52 +435,23 @@ function cssAdjustment()  {
 
   if (window_width === 980)  {
     var info_img_selector = new String();
-    // Holds the selector for the image of the logo contained in the block of content 
-    // which appears on the main landing page.
-    //
-    // The value passed to this variable is, "#info img".
     var prev_sctn_span_selector = new String();
     var next_sctn_span_selector = new String();
-    // Holds the selector for text descriptors of the inter-sectional navigation 
-    // that appears in the form of two white arrows.
-    // 
-    // The values passed to these variables are, 
-    // "#prev-sctn > span" for "prev_sctn_span_selector" 
-    // and "#next-sctn > span" for "next_sctn_span_selector".
-    
+   
     var info_img_element = new Object();
-    // Holds the jQuery Object that refers to the HTML element using
-    // the selector, "#info img".
-    
     var prev_sctn_span_element = new Object();
     var next_sctn_span_element = new Object();
-    // These variables hold jQuery Objects which refer to HTML elements 
-    // using the selectors defined by, "prev_sctn_span_selector" for "prev_sctn_span_element" 
-    // and "next_sctn_selector" for "next_sctn_span_element".
     
     var info_img_css = new Object();
-    // Holds the HTML attributes, "src", "width", and "height", for the 
-    // HTML element using the selector, "#info > img".
-    //
-    // These attributes format the HTML element using the selector, "#info > img".
-
+    
     info_img_selector = "#info > img";
-    // "info_img_selector" now holds "#info > img".
     prev_sctn_span_selector = "#prev-sctn > span";
-    // "prev_sctn_span_selector" now holds "#prev-sctn > span"."
     next_sctn_span_selector = "#next-sctn > span";
-    // "next_sctn_span_selector" now holds "#next-sctn > span".
     
     info_img_element = $(info_img_selector);
-    // "info_img_element" now holds the jQuery Object 
-    // for the HTML elements refered to by the selector, "#info img".
     next_sctn_span_element = $(next_sctn_span_selector);
     prev_sctn_span_element = $(prev_sctn_span_selector);
-    // "prev_sctn_span_element" holds the jQuery Object 
-    // for the HTML elements refered to by the selector, "#prev-sctn > span".
-    // "next_sctn_span_element" holds the jQuery Object 
-    // for the HTML elements refered to by the selector, "#next-sctn > span".
-
+    
     info_img_css = {
       "src": "/amelia/assets/img/logo/logo_phone.png", 
       "width": "480", 
@@ -577,67 +502,20 @@ function setupPage(time_value)  {
    * **************** **************** **************** **************** **************** */
 
   var page_dimensions_Array = new Array();
-  // Holds the "width" and "height" values of the browser window.
-  // 
-  // The width and height values are call by "parseWindowDimensions" and passed on 
-  // to "page_dimensions_Array".
   
   var page_height = new Number();
-  // Holds the total height of the loaded web page.
-  // 
-  // "page_height" is calculated by multiplying the height of the browser frame, 
-  // as it is calculated by the jQuery Method, "$(window).height()", 
-  // and the total number of HTML elements using the selector, ".wndow".
   var wndow_width = new Number();
-  // Holds the width of the HTML elements using the selector, ".wndow".
-  // 
-  // "wndow_width" is calculated by using the value returned to the first index 
-  // of the Array, "page_dimensions_Array".
   var wndow_height = new Number();
-  // Holds the height of the HTML elements using the selector, ".wndow".
-  // 
-  // "wndow_width" is calculated by using the value returned to the second index 
-  // of the Array, "page_dimensions_Array".
   var num_wndow_elements = new Number();
-  // Holds the total number of HTML elements that are refrerred by the selector, ".wndow".
   
   var nav_width = new Number();
-  // Holds the numerical width of the inter-sectional navigation 
-  // which appears on the left side of the browser window, 
-  // or the HTML element, <nav>.
   var nav_left_val = new Number();
-  // Holds the result of multiplying the value held by "nav_width" by -1.
-
+  
   var cntainr_selector = new String();
-  // Holds the selector for the <div> element which contains all of the 
-  // content of the webpage.
-  //
-  // The value passed to the variable is, "#cntainr".
   var wndow_selector = new String();
-  // Holds the selector for the <div> elements which contain the individual 
-  // Sections of the webpage.
-  //
-  // The value passed to the variable is, ".wndow".
-  var copy_css = new String();
-  // Holds the selector for the <div> elements which contain the individual 
-  // portions of a particular Section of the webpage.
-  // 
-  // The value passed to the variable is, ".copy".
   var bkgrnd_selector = new String();
-  // Holds the selector for the <div> elements which contain the 
-  // background images for the individual Sections.
-  // 
-  // The value passed to this variable is, "#bkgrnd".
   var nav_selector = new String();
-  // Holds the selectors for the inter-sectional navigation which appears 
-  // on the left hand side of the browser window.
-  //
-  // The value passed to this variable is, "nav, #nav-bkgrnd, #nav-brdr".
   var bkgrnd_div_sub_selector = new String();
-  // Holds the selector for the <div> element which contains the a particular  
-  // background image for a given Section.
-  // 
-  // The value passed to this variable is, "#bkgrnd > div".
   var wndow_sctn_selector = new String();
   // Holds a selector for an individual Section which is worked on by 
   // a jQuery Loop which cycles through an background image.
@@ -647,23 +525,11 @@ function setupPage(time_value)  {
   // "#bkgrnd > div".
 
   var cntainr_element = new Object();
-  // Holds the jQuery Object that referes to the HTML element 
-  // using the selector, "#cntainr".
   var wndow_elements = new Object();
-  // Holds the jQuery Object that refers to the HTML elements 
-  // using the selector, ".wndow".
   var copy_elements = new Object();
-  // Holds the jQuery Object that refers to the HTML elements 
-  // using the selector, ".copy".
   var bkgrnd_element = new Object();
-  // Holds the jQuery Object that refers to the HTML element
-  // using the selector, "#bkgrnd".
   var nav_elements = new Object();
-  // Holds the jQuery Object that refers to the HTML elements 
-  // using the selectors, "nav, #nav-bkgrnd, #nav-brdr".
   var bkgrnd_div_sub_elements = new Object();
-  // Holds the jQuery Object that refers to the HTML elements 
-  // using the selector, "#bkgrnd > div".
   var wndow_sctn_element = new Object();
   // Holds the jQuery Object that refers to the HTML element 
   // referenced within the selector contained within 
@@ -674,37 +540,14 @@ function setupPage(time_value)  {
   // to by, "#bkgrnd > div"."
 
   var cntainr_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values held in this object represent the browser width of the 
-  // webpage and the height of the webpage.
   var width_height_css = new Object();
-  // Holds the CSS properties and values of "width" and "height".
-  // 
-  // The values contained within this object represent the width 
-  // and height of a particular "window" of the webpage.
   var nav_css = new Object();
-  // Holds the CSS property and value for "left".
-  // 
-  // The value contained within this object is the value held by "nav_left_val".
   
   var inc_bkgrnd = new Number();
-  // Holds a number which represents the Section Value of the background image 
-  // loaded for an individual "window".
-  //  
-  // "inc_bkgrnd" is used by a jQuery Loop that cycles through the background-images 
-  // which are referred to using the selector, "#bkgrnd > div".
   
   var bkgrnd_img_value = new String();
-  // Holds a String defining the value of the CSS property, "background-image", 
-  // which is used within the jQuery Method, ".each", as it cycles through the 
-  // background images using the selector, "#bkgrnd > div".
-  
   var bkgrnd_width = new String();
-  // Holds the width of the background image as calculated by multiplying the width returned to the Array, 
-  // "page_dimensions_Array[0]", by the number of ".copy" HTML div elements within a given Section.
   var bkgrnd_height = new String();
-  // Holds the height of the background image as returned to the Array, "page_dimensions_Array[1]".
   
   cssAdjustment();
   // "cssAdjusment" is called to render various HTML elements of the webpage 
@@ -715,42 +558,21 @@ function setupPage(time_value)  {
   // HTML elements of the webpage within the browser window 
   // are passed on to "page_dimensions_Array".
   page_height = $(window).height() * $(".wndow").length;
-  // The value for "page_height" is determined by multiplying the value 
-  // calculated by the jQuery Method, "$(window).height()", and 
-  // the number of HTML elements using the selector, ".wndow".
   nav_width = $("nav").width();
-  // "nav_width" now holds the calculated width of the HTML element, <nav>.
   nav_left_val = -nav_width;
-  // "nav_left_val" now holds the product of the value held by "nav_width" by -1;
-
+  
   cntainr_selctor = "#cntainr";
-  // "cntainr_selector" now holds, "#cntainr".
   wndow_selector = ".wndow";
-  // "wndow_selector" now holds, ".wndow".
   bkgrnd_selector = "#bkgrnd";
-  // "bkgrnd_selector" now holds, "#bkgrnd".
   nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
-  // "nav_selector" now holds, "nav, #nav-bkgrnd, #nav-brdr".
   bkgrnd_div_sub_selector = "#bkgrnd > div";
-  // "bkgrnd_div_sub_selector" = "#bkgrnd > div".
-
+  
   cntainr_element = $(cntainr_selector);
-  // "cntainr_element" now holds the jQuery Object 
-  // for the HTML element refered to by the selector, "#info img".
   wndow_elements = $(wndow_selector);
-  // "wndow_elements" now holds the jQuery Object 
-  // for the HTML elements refered to by the selector, ".wndow".
   bkgrnd_element = $(bkgrnd_selector);
-  // "bkgrnd_element" now holds the jQuery Object 
-  // for the HTML element refered to by the selector, "#bkgrnd".
   nav_elements = $(nav_selector);
-  // "nav_elements" now holds the jQuery Object 
-  // for the HTML elements refered to 
-  // by the selector, "nav, #nav-bkgrnd, #nav-brdr".
   bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
-  // "bkgrnd_div_sub_elements" now holds the jQuery Object 
-  // for the HTML elements refered to by the selector, "bkgrnd_div_sub_elements".
-
+  
   cntainr_css = {
     "width": page_dimensions_Array[0],
     "height": page_height
@@ -888,10 +710,6 @@ function animateInfoElement(time_value) {
    * **************** *************** **************** **************** **************** */
 
   var page_dimensions_Array = new Array();
-  // Holds the "width" and "height" values of the browser window.
-  // 
-  // The width and height values are call by "parseWindowDimensions" and passed on 
-  // to "page_dimensions_Array".
   
   page_dimensions_Array = parseWindowDimensions();
   // The calculated values for the "width" and "height" of various HTML elements 
@@ -900,39 +718,40 @@ function animateInfoElement(time_value) {
   if (page_dimensions_Array[0] === 980) {
   // If the width of the browser is equal to "980px", animate the HTML elements 
   // contained by, "#info", to conform to a mobile browser. 
+    var info_selector = new String();
+    var next_sctn_selector = new String();
+    var prev_sctn_selector = new String();
+    var nav_selector = new String();
+    var next_sctn_span_selector = new String();
+    var nav_link_selector = new String();
+
+    var info_element = new Object();
+    var next_sctn_element = new Object();
+    var prev_sctn_element = new Object();
+    var nav_element = new Object();
+    var next_sctn_span_element = new Object();
+    var nav_link_element = new Object();
+
     var info_css = new Object();
-    // Holds the value for the CSS property, "top"
-    // 
-    // The value of this Object will modify the HTML element identified 
-    // by the selector, "#info".
-    // 
-    // The value is calculated by determining the "height" of "#info" 
-    // and then the inverse of that value.
     var next_sctn_css = new Object();
-    // Holds the values for the CSS properties, "height" and "bottom".
-    // 
-    // The values of this Object will modify the HTML element identified 
-    // by the selector, "#next-sctn".
     var prev_sctn_css = new Object();
-     // Holds the value for the CSS property, "height".
-    // 
-    // The value of this Object will modify the HTML element identified 
-    // by the selector, "#prev-sctn".
     var nav_sctn_css = new Object();
-     // Holds the value for the CSS property, "display".
-    // 
-    // The value of this Object will modify the HTML elements identified 
-    // by the selectors, "#prev-sctn > span" and "#next-sctn > span".
     var nav_css = new Object();
-     // Holds the value for the CSS property, "block".
-    // 
-    // The value of this Object will modify the HTML elements identified 
-    // by the selectors, "nav", "#nav-bkgrnd", and "#nav-brdr".
     var nav_link_css = new Object();
-     // Holds the value for the CSS property, "opacity".
-    // 
-    // The value of this Object will modify the HTML element identified 
-    // by the selector, "#nav-link".
+        
+    info_selector = "#info";
+    next_sctn_selector = "#next-sctn";
+    prev_sctn_selector = "#prev-sctn";
+    nav_selector = "nav";
+    next_sctn_span_selector = "#next-sctn > span";
+    nav_link_selector = "#nav-link";
+
+    info_element = $(info_selector);
+    next_sctn_element = $(next_sctn_selector);
+    prev_sctn_element = $(prev_sctn_selector);
+    nav_element = $(nav_selector);
+    next_sctn_span_element = $(next_sctn_span_selector);
+    nav_link_element = $(nav_link_selector);
     
     info_css = {
       "top": -($("#info").height())
@@ -956,67 +775,76 @@ function animateInfoElement(time_value) {
       display: "block"
     };
 
-    $("#info").animate(info_css, time_value, 
+    $(info_element).animate(info_css, time_value, 
       function () {
-        $("#next-sctn").css(next_sctn_css);
-        $("#prev-sctn").css(prev_sctn_css);
-        $("nav").css(nav_css);
-        $("#next-sctn > span").detach();
-        $("#nav-link").fadeTo(time_value, 1);
+        $(next_sctn_element).css(next_sctn_css);
+        $(prev_sctn_element).css(prev_sctn_css);
+        $(nav_element).css(nav_css);
+        $(next_sctn_span_element).detach();
+        $(nav_link_element).fadeTo(time_value, 1);
       });
     
   } else {
   // Otherwise, animate the HTML elements contained by, "#info", 
   // to conform to a desktop or laptop browser.
-    var logo_1_css = new Object();
-    // Holds the value for the CSS property, "display".
-    // 
-    // The value of this Object will modify the HTML elements 
-    // using the selectors, "#info" and "#info > img".
-    var logo_2_css = new Object();
-    // Holds the value for the CSS property, "opacity".
-    // 
-    // The value of this Object will modify the HTML element
-    // using the selector, "#info". 
-    var logo_3_css = new Object();
-    // Holds the value for the CSS property, "display".
-    // 
-    // The value of this Object will modify the HTML elements 
-    // using the selectors, "#info ul li".
-    var logo_4_css = new Object();
-    // Holds the values for the CSS properties, "display" and "opacity".
-    // 
-    // The value of this Object will modify the HTML elements 
-    // using the selector, "#info ul".
+
+    var wndow_selector = new String();
+    var info_selector = new String();
+    var info_img_selector = new String();
+    var info_ul_li_selector = new String();
+    var info_ul_selector = new String();
+
+    var wndow_element = new Object();
+    var info_element = new Object();
+    var info_img_element = new Object();
+    var info_ul_li_element = new Object();
+    var info_ul_element = new Object();
+
+    var display_block_css = new Object();
+    var opacity_css = new Object();
+    var display_inherit_css = new Object();
+    var display_opacity_css = new Object();
     
-    logo_1_css = {
+    wndow_selector = "#wndow-sctn_main";
+    info_selector = "#info";
+    info_img_selector = "#info img";
+    info_ul_li_selector = "#info ul li";
+    info_ul_selector = "#info ul";
+
+    wndow_element = $(wndow_selector);
+    info_element = $(info_selector);
+    info_img_element = $(info_img_selector);
+    info_ul_li_element = $(info_ul_li_selector);
+    info_ul_element = $(info_ul_selector);
+
+    display_block_css = {
 			display: "block"
 		};
 		
-    logo_2_css = {
+    opacity_css = {
       opacity: 1
     };
     
-		logo_3_css = {
+		display_inherit_css = {
 			display: "inherit"
 		};
 		
-	  logo_4_css = {
+	  display_opacity_css = {
 			display: "block",
       opacity: 1
 		};
     
-    time_value_1 = time_value * 2;
-    time_value_2 = time_value * 1.5;
+    time_value_longer = time_value * 2;
+    time_value_long = time_value * 1.5;
 
-    $("#wndow-sctn_main").show("drop", time_value_1);
+    $(wndow_element).show("drop", time_value_longer);
     // This jQuery Method, "show", "drops" or animates the panel which serves 
     // as the background of the logo and other items on the landing page 
     // down from the top of the browser window.
     // 
     // This animation occurs over an interval which is twice the time of 
     // a "menu" HTML element to animate.
-		$("#info").css(logo_1_css).css(logo_2_css);
+		$(info_element).css(logo_1_css).css(opacity_css);
     // Allow the HTML element, which uses the selctor, "#info", to be visible 
     // within a browser window. The "display" CSS property is set to "display" 
     // and the "opacity" of "#info" is set to "1".
@@ -1025,24 +853,24 @@ function animateInfoElement(time_value) {
     //
     // The jQuery Method, ".css", is used twice because using both variables 
     // within one ".css" call would make the HTML element, "#info" visibly flash. 
-    $("#info > img").css(logo_1_css);
+    $(info_img_element).css(display_block_css);
     // The HTML element using the selctor, "#info > img" is made visible by 
     // setting the "display" CSS property to "block".
     //
     // The CSS values are applied using the jQuery Method, ".css".
 
-    $("#info > img").delay(time_value).fadeTo(time_value_2, 1, 
+    $(info_img_element).delay(time_value).fadeTo(time_value_long, 1, 
     // Fade the HTML element, using the selector, "#info > img" 
     // from an opacity of "0" to "1".
       function () {
-        $("#info ul li").css(logo_3_css);
-        $("#info ul").css(logo_4_css);
+        $(info_ul_li_element).css(display_inherit_css);
+        $(info_ul_element).css(display_opacity_css);
         // Make the HTML elements using the selector, "#info ul li" visible.
         // Make the HTML element using the selector, "#info ul" visible.
 
-        $("#info ul li").each(
+        $(info_ul_li_element).each(
           function () {
-            $(this).delay(time_value * 0.75).fadeTo(time_value_2, 1);
+            $(this).delay(time_value * 0.75).fadeTo(time_value_long, 1);
             // For every bullet point, 
             // or HTML element identified by the selector, "#info ul li", fade in 
             // that bullet point over a time span of a value calculated by multiplying 
@@ -1062,47 +890,22 @@ function animateFormPanes() {
    * **************** *************** **************** **************** **************** */
 
   var clmn_1_selector = new String();
-  // This variable holds the selector of the first "page" of a given form.
   var clmn_2_selector = new String();
-  // This variable holds the selector of the second "page" of a given form.
   
   var page_1_selector = new String();
-  // This variable holds the selector of the "first page" of a form from a given Section.
-  // 
-  // The selector would be, "#form-sctn_1 . form-page_1", if the form which this function 
-  // processes was the form contained with "#wndow-sctn_1".
   var page_2_selector = new String();
-  // This variable holds the selector of the "second page" of a form from a given Section.
-  // 
-  // The selector would be, "#form-sctn_1 . form-page_2", if the form which this function 
-  // processes was the form contained with "#wndow-sctn_1".
   var page_1_element = new Object();
-  // This variable holds the jQuery Object that refers to the HTML element which 
-  // contains the "first page" of a given form.
   var page_2_element = new Object();
-  // This variable holds the jQuery Object that refers to the HTML element which 
-  // contains the "second page" of a given form.
-
+  
   var section_value = new Number();
   // This variable holds a number which represents the Section which is viewable and contains 
   // the form this function processes.
 
   var url_info_Array = new Array();
-  // Holds the Section and Position value which matches the "window" of the Section 
-  // which is now visible.
-  // 
-  // The Section and Position value are passed to this Array 
-  // from the function, "urlInfo".
-
-  var page_off = new Object();
-  // Holds the value for the CSS property, "display".
-  // 
-  // The value contained within this object make the given page of a form invisible.
-  var page_on = new Object();
-  // Holds the value for the CSS property, "display".
-  // 
-  // The value contained within this object make the given page of a form visible.
   
+  var page_off_css = new Object();
+  var page_on_css = new Object();
+ 
   url_info_Array = urlInfo();
   // "url_info_Array" holds the Section and Position values that are 
   // stored within the URL.
@@ -1129,18 +932,18 @@ function animateFormPanes() {
   // by the selector which defines the "second page" of the form this function 
   // is processing.
 
-  page_off = {
+  page_off_css = {
     display: "none"
   };
 
-  page_on = {
+  page_on_css = {
     display: "block"
   };
 
   if (section_value === 5)  {
   // If the form this function is processing is held within 'SECTION #5', then 
   // it is 'FORM TYPE #2', which only has one page.
-    $(page_1_element).css(page_on);
+    $(page_1_element).css(page_on_css);
     // The first page is now able to be displayed.
     $(page_1_element).fadeTo(time_value, 1);
     // The "opacity" of the page is moved over time from 0 to 1.
@@ -1153,9 +956,9 @@ function animateFormPanes() {
     // If the first page is not visible, this condition is triggered.
       $(page_2_element).fadeTo(time_value, 0);
       // The opacity of the second page is moved over time from 1 to 0.
-      $(page_2_element).css(page_off);
+      $(page_2_element).css(page_off_css);
       // The second page is now invisible.
-      $(page_1_element).css(page_on);
+      $(page_1_element).css(page_on_css);
       // The first page is now able to be displayed.
       $(page_1_element).fadeTo(time_value, 1);
       // The opacity of the first page is moved over time from 0 to 1.
@@ -1165,9 +968,9 @@ function animateFormPanes() {
 
       $(page_1_element).fadeTo(time_value, 0);
       // The opacity of the first page is moved from 1 to 0.
-      $(page_1_element).css(page_off);
+      $(page_1_element).css(page_off_css);
       // The first page is now invisible.
-      $(page_2_element).css(page_on);
+      $(page_2_element).css(page_on_css);
       // The second page is now able to be displayed.
       $(page_2_element).fadeTo(time_value, 1);  
       // The opacity of the second page is moved over time from 0 to 1.
@@ -1192,56 +995,20 @@ function animatePageElements()  {
    *       after a menu option is activated.
    * **************** *************** **************** **************** **************** */
   
-  var url_hash = new String();
-  // Holds the String value of the URL hash
-  
-  var position_value_index_num = new Number();
-  // Holds a Number representing the location within the URL hash where the 
-  // Position Valueis listed.
-  var bkgrnd_element_x_position = new Number();
-  // Holds a Number which the product of the calculated width of the browser window 
-  // and "position_value".
-  // 
-  // This value is used to determine the CSS value of the property, "left", 
-  // of the background of a Section.
-  
-  var section_search_string = new String();
-  // Holds a String, "#sctn_", which is searched for within the URL hash.
-  var position_search_string = new String();
-  // Holds a String, "pos=", which is searched for within the URL hash.
-  var section_value = new String();
-  // Holds the String value of the Section Value listed in the URL hash.
-  var position_value = new String();
-  // Holds the String value of the Position Value listed in the URL hash.
-  
   var nav_selector = new String();
-  // Holds the String value of the selector, "nav".
   var wndow_selector = new String();
-  // Holds the String value of the selector, "#wndow-sctn_X".
   var all_copy_selector = new String();
-  // Holds the String value of the selector, "#wndow-sctn_X > .copy".
   var single_copy_selector = new String();
-  // Holds the String value of the selector, "#wndow-sctn_X > .copy:nth_child(Y)".
   var headr_selector = new String();
-  // Holds the String value of the selector, ".headr.sctn_X".
   var sub_nav_selector = new String();
-  // Holds the String value of the selector, "#nav-sctn_X".
   var div_selector = new String();
-  // Holds the String value of the selector, "div".
-  //
-  // Is used to define Children elements of the HTML element identified 
-  // by the selector used in, "copy_selector".
   var bkgrnd_selector = new Object();
   // Holds the String value of the selector, "#bkgrnd-sctn_X".
 
   var nav_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "nav".
   var cntainr_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#cntainr".
   var wndow_elements = new Array();
-  // Holds the contents of the HTML elements identified by the selector, ".wndow".
   var wndow_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#wndow-sctn_X".
   var all_copy_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".copy".
   var single_copy_element = new Object();
@@ -1253,56 +1020,94 @@ function animatePageElements()  {
   var sub_nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
-  var nav_width = new String();
+  var section_search_string = new String();
+  // Holds a String, "#sctn_", which is searched for within the URL hash.
+  var position_search_string = new String();
+  // Holds a String, "pos=", which is searched for within the URL hash.
+  
+  var url_hash = new String();
+  // Holds the String value of the URL hash
 
-  var element_off = new Object();
-  // Holds the values for the CSS properties, "display".
-  //
-  // The default value is, "none".
-  var element_on = new Object();
-  // Holds the values for the CSS properties, "display".
-  //
-  // The default value is, "block".
+  var current_position = new Number();
+  // Holds a number which matches the vertical position within the webpage that is viewable.
+  
+  var position_value_index_num = new Number();
+  // Holds a Number representing the location within the URL hash where the 
+  // Position Valueis listed.
+    
+  var section_value = new String();
+  // Holds the String value of the Section Value listed in the URL hash.
+  var position_value = new String();
+  // Holds the String value of the Position Value listed in the URL hash.
+  
+  var element_off_css = new Object();
+  var element_on_css = new Object();
   
   var page_dimensions_Array = new Array();
-  
-  var bkgrnd_element_path = new String();
 
-  var window_margin = new Number();
-  var current_position = new Number();
+  var window_width = new Number();
+  // Holds the numberical value of the width of the browser window.
+
+  var bkgrnd_element_width_val = new Number();
+  // Holds a number which is the product of the width of the browser window 
+  // and "position_value".
+  var bkgrnd_element_x_position = new String();
+  // Holds a String which the product of the calculated width of the browser window 
+  // and "position_value", which is contained by, "bkgrnd_element_width_val".
+  // 
+  // This value is used to determine the CSS value of the property, "left", 
+  // of the background of a Section.
   
   nav_selector = "nav";
   nav_element = $(nav_selector);
-
+  
   section_search_string = "sctn_main";
-
+  // "section_search_string" holds a string that is looked for within "url_hash".
+  // 
+  // NOTE: If the variable names within the URL are changed, the value of 
+  // "section_search_string" needs to be updated.
   url_hash = window.location.hash;
-  // window.alert("url_hash = " + url_hash);
-  // window.alert("$(nav_element).css(\"left\") = " + $(nav_element).css("left"));
+  
   if ($(nav_element).css("left") !== "0px" && 
       url_hash !== "" && 
       url_hash.indexOf(section_search_string) === -1) {
+  // If the HTML element, "<nav>", is not viewable, the URL does not include a hash of any kind 
+  // and the string held by, "section_search_string", is not contained within "url_hash", 
+  // this condition is triggered.
+  
     current_position = $(window).scrollTop();
 
     section_value = determineCurrentSection(current_position);
-// window.alert("section_value = " + section_value);
+    // Based upon the vertical position of the viewable portion of the webpage 
+    // within the browser window, a number representing the current Section 
+    // is passed along to "section_value".
+
     position_search_string = "pos=";
+    // "position_search_string" holds a string that is looked for within "url_hash".
+    // 
+    // NOTE: If the variable names within the URL are changed, the value of 
+    // "position_search_string" needs to be updated.
     position_value_index_num = url_hash.indexOf(position_search_string);
+    // "position_value_index_num" equals the "location" within the "url_hash" 
+    // that the beginning of the value of "position_search_string" occurs.
 
     if (position_value_index_num === -1)  {
+    // If the value of "url_hash" is "#sctn_main", this condition is triggered.
       position_value = "0";
+      // If the value of "url_hash" does not include a Position value, the webpage 
+      // has just been loaded and therefore the next section which will be viewed 
+      // will default to the "first window pane".
     } else {
       position_value = url_hash.charAt(position_value_index_num + position_search_string.length);
+      // If the value of "url_hash" contains a Position value, it is passed 
+      // on to "position_value".
     }
-// window.alert("position_value_index_num = " + position_value_index_num);
     
     position_value = parseInt(position_value);
-
-//  window.alert("position_value = " + position_value);
+    // The String datatype of "position_value" is changed to a Number.
 
     all_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy";
     single_copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 2).toString() + ")";
-    // window.alert("single_copy_selector = " + single_copy_selector);
     headr_selector = ".headr.sctn_" + section_value.toString();
     div_selector = "div";
     sub_nav_selector = "#nav-sctn_" + section_value.toString();
@@ -1314,34 +1119,59 @@ function animatePageElements()  {
     sub_nav_element = $(sub_nav_selector);
     bkgrnd_element = $(bkgrnd_selector);
 
-    css_1 = {
+    element_off_css = {
       display: "none"
     };
 
-    css_2 = {
+    element_on_css = {
       display: "block"
     };
     
     page_dimensions_Array = parseWindowDimensions();
+    // The calculated values for the "width" and "height" of various HTML elements 
+    // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
-    bkgrnd_element_x_position = page_dimensions_Array[0] * position_value;
-
-    bkgrnd_element_x_position =  "-" + bkgrnd_element_x_position.toString() + "px 0px";
-
-    // window.alert("bkgrnd_element_x_position = " + bkgrnd_element_x_position);
+    window_width = page_dimensions_Array[0];
+    // The width, held by, "page_dimensions_Array", is passed to "window_width".
+  
+    bkgrnd_element_width_val = window_width * position_value;
+    // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
+    // It is also the horizontal position within a background for a Section that matches 
+    // up with the viewable "window pane".
+    
+    bkgrnd_element_x_position =  "-" + bkgrnd_element_width_val.toString() + "px 0px";
+    // "bkgrnd_element_x_position" holds the value for the CSS property, "backgroundPosition" 
+    // for the Section that this function is processing.
 
     $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
+    // The background of the current Section that this function is processing 
+    //  is made to now match the viewable window pane.
 
-    $(all_copy_element).css(css_1);
-    $(single_copy_element).css(css_2);
-    $(sub_nav_element).css(css_2);
+    $(all_copy_element).css(element_off_css);
+    // In order to isolate the content of the viewable window pane, all webpage content
+    // is made invisible.
+    $(single_copy_element).css(element_on_css);
+    // Now, the content of the Section that this function is processing is made visible.
+
+    if ($(sub_nav_element) !== undefined) {
+    // If the Section this function is processing contains intra-sectional navigation 
+    // this condition is triggered.
+      $(sub_nav_element).css(element_on_css);
+      // The <div> HTML element which contains the intra-sectional navigation is now 
+      // made visible.
+    } // END OF if STATEMENT triggered if this Section contains intra-sectional navigation.
     
     $(headr_element).fadeTo(time_value, 1, 
+    // The contents of the window pane of the Section this function is processing are faded 
+    // into view, starting with the HTML element serving as the header.  
       function () {
         fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value);
+        // "fadeCopyElements" is triggered to fade in the various content of the Section this
+        // function is processing.
       }
     );
-  }
+  } // END OF if STATEMENT that is trigged if the intersectional navigation on the left is not visible, 
+    // the URL does not contain a hash and Section value.
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function displayVerticalNav() {
