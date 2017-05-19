@@ -1423,7 +1423,7 @@ body {
 
   #wndow-sctn_2 > .copy {
     width: 75.5em !important;
-    margin-left: 13.25em;
+    margin-left: 14em;
   }
 
   #wndow-sctn_3 > .copy, 
@@ -1465,14 +1465,17 @@ body {
   }
 
   .sctn_6-blok-2 {
+    width: 17.25em !important;
     height: 12em !important;
     margin-bottom: 1em;
   }
 
+  .sctn_6-blok-2 > span, 
   .sctn_6-blok-2 > div {
-    width: 12.05em !important;
+    width: 13.8em !important;
   }
 
+  #sctn_6-info-2 > span, 
   #sctn_6-info-2 > div {
     width: 29.75em !important;
   }
@@ -1486,7 +1489,7 @@ body {
 }
 
 @media screen and (min-width: 1910px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1910px.. 
+  /* This CSS breakpoint affects browsers which have a width more than 1910px. 
    * This breakpoint is optimized to fit resolutions of 1920x1020px.
    */
 
@@ -1494,8 +1497,8 @@ body {
     width: 120em;
   }
 
-  .copy {
-    width: 121.8em !important;
+  #wndow-sctn_1 > .copy {
+    width: 107.5em !important;
     height: 59.35em;
     margin-left: 11.5em;
   }

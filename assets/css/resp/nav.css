@@ -636,9 +636,9 @@ nav {
   }
 
   #next-sctn {
-    height: 5.3em;
-    padding-top: 0;
-    background-position: 0px -145px;
+    height: 5.3em !important;
+    padding-top: 0 !important;
+    background-position: 0px -145px !important;
   }
 
   #prev-sctn, 
@@ -744,15 +744,10 @@ nav {
     width: 85.38em !important;
     top: 33em !important;
   }
-  
-  #prev-sctn, 
-  #next-sctn {
-    right: 38.3em;
-  }
 }
 
 @media screen and (min-width: 1910px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1910px.. 
+  /* This CSS breakpoint affects browsers which have a width more than 1910px.
    * This breakpoint is optimized to fit resolutions of 1920x1020px.
    */
 

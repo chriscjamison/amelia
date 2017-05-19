@@ -629,7 +629,7 @@ p:not(#foo) > input[type=radio] + label:hover:active {
 }
 
 @media screen and (min-width: 1910px) {
-	/* This CSS breakpoint affects browsers which have a width more than 1910px.. 
+	/* This CSS breakpoint affects browsers which have a width more than 1910px. 
    * This breakpoint is optimized to fit resolutions of 1920x1020px.
    */
 	 

@@ -100,7 +100,7 @@ function determineVisibleCopyElement(wndow_selector)  {
         copy_element_visible_flag === false)  {
       visible_copy_element_val = -1;
     } else {
-      visible_copy_element_val = visible_copy_element_val - 3;
+      visible_copy_element_val = visible_copy_element_val - 2;
     }
   }
 

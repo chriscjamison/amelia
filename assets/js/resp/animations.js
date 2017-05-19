@@ -504,9 +504,15 @@ function setupPage(time_value)  {
   var page_dimensions_Array = new Array();
   
   var page_height = new Number();
+  // Holds the total height of the webpage.
   var wndow_width = new Number();
+  // Holds the width of the HTML elements using the selector, ".wndow", 
+  // as passed on from the first index of "page_dimensions_Array".
   var wndow_height = new Number();
+  // Holds the height of the HTML elements using the selector, ".wndow", 
+  // as passed on from the second index of "page_dimensions_Array".
   var num_wndow_elements = new Number();
+  // Holds the total number of HTML elements using the selector, ".wndow".
   
   var nav_width = new Number();
   var nav_left_val = new Number();
@@ -557,6 +563,14 @@ function setupPage(time_value)  {
   // The calculated values for the "width" and "height" of various 
   // HTML elements of the webpage within the browser window 
   // are passed on to "page_dimensions_Array".
+
+  wndow_width = page_dimensions_Array[0];
+  wndow_height = page_dimensions_Array[1];
+  // "wndow_width" holds the width of the HTML elements using the selector, ".wndow" and uses the 
+  // value held by the first index of the Array, "page_dimensions_Array".
+  // "wndow_height" holds the height of the HTML elements using the selector, ".wndow" and 
+  // uses the second index of the Array, "page_dimensions_Array".
+  
   page_height = $(window).height() * $(".wndow").length;
   nav_width = $("nav").width();
   nav_left_val = -nav_width;
@@ -619,14 +633,7 @@ function setupPage(time_value)  {
         wndow_sctn_element = $(wndow_sctn_selector);
         // "wndow_sctn_element" now holds the jQuery Object for the selector which is held by 
         // "wndow_sctn_selector".
-        
-        wndow_width = page_dimensions_Array[0];
-        wndow_height = page_dimensions_Array[1];
-        // "wndow_width" holds the width of the HTML elements using the selector, ".wndow" and uses the 
-        // value held by the first index of the Array, "page_dimensions_Array".
-        // "wndow_height" holds the height of the HTML elements using the selector, ".wndow" and 
-        // uses the second index of the Array, "page_dimensions_Array".
-
+       
         num_wndow_elements = $(wndow_sctn_element).children(".copy").length
         // "num_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
   
@@ -844,7 +851,7 @@ function animateInfoElement(time_value) {
     // 
     // This animation occurs over an interval which is twice the time of 
     // a "menu" HTML element to animate.
-		$(info_element).css(logo_1_css).css(opacity_css);
+		$(info_element).css(display_block_css).css(opacity_css);
     // Allow the HTML element, which uses the selctor, "#info", to be visible 
     // within a browser window. The "display" CSS property is set to "display" 
     // and the "opacity" of "#info" is set to "1".
@@ -1046,7 +1053,7 @@ function animatePageElements()  {
   var page_dimensions_Array = new Array();
 
   var window_width = new Number();
-  // Holds the numberical value of the width of the browser window.
+  // Holds the numerical value of the width of the browser window.
 
   var bkgrnd_element_width_val = new Number();
   // Holds a number which is the product of the width of the browser window 
@@ -1175,41 +1182,43 @@ function animatePageElements()  {
 } /* **************** END OF FUNCTION "animatePageElements" **************** */
 
 function displayVerticalNav() {
+  /* **************** **************** **************** **************** **************** 
+   * Displays the intrapage navigation that appears on the right hand side 
+   * of the browser window.
+   * 
+   * If the vertical location of the webpage within the browser window is near the top 
+   * of the browser window, the up arrow does not appear. If the webpage's location 
+   * is near the bottom of the webpage, the down arrow does not appear.
+   * **************** **************** **************** **************** **************** */
+
   var current_position = new Number();
-  var wndow_height = new Number();
-  var wndow_location_margin = new Number();
-  
-  var css_1 = new Object();
-  var css_2 = new Object();
+  // Holds a number which matches the vertical position within the webpage that is viewable.
+   
+  var intersection_off_css = new Object();
+  var intersection_on_css = new Object();
 
   var prev_sctn_selector = new String();
-  // Holds the CSS selector, "#prev-sctn".
   var next_sctn_selector = new String();
-  // Holds the CSS selector, "#next-sctn".
   var wndow_selector = new String();
-  // Holds the CSS selector, ".wndow".
-
+  
   var prev_sctn_element = new Object();
-  // Holds the jQuery Object for the HTML DOM element using the selector, "#prev-sctn".
   var next_sctn_element = new Object();
-  // Holds the jQuery Object for the HTML DOM element using the selector, "#next-sctn".
   var wndow_elements = new Object();
-  // Holds the jQuery Object for the HTML DOM elements using the selector, ".wndow".
-
-  css_1 = {
-    display: "block",
-    opacity: 1
-  };
-
-  css_2 = {
+  
+  intrapage_off_css = {
     display: "none", 
     opacity: 0
   }
   
-  wndow_height = $(".wndow").height();
-  current_position = $(window).scrollTop();
-  wndow_location_margin = 100;
+  intersection_on_css = {
+    display: "block",
+    opacity: 1
+  };
 
+  current_position = $(window).scrollTop();
+  // The current vertical position of the browser window within the webpage 
+  // is passed on to, "current_position".
+  
   prev_sctn_selector = "#prev-sctn";
   next_sctn_selector = "#next-sctn";
 
@@ -1217,211 +1226,276 @@ function displayVerticalNav() {
   next_sctn_element = $(next_sctn_selector);
   
   if (current_position === 0)  {
-    $(prev_sctn_element).css(css_2);
-    $(next_sctn_element).css(css_1);
+  // If the vertical location of the visible Section is at the top 
+  // of the webpage, this condition is triggered.
+    $(prev_sctn_element).css(intrapage_off_css);
+    // The up arrow is made invisible.
+    $(next_sctn_element).css(intersection_on_css);
+    // The down arrow is made visible.
   } else {
+  // Otherwise, if the vertical location of the visible Section is lower 
+  // on the webpage, this condition is triggered.
     if ($(prev_sctn_element).css("display") === "none")  {
-      $(prev_sctn_element).css(css_1);
-    }
+    // If the up arrow is invisible, this condition is triggered.
+      $(prev_sctn_element).css(intersection_on_css);
+      // The up arrow is made visible.
+    } // END OF if STATEMENT which is triggered if the up arrow is invisible.
+    var wndow_height = new Number();
+    // Holds the height of the HTML elements using the selector, ".wndow", 
+    // as passed on from the second index of "page_dimensions_Array".
+    var wndow_location_margin = new Number();
+    // Holds a Number which determines the distance, in pixels, 
+    // between the vertical location of the webpage and its distance 
+    // from the top or bottom of the webpage.
+ 
+    var webpage_location_val = new Number();
+    // Holds a Number which is the result of subtracting the height of 
+    // HTML elements using the selector, ".wndow", and a buffer from the top or 
+    // bottom of the webpage from the product of multiplying 
+    // the height of, ".wndow" elements by the number of ".wndow" elements.
+    //
+    // This value marks the vertical location within the webpage that triggers 
+    // a condition that allows for the down arrow to made visible.
+    var num_wndow_elements = new Number();
+    // Holds a Number that contains the total number of HTML elements using 
+    // the selector, ".wndow".
     
-    if (current_position >= ((wndow_height * $(".wndow").length) - wndow_height - wndow_location_margin))  {
-      $(next_sctn_element).css(css_2);
-      $(prev_sctn_element).css(css_1);
+    wndow_height = $(".wndow").height();
+    wndow_location_margin = 100;
+    num_wndow_elements = $(".wndow").length;
+
+    webpage_location_val = (wndow_height * num_wndow_elements) - wndow_height - wndow_location_margin;
+    
+    if (current_position >= webpage_location_val)  {
+    // If the visible portion of the website lies lower on the webpage than the 
+    // value of "webpage_location_val", this condition is triggered.
+      $(next_sctn_element).css(intrapage_off_css);
+      // The down arrow is made invisible.
+      $(prev_sctn_element).css(intersection_on_css);
+      // The up arrow is made visible.
     } else {
       if ($(next_sctn_element).css("display") === "none") {
-        $(next_sctn_element).css(css_1);
-      }
-    }
-  }
-}
+      // If the down arrow is invisible, this condition is triggered.
+        $(next_sctn_element).css(intersection_on_css);
+        // The down arrow is made visible.
+      } // END OF if STATEMENT that is triggered if the down arrow is invisible.
+    } // END OF if STATEMENT that is triggered if the visible portion of the webpage 
+      // is lower than the value of "webpage_location_val".
+  } // END OF if STATEMENT that is triggered if the visible portion of the webpage 
+    // is at the top.
+} /* **************** END OF FUNCTION "displayVerticalNav" **************** */
 
-function animateSctnNav(sctn_nav_element) {
+function animateSctnNav(sctn_nav_element, time_value) {
+  /* **************** **************** **************** **************** **************** 
+   * Animates the intra-section navigation that appears within 'SECTION #3' 
+   * and 'SECTION #4'.
+   * **************** **************** **************** **************** **************** */
+  
   var sctn_nav_link_selector = new String();
   var sctn_nav_link_element = new Object();
 
   var sctn_nav_id_val = new String();
+  // Holds the selector of the <div> HTML element which contains the menu which 
+  // serves as intrasection navigation.
   
   var sctn_nav_background_position = new String();
+  // Holds the value of the CSS property "background-position" for the HTML element 
+  // which serves as intrasection navigation.
 
-  var css_1 = new Object();
-  var css_2 = new Object();
-  var css_3 = new Object();
-  var css_4 = new Object();
-  var css_5 = new Object();
-  var css_6 = new Object();
+  var sctn_nav_base_css = new Object();
+  var sctn_nav_hover_css = new Object();
+  var sctn_nav_click_1_css = new Object();
+  var sctn_nav_click_2_css = new Object();
+  var sctn_nav_mobile_base_css = new Object();
+  var sctn_nav_mobile_click_css = new Object();
 
   sctn_nav_id_val = $(sctn_nav_element).parent().parent().attr("id");
+  // The "id" of the <div> HTML element which contains the individual 
+  // menu options is passed on to, "sctn_nav_id_val".
 
   sctn_nav_link_selector = "#" + sctn_nav_id_val + " > div > div";
+  // The selector for the <div> element which contains the individual 
+  // menu options is created and passed on to, "sctn_nav_link_selector".
   sctn_nav_link_element = $(sctn_nav_link_selector);
 
   sctn_nav_background_position = $(sctn_nav_element).css("backgroundPosition");
-  
-  css_1 = {
+  // The value for the CSS property, "background-position", is passed on to 
+  // "sctn_nav_background_position".
+
+  sctn_nav_base_css = {
     backgroundPosition: "0px 0px"
   };
 
-  css_2 = {
+  sctn_nav_hover_css = {
     backgroundPosition: "0px -35px"
   };
 
-  css_3 = {
+  sctn_nav_click_1_css = {
     backgroundPosition: "0px -70px"
   };
 
-  css_4 = {
+  sctn_nav_click_2_css = {
     backgroundPosition: "0px -105px"
   };
 
-  css_5 = {
+  sctn_nav_mobile_base_css = {
     backgroundPosition: "0px 0px", 
     backgroundColor: "#000"
   };
 
-  css_6 = {
+  sctn_nav_mobile_click_css = {
     backgroundPosition: "0px -210px", 
     backgroundColor: "#666"
   };
 
   $(sctn_nav_element).css("opacity", 0);
+  // The <div> element containing the <div> element containing the 
+  // individual menu options is made invisible.
 
   if (window.navigator.userAgent.indexOf("Mobile") === -1 &&  
       window.navigator.userAgent.indexOf("Tablet") === -1)  {
+  // If this browser is a desktop browser, this condition is triggered.
     switch (sctn_nav_background_position) {
       case "0px 0px":
-        $(sctn_nav_element).css(css_2);
+        $(sctn_nav_element).css(sctn_nav_hover_css);
       break;
+      // If the main intrasection navigation menu is in it's 'base' 
+      // click state, change the click state to, 'hover'.
 
       case "0% 0%":
-        $(sctn_nav_element).css(css_2);
+        $(sctn_nav_element).css(sctn_nav_hover_css);
       break;
+      // If the main intrasection navigation menu is in it's 'base' 
+      // click state, change the click state to, 'hover'.
 
       case "0px -35px":
         if ($(sctn_nav_link_element).css("display") === "none") {
-          $(sctn_nav_element).css(css_1);
+        // If the individual menu options are not visible, 
+        // this condition is triggered.
+          $(sctn_nav_element).css(sctn_nav_base_css);
+          // The main intrasection navigation menu is changed to 
+          // its base state.
         } else if ($(sctn_nav_link_element).css("display") === "block") {
-          $(sctn_nav_element).css(css_3);
-
+        // If the individual menu options are visible, this 
+        // condition is triggered.
+          $(sctn_nav_element).css(sctn_nav_click_1_css);
+          // The main intrasection navigation menu is changed to its 
+          // "first" click state.
           $(sctn_nav_element).fadeTo((time_value / 3), 1);
           $(sctn_nav_element).fadeTo((time_value / 3), 0);
+          // The main intrasection navigation menu is gradually made 
+          // invisible and then visible yet again.
 
-          $(sctn_nav_element).css(css_4);
+          $(sctn_nav_element).css(sctn_nav_click_2_css);
+          // The main intrasection navigation menu is changed 
+          // to its "second" click state.
         }      
       break;
+      // If the main intrasection navigation menu is in it's 'hover' 
+      // click state, change the click state to the first, 'click', 
+      // click state.
 
       case "0px -105px":
         if ($(sctn_nav_link_element).css("display") === "none") {
-          $(sctn_nav_element).css(css_1);
+          $(sctn_nav_element).css(sctn_nav_base_css);
         }
       break;
+      // If the main intrasection navigation is in its "second" click state 
+      // and has been clicked, the click state is changed to its "base" state.
     }
   } else {
+  // Otherwise, if the browser is a mobile browser, this condition is triggered.
     if (sctn_nav_background_position === "0px 0px" && 
-        $(sctn_nav_link_element).css("display") === "block") {
-      $(sctn_nav_element).css(css_6);
+    // If the main intrasection navigation is in its "base" state, 
+    // this condition is triggered.
+      $(sctn_nav_link_element).css("display") === "block") {
+      // The individual menu options are made visible.
+      
+      $(sctn_nav_element).css(sctn_nav_mobile_click_css);
+      // The main intrasection navigation has its click state changed 
+      // to the "click" click state.
     } else {
-      $(sctn_nav_element).css(css_5);
-    }
-  }
+    // Otherwise, if the navigation is in its "click" click state, 
+    // this condition is triggered.
+      $(sctn_nav_element).css(sctn_nav_mobile_base_css);
+      // The main intrasection navigation is changed to the "base" click state.
+    } // END OF if STATEMENT that is triggered when the browser is a mobile browser 
+      // and the main intrasection navigation is in its "base" click state.
+  } // END OF if STATEMENT that is triggered when the browser is a mobile browser.
   
   $(sctn_nav_element).fadeTo((time_value / 2), 1);
-}
+  // The main intrasection navigation is faded in.
+}  /* **************** END OF FUNCTION "animateSctnNav" **************** */
 
 function animateSctnNavLinks(sctn_nav_link_element) {
+  /* **************** **************** **************** **************** **************** 
+   * Makes the individual menu options of the intrasection navigation 
+   * that appears within 'SECTION #3' and 'SECTION #4' visible or invisible.
+   * **************** **************** **************** **************** **************** */
+  
   if ($(sctn_nav_link_element).css("display") === "none")  {
+  // If the individual menu options are invisible, this condition is triggered.
+
     $(sctn_nav_link_element).css("opacity", 0);
+    // The main intrasection navigation is faded to an opacity of 0.
     $(sctn_nav_link_element).css("display", "block");
+    // The main intrasection navigation is ready to be made visible
     $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
+    // The main intrasection navigation is faded to an opacity of 1.
   } else {
+  // Otherwise, if the individual menu options are visible, 
+  // this condition is triggered.
     $(sctn_nav_link_element).fadeTo((time_value / 2), 1);
-    $(sctn_nav_link_element).css("display", "none");    
-  }
-}
+    // The main intrasection navigation is faded to an opacity of 1.
+    $(sctn_nav_link_element).css("display", "none"); 
+    // The main intrasection navigation is made invisible.
+  } // END OF if STATEMENT that is triggered if the individual menu options are 
+    // invisible.
+} /* **************** END OF FUNCTION "animateSctnNavLinks" **************** */
 
 function animateSideNav() {
+  /* **************** **************** **************** **************** **************** 
+   * Animates the visibility and layout of the HTML elements contained within the webpage 
+   * when the main intersection navigation menu that appears on the left of the webpage 
+   * is clicked.
+   * 
+   * The HTML elements using the selectors, "nav", "#nav-brdr", "#nav-bkgrnd", 
+   * "#options", "#cntainr", ".wndow", ".headr", ".copy", ".sctn_nav" 
+   * all have their layout altered by this function.
+   * **************** **************** **************** **************** **************** */
+
   var nav_selector = new String();
-  // Holds the String value of the selector, "nav".
   var options_selector = new String();
-  // Holds the String value of the selector, "#options".
   var nav_bkgrnd_selector = new String();
-  // Holds the String value of the selector, "#nav-bkgrnd".
   var nav_brdr_selector = new String();
-  // Holds the String value of the selector, "#nav-brdr".
   var cntainr_selector = new String();
-  // Holds the String value of the selector, "#cntainr".
   var wndow_selector = new String();
-  // Holds the String value of the selector, ".wndow".
   var headr_selector = new String();
-  // Holds the String value of the selector, ".headr".
   var copy_selector = new String();
-  // Holds the String value of the selector, ".copy".
   var info_selector = new String();
-  // Holds the String value of the selector, "#info".
   var sctn_nav_selector = new String();
-  // Holds the String value of the selector, ".sctn_nav".
   var prev_next_sctn_selector = new String();
   var bkgrnd_selector = new String();
-  // Holds the String value of the selector, "#bkgrnd".
-
+  
   var nav_element = new Object();
-  // Holds the jQuery Object of the content of the HTML element 
-  // identified by the selector, "nav".
   var options_element = new Object();
-  // Holds the jQuery Object of the content of the HTML element 
-  // identified by the selector, "#options".
   var nav_bkgrnd_element = new Object();
-  // Holds the jQuery Object of the content of the HTML element 
-  // identified by the selector, "#nav-bkgrnd".
   var nav_brdr_element = new Object();
-  // Holds the jQuery Object of the content of the HTML element 
-  // identified by the selector, "#nav-brdr".
   var cntainr_element = new Object();
-  // Holds the jQuery Object of the content of the HTML element 
-  // identified by the selector, "#cntainr".
   var wndow_element = new Object();
-  // Holds an individual jQuery Object which is a subset 
-  // of the HTML elements identified by the selector, ".wndow".
-  // 
-  // This Object is created while the individual elements of the 
-  // ".wndow" HTML elements are being processed by the jQuery 
-  // Method, ".each".
-  // 
-  // The CSS values of the HTML element held by "wndow_element" 
-  // are changed within the ".each" Method.  
   var wndow_elements = new Array();
-  // Holds all of the HTML elements within the webpage which are 
-  // identified by the selector, ".wndow".
-  //
-  // The ".wndow" HTML elements contain ".copy" HTML elements which 
-  // hold the content of the different Sections of the webpage.
   var headr_elements = new Array();
-  // Holds all of the HTML elements within the webpage which are 
-  // identified by the selector, ".headr".
-  //
-  // The ".wndow" HTML elements contain ".headr" HTML elements which 
-  // hold the content of the different Sections of the webpage.
   var info_element = new Object();
-  // Holds the jQuery object of the content of the HTML element 
-  // identified by the selector, "#info".
   var copy_elements = new Array();
-  // Holds all of the HTML elements within the webpage which are 
-  // identified by the selector, ".copy".
-  //
-  // The ".copy" HTML elements contain the HTML content of the different 
-  // Sections of the webpage.
   var bkgrnd_element = new Object();
-  // Holds the jQuery object of the content of the HTML element 
-  // identified by the selector, "#bkgrnd".
   var sctn_nav_element = new Object();
-  // Holds the jQuery object of the content of the HTML element 
-  // identified by the selector, ".sctn_nav".
   var prev_next_sctn_element = new Object();
 
   var nav_width = new Number();
-  // Holds the numberical value of the width of the HTML element 
+  // Holds the numerical value of the width of the HTML element 
   // identified by the selector, "nav".
   var element_width = new Number();
-  // Holds the numberical value of the calculated width of HTML elements 
+  // Holds the numerical value of the calculated width of HTML elements 
   // identified by the selectors, "#cntainr" and #bkgrnd".
   // 
   // Both of the HTML elements, "#cntainr" and "#bkgrnd" have the value 
@@ -1429,10 +1503,14 @@ function animateSideNav() {
   // of the browser window and the width of the HTML element identified 
   // by the selector, "nav".
   var window_width = new Number();
-  // Holds the numberical value of the width of the browser window.
+  // Holds the numerical value of the width of the browser window.
   var wndow_width = new Number();
+  // Holds the numerical value of the width of the HTML element using 
+  // the selector, ".wndow".
   
   var page_dimensions_Array = new Array();
+  // The calculated values for the "width" and "height" of various HTML elements 
+  // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
   nav_selector = "nav";
   options_selector = "#options";
@@ -1471,6 +1549,8 @@ function animateSideNav() {
   wndow_width = page_dimensions_Array[0];
 
 if ($(nav_element).css("left") !== "0px")  {
+// If the intersection navigation that appears on the left side of the webpage 
+// is visible, this condition is triggered.
     element_width = window_width - nav_width;
     // The difference of the width of the browser window and the value held ]
     // by "nav_width" is passed onto the variable "element_width".
@@ -1480,125 +1560,175 @@ if ($(nav_element).css("left") !== "0px")  {
     // the background images of the webpage, "#bkgrnd", and the HTML elements 
     // held within each Section of the webpage, ".wndow".
 
-    var css_1 = new Object();
-    var css_2 = new Object();
-    var css_3 = new Object();
-    var css_4 = new Object();
-    var css_5 = new Object();
-    var css_6 = new Object();
+    var nav_visible_css = new Object();
+    var nav_mobile_visible_css = new Object();
+    var options_staging_css = new Object();
+    var element_shifted_right_css = new Object();
+    var element_extended_css = new Object();
+    var element_invisible_css = new Object();
 
-    css_1 = {
+    nav_visible_css = {
       left: "0px", 
       opacity: 1
     };
 
-    css_2 = {
+    nav_mobile_visible_css = {
       display: "block"
     };
 
-    css_3 = {
+    options_staging_css = {
       display: "block", 
       left: -nav_width, 
       opacity: 1
     };
 
-    css_4 = {
+    element_shifted_right_css = {
       left: nav_width
     };
 
-    css_5 = {
+    element_extended_css = {
       width: (wndow_width - nav_width),
       left: nav_width
     };
 
-    css_6 = {
+    element_invisible_css = {
       display: "none"
     };
     
-    $(info_element).css(css_6);
+    $(info_element).css(element_invisible_css);
+    // The block of HTML content that appears in the 'MAIN LANDING SECTION' 
+    // is made invisible.
 
-    $(headr_elements).css(css_6);
-    $(copy_elements).css(css_6);
-    $(sctn_nav_element).css(css_6);
+    $(headr_elements).css(element_invisible_css);
+    $(copy_elements).css(element_invisible_css);
+    $(sctn_nav_element).css(element_invisible_css);
+    // The visible headers, HTML content, and intrasection navigation is
+    // made invisible.
     
-    $(options_element).css(css_3);
+    $(options_element).css(options_staging_css);
+    // The menu options of the intersection navigation are ready to be viewed 
+    // once the panel containing the intersection navigation scrolls in 
+    // from the left.
 
-    $(nav_element).animate(css_1, time_value)
-    $(nav_bkgrnd_element).animate(css_1, time_value);
-    $(nav_brdr_element).animate(css_1, time_value);
-    $(options_element).animate(css_1, time_value);
+    $(nav_element).animate(nav_visible_css, time_value)
+    $(nav_bkgrnd_element).animate(nav_visible_css, time_value);
+    $(nav_brdr_element).animate(nav_visible_css, time_value);
+    $(options_element).animate(nav_visible_css, time_value);
+    // The main intersection that appears on the left of the webpage scrolls 
+    // in from the left to the right.
+    //
+    // The HTML elements affected by these statements are: "nav", 
+    // "#nav-bkgrnd", "#nav-brdr", "#options".
 
     if (wndow_width === 980 || 
         wndow_width === 1024)  {
-      $(nav_element).css(css_2);
-      $(nav_bkgrnd_element).css(css_2);
-      $(nav_brdr_element).css(css_2);
-      $(bkgrnd_element).css(css_5);
-      
-      css_5 = css_5 + css_6;
+    // If the width of a HTML element using the selector, ".wndow", is 
+    // 980 or 1024, or fits a mobile device, this condition is triggered.
 
-      $(cntainr_element).css(css_5);
-      $(wndow_elements).css(css_5);
-      $(prev_next_sctn_element).css(css_6);
+      $(nav_element).css(nav_mobile_visible_css);
+      $(nav_bkgrnd_element).css(nav_mobile_visible_css);
+      $(nav_brdr_element).css(nav_mobile_visible_css);
+      $(bkgrnd_element).css(element_extended_css);
+      // The intersection navigation is now visible. Also the background 
+      // is shifted to the right, out of view.
+
+      element_extended_css = element_extended_css + element_invisible_css;
+      // The CSS properties and values held by "element_extended_css" are 
+      // combined with the CSS properties and values held by "element_invisible_css".
+
+      $(cntainr_element).css(element_extended_css);
+      $(wndow_elements).css(element_extended_css);
+      $(prev_next_sctn_element).css(element_invisible_css);
+      // The visible content of the webpage is made invisible.
     } else {
-      $(cntainr_element).animate(css_4, time_value);
-      $(bkgrnd_element).animate(css_4, time_value);
+    // Otherwise, if the browser is a desktop browser, this condition 
+    // is triggered.
+      $(cntainr_element).animate(element_shifted_right_css, time_value);
+      $(bkgrnd_element).animate(element_shifted_right_css, time_value);
+      // The HTML content and the background is shifted to the right, out of view.
     }
   } else  {
-    var css_6 = new Object();
-    var css_7 = new Object();
-    var css_8 = new Object();
-    var css_9 = new Object();
+  // Otherwise, if the intersection navigation that appears on the left hand 
+  // of the webpage is invisible, this condition is triggered.
+
+    var nav_invisible_css = new Object();
+    var element_shifted_left_css = new Object();
+    var element_visible_css = new Object();
+    var headr_visible = new Object();
 
     window_width = $(window).width();
     
-    css_6 = {
+    nav_invisible_css = {
       left: -nav_width
     };
 
-    css_7 = {
+    element_shifted_left_css = {
       left: "0px"
     };
 
-    css_8 = {
+    element_visible_css = {
       display: "block"
     };
 
-    css_9 = {
+    headr_visible = {
       display: "table"
     };
 
-    $(options_element).animate(css_6, time_value, 
+    $(options_element).animate(nav_invisible_css, time_value, 
+    // The individual menu options of the intersection navigation is made invisible 
+    // by scrolling the options to the left, out of view.
       function () {
-        $(nav_element).animate(css_6, time_value);
-        $(nav_bkgrnd_element).animate(css_6, time_value);
-        $(nav_brdr_element).animate(css_6, time_value);
+        $(nav_element).animate(nav_invisible_css, time_value);
+        $(nav_bkgrnd_element).animate(nav_invisible_css, time_value);
+        $(nav_brdr_element).animate(nav_invisible_css, time_value);
+        // The background of the intersection navigation is made invisible 
+        // by scrolling the HTML elements to the left, out of view.
 
         if (wndow_width === 980)  {
-          $(cntainr_element).css(css_8);
-          $(wndow_elements).css(css_7);
-          $(bkgrnd_element).css(css_8);
-          $(prev_next_sctn_element).css(css_8);
+        // If the browser is a mobile browser, this condition is triggered.
+          $(cntainr_element).css(element_visible_css);
+          $(wndow_elements).css(element_shifted_left_css);
+          $(bkgrnd_element).css(element_visible_css);
+          $(prev_next_sctn_element).css(element_visible_css);
+          // The HTML content, backgrounds, and intersection navigation that 
+          // appears in the middle of the webpage is made visible.
         }
 
-        $(cntainr_element).animate(css_7, time_value);
-        $(bkgrnd_element).animate(css_7, time_value, 
+        $(cntainr_element).animate(element_shifted_left_css, time_value);
+        // The HTML element which contains the HTML content and other forms 
+        // of content is scrolled back to the left, into view.
+        $(bkgrnd_element).animate(element_shifted_left_css, time_value, 
           function () {
             $(cntainr_element).width(window_width);
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
             $(wndow_elements).width(window_width);
-
-            $(info_element).css(css_8);
-            $(headr_elements).css(css_9);
+            $(headr_elements).css(headr_visible);
+            $(copy_elements).css(element_visible_css);
+            $(info_element).css(element_visible_css);
+            // Once the background is made visible, the visible HTML element 
+            // containing content, intrasection navigation, headers, 
+            // and other content is made visible.
           }
         );
+        // The background and other forms of content is made visible.
       }
     );
-  }
-}
+    // Scrolling the individual menu options to the left, out of view, triggers 
+    // a set of animations and visibility changes that returns the webpage content 
+    // back into view.
+  } // END OF if STATEMENT that is triggered if the intersection navigation that appears 
+    // on the left side of the webpage is visible.
+} /* **************** END OF FUNCTION "animateSideNav" **************** */
 
 function determineCurrentSection(current_position)  {
+  /* **************** **************** **************** **************** **************** 
+   * Determines the vertical position of the browser and passes the Section that is 
+   * currently visible back to the URL.
+   * 
+   * This function runs while the page is loading.
+   * **************** **************** **************** **************** **************** */
+
   var cntainr_height = new Number();
   // Holds a Number which represents the value of the CSS property, "height"
   // for the HTML element using the selector, "#cntainr".
@@ -1609,14 +1739,14 @@ function determineCurrentSection(current_position)  {
   // Holds a Number representing the location within the URL hash where the 
   // Section Value is listed.
   var window_margin = new Number();
-
-  var cntainr_element = new Object();
-  var wndows_elements = new Array();
+  // Holds a Number which is used to determine a range of values which 
+  // the location can fall into and still be considered to be within a Section.
 
   var cntainr_selector = new String();
-  // Holds the String value of the selector, "#cntainr".
   var wndows_selector = new String();
-  // Holds the String value of the selector, ".wndow".
+  
+  var cntainr_element = new Object();
+  var wndows_elements = new Array();
 
   cntainr_selector = "#cntainr";
   wndows_selector = ".wndow";
@@ -1630,32 +1760,49 @@ function determineCurrentSection(current_position)  {
   window_margin = 0.05;
 
   section_value_num = Math.floor(current_position / wndow_height + window_margin); 
-// window.alert("section_value_num = " + section_value_num);
+  // To get the Section value for the current section which is viewable, the number 
+  // which is the result of dividing the current location of the browser along the 
+  // webpage by the sum of height of the HTML element using the selector, ".wndow", 
+  // and the value of window margin is rounded down to the nearest integer.
 
   return section_value_num;
-}
+  // The Section value is returned to setURL.   
+} /* **************** END OF FUNCTION "determineSectionValue" **************** */
 
 function setURL(current_position, url_hash)  {
+  /* **************** **************** **************** **************** **************** 
+   * Passes on data to the URL that controls the animation of various content within 
+   * the webpage.
+   * 
+   * This function operates as the webpage loads.
+   * **************** **************** **************** **************** **************** */
+
   var wndow_height = new Number();
   var window_margin = new Number();
-  // var current_position = new Number();
-
-  var headr_selector = new String();
+  
+  var wndow_selector = new String();
   var info_selector = new String();
-  var section_value = new String();
-  var position_value = new String();
-
-  var headr_element = new Object();
+  
+  var wndow_elements = new Object();
   var info_element = new Object();
 
   var info_opacity_value = new String();
+  // The opacity of the HTML element using the selector, "#info", 
+  // at the time that this function begins is passed to "info_opacity_value".
 
-  wndow_height = $(".wndow").height(); 
-  window_margin = 150;
+  var section_value = new String();
+  var position_value = new String();
 
+  wndow_selector = ".wndow";
   info_selector = "#info";
+  
+  wndow_elements = $(wndow_selector);
   info_element = $(info_selector);
 
+  wndow_height = $(wndow_element).height(); 
+  window_margin = 150;
+  // "wndow_margin" is given a range of 150 pixels that the current location of the 
+  // browser window can fall into and still be considered part of the previous section.
   info_opacity_value = $(info_element).css("opacity");
 
   if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
