@@ -1778,7 +1778,11 @@ function setURL(current_position, url_hash)  {
    * **************** **************** **************** **************** **************** */
 
   var wndow_height = new Number();
+  // Holds a Number which represents the value of the CSS property, "height" 
+  // for an single instance of the HTML element using the selector, ".wndow".
   var window_margin = new Number();
+  // Holds a Number which is used to determine a range of values which 
+  // the location can fall into and still be considered to be within a Section.
   
   var wndow_selector = new String();
   var info_selector = new String();
@@ -1791,7 +1795,17 @@ function setURL(current_position, url_hash)  {
   // at the time that this function begins is passed to "info_opacity_value".
 
   var section_value = new String();
+  // Holds the String value of the selector for the HTML element using the 
+  // selector, "#wndow-sctn_X".
+  // 
+  // The value of "section_value" would be "#wndow-sctn_1" if the visible 
+  // Section was 'SECTION #1'.
   var position_value = new String();
+  // Holds the String value of the Position Value listed in the URL hash.
+
+  var section_value_num = new Number();
+  // Holds a Number which is returned by the execution of the function, 
+  // "determineCurrentSection". It represents the Section.
 
   wndow_selector = ".wndow";
   info_selector = "#info";
@@ -1805,112 +1819,156 @@ function setURL(current_position, url_hash)  {
   // browser window can fall into and still be considered part of the previous section.
   info_opacity_value = $(info_element).css("opacity");
 
-  if ((window.navigator.userAgent.indexOf("Mobile") !== -1 || window.navigator.userAgent.indexOf("Tablet") !== -1) && 
-      (url_hash.indexOf("sctn_main") === -1) && 
-      (current_position > 1)) {
-    animateInfoElement();
-  }
-
   if ((current_position === 0) && 
       (url_hash.indexOf("sctn_main") === -1) && 
-       (info_opacity_value === "0")) {
+      (info_opacity_value === "0")) {
+  // If the browser window is at the top of the webpage, the URL does not include the hash, 
+  // "#sctn_main", and the opacity of the HTML element using the selector, "#info" is 0, 
+  // this condition is triggered.
+
       url_hash = "#sctn_main";     
   } else {
-    if (determineCurrentSection(current_position) !== Infinity) {
-      section_value = "#wndow-sctn_" + determineCurrentSection(current_position);
+  // Otherwise, if the webpage appears in a different location from the top, this condition 
+  // is triggered.
+    section_value_num = determineCurrentSection(current_position);
+    // "section_value_num" is passed a Number from the function, "determineCurrentSection", 
+    // which represents the Section which is currently visible.
+
+    if (section_value_num !== Infinity) {
+    // This condition validates the Section value that the function, "determineCurrentSection", 
+    // passes back to this function. If the value of, "section_value_num" lies between a range 
+    // of 1 - 6, this condition is triggered.
+
+      section_value = "#wndow-sctn_" + section_value_num;
       
       if (current_position >= (wndow_height - window_margin)) {
-        position_value = determineVisibleCopyElement(section_value);  
+      // If the current position of the browser window lies below the 'MAIN LANDING SECTION', 
+      // this condition is triggered.
+        position_value = (determineVisibleCopyElement(section_value)).toString();;  
       } else  {
-        position_value = 0;
-      }
+      // Otherwise, if the browser window lies within the 'MAIN LANDING SECTION', 
+      // this condition is triggered.
+        position_value = "0";
+      } // END OF if STATEMENT that is triggered if the current location of the browser window 
+        // lies below the 'MAIN LANDING SECTION'.
       
       if (position_value === -1)  {
-        position_value = 0;
-      }
+      // If the value passed to, "position_value", is an unknown value, '-1', this 
+      // condition is triggered.
+        
+        position_value = "0";
+        // If an unknown value, "-1", is passed on to, "position_value", the "first" 
+        // window pane ought to be shown. The Position value for the "first" 
+        // window pane is "0".
+      } // END OF if STATEMENT that is triggered if the Position value is invalid.
 
       url_hash = "#sctn_" + section_value.charAt(section_value.length - 1) + "?pos=" + position_value;
 
       if (url_hash === "#sctn_0?pos=0") {
+      // If there has been an error with the Section value, which has its value set to, "0", 
+      // this condition is triggered.
+
         url_hash = "#sctn_main";
-      }
-    }
-  }
+        // The value of, "url_hash", is now made to set the hash as, "#sctn_main".
+      } // END OF if STATEMENT which is triggered if there is an error with the 
+        // Section value.
+    } // END OF if STATEMENT which is triggered if the Section value is valid.
+  } // END OF if STATEMENT which is triggered if the current location of the 
+    // browser window lies within 'MAIN LANDING SECTION', the opacity of 
+    // the HTML content within 'MAIN LANDING SECTION' is "0", and the hash 
+    // of the URL is not, "#sctn_main".
 
   if (url_hash !== window.location.hash)  {
+  // If the current hash of the URL has changed, this condition is triggered.
     window.location.hash = url_hash;
-  }
-
-  setTimeout(
-    function () {
-      displayVerticalNav();
-      }, (time_value * 1.25)
-  );  
-}
+  } // END OF if STATEMENT which is triggered if the URL has been changed.
+}  /* **************** END OF FUNCTION "setURL" **************** */
 
 function animateMenuOptions(option_element) {
-  var css_1 = new Object();
-  var css_2 = new Object();
+  /* **************** **************** **************** **************** **************** 
+   * Animates the click states of the menu options contained within the intersection 
+   * navigation that appears on the left side of the browser window.
+   * **************** **************** **************** **************** **************** */
 
-  var time_value_1 = new Number();
-  var time_value_2 = new Number();
+  var base_css = new Object();
+  var hover_css = new Object();
+
+  var time_value_long = new Number();
+  var time_value_short = new Number();
  
-  css_1 = {
+  hover_css = {
     "backgroundColor": "#ccc", 
     "color": "#000"
   };
 
-  css_2 = {
+  base_css = {
     "backgroundColor": "#000", 
     "color": "#fff"
   };
-
-  time_value_1 = time_value / 2;
-  time_value_2 = time_value / 4;
+  
+  time_value_long = time_value / 2;
+  time_value_short = time_value / 4;
   
   if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
-    $(option_element).animate(css_1, time_value_1);
+  // If the click state of the menu option is in its "base" state, 
+  // this condition is triggered.
+    $(option_element).animate(hover_css, time_value_1);
+    // The click state of the menu option is changed to its "hover" state.
   } else {
-    $(option_element).animate(css_2, time_value_2);
-  }
-}
+  // Otherwise if the click state of the menu option is in its "hover" state 
+  // this condition is triggered.
+    $(option_element).animate(base_css, time_value_2);
+    // The click state of the menu option is changed to its "base" state.
+  } // END OF if STATEMENT which is triggered if the menu option is in 
+    // its "base" click state.
+} /* **************** END OF FUNCTION "animateMenuOptions" **************** */
 
 function setPageInitialLocation()  {
+  /* **************** **************** **************** **************** **************** 
+   * Navigates the browser window to the location that allows for the full window 
+   * of the visible section to be displayed.
+   * **************** **************** **************** **************** **************** */
+
+  var url_hash = new String();
+  
   var section_value = new String();
+  // Holds the String value of the Section Value listed in the URL hash.
   var position_value = new String();
+  // Holds the String value of the Position Value listed in the URL hash.
   
   var wndow_selector = new String();
-  var headr_selector = new String();
   var copy_selector = new String();
   
   var wndow_element = new Object();
-  var headr_element = new Object();
   var copy_element = new Object();
 
   var wndow_height = new Number();
+  // Holds a Number which represents the value of the CSS property, "height" 
+  // for an single instance of the HTML element using the selector, ".wndow".
 
-  var css_1 = new Object();
-  var css_2 = new Object();
+  var copy_visible_css = new Object();
 
   scroll_to_value = new Number();
+  // Holds a value which matches the vertical location, in pixels.
 
   url_hash = window.location.hash;
-  // window.alert("url_hash = " + url_hash);
 
   section_value = url_hash.charAt(6);
   position_value = url_hash.charAt(12);
-// window.alert("section_value = " + section_value);
-// window.alert("position_value = " + position_value);
 
-  css_1 = {
+  copy_visible_css = {
     display: "block"
   };
 
   if (section_value !== "m" &&  
       section_value !== "")  {
-    section_value = parseInt(section_value);
+  // If the current visible section is not 'MAIN LANDING SECTION', this condition 
+  // is triggered.
+
     position_value = parseInt(position_value);
-    // window.alert("section_value = " + section_value);
+    // "position_value" is converted to a Number datatype so that it can be adjusted 
+    // by a mathematical statement.
+
     wndow_selector = ".wndow";
     copy_selector = "#wndow-sctn_" + section_value.toString() + " > .copy:nth-child(" + (position_value + 3).toString() + ")";
     
@@ -1918,17 +1976,29 @@ function setPageInitialLocation()  {
     copy_element = $(copy_selector);
 
     wndow_height = $(wndow_element).height();
+    
     scroll_to_value = section_value * wndow_height;
-  
-    $(copy_element).css(css_1);
+    // The vertical location of the visible window is set. 
+
+    $(copy_element).css(copy_visible_css);
     
     $(window).scrollTop(scroll_to_value);
+    // The browser window is placed to view the complete window pane of the 
+    // visible Section .
   } else  {
+  // Otherwise, if the current visible Section is 'MAIN LANDING SECTION', 
+  // this condition is triggered.
     $(window).scrollTop(0);
-  }
-}
+  } // END OF if STATMENT which is triggered if the visible Section is not 
+    // 'MAIN LANDING SECTION'.
+} /* **************** END OF FUNCTION "setInitialLocation" **************** */
 
 function fadeCopyElements(single_copy_element, div_selector, section_value, position_value, sub_nav_element, time_value)  {
+  /* **************** **************** **************** **************** **************** 
+   * The content of the visible Section are made visible by fading their opacity 
+   * from 0 to 1.
+   * **************** **************** **************** **************** **************** */
+  
   $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
       var form_selector = new String();
@@ -1936,8 +2006,11 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
 
       if (section_value === 3 || 
           section_value === 4)  {
+      // If the current visible Section contains intrasection navigation, 
+      // this condition is triggered.
         $(sub_nav_element).fadeTo(time_value, 1);
-      }
+      } // END OF if STATEMENT which is triggered if the current Section 
+        // contains intrasection navigation.
 
       form_selector = "#form-sctn_" + section_value.toString() + " .form-page_1";
       form_element = $(form_selector);
@@ -1946,8 +2019,14 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
           (section_value === 1 && position_value === 1 || 
            section_value === 5 && position_value === 1 || 
            section_value === 6 && position_value === 1))  {
+      // If the current visible Section contains a form which is invisible 
+      // and the Section contains a form, this condition is triggered.
+
         animateFormPanes();
-      }
-    }
+        // The function, "animateFormPanes" fades the opacity of the form 
+        // contained with the current Section from 0 to 1.
+      } // END OF if STATEMENT which is triggered if a Section contains a form 
+        // that is now to be made visible.
+    } // END of FUNCTION which fades in the HTML content of a visible Section.
   );
-}
+} /* **************** END OF FUNCTION "fadeCopyElements" **************** */
