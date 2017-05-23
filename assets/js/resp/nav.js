@@ -61,7 +61,14 @@
  * 
  * ******************************************************************************************** */
 
-function navLinkHoverState(new_class, time_value) {  
+function navLinkHoverState(new_class, time_value) {
+  /* **************** **************** **************** **************** **************** 
+   *  Animates the click states of the menu icon located in the upper left 
+   *  of the browser window.
+   * 
+   *  The click state of the menu icon shifts based upon the value of, "new_class".
+   * **************** **************** **************** **************** **************** */
+
   var nav_link_selector = new String();
   var headr_selector = new String();
   var nav_selector = new String();
@@ -73,6 +80,12 @@ function navLinkHoverState(new_class, time_value) {
   var current_class = new String();
 
   var headr_css_display_val = new String();
+  // Holds the value of the CSS property, "display", for the HTML element 
+  // using the selector, ".headr". 
+  // 
+  // The value is used to determine the visibility of the header for an 
+  // individual Section. If the header is visible, the click state of 
+  // the menu icon is changed to "hover", otherwise it is left alone.
   
   nav_link_selector = "#nav-link";
   headr_selector = ".headr";
@@ -89,51 +102,97 @@ function navLinkHoverState(new_class, time_value) {
   new_class = "nav-" + new_class;
 
   if (new_class === "nav-base") {
+  // If the new click state is, "base", this condition is triggered.
     $(nav_link_element).fadeTo((time_value / 4), 0, 
+    // The menu icon is faded out from an opacity of 1 to 0.
       function () {
         $(nav_link_element).removeClass();
+        // The current class defining the click state is removed.
         $(nav_link_element).addClass("nav-base");
+        // The new class defining the "base" click state is added.
         $(nav_link_element).fadeTo((time_value / 8), 1);
+        // The menu icon is faded in from an opacity of 0 to 1.
       }
     );
-  }
+  } // END OF if STATEMENT that is triggered if the new click state is 
+    // the "base" state.
    
   if (new_class === "nav-hover" && 
       headr_css_display_val === "table") {
+  // If the new click state is, "hover", and the header is visible, 
+  // then this condition is triggered.
     $(nav_link_element).fadeTo((time_value / 4), 0, 
+    // The menu icon is faded out from an opacity of 1 to 0.
       function () {
         $(nav_link_element).removeClass();
+        // The current class defining the click state is removed.
         $(nav_link_element).addClass("nav-hover");
+        // The new class defining the "hover" click state is added.
         $(nav_link_element).fadeTo((time_value / 8), 1);
+        // The menu icon is faded in from an opacity of 0 to 1.
       }
     );
-  }
+  } // END OF if STATEMENT which is triggered if the new click state 
+    // is "hover" and the header is visible.
   
   if (new_class === "nav-click")  {
+  // If the new click state is, "click", then this condition is triggered.
     $(nav_link_element).fadeTo((time_value / 3), 0, 
+    // The menu icon is faded out from an opacity of 1 to 0.
       function () {
         $(nav_link_element).removeClass();
+        // The current class defining the click state is removed.
         $(nav_link_element).addClass("nav-click_1");
-        $(nav_link_element).fadeTo((time_value / 3), 1);
-        $(nav_link_element).removeClass();
-        $(nav_link_element).addClass("nav-click_2");
-        $(nav_link_element).fadeTo((time_value / 3), 1);
+        // The initial "click" click state is added.
+        $(nav_link_element).fadeTo((time_value / 3), 1, 
+        // The menu icon is faded in from an opacity of 0 to 1.
+          function () {
+            $(nav_link_element).fadeTo((time_value / 4), 0, 
+            // The menu icon is faded out from an opacity of 0 to 1.
+              function () {
+                $(nav_link_element).removeClass();
+                // The class defining the intitial "click" click state is removed.
+                $(nav_link_element).addClass("nav-click_2");
+                // The final "click" click state is added.
+                $(nav_link_element).fadeTo((time_value / 3), 1);
+                // The menu icon is faded in from an opacity of 0 to 1.
+              }
+            );
+          }
+        );
       }
     );
-  }
-} // END OF FUNCTION navLinkHoverState
-
+  } // END OF if STATEMENT which is triggered if the new click state is "click".
+} /* **************** END OF FUNCTION "navLinkHoverState" **************** */
 
 function determineVisibleCopyElement(wndow_selector)  {
+  /* **************** **************** **************** **************** **************** 
+   *   Determines the HTML element using the selector, ".copy", which is visible within 
+   *   an individual "window pane". It passes a Number back to, "setURL", the 
+   *   function which makes a call to this function.
+   * **************** **************** **************** **************** **************** */
+
   var wndow_element = new Object();
   var copy_elements = new Array();
   
   var wndow_element_copy_length = new Number();
+  // Holds the number of HTML elements using the selector, ".copy", that are contained 
+  // within an element using the selector, "#wndow_sctn-X".
+  // 
+  // The selector of the element that contains the ".copy" elements 
+  // would be, "#wndow-sctn_1", if the visible Section was 'SECTION #1'.
   var visible_copy_element_val = new Number();
+  // Holds a Number which allows for the function to cycle through the HTML elements 
+  // using the selector, ".copy", that lie within a given visible Section.
+  // 
+  // This number matches the "child" index that ".copy" elements are given that lie 
+  // within elements using selectors similary to "#wndow-sctn_X".
 
   var copy_selector = new String();
 
   var copy_element_visible_flag = new Boolean();
+  // This Boolean is made true once the "while" loop finds a visible element using the 
+  // selector, ".copy", that lies within an visible Section.
       
   wndow_element = $(wndow_selector);   
 
@@ -141,31 +200,57 @@ function determineVisibleCopyElement(wndow_selector)  {
   
   visible_copy_element_val = 2;
   copy_element_visible_flag = false;
-  // window.alert("wndow_selector = " + wndow_selector);
+  
   if (wndow_selector !== "#wndow-sctn_main")  {
-    // window.alert("wndow_selector = " + wndow_selector);
+  // If the visible Section is not the 'MAIN LANDING SECTION', this condition is triggered.
     while (visible_copy_element_val < (wndow_element_copy_length + 3) && 
            copy_element_visible_flag === false) {
+    // This loop runs while there are elements using the selector, ".copy", within a 
+    // visible Section that remain to process and the visible ".copy" element has 
+    // not been located.
+
       copy_selector = ".copy:nth-child(" + visible_copy_element_val.toString() + ")";
-      // window.alert("$(" + wndow_element.attr("id") + ").children(" + copy_selector + ").css(\"display\") = " + $(wndow_element).children(copy_selector).css("display"));
+      // "copy_selector" is made to refer to a ".copy" element which matches the "child" 
+      // index within the DOM of the webpage.
+      
       if ($(wndow_element).children(copy_selector).css("display") === "none" || 
           $(wndow_element).children(copy_selector).css("display") === undefined) {
+      // If the element using the selector, ".copy" is not visible, this condition 
+      // is triggered.
         visible_copy_element_val++;
+        // The value of the "index" is incremented.
       } else  {
+      // Otherwise, if the visible element using the selector, ".copy" is located 
+      // this condition is triggered.
         copy_element_visible_flag = true;
-      }
-    }
-// window.alert("visible_copy_element_val = " + visible_copy_element_val);
+        // The current element using the selector, ".copy", is flagged to be 
+        // visible.
+      } // END OF if STATEMENT which is triggered if a ".copy" element is not visible.
+    } // END OF while LOOP which continues to run if ".copy" elements remain to 
+      // process and the visible ".copy" element has not been located.
+
     if (visible_copy_element_val === (wndow_element_copy_length + 3) && 
         copy_element_visible_flag === false)  {
+    // If all of the ".copy" elements have been processed and a visible element 
+    // has not been found, this condition is triggered.
       visible_copy_element_val = -1;
+      // Since all of the ".copy" elements have been cycled through, this Section 
+      // is passed a value to note that this Section has never been visible.
     } else {
+    // Otherwise, if a visible ".copy" element has been found, this condition 
+    // is triggered.
       visible_copy_element_val = visible_copy_element_val - 2;
-    }
-  }
+      // A value which matches the index of the child element in the DOM is 
+      // passed to "visible_copy_element_val".
+    } // END OF if STATEMENT which is triggered if there not a visible 
+      // ".copy" element.
+  } // END of if STATEMENT which is triggered if the visible Section is not 
+    // the 'MAIN LANDING SECTION'.
 
   return visible_copy_element_val;
-}
+  // A value noting the element using the selector, ".copy", which is visible 
+  // is passed on.
+} /* **************** END OF FUNCTION "determineVisibleCopyElement" **************** */
 
 function assembleURLString()  {
   var url_hash = new String();
