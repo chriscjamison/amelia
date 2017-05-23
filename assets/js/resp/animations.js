@@ -1,5 +1,5 @@
 /* Filename: animations.js
- *  Contains all JavaScript functions and behavior that controls the layout 
+ *  Contains all JavaScript functions and behavior that control the layout 
  *  and physical appearance of the webpage using the 'One Page' template.
  * 
  *  --- NOTE! ---

@@ -32,13 +32,13 @@ $(document).ready(
     
     $("#nav-link").on("mouseover", 
       function () {
-        navLinkHoverState("hover");
+        navLinkHoverState("hover", time_value);
       }
     );
 
     $("#nav-link").on("mouseout", 
       function () {
-        navLinkHoverState("base"); 
+        navLinkHoverState("base", time_value); 
       }
     );
     
@@ -57,14 +57,14 @@ $(document).ready(
         if (nav_left_value === "0px") {
           setTimeout(
             function () {
-              navLinkHoverState("base");
+              navLinkHoverState("base", time_value);
             }, (time_value * 2.5)
           );
         } else {
-          navLinkHoverState("click");
+          navLinkHoverState("click", time_value);
         }
         
-        determineCopyElements();
+        assembleURLString();
         
         animateSideNav();        
       }
@@ -96,12 +96,12 @@ $(document).ready(
 
         option_element = this;
         
-        determineCopyElements();
+        assembleURLString();
         animateSideNav();
         
         setTimeout(
           function () {
-            navLinkHoverState("base");
+            navLinkHoverState("base", time_value);
             activateSideNav(option_element);
           }, (time_value * 2.5));
       }
@@ -109,7 +109,6 @@ $(document).ready(
 
     $("#prev-sctn, #next-sctn").on("click", 
       function () {
-// window.alert("$(this).attr(\"id\") = " + $(this).attr("id"));
         interSectionNav(this);
       }
     );
