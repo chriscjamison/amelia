@@ -51,115 +51,17 @@
  *      Called by:
  *        + $("#prev-sctn, #next-sctn").on("click") (control_panel.js)
  * 
- *    animateInfoElement
- *      Animates the content of the HTML element using the selector, "#info", which appears 
- *      on the 'MAIN LANDING PAGE'.
+ *    activateSideNav
+ *      Places the browser window at a vertical position which allows for a Section 
+ *      to be completely visible once the intersection navigation which appears 
+ *      on the left side of the browser window appears.
  * 
  *      Called by:
- *        + setURL
- *        + interSectionNav (nav.js)
- *        + $(window).on("load") (control_panel.js)
- *        + $(window).on("scroll") (control_panel.js)
- * 
- *    animateFormPanes
- *      Animates HTML elements which are contained within the forms located 
- *      within the web page.
- * 
- *      Called by:
- *        + fadeCopyElements
- *      
- *    animatePageElements
- *      Animates HTML elements of a given Section which has not been 
- *      within the visible browser window. Elements such as the HTML elements 
- *      using the selector, ".headr", are made visible once a user has navigated 
- *      to an unseen Section.
- * 
- *      Called by:
- *        + setupPage
- *        + $(window).on("hashchange") (control_panel.js)
- * 
- *    displayVerticalNav
- *      Displays the inter-sectional navigation which appears as two white arrows located 
- *      on the right hand side of the browser window, within a desktop browser 
- *      or along the top and bottom of the browser window within a mobile browser.
- *  
- *      Called by:
- *        + setupPage
- *        + setURL
- *        + interSectionNav (nav.js)
- *        + $(window).on("hashchange") (control_panel.js) *        
- * 
- *    animateSctnNav
- *        Animates the click-states of the menu-icon for the intra-sectional navigation 
- *        which appears within, 'SECTION #3' and 'SECTION #4'.
- * 
- *        Called by:
- *          + $(".sctn_nav > div > span").on("mouseover") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("mouseout") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *          + $(".sctn_nav > div > div > a").on("click") (control_panel.js)
- * 
- * 
- *    animateSctnNavLinks
- *      Animates the click-states of the links contained within the intra-sectional navigation 
- *      which appears within, 'SECTION #3' and 'SECTION #4'.
- * 
- *      Called by:
- *        + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *        + $(".sctn_nav > div > div > a").on("click") (control_panel.js)        
- * 
- *    animateSideNav
- *      Animates the movement of the inter-sectional navigation that appears on the left hand 
- *      side of the browser window.
- *    
- *      Called by:
- *        + $("#nav-link").on("click") (control_panel.js)
  *        + $("#options > a").on("click") (control_panel.js)
- * 
- *    determineCurrentSection
- *      Returns a numerical value which represents the Section which is visible 
- *      within the browser window. 
- *      
- *      Called by:
- *        + animatePageElements
- *        + setURL
- *        + interSectionNav (nav.js)        
- * 
- *    setURL
- *      Sets the hash of the URL to a value which matches the Section and the Position 
- *      within the Section which is viewable.
- * 
- *      Called by:
- *        + $(window).on("scroll") (control_panel.js)
- * 
- *    animateMenuOptions
- *      Animates the appearance of the click-states for the menu-options of the inter-sectional 
- *      navigation which appears on the left hand side of the browser window.
- * 
- *      Called by:
- *        + $("#options > a").on("mouseenter") (control_panel.js)
- *        + $("#options > a").on("mouseleave") (control_panel.js)
- * 
- *    setPageInitialLocation
- *      Once the webpage loads, the scroll-bar is moved to the position within the webpage 
- *      that the Section is viewable. Also, the HTML element, '.copy', that is viewable 
- *      within the Section is made viewable.
- * 
- *      Called by: 
- *        setupPage
- *        
- *    fadeCopyElements
- *      Fades in the HTML elements which are contained within a HTML element, '.copy',
- *      of a given Section which had been invisible. 
- * 
- *      Called by: 
- *        animatePageElements
  * 
  * ******************************************************************************************** */
 
-var time_value = 500;
-
-function navLinkHoverState(new_class) {  
+function navLinkHoverState(new_class, time_value) {  
   var nav_link_selector = new String();
   var headr_selector = new String();
   var nav_selector = new String();
