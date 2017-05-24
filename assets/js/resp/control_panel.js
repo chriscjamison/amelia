@@ -64,7 +64,7 @@ $(document).ready(
           navLinkHoverState("click", time_value);
         }
         
-        assembleURLString();
+        assembleURLString(time_value);
         
         animateSideNav();        
       }
@@ -96,7 +96,7 @@ $(document).ready(
 
         option_element = this;
         
-        assembleURLString();
+        assembleURLString(time_value);
         animateSideNav();
         
         setTimeout(

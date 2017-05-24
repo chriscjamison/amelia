@@ -1,6 +1,6 @@
 /* Filename: nav.js
  *  Contains all JavaScript functions and behavior that controls the 
- *  intersection navigation of the webpage using the 'One Page' template.
+ *  inter-section navigation of the webpage using the 'One Page' template.
  * 
  *  --- NOTE! ---
  *  + JavaScript statements and functions which are triggered by interacting 
@@ -41,7 +41,7 @@
  * 
  *    interSectionNav 
  *      Animates the vertical location of the browser window within the webpage based upon 
- *      the intersection navigation located on the right side of the browser window. 
+ *      the inter-section navigation located on the right side of the browser window. 
  *      
  *      The browser window moves up, when the arrow with the prompt, 
  *      "Click here to view the previous section" is clicked and down 
@@ -53,7 +53,7 @@
  * 
  *    activateSideNav
  *      Places the browser window at a vertical position which allows for a Section 
- *      to be completely visible once the intersection navigation which appears 
+ *      to be completely visible once the inter-section navigation which appears 
  *      on the left side of the browser window appears.
  * 
  *      Called by:
@@ -114,7 +114,7 @@ function navLinkHoverState(new_class, time_value) {
         // The menu icon is faded in from an opacity of 0 to 1.
       }
     );
-  } // END OF if STATEMENT that is triggered if the new click state is 
+  } // END of "if" STATEMENT that is triggered if the new click state is 
     // the "base" state.
    
   if (new_class === "nav-hover" && 
@@ -132,7 +132,7 @@ function navLinkHoverState(new_class, time_value) {
         // The menu icon is faded in from an opacity of 0 to 1.
       }
     );
-  } // END OF if STATEMENT which is triggered if the new click state 
+  } // END of "if" STATEMENT which is triggered if the new click state 
     // is "hover" and the header is visible.
   
   if (new_class === "nav-click")  {
@@ -162,7 +162,7 @@ function navLinkHoverState(new_class, time_value) {
         );
       }
     );
-  } // END OF if STATEMENT which is triggered if the new click state is "click".
+  } // END of "if" STATEMENT which is triggered if the new click state is "click".
 } /* **************** END OF FUNCTION "navLinkHoverState" **************** */
 
 function determineVisibleCopyElement(wndow_selector)  {
@@ -225,7 +225,7 @@ function determineVisibleCopyElement(wndow_selector)  {
         copy_element_visible_flag = true;
         // The current element using the selector, ".copy", is flagged to be 
         // visible.
-      } // END OF if STATEMENT which is triggered if a ".copy" element is not visible.
+      } // END of "if" STATEMENT which is triggered if a ".copy" element is not visible.
     } // END OF while LOOP which continues to run if ".copy" elements remain to 
       // process and the visible ".copy" element has not been located.
 
@@ -242,9 +242,9 @@ function determineVisibleCopyElement(wndow_selector)  {
       visible_copy_element_val = visible_copy_element_val - 2;
       // A value which matches the index of the child element in the DOM is 
       // passed to "visible_copy_element_val".
-    } // END OF if STATEMENT which is triggered if there not a visible 
+    } // END of "if" STATEMENT which is triggered if there not a visible 
       // ".copy" element.
-  } // END of if STATEMENT which is triggered if the visible Section is not 
+  } // END of "if" STATEMENT which is triggered if the visible Section is not 
     // the 'MAIN LANDING SECTION'.
 
   return visible_copy_element_val;
@@ -252,82 +252,125 @@ function determineVisibleCopyElement(wndow_selector)  {
   // is passed on.
 } /* **************** END OF FUNCTION "determineVisibleCopyElement" **************** */
 
-function assembleURLString()  {
+function assembleURLString(time_value)  {
+  /* **************** **************** **************** **************** **************** 
+   *  Passes a URL hash which contains data which defines the currently visible 
+   *  "window pane" within each individual Section. That URL hash is then added 
+   *  to the URL string currently in the browser window.
+   * **************** **************** **************** **************** **************** */
+
   var url_hash = new String();
-  // Holds the value of the String returned by the JavaScript METHOD, 
-  // "window.location.hash"
-  
+   
   var wndow_elements = new Object();
-  // Holds the HTML elements identified by the selector, ".wndow".
   var copy_elements = new Object();
-  // Holds the HTML elements identified by the selector, ".copy".
-  var visible_elements_var = new String();
+  
+  var copy_values_string = new String();
   // Holds the value for each HTML element using the selector, ".copy", 
   // within a parent HTML element using the selector, "#wndow_sctn-X", 
   // within a String which becomes the URL Hash for this webpage once 
   // this function is complete.
-  var visible_element_value = new String();
+  var visible_element_val = new String();
+  // Holds a character or String which represents the HTML element 
+  // using the selector, ".copy", within an individual Section 
+  // which is visible.
 
   var inc = new Number();
 
   wndow_elements = $(".wndow");
-// window.alert("wndow_elements.length = " + wndow_elements.length);
   
-  visible_elements_var = "copyValues=";
+  copy_values_string = "copyValues=";
   
   url_hash = window.location.hash;
   
-  if (url_hash.indexOf(visible_elements_var) === -1)  {
+  if (url_hash.indexOf(copy_values_string) === -1)  {
+  // If the inter-section navigation on the left side of the browser is not 
+  // visible, this condition is triggered.
     $(wndow_elements).each(
+    // For each HTML element using the selector, ".wndow", this 
+    // loop runs.
       function () {
         wndow_element = this;
 
         current_window_id = "#" + $(wndow_element).attr("id");
-// window.alert("current_window_id = " + current_window_id);       
+        // A selector is formed using the "id" of an individual 
+        // ".wndow", element.
+
         if (current_window_id !== "#wndow-sctn_main")  {
+        // If the ".wndow" element is not, 'MAIN LANDING SECTION',
+        // this condition is triggered.
           visible_copy_element_num = determineVisibleCopyElement(current_window_id);
-// window.alert("url_hash.charAt(" + (visible_elements_var.length - 1).toString() + ") = " + url_hash.charAt(visible_elements_var.length - 1));
-          if (visible_elements_var.charAt(visible_elements_var.length - 1) === "=") {
+          // The index within the DOM, of the visible element using the selector, 
+          // ".copy", of this Section, is passed to "visible_copy_element_num".
+
+          if (copy_values_string.charAt(copy_values_string.length - 1) === "=") {
+          // If the value this loop attaches to the URL hash is the first value within 
+          // the string, this condition is triggered.
+
             if (visible_copy_element_num === -1)  {
-              visible_element_value = "-";
+            // If there is not a visible ".copy" element, this condition 
+            // is triggered.
+              visible_element_val = "-";
             } else  {
-              visible_element_value = visible_copy_element_num.toString();
-            }
+            // Otherwise, if a ".copy" element is visible, this condition 
+            // is triggered.
+              visible_element_val = visible_copy_element_num.toString();
+            } // END of "if" STATEMENT which is triggered if there is not a 
+              // visible ".copy" element for this Section.
           } else  {
+          // Otherwise, if the value this loop attaches to the URL hash is not the first 
+          // value within the string, this condition is triggered.
             if (visible_copy_element_num === -1)  {
-              visible_element_value = ",-";
+            // If there is not a visible ".copy" element, this condition 
+            // is triggered.
+              visible_element_val = ",-";
             } else  {
-              visible_element_value = "," + visible_copy_element_num.toString();
-            }
-          }
+            // Otherwise, if there is a visible ".copy" element, this condition 
+            // is triggered.
+              visible_element_val = "," + visible_copy_element_num.toString();
+            } // END of "if" STATEMENT that is triggered if there is not a 
+              // visible ".copy" element.
+          } // END of "if" STATEMENT that is triggered if the value this loop attaches 
+            // to the string is the first value.
           
-          visible_elements_var = visible_elements_var + visible_element_value;
-// window.alert("visible_element_var = " + visible_elements_var);
-        }
-        
+          copy_values_string = copy_values_string + visible_element_val;
+          // The value representing the ".copy" element which is visible, 
+          // or not visible, is added to the string.
+        } // END of "if" STATEMENT which is triggered if the Section the loop 
+          // processes is not, 'MAIN LANDING SECTION'.
       }
-    );
+    );  // END of ".each()" LOOP
 
     if (url_hash.indexOf("#") === -1) {
-      visible_elements_var = "#" + visible_elements_var;
+    // If the hash of the URL is blank, this condition is triggered.
+      copy_values_string = "#" + copy_values_string;
     } else  {
+    // Otherwise, if the hash of the URL contains a value, 
+    // this condition is triggered.
       if (url_hash.indexOf("?") === -1) {
-        visible_elements_var = "?" + visible_elements_var;
+      // If the URL does not contain a GET variable, this condition is triggered.
+        copy_values_string = "?" + copy_values_string;
       } else {
-        visible_elements_var = "&" + visible_elements_var;
-      }
-    }
+      // Otherwise, if the URL does contain a GET variable, 
+      // this condition is triggered.
+        copy_values_string = "&" + copy_values_string;
+      } // END of "if" STATEMENT which is triggered if the URL does not 
+        // contain a GET variable.
+    } // END of "if" STATEMENT which is triggered if the hash of the URL is blank.
     
-    visible_elements_var = window.location.hash + visible_elements_var;
-    // window.alert("visible_elements_var = " + visible_elements_var);
-// window.alert("visible_elements_var = " + visible_elements_var);
+    copy_values_string = window.location.hash + copy_values_string;
+    // The value representing the ".copy" element which is visible, 
+    // or not visible, is added to the string.
 
-    window.location.hash = visible_elements_var;
+    window.location.hash = copy_values_string;
  
   } else  {
+  // Otherwise, if the inter-section navigation on the left side of the 
+  // browser window is visible, this condition is triggered.
     var url_hash_data_Array = new Array();
+    // Holds the raw values contained with the GET variable, "copyValues".
     var url_hash_values_Array = new Array();
-
+    // Holds the remains, aside from the commas, of the GET variable, "copyValues".
+    
     var copy_selector = new String();
     var wndow_selector = new String();
 
@@ -336,72 +379,119 @@ function assembleURLString()  {
     var wndow_element = new Object();
     var copy_element = new Object();
 
-    var css_1 = new Object();
+    var element_visible_css = new Object();
 
-    var inc = new Number();
     var url_hash_data_array_value = new Number();
 
-    inc = 0;
+    var inc = new Number();
 
     wndow_selector = ".wndow";
 
     wndow_elements = $(wndow_selector);
 
-    css_1 = {
+    element_visible_css = {
       display: "block"
     };
     
     url_hash_data_Array = url_hash.split("=");
-
+    // The raw GET variables contained within "url_hash_data_Array" are seperated 
+    // from the names of their variables.
     if (url_hash_data_Array[0].indexOf("copyValues") === -1)  {
+    // If the first index of "url_hash_data_Array" does not contain, "copyValues", 
+    // there are other GET variables. If there are other GET variables, this 
+    // condition is triggered.
       url_hash_data_array_value = 2;
+      // If there are other GET variables, the index that contains the raw data 
+      // for "copyValues", is contained in index 2.
     } else {
+    // Otherwise if the first index of "url_hash_data_Array" does contain "copyValues", 
+    // there are not other GET variables. If there are not other GET variables, 
+    // this condition is triggered.
       url_hash_data_array_value = 1;
-    }
+      // If there are not other GET variables, the index that contains the raw data 
+      // for "copyValues", is contained in index 1.
+    } // END of "if" STATEMENT that is triggered if the first index 
+      // of "url_hash_data_Array" does contain other GET variables.
 
     url_hash_values_Array = url_hash_data_Array[url_hash_data_array_value].split(",");
+    // The numerical and character values describing the visible, or not visible, ".copy" 
+    // elements are passed into "url_hash_values_Array".
+
+    inc = 0;
+    // An incrementer is initialized to 0.
 
     $(wndow_elements).each(
+    // For each HTML element using the selector, ".wndow", this 
+    // loop runs.
       function () {
         wndow_element = this;
     
         if ($(wndow_element).attr("id") !== "wndow-sctn_main") {
+        // If the ".wndow" element is not, 'MAIN LANDING SECTION',
+        // this condition is triggered.
           if (url_hash_values_Array[inc] !== "-") {
+          // If the value contained within the index represented by, "inc", is visible, 
+          // this condition is triggered.
             copy_selector = "#" + $(wndow_element).attr("id") + " > .copy:nth-child(" + (parseInt(url_hash_values_Array[inc]) + 3) + ")";
-            
+            // A selector is formed using the "id" of an individual ".wndow" element 
+            // this loop processes and the value held within "url_hash_values_Array" 
+            // that is represented by, "inc".
+
             setTimeout(
               function () {
-                $(copy_selector).css(css_1);
+                $(copy_selector).css(element_visible_css);
+                // The "window pane" of the Section this loop processes is now visible.
               }, (time_value * 2)
             );
 
+
             if (($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "3" ||
                 ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1) === "4")  {
+            // If the ".wndow" element this loop processes contains intrasection navigation, 
+            // this condition is triggered.
               var sub_nav_selector = "#nav-sctn_" + ($(wndow_element).attr("id")).charAt($(wndow_element).attr("id").length - 1);
-
+              // A selector is made using the "id" of the ".wndow" element 
+              // this loop processes.
+              
               setTimeout(
                 function () {
-                  $(sub_nav_selector).css(css_1);
+                  $(sub_nav_selector).css(element_visible_css);
+                  // The intrasection navigation in this Section is now visible.
                 }, (time_value * 2)
               );
             }
           }
           
           inc++;
-        }
+          // "inc" is incremented.
+        } // END of "if" STATEMENT which is triggered if the ".wndow" element this loop 
+          // processes is not 'MAIN LANDING SECTION'.
       }
-    );
+    );  // END of ".each()" LOOP
 
     url_hash_data_Array = url_hash.split("copyValues");
+    // The value of GET variable, "copyValues", are seperated from other GET variables.
     
     window.location.hash = url_hash_data_Array[0].substring(0, (url_hash_data_Array[0].length - 1));
-  }
-}
+    // The remaining GET variables are removed from the hash of the URL.
+  } // END of "if" STATEMENT which is triggered if the inter-section navigation 
+    // that appears on the left of the browser window is not visible.
+} /* **************** END OF FUNCTION "assembleURLString" **************** */
 
 function interSectionNav(inter_nav_element)  {
+  /* **************** **************** **************** **************** **************** 
+   *  Animates the vertical location of the browser window within the webpage based upon 
+   *  the inter-section navigation located on the right side of the browser window. 
+   *      
+   *  The browser window moves up, when the arrow with the prompt, 
+   *  "Click here to view the previous section" is clicked and down 
+   *  along the webpage when the button with the prompt, 
+   *  "Click here to view the next section" is clicked.
+   * **************** **************** **************** **************** **************** */
   var url_hash = new String();
 
   var current_position = new Number();
+  // Holds a number which matches the vertical position within the webpage that is viewable.
 
   var section_search_string = new String();
   var current_section_string = new String();
