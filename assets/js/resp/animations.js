@@ -502,6 +502,8 @@ function setupPage(time_value)  {
    * **************** **************** **************** **************** **************** */
 
   var page_dimensions_Array = new Array();
+  // The calculated values for the "width" and "height" of various HTML elements 
+    // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
   var page_height = new Number();
   // Holds the total height of the webpage.
@@ -511,7 +513,7 @@ function setupPage(time_value)  {
   var wndow_height = new Number();
   // Holds the height of the HTML elements using the selector, ".wndow", 
   // as passed on from the second index of "page_dimensions_Array".
-  var num_wndow_elements = new Number();
+  var num_of_wndow_elements = new Number();
   // Holds the total number of HTML elements using the selector, ".wndow".
   
   var nav_width = new Number();
@@ -634,10 +636,10 @@ function setupPage(time_value)  {
         // "wndow_sctn_element" now holds the jQuery Object for the selector which is held by 
         // "wndow_sctn_selector".
        
-        num_wndow_elements = $(wndow_sctn_element).children(".copy").length
-        // "num_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
+        num_of_wndow_elements = $(wndow_sctn_element).children(".copy").length
+        // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
   
-        bkgrnd_width =  (wndow_width * num_wndow_elements).toString();
+        bkgrnd_width =  (wndow_width * num_of_wndow_elements).toString();
         bkgrnd_height = (wndow_height).toString();
         // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
         // multiplies it by the number of HTML elements using the selector, ".wndow" and making a string 
@@ -717,6 +719,9 @@ function animateInfoElement(time_value) {
    * **************** *************** **************** **************** **************** */
 
   var page_dimensions_Array = new Array();
+  // The calculated values for the "width" and "height" of various HTML elements 
+  // of the webpage within the browser window are passed on to "page_dimensions_Array".
+  
   
   page_dimensions_Array = parseWindowDimensions();
   // The calculated values for the "width" and "height" of various HTML elements 
@@ -1240,6 +1245,10 @@ function displayVerticalNav() {
       $(prev_sctn_element).css(intersection_on_css);
       // The up arrow is made visible.
     } // END OF if STATEMENT which is triggered if the up arrow is invisible.
+    
+    wndow_selector = new String();
+    wndow_elements = new Object();
+    
     var wndow_height = new Number();
     // Holds the height of the HTML elements using the selector, ".wndow", 
     // as passed on from the second index of "page_dimensions_Array".
@@ -1256,15 +1265,19 @@ function displayVerticalNav() {
     //
     // This value marks the vertical location within the webpage that triggers 
     // a condition that allows for the down arrow to made visible.
-    var num_wndow_elements = new Number();
+    var num_of_wndow_elements = new Number();
     // Holds a Number that contains the total number of HTML elements using 
     // the selector, ".wndow".
     
-    wndow_height = $(".wndow").height();
-    wndow_location_margin = 100;
-    num_wndow_elements = $(".wndow").length;
+    wndow_selector = ".wndow";
+    wndow_elements = $(wndow_selector);
 
-    webpage_location_val = (wndow_height * num_wndow_elements) - wndow_height - wndow_location_margin;
+    wndow_height = $(wndow_elements).height();
+    wndow_location_margin = 100;
+    num_of_wndow_elements = $(wndow_elements).length;
+    // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
+    
+    webpage_location_val = (wndow_height * num_of_wndow_elements) - wndow_height - wndow_location_margin;
     
     if (current_position >= webpage_location_val)  {
     // If the visible portion of the website lies lower on the webpage than the 
@@ -1546,6 +1559,8 @@ function animateSideNav() {
   
   window_width = $(window).width();
   page_dimensions_Array = parseWindowDimensions();
+  // The calculated values for the "width" and "height" of various HTML elements 
+    // of the webpage within the browser window are passed on to "page_dimensions_Array".
   wndow_width = page_dimensions_Array[0];
 
 if ($(nav_element).css("left") !== "0px")  {

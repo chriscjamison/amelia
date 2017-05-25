@@ -131,7 +131,7 @@ function navLinkHoverState(new_class, time_value) {
         $(nav_link_element).fadeTo((time_value / 8), 1);
         // The menu icon is faded in from an opacity of 0 to 1.
       }
-    );
+    );  // END of "fadeTo()" Method
   } // END of "if" STATEMENT which is triggered if the new click state 
     // is "hover" and the header is visible.
   
@@ -157,11 +157,11 @@ function navLinkHoverState(new_class, time_value) {
                 $(nav_link_element).fadeTo((time_value / 3), 1);
                 // The menu icon is faded in from an opacity of 0 to 1.
               }
-            );
+            );  // END of "fadeTo()" Method
           }
-        );
+        ); // END of "fadeTo()" Method
       }
-    );
+    ); // END of "fadeTo()" Method
   } // END of "if" STATEMENT which is triggered if the new click state is "click".
 } /* **************** END OF FUNCTION "navLinkHoverState" **************** */
 
@@ -494,10 +494,13 @@ function interSectionNav(inter_nav_element)  {
   // Holds a number which matches the vertical position within the webpage that is viewable.
 
   var section_search_string = new String();
+  // Holds a String that is used to parse the Section Value for a Section the browser will 
+  // be navigated to.
   var current_section_string = new String();
-  var replace_section_string = new String();
-
+  // Holds a selector that represents the Section Value for an individual Section.
+  
   var section_value = new Number();
+  // Holds a Number which represents the Section Value for an individual Section.
   
   var sctn_nav_selector = new String();
   
@@ -506,92 +509,164 @@ function interSectionNav(inter_nav_element)  {
 
   var wndow_height = new Number();
   
-  var scroll_to_num = new Number();
+  var scroll_to_value = new Number();
+  // Holds a value which matches the vertical location, in pixels.
 
   var complete_called = false;
-
+  // Boolean used as the vertical position animation runs.
   
   url_hash = window.location.hash;
 
   current_position = $(window).scrollTop();
 
   section_value = determineCurrentSection(current_position);
-  
+  // Based upon the vertical position of the viewable portion of the webpage 
+  // within the browser window, a number representing the current Section 
+  // is passed along to "section_value".
+
   section_search_string = "sctn_";
+  // The prefix of a Section Value is set.
 
-  current_section_string = "sctn_" + section_value;
-
-  sctn_nav_selector = $(inter_nav_element).attr("id");
+  current_section_string = section_search_string + section_value;
+  // A selector is made using the prefix of a Section Value and a Section Value.
   
+  sctn_nav_selector = $(inter_nav_element).attr("id");
   wndow_selector = ".wndow";
   wndow_elements = $(wndow_selector);
 
   wndow_height = $(wndow_elements).height();
-  num_of_wndow_elements = wndow_elements.length;
 
+  num_of_wndow_elements = wndow_elements.length;
+  // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
+  
   if (sctn_nav_selector === "prev-sctn") {
+  // If the up arrow of the inter-section navigation on the right of the browser 
+  // is clicked, this condition is triggered.
     if (section_value === 1)  {
+    // If the Section Value is 1, the condition is triggered.
       section_value = "main";
-      scroll_to_num = 0;
+      // The Section to be navigated to is 'MAIN LANDING SECTION'.
+      scroll_to_value = 0;
+      // The vertical location to be navigated to is 0.
     } else  {
+    // Otherwise, if the Section Value is not 1, this condition is triggered.
       section_value = section_value - 1;
-    }
-    
+      // The Section Value of the Section to be navigated to is 1 less than 
+      // the current Section Value.
+    } // END of "if" STATEMENT that is triggered if the Section Value is 1.
   } else  {
+  // Otherwise, if the down arrow of the inter-section navigation on the right 
+  // is clicked, this condition is triggered.
     if (section_value === "" || section_value === "main" || section_value === "m") {
+    // If the Section Value is identified to represent, 'MAIN LANDING SECTION', 
+    // this condition is triggered.
       section_value = 1;
     } else  {
+    // Otherwise, if the Section Value of the Section to be navigated to is 
+    // not 'MAIN LANDING SECTION', this condition is triggered.
       if (section_value < num_of_wndow_elements - 1)  {
+      // If the current Section Value is less than the number of Sections, 7, 
+      // then there is another Section to navigate to. If there is another 
+      // Section to navigate to, this condition is triggered.
         section_value = section_value + 1;
+        // The Section Value of the Section to be navigated to is 1 more than 
+        // the current Section Value.
       } else {
+      // Otherwise, the Section Value of the current Section is 6 and there 
+      // is not another Section to navigate to.
         section_value = "none";
-      }
-    }
-  }
+        // The Section Value is set to show there is not another Section 
+        // to navigate to.
+      } // END of "if" STATEMENT which is triggered if the the current Section Value 
+        // is less than 7.
+    } // END of "if" STATEMENT which is triggered if the Section Value 
+      // of the viewable Section is 'MAIN LANDING SECTION'.
+  } // END of "if" STATEMENT which is triggered if the up arrow of the inter-section 
+    // navigation is clicked.
 
-   if (section_value === "" || section_value === "main") {
-      url_hash = "sctn_main";
-    } else if (section_value !== "none")  {
-      if (url_hash.indexOf(section_search_string) === -1) {
-        url_hash = "sctn_1?pos=0";
+  if (section_value === "" || section_value === "main") {
+  // If the Section to be navigated to is 'MAIN LANDING SECTION', this condition 
+  // is triggered.
+    url_hash = "sctn_main";
+  } else if (section_value !== "none")  {
+  // Otherwise, if the Section Value is not "none", this condition
+  // is triggered.
+    if (url_hash.indexOf(section_search_string) === -1) {
+    // If there is not a GET variable which refers to the Section Value, 
+    // the Section to be navigated to is 'SECTION #1'. If there is not a 
+    // GET variable refering to the Section Value, this condition 
+    // is triggered.
+      url_hash = "sctn_1?pos=0";
 
-        scroll_to_num = wndow_height;
-      }
-    }
+      scroll_to_value = wndow_height;
+      // The vertical location of the browser window will be set to allow the 
+      // "window pane" of 'SECTION #1' to be fully visible.
+    } // END of "if" STATEMENT which is triggered if there is not a GET variable 
+      // which refered to the Section Value.
+  } // END of "if" STATEMENT which is triggered if the Section to be 
+    // navigated to is 'MAIN LANDING SECTION'.
   
   if (section_value === "main" || section_value === 1) {
+  // If the Section Value refers to 'MAIN LANDING SECTION', 
+  // this condition is triggered.
     var page_dimensions_Array = new Array();
-    var window_width = new Number();
+    // The calculated values for the "width" and "height" of various HTML elements 
+    // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
+    var window_width = new Number();
+    // Holds the numerical value of the width of the browser window.
+    
     page_dimensions_Array = parseWindowDimensions();
+    // The calculated values for the "width" and "height" of various HTML elements 
+    // of the webpage within the browser window are passed on to "page_dimensions_Array".
+
     window_width = page_dimensions_Array[0];
-// window.alert("window_width = " + window_width);
+
     if (window_width <= 980)  {
+    // If the width of the browser is 980px, or mobile device that's not an iPad Pro, 
+    // this condition is triggered.
       var info_selector = new String();
       var info_element = new Object();
+
       var info_top_val = new String();
+      // Holds the value of the CSS property, "top", for the HTML element using 
+      // the selector, "#info".
 
       info_selector = "#info";
       info_element = $(info_selector);
+      
       info_top_val = $(info_element).css("top");
 
       if (info_top_val === "0px") {
+      // If the content of 'MAIN LANDING SECTION' is not visible, this condition 
+      // is triggered.
         animateInfoElement();
-      } 
+        // The content of 'MAIN LANDING SECTION' is animated out of view.
+      } // END of "if" STATEMENT which is triggered if the content 
+        // of 'MAIN LANDING SECTION' is not visible.
     }
 
     if ((sctn_nav_selector === "prev-sctn" && section_value === "main") || 
         (sctn_nav_selector === "next-sctn" && info_top_val === "0px")) {
-      scroll_to_num = 0;
+    // If the next Section to be navigated to is 'MAIN LANDING SECTION', 
+    // this condition is triggered.
+      scroll_to_value = 0;
     } else {
-      scroll_to_num = section_value * wndow_height;
+    // Otherwise, if the next Section is not 'MAIN LANDING SECTION', 
+    // this condition is triggered.
+      scroll_to_value = section_value * wndow_height;
     } 
   } else  {
-    scroll_to_num = section_value * wndow_height;
-  }
+  // Otherwise, if the width of the browser is greater than 980px, 
+  // this condition is triggered.
+    scroll_to_value = section_value * wndow_height;
+  } // END of "if" STATEMENT that is triggered if the width of the browser 
+    // is 980px.
   
   $("html, body").animate(
-    { scrollTop: scroll_to_num },
+  // This Method animates the browser window to the vertical location 
+  // of the Section to be navigated to.
+    { scrollTop: scroll_to_value },
     {
       complete : function(){
         if (!complete_called) {
@@ -599,26 +674,46 @@ function interSectionNav(inter_nav_element)  {
         }
       }
     }
-  );
+  );  // END of "animate()" Method
   
   setTimeout(
     function() {
       displayVerticalNav();
     }, time_value
   );
-}
+  // The intrapage navigation, which appears on the far-right side of the browser 
+  // within a desktop or laptop display, or in the middle of the page 
+  // within a mobile display is activate.
+  // 
+  // The function runs after a period of time after the other HTML elements of the web page 
+  // are rendered. The time period is twice the value held by the variable, "time_value".
+} /* **************** END OF FUNCTION "interSectionNav" **************** */
 
 function activateSideNav(option_element)  {
+  /* **************** **************** **************** **************** **************** 
+   *  Fades in the HTML elements which are contained within a HTML element, '.copy',
+   *  of a given Section which had been invisible. 
+   * **************** *************** **************** **************** **************** */
+  
   var section_value = new String();
+  // This variable holds a number which represents the Section which is viewable and contains 
+  // the form this function processes.
   var scroll_to_value = new Number();
     
   section_value = $(option_element).attr("id");
-  
+  // Holds a value which matches the vertical location, in pixels.
+
   if (section_value === "sctn_main") {
-    scroll_to_value = 0;  
+  // If the Section to be navigated to is 'MAIN LANDING SECTION', 
+  // this condition is triggered.
+    scroll_to_value = 0;
+    // The vertical location to be navigated to is 0.
   } else {
+  // Otherwise, if the Section to be navigated to is not 'MAIN LANDING SECTION', 
+  // this condition is triggered.
     var wndow_selector = new String();
     var wndow_elements = new Object();
+
     var wndow_height = new Number();
 
     wndow_selector = ".wndow";
@@ -626,8 +721,14 @@ function activateSideNav(option_element)  {
 
     wndow_height = $(wndow_elements).height();
     
-    scroll_to_value = parseInt(section_value.charAt(section_value.length - 1)) * wndow_height;  
-  }
+    scroll_to_value = parseInt(section_value.charAt(section_value.length - 1)) * wndow_height;
+    // The vertical location to be navigated to is equal to the product 
+    // of multiplying the number representing the Section Value multiplied by
+    // the height of a HTML element using the selector, ".wndow". 
+  } // END of "if" STATEMENT which is triggered if the Section being navigated 
+    // to is 'MAIN LANDING SECTION'.
   
   $(window).scrollTop(scroll_to_value);
-}
+  // The browser window is navigated to the vertical location of the Section 
+  // being navigated to.
+} /* **************** END OF FUNCTION "activateSideNav" **************** */
