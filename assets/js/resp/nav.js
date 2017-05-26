@@ -239,7 +239,7 @@ function determineVisibleCopyElement(wndow_selector)  {
     } else {
     // Otherwise, if a visible ".copy" element has been found, this condition 
     // is triggered.
-      visible_copy_element_val = visible_copy_element_val - 2;
+      visible_copy_element_val = visible_copy_element_val - 3;
       // A value which matches the index of the child element in the DOM is 
       // passed to "visible_copy_element_val".
     } // END of "if" STATEMENT which is triggered if there not a visible 

@@ -1828,7 +1828,7 @@ function setURL(current_position, url_hash)  {
   wndow_elements = $(wndow_selector);
   info_element = $(info_selector);
 
-  wndow_height = $(wndow_element).height(); 
+  wndow_height = $(wndow_elements).height(); 
   window_margin = 150;
   // "wndow_margin" is given a range of 150 pixels that the current location of the 
   // browser window can fall into and still be considered part of the previous section.
@@ -1867,7 +1867,7 @@ function setURL(current_position, url_hash)  {
       } // END OF if STATEMENT that is triggered if the current location of the browser window 
         // lies below the 'MAIN LANDING SECTION'.
       
-      if (position_value === -1)  {
+      if (position_value === "-1")  {
       // If the value passed to, "position_value", is an unknown value, '-1', this 
       // condition is triggered.
         

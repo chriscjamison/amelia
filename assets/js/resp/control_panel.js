@@ -216,27 +216,27 @@ $(document).ready(
       }
     );
 
-    $("#sctn_5-no_1 > fieldset").mouseleave(
-      function () {
-        validateQuestionField("reset", "sctn_5-no_1");
-      }
-    );
-
     $("#sctn_5-no_1 > fieldset").mouseenter(
       function () {
         validateQuestionField("start", "sctn_5-no_1");
       }
     );
 
-    $("#sctn_5-no_2 > fieldset").mouseleave(
+    $("#sctn_5-no_1 > fieldset").mouseleave(
       function () {
-        validateQuestionField("reset", "sctn_5-no_2");
+        validateQuestionField("reset", "sctn_5-no_1");
       }
     );
 
     $("#sctn_5-no_2 > fieldset").mouseenter(
       function () {
         validateQuestionField("start", "sctn_5-no_2");
+      }
+    );
+
+    $("#sctn_5-no_2 > fieldset").mouseleave(
+      function () {
+        validateQuestionField("reset", "sctn_5-no_2");
       }
     );
     
