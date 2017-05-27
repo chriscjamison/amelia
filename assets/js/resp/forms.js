@@ -40,11 +40,6 @@
  *        + assembleURLString
  *        + setURL (animations.js)
  * 
- *    assembleURLString
- *      Passes a URL hash which contains data which defines the currently visible 
- *      "window pane" within each individual Section. That URL hash is then added 
- *      to the URL string currently in the browser window.
- * 
  *      Called by:
  *        + $("#form-sctn_1, #form-sctn_5, #form-sctn_6").submit() (control_panel.js)
  * 
@@ -411,37 +406,52 @@ function validateForm(section_value)  {
   var range_element = new Object();
   var select_element = new Object();
 
-  var questions_num_val = new Number();
   var inc = new Number();
 
   var complete_field_flag = new Boolean;
+  // A Boolean which marks a text field which contains proper data.
   var input_element_checked_flag = new Boolean;
-            
+  // A Boolean which marks an input which contains proper data.
+
   var complete_field_flag_Array = new Array();
+  // Holds a set of Booleans which correspond with each input 
+  // or text field. 
+  //
+  // If one of the Booleans is false, the form will pass an 
+  // error message to the user.
 
   form_questions_selector = "#form-" + section_value + " .form_cntnt";
   form_questions_elements = $(form_questions_selector);
   
-  questions_num_val = $(form_questions_elements).length;
-
   inc = 0;
+  // An incrementer that counts the number of form fields with proper 
+  // data.
   
   $(form_questions_elements).each(
+  // This loop runs through every input type contained within an 
+  // individual form type.
     function () {
       complete_field_flag = false;
       input_element_checked_flag = false;
+      // The value of each variable defaults to improper form data 
+      // that the "if" statements try to prove are proper.
       
       input_elements = $(this).find("fieldset").find("input");
       textarea_element = $(this).find("textarea");
       select_element = $(this).find("select");
       
       $(input_elements).each(
+      // This loop runs for each input field type.
         function () {
           var input_element = new Object();
+
           var input_element_val = new String();
-          var input_element_type = new String();                  
+          // Holds the value of a given text field.
+          var input_element_type = new String();   
+          // Holds the datatype of a given text field.               
           
           input_element = this;
+          // Holds the current input this loop processes.
           
           input_element_val = $(input_element).val();
           input_element_type = $(input_element).attr("type");
@@ -453,90 +463,162 @@ function validateForm(section_value)  {
               (input_element_val !== "Please enter your first name" && 
                input_element_val !== "Please enter a valid email address" &&
                input_element_val !== "Please enter your phone number")) {
+          // If the text field is of "text", "email", or a "tel" datatype, the 
+          // number of characters contained in the text field is greater than 0, 
+          // and the value of the text field does not contain an error message, 
+          // this condition is triggered.
             complete_field_flag = true;
-            
+            // The text field has proper data.
           } else if (input_element_type === "radio")  {
+          // Otherwise, if the input element has a datatype of "radio", 
+          // this condition is triggered.
             var radio_element_property = new String();
 
             radio_element_property = $(input_element).prop("checked");
             
             if (radio_element_property === true) {
-              input_element_checked_flag = true;             
-            } 
+            // If the input element has been checked by the user, 
+            // this condition is triggered.
+              input_element_checked_flag = true;
+              // The input element contains proper data.
+            } // END of "if" STATEMENT which is triggered if the input element 
+              // has been checked.
           } else if (input_element_type === "checkbox") {
+          // Otherwise, if the input element has a datatype of "checkbox", 
+          // this condition is triggered.
             var checkbox_element_property = new String();
 
             checkbox_element_property = $(input_element).prop("checked");
 
             if (checkbox_element_property === true)  {
+            // If the input element has been checked by the user, 
+            // this condition is triggered.
               input_element_checked_flag = true;
-            }
+              // The input element contains proper data.
+            } // END of "if" STATEMENT that is triggered if the input element 
+              // has been checked.
           } else if (input_element_type === "range") {
-            complete_field_flag = true;  
-          }
-        }
+          // Otherwise, if the input element has a datatype of "range", 
+          // this condition is triggered.
+            complete_field_flag = true; 
+            // Input elements of datatype, "range", can only have proper data.
+          } // END of "if" STATEMENT which is triggered if the text field is of 
+            // "text", "email", or a "tel" datatype, the 
+            // number of characters contained in the text field is greater than 0, 
+            // and the value of the text field does not contain an error message, 
+            // this condition is triggered.
+        } // END of ".each()" Method.
       );
       
       if ($(textarea_element).val() !== undefined) {
+      // If the input element is a "textarea" and has data, 
+      // this condition is triggered.
         complete_field_flag = true;
+        // The textarea contains proper data.
       } else if ($(select_element).val() !== undefined)  {
+      // Otherwise, if the input element is a "select" element, 
+      // this condition is triggered.
         if ($(select_element).val() !== "default")  {
+        // If the "select" element has been clicked and an option 
+        // selected, this condition is triggered.
           complete_field_flag = true;
-        } 
-      }
+          // The "select" element contains proper data.
+        } // END of "if" STATEMENT which is triggered if a "select" 
+          // element is clicked and an option is selected.
+      } // END of "if" STATEMENT which is triggered if the input 
+        // element is a "textarea" and has data.
 
       if (input_element_checked_flag === true)  {
+      // If only the input element has been shown to have proper 
+      // data, than this condition is triggered.
         complete_field_flag = true;
-      }
+        // The form question has proper data.
+      } // END of "if" STATEMENT which is triggered if only the 
+        // input element has been shown to have proper data.
 
       complete_field_flag_Array[inc] = complete_field_flag;
+      // The type of data of the text field or input element, 
+      // proper or improper, is passed onto the Array.
 
       inc++;
-    }
+      // The "index" corresponding with the input element or 
+      // text field that this loop processes is incremented.
+    } // END of ".each()" Method
   );
 
   for (inc = 0; inc < complete_field_flag_Array.length; inc++)  {
+  // Loop which cycles through the Array which holds Boolean values 
+  // for each input type which correspond with an input type 
+  // holding proper or improper data.
     if (complete_field_flag_Array[inc] === false) {
+    // If the Boolean this loop is processing is false, the input 
+    // element or text field holds improper data, and this condition 
+    // is triggered.
       complete_field_flag = false;
-    }
-  }
+      // The form holds improper data.
+    } // END of "if" STATEMENT that is triggered if the Boolean 
+      // this loop is processing holds improper data.
+  } // END of "for" LOOP
 
   return complete_field_flag;
-}
+  // If the form contains proper data, the value of, "true", will be 
+  // passed on. Otherwise, the form holds improper data and this value 
+  // will be "false".
+} /* **************** END OF FUNCTION "validateForm" **************** */
 
 function setRateValue(rate_value_search_string) {
-  var rate_value_location = new Number();
+  /* **************** **************** **************** **************** **************** 
+   *  Passes the value of the GET variable, "rateValue", which appears when 'FORM TYPE #3' 
+   *  is submitted to a HTML element using the selector, 
+   *  "#sctn_5-desc-6 > span > span:first-of-type" 
+   *  or "#sctn_5-desc-6 > span > span > sup + span"
+   * **************** **************** **************** **************** **************** */
 
-  var rate_value_result = new String();
+  var rate_value_index_num = new Number();
+  // Holds the location within the URL string that the value of the GET 
+  // variable, "rateValue", lies within, "rate_value_search_string".
+
+  var rate_value_val = new String();
+  // Holds the value of the GET variable, "rateValue".
 
   var url_string = new String();
 
   url_string = window.location.href;
   
-  rate_value_location = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
+  rate_value_index_num = url_string.indexOf(rate_value_search_string) + rate_value_search_string.length;
+  // The location of the search string within the URL string is added 
+  // to the length, in characters, of the search string.
+  rate_value_val = url_string.slice(rate_value_index_num, url_string.length);
+  // The value of "rateValue", is extracted from the URL string.
 
-  rate_value_result = url_string.slice(rate_value_location, url_string.length);
-
-  if (rate_value_result === "0")  {
+  if (rate_value_val === "0")  {
+  // If the value of "rateValue" is 0, then this condition is triggered.
     var blok_selector = new String();
     var blok_element = new Object();
 
-    var css_1 = new Object();
+    var bold_white_css = new Object();
     
     blok_selector = "#sctn_5-desc-6 > span > span:first-of-type";
 
     blok_element = $(blok_selector);
     
-    css_1 = {
+    bold_white_css = {
       color: "#fff",
       fontSize: "6em", 
       fontWeight: "600", 
     }
 
     $(blok_element).text("No Cost");
+    // The value of the HTML element identified by the selector, 
+    // "#sctn_5-desc-6 > span > span:first-of-type", is removed and 
+    // "No Cost" is added in its place.
 
-    $(blok_element).css(css_1);
+    $(blok_element).css(bold_white_css);
+    // The style of the text is now larger and in bold. The color 
+    // of the text is white.
   } else  {
+  // Otherwise, if the value of "rateValue" is not 0, then this 
+  // condition is triggered.
     var span_selector = new String();
     var span_element = new Object();
 
@@ -544,6 +626,10 @@ function setRateValue(rate_value_search_string) {
   
     span_element = $(span_selector);
     
-    $(span_element).text(url_string.slice(rate_value_location, url_string.length));
-  }
-}
+    $(span_element).text(url_string.slice(rate_value_index_num, url_string.length));
+    // The value of the HTML element using the selector, 
+    // "#sctn_5-desc-6 > span > span > sup + span", is replaced with 
+    // the value of the variable, "rateValue".
+  } // END of "if" STATEMENT which is triggered if the value of "rateValue", 
+    // is 0.
+} /* **************** END OF FUNCTION "setRateValue" **************** */
