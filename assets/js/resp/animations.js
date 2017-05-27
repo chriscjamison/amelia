@@ -1056,6 +1056,8 @@ function animatePageElements()  {
   var element_on_css = new Object();
   
   var page_dimensions_Array = new Array();
+  // The calculated values for the "width" and "height" of various HTML elements 
+  // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
   var window_width = new Number();
   // Holds the numerical value of the width of the browser window.
@@ -1448,7 +1450,6 @@ function animateSctnNavLinks(sctn_nav_link_element) {
   
   if ($(sctn_nav_link_element).css("display") === "none")  {
   // If the individual menu options are invisible, this condition is triggered.
-
     $(sctn_nav_link_element).css("opacity", 0);
     // The main intrasection navigation is faded to an opacity of 0.
     $(sctn_nav_link_element).css("display", "block");
@@ -1466,7 +1467,7 @@ function animateSctnNavLinks(sctn_nav_link_element) {
     // invisible.
 } /* **************** END OF FUNCTION "animateSctnNavLinks" **************** */
 
-function animateSideNav() {
+function animateSideNav(time_value) {
   /* **************** **************** **************** **************** **************** 
    * Animates the visibility and layout of the HTML elements contained within the webpage 
    * when the main intersection navigation menu that appears on the left of the webpage 
@@ -1927,12 +1928,12 @@ function animateMenuOptions(option_element) {
   if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
   // If the click state of the menu option is in its "base" state, 
   // this condition is triggered.
-    $(option_element).animate(hover_css, time_value_1);
+    $(option_element).animate(hover_css, time_value_long);
     // The click state of the menu option is changed to its "hover" state.
   } else {
   // Otherwise if the click state of the menu option is in its "hover" state 
   // this condition is triggered.
-    $(option_element).animate(base_css, time_value_2);
+    $(option_element).animate(base_css, time_value_short);
     // The click state of the menu option is changed to its "base" state.
   } // END OF if STATEMENT which is triggered if the menu option is in 
     // its "base" click state.
