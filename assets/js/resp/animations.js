@@ -72,7 +72,7 @@
  *        + $(window).on("hashchange") (control_panel.js)
  * 
  *    displayVerticalNav
- *      Displays the inter-sectional navigation which appears as two white arrows located 
+ *      Displays the inter-section which appears as two white arrows located 
  *      on the right hand side of the browser window, within a desktop browser 
  *      or along the top and bottom of the browser window within a mobile browser.
  *  
@@ -102,8 +102,7 @@
  *        + $(".sctn_nav > div > div > a").on("click") (control_panel.js)        
  * 
  *    animateSideNav
- *      Animates the movement of the inter-sectional navigation that appears on the left hand 
- *      side of the browser window.
+ *      Animates the movement of the main menu of the browser window.
  *    
  *      Called by:
  *        + $("#nav-link").on("click") (control_panel.js)
@@ -181,12 +180,12 @@ function parseWindowDimensions() {
     
     if (window_height <= 1308)  {
     // If the height of the browser is less than or equal to 1308, the browser 
-    // has the dimensions of 980x1308px. These dimensions are the same as an iPad.
-      page_dimensions_Array[1] = 1308;  
+    // has the dimensions of 980x1740px. These dimensions are the same as an iPad.
+      page_dimensions_Array[1] = 1740;  
     } else  {
-    // Otherwise the browser has the dimensions of 980x1740px.
+    // Otherwise the browser has the dimensions of 980x1308px.
     // These dimensions are the same as an iPhone.
-      page_dimensions_Array[1] = 1740;
+      page_dimensions_Array[1] = 1308;
     } // END OF if STATEMENT -- height > 1308
   } else {
     if (window_width <= 1024) {
@@ -427,7 +426,7 @@ function cssAdjustment()  {
 
       $(next_sctn_element).css(inter_nav_2_css);
       $(prev_sctn_element).css(inter_nav_2_css);
-      // The inter-sectional navigation which consists of white arrows 
+      // The inter-section which consists of white arrows 
       // appears in the middle top and middle bottom of the browser window.
 
     } // END OF if STATEMENT which is triggered if the window_width is 1920.
@@ -486,7 +485,7 @@ function setupPage(time_value)  {
    * setupPage initializes the rendering of the HTML elements 
    * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
    *   
-   * This function also initializes the placement of the inter-sectional navigation 
+   * This function also initializes the placement of the inter-section 
    * which uses "arrows". These arrows appear on the far-right side of the browser window 
    * within a desktop or laptop display and in the top and bottom middle 
    * of a mobile display .
@@ -503,7 +502,7 @@ function setupPage(time_value)  {
 
   var page_dimensions_Array = new Array();
   // The calculated values for the "width" and "height" of various HTML elements 
-    // of the webpage within the browser window are passed on to "page_dimensions_Array".
+  // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
   var page_height = new Number();
   // Holds the total height of the webpage.
@@ -698,7 +697,7 @@ function setupPage(time_value)  {
       displayVerticalNav();
     }, (time_value * 1.25)
   );
-  // The intrapage navigation, which appears on the far-right side of the browser 
+  // The inter-section navigation, which appears on the far-right side of the browser 
   // within a desktop or laptop display, or in the middle of the page 
   // within a mobile display is activate.
   // 
@@ -997,7 +996,7 @@ function animatePageElements()  {
   /* **************** **************** **************** **************** **************** 
    * "animatePageElements" triggers a sequence of modifications of CSS values and 
    * properties and animations of various HTML elements which fire when a user 
-   * activates a menu option, intrapage, or intrasection option.
+   * activates a menu option, intra-section, or intrasection option.
    *  
    * The function has a number of purposes.
    *    1. Determine the hash of the URL, if there is one.
@@ -1190,7 +1189,7 @@ function animatePageElements()  {
 
 function displayVerticalNav() {
   /* **************** **************** **************** **************** **************** 
-   * Displays the intrapage navigation that appears on the right hand side 
+   * Displays the inter-section navigation that appears on the right hand side 
    * of the browser window.
    * 
    * If the vertical location of the webpage within the browser window is near the top 
@@ -1212,7 +1211,7 @@ function displayVerticalNav() {
   var next_sctn_element = new Object();
   var wndow_elements = new Object();
   
-  intrapage_off_css = {
+  intersection_off_css = {
     display: "none", 
     opacity: 0
   }
@@ -1235,7 +1234,7 @@ function displayVerticalNav() {
   if (current_position === 0)  {
   // If the vertical location of the visible Section is at the top 
   // of the webpage, this condition is triggered.
-    $(prev_sctn_element).css(intrapage_off_css);
+    $(prev_sctn_element).css(intersection_off_css);
     // The up arrow is made invisible.
     $(next_sctn_element).css(intersection_on_css);
     // The down arrow is made visible.
@@ -1284,7 +1283,7 @@ function displayVerticalNav() {
     if (current_position >= webpage_location_val)  {
     // If the visible portion of the website lies lower on the webpage than the 
     // value of "webpage_location_val", this condition is triggered.
-      $(next_sctn_element).css(intrapage_off_css);
+      $(next_sctn_element).css(intersection_off_css);
       // The down arrow is made invisible.
       $(prev_sctn_element).css(intersection_on_css);
       // The up arrow is made visible.
