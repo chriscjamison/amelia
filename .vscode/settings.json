@@ -6,5 +6,7 @@
 	
 	"editor.lineHeight": 22,
 	
-	"editor.tabSize": 2
+	"editor.tabSize": 2,
+	
+	"files.autoSave": "onFocusChange"
 }

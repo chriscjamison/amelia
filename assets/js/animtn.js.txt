@@ -1,0 +1,13 @@
+function animateWindows(bkgrndValue, windowPaneValue, positionValue) {
+	var bkgrndValueString = "#bkgrnd-" + bkgrndValue;
+	var windowPaneValueString = "#wndow-sctn_" + windowPaneValue;
+	
+	var bkgrndValueNum = positionValue * -1280;
+	var windowPaneValueNum = positionValue * -1280;
+	
+	var bkgrndValueNumString = bkgrndValueNum + "px";
+	var windowPaneValueNumString = windowPaneValueNum + "px";
+	
+	$(bkgrndValueString).css("left", bkgrndValueNumString);
+	$(windowPaneValueString).css("left", windowPaneValueNumString);
+}

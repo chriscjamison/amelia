@@ -1,0 +1,258 @@
+/* --- Section #1 ---------------------------------------------------------------------------------- */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0 0 1em 0;
+	clear: both;
+	z-index: 1;
+}
+
+div#logo {
+	position: absolute;
+	top: 12px;
+	left: 450px;
+	float: left;
+}
+
+div#pg_bkgrnd {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 113px;
+	left: 0;
+	z-index: -1;
+}
+
+div.sect_1 .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/bg-b-1.jpg');
+}
+
+div.sect_1 .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/bg-b-2.jpg');
+}
+
+div.sect_1 .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/bg-b-3.jpg');
+}
+
+div.sect_1 .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/bg-b-4.jpg');
+}
+
+div.qstn .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-1.jpg');
+}
+
+div.qstn .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-2.jpg');
+}
+
+div.qstn .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-3.jpg');
+}
+
+div.qstn .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/qstn/bg-4.jpg');
+}
+
+div.resp_y .bg_1 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-1.jpg');
+}
+
+div.resp_y .bg_2 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-2.jpg');
+}
+
+div.resp_y .bg_3 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-3.jpg');
+}
+
+div.resp_y .bg_4 {
+	width: 100%;
+	height: 200px;
+	background-image: url('/amelia/assets/img/sect/1/resp_y/bg-4.jpg');
+}
+
+div.resp_n .bg_1 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-1.jpg');
+}
+
+div.resp_n .bg_2 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-2.jpg');
+}
+
+div.resp_n .bg_3 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-3.jpg');
+}
+
+div.resp_n .bg_4 {
+	width: 100%;
+	height: 235px;
+	background-image: url('/amelia/assets/img/sect/1/resp_n/bg-4.jpg');
+}
+
+div#header span {
+	width: 1138px;
+	height: 65px;
+	display: block;
+	padding: 30px 0 0 125px;
+	background-color: #476b3f;
+	font: 600 2em "Balthazar", "Cambria", serif;
+	letter-spacing: 2px;
+	color: #fff;
+}
+
+div#header div#brdr-1 {
+	width: 100%;
+	height: 3px;
+	background-color: #d7dc8b;
+}
+
+div#header div#brdr-2 {
+	width: 100%;
+	height: 3px;
+	background-color: #8bbbaf;
+}
+
+div#header div#brdr-3 {
+	width: 100%;
+	height: 10px;
+	background-color: #8ab78e;
+}
+
+div#header div#brdr-4 {
+	width: 100%;
+	height: 2px;
+	background-color: #3f4637;
+}
+
+div#windowpane {
+	width: 100%;
+	height: 607px;
+	background-color: #fff;
+	opacity: 0.7;
+}
+
+div#copy {
+	font: 400 0.9em "Glegoo", "Palatino", serif;
+}
+
+div.block {
+	width: 25%;
+	height: auto;
+	margin: 0 auto;
+	padding: 2.0em;
+	top: 350px;
+	left: 55%;
+	position: absolute;
+	font-size: 0.9em;
+	z-index: 2;
+}
+
+div.block span {
+	width: 100%;
+	padding-bottom: 0.25em;
+	display: inline-block;
+	border-bottom: 2px solid;
+	font-weight: 800;
+	font-size: 2.5em;
+	text-indent: 0.25em;
+}
+
+div.block p {
+	text-indent: 1.0em;
+	line-height: 1.85em;
+	margin-bottom: 2.0em;
+}
+
+div#yes {
+	top: 250px;
+	left: 850px;
+	background-color: #3b495d;
+	border: 5px solid #cccfd8;
+	color: #e9ebf8;
+}
+
+div#no {
+	top: 250px;
+	left: 750px;
+	background-color: #9a633f;
+	border: 5px solid #64300a;
+	color: #f0f2ee;
+}
+
+div#description {
+	width: 25%;
+	position: absolute;
+	top: 150px;
+	left: 125px;
+	margin: 25px;
+	padding: 5px 5px 17px 5px;
+	font: 400 0.95em "Glegoo", "Palatino", serif;
+	background-color: #d2e6db;
+	border: 4px solid #476b3f;
+}
+
+div#description p {
+	margin: 10px 17px;
+	text-indent: 2em;
+	line-height: 1.75em	
+}
+
+div#quiz-button {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 2.5em;
+}
+
+div#quiz-button input {
+	width: 125px;
+	height: 50px;
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	background-color: #40BDE8;
+	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	color: #221763;
+	border: 2px solid #369DBF;
+	cursor: pointer;
+}
+
+div#quiz-button input#submit-quiz {
+ right: -67%;	
+}
