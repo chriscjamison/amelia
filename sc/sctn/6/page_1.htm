@@ -1,0 +1,147 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<!-- FILENAME: page_1.htm // Holds the form named FORM TYPE #2 -->
+	<head>
+		<!-- TITLE -->
+		<title>Amelia Xavier Counseling ~ Contact Amelia Xavier ~</title>
+		<!-- WEB FONT REFERENCE LINKS -->
+		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
+		<!-- STYLESHEET REFERENCE LINKS -->
+		<link rel="stylesheet" type="text/css" href="/amelia/assets/css/dsktp/main.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/dsktp/nav.css">
+		<link rel="stylesheet" type="text/css" media="all" href="/amelia/assets/css/dsktp/forms.css">
+		<!-- jQUERY REFERENCE LINKS -->
+		<script src="/amelia/assets/js/jquery-2.1.4.js"></script>
+		<script src="/amelia/assets/js/ui/jquery-ui.js"></script>
+		<!-- THEME JAVASCRIPT REFERENCE LINKS -->
+		<script src="/amelia/assets/js/dsktp/nav.js"></script>
+		<script src="/amelia/assets/js/dsktp/animations.js"></script>
+		<script src="/amelia/assets/js/dsktp/forms.js"></script>
+		<script src="/amelia/assets/js/dsktp/control_panel.js"></script>
+	</head>
+	<body>
+		<!-- INTERSECTION NAVIGATION -->
+		<nav>
+			<a class="nav-base" id="nav-link"></a>
+			<div id="options">
+				<a id="sctn_main">Welcome</a>
+				<a id="sctn_1">Is Therapy Right for You?</a>
+				<a id="sctn_2">Credentials</a>
+				<a id="sctn_3">Specialities</a>
+				<a id="sctn_4">Testimonials</a>
+				<a id="sctn_5">Insurance &amp; Rates</a>
+				<a id="sctn_6">Contact Amelia Xavier</a>
+			</div>
+			<div id="nav-bkgrnd">
+				<div id="nav-brdr"></div>
+			</div>
+		</nav>
+		<div id="cntainr">
+			<!-- Header for SECTION #6 -->
+			<div class="headr sctn_6"><span>Contact Amelia Xavier</span></div>
+			<div id="copy">
+				<div id="form-sctn_6">
+					<!-- FORM TYPE #3 -->
+					<form method="POST" action="/amelia/assets/php/dsktp/form_3.php" name="form-sctn_6" id="form-sctn_6">
+						<!-- LEFT COLUMN for FORM TYPE #3 -->
+						<div class="clmn" id="sctn_6-clmn-1">
+							<!-- Page #1 for FORM TYPE #3 -->
+							<div class="form-page_1">
+								<!-- Form Question #1 -->
+								<div class="form_cntnt" id="sctn_6-no_1">
+									<span>Enter in your first name below:</span>
+									<fieldset>
+										<input type="text" size="34" maxlength="40" name="cntct_name" id="sctn_6-name" />
+									</fieldset>	
+								<!-- END of Form Question #1 -->
+								</div>
+							<!-- END of Page #1 for FORM TYPE #3 -->
+							</div>
+							<!-- Page #2 for FORM TYPE #3 -->
+							<div class="form-page_2">
+								<!-- Form Question #3 -->
+								<div class="form_cntnt" id="sctn_6-no_3">
+									<span>Please select an option that best matches your need:</span>
+									<fieldset>
+										<p>
+											<input type="radio" name="need" value="cnsltatn" id="need-cnsltatn" />
+											<label for="cnsltatn">Consultation</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="make_appt" id="make-appt" />
+											<label for="mke-appntmnt">Make Appointment</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="cancl-appt" id="cancl-appt" />
+											<label for="cancl-appntmnt">Cancel Appointment</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="billng" id="need-billng" />
+											<label for="bllng">Billing / Insurance</label>
+										</p>
+										<p>
+											<input type="radio" name="need" value="othr" id="need-othr" />
+											<label for="other">Other</label>
+										</p>
+										<p>
+											<input type="text" name="need-othr" value="" id="need-othr-text" />
+										</p>
+									</fieldset>	
+								<!-- END of Form Question #3 -->
+								</div>
+							<!-- END of Page #2 for FORM TYPE #3 -->
+							</div>
+						<!-- END of LEFT COLUMN for FORM TYPE #3 -->
+						</div>
+						<!-- RIGHT COLUMN for FORM TYPE #3 -->
+						<div class="clmn" id="sctn_6-clmn-2">
+							<!-- Page #1 for FORM TYPE #3 -->
+							<div class="form-page_1">
+								<!-- Form Question #2 -->
+								<div class="form_cntnt" id="sctn_6-no_2">
+									<span>Please enter your email or phone number below:</span>
+									<fieldset>
+										<p>
+											<input type="radio" name="phone_email" value="email" id="sctn_6-email" />
+											<label for="appntmnt">Email Address</label>
+										</p>
+										<p>
+											<input type="radio" name="phone_email" value="phone" id="sctn_6-phone" />
+											<label for="cnsltatn">Phone Number</label>
+										</p>
+										<input type="email" size="34" maxlength="40" name="cntct_method" id="sctn_6-field-email" />
+									</fieldset>
+								<!-- END of Form Question #2 -->
+								</div>
+								<!-- BUTTON to view Page #2 of FORM TYPE #3 -->
+								<input type="button" name="sctn_6-next" value="Next" id="sctn_6-next" />
+							<!-- END of Page #2 for FORM TYPE #3 -->
+							</div>
+							<!-- Page #2 for FORM TYPE #3 -->
+							<div class="form-page_2">
+								<!-- Form Question #4 -->
+								<div class="form_cntnt" id="sctn_6-no_4">
+									<span>Please enter your message for Amelia below:</span>
+									<fieldset>
+										<textarea name="msg" cols="33" rows="10" id="msg"></textarea>
+									</fieldset>
+								<!-- END of Form Question #4 -->
+								</div>
+								<!-- BUTTON to Submit FORM TYPE #3 -->
+								<input type="submit" name="sctn_6-sbmt" value="Send Message" id="sctn_6-sbmt" />
+								<!-- BUTTON to view Page #1 of FORM TYPE #3 -->
+								<input type="button" name="sctn_6-prev" value="Previous" id="sctn_6-prev" />
+							<!-- END of Page #2 of FORM TYPE #3 -->
+							</div>
+						<!-- END of RIGHT COLUMN for FORM TYPE #3 -->
+						</div>
+					<!-- END of FORM TYPE #3 -->
+					</form>		
+				</div>
+			</div>
+		</div>
+		<!-- BACKGROUND IMAGE -->
+		<div id="bkgrnd">
+			<div></div>
+		</div>
+	</body>	
+</html>
