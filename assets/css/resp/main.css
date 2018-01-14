@@ -905,7 +905,7 @@ body {
 /* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
 
 #sctn_6-desc-2 {
- padding: 1em 2em;
+  padding: 1em 2em;
 	margin-bottom: 20em;
 	position: relative;
 	background-color: #A7AB92;
@@ -1677,8 +1677,6 @@ body {
 
   #sctn_6-info-1 {
     width: 28.8em;
-    left: 41em;
-    clear: both;
   }
 
   #sctn_6-info-1 > span {
@@ -1692,7 +1690,6 @@ body {
 
   #sctn_6-info-2 > div {
     width: 29.5em;
-    margin-top: 10em;
     left: 3.7em;
   }
 }

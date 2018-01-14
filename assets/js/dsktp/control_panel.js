@@ -9,7 +9,7 @@ $(document).ready(
     time_value = 400;
     url_pathname = window.location.pathname;
     url_href = window.location.href;
-    base_url_value = "http://localhost/amelia/sc/";
+    base_url_value = "http://chriscjamison.com/amelia/sc/";
     rate_value_search_string = "rateValue=";
 
     $("#nav-link").on("mouseover", 

@@ -1579,6 +1579,7 @@ if ($(nav_element).css("left") !== "0px")  {
     var nav_mobile_visible_css = new Object();
     var options_staging_css = new Object();
     var element_shifted_right_css = new Object();
+    var element_shrank_css = new Object();
     var element_extended_css = new Object();
     var element_invisible_css = new Object();
 
@@ -1601,10 +1602,14 @@ if ($(nav_element).css("left") !== "0px")  {
       left: nav_width
     };
 
-    element_extended_css = {
-      width: (wndow_width - nav_width),
-      left: nav_width
+    element_shrank_css = {
+      width: (wndow_width - nav_width)
     };
+/* 
+    element_extended_css = {
+      // width: (wndow_width - nav_width),
+      left: nav_width
+    }; */
 
     element_invisible_css = {
       display: "none"
@@ -1620,21 +1625,6 @@ if ($(nav_element).css("left") !== "0px")  {
     // The visible headers, HTML content, and intrasection navigation is
     // made invisible.
     
-    $(options_element).css(options_staging_css);
-    // The menu options of the intersection navigation are ready to be viewed 
-    // once the panel containing the intersection navigation scrolls in 
-    // from the left.
-
-    $(nav_element).animate(nav_visible_css, time_value)
-    $(nav_bkgrnd_element).animate(nav_visible_css, time_value);
-    $(nav_brdr_element).animate(nav_visible_css, time_value);
-    $(options_element).animate(nav_visible_css, time_value);
-    // The main intersection that appears on the left of the webpage scrolls 
-    // in from the left to the right.
-    //
-    // The HTML elements affected by these statements are: "nav", 
-    // "#nav-bkgrnd", "#nav-brdr", "#options".
-
     if (wndow_width === 980 || 
         wndow_width === 1024)  {
     // If the width of a HTML element using the selector, ".wndow", is 
@@ -1658,10 +1648,29 @@ if ($(nav_element).css("left") !== "0px")  {
     } else {
     // Otherwise, if the browser is a desktop browser, this condition 
     // is triggered.
+      $(cntainr_element).css(element_shrank_css);
+      $(bkgrnd_element).css(element_shrank_css);
+
       $(cntainr_element).animate(element_shifted_right_css, time_value);
+      $(wndow_elements).animate(element_shrank_css, time_value);
       $(bkgrnd_element).animate(element_shifted_right_css, time_value);
       // The HTML content and the background is shifted to the right, out of view.
     }
+
+    $(options_element).css(options_staging_css);
+    // The menu options of the intersection navigation are ready to be viewed 
+    // once the panel containing the intersection navigation scrolls in 
+    // from the left.
+
+    $(nav_element).animate(nav_visible_css, time_value)
+    $(nav_bkgrnd_element).animate(nav_visible_css, time_value);
+    $(nav_brdr_element).animate(nav_visible_css, time_value);
+    $(options_element).animate(nav_visible_css, time_value);
+    // The main intersection that appears on the left of the webpage scrolls 
+    // in from the left to the right.
+    //
+    // The HTML elements affected by these statements are: "nav", 
+    // "#nav-bkgrnd", "#nav-brdr", "#options".
   } else  {
   // Otherwise, if the intersection navigation that appears on the left hand 
   // of the webpage is invisible, this condition is triggered.
@@ -1714,10 +1723,10 @@ if ($(nav_element).css("left") !== "0px")  {
         // of content is scrolled back to the left, into view.
         $(bkgrnd_element).animate(element_shifted_left_css, time_value, 
           function () {
-            $(cntainr_element).width(window_width);
             $(sctn_nav_element).width(window_width);
             $(bkgrnd_element).width(window_width);
             $(wndow_elements).width(window_width);
+            $(cntainr_element).width(window_width);
             $(headr_elements).css(headr_visible);
             $(copy_elements).css(element_visible_css);
             $(info_element).css(element_visible_css);
@@ -1726,6 +1735,8 @@ if ($(nav_element).css("left") !== "0px")  {
             // and other content is made visible.
           }
         );
+        
+        
         // The background and other forms of content is made visible.
       }
     );

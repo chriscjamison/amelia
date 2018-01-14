@@ -31,18 +31,19 @@ function navLinkHoverState(new_class) {
     $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
-        $(nav_link_element).addClass("nav-base");
+        $(nav_link_element).addClass(new_class);
         $(nav_link_element).fadeTo((time_value / 8), 1);
       }
     );
   }
    
   if (new_class === "nav-hover" && 
-      headr_css_display_val === "table") {
+      ((headr_css_display_val === "table") || 
+      (window.location.pathname === "/amelia/sc/"))) {
     $(nav_link_element).fadeTo((time_value / 4), 0, 
       function () {
         $(nav_link_element).removeClass();
-        $(nav_link_element).addClass("nav-hover");
+        $(nav_link_element).addClass(new_class);
         $(nav_link_element).fadeTo((time_value / 8), 1);
       }
     );
@@ -70,7 +71,7 @@ function activateSideNav(option_element)  {
     
   section_value = $(option_element).attr("id");
 
-	url_base_value = "http://localhost/amelia/sc/sctn/";
+	url_base_value = "http://chriscjamison.com/amelia/sc/sctn/";
 
   if (section_value === "sctn_main") {
     new_url_value = url_base_value.substr(0, (url_base_value.length - 5));

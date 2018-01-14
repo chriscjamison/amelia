@@ -849,7 +849,7 @@ body {
 
 #sctn_6-info-2 {
   width: 32.8em;
-  height: 12.15em;
+  height: 4.15em;
   margin-top: 1em;
   position: relative;
 }
@@ -1609,8 +1609,6 @@ body {
 
   #sctn_6-info-1 {
     width: 28.8em;
-    left: 41em;
-    clear: both;
   }
 
   #sctn_6-info-1 > span {
@@ -1624,7 +1622,6 @@ body {
 
   #sctn_6-info-2 > div {
     width: 29.5em;
-    margin-top: 10em;
     left: 3.7em;
   }
 }
