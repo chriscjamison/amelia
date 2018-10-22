@@ -6,7 +6,7 @@
  *
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage Amelia
  * @since 1.0
  * @version 1.0
  */
@@ -25,11 +25,13 @@
 <?php if ( has_nav_menu( 'top' ) ) : ?>
 		<!-- INTERSECTION NAVIGATION -->
 		<nav>
-<?php 
+			<a class="nav-base" id="nav-link"></a>
+<?php
+	
 	// Primary navigation menu.
 	wp_nav_menu( array(
-		'menu_class'     => 'nav-menu',
-		'theme_location' => 'primary',
+		'container_id' => 'options', 
+		'items_wrap' => '%3$s'
 	) );
 ?>			
 			<div id="nav-bkgrnd">
