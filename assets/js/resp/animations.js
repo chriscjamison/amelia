@@ -162,8 +162,8 @@ function parseWindowDimensions() {
    *  of the function call using the Array, 'page_dimensions_Array'.
    * **************** **************** **************** **************** **************** */
 
-  var window_width = new Number(); 
-  var window_height = new Number();
+  var window_width; 
+  var window_height;
   
   var page_dimensions_Array = new Array();
   // Holds the calculated values of the width and height of the visible area of the browser. 
@@ -251,10 +251,10 @@ function urlInfo() {
   var position_string = new String();
   // Holds the string, "pos=", which is searched for within, "url_hash".
   
-  var section_index_num = new Number();
+  var section_index_num;
   // Holds the value that the Method, "indexOf", returns 
   // when the string, "sctn_" is searched for within, "url_hash". 
-  var position_index_num = new Number();
+  var position_index_num;
   // Holds the value that the Method, "indexOf", returns 
   // when the string, "pos=" is searched for within, "url_hash".
   
@@ -349,7 +349,7 @@ function cssAdjustment()  {
   // The width and height values are calculated by "parseWindowDimensions" and passed on 
   // to "page_dimensions_Array".
 
-  var window_width = new Number();
+  var window_width;
   // Holds the numerical width of the browser which is passed on by the first index of 
   // "page_dimensions_Array".
   
@@ -370,8 +370,8 @@ function cssAdjustment()  {
 
     var prev_sctn_selector = new String();
     var next_sctn_selector = new String();
-    var prev_sctn_element = new Object();
-    var next_sctn_element = new Object();
+    var prev_sctn_element = {};
+    var next_sctn_element = {};
     
     prev_sctn_selector = "#prev-sctn";
     next_sctn_selector = "#next-sctn";
@@ -384,7 +384,7 @@ function cssAdjustment()  {
     // If the width of the browser is greater than 1260 yet less than 1920, 
     // this condition is triggered.
 
-      var inter_nav_css = new Object();
+      var inter_nav_css = {};
       
       inter_nav_css = {
         right: "33.6em"
@@ -401,10 +401,10 @@ function cssAdjustment()  {
     if (window_width === 1920)  {  
       var info_selector = new String();
       
-      var info_element = new Object();
+      var info_element = {};
       
-      var info_css = new Object();
-      var inter_nav_2_css = new Object();
+      var info_css = {};
+      var inter_nav_2_css = {};
      
       info_selector = "#info";
       
@@ -437,11 +437,11 @@ function cssAdjustment()  {
     var prev_sctn_span_selector = new String();
     var next_sctn_span_selector = new String();
    
-    var info_img_element = new Object();
-    var prev_sctn_span_element = new Object();
-    var next_sctn_span_element = new Object();
+    var info_img_element = {};
+    var prev_sctn_span_element = {};
+    var next_sctn_span_element = {};
     
-    var info_img_css = new Object();
+    var info_img_css = {};
     
     info_img_selector = "#info > img";
     prev_sctn_span_selector = "#prev-sctn > span";
@@ -504,19 +504,19 @@ function setupPage(time_value)  {
   // The calculated values for the "width" and "height" of various HTML elements 
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
   
-  var page_height = new Number();
+  var page_height;
   // Holds the total height of the webpage.
-  var wndow_width = new Number();
+  var wndow_width;
   // Holds the width of the HTML elements using the selector, ".wndow", 
   // as passed on from the first index of "page_dimensions_Array".
-  var wndow_height = new Number();
+  var wndow_height;
   // Holds the height of the HTML elements using the selector, ".wndow", 
   // as passed on from the second index of "page_dimensions_Array".
-  var num_of_wndow_elements = new Number();
+  var num_of_wndow_elements;
   // Holds the total number of HTML elements using the selector, ".wndow".
   
-  var nav_width = new Number();
-  var nav_left_val = new Number();
+  var nav_width;
+  var nav_left_val;
   
   var cntainr_selector = new String();
   var wndow_selector = new String();
@@ -531,13 +531,13 @@ function setupPage(time_value)  {
   // Loop works on the first HTML element which is refrerred to by,
   // "#bkgrnd > div".
 
-  var cntainr_element = new Object();
-  var wndow_elements = new Object();
-  var copy_elements = new Object();
-  var bkgrnd_element = new Object();
-  var nav_elements = new Object();
-  var bkgrnd_div_sub_elements = new Object();
-  var wndow_sctn_element = new Object();
+  var cntainr_element = {};
+  var wndow_elements = {};
+  var copy_elements = {};
+  var bkgrnd_element = {};
+  var nav_elements = {};
+  var bkgrnd_div_sub_elements = {};
+  var wndow_sctn_element = {};
   // Holds the jQuery Object that refers to the HTML element 
   // referenced within the selector contained within 
   // the variable, "wndow_sctn_selector".
@@ -546,11 +546,11 @@ function setupPage(time_value)  {
   // the jQuery Loop works on the first HTML element which is referred 
   // to by, "#bkgrnd > div"."
 
-  var cntainr_css = new Object();
-  var width_height_css = new Object();
-  var nav_css = new Object();
+  var cntainr_css = {};
+  var width_height_css = {};
+  var nav_css = {};
   
-  var inc_bkgrnd = new Number();
+  var inc_bkgrnd;
   
   var bkgrnd_img_value = new String();
   var bkgrnd_width = new String();
@@ -736,19 +736,19 @@ function animateInfoElement(time_value) {
     var next_sctn_span_selector = new String();
     var nav_link_selector = new String();
 
-    var info_element = new Object();
-    var next_sctn_element = new Object();
-    var prev_sctn_element = new Object();
-    var nav_element = new Object();
-    var next_sctn_span_element = new Object();
-    var nav_link_element = new Object();
+    var info_element = {};
+    var next_sctn_element = {};
+    var prev_sctn_element = {};
+    var nav_element = {};
+    var next_sctn_span_element = {};
+    var nav_link_element = {};
 
-    var info_css = new Object();
-    var next_sctn_css = new Object();
-    var prev_sctn_css = new Object();
-    var nav_sctn_css = new Object();
-    var nav_css = new Object();
-    var nav_link_css = new Object();
+    var info_css = {};
+    var next_sctn_css = {};
+    var prev_sctn_css = {};
+    var nav_sctn_css = {};
+    var nav_css = {};
+    var nav_link_css = {};
         
     info_selector = "#info";
     next_sctn_selector = "#next-sctn";
@@ -805,16 +805,16 @@ function animateInfoElement(time_value) {
     var info_ul_li_selector = new String();
     var info_ul_selector = new String();
 
-    var wndow_element = new Object();
-    var info_element = new Object();
-    var info_img_element = new Object();
-    var info_ul_li_element = new Object();
-    var info_ul_element = new Object();
+    var wndow_element = {};
+    var info_element = {};
+    var info_img_element = {};
+    var info_ul_li_element = {};
+    var info_ul_element = {};
 
-    var display_block_css = new Object();
-    var opacity_css = new Object();
-    var display_inherit_css = new Object();
-    var display_opacity_css = new Object();
+    var display_block_css = {};
+    var opacity_css = {};
+    var display_inherit_css = {};
+    var display_opacity_css = {};
     
     wndow_selector = "#wndow-sctn_main";
     info_selector = "#info";
@@ -905,17 +905,17 @@ function animateFormPanes() {
   
   var page_1_selector = new String();
   var page_2_selector = new String();
-  var page_1_element = new Object();
-  var page_2_element = new Object();
+  var page_1_element = {};
+  var page_2_element = {};
   
-  var section_value = new Number();
+  var section_value;
   // This variable holds a number which represents the Section which is viewable and contains 
   // the form this function processes.
 
   var url_info_Array = new Array();
   
-  var page_off_css = new Object();
-  var page_on_css = new Object();
+  var page_off_css = {};
+  var page_on_css = {};
  
   url_info_Array = urlInfo();
   // "url_info_Array" holds the Section and Position values that are 
@@ -1013,22 +1013,22 @@ function animatePageElements()  {
   var headr_selector = new String();
   var sub_nav_selector = new String();
   var div_selector = new String();
-  var bkgrnd_selector = new Object();
+  var bkgrnd_selector = {};
   // Holds the String value of the selector, "#bkgrnd-sctn_X".
 
-  var nav_element = new Object();
-  var cntainr_element = new Object();
+  var nav_element = {};
+  var cntainr_element = {};
   var wndow_elements = new Array();
-  var wndow_element = new Object();
-  var all_copy_element = new Object();
+  var wndow_element = {};
+  var all_copy_element = {};
   // Holds the contents of the HTML element identified by the selector, ".copy".
-  var single_copy_element = new Object();
+  var single_copy_element = {};
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
-  var headr_element = new Object();
+  var headr_element = {};
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
-  var bkgrnd_element = new Object();
+  var bkgrnd_element = {};
   // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
-  var sub_nav_element = new Object();
+  var sub_nav_element = {};
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
   var section_search_string = new String();
@@ -1039,10 +1039,10 @@ function animatePageElements()  {
   var url_hash = new String();
   // Holds the String value of the URL hash
 
-  var current_position = new Number();
+  var current_position;
   // Holds a number which matches the vertical position within the webpage that is viewable.
   
-  var position_value_index_num = new Number();
+  var position_value_index_num;
   // Holds a Number representing the location within the URL hash where the 
   // Position Valueis listed.
     
@@ -1051,17 +1051,17 @@ function animatePageElements()  {
   var position_value = new String();
   // Holds the String value of the Position Value listed in the URL hash.
   
-  var element_off_css = new Object();
-  var element_on_css = new Object();
+  var element_off_css = {};
+  var element_on_css = {};
   
   var page_dimensions_Array = new Array();
   // The calculated values for the "width" and "height" of various HTML elements 
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
-  var window_width = new Number();
+  var window_width;
   // Holds the numerical value of the width of the browser window.
 
-  var bkgrnd_element_width_val = new Number();
+  var bkgrnd_element_width_val;
   // Holds a number which is the product of the width of the browser window 
   // and "position_value".
   var bkgrnd_element_x_position = new String();
@@ -1197,19 +1197,19 @@ function displayVerticalNav() {
    * is near the bottom of the webpage, the down arrow does not appear.
    * **************** **************** **************** **************** **************** */
 
-  var current_position = new Number();
+  var current_position;
   // Holds a number which matches the vertical position within the webpage that is viewable.
    
-  var intersection_off_css = new Object();
-  var intersection_on_css = new Object();
+  var intersection_off_css = {};
+  var intersection_on_css = {};
 
   var prev_sctn_selector = new String();
   var next_sctn_selector = new String();
   var wndow_selector = new String();
   
-  var prev_sctn_element = new Object();
-  var next_sctn_element = new Object();
-  var wndow_elements = new Object();
+  var prev_sctn_element = {};
+  var next_sctn_element = {};
+  var wndow_elements = {};
   
   intersection_off_css = {
     display: "none", 
@@ -1248,17 +1248,17 @@ function displayVerticalNav() {
     } // END OF if STATEMENT which is triggered if the up arrow is invisible.
     
     wndow_selector = new String();
-    wndow_elements = new Object();
+    wndow_elements = {};
     
-    var wndow_height = new Number();
+    var wndow_height;
     // Holds the height of the HTML elements using the selector, ".wndow", 
     // as passed on from the second index of "page_dimensions_Array".
-    var wndow_location_margin = new Number();
+    var wndow_location_margin;
     // Holds a Number which determines the distance, in pixels, 
     // between the vertical location of the webpage and its distance 
     // from the top or bottom of the webpage.
  
-    var webpage_location_val = new Number();
+    var webpage_location_val;
     // Holds a Number which is the result of subtracting the height of 
     // HTML elements using the selector, ".wndow", and a buffer from the top or 
     // bottom of the webpage from the product of multiplying 
@@ -1266,7 +1266,7 @@ function displayVerticalNav() {
     //
     // This value marks the vertical location within the webpage that triggers 
     // a condition that allows for the down arrow to made visible.
-    var num_of_wndow_elements = new Number();
+    var num_of_wndow_elements;
     // Holds a Number that contains the total number of HTML elements using 
     // the selector, ".wndow".
     
@@ -1306,7 +1306,7 @@ function animateSctnNav(sctn_nav_element, time_value) {
    * **************** **************** **************** **************** **************** */
   
   var sctn_nav_link_selector = new String();
-  var sctn_nav_link_element = new Object();
+  var sctn_nav_link_element = {};
 
   var sctn_nav_id_val = new String();
   // Holds the selector of the <div> HTML element which contains the menu which 
@@ -1316,12 +1316,12 @@ function animateSctnNav(sctn_nav_element, time_value) {
   // Holds the value of the CSS property "background-position" for the HTML element 
   // which serves as intrasection navigation.
 
-  var sctn_nav_base_css = new Object();
-  var sctn_nav_hover_css = new Object();
-  var sctn_nav_click_1_css = new Object();
-  var sctn_nav_click_2_css = new Object();
-  var sctn_nav_mobile_base_css = new Object();
-  var sctn_nav_mobile_click_css = new Object();
+  var sctn_nav_base_css = {};
+  var sctn_nav_hover_css = {};
+  var sctn_nav_click_1_css = {};
+  var sctn_nav_click_2_css = {};
+  var sctn_nav_mobile_base_css = {};
+  var sctn_nav_mobile_click_css = {};
 
   sctn_nav_id_val = $(sctn_nav_element).parent().parent().attr("id");
   // The "id" of the <div> HTML element which contains the individual 
@@ -1490,24 +1490,24 @@ function animateSideNav(time_value) {
   var prev_next_sctn_selector = new String();
   var bkgrnd_selector = new String();
   
-  var nav_element = new Object();
-  var options_element = new Object();
-  var nav_bkgrnd_element = new Object();
-  var nav_brdr_element = new Object();
-  var cntainr_element = new Object();
-  var wndow_element = new Object();
+  var nav_element = {};
+  var options_element = {};
+  var nav_bkgrnd_element = {};
+  var nav_brdr_element = {};
+  var cntainr_element = {};
+  var wndow_element = {};
   var wndow_elements = new Array();
   var headr_elements = new Array();
-  var info_element = new Object();
+  var info_element = {};
   var copy_elements = new Array();
-  var bkgrnd_element = new Object();
-  var sctn_nav_element = new Object();
-  var prev_next_sctn_element = new Object();
+  var bkgrnd_element = {};
+  var sctn_nav_element = {};
+  var prev_next_sctn_element = {};
 
-  var nav_width = new Number();
+  var nav_width;
   // Holds the numerical value of the width of the HTML element 
   // identified by the selector, "nav".
-  var element_width = new Number();
+  var element_width;
   // Holds the numerical value of the calculated width of HTML elements 
   // identified by the selectors, "#cntainr" and #bkgrnd".
   // 
@@ -1515,9 +1515,9 @@ function animateSideNav(time_value) {
   // of their widths changed to the difference of the total width 
   // of the browser window and the width of the HTML element identified 
   // by the selector, "nav".
-  var window_width = new Number();
+  var window_width;
   // Holds the numerical value of the width of the browser window.
-  var wndow_width = new Number();
+  var wndow_width;
   // Holds the numerical value of the width of the HTML element using 
   // the selector, ".wndow".
   
@@ -1575,13 +1575,13 @@ if ($(nav_element).css("left") !== "0px")  {
     // the background images of the webpage, "#bkgrnd", and the HTML elements 
     // held within each Section of the webpage, ".wndow".
 
-    var nav_visible_css = new Object();
-    var nav_mobile_visible_css = new Object();
-    var options_staging_css = new Object();
-    var element_shifted_right_css = new Object();
-    var element_shrank_css = new Object();
-    var element_extended_css = new Object();
-    var element_invisible_css = new Object();
+    var nav_visible_css = {};
+    var nav_mobile_visible_css = {};
+    var options_staging_css = {};
+    var element_shifted_right_css = {};
+    var element_shrank_css = {};
+    var element_extended_css = {};
+    var element_invisible_css = {};
 
     nav_visible_css = {
       left: "0px", 
@@ -1675,10 +1675,10 @@ if ($(nav_element).css("left") !== "0px")  {
   // Otherwise, if the intersection navigation that appears on the left hand 
   // of the webpage is invisible, this condition is triggered.
 
-    var nav_invisible_css = new Object();
-    var element_shifted_left_css = new Object();
-    var element_visible_css = new Object();
-    var headr_visible = new Object();
+    var nav_invisible_css = {};
+    var element_shifted_left_css = {};
+    var element_visible_css = {};
+    var headr_visible = {};
 
     window_width = $(window).width();
     
@@ -1755,23 +1755,23 @@ function determineCurrentSection(current_position)  {
    * This function runs while the page is loading.
    * **************** **************** **************** **************** **************** */
 
-  var cntainr_height = new Number();
+  var cntainr_height;
   // Holds a Number which represents the value of the CSS property, "height"
   // for the HTML element using the selector, "#cntainr".
-  var wndow_height = new Number();
+  var wndow_height;
   // Holds a Number which represents the value of the CSS property, "height" 
   // for an single instance of the HTML element using the selector, ".wndow".
-  var section_value_num = new Number();
+  var section_value_num;
   // Holds a Number representing the location within the URL hash where the 
   // Section Value is listed.
-  var window_margin = new Number();
+  var window_margin;
   // Holds a Number which is used to determine a range of values which 
   // the location can fall into and still be considered to be within a Section.
 
   var cntainr_selector = new String();
   var wndows_selector = new String();
   
-  var cntainr_element = new Object();
+  var cntainr_element = {};
   var wndows_elements = new Array();
 
   cntainr_selector = "#cntainr";
@@ -1803,18 +1803,18 @@ function setURL(current_position, url_hash)  {
    * This function operates as the webpage loads.
    * **************** **************** **************** **************** **************** */
 
-  var wndow_height = new Number();
+  var wndow_height;
   // Holds a Number which represents the value of the CSS property, "height" 
   // for an single instance of the HTML element using the selector, ".wndow".
-  var window_margin = new Number();
+  var window_margin;
   // Holds a Number which is used to determine a range of values which 
   // the location can fall into and still be considered to be within a Section.
   
   var wndow_selector = new String();
   var info_selector = new String();
   
-  var wndow_elements = new Object();
-  var info_element = new Object();
+  var wndow_elements = {};
+  var info_element = {};
 
   var info_opacity_value = new String();
   // The opacity of the HTML element using the selector, "#info", 
@@ -1829,7 +1829,7 @@ function setURL(current_position, url_hash)  {
   var position_value = new String();
   // Holds the String value of the Position Value listed in the URL hash.
 
-  var section_value_num = new Number();
+  var section_value_num;
   // Holds a Number which is returned by the execution of the function, 
   // "determineCurrentSection". It represents the Section.
 
@@ -1916,34 +1916,49 @@ function animateMenuOptions(option_element) {
    * navigation that appears on the left side of the browser window.
    * **************** **************** **************** **************** **************** */
 
-  var base_css = new Object();
-  var hover_css = new Object();
-
-  var time_value_long = new Number();
-  var time_value_short = new Number();
+  var hover_li_css = {};
+  var hover_a_css = {};
  
-  hover_css = {
-    "backgroundColor": "#ccc", 
+  hover_li_css = {
+    "backgroundColor": "#ccc"
+  };
+
+  hover_a_css = {
     "color": "#000"
   };
 
-  base_css = {
-    "backgroundColor": "#000", 
+  var base_li_css = {};
+  var base_a_css = {};
+
+  base_li_css = {
+    "backgroundColor": "#000"
+  };
+
+  base_a_css = {
     "color": "#fff"
   };
-  
+
+  var time_value_long;
+  var time_value_short;
+
   time_value_long = time_value / 2;
   time_value_short = time_value / 4;
+
+  var a_element = {};
+
+  a_element = $(option_element).children();
   
   if ($(option_element).css("backgroundColor") === "rgb(0, 0, 0)") {
   // If the click state of the menu option is in its "base" state, 
   // this condition is triggered.
-    $(option_element).animate(hover_css, time_value_long);
+    $(option_element).animate(hover_li_css, time_value_long);
+    $(a_element).animate(hover_a_css, time_value_long);
     // The click state of the menu option is changed to its "hover" state.
   } else {
   // Otherwise if the click state of the menu option is in its "hover" state 
   // this condition is triggered.
-    $(option_element).animate(base_css, time_value_short);
+    $(option_element).animate(base_li_css, time_value_short);
+    $(a_element).animate(base_a_css, time_value_short);
     // The click state of the menu option is changed to its "base" state.
   } // END OF if STATEMENT which is triggered if the menu option is in 
     // its "base" click state.
@@ -1965,16 +1980,16 @@ function setPageInitialLocation()  {
   var wndow_selector = new String();
   var copy_selector = new String();
   
-  var wndow_element = new Object();
-  var copy_element = new Object();
+  var wndow_element = {};
+  var copy_element = {};
 
-  var wndow_height = new Number();
+  var wndow_height;
   // Holds a Number which represents the value of the CSS property, "height" 
   // for an single instance of the HTML element using the selector, ".wndow".
 
-  var copy_visible_css = new Object();
+  var copy_visible_css = {};
 
-  scroll_to_value = new Number();
+  scroll_to_value;
   // Holds a value which matches the vertical location, in pixels.
 
   url_hash = window.location.hash;
@@ -2028,7 +2043,7 @@ function fadeCopyElements(single_copy_element, div_selector, section_value, posi
   $(single_copy_element).children(div_selector).fadeTo(time_value, 1, 
     function () {
       var form_selector = new String();
-      var form_element = new Object();
+      var form_element = {};
 
       if (section_value === 3 || 
           section_value === 4)  {

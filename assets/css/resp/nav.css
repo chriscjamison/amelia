@@ -50,7 +50,7 @@ nav {
 	top: 25px;
 	left: 25px;
 	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/nav.png');
+	background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
 /* Formats a <div> element which serves as the menu 'button'. */
@@ -177,22 +177,27 @@ nav {
  * This class represents the 'click' click state.
  */
 
-#options > a {
-	width: 12.4em;
-	height: 2.35em;
+#options > li {
+	width: auto;
+	height: 5.75em;
 	margin: 1em;
-	padding: 1em;
-	display: block;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.25em;
+  list-style-type: none;
 	background-color: #000;
-	color: #fff;
-	cursor: pointer;
 }
-/* Formats the <a> elements which serve as menu options in the inter-sectional 
+/* Formats the <li> elements which serve as menu options in the inter-sectional 
  * menu.
  */
 
+#options > li > a {
+  padding: 1em 1em 2.4em 1em;
+  display: block;
+  font-family: 'Libre Franklin', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25em;
+  text-decoration: none;
+  color: #fff;
+	cursor: pointer;
+}
+ 
 #prev-sctn,
 #next-sctn {
 	width: 12.5em;
@@ -201,7 +206,7 @@ nav {
 	right: 33.8em;
 	bottom: 1.56em;
 	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+	background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/next/resp/next-sctn.png');
   background-repeat: no-repeat;
   background-position: 0 -209px;
   cursor: default;
@@ -256,7 +261,7 @@ nav {
 	height: 2.5em;
 	margin: 0 auto 50px auto;
 	display: block;
-	font-family: 'Franklin Gothic Medium', sans-serif;
+	font-family: 'Libre Franklin', sans-serif;
   font-size: 0.8em;
 	color: #fff;	
 	text-align: center;
@@ -310,14 +315,14 @@ nav {
  */
 
 #nav-sctn_3 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
+	background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/sctn_nav/sctn_3.png');
 }
 /* Formats the background-image of the <span> element which serves as the 
  * menu-button for the intra-sectional navigation for 'SECTION #3'.
  */
 
 #nav-sctn_4 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
+	background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/sctn_nav/sctn_4.png');
 }
 /* Formats the background-image of the <span> element which serves as the 
  * menu-button for the intra-sectional navigation for 'SECTION #4'.
@@ -383,7 +388,7 @@ nav {
 	padding: 0.19em 0 0.38em 0;
 	background-color: #000;
 	border: 2px solid #222;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
+	font: 400 1.25em "Libre Franklin", sans-serif;
 	color: #fff;
 	text-align: center;
 	text-decoration: none;
@@ -422,7 +427,7 @@ nav {
     height: 100px;
     top: 50px;
     left: 50px;
-    background-image: url('/amelia/assets/img/nav/nav_mobile.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/nav_mobile.png');
     opacity: 0;
   }
   
@@ -456,7 +461,7 @@ nav {
     width: 22.2em;
     height: 10em;
     right: 19em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/next/resp/next-sctn.png');
   }
   
   #next-sctn { 
@@ -497,12 +502,12 @@ nav {
   
   #nav-sctn_3 > div > span {
     background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3-mble.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/sctn_nav/sctn_3-mble.png');
   }
   
   #nav-sctn_4 > div > span {
     background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
   }
   
   .sctn_nav > div > div {
@@ -516,7 +521,7 @@ nav {
     height: 1.5em;
     margin: 0.65em 0;
     padding: 0.5em 0 0.25em 0;
-    font: 400 2em "Franklin Gothic Medium", sans-serif
+    font: 400 2em "Libre Franklin", sans-serif
   }
 }
 
@@ -532,7 +537,7 @@ nav {
   #next-sctn {
     height: 10em;
     bottom: 11em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/next/resp/next-sctn.png');
     background-position: 0px -310px;
   }
 
@@ -560,7 +565,7 @@ nav {
     width: 8em !important;
     height: 1.5em !important;
     margin: 0.65em 0 0.65em 1.2em !important;
-    font: 400 1.6em "Franklin Gothic Medium", sans-serif !important;
+    font: 400 1.6em "Libre Franklin", sans-serif !important;
   }
 }
 
@@ -647,7 +652,7 @@ nav {
     padding-top: 1.3em;
     right: 1.56em;
     bottom: 1.56em;
-    background-image: url('/amelia/assets/img/nav/next/next-sctn.png');
+    background-image: url('/wordpress/wp-content/themes/amelia/assets/img/nav/next/next-sctn.png');
   }
 
   #prev-sctn > span, 

@@ -2,7 +2,6 @@
 /**
  * The main template file
  *
- *
  * @package WordPress
  * @subpackage Amelia
  * @since 1.0
@@ -11,11 +10,10 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/content', 'main' ); ?>
-
 			<!-- *** "MAIN LANDING SECTION" *** -->
-			<div class="wndow" id="wndow-sctn_main">
-				<div id="info">
+			<section id="wndow-sctn_main">
+				<?php get_template_part( 'template-parts/content', 'main' ); ?>
+				
 
 <div class="wrap">
 	<?php if ( is_home() && ! is_front_page() ) : ?>

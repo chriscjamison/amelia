@@ -119,7 +119,7 @@ $(document).ready(
       }
     );
     
-   $("#options > a").on("mouseenter",
+   $("#options > li").on("mouseenter",
    // If the user moves the cursor over one of the menu options of the 
    // main menu of the browser window, 
    // the click-state of the menu option is changed.
@@ -133,7 +133,7 @@ $(document).ready(
       }
     );
 
-    $("#options > a").on("mouseleave", 
+    $("#options > li").on("mouseleave", 
     // If the user moves the cursor over one of the menu options of the 
     // main menu of the browser window, 
     // the click-state of the menu option is changed.
@@ -147,7 +147,7 @@ $(document).ready(
       }
     );
     
-    $("#options > a").on("click",
+    $("#options > li > a").on("click",
     // If the user clicks on one of the menu options, the visible Positions 
     // within the Sections are found and passed on to the URL hash, 
     // the main menu side of the 
