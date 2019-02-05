@@ -593,7 +593,7 @@ body {
   height: 27px;
   margin-top: 0.55em;
   display: block;
-  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px 0px;
 }
 /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -605,7 +605,7 @@ body {
   height: 20px;
   margin-top: 0.9em;
   display: block;
-  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px -28px;
 }
 /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -617,7 +617,7 @@ body {
   height: 45px;
   margin-top: 0;
   display: block;
-  background-image: url('/amelia/assets/img/sctn/5/sprite-insrance_comps.png');
+  background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
   background-position: 0px -47px;
 }
 /* Formats a <span> element which contain a logo. This logo is contained by 

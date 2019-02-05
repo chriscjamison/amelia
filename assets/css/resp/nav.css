@@ -50,7 +50,7 @@ nav {
 	top: 25px;
 	left: 25px;
 	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/nav.png');
+	background-image: url('/assets/img/nav/nav.png');
 	background-repeat: no-repeat;
 }
 /* Formats a <div> element which serves as the menu 'button'. */
@@ -201,7 +201,7 @@ nav {
 	right: 33.8em;
 	bottom: 1.56em;
 	z-index: 5;
-	background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+	background-image: url('/assets/img/nav/next/resp/next-sctn.png');
   background-repeat: no-repeat;
   background-position: 0 -209px;
   cursor: default;
@@ -310,14 +310,14 @@ nav {
  */
 
 #nav-sctn_3 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3.png');
+	background-image: url('/assets/img/nav/sctn_nav/sctn_3.png');
 }
 /* Formats the background-image of the <span> element which serves as the 
  * menu-button for the intra-sectional navigation for 'SECTION #3'.
  */
 
 #nav-sctn_4 > div > span {
-	background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4.png');
+	background-image: url('/assets/img/nav/sctn_nav/sctn_4.png');
 }
 /* Formats the background-image of the <span> element which serves as the 
  * menu-button for the intra-sectional navigation for 'SECTION #4'.
@@ -422,7 +422,7 @@ nav {
     height: 100px;
     top: 50px;
     left: 50px;
-    background-image: url('/amelia/assets/img/nav/nav_mobile.png');
+    background-image: url('/assets/img/nav/nav_mobile.png');
     opacity: 0;
   }
   
@@ -456,7 +456,7 @@ nav {
     width: 22.2em;
     height: 10em;
     right: 19em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-image: url('/assets/img/nav/next/resp/next-sctn.png');
   }
   
   #next-sctn { 
@@ -497,12 +497,12 @@ nav {
   
   #nav-sctn_3 > div > span {
     background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_3-mble.png');
+    background-image: url('/assets/img/nav/sctn_nav/sctn_3-mble.png');
   }
   
   #nav-sctn_4 > div > span {
     background-color: #000;
-    background-image: url('/amelia/assets/img/nav/sctn_nav/sctn_4-mble.png');
+    background-image: url('/assets/img/nav/sctn_nav/sctn_4-mble.png');
   }
   
   .sctn_nav > div > div {
@@ -532,7 +532,7 @@ nav {
   #next-sctn {
     height: 10em;
     bottom: 11em;
-    background-image: url('/amelia/assets/img/nav/next/resp/next-sctn.png');
+    background-image: url('/assets/img/nav/next/resp/next-sctn.png');
     background-position: 0px -310px;
   }
 
@@ -647,7 +647,7 @@ nav {
     padding-top: 1.3em;
     right: 1.56em;
     bottom: 1.56em;
-    background-image: url('/amelia/assets/img/nav/next/next-sctn.png');
+    background-image: url('/assets/img/nav/next/next-sctn.png');
   }
 
   #prev-sctn > span, 

@@ -63,4 +63,4 @@
   }
 ?>
 
-<html><head><script>window.location.href = "http://localhost/amelia/sc/resp/<?php echo $url_string; ?>";</script></head></html>
+<html><head><script>window.location.href = "http://ameliaxavier.com/sc/resp/<?php echo $url_string; ?>";</script></head></html>

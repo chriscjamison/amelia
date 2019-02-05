@@ -452,7 +452,7 @@ function cssAdjustment()  {
     prev_sctn_span_element = $(prev_sctn_span_selector);
     
     info_img_css = {
-      "src": "/amelia/assets/img/logo/logo_phone.png", 
+      "src": "/assets/img/logo/logo_phone.png", 
       "width": "480", 
       "height": "455"
     };
@@ -647,12 +647,12 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/amelia/assets/img/sctn/" + 
+        bkgrnd_img_value = "url('/assets/img/sctn/" + 
                             inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
                             ".jpg')";      
         // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/amelia/assets/img/sctn/1/1920x1020.jpg')" 
+        // The value of "bkgrnd_img_value" would be "url('/assets/img/sctn/1/1920x1020.jpg')" 
         // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
@@ -668,7 +668,7 @@ function setupPage(time_value)  {
         // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        width_height_css.backgroundImage = "url('/amelia/assets/img/sctn/main/" + bkgrnd_width +
+        width_height_css.backgroundImage = "url('/assets/img/sctn/main/" + bkgrnd_width +
                                     "x" + bkgrnd_height + ".jpg')";
          // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.

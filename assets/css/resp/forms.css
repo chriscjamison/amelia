@@ -322,7 +322,7 @@ p > label {
 /* Formats the layout of the labels of individual <input> elements. */
 
 p:not(#foo) > input + label {
-	background: url('/amelia/assets/img/form/form.png') 0 -1px no-repeat;
+	background: url('/assets/img/form/form.png') 0 -1px no-repeat;
 	height: 22px;
 	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
 }
