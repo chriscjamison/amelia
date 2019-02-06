@@ -1,27 +1,23 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <!-- FILENAME: index.htm // The "One Page" version of this template -->
 	<head>
 
 		<!-- TITLE -->
 		<title>Welcome to Amelia Xavier Counseling ~ Austin, TX 78709 ~</title>
 
-		<!-- WEB FONT REFERENCE LINKS -->
+		<!-- WEB FONT REFERENCE LINK -->
 		<link href='https://fonts.googleapis.com/css?family=Glegoo:400,700|Balthazar' rel='stylesheet' type='text/css'>
 
-		<!-- STYLESHEET REFERENCE LINKS -->
-		<link rel="stylesheet" type="text/css" href="/assets/css/resp/main.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/resp/nav.css">
-		<link rel="stylesheet" type="text/css" media="all" href="/assets/css/resp/forms.css">
+		<!-- STYLESHEET REFERENCE LINK -->
+		<link rel="stylesheet" type="text/css" href="/assets/css/resp/main-test.css">
 
 		<!-- jQUERY REFERENCE LINKS -->
 		<script src="/assets/js/jquery-2.1.4.js"></script>
 		<script src="/assets/js/ui/jquery-ui.js"></script>
 
-		<!-- THEME JAVASCRIPT REFERENCE LINKS -->
-		<script src="/assets/js/resp/nav.js"></script>
-		<script src="/assets/js/resp/animations.js"></script>
-		<script src="/assets/js/resp/forms.js"></script>
-		<script src="/assets/js/resp/control_panel.js"></script>
+		<!-- THEME JAVASCRIPT REFERENCE LINK -->
+		<script src="/assets/js/resp/main-test.js"></script>
 	</head>
 	<body>
 
@@ -41,29 +37,28 @@
 				<div id="nav-brdr"></div>
 			</div>
 		</nav>
-		<div id="cntainr">
+		<article>
 
 			<!-- *** "MAIN LANDING SECTION" *** -->
-			<div class="wndow" id="wndow-sctn_main">
-				<div id="info">
-					<img src="/assets/img/logo/lg.png" width="200" height="190" border="0" alt="Amelia Xavier Conseling :: Austin, TX 78709" id="logo" />
+			<section class="section-window_frame" id="section-wndow_frame-section_main">
+				<aside id="aside-info">
+					<img src="/assets/img/logo/lg.png" width="200" height="190" alt="Amelia Xavier Conseling :: Austin, TX 78709" id="logo" />
 					<ul>
 						<li>Graduated from University of Texas - Austin</li>
 						<li>Licensed Clinical Social Worker</li>
 						<li>Specializes in Child Psychology</li>
 					</ul>
-				</div>
+        </aside>
 			<!-- END of MAIN LANDING SECTION -->
-
-			</div>
+      </section>
 
 			<!-- *** SECTION #1 *** -->
-			<div class="wndow" id="wndow-sctn_1">
-				<div class="headr sctn_1"><span>Is Therapy Right for You?</span></div>
+			<section class="section-window_frame" id="section-wndow_frame-section-1">
+				<h1 class="div-header div-header-section-1"><span>Is Therapy Right for You?</span></h1>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
-					<div class="sctn_1-blok" id="sctn_1-desc-1">
+				<div class="div-window_pane">
+					<div class="div-window_pane-block-1" id="div-window-pane-block-1-desc-1">
 						<p>
 							Psychotherapy consists of one-on-one client to therapist sessions, typically over a period of 
 							50 minutes per meeting. Depending on the emotional wellbeing of the client, he or she may meet 
@@ -77,85 +72,83 @@
 						</p>
 
 						<!-- BUTTON which navigates to FORM TYPE #1 (Pre-screen) -->
-						<input type="button" name="quiz-start" value="Start Quiz" id="sctn_1-start" />
+						<input type="button" name="quiz-start" value="Start Quiz" id="button-section-1-start" />
 					</div>
 				</div>
 				<!-- END of WINDOW PANE #1 -->
 
 				<!-- WINDOW PANE #2 -->
-				<div class="copy">
-					<div id="form-sctn_1">
+				<div class="div-window_pane">
+					<div id="div-form-section-1">
 
 					<!-- FORM TYPE #1 -->
-					<form type="GET" action="/assets/php/resp/form_1.php" name="form-sctn_1" id="form-sctn_1">
+					<form type="GET" action="/assets/php/resp/form_1.php" name="section-1" id="form-section-1">
 
 						<!-- "LEFT COLUMN FOR FORM TYPE #1" -->
-						<div class="clmn" id="sctn_1-clmn-1">
+						<div class="div-window_pane-column" id="div-window_pane-column-1">
 
 							<!-- Page #1 for FORM TYPE #1 -->
-							<div class="form-page_1">
+							<div class="div-form-page-1">
 
 								<!-- Form Question #1 -->
-								<div class="form_cntnt" id="sctn_1-no_1">
-									<span>Question <sup>#</sup>1:</span>
-									<span>What is the quality of your recent emotional health?</span>
+								<div class="div-form-question" id="div-form-section-1-question-1">
+									<h2 class="h2-form">Question <sup>#</sup>1:</h2>
+									<h3 class="h3-form">What is the quality of your recent emotional health?</h3>
 									<p>
 										Over the past two weeks, which of the following general moods have you experienced most frequently?
 									</p>
 									<fieldset>
-										<p>
-											<input type="radio" name="mood_type" value="sad" id="mood_type-sad" />
+										<div>
+											<input type="radio" name="mood_type" value="sad" id="input-section-1-mood_type-sad" />
 											<label for="sad">Sadness</label>
-										</p>
-										<p>
-											<input type="radio" name="mood_type" value="angr" id="mood_type-angr" />
-											<label for="angr">Anger</label>
-										</p>
-										<p>
-											<input type="radio" name="mood_type" value="axty" id="mood_type-axty" />
-											<label for="axty">Anxiety or fear</label>
-										</p>
+										</div>
+										<div>
+											<input type="radio" name="mood_type" value="angry" id="input-section-1-mood_type-angr" />
+											<label for="angry">Anger</label>
+										</div>
+										<div>
+											<input type="radio" name="mood_type" value="anxiety" id="input-section-1-mood_type-axty" />
+											<label for="anxiety">Anxiety or fear</label>
+										</div>
 									</fieldset>	
 								</div>
 							</div>
 							<!-- END of Form Question #1 -->
 
-							<div class="form-page_2">
+							<div class="div-form-page-1">
 								
 								<!-- Form Question #3 -->
-								<div class="form_cntnt" id="sctn_1-no_3">
-									<span><strong>Question <sup>#</sup>3: </strong></span>
-									<span>
-										Have you experienced any of the following stressors?
-									</span>
+								<div class="div-form-question" id="div-form-section-1-question-3">
+									<h2 class="h2-form">Question <sup>#</sup>3:</h2>
+									<h3 class="h3-form">Have you experienced any of the following stressors?</h3>
 									<p>
 										Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
 									</p>
-									<p class="ftnote">
+									<p class="p-form-ftnote">
 										<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
 										select "Other", and enter in a brief description of the event.
 									</p>
 									<fieldset>
-										<p>
-											<input type="checkbox" name="death" value="death" id="stressor-dth" />
+										<div>
+											<input type="checkbox" name="death" value="death" id="input-section-1-stressor-death" />
 											<label for="death">Death of a loved one</label>
-										</p>
-										<p>
-											<input type="checkbox" name="rltn" value="rltn" id="stressor-rltn" />
-											<label for="rltn">End of close relationship</label>
-										</p>
-										<p>
-											<input type="checkbox" name="job" value="job" id="stressor-job" />
+										</div>
+										<div>
+											<input type="checkbox" name="relationship" value="relationship" id="input-section-1-stressor-relationship" />
+											<label for="relationship">End of close relationship</label>
+										</div>
+										<div>
+											<input type="checkbox" name="job" value="job" id="input-section-1-stressor-job" />
 											<label for="job">Loss of job</label>
-										</p>
-										<p>
-											<input type="checkbox" name="move" value="move" id="stressor-move" />
+										</div>
+										<div>
+											<input type="checkbox" name="move" value="move" id="input-section-1-stressor-move" />
 											<label for="move">Moving to new city</label>
-										</p>
-										<p>
-											<input type="checkbox" name="othr" value="othr" id="stressor-othr" />
-											<label for="othr">Other</label>
-										</p>
+										</div>
+										<div>
+											<input type="checkbox" name="other" value="othr" id="input-section-1-stressor-other" />
+											<label for="other">Other</label>
+										</div>
 									</fieldset>
 								<!-- END of Form Question #3 -->
 								</div>
@@ -167,22 +160,22 @@
 						</div>
 
 						<!-- RIGHT COLUMN FOR FORM TYPE #1 -->
-						<div class="clmn" id="sctn_1-clmn-2">
+						<div class="div-window_pane-column" id="div-window_pane-column-2">
 
 							<!-- Page #2 for FORM TYPE #1 -->
-							<div class="form-page_1">
+							<div class="div-form-page-1">
 
 								<!-- Form Question #2 -->
-								<div class="form_cntnt" id="sctn_1-no_2">
-									<span>Question <sup>#</sup>2:</span>
-									<span>How difficult has your emotional health made your life?</span>
+								<div class="div-form-question" id="div-form-question-2">
+									<h2 class="h2-form">Question <sup>#</sup>2:</h2>
+									<h3 class="h3-form">How difficult has your emotional health made your life?</h3>
 									<p>
 										On a scale of <strong>Slight</strong> to <strong>Significant</strong>, with <strong>Slight</strong> 
 										being a slight amount and <strong>Signficant</strong> being significantly, how much have 
 										the emotions which have you experienced impacted the amount of effort you give to 
 										complete daily tasks<sup>*</sup>?
 									</p>
-									<p class="ftnote">
+									<p class="p-form-ftnote">
 										<sup>*</sup> Daily tasks include: preparing and eating food, having good physical hygene, stable 
 										relationships	with close ones, etc.
 									</p>
@@ -210,7 +203,7 @@
 								</div>
 
 								<!-- "Next Button" for "FORM TYPE #1" -->
-								<input type="button" name="sctn_1-next" value="Next" id="sctn_1-next" />
+								<input type="button" name="section-1-next" value="Next" id="button-form-section-1-next" />
 							<!-- END of Page #1 of FORM TYPE #1 -->
 							</div>
 
@@ -218,12 +211,9 @@
 							<div class="form-page_2">
 
 								<!-- Form Question #4 -->
-								<div class="form_cntnt" id="sctn_1-no_4">
-									<span><strong>Question <sup>#</sup>4: </strong></span>
-									<span>
-										Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed 
-										someone else or yourself in the last two weeks?
-									</span>
+								<div class="div-form-question" id="div-form-question-4">
+									<h2 class="h2-form">Question <sup>#</sup>4:</h2>
+									<h3 class="h3-form">Have you seriously thought of harming someone<sup>*</sup>	or have in fact harmed someone else or yourself in the last two weeks?</h3>
 									<fieldset>
 										<div>
 											<select name="harm" id="harm">
@@ -238,10 +228,10 @@
 								</div>
 
 								<!-- BUTTON to Submit FORM TYPE #1 -->
-								<input type="submit" name="sctn_1-sbmt" value="Complete" id="sctn_1-sbmt" />
+								<input type="submit" name="section-1-sbmt" value="Complete" id="submit-form-section-1" />
 
 								<!-- BUTTON to view Previous set of questions for "FORM TYPE #1" -->
-								<input type="button" name="sctn_1-prev" value="Previous" id="sctn_1-prev" />
+								<input type="button" name="section-1-prev" value="Previous" id="button-form-section-1-prev" />
 
 							<!-- END of Page #2 of FORM TYPE #1 -->
 							</div>
@@ -256,8 +246,8 @@
 				</div>
 
 				<!-- WINDOW PANE #3 -->
-				<div class="copy">
-					<div class="sctn_1-blok" id="sctn_1-desc-2">
+				<div class="div-window_pane">
+					<div class="div-window_pane-block-1" id="div-window_pane-block-1-desc-2">
 						<span>Yes</span>
 						<p>
 							Etiam in justo ut eros mollis sagittis vel et eros. Nullam bibendum sed nunc nec iaculis. 
@@ -271,8 +261,8 @@
 				</div>
 
 				<!-- WINDOW PANE #4 -->
-				<div class="copy">
-					<div class="sctn_1-blok" id="sctn_1-desc-3">
+				<div class="div-window_pane">
+					<div class="div-window_pane-block-1" id="div-window_pane-block-1-desc-3">
 						<span>No</span>
 						<p>
 							Etiam in justo ut eros mollis sagittis vel et eros. Nullam bibendum sed nunc nec iaculis. 
@@ -290,7 +280,7 @@
 				<!-- END of WINDOW PANE #4 -->
 				</div>
 
-			</div>
+			</section>
 
 			<!-- *** SECTION #2 -->
 			<div class="wndow" id="wndow-sctn_2">
@@ -299,7 +289,7 @@
 				<div class="headr sctn_2"><span>Credentials</span></div>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_2-blok">
 						<img src="/assets/img/sctn/2/logo-missouri.png" width="277" height="90" alt="University of Missouri" title="University of Missouri" />
 						<ul>
@@ -340,7 +330,7 @@
 				<div class="headr sctn_3"><span>Specialties</span></div>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_3-blok" id="sctn_3-desc-1">
 						<p>
 							Praesent accumsan, ipsum nec laoreet aliquam, eros neque placerat massa, at pretium velit dolor 
@@ -357,7 +347,7 @@
 				</div>
 
 				<!-- WINDOW PANE #2 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_3-blok" id="sctn_3-desc-2">
 						<span>Grief</span>
 						<p>
@@ -375,7 +365,7 @@
 				</div>
 				
 				<!-- WINDOW PANE #3 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_3-blok" id="sctn_3-desc-3">
 						<span>Trauma</span>
 						<p>
@@ -393,7 +383,7 @@
 				</div>
 				
 				<!-- WINDOW PANE #4 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_3-blok" id="sctn_3-desc-4">
 						<span>Depression</span>
 						<p>
@@ -434,7 +424,7 @@
 				<div class="headr sctn_4"><span>Testimonials</span></div>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_4-blok" id="sctn_4-desc-1">
 						<p>
 							Nullam auctor justo quis mauris venenatis sagittis. Cras malesuada lectus ac lectus tempor ultricies. 
@@ -449,7 +439,7 @@
 				</div>
 
 				<!-- WINDOW PANE #2 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_4-blok" id="sctn_4-desc-2">
 						<p>
 							Nullam auctor justo quis mauris venenatis sagittis. Cras malesuada lectus ac lectus tempor ultricies. 
@@ -466,7 +456,7 @@
 				</div>
 
 				<!-- WINDOW PANE #3 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_4-blok" id="sctn_4-desc-3">
 						<p>
 							Duis fermentum tristique fringilla. Mauris euismod at tellus et vulputate. Etiam eu felis pharetra, 
@@ -483,7 +473,7 @@
 				</div>
 
 				<!-- WINDOW PANE #4 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_4-blok" id="sctn_4-desc-4">
 						<p>
 							Fusce eleifend mi eget est sollicitudin congue. Donec viverra eros vel arcu placerat mollis. 
@@ -520,7 +510,7 @@
 				<div class="headr sctn_5"><span>Insurance &amp; Rates</span></div>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_5-blok" id="sctn_5-desc-1">
 						<p>
 							Praesent accumsan, ipsum nec laoreet aliquam, eros neque placerat massa, at pretium velit dolor 
@@ -553,7 +543,7 @@
 				</div>
 
 				<!-- WINDOW PANE #2 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div id="form-sctn_5">
 
 						<!-- FORM TYPE #2 -->
@@ -566,7 +556,7 @@
 							<div class="form-page_1">
 								
 								<!-- Form Question #1 -->
-								<div class="form_cntnt" id="sctn_5-no_1">
+								<div class="div-form-question" id="sctn_5-no_1">
 									<span><strong>Question <sup>#</sup>1: </strong></span>
 									<span>
 										How many people make up your household?
@@ -613,7 +603,7 @@
 							<div class="form-page_1">
 
 								<!-- Form Question #2 -->
-								<div class="form_cntnt" id="sctn_5-no_2">
+								<div class="div-form-question" id="sctn_5-no_2">
 									<span><strong>Question <sup>#</sup>2: </strong></span>
 									<span>
 										Click the circle next to the value which matches your monthly income?
@@ -656,7 +646,7 @@
 				</div>
 
 				<!-- WINDOW PANE #3 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_5-blok" id="sctn_5-desc-5">
 						<span>Sliding Scale Rate</span>
 					</div>
@@ -690,7 +680,7 @@
 				<div class="headr sctn_6"><span>Contact Amelia Xavier</span></div>
 
 				<!-- WINDOW PANE #1 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_6-blok" id="sctn_6-desc-1">
             <p>
               Duis sodales aliquam lacus. Nulla eget velit eu sem bibendum faucibus ullamcorper non est. 
@@ -738,7 +728,7 @@
 				</div>
 
 				<!-- WINDOW PANE #2 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div id="form-sctn_6">
 
 						<!-- FORM TYPE #3 -->
@@ -751,7 +741,7 @@
 							<div class="form-page_1">
 
 								<!-- Form Question #1 -->
-								<div class="form_cntnt" id="sctn_6-no_1">
+								<div class="div-form-question" id="sctn_6-no_1">
 									<span>Enter in your first name below:</span>
 									<fieldset>
 										<input type="text" size="34" maxlength="40" name="cntct_name" id="sctn_6-name" />
@@ -766,7 +756,7 @@
 							<div class="form-page_2">
 
 								<!-- Form Question #3 -->
-								<div class="form_cntnt" id="sctn_6-no_3">
+								<div class="div-form-question" id="sctn_6-no_3">
 									<span>Please select an option that best matches your need:</span>
 									<fieldset>
 										<p>
@@ -809,7 +799,7 @@
 							<div class="form-page_1">
 
 								<!-- Form Question #2 -->
-								<div class="form_cntnt" id="sctn_6-no_2">
+								<div class="div-form-question" id="sctn_6-no_2">
 									<span>Please enter your email or phone number below:</span>
 									<fieldset>
 										<p>
@@ -835,7 +825,7 @@
 							<div class="form-page_2">
 
 								<!-- Form Question #4 -->
-								<div class="form_cntnt" id="sctn_6-no_4">
+								<div class="div-form-question" id="sctn_6-no_4">
 									<span>Please enter your message for Amelia below:</span>
 									<fieldset>
 										<textarea name="msg" cols="33" rows="10" id="msg"></textarea>
@@ -862,7 +852,7 @@
 				</div>
 
 				<!-- WINDOW PANE #3 -->
-				<div class="copy">
+				<div class="div-window_pane">
 					<div class="sctn_6-blok" id="sctn_6-desc-2">
 						<span>Thank You!</span>
 						<p>
