@@ -1,0 +1,138 @@
+/* Filename: main.scss 
+ *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
+ * 
+ *  + All measurements are given in terms of 'em'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+/* ****** SASS VARIABLES ****** */
+/* ****** COMMON ELEMENTS ****** */
+.div-window_pane {
+  font-family: "'Glegoo', 'Palatino', serif";
+  font-weight: 400;
+  font-size: 1em; }
+
+h1 span {
+  font-family: "'Balthazar', 'Cambria', serif";
+  font-weight: 600;
+  font-size: 2.5em; }
+
+h1 {
+  position: absolute;
+  display: table;
+  opacity: 0;
+  /* Formats the <div> which holds the 'SECTION' title for a given section. */
+  /* 
+  * Formats the <span> element which holds the text of a 'SECTION' title. 
+  */ }
+  h1 span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff; }
+
+.div-window_pane {
+  display: none;
+  position: absolute;
+  float: left;
+  top: 0;
+  left: 0; }
+
+/* 
+ * Formats the <div> which holds the text or form content within a section. 
+ * '.div-window_pane' elements differ from '.section-window_frame' elements.
+ * '.div-window_pane' elements only hold the content of one sub-section, 
+ * while '.section-window_frame' elements hold many sub-sections.
+ */
+/* ****** CONTAINER ELEMENTS ****** */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; }
+
+/* 
+  Formats the <body> HTML tag 
+  + The 'overflow-x' attribute hides the horizontal scroll bar as intra-section navigation 
+    takes place or the main navigation menu animates.
+*/
+article {
+  width: initial;
+  height: initial;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clear: both;
+  z-index: 1; }
+
+/* Formats the HTML element, 'article', which holds all of the copy and form content. */
+.section-window_frame {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0; }
+
+/* 
+ * Formats the HTML elements, 'section' which holds the text and form content of 
+ * a particular 'SECTION' or segment of content organized by a similar theme. 
+ */
+#div-backgrounds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; }
+
+/* 
+ * Formats the <div> which hold the background images for the 'SECTIONS' of 
+ * content. 
+ */
+#div-backgrounds > div {
+  background-repeat: no-repeat; }
+
+/* 
+ * Formats the <div> elements which hold the background images 
+ * for the individual sections.
+ */
+/* ****** LANDING SECTION ****** */
+aside {
+  position: absolute;
+  float: right;
+  opacity: 1; }
+
+/* 
+ * Formats an <aside> which contains the logo and a brief list 
+ * of selling points.
+ * + Opacity is set to '0' to allow for a fade-in by by a jQuery event.
+ */
+/* Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
+ * portion of this template.
+ */
+/* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
+/* ****** DESKTOP - 1366px WIDE ****** */
+@media screen and (min-width: 1281px) and (max-height: 1366px) {
+  /* ****** COMMON ELEMENTS ****** */
+  h1 {
+    width: 61.2em;
+    height: 6em;
+    top: 3.13rem; }
+    h1 span {
+      width: 12em; }
+  .div-window_pane {
+    margin: 8.15em 0 0 17.5em; }
+  /* ****** LANDING SECTION ****** */
+  aside {
+    width: 38.6em;
+    height: 15.2em;
+    bottom: 9.2em;
+    left: 12.5em; } }
