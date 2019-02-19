@@ -16,19 +16,40 @@
 
 /* ****** SASS VARIABLES ****** */
 
-$base_font: "'Glegoo', 'Palatino', serif";
-$header_font: "'Balthazar', 'Cambria', serif";
+$main_li_text_color: #FBE7E9;
+$main_li_background_color: #632E22;
+
+$section_2_ul_border: 0.188em solid #897042; // 3px
+
+$h1_section_1_color: #92676C;
+$window_pane_block_p_1_color: #58262C;
+$window_pane_desc_background_1_color:  #E7D4C8;
+$window_pane_desc_background_2_color: #E7DCC8;
+$window_pane_desc_text_2_color: #6D5647;
+$window_pane_desc_background_3_color: #DEC0C3;
+$window_pane_desc_text_3_color: #694448;
+
+$h1_section_2_color: #744725;
+$window_pane_block_2_background_color: #D9C296;
+$window_pane_block_2_text_color: #523A0E;
+
+$base_font: 'Glegoo', 'Palatino', serif;
+$header_font: 'Balthazar', 'Cambria', serif;
 
 $base_font_size: 1em; // 14pt
 $header_font_size: 2.5em; // 30pt
 
 $base_font_weight: 400;
 $header_font_weight: 600;
+$semibold_font_weight: 600;
+$bold_font_weight: 700;
 
+$lg_h2_font_size: 2.5em; // 30pt
 
 /* ****** COMMON ELEMENTS ****** */
 
-.div-window_pane {
+.div-window_pane, 
+aside ul  {
   font-family: $base_font;
   font-weight: $base_font_weight;
   font-size: $base_font_size;
@@ -43,7 +64,7 @@ h1 span {
 h1 {
 	position: absolute;
 	display: table;
-  opacity: 0;
+  // opacity: 0;
 /* Formats the <div> which holds the 'SECTION' title for a given section. */
 
   span {
@@ -72,6 +93,18 @@ h1 {
  * while '.section-window_frame' elements hold many sub-sections.
  */
 
+.div-window_pane-block-1 {
+	width: 32.5em;
+	height: initial;
+	padding: 1em 2em;
+	position: absolute;
+	z-index: 2;
+	// opacity: 0;
+}
+/* Formats the main 'blocks' which hold <p> elements which contain text content. 
+ * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
+ * are formatted in this pairing. 
+ */
 
 /* ****** CONTAINER ELEMENTS ****** */
 
@@ -136,7 +169,42 @@ article {
 aside {
 	position: absolute;
 	float: right;
-  opacity: 0;
+  // opacity: 0;
+
+  img {
+    margin: 0 1.7em;
+    padding: 1.7em;
+    display: none;
+    position: relative;
+    float: left;
+    background-color: #967348;
+    // opacity: 0;
+  }
+  /* Formats the logo which is contained within the <aside> HTML element. */
+
+  ul {
+    margin: 0.25em 0 0 0;
+    padding: 0;
+    display: none;
+    position: relative;
+    float: left;
+    font-size: 1.1em; // 13pt
+    font-weight: $base_font_weight;
+    // opacity: 0;
+  }
+  /* Formats the list which is contained within the <aside> HTML element. */
+  
+  li {
+    height: 1.65em;
+    margin: 1em 0;
+    padding: 0.6em 0 0 0;
+    display: none;
+    text-align: center;
+    color: $main_li_text_color;
+    background-color: $main_li_background_color;
+    // opacity: 0;
+  }
+  /* Formats the list-items which are contained within the <div> using the selctor, "#info". */
 }
 /* 
  * Formats an <aside> which contains the logo and a brief list 
@@ -144,9 +212,119 @@ aside {
  * + Opacity is set to '0' to allow for a fade-in by by a jQuery event.
  */
 
-/* Holds a <div>, with an id of "#info", which contains the content which appears on the landing 
- * portion of this template.
+
+/* ****** SECTION #1 ****** */
+ 
+#h1-header-section-1 {
+	background-color: $h1_section_1_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
+
+.div-window_pane-block-1 { 
+  h2 {
+    width: 100%;
+    padding-bottom: 0.25em; // 4px
+    display: inline-block;
+    border-bottom: 2px solid;
+    font-weight: $bold_font_weight;
+  }
+  /* 
+   * Formats a <h2> element which contains a text header for an individual response from 
+   * 'FORM TYPE #1. The <span> elements appear within the <div> elements using the selectors, 
+   * '#div-window_pane-block-1-desc-2' & '#div-window_pane-block-1-desc-3'.
+   */
+
+  p {
+    margin-bottom: 2.0em; // 32px
+    text-indent: 1.3em; // 21px
+    line-height: 1.8em; // 29px
+    color: $window_pane_block_p_1_color;
+  }
+  /* 
+   * Formats the <p> elements which hold the text content that is contained by a <div> element
+   * using the class, '.sctn_1-blok'.
+   */
+
+  .sctn_1-blok > p ~ p {
+    margin-bottom: 1.7em; // 27px
+    padding-bottom: 1.5em; // 24px
+    border-bottom: 0.188em solid;
+  }
+  /* More formatting for the <p> elements which hold text content. */
+}
+
+#div-window-pane-block-1-desc-1 {
+	background-color: $window_pane_desc_background_1_color;
+}
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FIRST WINDOW PANE' or first sub-section of 'SECTION #1' 
  */
+
+#div-window-pane-block-1-desc-2 {
+	background-color: $window_pane_desc_background_2_color;
+	color: $window_pane_desc_text_2_color;
+}
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'THIRD WINDOW PANE' or third sub-section of 'SECTION #1' 
+ */
+
+#div-window-pane-block-1-desc-3 {
+	background-color: $window_pane_desc_background_3_color;
+	color: $window_pane_desc_text_3_color;
+} 
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
+ */
+
+
+/* ****** SECTION #2 ****** */
+
+#h1-header-section-2 {
+	background-color: $h1_section_2_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
+
+.div-window_pane-block-2 {
+	height: auto;
+  margin-right: 4.5em;
+	padding: 1em;
+  display: inline-block;
+  background-color: $window_pane_block_2_background_color;
+	text-align: center;
+  opacity: 0;
+
+  img {
+    margin-bottom: 0.4em; // 7px
+  }
+  /* Formats an image which is contained within the blocks. */
+
+  ul {
+    width: 63.44em; // 1,015px
+    margin: 0.35em auto; // 6px auto
+    padding: 0;
+    list-style-type: none;
+    border-top: $section_2_ul_border;
+
+    li {
+      margin: 0.5em;
+      color: $window_pane_block_2_text_color;
+    }
+    /* Formats the list-items which appears within the blocks. */
+
+    li:first-child {
+      font-weight: $semibold_font_weight;
+    }
+    /* More formatting for the first list-item which appears within blocks. */
+  }
+  /* Formats the list which appears within the blocks. */
+}
+/* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
+
+
+
 
 
 /* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
@@ -171,6 +349,9 @@ aside {
     margin: 8.15em 0 0 17.5em; // 130px 0 0 280px
   }
 
+  .div-window_pane-block-1 {
+    width: 32.5em; // 520px
+  }
 
   /* ****** MAIN LANDING SECTION ****** */
 
@@ -179,5 +360,26 @@ aside {
     height: 15.2em; // 243px
     bottom: 9.2em; // 147px
     left: 12.5em; // 200px
+
+    li {
+      width: 17.4em;
+    }
   }
-}
+
+  
+  /* ****** SECTION #1 ****** */
+  
+  .div-window_pane-block-1 > h2 {
+    font-size: $lg_h2_font_size;
+  }
+
+  
+  /* ****** SECTION #2 ****** */
+  
+  .div-window_pane-block-2 {
+    width: 26.5em; // 424px
+    min-width: 20em; // 320px
+  }
+
+
+}	
