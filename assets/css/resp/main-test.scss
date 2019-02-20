@@ -25,13 +25,42 @@ $h1_section_1_color: #92676C;
 $window_pane_block_p_1_color: #58262C;
 $window_pane_desc_background_1_color:  #E7D4C8;
 $window_pane_desc_background_2_color: #E7DCC8;
-$window_pane_desc_text_2_color: #6D5647;
 $window_pane_desc_background_3_color: #DEC0C3;
+$window_pane_desc_text_2_color: #6D5647;
 $window_pane_desc_text_3_color: #694448;
 
 $h1_section_2_color: #744725;
-$window_pane_block_2_background_color: #D9C296;
+$window_pane_block_2_background_1_color: #D9C296;
+$window_pane_block_2_background_2_color: #745925;
+$window_pane_block_2_background_3_color:#B19563;
 $window_pane_block_2_text_color: #523A0E;
+
+$h1_section_3_color: #B7A68E;
+$window_pane_block_3_background_1_color: #988366;
+$window_pane_block_3_background_2_color: #987566;
+$window_pane_block_3_background_3_color: #988C66;
+$window_pane_block_3_background_4_color: #988366;
+$window_pane_block_3_text_1_color: #D9CDBC;
+$window_pane_block_3_text_2_color: #FFFCFB;
+$window_pane_block_3_text_3_color: #FFFBEE;
+$window_pane_block_3_text_4_color: #FFF8EE;
+
+$h1_section_4_color: #C8586A;
+$window_pane_block_4_background_1_color: #A33042;
+$window_pane_block_4_background_2_color: #FFD6BC;
+$window_pane_block_4_background_3_color: #FBBC95;
+$window_pane_block_4_background_4_color: #FBD595;
+
+$window_pane_block_4_text_1_color: #FBDADF;
+$window_pane_block_4_text_2_color: #AC6133;
+$window_pane_block_4_text_3_color: #AC7F33;
+
+$window_pane_block_4_div_1_text_color: #FBBC95;
+$window_pane_block_4_div_2_text_color: #FFF2DE;
+
+$window_pane_block_4_span_1_text_color: #D48B5D;
+$window_pane_block_4_span_2_text_color: #AC7F33;
+$window_pane_block_4_span_3_text_color: #D3A75D;
 
 $base_font: 'Glegoo', 'Palatino', serif;
 $header_font: 'Balthazar', 'Cambria', serif;
@@ -43,6 +72,8 @@ $base_font_weight: 400;
 $header_font_weight: 600;
 $semibold_font_weight: 600;
 $bold_font_weight: 700;
+
+$line_height: 1.6;
 
 $lg_h2_font_size: 2.5em; // 30pt
 
@@ -237,7 +268,7 @@ aside {
   p {
     margin-bottom: 2.0em; // 32px
     text-indent: 1.3em; // 21px
-    line-height: 1.8em; // 29px
+    line-height: $line_height;
     color: $window_pane_block_p_1_color;
   }
   /* 
@@ -245,10 +276,10 @@ aside {
    * using the class, '.sctn_1-blok'.
    */
 
-  .sctn_1-blok > p ~ p {
+  p ~ p {
     margin-bottom: 1.7em; // 27px
     padding-bottom: 1.5em; // 24px
-    border-bottom: 0.188em solid;
+    border-bottom: 0.188em solid; // 3px
   }
   /* More formatting for the <p> elements which hold text content. */
 }
@@ -292,7 +323,7 @@ aside {
   margin-right: 4.5em;
 	padding: 1em;
   display: inline-block;
-  background-color: $window_pane_block_2_background_color;
+  background-color: $window_pane_block_2_background_1_color;
 	text-align: center;
   opacity: 0;
 
@@ -323,9 +354,227 @@ aside {
 }
 /* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
 
+.div-window_pane-block-2-type-1 {
+  height: auto;
+  margin: 0;
+  position: relative;
+  float: left;
+  clear: both;
+  // opacity: 0;
+  
+  span {
+    display: block;
+    padding: 1em;
+    margin: 0 auto;
+    background-color: $window_pane_block_2_background_2_color;
+    font-size: 1.1em;
+    font-weight: $semibold_font_weight;
+    text-align: center;
+    color: #d9c296;
+  }
+  /* 
+   * Formats a block which serves as a 'header' for the secondary blocks 
+   * contained within 'SECTION #2'. 
+   */
+  
+   span + div {
+    height: inherit;
+    margin: 0 auto;
+    position: relative;
+
+    span {
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: $semibold_font_weight;
+      color: $window_pane_block_2_text_color;
+      background-color: $window_pane_block_2_background_3_color_2;
+    }
+    /* 
+     * Formats the text content of the secondary blocks that appear near the bottom of the 
+     * landing page for 'SECTION #2'. 
+     */
+  }
+  /* 
+   * Formats a block which serves as a container for secondary information 
+   * within 'SECTION #2. 
+   */
+
+   .div-spacer-section-2 {
+    width: 0.1em; // 2px
+    height: 4em; // 64px
+  }
+  /* 
+   * Formats a spacer which reorders the content contained within 'SECTION #2'. 
+   * The spacer changes dimensions based on breakpoint of the browser.
+   */
+}
+/* Formats the secondary blocks that appear below the larger, main blocks in 'SECTION #2'. */
+
+
+/* ****** SECTION #3 ****** */
+
+#h1-header-section-3 {
+	background-color: $h1_section_3_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
+
+.div-window_pane-block-3 { 
+  h2 {
+    display: block;
+    padding-bottom: 0.1em; // 2px
+    border-bottom: 0.1em solid; // 2px
+    font-size: $lg_h2_font_size;
+    font-weight: $semibold_font_weight;
+  }
+  /* 
+   * Formats a text header for the block within each sub-section. The <h2> elements appear 
+   * within the <div> elements using the selectors, 
+   * '#div-window_pane-block-3-desc-2', '#div-window_pane-block-3-desc-3', & 
+   * '#div-window_pane-block-3-desc-4'.
+   */
+} 
+
+#div-window_pane-block-3-desc-1 {
+  background-color: $window_pane_block_3_background_1_color;
+  color: $window_pane_block_3_text_1_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+
+#div-window_pane-block-3-desc-2 {
+  background-color: $window_pane_block_3_background_2_color;
+  color: $window_pane_block_3_text_2_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+
+#div-window_pane-block-3-desc-3 {
+  background-color: $window_pane_block_3_background_3_color;
+  color: $window_pane_block_3_text_3_color;
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
+
+#div-window_pane-block-3-desc-4 {
+	background-color: $window_pane_block_3_background_4_color;
+  color: $window_pane_block_3_text_4_color;
+}
+/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
 
 
 
+/* ---- 'SECTION #4' ---- */
+
+#h1-header-section-4 {
+	background-color: $h1_section_4_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
+
+.div-window_pane-block-4 { 
+  p {
+    text-indent: 1em; // 16px
+    line-height: $line_height;
+  }
+  /* 
+   * Formats <p> elements which are contained with an individual block contained 
+   * within 'SECTION #4'.
+   */
+
+   div {
+    position: absolute;
+    top: -0.3em;
+    left: 0.06em;
+    font-size: 12em;
+  }
+  /* Formats <div> elements which appear as quotation marks above the blocks 
+   * contained within 'SECTION #4'.
+   */
+   
+   span {
+    width: 100%;
+    display: block;
+    padding-top: 0.3em; // 5px
+    border-top: 0.188em solid; // 3px
+    font-size: 1.25em; // 24pt
+    font-weight: $bold_font_weight;
+    text-align: right;
+  }
+  /* Formats a  text header for the 'block' within each sub-section. The <span> elements 
+   * appear within the <div> elements using the selectors, 
+   * '#div-window_pane-block-4-desc-2', '#div-window_pane-block-4-desc-3', & 
+   * '#div-window_pane-block-4-desc-4'.
+   */
+}
+
+#div-window_pane-block-4-desc-1 {
+	background-color: $window_pane_block_4_background_1_color;
+  color: $window_pane_block_4_text_1_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
+
+#div-window_pane-block-4-desc-2 {
+	background-color: $window_pane_block_4_background_2_color;
+  color: $window_pane_block_4_text_2_color;
+
+  div {
+    color: $window_pane_block_4_div_1_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $window_pane_block_4_span_1_text_color;
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+}
+/* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
+
+#div-window_pane-block-4-desc-3 {
+	background-color: $window_pane_block_4_background_3_color;
+  color: $window_pane_block_4_text_2_color;
+
+  div {
+    color: $window_pane_block_4_div_2_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $window_pane_block_4_span_2_text_color;
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+
+#div-window_pane-block-4-desc-4 {
+	background-color: $window_pane_block_4_background_4_color;
+  color: $window_pane_block_4_text_2_color;
+
+  div {
+    color: $window_pane_block_4_div_2_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $window_pane_block_4_span_3_text_color;
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 
 /* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
 
@@ -381,5 +630,53 @@ aside {
     min-width: 20em; // 320px
   }
 
+  .div-window_pane-block-2-type-1 {
+    width: 66.35em; // 1,062px
+    top: 4em; // 64px
+    right: 17.5em; // 280px
 
+    span + div {
+      width: 53.5em; // 856px
+      top: 1.5em; // 24px
+
+      span {
+        width: 15em; // 240px
+        height: 4.69em; // 75px
+        margin-left: 2.1em; // 34px
+        padding-top: 2.5em; // 40px
+      }
+    }
+  }
+
+  
+  /* ****** SECTION #3 ****** */
+
+  .div-window_pane-block-3 { 
+    h2 {
+      width: 100%;
+    }
+
+    p {
+      text-indent: 1.3em; // 21px
+      line-height: $line_height;
+    }
+    /* 
+     * Formats <p> elements which are contained with an individual block contained 
+     * within 'SECTION #3'.
+     */
+  }
+  
+  
+  /* ****** SECTION #4 ****** */
+
+  .div-window_pane-block-4 { 
+    div {
+      top: -0.3em; // 5px
+      left: 0.06em; // 1px
+      font-size: 12em; // 144pt
+    }
+    /* Formats <div> elements which appear as quotation marks above the blocks 
+     * contained within 'SECTION #4'.
+     */
+  }
 }	
