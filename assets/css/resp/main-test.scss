@@ -546,10 +546,45 @@ aside {
   
   span {
     color: $window_pane_block_4_span_2_text_color;
+
+    span {
+      display: block;
+      background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+      background-position: 0px 0px;
+    }
+    /* Formats a <span> element which contain a logo. This logo is contained by 
+     * the block which appears on the upper-left, underneath the header block.
+     */
   }
   /* 
    * Formats a <span> element which are contained within a block within 
    * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+
+   span + span > span {
+    display: block;
+    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+    background-position: 0px -28px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-middle, underneath the header block.
+   */
+
+   span + span + span > span {
+    display: block;
+    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+    background-position: 0px -47px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-right, underneath the header block.
+   */
+
+   span + span + span ~ span span {
+    text-align: center;
+    background-image: none;
+  }
+  /* Formats <span> elements which contain text. Theses elements appear
+   * below a row of <span> elements which contain logos.
    */
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
@@ -573,8 +608,106 @@ aside {
    * Formats a <span> element which are contained within a block within 
    * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
    */
+
+  p {
+    border-bottom: 0.13em solid; // 2px
+  }
+  /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
+   * containing logos and text.
+   */
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+
+#div-window_pane-block-5-header-2 {
+	background-color: #96C5AA;
+  color: #408B61;
+  
+  span {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+  }
+  /* Formats the text of the block which serves as a header for the content contained 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* Formats the block which serves as a header for the content that is contained 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+
+ #div-window_pane-block-5-desc-4 {
+  float: left;
+  background-color: #216F43;
+
+  span {
+    width: 100%;
+    height: 225px;
+    display: table;
+    float: 1em;
+
+    span {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      sup {
+        position: absolute;
+        top: 55px;
+        font-size: 2.5em;
+        color: #C8CBDF;
+
+        span {
+          font-size: 10em;
+          letter-spacing: -10px;
+          color: #fff;
+        }
+        /* Formats the numberical value that appears in the block below the block that serves as a header  
+         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+         */
+
+         span + span {
+          font-size: 1.5em;
+          letter-spacing: 0;
+          color: #96C5AA;
+        }
+        /* Formats the text, '/hour', that appears in the below the block that serves as a header 
+         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+         */
+      }
+      /* Formats the dollar sign that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+    }
+    /* Formats a block that serves as a container for text copy that appears below the block 
+     * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+     */
+  }
+  /* Formats a block that serves as a container for text copy that appears below the block 
+   * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* Formats a block that appears below the block that serves as a header 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+
+#div-window_pane-block-5-desc-5 {
+  float: left;
+  background-color: #C8CBDF;
+  color: #2A326B;
+
+  p {
+    font-size: 0.95em; // 11pt
+    border-bottom: 0.13em solid; // 2px
+  }
+  /* Formats <p> elements which appear within a block that appears on the right of the page 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
+ * of 'SECTION #5'.
+ */
+
 
 /* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
 
@@ -678,5 +811,47 @@ aside {
     /* Formats <div> elements which appear as quotation marks above the blocks 
      * contained within 'SECTION #4'.
      */
+  }
+  
+  #div-window_pane-block-4-desc-3 {
+    span span {
+      width: 6.56em; // 105px
+      height: 1.69em; // 27px
+      margin-top: 0.55em; // 9px
+      
+    }
+
+    span + span > span {
+      width: 6.56em; // 105px
+      height: 1.25em; // 20px
+      margin-top: 0.9em; // 14px
+    }
+
+    span + span + span > span {
+      width: 105px; // 105px
+      height: 2.81em; // 45px
+      margin-top: 0;
+    }
+
+    span + span + span ~ span span {
+      height: 2.81em; // 45px
+      margin-top: 0.85em; // 14px
+    }
+  }
+  
+  #div-window_pane-block-4-desc-4, 
+  #div-window_pane-block-5-desc-5 {
+    p {
+      padding-bottom: 0.9em; // 14px
+    }
+  }
+
+
+  /* ****** SECTION #5 ****** */
+
+  #div-window_pane-block-5-desc-4, 
+  #div-window_pane-block-5-desc-5 {
+    min-height: 14.06em; // 225px
+    margin-top: 1em; // 16px
   }
 }	
