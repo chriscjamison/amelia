@@ -70,6 +70,18 @@ $window_pane_block_5_text_1_color: #216F43;
 $window_pane_block_5_text_2_color: #408B61;
 $window_pane_block_5_div_1_color: #C1D1D9;
 
+$h1_section_6_color: #A7AB92;
+$window_pane_block_6_background_1_color: #A7AB92;
+$window_pane_block_6_background_2_color: #971B1E;
+$window_pane_block_6_background_3_color: #B0AE97;
+$window_pane_block_6_background_4_color: #302E1E;
+$window_pane_block_6_background_5_color: #A7AB92;
+$window_pane_block_6_text_1_color: #2A2E13;
+$window_pane_block_6_text_2_color: #FFFFFF;
+$window_pane_block_6_text_3_color: #2C2F1E;
+$window_pane_block_6_span_background_1_color: #302E1E;
+$window_pane_block_6_span_text_1_color: #B0AE97;
+
 
 $base_font: 'Glegoo', 'Palatino', serif;
 $header_font: 'Balthazar', 'Cambria', serif;
@@ -334,7 +346,7 @@ aside {
   display: inline-block;
   background-color: $window_pane_block_2_background_1_color;
 	text-align: center;
-  opacity: 0;
+  // opacity: 0;
 
   img {
     margin-bottom: 0.4em; // 7px
@@ -397,7 +409,7 @@ aside {
       text-align: center;
       font-weight: $semibold_font_weight;
       color: $window_pane_block_2_text_color;
-      background-color: $window_pane_block_2_background_3_color_2;
+      background-color: $window_pane_block_2_background_3_color;
     }
     /* 
      * Formats the text content of the secondary blocks that appear near the bottom of the 
@@ -636,7 +648,7 @@ aside {
 
 .div-window_pane-block-5-type-1 {
 	position: relative;
-  opacity: 0;
+  // opacity: 0;
 }
 /* Formats the blocks which are contained with 'SECTION #5'. */
 
@@ -753,7 +765,8 @@ aside {
           letter-spacing: -10px;
           color: #fff;
         }
-        /* Formats the numberical value that appears in the block below the block that serves as a header  
+        /* 
+         * Formats the numberical value that appears in the block below the block that serves as a header  
          * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
          */
 
@@ -762,23 +775,28 @@ aside {
           letter-spacing: 0;
           color: #96C5AA;
         }
-        /* Formats the text, '/hour', that appears in the below the block that serves as a header 
+        /* 
+         * Formats the text, '/hour', that appears in the below the block that serves as a header 
          * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
          */
       }
-      /* Formats the dollar sign that appears in the block below the block that serves as a header  
+      /* 
+       * Formats the dollar sign that appears in the block below the block that serves as a header  
        * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
        */
     }
-    /* Formats a block that serves as a container for text copy that appears below the block 
+    /* 
+     * Formats a block that serves as a container for text copy that appears below the block 
      * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
      */
   }
-  /* Formats a block that serves as a container for text copy that appears below the block 
+  /* 
+   * Formats a block that serves as a container for text copy that appears below the block 
    * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
    */
 }
-/* Formats a block that appears below the block that serves as a header 
+/* 
+ * Formats a block that appears below the block that serves as a header 
  * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
  */
 
@@ -791,11 +809,13 @@ aside {
     font-size: 0.95em; // 11pt
     border-bottom: 0.13em solid; // 2px
   }
-  /* Formats <p> elements which appear within a block that appears on the right of the page 
+  /* 
+   * Formats <p> elements which appear within a block that appears on the right of the page 
    * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
    */
 }
-/* Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
+/* 
+ * Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
  * of 'SECTION #5'.
  */
 
@@ -803,11 +823,148 @@ aside {
 /* ---- SECTION #6 ---- */
 
 #h1-header-section-6 {
-	background-color: $h1_section_4_color; 
+	background-color: $h1_section_6_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
 
+.div-window_pane-block-6-type-1 {
+  position: relative;
+  float: left;
+	// opacity: 0;
+}
+/* 
+ * Formats the blocks which appears directly underneath the header within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
+ #div-window_pane-block-6-desc-1 {
+	background-color: $window_pane_block_6_background_1_color;
+  color: $window_pane_block_6_text_1_color;
+
+  p {
+    line-height: $line_height;
+    border-bottom: 0.31rem solid; // 3px
+  }
+  /* 
+   * Formats the <p> elements which are contained by the block which appears directly underneath the header 
+   * on the left hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+   */
+}
+/* 
+ * Formats the block which appears directly underneath the header on the left hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+#div-window_pane-block-6-info-1 {
+	position: relative;
+  color: $window_pane_block_6_text_2_color;
+  background-color: $window_pane_block_6_background_1_color;
+
+  span {
+    display: table;
+    background: none;
+
+    span {
+      display: table-cell;
+      background: none;
+      text-align: center;
+      font-size: $base_font_size;
+      font-weight: $semibold_font_weight;
+      color: $window_pane_block_6_text_2_color;
+      vertical-align: middle;
+    }
+    /* 
+     * Formats a <span> element which is contained by the block which appears directly underneath the header 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */
+  }
+  /* 
+   * Formats a block that serves as a container for text copy that appears directly underneath the header 
+   * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'. 
+   */
+}
+/* 
+ * Formats the block which appears directly underneath the header on the right hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+ #div-window_pane-block-6-desc-2 {
+  float: left;
+  // opacity: 0;
+
+  div {
+    float: left;
+    background-color: $window_pane_block_6_background_2_color;
+
+    span {
+      display: block;
+      line-height: $line_height;
+      color: $window_pane_block_6_span_text_1_color;
+    }
+    /* Formats the text within blocks which contain office information within the 'FIRST WINDOW PANE' 
+     * of 'SECTION #6'.
+     */
+  }
+  /* 
+   * Formats the blocks which contain office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */
+
+  span {
+    padding: 1em 1.7em;
+    display: block;
+    font-weight: $semibold_font_weight;
+    color: $window_pane_block_6_span_text_1_color;
+    background-color: $window_pane_block_6_span_background_1_color; 
+  }
+  /* 
+   * Formats blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */
+}
+/* 
+ * Formats the blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+
+.div-window_pane-block-6-type-2 {
+  position: relative;
+
+  div > div {
+    float: left;
+
+    span {
+      display: block;
+    }
+    /* Formats <span> elements which contain location informtion which appears 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */
+  }
+  /* Formats a block which serves as a container of <span> elements which appears on the right hand side 
+   * of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+   */
+}
+/* 
+ * Formats a block which serves as a header for location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+.div-spacer-section-6 {
+  height: 1em;
+  position: relative;
+  clear: both;
+}
+/* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
+
+#div-window_pane-block-6-desc-3 {
+	position: relative;
+	background-color: $window_pane_block_6_background_5_color;
+	color: $window_pane_block_6_text_3_color;
+}
+/* 
+ * Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
 
 /* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
 
@@ -828,6 +985,8 @@ aside {
   }
 
   .div-window_pane {
+    width: 85.38rem; // 1,366px
+    height: 39.06rem; // 625px
     margin: 8.15em 0 0 17.5em; // 130px 0 0 280px
   }
 
@@ -1004,5 +1163,74 @@ aside {
   #div-window_pane-block-5-desc-5 {
     min-height: 14.06em; // 225px
     margin-top: 1em; // 16px
+  }
+
+
+  /* ****** SECTION #6 ****** */
+
+  .div-window_pane-block-6-type-1 {
+    margin-right: 2.5em; // 40px
+    padding: 1em 2em; // 16px 32px
+  }
+
+  #div-window_pane-block-6-desc-1 {
+    padding: 1em 2em; // 16px 32px
+    
+    p {
+      margin-bottom: 0.5em; // 8px
+      padding-bottom: 1.2em; // 19px
+    }
+  }
+
+  #div-window_pane-block-6-info-1 {
+    width: 28.9em; // 462px
+    margin-top: 2.5em; // 40px
+    padding-bottom: 0;
+
+    span {
+      width: 100%;
+      padding-bottom: 0.75em; // 12px
+    }
+  }
+
+  #div-window_pane-block-6-desc-2 {
+    width: 15.25em; // 244px
+    height: 10.31em; // 165px
+    margin-right: 2.5em; // 40px
+
+    div {
+      width: 7.5em; // 120px
+      margin-top: 0.75em; // 12px
+      padding: 1em 1.65em; // 16px 26px
+    }
+  }
+  
+  .div-window_pane-block-6-type-2 {
+    width: 32.8em; // 525px
+    height: 12.15em; // 194px
+    margin-top: 1em; // 16px
+
+    div {
+      width: 15.75em; // 252px
+
+      div {
+        width: 9.61em; // 154px
+        margin: 0;
+        padding: 0;
+      }
+  
+    }
+    /* Formats a block which serves as a container of location informtion which appears 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */
+  }
+
+  .div-spacer-section-6 {
+    width: 28.9em; // 462px
+  }
+
+  #div-window_pane-block-6-desc-3 {
+    padding: 1em 2em; // 16px 32px
+    margin-bottom: 20em; // 320px
   }
 }	
