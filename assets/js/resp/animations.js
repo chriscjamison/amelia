@@ -87,10 +87,10 @@
  *        which appears within, 'SECTION #3' and 'SECTION #4'.
  * 
  *        Called by:
- *          + $(".sctn_nav > div > span").on("mouseover") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("mouseout") (control_panel.js)
- *          + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *          + $(".sctn_nav > div > div > a").on("click") (control_panel.js)
+ *          + $(".div.nav-section > div > span").on("mouseover") (control_panel.js)
+ *          + $(".div.nav-section > div > span").on("mouseout") (control_panel.js)
+ *          + $(".div.nav-section > div > span").on("click") (control_panel.js)
+ *          + $(".div.nav-section > div > div > a").on("click") (control_panel.js)
  * 
  * 
  *    animateSctnNavLinks
@@ -98,15 +98,15 @@
  *      which appears within, 'SECTION #3' and 'SECTION #4'.
  * 
  *      Called by:
- *        + $(".sctn_nav > div > span").on("click") (control_panel.js)
- *        + $(".sctn_nav > div > div > a").on("click") (control_panel.js)        
+ *        + $(".div.nav-section > div > span").on("click") (control_panel.js)
+ *        + $(".div.nav-section > div > div > a").on("click") (control_panel.js)        
  * 
  *    animateSideNav
  *      Animates the movement of the main menu of the browser window.
  *    
  *      Called by:
  *        + $("#nav-link").on("click") (control_panel.js)
- *        + $("#options > a").on("click") (control_panel.js)
+ *        + $("#div-nav-options > a").on("click") (control_panel.js)
  * 
  *    determineCurrentSection
  *      Returns a numerical value which represents the Section which is visible 
@@ -129,8 +129,8 @@
  *      navigation which appears on the left hand side of the browser window.
  * 
  *      Called by:
- *        + $("#options > a").on("mouseenter") (control_panel.js)
- *        + $("#options > a").on("mouseleave") (control_panel.js)
+ *        + $("#div-nav-options > a").on("mouseenter") (control_panel.js)
+ *        + $("#div-nav-options > a").on("mouseleave") (control_panel.js)
  * 
  *    setPageInitialLocation
  *      Once the webpage loads, the scroll-bar is moved to the position within the webpage 
@@ -339,7 +339,7 @@ function cssAdjustment()  {
    *  on the width of a browser used by a visitor using a desktop or laptop.
    * 
    *  The HTML elements which "cssAdjustment" modifies are:
-   *    "#prev-sctn", "#next_sctn", "#prev-sctn > span", "#next-sctn > span", "#info", 
+   *    "#previous-section", "#next_sctn", "#previous-section > span", "#next-section > span", "#info", 
    *    #info > img", and ".copy". 
    * **************** **************** **************** **************** **************** */
   
@@ -373,8 +373,8 @@ function cssAdjustment()  {
     var prev_sctn_element = new Object();
     var next_sctn_element = new Object();
     
-    prev_sctn_selector = "#prev-sctn";
-    next_sctn_selector = "#next-sctn";
+    prev_sctn_selector = "#previous-section";
+    next_sctn_selector = "#next-section";
    
     prev_sctn_element = $(prev_sctn_selector);
     next_sctn_element = $(next_sctn_selector);
@@ -391,10 +391,10 @@ function cssAdjustment()  {
       };
       
       $(next_sctn_element).css(inter_nav_css);
-      // The HTML element identified by the selector, "#next-sctn", is formatted by 
+      // The HTML element identified by the selector, "#next-section", is formatted by 
       // using the value held by the Object, "inter_nav_css".
       $(prev_sctn_element).css(inter_nav_css);
-      // The HTML element identified by the selector, "#prev-sctn", is formatted by 
+      // The HTML element identified by the selector, "#previous-section", is formatted by 
       // using the value held by the Object, "inter_nav_css".
     } // END OF if STATEMENT
   
@@ -444,8 +444,8 @@ function cssAdjustment()  {
     var info_img_css = new Object();
     
     info_img_selector = "#info > img";
-    prev_sctn_span_selector = "#prev-sctn > span";
-    next_sctn_span_selector = "#next-sctn > span";
+    prev_sctn_span_selector = "#previous-section > span";
+    next_sctn_span_selector = "#next-section > span";
     
     info_img_element = $(info_img_selector);
     next_sctn_span_element = $(next_sctn_span_selector);
@@ -465,12 +465,12 @@ function cssAdjustment()  {
     // image to fit a mobile browser.
 
     $(prev_sctn_span_element).html("");
-    // Removes the HTML from the HTML element using the selector, "#prev-sctn > span".
+    // Removes the HTML from the HTML element using the selector, "#previous-section > span".
     //
     // The above HTML element has text to describe the navigation function of this element.
     // The Method, ".html", strips that HTML.
     $(next_sctn_span_element).html("Press to view the next section");
-    // Sets the HTML from the HTML element using the selector, "#next-sctn > span"
+    // Sets the HTML from the HTML element using the selector, "#next-section > span"
     // to "Press to view the next section".
     //
     // The above HTML element lacks text to describe the navigation function of this element.
@@ -751,10 +751,10 @@ function animateInfoElement(time_value) {
     var nav_link_css = new Object();
         
     info_selector = "#info";
-    next_sctn_selector = "#next-sctn";
-    prev_sctn_selector = "#prev-sctn";
+    next_sctn_selector = "#next-section";
+    prev_sctn_selector = "#previous-section";
     nav_selector = "nav";
-    next_sctn_span_selector = "#next-sctn > span";
+    next_sctn_span_selector = "#next-section > span";
     nav_link_selector = "#nav-link";
 
     info_element = $(info_selector);
@@ -1225,8 +1225,8 @@ function displayVerticalNav() {
   // The current vertical position of the browser window within the webpage 
   // is passed on to, "current_position".
   
-  prev_sctn_selector = "#prev-sctn";
-  next_sctn_selector = "#next-sctn";
+  prev_sctn_selector = "#previous-section";
+  next_sctn_selector = "#next-section";
 
   prev_sctn_element = $(prev_sctn_selector);
   next_sctn_element = $(next_sctn_selector);
@@ -1473,7 +1473,7 @@ function animateSideNav(time_value) {
    * is clicked.
    * 
    * The HTML elements using the selectors, "nav", "#nav-brdr", "#nav-bkgrnd", 
-   * "#options", "#cntainr", ".wndow", ".headr", ".copy", ".sctn_nav" 
+   * "#div-nav-options", "#cntainr", ".wndow", ".headr", ".copy", ".div.nav-section" 
    * all have their layout altered by this function.
    * **************** **************** **************** **************** **************** */
 
@@ -1526,7 +1526,7 @@ function animateSideNav(time_value) {
   // of the webpage within the browser window are passed on to "page_dimensions_Array".
 
   nav_selector = "nav";
-  options_selector = "#options";
+  options_selector = "#div-nav-options";
   nav_bkgrnd_selector = "#nav-bkgrnd";
   nav_brdr_selector = "#nav-brdr";
   cntainr_selector = "#cntainr";
@@ -1534,8 +1534,8 @@ function animateSideNav(time_value) {
   headr_selector = ".headr";
   copy_selector = ".copy";
   info_selector = "#info";
-  sctn_nav_selector = ".sctn_nav";
-  prev_next_sctn_selector = "#prev-sctn, #next-sctn";
+  sctn_nav_selector = ".div.nav-section";
+  prev_next_sctn_selector = "#previous-section, #next-section";
   bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
 
   nav_element = $(nav_selector);
@@ -1670,7 +1670,7 @@ if ($(nav_element).css("left") !== "0px")  {
     // in from the left to the right.
     //
     // The HTML elements affected by these statements are: "nav", 
-    // "#nav-bkgrnd", "#nav-brdr", "#options".
+    // "#nav-bkgrnd", "#nav-brdr", "#div-nav-options".
   } else  {
   // Otherwise, if the intersection navigation that appears on the left hand 
   // of the webpage is invisible, this condition is triggered.

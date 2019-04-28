@@ -82,6 +82,7 @@ $window_pane_block_6_text_3_color: #2C2F1E;
 $window_pane_block_6_span_background_1_color: #302E1E;
 $window_pane_block_6_span_text_1_color: #B0AE97;
 
+$span_background_image_section_5: url('/assets/img/section/5/sprite-insurance_comps.png');
 
 $base_font: 'Glegoo', 'Palatino', serif;
 $header_font: 'Balthazar', 'Cambria', serif;
@@ -97,6 +98,8 @@ $bold_font_weight: 700;
 $line_height: 1.6;
 
 $lg_h2_font_size: 2.5em; // 30pt
+
+
 
 /* ****** COMMON ELEMENTS ****** */
 
@@ -569,7 +572,7 @@ aside {
 
     span {
       display: block;
-      background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+      background-image: $span_background_image_section_5;
       background-position: 0px 0px;
     }
     /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -582,8 +585,6 @@ aside {
    */
 
    span + span > span {
-    display: block;
-    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
     background-position: 0px -28px;
   }
   /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -591,8 +592,6 @@ aside {
    */
 
    span + span + span > span {
-    display: block;
-    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
     background-position: 0px -47px;
   }
   /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -966,7 +965,13 @@ aside {
  * of 'SECTION #6'.
  */
 
-/* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
+
+
+/* ****** ****** ****** ****** ****** ****** ****** ****** 
+                         BREAKPOINTS                                   
+   ****** ****** ****** ****** ****** ****** ****** ****** */
+
+
 
 /* ****** DESKTOP - 1366px WIDE ****** */
 
@@ -993,6 +998,7 @@ aside {
   .div-window_pane-block-1 {
     width: 32.5em; // 520px
   }
+
 
   /* ****** MAIN LANDING SECTION ****** */
 
