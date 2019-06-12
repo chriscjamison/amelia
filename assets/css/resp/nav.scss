@@ -1,4 +1,4 @@
-/* Filename: nav.css 
+ /* Filename: nav.css 
  *  + Contains the CSS styling for all of the navigation elements of the 'One Page' template
  *  !!! NOTE !!! Does not contain styling for the content or form elements. 
  * 
@@ -27,6 +27,8 @@ $nav_icon_background_image: url('/assets/img/nav/nav.png');
 $nav_background_color: #666;
 $nav_border_color: #444;
 
+$nav_section_border: 0.13rem solid #222; // 2px
+
 $nav_options_a_font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 $nav_options_a_background_color: #000;
@@ -34,9 +36,19 @@ $nav_options_a_hover_background_color: #808080;
 $nav_options_a_click_background_color: #A6A6A6;
 $nav_options_a_font_color: #fff;
 
-$nav_options_font_size: 1.25rem; // 15pt
+$nav_options_font_size_1: 1.25rem; // 15pt
+$nav_options_font_size_2: 1.5rem; // 18pt
+$nav_options_font_size_3: 1.25rem; // 15pt
+$nav_options_font_size_ipad: 2.5rem; // 30pt
 
-$nav_intrasection_background_image: url('/assets/img/nav/next/resp/next-sctn.png');
+$nav_section_font_size_1: 1.8rem; // 22pt
+$nav_section_font_size_2: 2rem; // 24pt
+
+$nav_section_font_weight_normal: 400;
+
+$nav_intrasection_background_image: url('/assets/img/nav/next/resp/next-section.png');
+$nav_span_section_3_background_image: url('/assets/img/nav/section_nav/section_3.png');
+$nav_span_section_4_background_image: url('/assets/img/nav/section_nav/section-4.png');
 
 
 
@@ -207,122 +219,101 @@ nav {
 
 .div-nav-section {
 	position: absolute;
-	opacity: 0;
+  opacity: 0;
+  
+  div {
+    height: inherit;
+    margin: 0 auto;
+
+    span {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      color: $nav_options_a_font_color;
+      cursor: auto;	
+    } 
+    /* Formats the <span> element which serves as the menu-button for the intra-sectional 
+     * navigation for 'SECTION #3' and 'SECTION #4'. 
+     */
+
+     span:hover {
+      cursor: pointer;
+    }
+    /* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
+     * which serves as the menu-button for the intra-sectional navigation. 
+     */
+
+    .nav-section-base, 
+    .nav-section-hover, 
+    .nav-section-active, 
+    .nav-section-click {
+      cursor: default;
+      opacity: 1;
+    }
+
+    div {
+      position: absolute;
+      display: none;
+
+      a {
+        width: 6.56em;
+        height: 1.38em;
+        display: block;
+        float: left;
+        margin: 0 0.94em;
+        padding: 0.19em 0 0.38em 0;
+        background-color: $nav_options_a_background_color;
+        border: $nav_section_border;
+        font-family: $nav_options_a_font;
+        font-size: $nav_options_font_size_1;
+        color: $nav_options_a_font_color;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        cursor: pointer; 
+      }
+      /* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
+      
+    }
+    /* Formats the <div> element which contains the <a> elements which serve as 
+     * menu-options of the intra-sectional navigation.
+     */
+  }
+  /* Formats the <div> element which serves as a container for the <div> and <span> 
+   * elements which make up the inter-sectional navigation for 'SECTION #3' 
+   * and 'SECTION #4'.
+   */
 }
 /* Formats a <div> element which contains the intra-sectional navigation 
  * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
  */
  
-.div-nav-section > div {
-	height: inherit;
-	margin: 0 auto;
-}
-/* Formats the <div> element which serves as a container for the <div> and <span> 
- * elements which make up the inter-sectional navigation for 'SECTION #3' 
- * and 'SECTION #4'.
- */
 
-.div-nav-section > div > span {
-	display: block;
-	position: relative;
-	margin: 0 auto;
-	color: $nav_options_a_font_color;
-	cursor: auto;	
+#div-nav-section-3 {
+  div {
+    span {
+      background-image: $nav_span_section_3_background_image;
+    }
+    /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #3'.
+     */
+  } 
+}
+
+
+#div-nav-section-4 {
+  div {
+    span {
+      background-image: $nav_span_section_4_background_image;
+    }
+    /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #4'.
+     */
+  } 
 } 
-/* Formats the <span> element which serves as the menu-button for the intra-sectional 
- * navigation for 'SECTION #3' and 'SECTION #4'. 
- */
 
-.div-nav-section > div > span:hover {
-  cursor: pointer;
-}
-/* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
- * which serves as the menu-button for the intra-sectional navigation. 
- */
 
-#div-nav-section-3 > div > span {
-	background-image: url('/assets/img/nav/sctn_nav/sctn_3.png');
-}
-/* Formats the background-image of the <span> element which serves as the 
- * menu-button for the intra-sectional navigation for 'SECTION #3'.
- */
-
-#div-nav-section-4 > div > span {
-	background-image: url('/assets/img/nav/sctn_nav/sctn_4.png');
-}
-/* Formats the background-image of the <span> element which serves as the 
- * menu-button for the intra-sectional navigation for 'SECTION #4'.
- */
-
-.div-nav-section > div > span.base-sctn_nav {
-	background-position: 0px 0px;
-	cursor: default;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the base click state.
- */
-
-.div-nav-section > div > span.hover-sctn_nav {
-	background-position: 0px -35px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the hover click state.
- */
-
-.div-nav-section > div > span.active-sctn_nav {
-	background-position: 0px -70px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the active click state.
- */
-
-.div-nav-section > div > span.click-sctn_nav {
-	background-position: 0px -105px;
-	cursor: pointer;
-	opacity: 1;
-}
-/* Formats the click-state for the <span> element which serves as the menu-button 
- * for the intra-sectional navigation.
- * This is the click state which is set once the menu-button has been clicked.
- */
-
-.div-nav-section > div > div {
-	width: 46.25em;
-	height: 2.19em;
-	margin: 0 auto;
-	position: absolute;
-	display: none;
-}
-/* Formats the <div> element which contains the <a> elements which serve as 
- * menu-options of the intra-sectional navigation.
- */
-
-.div-nav-section > div > div > a {
-	width: 6.56em;
-	height: 1.38em;
-	display: block;
-	float: left;
-	margin: 0 0.94em;
-	padding: 0.19em 0 0.38em 0;
-	background-color: #000;
-	border: 2px solid #222;
-	font: 400 1.25em "Franklin Gothic Medium", sans-serif;
-	color: #fff;
-	text-align: center;
-	text-decoration: none;
-	letter-spacing: 1px;
-	cursor: pointer; 
-}
-/* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
-
+.div-nav-section > div > div > 
 .div-nav-section > div > div a:hover {
 	background-color: #333;
 }
@@ -406,7 +397,7 @@ nav {
         height: 2.35em; // 38px
         margin: 1em; // 16rem
         padding: 1em; // 16rem
-        font-size: $nav_options_font_size;
+        font-size: $nav_options_font_size_1;
       }
     }
 
@@ -483,41 +474,85 @@ nav {
     div {
       width: 46.25em; // 740px
 
-      .div-nav-section > div > span {
+      span {
         width: 9.38em; // 150px
         height: 2.19em; // 35px
         margin: 0 auto;
-      } 
-      
-    }
+      }
 
-    
-  }
+      .nav-section-base {
+        background-position: 0px 0px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+       * for the intra-sectional navigation.
+       * This is the base click state.
+       */
+
+      .nav-section-hover {
+        background-position: 0px -35px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+       * for the intra-sectional navigation.
+       * This is the hover click state.
+       */
+
+      .nav-section-active {
+        background-position: 0px -70px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+       * for the intra-sectional navigation.
+       * This is the active click state.
+       */
   
+      .nav-section-click {
+        background-position: 0x -105px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+       * for the intra-sectional navigation.
+       * This is the click state which is set once the menu-button has been clicked.
+       */
+
+      div {
+        width: 46.25em; // 740px
+        height: 2.19em; // 35px
+        margin: 0 auto;
+
+        a {
+          width: 6.56em; // 105px
+          height: 1.38em; // 22px
+          margin: 0 0.94em; // 15px
+          padding: 0.19em 0 0.38em 0; // 3px 0 6px 0
+        }
+      }
+    }
+  }
 }
 
 @media screen and (width: 980px) {
-  /* This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized to fit iPhones. */
+  /* 
+   * This CSS breakpoint affects browsers which have a width of 980px. This breakpoint is optimized 
+   * to fit iPhones. 
+   */
 
   nav, 
   #div-nav-background, 
   #div-nav-border, 
   #div-nav-options {
-	  width: 61.25em;
-    height: 108.75em;
-    left: -61.25em;
+	  width: 61.25em; // 980px
+    height: 108.75em; // 1740px
+    left: -61.25em; // 980px
     display: none;
   }
   
   #div-nav-border {
-    height: 12.25em;
+    height: 12.25em; // 196px
   }
   
   #div-nav-icon {
-    width: 100px;
-    height: 100px;
-    top: 50px;
-    left: 50px;
+    width: 6.25em; // 100px
+    height: 6.25em; // 100px
+    top: 3.13em; // 50px
+    left: 3.13em; // 50px
     background-image: url('/assets/img/nav/nav_mobile.png');
     opacity: 0;
   }
@@ -543,20 +578,20 @@ nav {
   }  
   
   #div-nav-options > a {
-    margin: 0.9em auto;
-    font-size: 2.5em;  
+    margin: 0.9em auto; // 14px
+    font-size: nav_options_font_size_ipad;  
   }
   
   #previous-section, 
   #next-section {
-    width: 22.2em;
-    height: 10em;
-    right: 19em;
+    width: 22.2em; // 355px
+    height: 10em; // 160px
+    right: 19em; // 304px
     background-image: url('/assets/img/nav/next/resp/next-sctn.png');
   }
   
   #next-section { 
-    bottom: 38em;
+    bottom: 38em; // 608px
     background-position: 0px -310px
   }
   
@@ -570,121 +605,135 @@ nav {
 
   #previous-section > span,
   #next-section > span {
-    width: 6.8em;
-    height: 6.56em;
+    width: 6.8em; // 109px
+    height: 6.56em; // 105px
     margin: 0 auto;
-    font-size: 1.8em;
+    font-size: $nav_section_font_size_1;
   }
   
   .div-nav-section {
-    width: 61.2em !important;
-    height: 4.38em !important; 
-    top: 67em !important;
+    width: 61.2em !important; // 979px
+    height: 4.38em !important; // 70px
+    top: 67em !important; // 1072px
+
+    div {
+      width: 18.8em; // 301px
+
+      span {
+        width: 18.8em; // 308px
+        height: 4.38em; // 70px
+      }
+
+      div {
+        width: 18.8em; // 308px
+        height: 27.19em; // 435px
+        margin: 2em 0; // 32px 0
+
+        a {
+          width: 9.3em; // 149px
+          height: 1.5em; // 24px
+          margin: 0.65em 0; // 10px 0
+          padding: 0.5em 0 0.25em 0; // 8px 0 4px 0
+          font-family: $nav_options_a_font;
+          font-size: $nav_section_font_size_2;
+          font-weight: $nav_section_font_weight_normal;
+        }
+      }
+    }
   }
   
-  .div-nav-section > div {
-	  width: 18.8em;
+  #div-nav-section-3 { 
+    div {
+      span {
+        background-color: #000;
+        background-image: url('/assets/img/nav/sctn_nav/sctn_3-mble.png');
+      }
+    }
   }
   
-  .div-nav-section > div > span {
-    width: 18.8em;
-    height: 4.38em;
-  }
-  
-  #div-nav-section-3> div > span {
-    background-color: #000;
-    background-image: url('/assets/img/nav/sctn_nav/sctn_3-mble.png');
-  }
-  
-  #div-nav-section-4 > div > span {
-    background-color: #000;
-    background-image: url('/assets/img/nav/sctn_nav/sctn_4-mble.png');
-  }
-  
-  .div-nav-section > div > div {
-    width: 18.8em;
-    height: 27.19em;
-    margin: 2em 0;
-  }
-  
-  .div-nav-section > div > div > a {
-    width: 9.3em;
-    height: 1.5em;
-    margin: 0.65em 0;
-    padding: 0.5em 0 0.25em 0;
-    font: 400 2em "Franklin Gothic Medium", sans-serif
+  #div-nav-section-4 { 
+    div {
+      span {
+        background-color: #000;
+        background-image: url('/assets/img/nav/sctn_nav/sctn_4-mble.png');
+      }
+    }
   }
 }
 
 @media screen and (width: 980px) and (max-height: 1310px) {
-  /* This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
-  * This breakpoint is optimized to fit the iPad. 
-  */
+  /* 
+   * This CSS breakpoint affects browsers which have a width of 980px and a height less than 1310px. 
+   * This breakpoint is optimized to fit the iPad. 
+   */
 
   #div-nav-options > a {
-    font-size: 1.85em;
+    font-size: $nav_options_font_size_ipad;
   }
   
   #next-section {
-    height: 10em;
-    bottom: 11em;
+    height: 10em; // 160px
+    bottom: 11em; // 176px
     background-image: url('/assets/img/nav/next/resp/next-sctn.png');
     background-position: 0px -310px;
-  }
 
-  #next-section > span {
-    width: 6.8em;
-    height: 5.56em;
-    margin: 0 auto;
+    span {
+      width: 6.8em; // 109px
+      height: 5.56em; // 89px
+      margin: 0 auto;
+    }
   }
 
   .div-nav-section {
-    top: 57em !important;
-  }
-  
-  .div-nav-section > div {
-    width: 61em !important;
-  }
+    top: 57em !important; // 912px
 
-  .div-nav-section > div > div {
-    width: 61em !important;
-    height: 6.19em !important;
-    margin: 0 !important;
-  }
+    div {
+      width: 61em !important; // 976px
 
-  .div-nav-section > div > div > a {
-    width: 8em !important;
-    height: 1.5em !important;
-    margin: 0.65em 0 0.65em 1.2em !important;
-    font: 400 1.6em "Franklin Gothic Medium", sans-serif !important;
+      div {
+        width: 61em !important; // 976px
+        height: 6.19em !important; // 99px
+        margin: 0 !important;
+
+        a {
+          width: 8em !important; // 128px
+          height: 1.5em !important; // 24px
+          margin: 0.65em 0 0.65em 1.2em !important; // 10px 0 10px 19px
+          font-family: $nav_options_a_font !important;
+          font-size: $nav_section_font_size_2 !important;
+          font-weight: $nav_section_font_weight_normal !important;
+        }
+      }
+    }
   }
 }
 
 @media screen and (width: 1024px) and (max-height: 1510px) {
-  /* This CSS breakpoint affects browsers which have a width of 1024px and a height less than 1510px. 
-  * This breakpoint is optimized to fit the iPad Pro. 
-  */
+  /* 
+   * This CSS breakpoint affects browsers which have a width of 1024px and a height less than 1510px. 
+   * This breakpoint is optimized to fit the iPad Pro. 
+   */
 
   nav, 
   #div-nav-options, 
   #div-nav-background, 
   #div-nav-border {
-    width: 24.7em;
-    left: -24.7em;
+    width: 24.7em; // 395px
+    left: -24.7em; // 395px
   }
 
   nav {
-    height: 93.75em;
+    height: 93.75em; // 1500px
   }
   
   #div-nav-options > a {
-    font-size: 1.5em;
+    font-size: $nav_options_font_size_2;
   }
 
   #previous-section, 
   #next-section {
-    width: 22.5em;
-    right: 20.5em;
+    width: 22.5em; // 360px
+    right: 20.5em; // 328px
   }
 
   #previous-section > span, 
@@ -694,7 +743,7 @@ nav {
 
   #next-section {
     background-position: 0px -405px;
-    bottom: 1em;
+    bottom: 1em; // 16px
   }
 
   #previous-section:hover {
@@ -706,139 +755,127 @@ nav {
   }
 
   .div-nav-section {
-    width: 64em !important;
-    top: 54em !important;
+    width: 64em !important; // 1024px
+    top: 54em !important; // 864px
   }
 
   .div-nav-section > div {
-    width: 43.25em !important;
+    width: 43.25em !important; // 692px
   }
 
   .div-nav-section > div > div {
-    height: 2.75em !important;
-    margin-top: 1.5em !important;
+    height: 2.75em !important; // 44px
+    margin-top: 1.5em !important; // 24px
   }
 }
 
 @media screen and (min-width: 1260px) {
-  /* This CSS breakpoint affects browsers which have a width of at least 1260px. 
-  * This breakpoint is optimized to fit resolutions of 1280x800. 
-  */
+  /* 
+   * This CSS breakpoint affects browsers which have a width of at least 1260px. 
+   * This breakpoint is optimized to fit resolutions of 1280x800. 
+   */
 
   #previous-section {
-    height: 4em;
-    padding-top: 1.3em;
+    height: 4em; // 64px
+    padding-top: 1.3em; // 21px
     background-position: 0px 0px;
   }
 
   #next-section {
-    height: 5.3em !important;
+    height: 5.3em !important; // 85px
     padding-top: 0 !important;
     background-position: 0px -145px !important;
   }
 
   #previous-section, 
   #next-section {
-    width: 5em;
-    padding-top: 1.3em;
-    right: 1.56em;
-    bottom: 1.56em;
+    width: 5em; // 80px
+    padding-top: 1.3em; // 21px
+    right: 1.56em; // 25px
+    bottom: 1.56em; // 25px
     background-image: url('/assets/img/nav/next/next-sctn.png');
   }
 
   #previous-section > span, 
   #next-section > span {
-    width: 5em;
-    height: 3.12em;
+    width: 5em; // 80px
+    height: 3.12em; // 50px
   }
   
   .div-nav-section {
-    width: 80em !important;
-    height: 6.1em !important;
-    top: 34.375em !important;
-  }
-  
-  .div-nav-section > div {
-    width: 49em !important;
-  }
-  
-  .div-nav-section > div > div {
-    width: 49.25em !important;
-    height: 3.54em !important;
-  }
-  
-  .div-nav-section > div > div > a {
-    width: 7.56em !important;
-    height: 1em !important;
-    margin: 1em !important;
-    padding: 0.27em 0 0.38em 0 !important;
+    width: 80em !important; // 1280px
+    height: 6.1em !important; // 98px
+    top: 34.375em !important; // 550px
+
+    div {
+      width: 49em !important; // 784px
+
+      div {
+        width: 49.25em !important; // 788px
+        height: 3.54em !important; // 57px
+
+        a {
+          width: 7.56em !important; // 121px
+          height: 1em !important; // 16px
+          margin: 1em !important; // 16px
+          padding: 0.27em 0 0.38em 0 !important; // 4px 0 6px 0
+        }
+      }
+    }
   }
 }
 
 @media screen and (min-width: 1260px) and (min-height: 980) {
- /* This CSS breakpoint affects browsers which have a width more than 1260px and a height greater than 980px. 
+ /* 
+  * This CSS breakpoint affects browsers which have a width more than 1260px and a height 
+  * greater than 980px. 
   * This breakpoint is optimized to fit resolutions of 1280x1024.
   */
 
-  nav {
-    width: 32em;
-    left: -32em;
-  }
-  
-  #div-nav-background {
-    width: 32em;
-    left: -32em;
-  }
-  
-  #div-nav-border {
-    width: 32em;
-    left: -32em;
-  }
-  
+  nav, 
+  #div-nav-background, 
+  #div-nav-border, 
   #div-nav-options {
-    width: 32em;
+    width: 32em; // 512px
+    left: -32em; // 512px
   }
-  
-  #div-nav-options > a {
-    width: 8.61em;
-    display: inline-table;
-    font-size: 1.25em;
-  };
+
+  #div-nav-options {
+    height: auto;
+
+    a {
+      width: 8.61em; // 138px
+      display: inline-table;
+      font-size: $nav_options_font_size_3;
+    };
+  }
 }
 
-@media screen and (min-width: 1340px) and (max-width: 1890px) {
-  /* This CSS breakpoint affects browsers which have a width more than 1340px and a width less than 1890px. 
-  * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
-  */
+@media screen and (min-width: 1340px) and (max-width: 1590px) {
+  /* 
+   * This CSS breakpoint affects browsers which have a width more than 1340px and 
+   * a width less than 1890px. 
+   * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
+   */
 
-  nav {
-    width: 39.1em;
-    left: -39.1em;
-  }
-
-  #div-nav-background {
-    width: 39.1em;
-    left: -39.1em;
-  }
-
-  #div-nav-border {
-    width: 39.1em;
-    left: -39.1em;
-  }
-  
+  nav, 
+  #div-nav-background, 
+  #div-nav-border, 
   #div-nav-options {
-    width: 39.1em;
-    left: -39.1em;
+    width: 39.1em; // 626px
+    left: -39.1em; // 626px
   }
 
-  #div-nav-options > a {
-    width: 11.6em;
-    float: left;
+  #div-nav-options { 
+    a {
+      width: 11.6em; // 186px
+      float: left;
+    }
   }
   
   .div-nav-section {
-    width: 85.38em !important;
-    top: 33em !important;
+    width: 85.38em !important; // 1366px
+    top: 33em !important;  // 528px
   }
 }
 
@@ -851,27 +888,27 @@ nav {
   #div-nav-border,
   #div-nav-background, 
   #div-nav-options {
-    width: 20.5em;
-    left: -20.5em;
+    width: 20.5em; // 328px
+    left: -20.5em; // 328px
   }
 
   nav, 
   #div-nav-background {
-    height: 67.5em;
+    height: 67.5em; // 1080px
   }
 
   #div-nav-options {
     height: initial;
-  }
 
-  #div-nav-options > a {
-    width: 12.4em;
-    height: 2.15em;
-    margin: 0.75em;
+    a {
+      width: 12.4em; // 198px
+      height: 2.15em; // 34px
+      margin: 0.75em; // 12px
+    }
   }
 
   .div-nav-section {
-    width: 119em !important; 
-    top: 42em !important;
+    width: 119em !important; // 1904px
+    top: 42em !important; // 672px
   }
 }

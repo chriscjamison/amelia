@@ -495,7 +495,7 @@ nav {
     height: 4.38em;
   }
   
-  #div-nav-section-3> div > span {
+  #div-nav-section-3 > div > span {
     background-color: #000;
     background-image: url('/assets/img/nav/sctn_nav/sctn_3-mble.png');
   }
