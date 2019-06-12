@@ -409,15 +409,11 @@ aside {
      */ }
     #div-window_pane-block-4-desc-3 span span {
       display: block;
-      background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
+      background-image: url("/assets/img/section/5/sprite-insurance_comps.png");
       background-position: 0px 0px; }
   #div-window_pane-block-4-desc-3 span + span > span {
-    display: block;
-    background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
     background-position: 0px -28px; }
   #div-window_pane-block-4-desc-3 span + span + span > span {
-    display: block;
-    background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
     background-position: 0px -47px; }
   #div-window_pane-block-4-desc-3 span + span + span ~ span span {
     text-align: center;
@@ -711,7 +707,9 @@ aside {
  * Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
  * of 'SECTION #6'.
  */
-/* ****** STYLING ORGANIZED BY BREAKPOINT ****** */
+/* ****** ****** ****** ****** ****** ****** ****** ****** 
+                         BREAKPOINTS                                   
+   ****** ****** ****** ****** ****** ****** ****** ****** */
 /* ****** DESKTOP - 1366px WIDE ****** */
 @media screen and (min-width: 1281px) and (max-height: 1366px) {
   /* ****** COMMON ELEMENTS ****** */
@@ -722,6 +720,8 @@ aside {
     h1 span {
       width: 12em; }
   .div-window_pane {
+    width: 85.38rem;
+    height: 39.06rem;
     margin: 8.15em 0 0 17.5em; }
   .div-window_pane-block-1 {
     width: 32.5em; }

@@ -110,12 +110,6 @@ aside ul  {
   font-size: $base_font_size;
 }
 
-h1 span {
-  font-family: $header_font;
-  font-weight: $header_font_weight;
-  font-size: $header_font_size;
-}
-
 h1 {
 	position: absolute;
 	display: table;
@@ -125,6 +119,9 @@ h1 {
   span {
     display: table-cell;
     vertical-align: middle;
+    font-family: $header_font;
+    font-weight: $header_font_weight;
+    font-size: $header_font_size;
     text-align: center;
     letter-spacing: 2px;
     color: #fff;

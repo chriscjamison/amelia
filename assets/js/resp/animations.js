@@ -483,7 +483,7 @@ function cssAdjustment()  {
 function setupPage(time_value)  {
   /* **************** **************** **************** **************** **************** 
    * setupPage initializes the rendering of the HTML elements 
-   * using the selectors, "#cntainr", ".wndow", ".copy", and "#bkgrnd".
+   * using the selectors, "#cntainr", ".wndow", ".copy", and "#div-backgrounds".
    *   
    * This function also initializes the placement of the inter-section 
    * which uses "arrows". These arrows appear on the far-right side of the browser window 
@@ -493,9 +493,9 @@ function setupPage(time_value)  {
    * Based upon the width and height values calculated by, "parseWindowDimensions", 
    * the values of the CSS properties, "width" and "height" are applied 
    * to the HTML elements using the selectors, "#cntainr", ".wndow", ".copy", 
-   * and "#bkgrnd". 
+   * and "#div-backgrounds". 
    * 
-   * The HTML elements, using the selectors, "#bkgrnd > div", has its, "background image", 
+   * The HTML elements, using the selectors, "#div-backgrounds > div", has its, "background image", 
    * property set by a jQuery segment of code which loads images based upon the 
    * "width" and "height" values passed on to the Array, "page_dimensions_Array".
    * **************** **************** **************** **************** **************** */
@@ -520,23 +520,23 @@ function setupPage(time_value)  {
   
   var cntainr_selector = new String();
   var wndow_selector = new String();
-  var bkgrnd_selector = new String();
+  var background_selector = new String();
   var nav_selector = new String();
-  var bkgrnd_div_sub_selector = new String();
+  var background_div_sub_selector = new String();
   var wndow_sctn_selector = new String();
   // Holds a selector for an individual Section which is worked on by 
   // a jQuery Loop which cycles through an background image.
   //
   // The value passed to this variable would be "#wndow-sctn_1" when the 
   // Loop works on the first HTML element which is refrerred to by,
-  // "#bkgrnd > div".
+  // "#div-backgrounds > div".
 
   var cntainr_element = new Object();
   var wndow_elements = new Object();
   var copy_elements = new Object();
-  var bkgrnd_element = new Object();
+  var background_element = new Object();
   var nav_elements = new Object();
-  var bkgrnd_div_sub_elements = new Object();
+  var background_div_sub_elements = new Object();
   var wndow_sctn_element = new Object();
   // Holds the jQuery Object that refers to the HTML element 
   // referenced within the selector contained within 
@@ -544,17 +544,17 @@ function setupPage(time_value)  {
   //
   // The selector would be, "#wndow-sctn_1", when 
   // the jQuery Loop works on the first HTML element which is referred 
-  // to by, "#bkgrnd > div"."
+  // to by, "#div-backgrounds > div"."
 
   var cntainr_css = new Object();
   var width_height_css = new Object();
   var nav_css = new Object();
   
-  var inc_bkgrnd = new Number();
+  var inc_background = new Number();
   
-  var bkgrnd_img_value = new String();
-  var bkgrnd_width = new String();
-  var bkgrnd_height = new String();
+  var background_img_value = new String();
+  var background_width = new String();
+  var background_height = new String();
   
   cssAdjustment();
   // "cssAdjusment" is called to render various HTML elements of the webpage 
@@ -578,15 +578,15 @@ function setupPage(time_value)  {
   
   cntainr_selctor = "#cntainr";
   wndow_selector = ".wndow";
-  bkgrnd_selector = "#bkgrnd";
-  nav_selector = "nav, #nav-bkgrnd, #nav-brdr";
-  bkgrnd_div_sub_selector = "#bkgrnd > div";
+  background_selector = "#div-backgrounds";
+  nav_selector = "nav, #nav-background, #nav-brdr";
+  background_div_sub_selector = "#background > div";
   
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
-  bkgrnd_element = $(bkgrnd_selector);
+  background_element = $(background_selector);
   nav_elements = $(nav_selector);
-  bkgrnd_div_sub_elements = $(bkgrnd_div_sub_selector);
+  background_div_sub_elements = $(background_div_sub_selector);
   
   cntainr_css = {
     "width": page_dimensions_Array[0],
@@ -608,29 +608,29 @@ function setupPage(time_value)  {
   $(wndow_elements).css(width_height_css);
   // The HTML elements using the selector, ".wndow", is formatted to fit 
   // dimensions of a given "window".
-  $(bkgrnd_element).css(width_height_css);
-  // The HTML element using the selector, "#bkgrnd", is is formatted to fit 
+  $(background_element).css(width_height_css);
+  // The HTML element using the selector, "#div-backgrounds", is is formatted to fit 
   // dimensions of a given "window".
   $(nav_elements).css(nav_css);
-  // The HTML elements using the selector, "nav, #nav-bkgrnd, #nav-brdr", 
+  // The HTML elements using the selector, "nav, #nav-background, #nav-brdr", 
   // are placed off of the left hand side of the browser window.
    
-  inc_bkgrnd = 0;
-  // "inc_bkgrnd" serves as an incrementer which increases in value as 
+  inc_background = 0;
+  // "inc_background" serves as an incrementer which increases in value as 
   // the jQuery Method, ".each", cycles through the HTML elements defined 
-  // by the selector, "#bkgrnd > div".
+  // by the selector, "#backgrounds > div".
 
-  $(bkgrnd_div_sub_elements).each(
+  $(background_div_sub_elements).each(
     function () {
-      if (inc_bkgrnd > 0) {
+      if (inc_background > 0) {
       // If the individual <div> element, which is a part of the set of <div> elements that this 
       // loop cycles through is not the first <div> element, then this condition is triggered.
-        wndow_sctn_selector = "#wndow-sctn_" + inc_bkgrnd;
+        wndow_sctn_selector = "#wndow-sctn_" + inc_background;
         // "wndow_sctn_selector" now holds a selector which identifies the HTML element 
         // which the loop is processing.
         // 
         // The value of "wndow_sctn_selector" would be "#wndow-sctn_1" if the second <div> 
-        // element, within the set of HTML elements referred to by the selector, "#bkgrnd > div".
+        // element, within the set of HTML elements referred to by the selector, "#div-background > div".
         wndow_sctn_element = $(wndow_sctn_selector);
         // "wndow_sctn_element" now holds the jQuery Object for the selector which is held by 
         // "wndow_sctn_selector".
@@ -638,39 +638,39 @@ function setupPage(time_value)  {
         num_of_wndow_elements = $(wndow_sctn_element).children(".copy").length
         // "num_of_wndow_elements" holds the number of HTML elements identified by the selector, ".wndow".
   
-        bkgrnd_width =  (wndow_width * num_of_wndow_elements).toString();
-        bkgrnd_height = (wndow_height).toString();
-        // "bkgrnd_width" holds a String. The value takes the product of the width of the browser window, 
+        background_width =  (wndow_width * num_of_wndow_elements).toString();
+        background_height = (wndow_height).toString();
+        // "background_width" holds a String. The value takes the product of the width of the browser window, 
         // multiplies it by the number of HTML elements using the selector, ".wndow" and making a string 
         // from the product.
         //
-        // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
+        // "background_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        bkgrnd_img_value = "url('/assets/img/sctn/" + 
-                            inc_bkgrnd + "/" + bkgrnd_width + "x" + bkgrnd_height + 
+        background_img_value = "url('/assets/img/sctn/" + 
+                            inc_background + "/" + background_width + "x" + background_height + 
                             ".jpg')";      
-        // "bkgrnd_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
+        // "background_img_value" holds a string which refers to the value of the CSS property, 'backgroundImage'.
         // 
-        // The value of "bkgrnd_img_value" would be "url('/assets/img/sctn/1/1920x1020.jpg')" 
-        // while the Loop is processing the first HTML element using the selector, "#bkgrnd > div" for 
+        // The value of "background_img_value" would be "url('/assets/img/sctn/1/1920x1020.jpg')" 
+        // while the Loop is processing the first HTML element using the selector, "#div-backgrounds > div" for 
         // a browser window which had a width of 1920px and a height of 1020px.
 
-        width_height_css.backgroundImage = bkgrnd_img_value;
-        // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
+        width_height_css.backgroundImage = background_img_value;
+        // The value held by, "background_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } else  {
-        bkgrnd_width = wndow_width.toString();
-        bkgrnd_height = wndow_height.toString();
-        // "bkgrnd_width" holds a String which is made by converting the value of "wndow_width" 
+        background_width = wndow_width.toString();
+        background_height = wndow_height.toString();
+        // "background_width" holds a String which is made by converting the value of "wndow_width" 
         // to a String.
         //
-        // "bkgrnd_height" holds a String which is made by converting the value of "wndow_height" 
+        // "background_height" holds a String which is made by converting the value of "wndow_height" 
         // to a String.
 
-        width_height_css.backgroundImage = "url('/assets/img/sctn/main/" + bkgrnd_width +
-                                    "x" + bkgrnd_height + ".jpg')";
-         // The value held by, "bkgrnd_img_value", is added to the Object, "width_height_css". 
+        width_height_css.backgroundImage = "url('/assets/img/sctn/main/" + background_width +
+                                    "x" + background_height + ".jpg')";
+         // The value held by, "background_img_value", is added to the Object, "width_height_css". 
         // This adds the CSS property, "backgroundImage", to the CSS properties already held by the variable.
       } // END OF if STATEMENT
       
@@ -678,8 +678,8 @@ function setupPage(time_value)  {
       // The <div> element which this loop is processing has its CSS formatted to fit the width and 
       // height of the browser window along with its background image.
       
-      inc_bkgrnd++;
-      // "inc_bkgrnd", or the number representing the <div> element that this Loop is processed 
+      inc_background++;
+      // "inc_background", or the number representing the <div> element that this Loop is processed 
       // is incremented.
     } 
   ); // END OF .each METHOD
@@ -1013,8 +1013,8 @@ function animatePageElements()  {
   var headr_selector = new String();
   var sub_nav_selector = new String();
   var div_selector = new String();
-  var bkgrnd_selector = new Object();
-  // Holds the String value of the selector, "#bkgrnd-sctn_X".
+  var background_selector = new Object();
+  // Holds the String value of the selector, "#div-background-section-X".
 
   var nav_element = new Object();
   var cntainr_element = new Object();
@@ -1026,8 +1026,8 @@ function animatePageElements()  {
   // Holds the contents of the HTML element identified by the selector, ".copy:nth-child(X)".
   var headr_element = new Object();
   // Holds the contents of the HTML element identified by the selector, ".headr.sctn_X".
-  var bkgrnd_element = new Object();
-  // Holds the contents of the HTML element identified by the selector, "#bkgrnd-sctn_X".
+  var background_element = new Object();
+  // Holds the contents of the HTML element identified by the selector, "#div-background-section-X".
   var sub_nav_element = new Object();
   // Holds the contents of the HTML element identified by the selector, "#nav-sctn_X".
 
@@ -1061,12 +1061,12 @@ function animatePageElements()  {
   var window_width = new Number();
   // Holds the numerical value of the width of the browser window.
 
-  var bkgrnd_element_width_val = new Number();
+  var background_element_width_val = new Number();
   // Holds a number which is the product of the width of the browser window 
   // and "position_value".
-  var bkgrnd_element_x_position = new String();
+  var background_element_x_position = new String();
   // Holds a String which the product of the calculated width of the browser window 
-  // and "position_value", which is contained by, "bkgrnd_element_width_val".
+  // and "position_value", which is contained by, "background_element_width_val".
   // 
   // This value is used to determine the CSS value of the property, "left", 
   // of the background of a Section.
@@ -1124,13 +1124,13 @@ function animatePageElements()  {
     headr_selector = ".headr.sctn_" + section_value.toString();
     div_selector = "div";
     sub_nav_selector = "#nav-sctn_" + section_value.toString();
-    bkgrnd_selector = "#bkgrnd-sctn_" + section_value.toString();
+    background_selector = "#div-background-section-" + section_value.toString();
 
     all_copy_element = $(all_copy_selector);
     single_copy_element = $(single_copy_selector);
     headr_element = $(headr_selector);
     sub_nav_element = $(sub_nav_selector);
-    bkgrnd_element = $(bkgrnd_selector);
+    background_element = $(background_selector);
 
     element_off_css = {
       display: "none"
@@ -1147,16 +1147,16 @@ function animatePageElements()  {
     window_width = page_dimensions_Array[0];
     // The width, held by, "page_dimensions_Array", is passed to "window_width".
   
-    bkgrnd_element_width_val = window_width * position_value;
-    // "bkgrnd_element_width_val" holds the product of "window_width" and "position_value".
+    background_element_width_val = window_width * position_value;
+    // "background_element_width_val" holds the product of "window_width" and "position_value".
     // It is also the horizontal position within a background for a Section that matches 
     // up with the viewable "window pane".
     
-    bkgrnd_element_x_position =  "-" + bkgrnd_element_width_val.toString() + "px 0px";
-    // "bkgrnd_element_x_position" holds the value for the CSS property, "backgroundPosition" 
+    background_element_x_position =  "-" + background_element_width_val.toString() + "px 0px";
+    // "background_element_x_position" holds the value for the CSS property, "backgroundPosition" 
     // for the Section that this function is processing.
 
-    $(bkgrnd_element).css("backgroundPosition", bkgrnd_element_x_position);
+    $(background_element).css("backgroundPosition", background_element_x_position);
     // The background of the current Section that this function is processing 
     //  is made to now match the viewable window pane.
 
@@ -1472,14 +1472,14 @@ function animateSideNav(time_value) {
    * when the main intersection navigation menu that appears on the left of the webpage 
    * is clicked.
    * 
-   * The HTML elements using the selectors, "nav", "#nav-brdr", "#nav-bkgrnd", 
+   * The HTML elements using the selectors, "nav", "#nav-brdr", "#nav-background", 
    * "#div-nav-options", "#cntainr", ".wndow", ".headr", ".copy", ".div.nav-section" 
    * all have their layout altered by this function.
    * **************** **************** **************** **************** **************** */
 
   var nav_selector = new String();
   var options_selector = new String();
-  var nav_bkgrnd_selector = new String();
+  var nav_background_selector = new String();
   var nav_brdr_selector = new String();
   var cntainr_selector = new String();
   var wndow_selector = new String();
@@ -1488,11 +1488,11 @@ function animateSideNav(time_value) {
   var info_selector = new String();
   var sctn_nav_selector = new String();
   var prev_next_sctn_selector = new String();
-  var bkgrnd_selector = new String();
+  var background_selector = new String();
   
   var nav_element = new Object();
   var options_element = new Object();
-  var nav_bkgrnd_element = new Object();
+  var nav_background_element = new Object();
   var nav_brdr_element = new Object();
   var cntainr_element = new Object();
   var wndow_element = new Object();
@@ -1500,7 +1500,7 @@ function animateSideNav(time_value) {
   var headr_elements = new Array();
   var info_element = new Object();
   var copy_elements = new Array();
-  var bkgrnd_element = new Object();
+  var background_element = new Object();
   var sctn_nav_element = new Object();
   var prev_next_sctn_element = new Object();
 
@@ -1509,9 +1509,9 @@ function animateSideNav(time_value) {
   // identified by the selector, "nav".
   var element_width = new Number();
   // Holds the numerical value of the calculated width of HTML elements 
-  // identified by the selectors, "#cntainr" and #bkgrnd".
+  // identified by the selectors, "#cntainr" and #div-backgrounds".
   // 
-  // Both of the HTML elements, "#cntainr" and "#bkgrnd" have the value 
+  // Both of the HTML elements, "#cntainr" and "#div-backgrounds" have the value 
   // of their widths changed to the difference of the total width 
   // of the browser window and the width of the HTML element identified 
   // by the selector, "nav".
@@ -1527,7 +1527,7 @@ function animateSideNav(time_value) {
 
   nav_selector = "nav";
   options_selector = "#div-nav-options";
-  nav_bkgrnd_selector = "#nav-bkgrnd";
+  nav_background_selector = "#nav-background";
   nav_brdr_selector = "#nav-brdr";
   cntainr_selector = "#cntainr";
   wndow_selector = ".wndow";
@@ -1536,11 +1536,11 @@ function animateSideNav(time_value) {
   info_selector = "#info";
   sctn_nav_selector = ".div.nav-section";
   prev_next_sctn_selector = "#previous-section, #next-section";
-  bkgrnd_selector = "#bkgrnd, #bkgrnd > div";
+  background_selector = "#div-backgrounds, #div-backgrounds > div";
 
   nav_element = $(nav_selector);
   options_element = $(options_selector);
-  nav_bkgrnd_element = $(nav_bkgrnd_selector);
+  nav_background_element = $(nav_background_selector);
   nav_brdr_element = $(nav_brdr_selector);
   cntainr_element = $(cntainr_selector);
   wndow_elements = $(wndow_selector);
@@ -1549,7 +1549,7 @@ function animateSideNav(time_value) {
   info_element = $(info_selector);
   sctn_nav_element = $(sctn_nav_selector);
   prev_next_sctn_element = $(prev_next_sctn_selector);
-  bkgrnd_element = $(bkgrnd_selector);
+  background_element = $(background_selector);
 
   nav_width = $(nav_element).width();
   // The width of the HTML element using the selector, "#nav" is 
@@ -1572,7 +1572,7 @@ if ($(nav_element).css("left") !== "0px")  {
     //
     // The value contained by, "element_width", is used to resize the HTML elements 
     // containing the HTML content of the entire webpage, "#cntainr", 
-    // the background images of the webpage, "#bkgrnd", and the HTML elements 
+    // the background images of the webpage, "#div-backgrounds", and the HTML elements 
     // held within each Section of the webpage, ".wndow".
 
     var nav_visible_css = new Object();
@@ -1631,9 +1631,9 @@ if ($(nav_element).css("left") !== "0px")  {
     // 980 or 1024, or fits a mobile device, this condition is triggered.
 
       $(nav_element).css(nav_mobile_visible_css);
-      $(nav_bkgrnd_element).css(nav_mobile_visible_css);
+      $(nav_background_element).css(nav_mobile_visible_css);
       $(nav_brdr_element).css(nav_mobile_visible_css);
-      $(bkgrnd_element).css(element_extended_css);
+      $(background_element).css(element_extended_css);
       // The intersection navigation is now visible. Also the background 
       // is shifted to the right, out of view.
 
@@ -1649,11 +1649,11 @@ if ($(nav_element).css("left") !== "0px")  {
     // Otherwise, if the browser is a desktop browser, this condition 
     // is triggered.
       $(cntainr_element).css(element_shrank_css);
-      $(bkgrnd_element).css(element_shrank_css);
+      $(background_element).css(element_shrank_css);
 
       $(cntainr_element).animate(element_shifted_right_css, time_value);
       $(wndow_elements).animate(element_shrank_css, time_value);
-      $(bkgrnd_element).animate(element_shifted_right_css, time_value);
+      $(background_element).animate(element_shifted_right_css, time_value);
       // The HTML content and the background is shifted to the right, out of view.
     }
 
@@ -1663,14 +1663,14 @@ if ($(nav_element).css("left") !== "0px")  {
     // from the left.
 
     $(nav_element).animate(nav_visible_css, time_value)
-    $(nav_bkgrnd_element).animate(nav_visible_css, time_value);
+    $(nav_background_element).animate(nav_visible_css, time_value);
     $(nav_brdr_element).animate(nav_visible_css, time_value);
     $(options_element).animate(nav_visible_css, time_value);
     // The main intersection that appears on the left of the webpage scrolls 
     // in from the left to the right.
     //
     // The HTML elements affected by these statements are: "nav", 
-    // "#nav-bkgrnd", "#nav-brdr", "#div-nav-options".
+    // "#nav-background", "#nav-brdr", "#div-nav-options".
   } else  {
   // Otherwise, if the intersection navigation that appears on the left hand 
   // of the webpage is invisible, this condition is triggered.
@@ -1703,7 +1703,7 @@ if ($(nav_element).css("left") !== "0px")  {
     // by scrolling the options to the left, out of view.
       function () {
         $(nav_element).animate(nav_invisible_css, time_value);
-        $(nav_bkgrnd_element).animate(nav_invisible_css, time_value);
+        $(nav_background_element).animate(nav_invisible_css, time_value);
         $(nav_brdr_element).animate(nav_invisible_css, time_value);
         // The background of the intersection navigation is made invisible 
         // by scrolling the HTML elements to the left, out of view.
@@ -1712,7 +1712,7 @@ if ($(nav_element).css("left") !== "0px")  {
         // If the browser is a mobile browser, this condition is triggered.
           $(cntainr_element).css(element_visible_css);
           $(wndow_elements).css(element_shifted_left_css);
-          $(bkgrnd_element).css(element_visible_css);
+          $(background_element).css(element_visible_css);
           $(prev_next_sctn_element).css(element_visible_css);
           // The HTML content, backgrounds, and intersection navigation that 
           // appears in the middle of the webpage is made visible.
@@ -1721,10 +1721,10 @@ if ($(nav_element).css("left") !== "0px")  {
         $(cntainr_element).animate(element_shifted_left_css, time_value);
         // The HTML element which contains the HTML content and other forms 
         // of content is scrolled back to the left, into view.
-        $(bkgrnd_element).animate(element_shifted_left_css, time_value, 
+        $(background_element).animate(element_shifted_left_css, time_value, 
           function () {
             $(sctn_nav_element).width(window_width);
-            $(bkgrnd_element).width(window_width);
+            $(background_element).width(window_width);
             $(wndow_elements).width(window_width);
             $(cntainr_element).width(window_width);
             $(headr_elements).css(headr_visible);

@@ -7,7 +7,7 @@
       {
           "label": "Sass Compile",
           "type": "shell",
-          "command": "node-sass 'c:\\Users\\chris\\OneDrive\\Chris C Jamison, Inc\\Projects\\web\\amelia\\assets\\css\\resp\\main-test.scss' 'c:\\Users\\chris\\OneDrive\\Chris C Jamison, Inc\\Projects\\web\\amelia\\assets\\css\\resp\\main-test.css'",
+          "command": "node-sass 'c:\\Users\\chris\\OneDrive\\Chris C Jamison, Inc\\Projects\\web\\amelia\\assets\\css\\resp\\nav.scss' 'c:\\Users\\chris\\OneDrive\\Chris C Jamison, Inc\\Projects\\web\\amelia\\assets\\css\\resp\\nav.css'",
           "group": "build"
       }
   ]
