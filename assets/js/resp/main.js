@@ -3,6 +3,11 @@
  *  and physical appearance of the webpage using the 'One Page' template.
  */
 
+ $(document).ready(
+   function () {
+     initializePage();
+   }
+ );
 
 function setDisplayType() {
 /* **************** **************** **************** **************** **************** 
@@ -97,29 +102,20 @@ function parseURLHash() {
     section_value = url_hash_variables_Array[0];
     position_value = url_hash_variables_Array[1];
 
+    url_hash_search_string = "=";
+    
     // The values of the variables referring to the section and block of content to be 
     // viewable are passed back.
-    section_value = section_value.slice(section_value.length - 1);
-    position_value = position_value.slice(position_value.length - 1);
+    section_value = url_hash_variables_Array[0].slice((url_hash_variables_Array[0].indexOf(url_hash_search_string) + 1));
+    position_value = url_hash_variables_Array[1].slice((url_hash_variables_Array[1].indexOf(url_hash_search_string) + 1));
 
     // The values of the variables referring to the section and block of content are passed 
     // on to 'url_hash_variables_Array'.
     url_hash_variables_Array = [section_value, position_value];
   } else {
-    // A String variable which will be searched for within the variable holding the value 
-    // of the section to be viewable is initialized.
-    var section_value_search_string = "";
-
-    // The character which will be searched for within the variable holding the value 
-    // of the section to be viewable is passed on.
-    section_value_search_string = "=";
-
-    // The value of the variable which refer to the section to be viewable is passed on.
-    section_value = url_hash_variables_Array[0].slice(url_hash_variables_Array[0].indexOf(section_value_search_string) + 1);
-
-    // The value of the variable which refers to the section to be viewable is passed 
-    // back to 'url_hash_variables_Array'.
-    url_hash_variables_Array[0] = section_value;
+    // The current section is the Landing Screen. As a result, the value 
+    // of 'url_hash_variables_Array[0]' is set to '0'.
+    url_hash_variables_Array[0] = "0";
   }
 
   // The variable(s) which refer to the section to be viewable is returned.
@@ -139,9 +135,7 @@ function setValueOfHashVariables()  {
 
   // IF/ELSE statement which sets an integer to correspond with the section to be 
   // viewable.
-  if (url_hash_variables_Array[0] === "main") {
-    url_hash_variables_Array[0] = 0;
-  } else {
+  if (url_hash_variables_Array[0] !== "main" && url_hash_variables_Array[0] !== "0") {
     url_hash_variables_Array[0] = url_hash_variables_Array[0].parseInt();
   }
 
@@ -244,26 +238,22 @@ function navigateToWindowFrame() {
 
   // The CSS selector which refers to the HTML elements which hold the sections 
   // of content is passed on.
-  window_frame_selector = ".section-window_frame";
-
-  // An Object variable which will hold the jQuery object which refers to the HTML 
-  // elements which hold the sections of content is initialized.
-  var window_frame_elements = {};
+  window_frame_selector = "section-window_frame";
 
   // The jQuery object which refers to the HTML elements which hold the sections 
   // of content is passed on.
   window_frame_elements = $(window_frame_selector);
   
   // The height of a section of content is passed on.
-  window_frame_height = $(window_frame_elements).innerHeight;
-
+  window_frame_height = document.getElementsByClassName(window_frame_selector)[0].clientHeight;
+console.log("window_frame_height = " + window_frame_height);
   // An Array which will hold numerical values which correspond with the section to 
   // be made viewable is initialized.
   var url_hash_viewable_values_Array = [];
 
   // The numerical values which correspond with the section to be made viewable 
   // are passed on.
-  url_hash_viewable_values_Array = setValueOfHashVariables();
+  url_hash_viewable_values_Array = parseURLHash();
 
   // A Number variable which corresponds with the section to be made viewable 
   // is initialized.
@@ -272,6 +262,21 @@ function navigateToWindowFrame() {
   // The value which corresponds with the section to be made viewable is passed on.
   section_value = url_hash_viewable_values_Array[0];
 
+  // A Number variable which will hold an integer which matches the vertical 
+  // location within the webpage of the section the hash variable refers to 
+  // is initialized.
+  var section_location;
+
+  // IF/ELSE statement which sets the value of 'section_value' to 0 if the section 
+  // the hash variable refers to is the landing section. Otherwise the value 
+  // of 'section_value' is set to an integer which matches the section the hash 
+  // variable refers to.
+  if (section_value === "main") {
+    section_location = 0;
+  } else {
+    section_location = parseInt(section_value);
+  }
+
   //0 A Number variable which will hold the vertical location within the webpage that 
   // the brower window will navigate to is initialized.
   var page_location;
@@ -279,8 +284,8 @@ function navigateToWindowFrame() {
   // The vertical location within the webpage that the browser window will be navigated 
   // to is calculated by multiplying the value referring to the section to be made viewable 
   // by the height of the sections of content. That value is passed on.
-  page_location = section_value * window_frame_height;
-
+  page_location = section_location * window_frame_height;
+console.log("page_location = " + page_location);
   // The browser window navigates to the vertical location of the section to be made 
   // viewable.
   $(window).scrollTop(page_location);
@@ -334,7 +339,7 @@ function initializePage()  {
   article_selector = "article";
   // The CSS selector for the HTML elements which holds the sections of content is 
   // passed on.
-  window_frame_selector = ".section-window_frame";
+  window_frame_selector = "section-window_frame";
   
   // The jQuery object which refers to the HTML element '<article>' is passed on.
   article_element = $(article_selector);
@@ -351,7 +356,7 @@ function initializePage()  {
   var article_height;
 
   // The height of the browser is passed on.
-  window_frame_height = window.innerHeight;
+  window_frame_height = document.getElementsByClassName(window_frame_selector)[0].clientHeight;
 
   // The number of sections within the webpage is passed on. 
   // 
@@ -370,15 +375,15 @@ function initializePage()  {
   // is initialized.
   var background_selector = "";
   // An Object variable which will hold a jQuery object referring to the HTML element 
-  // using the CSS selector '#div-backgrounds' is initialized.
-  var background_element = {};
+  // using the CSS selector '#div-backgrounds > div' is initialized.
+  var background_elements = {};
 
   // The CSS selector for the HTML element which holds the background images for the 
   // webpage is passed on.
-  background_selector = "#div-backgrounds";
+  background_selector = "#div-backgrounds > div";
   // The jQuery object which refers to the HTML element which hold the background images 
   // is passed on.
-  background_element = $(background_selector);
+  background_elements = $(background_selector);
 
   // A Number variable which will hold an incrementer which changes value as 
   // a loop cycles which processes the individual backgrounds is initialized.
@@ -388,13 +393,6 @@ function initializePage()  {
   // is set to 0.
   inc_backgrounds = 0;
 
-  // A String variable which will hold a CSS selector which refers to the blocks of 
-  // content within the section the loop processes is initialized.
-  var window_panes_selector = "";
-
-  // The CSS selector which refers to the blocks of content within a section is passed on.
-  window_panes_selector = ".div-window_pane";
-
   // An Array which will hold values which refer to the dimensions of the browser 
   // window is intialized.
   var display_dimensions_Array;
@@ -402,10 +400,6 @@ function initializePage()  {
   // The value returned from 'setDisplayType' is passed on. The returned value best matches 
   // the width of the browser window to a background image of similar dimensions.
   display_dimensions_Array = setDisplayType();
-  
-  // A Number variable which will hold the number of blocks within the section the loop 
-  // processing.
-  var num_of_window_panes;
 
   // A Number variable which will hold a value which matches the width of the background 
   // image for an individual section is initialized.
@@ -418,20 +412,52 @@ function initializePage()  {
   // image for the section the loop is processing is initialized.
   var background_image_path = "";
 
-  // A string fragment which makes up the beginning of the path referring to the background 
-  // image the loop is processing is initialized.
-  background_image_path = "url('/assets/img/backgrounds/";
-
   // An Object variable which will hold CSS values used to format the HTML element holding 
   // the background image the loop is processing is initialized.
   var background_css = {};
 
+  // A String variable which will hold a CSS selector which refers to the blocks of 
+  // content within the section the loop processes is initialized.
+  var window_panes_selector = "";
+
+  // The CSS selector which refers to the blocks of content within a section is passed on.
+  window_panes_selector = ".div-window_pane";
+
+  // A Number variable which will hold the number of blocks within the section the loop 
+  // processing.
+  var num_of_window_panes;
+
+  // A String variable which will hold the CSS selector which refers to the current 
+  // background the following loop is processing is initialized.
+  var current_window_frame_selector = "";
+
+  // An Object variable which will hold the jQuery object which refers to the blocks 
+  // of content within the background the following loop is processing is initialized.
+  var current_window_frame_elements = {};
+
   // A loop which loads the background image of each section.
-  $(background_element).children().each(
+  $(background_elements).each(
     function () {
-      // The number of blocks of content within the section this loop is processing is 
-      // passed on.
-      num_of_window_panes = $(this).children(window_panes_selector).length;
+      // IF/ELSE statement which sets the CSS selector for the section 
+      // to '#section-window_frame-main' if this loop is on the first background.
+      // Otherwise the CSS selector is set to '#section-window_frame-X' where 'X' 
+      // is a character.
+      if (inc_backgrounds === 0)  {
+        current_window_frame_selector = "#section-window_frame-main";
+      } else {
+        current_window_frame_selector = "#section-window_frame-" + inc_backgrounds.toString();
+      }
+      // The CSS selector which refers to the number of blocks within the section 
+      // for the background this loop is processing is passed on.
+      current_window_frame_selector = current_window_frame_selector + " > " + window_panes_selector;
+
+      // The jQuery object which refers to the number of blocks within the section 
+      // the background this loop is processing is passed on.
+      current_window_frame_elements = $(current_window_frame_selector);
+
+      // The number of blocks of content within the section for the background 
+      // this loop is processing is passed on.
+      num_of_window_panes = $(current_window_frame_elements).length;
 
       // IF statement which sets the value of 'num_of_window_panes' to 1 if the background 
       // under processing is the top-most section.
@@ -445,6 +471,10 @@ function initializePage()  {
       background_width = num_of_window_panes * display_dimensions_Array[0];
       // The height of the background image for this section is passed on.
       background_height = display_dimensions_Array[1];
+
+      // A string fragment which makes up the beginning of the path referring to the background 
+      // image the loop is processing is initialized.
+      background_image_path = "url('/assets/img/backgrounds/";
 
       // IF/ELSE statement which loads the background image for the section being processed.
       // 
