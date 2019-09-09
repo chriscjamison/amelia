@@ -19,9 +19,9 @@
 $main_li_text_color: #FBE7E9;
 $main_li_background_color: #632E22;
 
-$section_2_ul_border: 0.188em solid #897042; // 3px
+$article_2_ul_border: 0.188em solid #897042; // 3px
 
-$h1_section_1_color: #92676C;
+$h1_article_1_color: #92676C;
 $window_pane_block_p_1_color: #58262C;
 $window_pane_desc_background_1_color:  #E7D4C8;
 $window_pane_desc_background_2_color: #E7DCC8;
@@ -29,13 +29,13 @@ $window_pane_desc_background_3_color: #DEC0C3;
 $window_pane_desc_text_2_color: #6D5647;
 $window_pane_desc_text_3_color: #694448;
 
-$h1_section_2_color: #744725;
+$h1_article_2_color: #744725;
 $window_pane_block_2_background_1_color: #D9C296;
 $window_pane_block_2_background_2_color: #745925;
 $window_pane_block_2_background_3_color:#B19563;
 $window_pane_block_2_text_color: #523A0E;
 
-$h1_section_3_color: #B7A68E;
+$h1_article_3_color: #B7A68E;
 $window_pane_block_3_background_1_color: #988366;
 $window_pane_block_3_background_2_color: #987566;
 $window_pane_block_3_background_3_color: #988C66;
@@ -45,7 +45,7 @@ $window_pane_block_3_text_2_color: #FFFCFB;
 $window_pane_block_3_text_3_color: #FFFBEE;
 $window_pane_block_3_text_4_color: #FFF8EE;
 
-$h1_section_4_color: #C8586A;
+$h1_article_4_color: #C8586A;
 $window_pane_block_4_background_1_color: #A33042;
 $window_pane_block_4_background_2_color: #FFD6BC;
 $window_pane_block_4_background_3_color: #FBBC95;
@@ -62,7 +62,7 @@ $window_pane_block_4_span_1_text_color: #D48B5D;
 $window_pane_block_4_span_2_text_color: #AC7F33;
 $window_pane_block_4_span_3_text_color: #D3A75D;
 
-$h1_section_5_color: #3C667B;
+$h1_article_5_color: #3C667B;
 $window_pane_block_5_background_1_color: #96C5AA;
 $window_pane_block_5_background_2_color: #5F8395;
 $window_pane_block_5_background_3_color: #96C5AA;
@@ -70,7 +70,7 @@ $window_pane_block_5_text_1_color: #216F43;
 $window_pane_block_5_text_2_color: #408B61;
 $window_pane_block_5_div_1_color: #C1D1D9;
 
-$h1_section_6_color: #A7AB92;
+$h1_article_6_color: #A7AB92;
 $window_pane_block_6_background_1_color: #A7AB92;
 $window_pane_block_6_background_2_color: #971B1E;
 $window_pane_block_6_background_3_color: #B0AE97;
@@ -82,7 +82,7 @@ $window_pane_block_6_text_3_color: #2C2F1E;
 $window_pane_block_6_span_background_1_color: #302E1E;
 $window_pane_block_6_span_text_1_color: #B0AE97;
 
-$span_background_image_section_5: url('/assets/img/section/5/sprite-insurance_comps.png');
+$span_background_image_article_5: url('/assets/img/article/5/sprite-insurance_comps.png');
 
 $base_font: 'Glegoo', 'Palatino', serif;
 $header_font: 'Balthazar', 'Cambria', serif;
@@ -140,9 +140,9 @@ h1 {
 }
 /* 
  * Formats the <div> which holds the text or form content within a section. 
- * '.div-window_pane' elements differ from '.section-window_frame' elements.
+ * '.div-window_pane' elements differ from '.article-window_frame' elements.
  * '.div-window_pane' elements only hold the content of one sub-section, 
- * while '.section-window_frame' elements hold many sub-sections.
+ * while '.article-window_frame' elements hold many sub-sections.
  */
 
 .div-window_pane-block-1 {
@@ -171,7 +171,7 @@ body {
     takes place or the main navigation menu animates.
 */
 
-article {
+main {
   width: initial;
   height: initial;
 	padding: 0;
@@ -182,9 +182,9 @@ article {
 	clear: both;
 	z-index: 1;
 }
-/* Formats the HTML element, 'article', which holds all of the copy and form content. */
+/* Formats the HTML element, 'main', which holds all of the copy and form content. */
 
-.section-window_frame {
+.article-window_frame {
 	padding: 0;
 	margin: 0;
 	position: relative;
@@ -192,7 +192,7 @@ article {
 	left: 0;
 }
 /* 
- * Formats the HTML elements, 'section' which holds the text and form content of 
+ * Formats the HTML elements, 'article' which holds the text and form content of 
  * a particular 'SECTION' or segment of content organized by a similar theme. 
  */
 
@@ -267,8 +267,8 @@ aside {
 
 /* ****** SECTION #1 ****** */
  
-#h1-header-section-1 {
-	background-color: $h1_section_1_color; 
+#h1-header-article-1 {
+	background-color: $h1_article_1_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
 
@@ -294,7 +294,7 @@ aside {
   }
   /* 
    * Formats the <p> elements which hold the text content that is contained by a <div> element
-   * using the class, '.sctn_1-blok'.
+   * using the class, '.div-window_pane-block-1'.
    */
 
   p ~ p {
@@ -334,8 +334,8 @@ aside {
 
 /* ****** SECTION #2 ****** */
 
-#h1-header-section-2 {
-	background-color: $h1_section_2_color; 
+#h1-header-article-2 {
+	background-color: $h1_article_2_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
 
@@ -358,7 +358,7 @@ aside {
     margin: 0.35em auto; // 6px auto
     padding: 0;
     list-style-type: none;
-    border-top: $section_2_ul_border;
+    border-top: $article_2_ul_border;
 
     li {
       margin: 0.5em;
@@ -421,7 +421,7 @@ aside {
    * within 'SECTION #2. 
    */
 
-   .div-spacer-section-2 {
+   .div-spacer-article-2 {
     width: 0.1em; // 2px
     height: 4em; // 64px
   }
@@ -435,8 +435,8 @@ aside {
 
 /* ****** SECTION #3 ****** */
 
-#h1-header-section-3 {
-	background-color: $h1_section_3_color; 
+#h1-header-article-3 {
+	background-color: $h1_article_3_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
 
@@ -483,8 +483,8 @@ aside {
 
 /* ****** SECTION #4 ****** */
 
-#h1-header-section-4 {
-	background-color: $h1_section_4_color; 
+#h1-header-article-4 {
+	background-color: $h1_article_4_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
 
@@ -569,7 +569,7 @@ aside {
 
     span {
       display: block;
-      background-image: $span_background_image_section_5;
+      background-image: $span_background_image_article_5;
       background-position: 0px 0px;
     }
     /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -637,8 +637,8 @@ aside {
 
 /* ****** SECTION #5 ****** */
 
-#h1-header-section-5 {
-	background-color: $h1_section_5_color; 
+#h1-header-article-5 {
+	background-color: $h1_article_5_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
 
@@ -697,7 +697,7 @@ aside {
 
   span > span {
     display: block;
-    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+    background-image: url('/assets/img/article/5/sprite-insrance_comps.png');
     background-position: 0px 0px;
   }
   /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -706,7 +706,7 @@ aside {
 
    span + span > span {
     display: block;
-    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+    background-image: url('/assets/img/article/5/sprite-insrance_comps.png');
     background-position: 0px -28px;
   }
   /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -715,7 +715,7 @@ aside {
 
    span + span + span > span {
     display: block;
-    background-image: url('/assets/img/sctn/5/sprite-insrance_comps.png');
+    background-image: url('/assets/img/article/5/sprite-insrance_comps.png');
     background-position: 0px -47px;
   }
   /* Formats a <span> element which contain a logo. This logo is contained by 
@@ -818,8 +818,8 @@ aside {
 
 /* ---- SECTION #6 ---- */
 
-#h1-header-section-6 {
-	background-color: $h1_section_6_color; 
+#h1-header-article-6 {
+	background-color: $h1_article_6_color; 
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
 
@@ -945,7 +945,7 @@ aside {
  * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
  */
 
-.div-spacer-section-6 {
+.div-spacer-article-6 {
   height: 1em;
   position: relative;
   clear: both;
@@ -1121,7 +1121,7 @@ aside {
       line-height: 1.7em; // 27px
     }
     /* Formats the <p> elements which hold the text content that is contained by a <div> element
-     * using the class, '.sctn_5-blok'.
+     * using the class, '.div-window_pane-block-5-type-1'.
      */
   }
 
@@ -1228,7 +1228,7 @@ aside {
      */
   }
 
-  .div-spacer-section-6 {
+  .div-spacer-article-6 {
     width: 28.9em; // 462px
   }
 

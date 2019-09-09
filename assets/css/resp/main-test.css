@@ -21,11 +21,6 @@ aside ul {
   font-weight: 400;
   font-size: 1em; }
 
-h1 span {
-  font-family: "Balthazar", "Cambria", serif;
-  font-weight: 600;
-  font-size: 2.5em; }
-
 h1 {
   position: absolute;
   display: table;
@@ -36,6 +31,9 @@ h1 {
   h1 span {
     display: table-cell;
     vertical-align: middle;
+    font-family: "Balthazar", "Cambria", serif;
+    font-weight: 600;
+    font-size: 2.5em;
     text-align: center;
     letter-spacing: 2px;
     color: #fff; }
@@ -49,9 +47,9 @@ h1 {
 
 /* 
  * Formats the <div> which holds the text or form content within a section. 
- * '.div-window_pane' elements differ from '.section-window_frame' elements.
+ * '.div-window_pane' elements differ from '.article-window_frame' elements.
  * '.div-window_pane' elements only hold the content of one sub-section, 
- * while '.section-window_frame' elements hold many sub-sections.
+ * while '.article-window_frame' elements hold many sub-sections.
  */
 .div-window_pane-block-1 {
   width: 32.5em;
@@ -75,7 +73,7 @@ body {
   + The 'overflow-x' attribute hides the horizontal scroll bar as intra-section navigation 
     takes place or the main navigation menu animates.
 */
-article {
+main {
   width: initial;
   height: initial;
   padding: 0;
@@ -86,8 +84,8 @@ article {
   clear: both;
   z-index: 1; }
 
-/* Formats the HTML element, 'article', which holds all of the copy and form content. */
-.section-window_frame {
+/* Formats the HTML element, 'main', which holds all of the copy and form content. */
+.article-window_frame {
   padding: 0;
   margin: 0;
   position: relative;
@@ -95,7 +93,7 @@ article {
   left: 0; }
 
 /* 
- * Formats the HTML elements, 'section' which holds the text and form content of 
+ * Formats the HTML elements, 'article' which holds the text and form content of 
  * a particular 'SECTION' or segment of content organized by a similar theme. 
  */
 #div-backgrounds {
@@ -152,7 +150,7 @@ aside {
  * + Opacity is set to '0' to allow for a fade-in by by a jQuery event.
  */
 /* ****** SECTION #1 ****** */
-#h1-header-section-1 {
+#h1-header-article-1 {
   background-color: #92676C; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
@@ -164,7 +162,7 @@ aside {
    */
   /* 
    * Formats the <p> elements which hold the text content that is contained by a <div> element
-   * using the class, '.sctn_1-blok'.
+   * using the class, '.div-window_pane-block-1'.
    */
   /* More formatting for the <p> elements which hold text content. */ }
   .div-window_pane-block-1 h2 {
@@ -207,7 +205,7 @@ aside {
  * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
  */
 /* ****** SECTION #2 ****** */
-#h1-header-section-2 {
+#h1-header-article-2 {
   background-color: #744725; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
@@ -279,13 +277,13 @@ aside {
       font-weight: 600;
       color: #523A0E;
       background-color: #B19563; }
-  .div-window_pane-block-2-type-1 .div-spacer-section-2 {
+  .div-window_pane-block-2-type-1 .div-spacer-article-2 {
     width: 0.1em;
     height: 4em; }
 
 /* Formats the secondary blocks that appear below the larger, main blocks in 'SECTION #2'. */
 /* ****** SECTION #3 ****** */
-#h1-header-section-3 {
+#h1-header-article-3 {
   background-color: #B7A68E; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
@@ -324,7 +322,7 @@ aside {
 
 /* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
 /* ****** SECTION #4 ****** */
-#h1-header-section-4 {
+#h1-header-article-4 {
   background-color: #C8586A; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
@@ -409,7 +407,7 @@ aside {
      */ }
     #div-window_pane-block-4-desc-3 span span {
       display: block;
-      background-image: url("/assets/img/section/5/sprite-insurance_comps.png");
+      background-image: url("/assets/img/article/5/sprite-insurance_comps.png");
       background-position: 0px 0px; }
   #div-window_pane-block-4-desc-3 span + span > span {
     background-position: 0px -28px; }
@@ -443,7 +441,7 @@ aside {
 
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 /* ****** SECTION #5 ****** */
-#h1-header-section-5 {
+#h1-header-article-5 {
   background-color: #3C667B; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
@@ -505,15 +503,15 @@ aside {
     background-color: #96C5AA; }
   #div-window_pane-block-5-desc-2 span > span {
     display: block;
-    background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
+    background-image: url("/assets/img/article/5/sprite-insrance_comps.png");
     background-position: 0px 0px; }
   #div-window_pane-block-5-desc-2 span + span > span {
     display: block;
-    background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
+    background-image: url("/assets/img/article/5/sprite-insrance_comps.png");
     background-position: 0px -28px; }
   #div-window_pane-block-5-desc-2 span + span + span > span {
     display: block;
-    background-image: url("/assets/img/sctn/5/sprite-insrance_comps.png");
+    background-image: url("/assets/img/article/5/sprite-insrance_comps.png");
     background-position: 0px -47px; }
   #div-window_pane-block-5-desc-2 span + span + span ~ span span {
     text-align: center;
@@ -589,7 +587,7 @@ aside {
  * of 'SECTION #5'.
  */
 /* ---- SECTION #6 ---- */
-#h1-header-section-6 {
+#h1-header-article-6 {
   background-color: #A7AB92; }
 
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
@@ -692,7 +690,7 @@ aside {
  * Formats a block which serves as a header for location informtion which appears 
  * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
  */
-.div-spacer-section-6 {
+.div-spacer-article-6 {
   height: 1em;
   position: relative;
   clear: both; }
@@ -796,7 +794,7 @@ aside {
     margin-right: 4.5em;
     padding: 1em 2em;
     /* Formats the <p> elements which hold the text content that is contained by a <div> element
-     * using the class, '.sctn_5-blok'.
+     * using the class, '.div-window_pane-block-5-type-1'.
      */ }
     .div-window_pane-block-5-type-1 p {
       text-indent: 1.3em;
@@ -864,7 +862,7 @@ aside {
         width: 9.61em;
         margin: 0;
         padding: 0; }
-  .div-spacer-section-6 {
+  .div-spacer-article-6 {
     width: 28.9em; }
   #div-window_pane-block-6-desc-3 {
     padding: 1em 2em;
