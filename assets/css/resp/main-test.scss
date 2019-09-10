@@ -16,71 +16,71 @@
 
 /* ****** SASS VARIABLES ****** */
 
-$main_li_text_color: #FBE7E9;
-$main_li_background_color: #632E22;
+$landing_li_text_color: #FBE7E9;
+$landing_li_background_color: #632E22;
 
 $article_2_ul_border: 0.188em solid #897042; // 3px
 
 $h1_article_1_color: #92676C;
-$window_pane_block_p_1_color: #58262C;
-$window_pane_desc_background_1_color:  #E7D4C8;
-$window_pane_desc_background_2_color: #E7DCC8;
-$window_pane_desc_background_3_color: #DEC0C3;
-$window_pane_desc_text_2_color: #6D5647;
-$window_pane_desc_text_3_color: #694448;
+$content_block_p_1_color: #58262C;
+$content_desc_background_1_color:  #E7D4C8;
+$content_desc_background_2_color: #E7DCC8;
+$content_desc_background_3_color: #DEC0C3;
+$content_desc_text_2_color: #6D5647;
+$content_desc_text_3_color: #694448;
 
 $h1_article_2_color: #744725;
-$window_pane_block_2_background_1_color: #D9C296;
-$window_pane_block_2_background_2_color: #745925;
-$window_pane_block_2_background_3_color:#B19563;
-$window_pane_block_2_text_color: #523A0E;
+$content_block_2_background_1_color: #D9C296;
+$content_block_2_background_2_color: #745925;
+$content_block_2_background_3_color:#B19563;
+$content_block_2_text_color: #523A0E;
 
 $h1_article_3_color: #B7A68E;
-$window_pane_block_3_background_1_color: #988366;
-$window_pane_block_3_background_2_color: #987566;
-$window_pane_block_3_background_3_color: #988C66;
-$window_pane_block_3_background_4_color: #988366;
-$window_pane_block_3_text_1_color: #D9CDBC;
-$window_pane_block_3_text_2_color: #FFFCFB;
-$window_pane_block_3_text_3_color: #FFFBEE;
-$window_pane_block_3_text_4_color: #FFF8EE;
+$content_block_3_background_1_color: #988366;
+$content_block_3_background_2_color: #987566;
+$content_block_3_background_3_color: #988C66;
+$content_block_3_background_4_color: #988366;
+$content_block_3_text_1_color: #D9CDBC;
+$content_block_3_text_2_color: #FFFCFB;
+$content_block_3_text_3_color: #FFFBEE;
+$content_block_3_text_4_color: #FFF8EE;
 
 $h1_article_4_color: #C8586A;
-$window_pane_block_4_background_1_color: #A33042;
-$window_pane_block_4_background_2_color: #FFD6BC;
-$window_pane_block_4_background_3_color: #FBBC95;
-$window_pane_block_4_background_4_color: #FBD595;
+$content_block_4_background_1_color: #A33042;
+$content_block_4_background_2_color: #FFD6BC;
+$content_block_4_background_3_color: #FBBC95;
+$content_block_4_background_4_color: #FBD595;
 
-$window_pane_block_4_text_1_color: #FBDADF;
-$window_pane_block_4_text_2_color: #AC6133;
-$window_pane_block_4_text_3_color: #AC7F33;
+$content_block_4_text_1_color: #FBDADF;
+$content_block_4_text_2_color: #AC6133;
+$content_block_4_text_3_color: #AC7F33;
 
-$window_pane_block_4_div_1_text_color: #FBBC95;
-$window_pane_block_4_div_2_text_color: #FFF2DE;
+$content_block_4_div_1_text_color: #FBBC95;
+$content_block_4_div_2_text_color: #FFF2DE;
 
-$window_pane_block_4_span_1_text_color: #D48B5D;
-$window_pane_block_4_span_2_text_color: #AC7F33;
-$window_pane_block_4_span_3_text_color: #D3A75D;
+$content_block_4_span_1_text_color: #D48B5D;
+$content_block_4_span_2_text_color: #AC7F33;
+$content_block_4_span_3_text_color: #D3A75D;
 
 $h1_article_5_color: #3C667B;
-$window_pane_block_5_background_1_color: #96C5AA;
-$window_pane_block_5_background_2_color: #5F8395;
-$window_pane_block_5_background_3_color: #96C5AA;
-$window_pane_block_5_text_1_color: #216F43;
-$window_pane_block_5_text_2_color: #408B61;
-$window_pane_block_5_div_1_color: #C1D1D9;
+$content_block_5_background_1_color: #96C5AA;
+$content_block_5_background_2_color: #5F8395;
+$content_block_5_background_3_color: #96C5AA;
+$content_block_5_text_1_color: #216F43;
+$content_block_5_text_2_color: #408B61;
+$content_block_5_div_1_color: #C1D1D9;
 
 $h1_article_6_color: #A7AB92;
-$window_pane_block_6_background_1_color: #A7AB92;
-$window_pane_block_6_background_2_color: #971B1E;
-$window_pane_block_6_background_3_color: #B0AE97;
-$window_pane_block_6_background_4_color: #302E1E;
-$window_pane_block_6_background_5_color: #A7AB92;
-$window_pane_block_6_text_1_color: #2A2E13;
-$window_pane_block_6_text_2_color: #FFFFFF;
-$window_pane_block_6_text_3_color: #2C2F1E;
-$window_pane_block_6_span_background_1_color: #302E1E;
-$window_pane_block_6_span_text_1_color: #B0AE97;
+$content_block_6_background_1_color: #A7AB92;
+$content_block_6_background_2_color: #971B1E;
+$content_block_6_background_3_color: #B0AE97;
+$content_block_6_background_4_color: #302E1E;
+$content_block_6_background_5_color: #A7AB92;
+$content_block_6_text_1_color: #2A2E13;
+$content_block_6_text_2_color: #FFFFFF;
+$content_block_6_text_3_color: #2C2F1E;
+$content_block_6_span_background_1_color: #302E1E;
+$content_block_6_span_text_1_color: #B0AE97;
 
 $span_background_image_article_5: url('/assets/img/article/5/sprite-insurance_comps.png');
 
@@ -103,7 +103,7 @@ $lg_h2_font_size: 2.5em; // 30pt
 
 /* ****** COMMON ELEMENTS ****** */
 
-.div-window_pane, 
+.div-content, 
 aside ul  {
   font-family: $base_font;
   font-weight: $base_font_weight;
@@ -131,7 +131,7 @@ h1 {
   */
 }
 
-.div-window_pane {
+.div-content {
   display: none;
   position: absolute;
   float: left;
@@ -140,12 +140,12 @@ h1 {
 }
 /* 
  * Formats the <div> which holds the text or form content within a section. 
- * '.div-window_pane' elements differ from '.article-window_frame' elements.
- * '.div-window_pane' elements only hold the content of one sub-section, 
- * while '.article-window_frame' elements hold many sub-sections.
+ * '.div-content' elements differ from '.article-content' elements.
+ * '.div-content' elements only hold the content of one sub-section, 
+ * while '.article-content' elements hold many sub-sections.
  */
 
-.div-window_pane-block-1 {
+.div-content-block-1 {
 	width: 32.5em;
 	height: initial;
 	padding: 1em 2em;
@@ -184,7 +184,7 @@ main {
 }
 /* Formats the HTML element, 'main', which holds all of the copy and form content. */
 
-.article-window_frame {
+.article-content {
 	padding: 0;
 	margin: 0;
 	position: relative;
@@ -216,7 +216,7 @@ main {
  */
 
 
-/* ****** MAIN LANDING SECTION ****** */
+/* ****** LANDING SECTION ****** */
  
 aside {
 	position: absolute;
@@ -252,8 +252,8 @@ aside {
     padding: 0.6em 0 0 0;
     display: none;
     text-align: center;
-    color: $main_li_text_color;
-    background-color: $main_li_background_color;
+    color: $landing_li_text_color;
+    background-color: $landing_li_background_color;
     // opacity: 0;
   }
   /* Formats the list-items which are contained within the <div> using the selctor, "#info". */
@@ -272,7 +272,7 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
 
-.div-window_pane-block-1 { 
+.div-content-block-1 { 
   h2 {
     width: 100%;
     padding-bottom: 0.25em; // 4px
@@ -283,18 +283,18 @@ aside {
   /* 
    * Formats a <h2> element which contains a text header for an individual response from 
    * 'FORM TYPE #1. The <span> elements appear within the <div> elements using the selectors, 
-   * '#div-window_pane-block-1-desc-2' & '#div-window_pane-block-1-desc-3'.
+   * '#div-content-block-1-desc-2' & '#div-content-block-1-desc-3'.
    */
 
   p {
     margin-bottom: 2.0em; // 32px
     text-indent: 1.3em; // 21px
     line-height: $line_height;
-    color: $window_pane_block_p_1_color;
+    color: $content_block_p_1_color;
   }
   /* 
    * Formats the <p> elements which hold the text content that is contained by a <div> element
-   * using the class, '.div-window_pane-block-1'.
+   * using the class, '.div-content-block-1'.
    */
 
   p ~ p {
@@ -306,7 +306,7 @@ aside {
 }
 
 #div-window-pane-block-1-desc-1 {
-	background-color: $window_pane_desc_background_1_color;
+	background-color: $content_desc_background_1_color;
 }
 /* 
  * Contains formating for a block of text appearing in the first section.
@@ -314,8 +314,8 @@ aside {
  */
 
 #div-window-pane-block-1-desc-2 {
-	background-color: $window_pane_desc_background_2_color;
-	color: $window_pane_desc_text_2_color;
+	background-color: $content_desc_background_2_color;
+	color: $content_desc_text_2_color;
 }
 /* 
  * Contains formating for a block of text appearing in the first section.
@@ -323,8 +323,8 @@ aside {
  */
 
 #div-window-pane-block-1-desc-3 {
-	background-color: $window_pane_desc_background_3_color;
-	color: $window_pane_desc_text_3_color;
+	background-color: $content_desc_background_3_color;
+	color: $content_desc_text_3_color;
 } 
 /* 
  * Contains formating for a block of text appearing in the first section.
@@ -339,12 +339,12 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
 
-.div-window_pane-block-2 {
+.div-content-block-2 {
 	height: auto;
   margin-right: 4.5em;
 	padding: 1em;
   display: inline-block;
-  background-color: $window_pane_block_2_background_1_color;
+  background-color: $content_block_2_background_1_color;
 	text-align: center;
   // opacity: 0;
 
@@ -362,7 +362,7 @@ aside {
 
     li {
       margin: 0.5em;
-      color: $window_pane_block_2_text_color;
+      color: $content_block_2_text_color;
     }
     /* Formats the list-items which appears within the blocks. */
 
@@ -375,7 +375,7 @@ aside {
 }
 /* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
 
-.div-window_pane-block-2-type-1 {
+.div-content-block-2-type-1 {
   height: auto;
   margin: 0;
   position: relative;
@@ -387,7 +387,7 @@ aside {
     display: block;
     padding: 1em;
     margin: 0 auto;
-    background-color: $window_pane_block_2_background_2_color;
+    background-color: $content_block_2_background_2_color;
     font-size: 1.1em;
     font-weight: $semibold_font_weight;
     text-align: center;
@@ -408,8 +408,8 @@ aside {
       float: left;
       text-align: center;
       font-weight: $semibold_font_weight;
-      color: $window_pane_block_2_text_color;
-      background-color: $window_pane_block_2_background_3_color;
+      color: $content_block_2_text_color;
+      background-color: $content_block_2_background_3_color;
     }
     /* 
      * Formats the text content of the secondary blocks that appear near the bottom of the 
@@ -440,7 +440,7 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
 
-.div-window_pane-block-3 { 
+.div-content-block-3 { 
   h2 {
     display: block;
     padding-bottom: 0.1em; // 2px
@@ -451,32 +451,32 @@ aside {
   /* 
    * Formats a text header for the block within each sub-section. The <h2> elements appear 
    * within the <div> elements using the selectors, 
-   * '#div-window_pane-block-3-desc-2', '#div-window_pane-block-3-desc-3', & 
-   * '#div-window_pane-block-3-desc-4'.
+   * '#div-content-block-3-desc-2', '#div-content-block-3-desc-3', & 
+   * '#div-content-block-3-desc-4'.
    */
 } 
 
-#div-window_pane-block-3-desc-1 {
-  background-color: $window_pane_block_3_background_1_color;
-  color: $window_pane_block_3_text_1_color;
+#div-content-block-3-desc-1 {
+  background-color: $content_block_3_background_1_color;
+  color: $content_block_3_text_1_color;
 }
 /* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
 
-#div-window_pane-block-3-desc-2 {
-  background-color: $window_pane_block_3_background_2_color;
-  color: $window_pane_block_3_text_2_color;
+#div-content-block-3-desc-2 {
+  background-color: $content_block_3_background_2_color;
+  color: $content_block_3_text_2_color;
 }
 /* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
 
-#div-window_pane-block-3-desc-3 {
-  background-color: $window_pane_block_3_background_3_color;
-  color: $window_pane_block_3_text_3_color;
+#div-content-block-3-desc-3 {
+  background-color: $content_block_3_background_3_color;
+  color: $content_block_3_text_3_color;
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
 
-#div-window_pane-block-3-desc-4 {
-	background-color: $window_pane_block_3_background_4_color;
-  color: $window_pane_block_3_text_4_color;
+#div-content-block-3-desc-4 {
+	background-color: $content_block_3_background_4_color;
+  color: $content_block_3_text_4_color;
 }
 /* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
 
@@ -488,7 +488,7 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
 
-.div-window_pane-block-4 { 
+.div-content-block-4 { 
   p {
     text-indent: 1em; // 16px
     line-height: $line_height;
@@ -519,23 +519,23 @@ aside {
   }
   /* Formats a  text header for the 'block' within each sub-section. The <span> elements 
    * appear within the <div> elements using the selectors, 
-   * '#div-window_pane-block-4-desc-2', '#div-window_pane-block-4-desc-3', & 
-   * '#div-window_pane-block-4-desc-4'.
+   * '#div-content-block-4-desc-2', '#div-content-block-4-desc-3', & 
+   * '#div-content-block-4-desc-4'.
    */
 }
 
-#div-window_pane-block-4-desc-1 {
-	background-color: $window_pane_block_4_background_1_color;
-  color: $window_pane_block_4_text_1_color;
+#div-content-block-4-desc-1 {
+	background-color: $content_block_4_background_1_color;
+  color: $content_block_4_text_1_color;
 }
 /* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
 
-#div-window_pane-block-4-desc-2 {
-	background-color: $window_pane_block_4_background_2_color;
-  color: $window_pane_block_4_text_2_color;
+#div-content-block-4-desc-2 {
+	background-color: $content_block_4_background_2_color;
+  color: $content_block_4_text_2_color;
 
   div {
-    color: $window_pane_block_4_div_1_text_color;
+    color: $content_block_4_div_1_text_color;
   }
   /* 
    * Formats the quotation marks which appear above the block within the 
@@ -543,7 +543,7 @@ aside {
    */
   
   span {
-    color: $window_pane_block_4_span_1_text_color;
+    color: $content_block_4_span_1_text_color;
   }
   /* 
    * Formats a <span> element which are contained within a block within 
@@ -552,12 +552,12 @@ aside {
 }
 /* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
 
-#div-window_pane-block-4-desc-3 {
-	background-color: $window_pane_block_4_background_3_color;
-  color: $window_pane_block_4_text_2_color;
+#div-content-block-4-desc-3 {
+	background-color: $content_block_4_background_3_color;
+  color: $content_block_4_text_2_color;
 
   div {
-    color: $window_pane_block_4_div_2_text_color;
+    color: $content_block_4_div_2_text_color;
   }
   /* 
    * Formats the quotation marks which appear above the block within the 
@@ -565,7 +565,7 @@ aside {
    */
   
   span {
-    color: $window_pane_block_4_span_2_text_color;
+    color: $content_block_4_span_2_text_color;
 
     span {
       display: block;
@@ -605,12 +605,12 @@ aside {
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 
-#div-window_pane-block-4-desc-4 {
-	background-color: $window_pane_block_4_background_4_color;
-  color: $window_pane_block_4_text_2_color;
+#div-content-block-4-desc-4 {
+	background-color: $content_block_4_background_4_color;
+  color: $content_block_4_text_2_color;
 
   div {
-    color: $window_pane_block_4_div_2_text_color;
+    color: $content_block_4_div_2_text_color;
   }
   /* 
    * Formats the quotation marks which appear above the block within the 
@@ -618,7 +618,7 @@ aside {
    */
   
   span {
-    color: $window_pane_block_4_span_3_text_color;
+    color: $content_block_4_span_3_text_color;
   }
   /* 
    * Formats a <span> element which are contained within a block within 
@@ -642,34 +642,34 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
 
-.div-window_pane-block-5-type-1 {
+.div-content-block-5-type-1 {
 	position: relative;
   // opacity: 0;
 }
 /* Formats the blocks which are contained with 'SECTION #5'. */
 
-#div-window_pane-block-5-desc-1 {
+#div-content-block-5-desc-1 {
   float: left;
-	background-color: $window_pane_block_5_background_1_color;
-	color: $window_pane_block_5_text_1_color;
+	background-color: $content_block_5_background_1_color;
+	color: $content_block_5_text_1_color;
 }
 /* 
  * Formats the block which contains text content but does not include a <button> element 
  * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
  */
 
- #div-window_pane-block-5-header-1 {
+ #div-content-block-5-header-1 {
 	position: relative;
   float: left;
-  background-color: $window_pane_block_5_background_2_color;
+  background-color: $content_block_5_background_2_color;
 }
 /* Formats the block which serves as a header which appears within the 'FIRST WINDOW PANE' 
  * of 'SECTION #5'. 
  */
 
-#div-window_pane-block-5-header-2 {
-	background-color: $window_pane_block_5_background_3_color;
-  color: $window_pane_block_5_text_2_color;
+#div-content-block-5-header-2 {
+	background-color: $content_block_5_background_3_color;
+  color: $content_block_5_text_2_color;
   
   span {
     display: block;
@@ -685,13 +685,13 @@ aside {
  * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
  */
 
-#div-window_pane-block-5-desc-2 {
+#div-content-block-5-desc-2 {
   float: left;
 
   span {
     display: inline-block;
     background-repeat: no-repeat;
-    background-color: $window_pane_block_5_background_3_color;
+    background-color: $content_block_5_background_3_color;
   }
   /* Formats <span> elements which contains a logo or text content */
 
@@ -735,7 +735,7 @@ aside {
  * which contain either logos or text. 
  */
 
- #div-window_pane-block-5-desc-4 {
+ #div-content-block-5-desc-4 {
   float: left;
   background-color: #216F43;
 
@@ -796,7 +796,7 @@ aside {
  * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
  */
 
-#div-window_pane-block-5-desc-5 {
+#div-content-block-5-desc-5 {
   float: left;
   background-color: #C8CBDF;
   color: #2A326B;
@@ -823,7 +823,7 @@ aside {
 }
 /* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
 
-.div-window_pane-block-6-type-1 {
+.div-content-block-6-type-1 {
   position: relative;
   float: left;
 	// opacity: 0;
@@ -833,9 +833,9 @@ aside {
  * of 'SECTION #6'.
  */
 
- #div-window_pane-block-6-desc-1 {
-	background-color: $window_pane_block_6_background_1_color;
-  color: $window_pane_block_6_text_1_color;
+ #div-content-block-6-desc-1 {
+	background-color: $content_block_6_background_1_color;
+  color: $content_block_6_text_1_color;
 
   p {
     line-height: $line_height;
@@ -851,10 +851,10 @@ aside {
  * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
  */
 
-#div-window_pane-block-6-info-1 {
+#div-content-block-6-info-1 {
 	position: relative;
-  color: $window_pane_block_6_text_2_color;
-  background-color: $window_pane_block_6_background_1_color;
+  color: $content_block_6_text_2_color;
+  background-color: $content_block_6_background_1_color;
 
   span {
     display: table;
@@ -866,7 +866,7 @@ aside {
       text-align: center;
       font-size: $base_font_size;
       font-weight: $semibold_font_weight;
-      color: $window_pane_block_6_text_2_color;
+      color: $content_block_6_text_2_color;
       vertical-align: middle;
     }
     /* 
@@ -884,18 +884,18 @@ aside {
  * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
  */
 
- #div-window_pane-block-6-desc-2 {
+ #div-content-block-6-desc-2 {
   float: left;
   // opacity: 0;
 
   div {
     float: left;
-    background-color: $window_pane_block_6_background_2_color;
+    background-color: $content_block_6_background_2_color;
 
     span {
       display: block;
       line-height: $line_height;
-      color: $window_pane_block_6_span_text_1_color;
+      color: $content_block_6_span_text_1_color;
     }
     /* Formats the text within blocks which contain office information within the 'FIRST WINDOW PANE' 
      * of 'SECTION #6'.
@@ -910,8 +910,8 @@ aside {
     padding: 1em 1.7em;
     display: block;
     font-weight: $semibold_font_weight;
-    color: $window_pane_block_6_span_text_1_color;
-    background-color: $window_pane_block_6_span_background_1_color; 
+    color: $content_block_6_span_text_1_color;
+    background-color: $content_block_6_span_background_1_color; 
   }
   /* 
    * Formats blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
@@ -923,7 +923,7 @@ aside {
  * of 'SECTION #6'.
  */
 
-.div-window_pane-block-6-type-2 {
+.div-content-block-6-type-2 {
   position: relative;
 
   div > div {
@@ -952,10 +952,10 @@ aside {
 }
 /* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
 
-#div-window_pane-block-6-desc-3 {
+#div-content-block-6-desc-3 {
 	position: relative;
-	background-color: $window_pane_block_6_background_5_color;
-	color: $window_pane_block_6_text_3_color;
+	background-color: $content_block_6_background_5_color;
+	color: $content_block_6_text_3_color;
 }
 /* 
  * Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
@@ -986,18 +986,18 @@ aside {
     }
   }
 
-  .div-window_pane {
+  .div-content {
     width: 85.38rem; // 1,366px
     height: 39.06rem; // 625px
     margin: 8.15em 0 0 17.5em; // 130px 0 0 280px
   }
 
-  .div-window_pane-block-1 {
+  .div-content-block-1 {
     width: 32.5em; // 520px
   }
 
 
-  /* ****** MAIN LANDING SECTION ****** */
+  /* ****** LANDING SECTION ****** */
 
   aside {
     width: 38.6em; // 618px
@@ -1013,19 +1013,19 @@ aside {
   
   /* ****** SECTION #1 ****** */
   
-  .div-window_pane-block-1 > h2 {
+  .div-content-block-1 > h2 {
     font-size: $lg_h2_font_size;
   }
 
   
   /* ****** SECTION #2 ****** */
   
-  .div-window_pane-block-2 {
+  .div-content-block-2 {
     width: 26.5em; // 424px
     min-width: 20em; // 320px
   }
 
-  .div-window_pane-block-2-type-1 {
+  .div-content-block-2-type-1 {
     width: 66.35em; // 1,062px
     top: 4em; // 64px
     right: 17.5em; // 280px
@@ -1046,7 +1046,7 @@ aside {
   
   /* ****** SECTION #3 ****** */
 
-  .div-window_pane-block-3 { 
+  .div-content-block-3 { 
     h2 {
       width: 100%;
     }
@@ -1064,7 +1064,7 @@ aside {
   
   /* ****** SECTION #4 ****** */
 
-  .div-window_pane-block-4 { 
+  .div-content-block-4 { 
     div {
       top: -0.3em; // 5px
       left: 0.06em; // 1px
@@ -1075,7 +1075,7 @@ aside {
      */
   }
   
-  #div-window_pane-block-4-desc-3 {
+  #div-content-block-4-desc-3 {
     span span {
       width: 6.56em; // 105px
       height: 1.69em; // 27px
@@ -1101,8 +1101,8 @@ aside {
     }
   }
   
-  #div-window_pane-block-4-desc-4, 
-  #div-window_pane-block-5-desc-5 {
+  #div-content-block-4-desc-4, 
+  #div-content-block-5-desc-5 {
     p {
       padding-bottom: 0.9em; // 14px
     }
@@ -1111,7 +1111,7 @@ aside {
 
   /* ****** SECTION #5 ****** */
 
-  .div-window_pane-block-5-type-1 {
+  .div-content-block-5-type-1 {
     width: 28.9em; // 462px
     margin-right: 4.5em; // 72px
     padding: 1em 2em; // 16px 32px
@@ -1121,11 +1121,11 @@ aside {
       line-height: 1.7em; // 27px
     }
     /* Formats the <p> elements which hold the text content that is contained by a <div> element
-     * using the class, '.div-window_pane-block-5-type-1'.
+     * using the class, '.div-content-block-5-type-1'.
      */
   }
 
-  #div-window_pane-block-5-desc-2 { 
+  #div-content-block-5-desc-2 { 
     span {
       width: 7.06em; // 113px
       height: 2.81em; // 45px
@@ -1156,14 +1156,14 @@ aside {
 
   }
 
-  #div-window_pane-block-5-header-1 {
+  #div-content-block-5-header-1 {
     width: 29em; // 464px
     margin-top: 2.5em; // 40px
     padding-bottom: 0;
   }
 
-  #div-window_pane-block-5-desc-4, 
-  #div-window_pane-block-5-desc-5 {
+  #div-content-block-5-desc-4, 
+  #div-content-block-5-desc-5 {
     min-height: 14.06em; // 225px
     margin-top: 1em; // 16px
   }
@@ -1171,12 +1171,12 @@ aside {
 
   /* ****** SECTION #6 ****** */
 
-  .div-window_pane-block-6-type-1 {
+  .div-content-block-6-type-1 {
     margin-right: 2.5em; // 40px
     padding: 1em 2em; // 16px 32px
   }
 
-  #div-window_pane-block-6-desc-1 {
+  #div-content-block-6-desc-1 {
     padding: 1em 2em; // 16px 32px
     
     p {
@@ -1185,7 +1185,7 @@ aside {
     }
   }
 
-  #div-window_pane-block-6-info-1 {
+  #div-content-block-6-info-1 {
     width: 28.9em; // 462px
     margin-top: 2.5em; // 40px
     padding-bottom: 0;
@@ -1196,7 +1196,7 @@ aside {
     }
   }
 
-  #div-window_pane-block-6-desc-2 {
+  #div-content-block-6-desc-2 {
     width: 15.25em; // 244px
     height: 10.31em; // 165px
     margin-right: 2.5em; // 40px
@@ -1208,7 +1208,7 @@ aside {
     }
   }
   
-  .div-window_pane-block-6-type-2 {
+  .div-content-block-6-type-2 {
     width: 32.8em; // 525px
     height: 12.15em; // 194px
     margin-top: 1em; // 16px
@@ -1232,7 +1232,7 @@ aside {
     width: 28.9em; // 462px
   }
 
-  #div-window_pane-block-6-desc-3 {
+  #div-content-block-6-desc-3 {
     padding: 1em 2em; // 16px 32px
     margin-bottom: 20em; // 320px
   }
