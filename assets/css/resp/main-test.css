@@ -19,7 +19,7 @@
 aside ul {
   font-family: "Glegoo", "Palatino", serif;
   font-weight: 400;
-  font-size: 1em; }
+  font-size: 1rem; }
 
 h1 {
   position: absolute;
@@ -33,7 +33,7 @@ h1 {
     vertical-align: middle;
     font-family: "Balthazar", "Cambria", serif;
     font-weight: 600;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     text-align: center;
     letter-spacing: 2px;
     color: #fff; }
@@ -55,15 +55,341 @@ h1 {
   display: block; }
 
 .div-content-block-1 {
-  width: 32.5em;
+  width: 32.5rem;
   height: initial;
-  padding: 1em 2em;
-  position: absolute;
+  padding: 1rem 2rem;
   z-index: 2; }
 
 /* Formats the main 'blocks' which hold <p> elements which contain text content. 
  * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
  * are formatted in this pairing. 
+ */
+/* ****** FORMS ****** */
+.div-content-column {
+  height: auto;
+  display: inline-block; }
+
+/* Formats a <div> element which places a form question either on the left or right 
+ * side of the browser window and is contained within a <form> element.
+ * Forms can be found within 'SECTION #1', 'SECTION #5', & 'SECTION #6'.
+ */
+fieldset {
+  margin: 1rem;
+  padding: 1.25rem;
+  border: 0.125rem solid #cfd7a3;
+  /* Formats <div> elements which appear within <fieldset> elements. */ }
+  fieldset div {
+    margin: 0 auto; }
+
+/* Formats <fieldset> elements which contain form options. */
+/* ---- 'FORM FIELDS & OPTIONS' ---- */
+label + p,
+input + p {
+  margin-top: 20px; }
+
+/* Formats form fields and options that appear within individual form questions. */
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+  padding: 0.5rem;
+  border: 0.125rem solid #bbbbbb;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px; }
+
+/* Formats the layout of <input> elements which appear within individual form questions. */
+input[type=radio],
+input[type=checkbox] {
+  border: 0;
+  width: 100%;
+  height: 1.6rem; }
+
+/* Formats the layout of <input type=radio> and <input type=checkbox> elements 
+ * which appear within individual form questions.
+ */
+input[type=range] {
+  margin: 0.9em auto 0.1em auto;
+  color: #221763; }
+
+/* Formats the layout of <input type=range> elements within individual form questions. */
+select {
+  font: 400 1.3em "Franklin Gothic Medium", sans-serif;
+  width: 150px;
+  margin: 0.7em auto 0.5em auto;
+  display: block; }
+
+/* Formats the options within a <select> element that appear 
+ * within individual form options. 
+ */
+input[type=button],
+input[type=submit] {
+  width: 7.81rem;
+  height: 3.125rem;
+  margin: 0 0 0 1.25rem;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  background-color: #40BDE8;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem;
+  color: #221763;
+  border: 0.125rem solid #369DBF;
+  cursor: pointer; }
+
+/* Formats which appear as buttons throughout the webpage. */
+input[type=button]:hover,
+input[type=submit]:hover {
+  background-color: #33CCFF; }
+
+/* Formats the click-state for the <button> and <submit> elements which appear 
+ * throughout the webpage.
+ * This is the hover click state.
+ */
+.div-form-question {
+  height: auto;
+  background-color: #ffffff;
+  /* Formats <span> elements which contain text headers. */
+  /* Formats the first <span> element which is contained within a given form question. */
+  /* Formats the additional <span> elements which are contained within a given form question. */
+  /* Formats <p> elements which contain text instructions or descriptive copy for a given 
+    * form question. 
+    */ }
+  .div-form-question span {
+    display: inline; }
+  .div-form-question span:first-child {
+    display: block; }
+  .div-form-question span + span {
+    padding-bottom: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6; }
+  .div-form-question span + p {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 2px solid #cfd7a3;
+    line-height: 1.6; }
+  .div-form-question fieldset {
+    /* More formatting for the text within <span> elements which follow the first <span> element 
+     * within an individual form question. 
+     */
+    /* Formats the text within a <sup> element that is contained 
+     * within an individual form question. 
+     */
+    /* Formats descriptive text that falls underneath the instruction within a given 
+    * form question.
+    */
+    /* Formats <div> elements which control which set of two questions are displayed 
+    * within the browser window at a given time.
+    */
+    /* Formats a <div> element which appears once a form has been submitted 
+     * which returns an error message. 
+     */ }
+    .div-form-question fieldset div {
+      /* Formats the visual appearance of text within <span> elements which are contained 
+       * within an individual form question. 
+       */ }
+      .div-form-question fieldset div span {
+        position: relative;
+        top: -0.625rem;
+        font-family: "Franklin Gothic Medium", sans-serif;
+        font-size: 1rem; }
+    .div-form-question fieldset span + span {
+      left: 0.813rem; }
+    .div-form-question fieldset sup {
+      font-size: 0.8rem; }
+    .div-form-question fieldset .p-form-ftnote {
+      padding: 0.75rem;
+      border-top: 0.125rem dotted #cfd7a3;
+      font-size: 0.9em;
+      line-height: 1.6em; }
+    .div-form-question fieldset .div-form-page-1,
+    .div-form-question fieldset .div-form-page-2 {
+      display: none;
+      opacity: 0; }
+    .div-form-question fieldset #form-question-alert {
+      width: inherit;
+      height: inherit;
+      display: table;
+      position: absolute;
+      background-color: #dddddd;
+      opacity: 0.95;
+      z-index: 7;
+      /* Formats descriptive text within a <div> element that appears once a form 
+       * has been submitted which returns an error message.
+       */ }
+      .div-form-question fieldset #form-question-alert div {
+        display: table-cell;
+        font-family: "Glegoo", "Palatino", serif;
+        font-size: 0.8rem;
+        vertical-align: middle;
+        text-align: center;
+        /* Formats a <div> element which contains descriptive text about an error returned 
+         * from a form submission. 
+         */ }
+        .div-form-question fieldset #form-question-alert div div {
+          margin: 0 auto;
+          padding: 1rem 2rem;
+          text-align: left;
+          background-color: #971b1e;
+          color: #ffffff;
+          /* Formats a <span> element which serves as a header for descriptive text about 
+           * an error returned from a form submission.
+           */
+          /* Formats descriptive text within a <p> element that is contained by a <div> 
+           * element using the id, "#form-question-alert".
+           */ }
+          .div-form-question fieldset #form-question-alert div div span {
+            display: block;
+            border-bottom: 0.125rem solid #fff;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: left; }
+          .div-form-question fieldset #form-question-alert div div p {
+            text-align: left; }
+
+/* Formats a <div> element which contains an individual form question. */
+#button-article-1-start {
+  margin: 0 0 0.8rem 0; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #1'.
+ * The button 'starts' the form process.
+ */
+#submit-form-article-5 {
+  margin: 0.35em 0 0.7em 0; }
+
+/* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
+#button-article-5-contact {
+  margin: 0 0 0.7em 0;
+  letter-spacing: -0.7px; }
+
+/* Formats the <button> element which appears on the response page of the form, 
+ * 'FORM TYPE #5'.
+ */
+#button-article-6-map {
+  margin: 0; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'. */
+#button-article-6-start {
+  margin: 0.7em 0 0.7em 0;
+  letter-spacing: -1.9px; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'.
+ * This button starts the form process. 
+ */
+#submit-form-article-6 {
+  letter-spacing: -0.7px; }
+
+/* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
+ * within 'SECTION #1'.
+ */
+p > input {
+  padding: 0;
+  margin: 0;
+  height: 16px;
+  width: 16px;
+  float: left;
+  position: absolute;
+  left: 0;
+  opacity: 0; }
+
+/* Formats the layout of individual <input type=radio> and <input type=checkout> elements. */
+p > label {
+  line-height: 1.25rem;
+  padding-left: 5px; }
+
+/* Formats the layout of the labels of individual <input> elements. */
+p:not(#foo) > input + label {
+  height: 22px;
+  background-image: url("/assets/img/form/form.png");
+  background-position: 0 -1px;
+  background-repeat: no-repeat;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem; }
+
+/* Formats the type of shape that appears next to radio or checkbox elements. */
+p:not(#foo) > input[type=radio] + label,
+p:not(#foo) > input[type=checkbox] + label {
+  display: block;
+  font-weight: normal;
+  padding-top: 0.05em;
+  color: #000000;
+  background-position: 0 0; }
+
+/* Formats text that appears next to radio or checkbox elements. */
+p:not(#foo) > input[type=checkbox] + label {
+  padding-top: 0;
+  background-position: 0 -103px; }
+
+/* Formats the shape of that appears next to <input type=checkbox> elements.
+ * Also defines the base click-state. 
+ */
+/* Checked styles */
+p:not(#foo) > input[type=checkbox]:checked + label,
+p:not(#foo) > input[type=checkbox]:hover:checked + label,
+p:not(#foo) > input[type=checkbox]:focus:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover,
+p:not(#foo) > input[type=checkbox]:focus:checked + label {
+  background-position: 0 -178px;
+  font-weight: 700;
+  color: #221763; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the clicked click-state. 
+ */
+p:not(#foo) > input[type=radio]:checked + label,
+p:not(#foo) > input[type=radio]:hover:checked + label,
+p:not(#foo) > input[type=radio]:focus:checked + label,
+p:not(#foo) > input[type=radio]:checked + label:hover,
+p:not(#foo) > input[type=radio]:focus:checked + label {
+  background-position: 0 -79px;
+  font-weight: 700;
+  color: #221763; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the clicked click-state. 
+ */
+/* Hover & Focus styles */
+p:not(#foo) > input[type=checkbox]:hover + label,
+p:not(#foo) > input[type=checkbox]:focus + label,
+p:not(#foo) > input[type=checkbox] + label:hover {
+  background-position: 0 -128px;
+  font-weight: 700;
+  color: #000000; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the hover click-state. 
+ */
+p:not(#foo) > input[type=radio]:hover + label,
+p:not(#foo) > input[type=radio]:focus + label,
+p:not(#foo) > input[type=radio] + label:hover,
+p:not(#foo) > fieldset > input[type=radio]:hover + label,
+p:not(#foo) > fieldset > input[type=radio]:focus + label,
+p:not(#foo) > fieldset > input[type=radio] + label:hover {
+  background-position: 0 -26px;
+  font-weight: 700;
+  color: #000000; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the hover click-state. 
+ */
+/* Active styles */
+p:not(#foo) > input[type=checkbox]:active + label,
+p:not(#foo) > input[type=checkbox] + label:hover:active,
+p:not(#foo) > input[type=checkbox]:active:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
+  background-position: 0 -153px;
+  font-weight: 400; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the active click-state. 
+ */
+p:not(#foo) > input[type=radio]:active + label,
+p:not(#foo) > input[type=radio] + label:hover:active {
+  background-position: 0 -53px; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the active click-state. 
  */
 /* ****** CONTAINER ELEMENTS ****** */
 body {
@@ -302,7 +628,7 @@ aside {
     display: block;
     padding-bottom: 0.1em;
     border-bottom: 0.1em solid;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: 600; }
 
 #div-content-block-3-desc-1 {
@@ -637,7 +963,7 @@ aside {
       display: table-cell;
       background: none;
       text-align: center;
-      font-size: 1em;
+      font-size: 1rem;
       font-weight: 600;
       color: #FFFFFF;
       vertical-align: middle; }
@@ -729,9 +1055,34 @@ aside {
     height: 48rem;
     margin-top: 6rem; }
   .div-content-block-1 {
-    width: 32.5em;
+    width: 32.5rem;
     margin: 0 auto;
     position: relative; }
+  /* ****** FORMS ****** */
+  .div-content-column {
+    width: 32.5rem;
+    margin-right: 4.5rem;
+    vertical-align: top; }
+  .div-form-question {
+    margin-bottom: 1.25rem;
+    padding: 2rem;
+    font-size: 0.9em; }
+    .div-form-question span:first-child {
+      margin-bottom: 0.75rem; }
+  #form-question-alert div {
+    width: 22em;
+    height: 10em; }
+    #form-question-alert div div {
+      width: 36em;
+      height: 15.75em; }
+  fieldset div {
+    width: 20.3rem; }
+  #button-article-5-contact {
+    letter-spacing: -1.7px !important; }
+  #button-article-6-start {
+    letter-spacing: -1.7px; }
+  #button-article-6-map {
+    margin-top: 0.75em; }
   /* ****** LANDING SECTION ****** */
   aside {
     width: 38.6em;
@@ -742,7 +1093,7 @@ aside {
       width: 17.4em; }
   /* ****** SECTION #1 ****** */
   .div-content-block-1 > h2 {
-    font-size: 2.5em; }
+    font-size: 2.5rem; }
   /* ****** SECTION #2 ****** */
   .div-content-block-2 {
     width: 26.5em;

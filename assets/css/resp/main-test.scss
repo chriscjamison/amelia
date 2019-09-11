@@ -91,9 +91,12 @@ $form_alert_background_1_color: #dddddd;
 $form_alert_background_2_color: #971b1e;
 $form_alert_font_color: #ffffff;
 
-$input_border: 0.125rem solid #369DBF; // 2px
+$input_border_1: 0.125rem solid #369DBF; // 2px
+$input_border_2: 0.125rem solid #bbbbbb; // 2px
+
 $input_background_1_color: #40BDE8;
 $input_background_2_color: #33CCFF;
+$input_checkbox_color: #000000;
 $input_font_color: #221763;
 
 $span_background_image_article_5: url('/assets/img/article/5/sprite-insurance_comps.png');
@@ -176,10 +179,9 @@ h1 {
 }
 
 .div-content-block-1 {
-	width: 32.5em;
+	width: 32.5rem;
 	height: initial;
-	padding: 1em 2em;
-	position: absolute;
+	padding: $padding_value_2 $padding_value_4;
 	z-index: 2;
 	// opacity: 0;
 }
@@ -213,17 +215,65 @@ fieldset {
 }
 /* Formats <fieldset> elements which contain form options. */
 
+/* ---- 'FORM FIELDS & OPTIONS' ---- */
+
+label + p,
+input + p {
+	margin-top: 20px;
+}
+/* Formats form fields and options that appear within individual form questions. */
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+	padding: 0.5rem;
+  border: $input_border_2;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+	letter-spacing: 1px;
+}
+/* Formats the layout of <input> elements which appear within individual form questions. */
+
+input[type=radio],
+input[type=checkbox] {
+	border: 0;
+	width: 100%;
+	height: 1.6rem;
+}
+/* Formats the layout of <input type=radio> and <input type=checkbox> elements 
+ * which appear within individual form questions.
+ */
+
+input[type=range] {
+	margin: 0.9em auto 0.1em auto;
+	color: $input_font_color;
+}
+/* Formats the layout of <input type=range> elements within individual form questions. */
+
+select {
+	font: 400 1.3em "Franklin Gothic Medium", sans-serif;
+	width: 150px;
+	margin: 0.7em auto 0.5em auto;
+	display: block;
+}
+/* Formats the options within a <select> element that appear 
+ * within individual form options. 
+ */
+
 input[type=button],
 input[type=submit] {
 	width: 7.81rem; // 125px
 	height: 3.125rem; // 50px
-	margin: 0 0 0 $margin_value_3;
-	float: right;
+  margin: 0 0 0 $margin_value_3;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
   background-color: $input_background_1_color;
   font-family: $form_question_font;
   font-size: $form_question_font_size;
 	color: $input_font_color;
-	border: $input_border;
+	border: $input_border_1;
 	cursor: pointer;
 }
 /* Formats which appear as buttons throughout the webpage. */
@@ -290,7 +340,7 @@ input[type=submit]:hover {
      */
 
      sup {
-      font-size: $font_question_sup_font_size;
+      font-size: $form_question_sup_font_size;
     }
     /* Formats the text within a <sup> element that is contained 
      * within an individual form question. 
@@ -327,7 +377,7 @@ input[type=submit]:hover {
       div {
         display: table-cell;
         font-family: $base_font;
-        font-size: $font_question_sup_font_size;
+        font-size: $form_question_sup_font_size;
         vertical-align: middle;
         text-align: center;
 
@@ -373,7 +423,6 @@ input[type=submit]:hover {
 
 #button-article-1-start {
 	margin: 0 0 0.8rem 0;
-	position: relative;
 }
 /* Formats a <button> element which appears on the landing page of 'SECTION #1'.
  * The button 'starts' the form process.
@@ -410,6 +459,125 @@ input[type=submit]:hover {
 }
 /* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
  * within 'SECTION #1'.
+ */
+
+p > input {
+	padding: 0;
+	margin: 0;
+	height: 16px;
+	width: 16px;
+	float: left;
+	position: absolute;
+	left: 0;
+	opacity: 0;
+}
+/* Formats the layout of individual <input type=radio> and <input type=checkout> elements. */
+
+p > label { 
+	line-height: 1.25rem; // 20px
+	padding-left: 5px;
+}
+/* Formats the layout of the labels of individual <input> elements. */
+
+p:not(#foo) > input + label {
+  height: 22px;
+  background-image: url('/assets/img/form/form.png');
+  background-position:  0 -1px;
+  background-repeat: no-repeat;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+}
+/* Formats the type of shape that appears next to radio or checkbox elements. */
+
+p:not(#foo) > input[type=radio] + label, 
+p:not(#foo) > input[type=checkbox] + label { 
+	display: block;
+	font-weight: normal;
+	padding-top: 0.05em;
+	color: $input_checkbox_color;
+	background-position: 0 0;
+}
+/* Formats text that appears next to radio or checkbox elements. */
+
+p:not(#foo) > input[type=checkbox] + label {
+	padding-top: 0;
+	background-position: 0 -103px;
+}
+/* Formats the shape of that appears next to <input type=checkbox> elements.
+ * Also defines the base click-state. 
+ */
+
+/* Checked styles */
+p:not(#foo) > input[type=checkbox]:checked + label, 
+p:not(#foo) > input[type=checkbox]:hover:checked + label,
+p:not(#foo) > input[type=checkbox]:focus:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover,
+p:not(#foo) > input[type=checkbox]:focus:checked + label { 
+	background-position: 0 -178px;
+	font-weight: $bold_font_weight;
+	color: $input_font_color;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the clicked click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:checked + label, 
+p:not(#foo) > input[type=radio]:hover:checked + label,
+p:not(#foo) > input[type=radio]:focus:checked + label,
+p:not(#foo) > input[type=radio]:checked + label:hover,
+p:not(#foo) > input[type=radio]:focus:checked + label { 
+	background-position: 0 -79px;
+	font-weight: $bold_font_weight;
+	color: $input_font_color;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the clicked click-state. 
+ */
+
+/* Hover & Focus styles */
+p:not(#foo) > input[type=checkbox]:hover + label,
+p:not(#foo) > input[type=checkbox]:focus + label,
+p:not(#foo) > input[type=checkbox] + label:hover { 
+	background-position: 0 -128px;
+	font-weight: $bold_font_weight;
+	color: $input_checkbox_color;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the hover click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:hover + label,
+p:not(#foo) > input[type=radio]:focus + label,
+p:not(#foo) > input[type=radio] + label:hover,
+p:not(#foo) > fieldset > input[type=radio]:hover + label,
+p:not(#foo) > fieldset > input[type=radio]:focus + label,
+p:not(#foo) > fieldset > input[type=radio] + label:hover { 
+	background-position: 0 -26px;
+	font-weight: $bold_font_weight;
+	color: $input_checkbox_color;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the hover click-state. 
+ */
+
+/* Active styles */
+p:not(#foo) > input[type=checkbox]:active + label,
+p:not(#foo) > input[type=checkbox] + label:hover:active, 
+p:not(#foo) > input[type=checkbox]:active:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
+	background-position: 0 -153px;
+	font-weight: $base_font_weight;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the active click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:active + label,
+p:not(#foo) > input[type=radio] + label:hover:active { 
+	background-position: 0 -53px;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the active click-state. 
  */
 
 /* ****** CONTAINER ELEMENTS ****** */
@@ -1264,11 +1432,13 @@ aside {
   .div-content-column {
     width: 32.5rem; // 520px
     margin-right: 4.5rem;	// 72px
+    vertical-align: top;
   }
   
   .div-form-question {
     margin-bottom: $margin_value_3;
     padding: $padding_value_4;
+    font-size: 0.9em;
 
     span:first-child {
       margin-bottom: $margin_value_1;
@@ -1292,6 +1462,18 @@ aside {
       width: 20.3rem; // 325px
     }
   }
+
+  #button-article-5-contact {
+		letter-spacing: -1.7px !important;
+	}
+
+	#button-article-6-start {
+		letter-spacing: -1.7px;
+	}
+
+	#button-article-6-map {
+		margin-top: 0.75em;
+	}
 
 
 
