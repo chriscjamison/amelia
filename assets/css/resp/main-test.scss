@@ -20,8 +20,6 @@ $landing_li_text_color: #FBE7E9;
 $landing_li_background_color: #632E22;
 
 $article_2_ul_border: 0.188em solid #897042; // 3px
-$form_question_p_border: 0.125rem solid #cfd7a3; // 2px
-$form_question_footnote_border: 0.125rem dotted #cfd7a3; // 2px
 
 $h1_article_1_color: #92676C;
 $content_block_p_1_color: #58262C;
@@ -84,7 +82,19 @@ $content_block_6_text_3_color: #2C2F1E;
 $content_block_6_span_background_1_color: #302E1E;
 $content_block_6_span_text_1_color: #B0AE97;
 
+$form_question_p_border: 0.125rem solid #cfd7a3; // 2px
+$form_question_footnote_border: 0.125rem dotted #cfd7a3; // 2px
+$form_fieldset_border: 0.125rem solid #cfd7a3; // 2px
+$form_alert_border: 0.125rem solid #fff; // 2px
 $form_background_color: #ffffff;
+$form_alert_background_1_color: #dddddd;
+$form_alert_background_2_color: #971b1e;
+$form_alert_font_color: #ffffff;
+
+$input_border: 0.125rem solid #369DBF; // 2px
+$input_background_1_color: #40BDE8;
+$input_background_2_color: #33CCFF;
+$input_font_color: #221763;
 
 $span_background_image_article_5: url('/assets/img/article/5/sprite-insurance_comps.png');
 
@@ -95,8 +105,9 @@ $form_question_font: "Franklin Gothic Medium", sans-serif;
 $base_font_size: 1rem; // 14pt
 $header_font_size: 2.5rem; // 30pt
 $lg_h2_font_size: 2.5rem; // 30pt
-$font_question_font_size: 1.2rem; // 14pt
-$font_question_sup_font_size: 0.8rem; // 10pt
+$form_question_font_size: 1.2rem; // 14pt
+$form_alert_font_size: 2.5rem; // 30pt
+$form_question_sup_font_size: 0.8rem; // 10pt
 
 $base_font_weight: 400;
 $header_font_weight: 600;
@@ -104,8 +115,13 @@ $semibold_font_weight: 600;
 $bold_font_weight: 700;
 
 $margin_value_1: 0.75rem; // 12px
+$margin_value_2: 1rem; // 16px
+$margin_value_3: 1.25rem; // 20px
 
 $padding_value_1: 0.75rem; // 12px
+$padding_value_2: 1rem; // 16px
+$padding_value_3: 1.25rem; // 20px
+$padding_value_4: 2rem; // 32px
 
 $line_height: 1.6;
 
@@ -176,13 +192,49 @@ h1 {
 
 /* ****** FORMS ****** */
 
- .div-content-column {
+.div-content-column {
 	height: auto;
   display: inline-block;
 }
 /* Formats a <div> element which places a form question either on the left or right 
  * side of the browser window and is contained within a <form> element.
  * Forms can be found within 'SECTION #1', 'SECTION #5', & 'SECTION #6'.
+ */
+
+fieldset {
+	margin: $margin_value_2;
+	padding: $padding_value_3;
+  border: $form_fieldset_border;
+  
+  div {
+    margin: 0 auto;
+  }
+  /* Formats <div> elements which appear within <fieldset> elements. */
+}
+/* Formats <fieldset> elements which contain form options. */
+
+input[type=button],
+input[type=submit] {
+	width: 7.81rem; // 125px
+	height: 3.125rem; // 50px
+	margin: 0 0 0 $margin_value_3;
+	float: right;
+  background-color: $input_background_1_color;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+	color: $input_font_color;
+	border: $input_border;
+	cursor: pointer;
+}
+/* Formats which appear as buttons throughout the webpage. */
+
+input[type=button]:hover,
+input[type=submit]:hover {
+	background-color: $input_background_2_color;
+}
+/* Formats the click-state for the <button> and <submit> elements which appear 
+ * throughout the webpage.
+ * This is the hover click state.
  */
 
 .div-form-question {
@@ -253,9 +305,112 @@ h1 {
     /* Formats descriptive text that falls underneath the instruction within a given 
     * form question.
     */
+
+    .div-form-page-1, 
+    .div-form-page-2 {
+      display: none;
+      opacity: 0;
+    }
+    /* Formats <div> elements which control which set of two questions are displayed 
+    * within the browser window at a given time.
+    */
+
+    #form-question-alert {
+      width: inherit;
+      height: inherit;
+      display: table;
+      position: absolute;
+      background-color: $form_alert_background_1_color;
+      opacity: 0.95;
+      z-index: 7;
+
+      div {
+        display: table-cell;
+        font-family: $base_font;
+        font-size: $font_question_sup_font_size;
+        vertical-align: middle;
+        text-align: center;
+
+        div {
+          margin: 0 auto;
+          padding: $padding_value_2 $padding_value_4;
+          text-align: left;
+          background-color: $form_alert_background_2_color;
+          color: $form_alert_font_color;
+
+          span {
+            display: block;
+            border-bottom: $form_alert_border;
+            font-size: $form_alert_font_size;
+            font-weight: $header_font_weight;
+            text-align: left;
+          }
+          /* Formats a <span> element which serves as a header for descriptive text about 
+           * an error returned from a form submission.
+           */
+
+          p {
+            text-align: left;
+          }
+          /* Formats descriptive text within a <p> element that is contained by a <div> 
+           * element using the id, "#form-question-alert".
+           */
+        }
+        /* Formats a <div> element which contains descriptive text about an error returned 
+         * from a form submission. 
+         */
+      }
+      /* Formats descriptive text within a <div> element that appears once a form 
+       * has been submitted which returns an error message.
+       */
+    }
+    /* Formats a <div> element which appears once a form has been submitted 
+     * which returns an error message. 
+     */
   }
 }
 /* Formats a <div> element which contains an individual form question. */
+
+#button-article-1-start {
+	margin: 0 0 0.8rem 0;
+	position: relative;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #1'.
+ * The button 'starts' the form process.
+ */
+
+#submit-form-article-5 {
+	margin: 0.35em 0 0.7em 0;
+}
+/* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
+
+#button-article-5-contact {
+  margin: 0 0 0.7em 0;
+  letter-spacing: -0.7px;
+}
+/* Formats the <button> element which appears on the response page of the form, 
+ * 'FORM TYPE #5'.
+ */
+
+#button-article-6-map {
+  margin: 0;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'. */
+
+#button-article-6-start {
+  margin: 0.7em 0 0.7em 0;
+  letter-spacing: -1.9px;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'.
+ * This button starts the form process. 
+ */
+
+#submit-form-article-6 {
+	letter-spacing: -0.7px;
+}
+/* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
+ * within 'SECTION #1'.
+ */
 
 /* ****** CONTAINER ELEMENTS ****** */
 
@@ -1112,11 +1267,29 @@ aside {
   }
   
   .div-form-question {
-    margin-bottom: 1.25rem; // 20px
-    padding: 2rem; // 32px
+    margin-bottom: $margin_value_3;
+    padding: $padding_value_4;
 
     span:first-child {
-      margin-bottom: 0.75em; // 12px
+      margin-bottom: $margin_value_1;
+    }
+  }
+
+  #form-question-alert {
+    div {
+      width: 22em; // 352px
+      height: 10em; // 160px
+
+      div {
+        width: 36em; // 576px
+        height: 15.75em; // 252px
+      }
+    }
+  }
+
+  fieldset {
+    div {
+      width: 20.3rem; // 325px
     }
   }
 
