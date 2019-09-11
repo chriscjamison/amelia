@@ -20,6 +20,8 @@ $landing_li_text_color: #FBE7E9;
 $landing_li_background_color: #632E22;
 
 $article_2_ul_border: 0.188em solid #897042; // 3px
+$form_question_p_border: 0.125rem solid #cfd7a3; // 2px
+$form_question_footnote_border: 0.125rem dotted #cfd7a3; // 2px
 
 $h1_article_1_color: #92676C;
 $content_block_p_1_color: #58262C;
@@ -82,22 +84,30 @@ $content_block_6_text_3_color: #2C2F1E;
 $content_block_6_span_background_1_color: #302E1E;
 $content_block_6_span_text_1_color: #B0AE97;
 
+$form_background_color: #ffffff;
+
 $span_background_image_article_5: url('/assets/img/article/5/sprite-insurance_comps.png');
 
 $base_font: 'Glegoo', 'Palatino', serif;
 $header_font: 'Balthazar', 'Cambria', serif;
+$form_question_font: "Franklin Gothic Medium", sans-serif;
 
-$base_font_size: 1em; // 14pt
-$header_font_size: 2.5em; // 30pt
+$base_font_size: 1rem; // 14pt
+$header_font_size: 2.5rem; // 30pt
+$lg_h2_font_size: 2.5rem; // 30pt
+$font_question_font_size: 1.2rem; // 14pt
+$font_question_sup_font_size: 0.8rem; // 10pt
 
 $base_font_weight: 400;
 $header_font_weight: 600;
 $semibold_font_weight: 600;
 $bold_font_weight: 700;
 
-$line_height: 1.6;
+$margin_value_1: 0.75rem; // 12px
 
-$lg_h2_font_size: 2.5em; // 30pt
+$padding_value_1: 0.75rem; // 12px
+
+$line_height: 1.6;
 
 
 
@@ -133,7 +143,7 @@ h1 {
 
 .div-content {
   display: none;
-  position: absolute;
+  position: relative;
   float: left;
   top: 0;
   left: 0;
@@ -144,6 +154,10 @@ h1 {
  * '.div-content' elements only hold the content of one sub-section, 
  * while '.article-content' elements hold many sub-sections.
  */
+
+.div-content-visible {
+  display: block;
+}
 
 .div-content-block-1 {
 	width: 32.5em;
@@ -157,6 +171,91 @@ h1 {
  * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
  * are formatted in this pairing. 
  */
+
+
+
+/* ****** FORMS ****** */
+
+ .div-content-column {
+	height: auto;
+  display: inline-block;
+}
+/* Formats a <div> element which places a form question either on the left or right 
+ * side of the browser window and is contained within a <form> element.
+ * Forms can be found within 'SECTION #1', 'SECTION #5', & 'SECTION #6'.
+ */
+
+.div-form-question {
+  height: auto;
+  background-color: $form_background_color;
+
+  span {
+    display: inline;
+  }
+  /* Formats <span> elements which contain text headers. */
+  
+  span:first-child {
+    display: block;
+  }
+  /* Formats the first <span> element which is contained within a given form question. */
+
+  span + span {
+    padding-bottom: 1.1rem; // 18px
+    font-size: $base_font_size;
+    font-weight: $header_font_weight;
+    line-height: $line_height;
+  }
+  /* Formats the additional <span> elements which are contained within a given form question. */
+
+  span + p {
+    margin-top: $margin_value_1;
+    padding-top: $padding_value_1;
+    border-top: 2px solid #cfd7a3;
+    line-height: $line_height;
+  }
+  /* Formats <p> elements which contain text instructions or descriptive copy for a given 
+    * form question. 
+    */
+
+  fieldset { 
+    div { 
+      span {
+        position: relative;
+        top: -0.625rem; // 10px
+        font-family: $form_question_font;
+        font-size: $base_font_size;
+      }
+      /* Formats the visual appearance of text within <span> elements which are contained 
+       * within an individual form question. 
+       */
+    }
+
+    span + span {
+      left: 0.813rem; // 13px
+    }
+    /* More formatting for the text within <span> elements which follow the first <span> element 
+     * within an individual form question. 
+     */
+
+     sup {
+      font-size: $font_question_sup_font_size;
+    }
+    /* Formats the text within a <sup> element that is contained 
+     * within an individual form question. 
+     */
+
+    .p-form-ftnote {
+      padding: $padding_value_1;
+      border-top: $form_question_footnote_border;
+      font-size: 0.9em;
+      line-height: 1.6em;
+    }
+    /* Formats descriptive text that falls underneath the instruction within a given 
+    * form question.
+    */
+  }
+}
+/* Formats a <div> element which contains an individual form question. */
 
 /* ****** CONTAINER ELEMENTS ****** */
 
@@ -288,8 +387,8 @@ aside {
 
   p {
     margin-bottom: 2.0em; // 32px
-    text-indent: 1.3em; // 21px
-    line-height: $line_height;
+/*     text-indent: 1.3em; // 21px
+ */    line-height: $line_height;
     color: $content_block_p_1_color;
   }
   /* 
@@ -305,7 +404,7 @@ aside {
   /* More formatting for the <p> elements which hold text content. */
 }
 
-#div-window-pane-block-1-desc-1 {
+#div-content-block-1-desc-1 {
 	background-color: $content_desc_background_1_color;
 }
 /* 
@@ -313,7 +412,7 @@ aside {
  * Appears within the 'FIRST WINDOW PANE' or first sub-section of 'SECTION #1' 
  */
 
-#div-window-pane-block-1-desc-2 {
+#div-content-block-1-desc-2 {
 	background-color: $content_desc_background_2_color;
 	color: $content_desc_text_2_color;
 }
@@ -322,7 +421,7 @@ aside {
  * Appears within the 'THIRD WINDOW PANE' or third sub-section of 'SECTION #1' 
  */
 
-#div-window-pane-block-1-desc-3 {
+#div-content-block-1-desc-3 {
 	background-color: $content_desc_background_3_color;
 	color: $content_desc_text_3_color;
 } 
@@ -976,9 +1075,14 @@ aside {
 
   /* ****** COMMON ELEMENTS ****** */
 
+  article {
+    width: 84.25rem; // 1,348px
+    height: 48rem; // 768px
+  }
+
   h1 {
-    width: 61.2em; // 972px
-    height: 6em; // 96px
+    width: 84.25rem; // 1348px
+    height: 9rem; // 144px
     top: 3.13rem; // 50px
 
     span {
@@ -987,14 +1091,35 @@ aside {
   }
 
   .div-content {
-    width: 85.38rem; // 1,366px
-    height: 39.06rem; // 625px
-    margin: 8.15em 0 0 17.5em; // 130px 0 0 280px
+    width: 84.25rem; // 1,348px
+    height: 48rem; // 768px
+    margin-top: 6rem; // 192px
   }
 
   .div-content-block-1 {
-    width: 32.5em; // 520px
+    width: 32.5rem; // 520px
+    margin: 0 auto;
+    position: relative;
   }
+
+
+
+  /* ****** FORMS ****** */
+
+  .div-content-column {
+    width: 32.5rem; // 520px
+    margin-right: 4.5rem;	// 72px
+  }
+  
+  .div-form-question {
+    margin-bottom: 1.25rem; // 20px
+    padding: 2rem; // 32px
+
+    span:first-child {
+      margin-bottom: 0.75em; // 12px
+    }
+  }
+
 
 
   /* ****** LANDING SECTION ****** */

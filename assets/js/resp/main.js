@@ -658,13 +658,7 @@ function setupArticles()  {
     } else {
       current_article_selector = current_article_selector + i.toString();
     }
-
-
   }
-
-
-
-  
 }
 
 function initializePage()  {
