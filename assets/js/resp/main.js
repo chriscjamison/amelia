@@ -6,6 +6,17 @@
  $(document).ready(
    function () {
      initializePage();
+
+     $("#button-article-1-start").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1?position=1";
+
+        // animateFormPanes();
+        // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
+      }
+    );
    }
  );
 
