@@ -65,7 +65,7 @@ $content_block_4_span_3_text_color: #D3A75D;
 $h1_article_5_color: #3C667B;
 $content_block_5_background_1_color: #96C5AA;
 $content_block_5_background_2_color: #5F8395;
-$content_block_5_background_3_color: #96C5AA;
+$content_block_5_background_3_color: #C1D1D9;
 $content_block_5_text_1_color: #216F43;
 $content_block_5_text_2_color: #408B61;
 $content_block_5_text_3_color: #214D62;
@@ -109,11 +109,13 @@ $header_font: 'Balthazar', 'Cambria', serif;
 $form_question_font: "Franklin Gothic Medium", sans-serif;
 
 $base_font_size: 1rem; // 14pt
+$aside_font_size: 0.9rem; // 11pt
 $header_font_size: 2.5rem; // 30pt
 $lg_h2_font_size: 2.5rem; // 30pt
 $form_question_font_size: 1.2rem; // 14pt
 $form_alert_font_size: 2.5rem; // 30pt
 $form_question_sup_font_size: 0.8rem; // 10pt
+$article_nav_font_size: 0.8em; // 10pt
 
 $base_font_weight: 400;
 $header_font_weight: 600;
@@ -158,7 +160,7 @@ $nav_section_font_size_2: 2rem; // 24pt
 
 $nav_section_font_weight_normal: 400;
 
-$nav_intrasection_background_image: url('/assets/img/nav/next/resp/next-section.png');
+$nav_intrasection_background_image: url('/assets/img/nav/next/next-section.png');
 $nav_span_section_3_background_image: url('/assets/img/nav/article-nav/article-3.png');
 $nav_span_section_4_background_image: url('/assets/img/nav/article-nav/article-4.png');
 
@@ -803,8 +805,8 @@ nav {
 }
 /* Formats the <nav> element which contains the inter-sectional navigation. */
 
-#previous-article,
-#next-article {
+#div-nav-article-previous,
+#div-nav-article-next {
 	position: fixed;
 	z-index: 5;
 	background-image: $nav_intrasection_background_image;
@@ -814,7 +816,7 @@ nav {
  * along the right side of the page.
  */
 
-#previous-article {
+#div-nav-article-previous {
   display: none;
   opacity: 0;
 }
@@ -822,18 +824,18 @@ nav {
  * sections. 
  */
 
-#previous-article, 
-#next-article, 
-#previous-article:hover,
-#next-article:hover {
+#div-nav-article-previous, 
+#div-nav-article-next, 
+#div-nav-article-previous:hover,
+#div-nav-article-next:hover {
   cursor: pointer;  
 }
 /* Sets the cursor state based upon the click-state of the <div> elements, 
  * '#previous-article' and '#next-article'. 
  */
 
-#previous-article > span,
-#next-article > span {
+#div-nav-article-previous > span,
+#div-nav-article-next > span {
 	display: block;
 	font-family: $nav_options_a_font;
 	color: $nav_options_a_font_color;	
@@ -1041,17 +1043,17 @@ nav {
     }
   }
 
-  #previous-article,
-  #next-article {
-    width: 12.5rem; // 20px
-    height: 3.75rem; // 60px
-    right: 33.8rem; // 541px
-    bottom: 1.56rem; // 25px
+  #div-nav-article-previous,
+  #div-nav-article-next {
+    width: 4.9rem; // 78px
+    height: 5.4rem; // 86px
+    right: 3.13rem; // 50px
+    bottom: 3rem; // 48px
     z-index: 5;
     background-position: 0 -209px;
   }
 
-  #previous-article {
+  #div-nav-article-previous {
     top: 1.06em; // 17px
     padding-top: 1.88em; // 30px
     background-position: 0 0;
@@ -1060,33 +1062,33 @@ nav {
   * sections. 
   */
 
-  #next-article {
-    background-position: 0px -209px;
+  #div-nav-article-next {
+    background-position: 0px -145px;
   }
   /* Formats a <div> element which moves the page upward through yet-to-be-viewed 
   * sections. 
   */
   
-  #previous-article:hover {
+  #div-nav-article-previous:hover {
     background-position: 0px -111px !important;
   }
   /* More formatting for the cursor state based upon the click-state 
    * of the <div> element, '#previous-article'. 
    */
   
-  #next-article:hover {
+   #div-nav-article-next:hover {
     background-position: 0px -235px !important;
   }
   /* More formatting for the cursor state based upon the click-state 
    * of the <div> element, '#next-article'. 
    */
 
-  #previous-article > span,
-  #next-article > span {
-    width: 11.25em; // 180px
-    height: 2.5em; // 40px
+  #div-nav-article-previous > span,
+  #div-nav-article-next > span {
+    width: 4.9em; // 78px
+    height: 5.4em; // 86px
     margin: 0 auto 50px auto;
-    font-size: 0.8em; // 9pt
+    font-size: $article_nav_font_size;
     line-height: 1.3;
   }
   /* Formats the text descriptions of the inter-sectional navigation 
@@ -1233,7 +1235,7 @@ aside {
   img {
     margin: 0 1.7rem;
     padding: 1.7rem;
-    display: none;
+    display: block;
     position: relative;
     float: left;
     background-color: #967348;
@@ -1242,12 +1244,12 @@ aside {
   /* Formats the logo which is contained within the <aside> HTML element. */
 
   ul {
-    margin: 0.25rem 0 0 0;
+    margin: 0;
     padding: 0;
-    display: none;
+    display: block;
     position: relative;
     float: left;
-    font-size: 1.1rem; // 13pt
+    font-size: $aside_font_size;
     font-weight: $base_font_weight;
     // opacity: 0;
   }
@@ -1256,9 +1258,8 @@ aside {
   li {
     height: 1.65rem;
     margin: 1rem 0;
-    padding: 0.6rem 0 0 0;
-    display: none;
-    text-align: center;
+    padding: 0.45rem 0 0.35rem 0.75rem; // 7px 0 6px 12px
+    display: block;
     color: $landing_li_text_color;
     background-color: $landing_li_background_color;
     // opacity: 0;
@@ -1956,6 +1957,7 @@ aside {
 #div-content-block-6-desc-office_hours, 
 #div-content-block-6-desc-phone_numbers {
   width: 12rem; // 192px
+  height: inherit;
   margin: $margin_value_3 $margin_value_2 0 0;
   display: inline-block;
   vertical-align: top;
@@ -1966,6 +1968,7 @@ aside {
 
   div {
     width: 8rem; // 128px
+    min-height: 10.25rem; // 164px
     margin-top: $margin_value_3;
     padding: $padding_value_3 $padding_value_5;
 
@@ -2007,12 +2010,12 @@ aside {
   /* ****** COMMON ELEMENTS ****** */
 
   article {
-    width: 84.25rem; // 1,348px
+    width: 83.25rem; // 1,348px
     height: 48rem; // 768px
   }
 
   h1 {
-    width: 84.25rem; // 1348px
+    width: 83.25rem; // 1348px
     height: 9rem; // 144px
     top: 3.13rem; // 50px
 
@@ -2022,7 +2025,7 @@ aside {
   }
 
   .div-content {
-    width: 84.25rem; // 1,348px
+    width: 83.25rem; // 1,348px
     height: 36rem; // 576px
     margin-top: 12rem; // 192px
   }
@@ -2097,13 +2100,21 @@ aside {
   /* ****** LANDING SECTION ****** */
 
   aside {
-    width: 38.6rem; // 618px
+    width: 40.8rem; // 653px
     height: 15.2rem; // 243px
-    bottom: 9.2rem; // 147px
-    left: 12.5rem; // 200px
+    bottom: 8rem; // 128px
+    left: 6.26rem; // 100px
 
     li {
-      width: 17.4rem;
+      width: 20.75rem; // 332px
+    }
+
+    li:first-of-type {
+      margin-top: 0;
+    }
+
+    li:last-of-type {
+      margin-bottom: 0;
     }
   }
 

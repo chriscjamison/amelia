@@ -3,11 +3,30 @@
  *  and physical appearance of the webpage using the 'One Page' template.
  */
 
- $(document).ready(
-   function () {
-     initializePage();
+$(document).ready(
+  function () {
+    initializePage();
 
-     $("#button-article-1-start").on("click", 
+    $("#div-nav-icon").on("mouseover", 
+      function () {
+        animateMenuIcon("mouseover");
+      }
+    );
+
+    $("#div-nav-icon").on("mouseout", 
+      function () {
+        animateMenuIcon("mouseout");
+      }
+    );
+
+    $("#div-nav-icon").on("click", 
+      function () {
+        animateMenuIcon("click");
+      }
+    );
+
+
+    $("#button-article-1-start").on("click", 
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
@@ -17,8 +36,69 @@
         // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
       }
     );
-   }
- );
+  }
+);
+
+
+
+function animateMenuIcon(click_state)  {
+  // Initialize String variable which will hold the CSS selector for the menu icon.
+  var menu_icon_selector = "";
+
+  // Initialize Object variable which will hold the jQuery object which refers to 
+  // the menu icon.
+  var menu_icon_element = {};
+
+  // The CSS selector for the menu icon is passed on.
+  menu_icon_selector = "#div-nav-icon";
+
+  // The jQuery object which refers to the menu icon is passed on.
+  menu_icon_element = $(menu_icon_selector);
+
+  // A String variable which will hold the value of the CSS property, 'background-position', 
+  // for the menu icon is initialized.
+  var menu_icon_background_position_value = "";
+
+  // The value of the CSS property, 'background-position', of the menu icon is passed on.
+  menu_icon_background_position_value = $(menu_icon_element).css("backgroundPosition");
+
+  // IF/ELSE statement which will change the hover state of the menu icon. 
+  // 
+  // If the menu icon was in its base state when the cursor moved over it, the hover state 
+  // will change to 'hover'. If the menu icon was in its hover state, the state will change 
+  // to the base state. Otherwise, if the hover state is 'clicked', the menu state will 
+  // not change.
+  if (menu_icon_background_position_value !== "0px -150px") {
+    if ((menu_icon_background_position_value === "0% 0%" || 
+        menu_icon_background_position_value === "0px 0px") && 
+        click_state === "mouseover") {
+      $(menu_icon_element).removeClass();
+      $(menu_icon_element).addClass("nav-icon-hover");
+    } else if (menu_icon_background_position_value === "0px -50px") {
+      $(menu_icon_element).removeClass();
+        
+      if (click_state === "click") {
+        $(menu_icon_element).removeClass();
+        $(menu_icon_element).addClass("nav-icon-click-1");
+
+        setTimeout(
+          function () {
+            $(menu_icon_element).removeClass();
+            $(menu_icon_element).addClass("nav-icon-click-2");
+          }, 175
+        );
+      } else {
+        $(menu_icon_element).addClass("nav-icon-base");
+      }
+    }
+  } else {
+    if (click_state === "click")  {
+      $(menu_icon_element).removeClass();
+      $(menu_icon_element).addClass("nav-icon-base");
+    }
+  }
+}
+ 
 
 function setDisplayType() {
 /* **************** **************** **************** **************** **************** 
@@ -692,8 +772,6 @@ function initializePage()  {
   * property set by a jQuery segment of code which loads images based upon the 
   * "width" and "height" values passed on to the Array, "page_dimensions_Array".
   * **************** **************** **************** **************** **************** */
-
-  
 
   // The background images are added to the webpage.
   layoutBackgrounds();
