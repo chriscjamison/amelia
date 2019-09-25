@@ -3,10 +3,16 @@
  *  and physical appearance of the webpage using the 'One Page' template.
  */
 
-$(document).ready(
+$(window).on("load", 
   function () {
     initializePage();
+  }
+);
 
+
+
+$(document).ready(
+  function () {
     $("#div-nav-icon").on("mouseover", 
       function () {
         animateMenuIcon("mouseover");
@@ -22,6 +28,33 @@ $(document).ready(
     $("#div-nav-icon").on("click", 
       function () {
         animateMenuIcon("click");
+
+        animateVisibleContent();
+
+        animateMenu();
+      }
+    );
+
+    $("#div-nav-options a").on("mouseover", 
+      function () {
+        $(this).removeClass();
+        $(this).addClass("nav-option-hover");
+      }
+    );
+
+    $("#div-nav-options a").on("mouseout", 
+      function () {
+        $(this).removeClass();
+        $(this).addClass("nav-option-base");
+      }
+    );
+
+    $("#div-nav-options a").on("click", 
+      function () {
+        $(this).removeClass();
+        $(this).addClass("nav-option-click");
+
+        navigateToNewSection($(this).attr("id"));
       }
     );
 
@@ -30,14 +63,389 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1?position=1";
+        window.location.hash = "#article=1&position=1";
 
-        // animateFormPanes();
-        // "animateFormPanes" fades in the "first" page of 'FORM TYPE #1'.
+        centerBrowser();
+
+        positionContent();
+        // animateFormPanes("article-1");
       }
     );
   }
 );
+
+
+
+function calculateNavigationPoint(section_value) {
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // A Number variable which will hold the height of a given section 
+  // of content is initialized.
+  var section_height;
+
+  // The dimensions of the browser are passed on.
+  display_dimensions_Array = setDisplayType();
+
+  // The height of a given section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // A Number variable which will hold the position within the webpage 
+  // to scroll to is initialized.
+  var scroll_to_value;
+
+  // The position within the webpage to scroll to is passed on. That value 
+  // is found by multiplying the place within the webpage the new section is 
+  // located, 'section_value, by the height of the webpage's 
+  // sections, 'section_height'.
+  scroll_to_value = section_value * section_height;
+
+  return scroll_to_value;
+}
+
+
+
+function navigateToNewSection(new_section_id) {
+  
+
+  // An Array which will hold the characters within 'new_section_id' 
+  // is initialized.
+  var new_section_id_Array = [];
+
+  // The string, 'new_section_id', is split into two strings seperated 
+  // by the character, '-'.
+  new_section_id_Array = new_section_id.split("_");
+
+  // A String variable which will hold the suffix of, 'new_section_id', 
+  // is intiialized.
+  new_section_id_value = "";
+
+  // The suffix of 'new_section_id' is passed on.
+  new_section_id_value = new_section_id_Array[1];
+
+  // IF/ELSE statement which will determine the point within the webpage 
+  // to scroll to.
+  if (new_section_id_value === "landing") {
+    section_value = 0;
+  } else {
+    section_value = parseInt(new_section_id_value);
+  }
+
+  scroll_to_value = calculateNavigationPoint(section_value);
+
+  // The browser is scrolled to the position of the new section.
+  $(window).scrollTop(scroll_to_value);
+}
+
+
+function showNotVisibleContent()  {
+  // A String variable which will hold the CSS selector for the sections 
+  // of content is initialized.
+  var article_selector = "";
+
+  // The CSS selector which refers to the sections of content within the 
+  // webpage is passed on.
+  article_selector = "article";
+
+  // An Object variable which will hold the jQuery object which refers 
+  // to the sections of content is initialized.
+  var article_elements = {};
+
+  // The jQuery object which refers to the sections of content within 
+  // the webpage is passed on.
+  article_elements = $(article_selector);
+
+  // An Object variable which will a value for the CSS property, 
+  // 'display', is initialized.
+  var article_display_css = {};
+
+  // A value of the CSS property, 'display', which will be used 
+  // to make the sections of content not visible is passed on.
+  article_display_css = {
+    display: "block"
+  };
+
+  $(article_elements).css(article_display_css);
+
+  $(article_elements).fadeTo(400, 1);
+}
+
+
+
+function hideVisibleContent() {
+  // A String variable which will hold the CSS selector for the sections 
+  // of content is initialized.
+  var article_selector = "";
+
+  // The CSS selector which refers to the sections of content within the 
+  // webpage is passed on.
+  article_selector = "article";
+
+  // An Object variable which will hold the jQuery object which refers 
+  // to the sections of content is initialized.
+  var article_elements = {};
+
+  // The jQuery object which refers to the sections of content within 
+  // the webpage is passed on.
+  article_elements = $(article_selector);
+
+  // An Object variable which will a value for the CSS property, 
+  // 'display', is initialized.
+  var article_display_css = {};
+
+  // A value of the CSS property, 'opacity', which will be used 
+  // to fade out the sections of content is passed on.
+  article_opacity_css = {
+    opacity: 0
+  };
+
+  // A value of the CSS property, 'display', which will be used 
+  // to make the sections of content not visible is passed on.
+  article_display_css = {
+    display: "none"
+  };
+
+  $(article_elements).fadeTo(250, 0);
+
+  setTimeout(
+    function () {
+      $(article_elements).css(article_display_css);
+    }, 500
+  );
+}
+
+
+
+function locateVisibleContent() {
+  // A String variable which will hold the CSS selector for the sections 
+  // of content is initialized.
+  var article_selector = "";
+  // A String variable which will hold the CSS selector for the blocks 
+  // of content within a section is initialized.
+  var div_content_selector = "";
+  // A String variable which will hold the CSS selector for the 
+  // visible block of content within a section is initialized.
+  var div_content_visible_selector = "";
+
+  // The CSS selector which refers to the sections of content within the 
+  // webpage is passed on.
+  article_selector = "article";
+  // The CSS selector which refers to the blocks of content within a section 
+  // is passed on.
+  div_content_selector = ".div-content";
+  // The CSS selector which refers to the visible block of content within 
+  // a section is passed on.
+  div_content_visible_selector = "div-content-visible";
+
+  // An Object variable which will hold the jQuery object which refers 
+  // to the sections of content is initialized.
+  var article_elements = {};
+  // An Object variable which will hold the jQuery object which refers 
+  // to blocks of content within a section is initialized.
+  var div_content_elements = {};
+  // An Object variable which will hold the jQuery object which refers 
+  // to an individual block of content is initialized.
+  var div_content_element = {};
+
+  // The jQuery object which refers to the sections of content within 
+  // the webpage is passed on.
+  article_elements = $(article_selector);
+
+  // An Array which will hold values which point out the blocks of content 
+  // within the website are visible is initialized.
+  var visible_blocks_Array = [];
+
+  // A Number variable which will hold the number of sections of content 
+  // within the webpage is initialized.
+  var num_of_sections;
+
+  // The number of sections of content within the website is passed on.
+  num_of_sections = $(article_elements).length;
+
+  // A Number variable which will hold the value of a loop incrementer 
+  // is initialized.
+  var article_num;
+  // A Number variable which will hold the value of a loop incrementer 
+  // is intialized.
+  var block_num;
+
+  // The loop incrementer is set to '0'.
+  article_num = 0;
+
+  // EACH loop which will locate the visible block of content within the 
+  // sections of content and note its 'block number' within the section.
+  $.each(article_elements, 
+    function () {
+      div_content_elements = $(this).children(div_content_selector);
+      
+      // The loop incrementer is set to '0'.
+      block_num = 0;
+
+      // EACH loop which will find the visible block of content within 
+      // 'this' section.
+      $.each(div_content_elements, 
+        function () {
+          div_content_element = $(this);
+
+          if ($(div_content_element).hasClass(div_content_visible_selector))  {
+            visible_blocks_Array[article_num] = block_num;
+          } else {
+            block_num++;
+          }
+        }
+      );
+
+      article_num++;
+    }
+  );
+
+  var visible_blocks_string = "";
+
+  visible_blocks_string = "|visible=";
+
+  // A Number is initialized which will serve as a loop incrementer.
+  var inc;
+
+  // FOR loop which will construct a string which identifies the visible 
+  // blocks of content. 
+  for (inc = 0; inc < num_of_sections; inc++) {
+    visible_blocks_string = visible_blocks_string + visible_blocks_Array[inc];
+
+    if (inc < num_of_sections - 1)  {
+      visible_blocks_string = visible_blocks_string + ",";
+    }
+  }
+  
+  // A String which will hold the hash of the URL is initialized.
+  var url_hash = "";
+
+  // The hash of the URL is passed on.
+  url_hash = window.location.hash;
+
+  // The string which identifies the blocks of content which are visible 
+  // is constructed.
+  url_hash = url_hash + visible_blocks_string;
+
+  window.location.hash = url_hash;
+}
+
+
+
+function animateVisibleContent()  {
+  // A String variable which will hold the CSS selector for the background 
+  // for the side navigation is initialized.
+  var nav_background_selector = "";
+
+  // The CSS selector which refers to the background for the side navigation 
+  // is passed on.
+  nav_background_selector = "#div-nav-background";
+
+  // An Object variable which will hold the jQuery object which refers to 
+  // the background for the side navigation is initialized.
+  var nav_background_element = {};
+
+  // The jQuery object which refers to the background for the side navigation 
+  // is passed on.
+  nav_background_element = $(nav_background_selector);
+
+  // A String variable which will hold the value of the CSS property, 'left', 
+  // for the background for the side navigation is initialized.
+  var nav_background_left_value = "";
+
+  // The value of the CSS property, 'left', for the background for the side 
+  // navigation is passed on.
+  nav_background_left_value = $(nav_background_element).css("left");
+
+  // The String value is converted to an integer.
+  nav_background_left_value = parseFloat(nav_background_left_value);
+
+  if (nav_background_left_value < 0)  {
+    hideVisibleContent();
+  } else {
+    showNotVisibleContent();
+  }
+}
+
+
+
+function animateMenu()  {
+  // A String variable which will hold the CSS selector for the background 
+  // for the side navigation is initialized.
+  var nav_background_selector = "";
+  // A String variable which will hold the CSS selector for the border 
+  // for the side navigation is initialized.
+  var nav_border_selector = "";
+  // A String variable which will hold the CSS selector for the menu 
+  // options of the side navigation is initalized.
+  var nav_options_selector = "";
+
+  // The CSS selector which refers to the background for the side navigation 
+  // is passed on.
+  nav_background_selector = "#div-nav-background";
+  // The CSS selector which refers to the border for the side navigatoin 
+  // is passed on.
+  nav_border_selector = "#div-nav-border";
+  // The CSS selector which refers to the menu options for the side navigation 
+  // is passed on.
+  nav_options_selector = "#div-nav-options";
+
+  // An Object variable which will hold the jQuery object which refers to 
+  // the background for the side navigation is initialized.
+  var nav_background_element = {};
+  // An Object variable which will hold the jQuery object which refers to 
+  // the border for the side navigation is initialized.
+  var nav_border_element = {};
+  // An Object variable which will hold the jQuery object which refers to 
+  // the menu options for the side navigation is initialized.
+  var nav_options_element = {};
+
+  // The jQuery object which refers to the background for the side navigation 
+  // is passed on.
+  nav_background_element = $(nav_background_selector);
+  // The jQuery object which refers to the border for the side navigation 
+  // is passed on.
+  nav_border_element = $(nav_border_selector);
+  // The jQuery object which refers to the menu options for the side navigation 
+  // is passed on.
+  nav_options_element = $(nav_options_selector);
+
+  // A String variable which will hold the value of the CSS property, 'left', 
+  // for the background for the side navigation is initialized.
+  var nav_background_left_value = "";
+
+  // The value of the CSS property, 'left', for the background for the side 
+  // navigation is passed on.
+  nav_background_left_value = $(nav_background_element).css("left");
+
+  // The String value is converted to an integer.
+  nav_background_left_value = parseFloat(nav_background_left_value);
+
+  // All CSS classes are removed from the HTML elements for the 
+  // background, border, and menu options of the side navigation.
+  $(nav_background_element).removeClass();
+  $(nav_border_element).removeClass();
+  $(nav_options_element).removeClass();
+
+  // IF/ELSE statment which will display the background of the side navigation 
+  // if the background is not visible. 
+  // 
+  // If the background is visible, this statement will make the background 
+  // not visible.
+  if (nav_background_left_value < 0)  {
+    // The background, border, and menu options for the side navigation 
+    // are made visible.
+    $(nav_background_element).addClass("nav-visible");
+    $(nav_border_element).addClass("nav-visible");
+    $(nav_options_element).addClass("nav-visible");
+  } else if (nav_background_left_value === 0) {
+    // The background, border, and menu options for the side navigation are 
+    // made not visible.
+    $(nav_background_element).addClass("nav-not_visible");
+    $(nav_border_element).addClass("nav-not_visible");
+    $(nav_options_element).addClass("nav-not_visible");
+  }
+}
 
 
 
@@ -97,149 +505,94 @@ function animateMenuIcon(click_state)  {
       $(menu_icon_element).addClass("nav-icon-base");
     }
   }
-}
- 
-
-function setDisplayType() {
-/* **************** **************** **************** **************** **************** 
- *  Reads the browser width and height and returns numerical values of width and height 
- *  which are used by various functions to layout HTML elements within the webpage. 
- * 
- *  Once the dimensions are gathered from the browser a numerical value is set 
- *  which corresponds with the dimensions of the background images for the 
- *  individual ".article-content" elements.
- * 
- *  The numerical values of the height and width are passed through to the place 
- *  of the function call using the Array, 'page_dimensions_Array'.
- * **************** **************** **************** **************** **************** */
-
-  // A Number variable which will hold the width of the browser is initialized.
-  var window_width; 
-
-  // The width of the browser is passed on.
-  window_width = window.innerWidth;
-
-  // An Array which will hold values which best matches the dimensions of the browser 
-  // window is initialized.
-  var display_dimensions_Array;
-
-  // IF/ELSE statement which best matches the browser dimensions to the background images for 
-  // the various 'window frame' elements.
-  if (window_width <= 414)  { 
-    // The display is likely for a smartphone.
-    display_dimensions_Array = [414, 736];
-  } else if (window_width > 414 && window_width <= 1024) {
-    // The display is likely for a tablet device.
-    display_dimensions_Array = [768, 1024];
-  } else if (window_width > 1024 && window_width <= 1280) {
-    // The display is a standard desktop display.
-    display_dimensions_Array = [1280, 800];
-  } else if (window_width > 1280 && window_width <= 1600)  {
-    // The display is a 720p desktop display.
-    display_dimensions_Array = [1366, 768];
-  } else if (window_width > 1600)  {
-    // The display is a 1080p desktop display.
-    display_dimensions_Array = [1920, 1080];
-  } 
-
-  // The string contained by 'display_dimensions_Array' which refers to the dimensions of the display 
-  // is returned.
-  return display_dimensions_Array;
-
-} // END of FUNCTION setDisplayType
+} 
 
 
 
-function parseURLHash() {
-  /* **************** **************** **************** **************** **************** 
-   * Navigates the browser window to the location that allows for the full window 
-   * of the visible section to be displayed.
-   * **************** **************** **************** **************** **************** */
-
-  // A String variable which will hold the hash located at the end of the URL is initialized.
+function extractHashData()  {
+  // A String which will hold the hash of the URL is initialized.
   var url_hash = "";
 
-  // A String variable which will hold the value within the URL hash which refers to 
-  // the section of content to be viewed is initialized.
-  var section_value = "";
-  // A String variable which will hold the value within the URL hash which refers to 
-  // the block of content within a section to be viewed is initialized.
-  var position_value = "";
-
-  // The hash located at the end of the URL is passed on.
+  // The current value of the hash of the URL is passed on.
   url_hash = window.location.hash;
 
-  // A String variable which will hold the character which will be searched 
-  // for within the value of 'url_hash' is initialized.
-  var url_hash_search_string = "";
+  // IF statement which will continue running this function if the URL 
+  // contains a hash.
+  if (url_hash !== "") {
+    // The prefix, '#', is removed from 'url_hash'.
+    url_hash = url_hash.substr(1);
 
-  // An Array which will hold the individual variables held within the URL hash 
-  // is initialized.
-  var url_hash_variables_Array = [];
+    // An Array which will hold the values of the hash's GET variables 
+    // is initialized.
+    hash_values_Array = [];
 
-  // The character which will be used to seperate the variables held within the URL 
-  // has is passed on.
-  url_hash_search_string = "&";
+    // The values of the hash are passed on.
+    hash_values_Array = url_hash.split("&");
 
-  // The variables contained within the URL hash are parsed from the string and passed on.
-  url_hash_variables_Array = url_hash.split(url_hash_search_string);
-
-  // IF/ELSE statement which passes on the values of the variables held with the URL's 
-  // hash. Both the variables for the section and block of content will be passed on, 
-  // unless only one variable exists.
-  if (url_hash_variables_Array.length > 1) {
-    // The variables which refer to the section and block of content to be viewable are  
-    // passed on.
-    section_value = url_hash_variables_Array[0];
-    position_value = url_hash_variables_Array[1];
-
-    url_hash_search_string = "=";
+    // An Array which will hold the raw GET variable data for 'article' 
+    // is initialized.
+    var article_value_Array = [];
+    // An Array which will hold the raw GET variable data for 'position' 
+    // is initialized.
+    var position_value_Array = [];
     
-    // The values of the variables referring to the section and block of content to be 
-    // viewable are passed back.
-    section_value = url_hash_variables_Array[0].slice((url_hash_variables_Array[0].indexOf(url_hash_search_string) + 1));
-    position_value = url_hash_variables_Array[1].slice((url_hash_variables_Array[1].indexOf(url_hash_search_string) + 1));
+    // A String which will hold the value of the GET variable for 'article' 
+    // is initialized.
+    var article_value = "";
+    // A String which will hold the value of the GET variable for 'position' 
+    // is initialized.
+    var position_value = "";
 
-    // The values of the variables referring to the section and block of content are passed 
-    // on to 'url_hash_variables_Array'.
-    url_hash_variables_Array = [section_value, position_value];
-  } else {
-    // The current section is the Landing Screen. As a result, the value 
-    // of 'url_hash_variables_Array[0]' is set to '0'.
-    url_hash_variables_Array[0] = "0";
+    // The values of the GET variables, 'article' and 'position', are passed on.
+    article_value_Array = hash_values_Array[0].split("=");
+    article_value = article_value_Array[1];
+
+    position_value_Array = hash_values_Array[1].split("=");
+    position_value = position_value_Array[1];
+
+    // An Array which will hold the parsed data from the hash of the URL 
+    // is initialized.
+    var parsed_hash_data_Array = [];
+
+    // The data points for the variables, 'article' and 'position', are 
+    // passed on.
+    parsed_hash_data_Array = [article_value, position_value];
+
+    // The data is passed on.
+    return parsed_hash_data_Array;
   }
-
-  // The variable(s) which refer to the section to be viewable is returned.
-  return url_hash_variables_Array;
-} // END of FUNCTION parseURLHash
+}
 
 
 
-function setValueOfHashVariables()  {
-  // An Array which will hold the values of the variables held within the URL hash 
+function centerBrowser()  {
+  // An Array which will hold the data from the hash of the URL 
   // is initialized.
-  var url_hash_variables_Array = [];
+  var hash_data_Array = [];
+  // The data from the hash of the URL is gathered.
+  hash_data_Array = extractHashData();
+  console.log("hash_data_Array = " + hash_data_Array);
 
-  // The values of the variables held within the URL are passed on by calling the 
-  // function 'parseURLHash'.
-  url_hash_variables_Array = parseURLHash();
+  if (hash_data_Array !== undefined) {
+    // A Number which will hold the position within the webpage to scroll to 
+    // in order to center the browser over a given section is initialized.
+    var scroll_to_value;
 
-  // IF/ELSE statement which sets an integer to correspond with the section to be 
-  // viewable.
-  if (url_hash_variables_Array[0] !== "main" && url_hash_variables_Array[0] !== "0") {
-    url_hash_variables_Array[0] = url_hash_variables_Array[0].parseInt();
+    // A Number which will hold identification of the current section 
+    // is initialized.
+    var section_value;
+
+    // The identification for the current section is passed on.
+    section_value = parseInt(hash_data_Array[0]);
+
+    // The position the browser will scroll to in order to center the browser 
+    // over the current section is passed on.
+    scroll_to_value = calculateNavigationPoint(section_value);
+
+    // The browser is centered over the current section.
+    $(window).scrollTop(scroll_to_value);
   }
-
-  // IF/ELSE statement which sets an integer to correspond to the block of content 
-  // to be viewable.
-  if (url_hash_variables_Array.length > 1)  {
-    url_hash_variables_Array[1] = url_hash_variables_Array[1].parseInt();
-  }
-
-  // The numerical values referring to the values of the variables held within the 
-  // URL has is returned.
-  return url_hash_variables_Array;
-} // END of FUNCTION setValueOfHashVariables
+}
 
 
 
@@ -317,81 +670,164 @@ function navigateToWindowPane(url_hash_viewable_values_Array) {
 } // END of FUNCTION 
 
 
+function positionContent()  {
+  // An Array which will hold the values of the GET variables 
+  // in the hash of the URL is initialized.
+  var hash_data_Array = [];
 
-function navigateToWindowFrame() {
-  // A String variable which will hold a CSS selector which refers to the sections of 
-  // content is initialized.
-  var article_selector = "";
-  
-  // A Number variable which will hold the height of the sections of content within a 
-  // section is initialized.
-  var article_height;
+  // The data from the GET variables in the hash of the URL 
+  // is gathered.
+  hash_data_Array = extractHashData();
 
-  // The CSS selector which refers to the HTML elements which hold the sections 
-  // of content is passed on.
-  article_selector = "article";
+  // Strings which will hold the data from the GET variables 
+  // in the hash of the URL are initialized.
+  var article_value = "";
+  var position_value = "";
 
-  // An Object variable which will hold a jQuery object which refers to the HTML elements 
-  // which hold the sections of content is initialized.
-  var article_elements = {};
-
-  // The jQuery object which refers to the HTML elements which hold the sections 
-  // of content is passed on.
-  article_elements = $(article_selector);
-  
-  // The height of a section of content is passed on.
-  article_height = document.getElementsByTagName(article_selector)[0].clientHeight;
-
-  // An Array which will hold numerical values which correspond with the section to 
-  // be made viewable is initialized.
-  var url_hash_viewable_values_Array = [];
-
-  // The numerical values which correspond with the section to be made viewable 
+  // The values of the GET variables in the hash of the URL 
   // are passed on.
-  url_hash_viewable_values_Array = parseURLHash();
+  article_value = hash_data_Array[0];
+  position_value = hash_data_Array[1];
 
-  // A Number variable which corresponds with the section to be made viewable 
+  // A String which will hold the CSS selector for section 
+  // of content which will be positioned is initialized.
+  var article_selector = "";
+
+  // The CSS selector for the section of content which will 
+  // be positioned is initialized.
+  article_selector = "#article-content-" + article_value;
+
+  // An Object which will hold the jQuery object which refers 
+  // to the section of content which will be positioned 
+  // is intiialized.
+  var article_element = {};
+
+  // The jQuery object which refers to the section of content 
+  // which will be positioned is passed on.
+  article_element = $(article_selector);
+  
+  // A String variable which will hold the CSS selector which refers 
+  // to the block of content within this section which is visible 
   // is initialized.
-  var section_value;
+  var div_content_visible_selector = "";
 
-  // The value which corresponds with the section to be made viewable is passed on.
-  section_value = url_hash_viewable_values_Array[0];
+  // The CSS selector for the block of content which is visible 
+  // within this section is passed on.
+  div_content_visible_selector = "div-content-visible"; 
 
-  // A Number variable which will hold an integer which matches the vertical 
-  // location within the webpage of the section the hash variable refers to 
+  // All blocks of content within the section which is now visible are now made 
+  // invisible.
+  $(article_element).children("div").removeClass(div_content_visible_selector);
+
+  // The value of 'position_value' is converted to an integer.
+  position_value = parseInt(position_value);
+
+  // A String variable which will hold the CSS selector which refers to the block of 
+  // content to be made viewable is initialized.
+  var content_block_selector = "";
+
+  // The CSS selector for the block of content to be made viewable is passed on.
+  content_block_selector = article_selector + " > div:nth-child(" + (position_value + 2).toString() + ")";
+
+  // An Object variable which will hold the jQuery object which refers to the HTML element 
+  // which holds the block of content to be made viewable is initialized.
+  var content_block_element = {};
+
+  // The jQuery object that refers to the HTML element which holds the block of content 
+  // to be made viewable is passed on.
+  content_block_element = $(content_block_selector);
+
+  // The block of content which the variable in the URL hash refers to is made visible.
+  $(content_block_element).addClass(div_content_visible_selector);
+}
+
+
+
+function animateFormPanes(section_id_value) {
+
+}
+
+
+function setDisplayType() {
+/* **************** **************** **************** **************** **************** 
+ *  Reads the browser width and height and returns numerical values of width and height 
+ *  which are used by various functions to layout HTML elements within the webpage. 
+ * 
+ *  Once the dimensions are gathered from the browser a numerical value is set 
+ *  which corresponds with the dimensions of the background images for the 
+ *  individual ".article-content" elements.
+ * 
+ *  The numerical values of the height and width are passed through to the place 
+ *  of the function call using the Array, 'page_dimensions_Array'.
+ * **************** **************** **************** **************** **************** */
+
+  // A Number variable which will hold the width of the browser is initialized.
+  var window_width; 
+
+  // The width of the browser is passed on.
+  window_width = window.innerWidth;
+
+  // An Array which will hold values which best matches the dimensions of the browser 
+  // window is initialized.
+  var display_dimensions_Array;
+
+  // IF/ELSE statement which best matches the browser dimensions to the background images for 
+  // the various 'window frame' elements.
+  if (window_width <= 414)  { 
+    // The display is likely for a smartphone.
+    display_dimensions_Array = [414, 736];
+  } else if (window_width > 414 && window_width <= 1024) {
+    // The display is likely for a tablet device.
+    display_dimensions_Array = [768, 1024];
+  } else if (window_width > 1024 && window_width <= 1280) {
+    // The display is a standard desktop display.
+    display_dimensions_Array = [1280, 800];
+  } else if (window_width > 1280 && window_width <= 1600)  {
+    // The display is a 720p desktop display.
+    display_dimensions_Array = [1366, 768];
+  } else if (window_width > 1600)  {
+    // The display is a 1080p desktop display.
+    display_dimensions_Array = [1920, 1080];
+  } 
+
+  // The string contained by 'display_dimensions_Array' which refers to the dimensions of the display 
+  // is returned.
+  return display_dimensions_Array;
+
+} // END of FUNCTION setDisplayType
+
+
+
+
+function setValueOfHashVariables()  {
+  // An Array which will hold the values of the variables held within the URL hash 
   // is initialized.
-  var section_location;
+  var url_hash_variables_Array = [];
 
-  // IF/ELSE statement which sets the value of 'section_value' to 0 if the section 
-  // the hash variable refers to is the landing section. Otherwise the value 
-  // of 'section_value' is set to an integer which matches the section the hash 
-  // variable refers to.
-  if (section_value === "main") {
-    section_location = 0;
-  } else {
-    section_location = parseInt(section_value);
-  }
+  // The values of the variables held within the URL are passed on by calling the 
+  // function 'parseURLHash'.
+  url_hash_variables_Array = parseURLHash();
 
-  //0 A Number variable which will hold the vertical location within the webpage that 
-  // the brower window will navigate to is initialized.
-  var page_location;
-
-  // The vertical location within the webpage that the browser window will be navigated 
-  // to is calculated by multiplying the value referring to the section to be made viewable 
-  // by the height of the sections of content. That value is passed on.
-  page_location = section_location * article_height;
-
-  // The browser window navigates to the vertical location of the section to be made 
+  // IF/ELSE statement which sets an integer to correspond with the section to be 
   // viewable.
-  $(window).scrollTop(page_location);
-
-  // IF statement which makes calls a function to make the block of content viewable 
-  // if the section which was navigated to is not the top-most section.
-  if (url_hash_viewable_values_Array.length > 1)  {
-    // A block of content will be made viewable by calling 'navigateToWindowPane'.
-    navigateToWindowPane(url_hash_viewable_values_Array);
+  if (url_hash_variables_Array[0] !== "main" && url_hash_variables_Array[0] !== "0") {
+    url_hash_variables_Array[0] = url_hash_variables_Array[0].parseInt();
   }
-} // END of FUNCTION navigateToWindowFrame
+
+  // IF/ELSE statement which sets an integer to correspond to the block of content 
+  // to be viewable.
+  if (url_hash_variables_Array.length > 1)  {
+    url_hash_variables_Array[1] = url_hash_variables_Array[1].parseInt();
+  }
+
+  // The numerical values referring to the values of the variables held within the 
+  // URL has is returned.
+  return url_hash_variables_Array;
+} // END of FUNCTION setValueOfHashVariables
+
+
+
+
 
 
 
@@ -781,5 +1217,11 @@ function initializePage()  {
 
   // The section and block of content which the values of the variables within the URL 
   // hash refer to are made viewable.
-  navigateToWindowFrame();
+  setTimeout( 
+    function () {
+      centerBrowser();
+      positionContent();
+    }, 10
+  );
+  
 } // END of FUNCTION initializePage

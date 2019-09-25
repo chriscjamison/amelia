@@ -721,9 +721,7 @@ nav {
 
   #div-nav-options {
     height: inherit;
-    display: none;
     position: fixed;
-    opacity: 0;
     z-index: 4;
 
     a {
@@ -787,14 +785,13 @@ nav {
 
   #div-nav-background {
     position: fixed;
-    left: -20.45em;
     background-color: $nav_background_color; 
 
     #div-nav-border {
-      width: 20.45em;
+      width: 41em;
       height: 6.25em;
       position: fixed;
-      left: -20.45em;
+      left: -41em;
       z-index: 3;
       background-color: $nav_border_color;
     }
@@ -962,6 +959,9 @@ nav {
 
 @media screen and (min-width: 1281px) and (max-height: 1366px)  {
   nav {
+    width: 41rem; // 656px
+    height: 100%;
+
     #div-nav-icon {
       width: 3.13rem; // 50px
       height: 3.13rem; // 50px
@@ -1017,9 +1017,9 @@ nav {
      */
 
      #div-nav-options {
-      width: 17.25rem; // 276px
+      width: 41rem; // 656px
       top: 6.56rem; // 105px
-      left: 1.56rem; // 25px
+      left: -41rem; // -656px
 
       a {
         width: 12.4em; // 198px
@@ -1031,15 +1031,23 @@ nav {
     }
 
     #div-nav-background {
-      width: 20.45rem; // 327px
+      width: 41rem; // 656px
       height: 100%;
-      left: -20.45rem; // -327px
+      left: -41rem; // -656px
     }
 
     #div-nav-border {
-      width: 20.45rem; // 327px
+      width: 41rem; // 656px
       height: 6.25rem; // 100px
-      left: -20.45rem; // 327px
+      left: -41rem; // 656px
+    }
+
+    .nav-visible {
+      left: 0 !important;
+    }
+
+    .nav-not_visible {
+      left: -41rem !important; // -656px
     }
   }
 
@@ -1202,13 +1210,13 @@ nav {
    * This breakpoint is optimized to fit resolutions of 1366x768px and 1600x900px.
    */
 
-  nav, 
+/*   nav, 
   #div-nav-background, 
   #div-nav-border, 
   #div-nav-options {
     width: 39.1em; // 626px
     left: -39.1em; // 626px
-  }
+  } */
 
   #div-nav-options { 
     a {
@@ -2010,12 +2018,12 @@ aside {
   /* ****** COMMON ELEMENTS ****** */
 
   article {
-    width: 83.25rem; // 1,348px
+    width: 84.25rem; // 1,348px
     height: 48rem; // 768px
   }
 
   h1 {
-    width: 83.25rem; // 1348px
+    width: 84.25rem; // 1348px
     height: 9rem; // 144px
     top: 3.13rem; // 50px
 
@@ -2025,7 +2033,7 @@ aside {
   }
 
   .div-content {
-    width: 83.25rem; // 1,348px
+    width: 84.25rem; // 1,348px
     height: 36rem; // 576px
     margin-top: 12rem; // 192px
   }
@@ -2102,7 +2110,7 @@ aside {
   aside {
     width: 40.8rem; // 653px
     height: 15.2rem; // 243px
-    bottom: 8rem; // 128px
+    bottom: 12rem; // 192px
     left: 6.26rem; // 100px
 
     li {
@@ -2135,7 +2143,7 @@ aside {
   }
 
   .div-content-block-2-type-1 {
-    width: 83.25rem; // 1,332px
+    width: 84.25rem; // 1,332px
     height: 12.25rem; // 196px
     top: 3rem; // 48px
 
