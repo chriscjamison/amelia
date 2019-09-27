@@ -93,70 +93,67 @@
 					<form type="GET" action="/assets/php/resp/form_1.php" name="article-1" id="form-article-1">
 
 						<!-- "LEFT COLUMN FOR FORM TYPE #1" -->
-						<div class="div-content-column" id="div-content-column-1-article-1">
+						<div class="div-content-column" id="div-content-article-1-column-1">
 
 							<!-- Page #1 for FORM TYPE #1 -->
-							<div class="div-form-page-1">
+							<div class="div-form-page-1 div-form-page-visible">
 
 								<!-- Form Question #1 -->
-								<div class="div-form-question" id="div-form-article-1-question-1">
+								<div class="div-form-question div-form-question-left" id="div-form-article-1-question-1">
 									<h2 class="h2-form">Question <sup>#</sup>1:</h2>
 									<h3 class="h3-form">What is the quality of your recent emotional health?</h3>
 									<p>
 										Over the past two weeks, which of the following general moods have you experienced most frequently?
 									</p>
 									<fieldset>
-										<div>
+										<p>
 											<input type="radio" name="mood_type" value="sad" id="input-article-1-mood_type-sad" />
 											<label for="sad">Sadness</label>
-										</div>
-										<div>
-											<input type="radio" name="mood_type" value="angry" id="input-article-1-mood_type-angr" />
+										</p>
+										<p>
+											<input type="radio" name="mood_type" value="angry" id="input-article-1-mood_type-anger" />
 											<label for="angry">Anger</label>
-										</div>
-										<div>
-											<input type="radio" name="mood_type" value="anxiety" id="input-article-1-mood_type-axty" />
+										</p>
+										<p>
+											<input type="radio" name="mood_type" value="anxiety" id="input-article-1-mood_type-anxiety" />
 											<label for="anxiety">Anxiety or fear</label>
-										</div>
+										</p>
 									</fieldset>	
 								</div>
 							</div>
 							<!-- END of Form Question #1 -->
 
-							<div class="div-form-page-1">
+							<div class="div-form-page-2">
 								
 								<!-- Form Question #3 -->
-								<div class="div-form-question" id="div-form-article-1-question-3">
+								<div class="div-form-question div-form-question-left" id="div-form-article-1-question-3">
 									<h2 class="h2-form">Question <sup>#</sup>3:</h2>
 									<h3 class="h3-form">Have you experienced any of the following stressors?</h3>
-									<p>
-										Please select a checkbox for each event you have experienced<sup>*</sup> in the last six months. 
-									</p>
 									<p class="p-form-ftnote">
 										<sup>*</sup>If you have felt stress as a result of an incident which is not listed below, please 
 										select "Other", and enter in a brief description of the event.
 									</p>
 									<fieldset>
-										<div>
-											<input type="checkbox" name="death" value="death" id="input-article-1-stressor-death" />
+										<p>
+											<input type="checkbox" name="death" value="death" id="stressor-dth" />
 											<label for="death">Death of a loved one</label>
-										</div>
-										<div>
-											<input type="checkbox" name="relationship" value="relationship" id="input-article-1-stressor-relationship" />
-											<label for="relationship">End of close relationship</label>
-										</div>
-										<div>
-											<input type="checkbox" name="job" value="job" id="input-article-1-stressor-job" />
+										</p>
+										<p>
+											<input type="checkbox" name="rltn" value="rltn" id="stressor-rltn" />
+											<label for="rltn">End of close relationship</label>
+										</p>
+										<p>
+											<input type="checkbox" name="job" value="job" id="stressor-job" />
 											<label for="job">Loss of job</label>
-										</div>
-										<div>
-											<input type="checkbox" name="move" value="move" id="input-article-1-stressor-move" />
+										</p>
+										<p>
+											<input type="checkbox" name="move" value="move" id="stressor-move" />
 											<label for="move">Moving to new city</label>
-										</div>
-										<div>
-											<input type="checkbox" name="other" value="othr" id="input-article-1-stressor-other" />
-											<label for="other">Other</label>
-										</div>
+										</p>
+										<p>
+											<input type="checkbox" name="othr" value="othr" id="stressor-othr" />
+											<label for="othr">Other</label>
+										</p>
 									</fieldset>
 								<!-- END of Form Question #3 -->
 								</div>
@@ -168,10 +165,10 @@
 						</div>
 
 						<!-- RIGHT COLUMN FOR FORM TYPE #1 -->
-						<div class="div-content-column" id="div-content-column-2">
+						<div class="div-content-column" id="div-content-article-1-column-2">
 
 							<!-- Page #2 for FORM TYPE #1 -->
-							<div class="div-form-page-1">
+							<div class="div-form-page-1 div-form-page-visible">
 
 								<!-- Form Question #2 -->
 								<div class="div-form-question" id="div-form-question-2">
@@ -216,7 +213,7 @@
 							</div>
 
 							<!-- Page #2 of FORM TYPE #1 -->
-							<div class="form-page_2">
+							<div class="div-form-page-2">
 
 								<!-- Form Question #4 -->
 								<div class="div-form-question" id="div-form-question-4">
@@ -235,11 +232,11 @@
 								<!-- END of Form Question #4 -->
 								</div>
 
+								<!-- BUTTON to view Previous set of questions for "FORM TYPE #1" -->
+								<input type="button" name="article-1-previous" value="Previous" id="button-form-article-1-previous" />
+								
 								<!-- BUTTON to Submit FORM TYPE #1 -->
 								<input type="submit" name="article-1-submit" value="Complete" id="submit-form-article-1" />
-
-								<!-- BUTTON to view Previous set of questions for "FORM TYPE #1" -->
-								<input type="button" name="article-1-previous" value="Previous" id="button-form-article-1-prev" />
 
 							<!-- END of Page #2 of FORM TYPE #1 -->
 							</div>
@@ -411,12 +408,12 @@
 				<!-- INTRASECTION NAVIGATION for SECTION #3 -->
 				<div class="div-nav-article" id="div-nav-article-3">
 					<div>
-						<span>&nbsp;</span>
+						<a href="javascript:showSectionNavigation('3');" title="Specialities"></a>
 						<div>
-							<a href="#article=3?position=0">Home</a>
-							<a href="#article=3?position=1">Grief</a>
-							<a href="#article=3?position=2">Trauma</a>
-							<a href="#article=3?position=3">Depression</a>
+							<a href="#article=3&position=0">Home</a>
+							<a href="#article=3&position=1">Grief</a>
+							<a href="#article=3&position=2">Trauma</a>
+							<a href="#article=3&position=3">Depression</a>
 						</div>
 					</div>
 				<!-- END of INTRASECTION NAVIGATION for SECTION #3 -->
@@ -497,12 +494,12 @@
 				<!-- INTRAPAGE NAVIGATION for SECTION #4 -->
 				<div class="div-nav-article" id="div-nav-article-4">
 					<div>
-						<span>&nbsp;</span>
+						<a href="javascript:showSectionNavigation('4');" title="Testimonials"></a>
 						<div>
-							<a href="#article_4?position=0">Home</a>
-							<a href="#article_4?position=1">Owen</a>
-							<a href="#article_4?position=2">Hendrich</a>
-							<a href="#article_4?position=3">Reagan</a>
+							<a href="#article=4&position=0">Home</a>
+							<a href="#article=4&position=1">Owen</a>
+							<a href="#article=4&position=2">Hendrich</a>
+							<a href="#article=4&position=3">Reagan</a>
 						</div>
 					</div>
 				<!-- END of INTRASECTION NAVIGATION for SECTION #4 -->

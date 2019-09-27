@@ -9,6 +9,14 @@ $(window).on("load",
   }
 );
 
+$(window).on("hashchange", 
+  function () {
+    positionContent();
+
+    positionBackgrounds();
+  }
+);
+
 
 
 $(document).ready(
@@ -71,8 +79,140 @@ $(document).ready(
         // animateFormPanes("article-1");
       }
     );
+
+    $("#button-form-article-1-next").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#button-form-article-1-previous").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
   }
 );
+
+
+
+function showSectionNavigation(article_value) {
+  // String variables which will hold the CSS selector which refers to 
+  // intrasection navigation is initialized.
+  var section_nav_div_selector = "";
+
+  // The CSS selectors which refer to intrasection navigation are passed on.
+  section_nav_div_selector = "#div-nav-article-" + article_value + " div div";
+
+  // Object variables which will hold the jQuery objects which refer to 
+  // the intrasection navigation are initialized.
+  var section_nav_div_element = {};
+
+  // The jQuery objects which refer to the intrasection navigation 
+  // are passed on.
+  section_nav_div_element = $(section_nav_div_selector);
+
+  // A String variable which will hold a CSS class which sets the intrasection 
+  // navigation visible is initialized.
+  var section_nav_visible_selector = "";
+
+  // The CSS class which will set the intrasection navigation visible 
+  // is passed on.
+  section_nav_visible_selector = "div-nav-article-visible";
+  
+  // A Boolean variable which will hold a value which reflects the visibility 
+  // of the intrasection navigation is initialized.
+  var is_section_navigation_visible;
+
+  // The value, 'false', is passed on to 'is_section_navigation_visible'.
+  // For the sake of this function, the intrasection navigation is assumed 
+  // to be not visible.
+  is_section_navigation_visible = false;
+
+  // The visibilty of the intrasection navigation is determined.
+  is_section_navigation_visible = $(section_nav_div_element).hasClass(section_nav_visible_selector);
+  
+  // IF/ELSE statement which will determine if the intrasection 
+  // navigation is visible.
+  if (is_section_navigation_visible === false)  {
+    $(section_nav_div_element).removeClass(section_nav_visible_selector);
+
+    $(section_nav_div_element).addClass(section_nav_visible_selector);
+  } else {
+    $(section_nav_div_element).removeClass(section_nav_visible_selector);
+  }
+}
+
+
+function swapFormQuestions()  {
+  // An Array which will hold the data held by GET variables contained within 
+  // the hash of the URL is iniitalized.
+  var hash_data_Array = [];
+
+  // The data held by GET variables contained within the hash of the URL 
+  // is passed on.
+  hash_data_Array = extractHashData();
+
+  // Strings which will hold the data from the GET variables 
+  // in the hash of the URL are initialized.
+  var article_value = "";
+  var position_value = "";
+
+  // The values of the GET variables in the hash of the URL 
+  // are passed on.
+  article_value = hash_data_Array[0];
+  position_value = hash_data_Array[1];
+
+  // String variables which will hold CSS selectors which refer to 
+  // the different 'pages' of form questions are initialized.
+  var page_one_questions_selector = "";
+  var page_two_questions_selector = "";
+
+  // The CSS selectors which refer to the different 'pages' of form 
+  // questions of form questions are passed on.
+  page_one_questions_selector = "#form-article-" + article_value + " .div-form-page-1";
+  page_two_questions_selector = "#form-article-" + article_value + " .div-form-page-2";
+
+  // Object variables which will hold jQuery objects which refer to 
+  // the different 'pages' of form questions are initialized.
+  var page_one_questions_elements = {};
+  var page_two_questions_elements = {};
+
+  // jQuery objects which refer to the different 'pages' of form questions 
+  // are passed on.
+  page_one_questions_elements = $(page_one_questions_selector);
+  page_two_questions_elements = $(page_two_questions_selector);
+
+  // A String variable which will hold the CSS class which sets a given 'page' 
+  // to visible is initialized.
+  var page_visible_selector = "";
+
+  // The CSS class which sets a given 'page' to visible is passed on.
+  var page_visible_selector = "div-form-page-visible";
+
+  // The CSS class which makes a given 'page' visible is stripped from both pages.
+  $(page_one_questions_elements).removeClass(page_visible_selector);
+  $(page_two_questions_elements).removeClass(page_visible_selector);
+  
+  // IF/ELSE statement which will set the visibility of a given page.
+  if (position_value === "1") {
+    $(page_one_questions_elements).addClass(page_visible_selector);
+  } else {
+    $(page_two_questions_elements).addClass(page_visible_selector);
+  }
+}
 
 
 
@@ -107,8 +247,6 @@ function calculateNavigationPoint(section_value) {
 
 
 function navigateToNewSection(new_section_id) {
-  
-
   // An Array which will hold the characters within 'new_section_id' 
   // is initialized.
   var new_section_id_Array = [];
@@ -571,7 +709,6 @@ function centerBrowser()  {
   var hash_data_Array = [];
   // The data from the hash of the URL is gathered.
   hash_data_Array = extractHashData();
-  console.log("hash_data_Array = " + hash_data_Array);
 
   if (hash_data_Array !== undefined) {
     // A Number which will hold the position within the webpage to scroll to 
@@ -729,6 +866,13 @@ function positionContent()  {
   // The CSS selector for the block of content to be made viewable is passed on.
   content_block_selector = article_selector + " > div:nth-child(" + (position_value + 2).toString() + ")";
 
+  // IF statment which will alter the value of 'content_block_selector' if the 
+  // 'section' includes a form.
+  if ((article_value === "1" || article_value === "6") && 
+      position_value > 1) {
+    content_block_selector = article_selector + " > div:nth-child(" + (position_value + 1).toString() + ")";
+  }
+
   // An Object variable which will hold the jQuery object which refers to the HTML element 
   // which holds the block of content to be made viewable is initialized.
   var content_block_element = {};
@@ -739,12 +883,96 @@ function positionContent()  {
 
   // The block of content which the variable in the URL hash refers to is made visible.
   $(content_block_element).addClass(div_content_visible_selector);
+
+  // IF statment which will change the current 'page' of form questions if the 
+  // 'section' includes a form.
+  if ((article_value === "1" || article_value === "6") && 
+      position_value > 1) {
+    swapFormQuestions();
+  }
+
+  // The background of the section is repositioned.
+  positionBackgrounds();
 }
 
 
 
-function animateFormPanes(section_id_value) {
+function positionBackgrounds() {
+  // An Array which will hold the values of the GET variables contained within 
+  // the hash of the URL is initialized.
+  var hash_data_Array = [];
 
+  // The data from the GET variables contained within the hash of the URL 
+  // are passed on.
+  hash_data_Array = extractHashData();
+
+  // An Array which will hold the dimensions of the browser is initialized.
+  var display_dimensions_Array = [];
+
+  // The dimensions of the browser are passed on.
+  display_dimensions_Array = setDisplayType();
+  
+  // String variables which will hold the value of the GET variables, 
+  // 'article' and 'position', are initialized.
+  var article_value = "";
+  var position_value = "";
+
+  // The values of the GET variables, 'article' and 'position', are passed on.
+  article_value = hash_data_Array[0];
+  position_value = hash_data_Array[1];
+
+  // The value of, 'position_value', is converted into an integer.
+  position_value = parseInt(position_value);
+
+  // A Number variable which will hold the width of the browser window 
+  // is initialized.
+  var window_width;
+
+  // The width of the browser window is passed on.
+  window_width = display_dimensions_Array[0];
+
+  // A Number variable which will hold a value which moves the <div> which holds 
+  // the background image into the proper position is initialized.
+  var background_position;
+
+  // The distance the <div> which holds the background is moved is calculated 
+  // by multiplying the value of 'position_value' by the width of the browser 
+  // window. That value is now passed on.
+  background_position = -position_value * window_width;
+
+  // IF statment which will alter the value of 'background_position' if the 
+  // background which will be repositioned is for a 'section' which includes 
+  // a form.
+  if ((article_value === "1" || article_value === "6") && 
+      position_value > 1) {
+    background_position = -(position_value - 1) * window_width;
+  }
+
+  // A String variable which will hold the value of the CSS property, 'background-position', 
+  // is initialized. This value will be used to reposition the background image.
+  var background_left_value = "";
+
+  // The value of the CSS propery, 'background-position', which will be used to 
+  // reposition the background image is passed on.
+  background_left_value = background_position + "px";
+  
+  // A String variable which will hold the CSS selector for the background 
+  // which will be repositioned is initialized.
+  var background_selector = "";
+
+  // The CSS selector for the background which will be repositioned is passed on.
+  background_selector = "#div-background-" + article_value;
+
+  // An Object variable which will hold the jQuery object which refers to the background 
+  // which will be repositioned is initialized.
+  var background_element = {};
+
+  // The jQuery object which refers to the background which will be repositioned 
+  // is passed on.
+  background_element = $(background_selector);
+
+  // The background is repositioned.
+  $(background_element).css("left", background_left_value);
 }
 
 
@@ -949,6 +1177,10 @@ function layoutBackgrounds()  {
   // image for the section the loop is processing is initialized.
   var background_image_path = "";
 
+  // A Number variable which will hold the value of the CSS property, 'top'. The value 
+  // will place each background underneath each section of content.
+  var background_top_value;
+
   // An Object variable which will hold CSS values used to format the HTML element holding 
   // the background image the loop is processing is initialized.
   var background_css = {};
@@ -1008,10 +1240,13 @@ function layoutBackgrounds()  {
                               background_height.toString() + ".jpg')";
     }
 
+    background_top_value = (inc * background_height).toString() + "px"
+
     background_css = {
-      "width": background_width, 
-      "height": background_height, 
-      "backgroundImage": background_image_path
+      width: background_width, 
+      height: background_height, 
+      top: background_top_value, 
+      backgroundImage: background_image_path
     };
 
     // IF/ELSE statement which will set the value of the suffix to 

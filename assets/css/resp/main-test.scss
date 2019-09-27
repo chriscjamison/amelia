@@ -242,8 +242,7 @@ h1 {
  */
 
 fieldset {
-	margin: $margin_value_3;
-	padding: $padding_value_4;
+	padding: $padding_value_3 $padding_value_5;
   border: $form_fieldset_border;
   
   div {
@@ -254,6 +253,8 @@ fieldset {
 /* Formats <fieldset> elements which contain form options. */
 
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
+
+
 
 label + p,
 input + p {
@@ -329,15 +330,34 @@ input[type=submit]:hover {
   height: auto;
   background-color: $form_background_color;
 
+  .h2-form, 
+  .h3-form {
+    margin: 0 0 $margin_value_1 0;
+  }
+
+  .h3-form, 
+  p {
+    line-height: $line_height;
+  }
+
+  p {
+    margin-bottom: $margin_value_4;
+  }
+
   span {
-    display: inline;
+    display: inline-block;
   }
   /* Formats <span> elements which contain text headers. */
   
   span:first-child {
-    display: block;
+    margin-right: $margin_value_1;
   }
   /* Formats the first <span> element which is contained within a given form question. */
+
+  span:last-child {
+    margin-left: $margin_value_1;
+  }
+  /* Formats the last <span> element which is contained within a given form question. */
 
   span + span {
     padding-bottom: 1.1rem; // 18px
@@ -354,10 +374,18 @@ input[type=submit]:hover {
     line-height: $line_height;
   }
   /* Formats <p> elements which contain text instructions or descriptive copy for a given 
-    * form question. 
-    */
+   * form question. 
+   */
 
   fieldset { 
+    p {
+      margin-top: $margin_value_3;
+    }
+
+    p:last-of-type {
+      margin-bottom: $margin_value_3;
+    }
+
     div { 
       span {
         position: relative;
@@ -391,73 +419,78 @@ input[type=submit]:hover {
       line-height: 1.6rem;
     }
     /* Formats descriptive text that falls underneath the instruction within a given 
-    * form question.
-    */
-
-    .div-form-page-1, 
-    .div-form-page-2 {
-      display: none;
-      opacity: 0;
-    }
-    /* Formats <div> elements which control which set of two questions are displayed 
-    * within the browser window at a given time.
-    */
-
-    #form-question-alert {
-      width: inherit;
-      height: inherit;
-      display: table;
-      position: absolute;
-      background-color: $form_alert_background_1_color;
-      opacity: 0.95;
-      z-index: 7;
-
-      div {
-        display: table-cell;
-        font-family: $base_font;
-        font-size: $form_question_sup_font_size;
-        vertical-align: middle;
-        text-align: center;
-
-        div {
-          margin: 0 auto;
-          padding: $padding_value_3 $padding_value_5;
-          text-align: left;
-          background-color: $form_alert_background_2_color;
-          color: $form_alert_font_color;
-
-          span {
-            display: block;
-            border-bottom: $form_alert_border;
-            font-size: $form_alert_font_size;
-            font-weight: $header_font_weight;
-            text-align: left;
-          }
-          /* Formats a <span> element which serves as a header for descriptive text about 
-           * an error returned from a form submission.
-           */
-
-          p {
-            text-align: left;
-          }
-          /* Formats descriptive text within a <p> element that is contained by a <div> 
-           * element using the id, "#form-question-alert".
-           */
-        }
-        /* Formats a <div> element which contains descriptive text about an error returned 
-         * from a form submission. 
-         */
-      }
-      /* Formats descriptive text within a <div> element that appears once a form 
-       * has been submitted which returns an error message.
-       */
-    }
-    /* Formats a <div> element which appears once a form has been submitted 
-     * which returns an error message. 
+     * form question.
      */
   }
 }
 /* Formats a <div> element which contains an individual form question. */
+
+.div-form-page-1, 
+.div-form-page-2 {
+  display: none;
+  opacity: 0;
+}
+/* Formats <div> elements which control which set of two questions are displayed 
+  * within the browser window at a given time.
+  */
+
+.div-form-page-visible {
+  display: block;
+  opacity: 1;
+}
+
+#form-question-alert {
+  width: inherit;
+  height: inherit;
+  display: table;
+  position: absolute;
+  background-color: $form_alert_background_1_color;
+  opacity: 0.95;
+  z-index: 7;
+
+  div {
+    display: table-cell;
+    font-family: $base_font;
+    font-size: $form_question_sup_font_size;
+    vertical-align: middle;
+    text-align: center;
+
+    div {
+      margin: 0 auto;
+      padding: $padding_value_3 $padding_value_5;
+      text-align: left;
+      background-color: $form_alert_background_2_color;
+      color: $form_alert_font_color;
+
+      span {
+        display: block;
+        border-bottom: $form_alert_border;
+        font-size: $form_alert_font_size;
+        font-weight: $header_font_weight;
+        text-align: left;
+      }
+      /* Formats a <span> element which serves as a header for descriptive text about 
+        * an error returned from a form submission.
+        */
+
+      p {
+        text-align: left;
+      }
+      /* Formats descriptive text within a <p> element that is contained by a <div> 
+        * element using the id, "#form-question-alert".
+        */
+    }
+    /* Formats a <div> element which contains descriptive text about an error returned 
+      * from a form submission. 
+      */
+  }
+  /* Formats descriptive text within a <div> element that appears once a form 
+    * has been submitted which returns an error message.
+    */
+}
+/* Formats a <div> element which appears once a form has been submitted 
+  * which returns an error message. 
+  */
 
 #button-article-1-start {
 	margin: 0 0 0.8rem 0;
@@ -465,6 +498,37 @@ input[type=submit]:hover {
 /* Formats a <button> element which appears on the landing page of 'SECTION #1'.
  * The button 'starts' the form process.
  */
+
+#button-form-article-1-next, 
+#button-form-article-1-previous, 
+#submit-form-article-1  {
+  left: 21.5rem; // 344px
+}
+
+#button-form-article-1-next {
+  transform: translateX(-5rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+ #button-form-article-1-previous {
+  margin-left: 0;
+  transform: translateX(-12.5rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+#submit-form-article-1 {
+  transform: translateX(-13rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+
+
 
 #button-article-5-start {
   margin: 0 0 1.25rem 0; // 0 0 20px 0
@@ -514,14 +578,13 @@ p > input {
 	width: 16px;
 	float: left;
 	position: absolute;
-	left: 0;
 	opacity: 0;
 }
 /* Formats the layout of individual <input type=radio> and <input type=checkout> elements. */
 
 p > label { 
-	line-height: 1.25rem; // 20px
-	padding-left: 5px;
+	line-height: 1.1;
+	padding-left: 2.06rem; // 33px
 }
 /* Formats the layout of the labels of individual <input> elements. */
 
@@ -664,7 +727,7 @@ main {
  * a particular 'SECTION' or segment of content organized by a similar theme. 
  */
 
- #div-backgrounds {
+ #section-backgrounds {
 	position: absolute;
 	top: 0;
   left: 0;
@@ -675,7 +738,8 @@ main {
  * content. 
  */
 
- #div-backgrounds > div {
+ #section-backgrounds > div {
+  position: absolute;
   background-repeat: no-repeat;
 }
 /* 
@@ -851,12 +915,11 @@ nav {
     height: inherit;
     margin: 0 auto;
 
-    span {
+    a:first-of-type {
       display: block;
       position: relative;
       margin: 0 auto;
       color: $nav_options_a_font_color;
-      cursor: auto;	
     } 
     /* Formats the <span> element which serves as the menu-button for the intra-sectional 
      * navigation for 'SECTION #3' and 'SECTION #4'. 
@@ -882,13 +945,14 @@ nav {
       display: none;
 
       a {
-        width: 6.56em;
-        height: 1.38em;
+        width: 6.56em !important;
+        height: 1.38em !important;
         display: block;
         float: left;
-        margin: 0 0.94em;
-        padding: 0.19em 0 0.38em 0;
+        margin: 0 $margin_value_3 0 0 !important;
+        padding: 0.19em 0 0 0;
         background-color: $nav_options_a_background_color;
+        background-image: none !important;
         border: $nav_section_border;
         font-family: $nav_options_a_font;
         font-size: $nav_options_font_size_1;
@@ -899,6 +963,10 @@ nav {
         cursor: pointer; 
       }
       /* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
+
+      a:last-of-type {
+        margin-right: 0 !important;
+      }
       
     }
     /* Formats the <div> element which contains the <a> elements which serve as 
@@ -913,11 +981,15 @@ nav {
 /* Formats a <div> element which contains the intra-sectional navigation 
  * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
  */
+
+.div-nav-article-visible {
+  display: block !important;
+}
  
 
 #div-nav-article-3 {
   div {
-    span {
+    a:first-of-type {
       background-image: $nav_span_section_3_background_image;
     }
     /* Formats the background-image of the <span> element which serves as the 
@@ -926,10 +998,9 @@ nav {
   } 
 }
 
-
 #div-nav-article-4 {
   div {
-    span {
+    a:first-of-type {
       background-image: $nav_span_section_4_background_image;
     }
     /* Formats the background-image of the <span> element which serves as the 
@@ -947,225 +1018,6 @@ nav {
  * for the intra-sectional navigation.
  * This is the hover click state.
  */
-
-
-/* ****** ****** ****** ****** ****** ****** ****** ****** 
-                         BREAKPOINTS                                   
-   ****** ****** ****** ****** ****** ****** ****** ****** */
-
-
-   
-/* ****** DESKTOP - 1366px WIDE ****** */
-
-@media screen and (min-width: 1281px) and (max-height: 1366px)  {
-  nav {
-    width: 41rem; // 656px
-    height: 100%;
-
-    #div-nav-icon {
-      width: 3.13rem; // 50px
-      height: 3.13rem; // 50px
-      top: 1.56rem; // 25px
-      left: 1.56rem; // 25px
-    }
-  
-    .nav-icon-base {
-      background-position: 0 0;
-    }
-
-    .nav-icon-base, 
-    .nav-icon-hover, 
-    .nav-icon-click-1, 
-    .nav-icon-click-2, 
-    #div-nav-options a, 
-    .nav-option-base, 
-    .nav-option-hover {
-      cursor: pointer;
-    }
-
-    .nav-icon-base {
-      background-position: 0 0;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-     * appears in the upper left of the page. 
-     * This is the default, 'base', click state.
-     */
-    
-    .nav-icon-hover {
-      background-position: 0 -50px; 
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-     * appears in the upper left of the page. 
-     * This is the mouseover, or 'hover', click state.
-     */
-    
-    .nav-icon-click-1 {
-      background-position: 0 -100px;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-     * appears in the upper left of the page. 
-     * This is a 'click' state that is only meant to be visible for the duration 
-     * of the clicking of the mouse.
-     */
-    
-    .nav-icon-click-2 {
-      background-position: 0 -150px;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-     * appears in the upper left of the page. 
-     * This is the state which appears when the navigation panel is open. 
-     */
-
-     #div-nav-options {
-      width: 41rem; // 656px
-      top: 6.56rem; // 105px
-      left: -41rem; // -656px
-
-      a {
-        width: 12.4em; // 198px
-        height: 2.35em; // 38px
-        margin: 1em; // 16rem
-        padding: 1em; // 16rem
-        font-size: $nav_options_font_size_1;
-      }
-    }
-
-    #div-nav-background {
-      width: 41rem; // 656px
-      height: 100%;
-      left: -41rem; // -656px
-    }
-
-    #div-nav-border {
-      width: 41rem; // 656px
-      height: 6.25rem; // 100px
-      left: -41rem; // 656px
-    }
-
-    .nav-visible {
-      left: 0 !important;
-    }
-
-    .nav-not_visible {
-      left: -41rem !important; // -656px
-    }
-  }
-
-  #div-nav-article-previous,
-  #div-nav-article-next {
-    width: 4.9rem; // 78px
-    height: 5.4rem; // 86px
-    right: 3.13rem; // 50px
-    bottom: 3rem; // 48px
-    z-index: 5;
-    background-position: 0 -209px;
-  }
-
-  #div-nav-article-previous {
-    top: 1.06em; // 17px
-    padding-top: 1.88em; // 30px
-    background-position: 0 0;
-  }
-  /* Formats a <div> element which moves the page upward through previously viewed 
-  * sections. 
-  */
-
-  #div-nav-article-next {
-    background-position: 0px -145px;
-  }
-  /* Formats a <div> element which moves the page upward through yet-to-be-viewed 
-  * sections. 
-  */
-  
-  #div-nav-article-previous:hover {
-    background-position: 0px -111px !important;
-  }
-  /* More formatting for the cursor state based upon the click-state 
-   * of the <div> element, '#previous-article'. 
-   */
-  
-   #div-nav-article-next:hover {
-    background-position: 0px -235px !important;
-  }
-  /* More formatting for the cursor state based upon the click-state 
-   * of the <div> element, '#next-article'. 
-   */
-
-  #div-nav-article-previous > span,
-  #div-nav-article-next > span {
-    width: 4.9em; // 78px
-    height: 5.4em; // 86px
-    margin: 0 auto 50px auto;
-    font-size: $article_nav_font_size;
-    line-height: 1.3;
-  }
-  /* Formats the text descriptions of the inter-sectional navigation 
-  * which appears on the right of the page.
-  */
-  
-  .div-nav-article {
-    width: 61.25em; // 980px
-    height: 8.44em; // 135px
-    top: 39.38em; // 630px
-
-    div {
-      width: 46.25em; // 740px
-
-      span {
-        width: 9.38em; // 150px
-        height: 2.19em; // 35px
-        margin: 0 auto;
-      }
-
-      .nav-article-base {
-        background-position: 0px 0px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-       * for the intra-sectional navigation.
-       * This is the base click state.
-       */
-
-      .nav-article-hover {
-        background-position: 0px -35px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-       * for the intra-sectional navigation.
-       * This is the hover click state.
-       */
-
-      .nav-article-active {
-        background-position: 0px -70px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-       * for the intra-sectional navigation.
-       * This is the active click state.
-       */
-  
-      .nav-article-click {
-        background-position: 0x -105px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-       * for the intra-sectional navigation.
-       * This is the click state which is set once the menu-button has been clicked.
-       */
-
-      div {
-        width: 46.25em; // 740px
-        height: 2.19em; // 35px
-        margin: 0 auto;
-
-        a {
-          width: 6.56em; // 105px
-          height: 1.38em; // 22px
-          margin: 0 0.94em; // 15px
-          padding: 0.19em 0 0.38em 0; // 3px 0 6px 0
-        }
-      }
-    }
-  }
-}
-
-
 
 @media screen and (min-width: 1910px) {
   /* This CSS breakpoint affects browsers which have a width more than 1910px.
@@ -1218,17 +1070,17 @@ nav {
     left: -39.1em; // 626px
   } */
 
-  #div-nav-options { 
+ /*  #div-nav-options { 
     a {
-      width: 11.6em; // 186px
+      width: 11.6rem; // 186px
       float: left;
     }
   }
   
   .div-nav-article {
-    width: 85.38em !important; // 1366px
-    top: 33em !important;  // 528px
-  }
+    width: 85.38rem !important; // 1366px
+    top: 33rem !important;  // 528px
+  } */
 }
 
 
@@ -1291,6 +1143,7 @@ aside {
 .div-content-block-1 { 
   h2 {
     width: 100%;
+    margin: 0 0 $margin_value_1 0;
     padding-bottom: 0.25rem; // 4px
     display: inline-block;
     border-bottom: 2px solid;
@@ -1316,7 +1169,6 @@ aside {
   p ~ p {
     margin-bottom: 1.7rem; // 27px
     padding-bottom: 1.5rem; // 24px
-    border-bottom: 0.188rem solid; // 3px
   }
   /* More formatting for the <p> elements which hold text content. */
 }
@@ -1479,6 +1331,7 @@ aside {
 .div-content-block-3 { 
   h2 {
     display: block;
+    margin: 0 0 $margin_value_1 0;
     padding-bottom: 0.1rem; // 2px
     border-bottom: 0.1rem solid; // 2px
     font-size: $lg_h2_font_size;
@@ -2043,8 +1896,231 @@ aside {
   .div-content-block-4 {
     width: 32.5rem; // 520px
     margin: 0 auto;
+    padding: $padding_value_3 $padding_value_5;
     position: relative;
   }
+
+
+  /* ****** NAVIGATION ****** */
+
+  nav {
+    width: 41rem; // 656px
+    height: 100%;
+    left: -41rem; // -656px
+  
+    #div-nav-icon {
+      width: 3.13rem; // 50px
+      height: 3.13rem; // 50px
+      top: 1.56rem; // 25px
+      left: 1.56rem; // 25px
+    }
+  
+    .nav-icon-base {
+      background-position: 0 0;
+    }
+  
+    .nav-icon-base, 
+    .nav-icon-hover, 
+    .nav-icon-click-1, 
+    .nav-icon-click-2, 
+    #div-nav-options a, 
+    .nav-option-base, 
+    .nav-option-hover {
+      cursor: pointer;
+    }
+  
+    .nav-icon-base {
+      background-position: 0 0;
+    }
+    /* Sets a class which is used to alter the 'click-state' of the menu icon 
+      * appears in the upper left of the page. 
+      * This is the default, 'base', click state.
+      */
+    
+    .nav-icon-hover {
+      background-position: 0 -50px; 
+    }
+    /* Sets a class which is used to alter the 'click-state' of the menu icon 
+      * appears in the upper left of the page. 
+      * This is the mouseover, or 'hover', click state.
+      */
+    
+    .nav-icon-click-1 {
+      background-position: 0 -100px;
+    }
+    /* Sets a class which is used to alter the 'click-state' of the menu icon 
+      * appears in the upper left of the page. 
+      * This is a 'click' state that is only meant to be visible for the duration 
+      * of the clicking of the mouse.
+      */
+    
+    .nav-icon-click-2 {
+      background-position: 0 -150px;
+    }
+    /* Sets a class which is used to alter the 'click-state' of the menu icon 
+      * appears in the upper left of the page. 
+      * This is the state which appears when the navigation panel is open. 
+      */
+  
+      #div-nav-options {
+      width: 41rem; // 656px
+      top: 6.56rem; // 105px
+      left: -41rem; // -656px
+  
+      a {
+        width: 12.4em; // 198px
+        height: 2.35em; // 38px
+        margin: 1em; // 16rem
+        padding: 1em; // 16rem
+        font-size: $nav_options_font_size_1;
+      }
+    }
+  
+    #div-nav-background {
+      width: 41rem; // 656px
+      height: 100%;
+      left: -41rem; // -656px
+    }
+  
+    #div-nav-border {
+      width: 41rem; // 656px
+      height: 6.25rem; // 100px
+      left: -41rem; // 656px
+    }
+  
+    .nav-visible {
+      left: 0 !important;
+    }
+  
+    .nav-not_visible {
+      left: -41rem !important; // -656px
+    }
+  }
+  
+  #div-nav-article-previous,
+  #div-nav-article-next {
+    width: 4.9rem; // 78px
+    height: 5.4rem; // 86px
+    right: 3.13rem; // 50px
+    bottom: 3rem; // 48px
+    z-index: 5;
+    background-position: 0 -209px;
+  }
+  
+  #div-nav-article-previous {
+    top: 1.06em; // 17px
+    padding-top: 1.88em; // 30px
+    background-position: 0 0;
+  }
+  /* Formats a <div> element which moves the page upward through previously viewed 
+  * sections. 
+  */
+  
+  #div-nav-article-next {
+    background-position: 0px -145px;
+  }
+  /* Formats a <div> element which moves the page upward through yet-to-be-viewed 
+  * sections. 
+  */
+  
+  #div-nav-article-previous:hover {
+    background-position: 0px -111px !important;
+  }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#previous-article'. 
+    */
+  
+  #div-nav-article-next:hover {
+    background-position: 0px -235px !important;
+  }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#next-article'. 
+    */
+  
+  #div-nav-article-previous > span,
+  #div-nav-article-next > span {
+    width: 4.9em; // 78px
+    height: 5.4em; // 86px
+    margin: 0 auto 50px auto;
+    font-size: $article_nav_font_size;
+    line-height: 1.3;
+  }
+  /* Formats the text descriptions of the inter-sectional navigation 
+  * which appears on the right of the page.
+  */
+  
+  .div-nav-article {
+    width: 84.25rem; // 1,348px
+
+    div {
+      a:first-of-type {
+        width: 9.38em; // 150px
+        height: 2.19em; // 35px
+        margin: 0 auto;
+      }
+  
+      .nav-article-base {
+        background-position: 0px 0px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+        * for the intra-sectional navigation.
+        * This is the base click state.
+        */
+  
+      .nav-article-hover {
+        background-position: 0px -35px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+        * for the intra-sectional navigation.
+        * This is the hover click state.
+        */
+  
+      .nav-article-active {
+        background-position: 0px -70px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+        * for the intra-sectional navigation.
+        * This is the active click state.
+        */
+  
+      .nav-article-click {
+        background-position: 0x -105px;
+      }
+      /* Formats the click-state for the <span> element which serves as the menu-button 
+        * for the intra-sectional navigation.
+        * This is the click state which is set once the menu-button has been clicked.
+        */
+  
+      div {
+        height: 2.19em; // 35px
+        margin: $margin_value_3 auto 0 auto;
+  
+        a {
+          width: 6.56em; // 105px
+          height: 1.38em; // 22px
+          margin: 0 0.94em; // 15px
+          padding: 0.19em 0 0 0; // 3px 0 0 0
+        }
+      }
+    }
+  }
+
+  #div-nav-article-3 {
+    top: 38rem; // 608px
+
+    div {
+      width: 36.85rem; // 590px
+    }
+  }
+
+  #div-nav-article-4 {
+    top: 32rem; // 512px
+
+    div {
+      width: 36.85rem; // 590px
+    }
+  }
+
 
 
   /* ****** FORMS ****** */
@@ -2060,13 +2136,18 @@ aside {
   }
   
   .div-form-question {
+    width: 21.5rem; // 344px
     margin-bottom: $margin_value_4;
     padding: $padding_value_5;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 
     span:first-child {
       margin-bottom: $margin_value_2;
     }
+  }
+  
+  .div-form-question-left {
+    margin-left: 15.5rem; // 248px 
   }
 
   #form-question-alert {
@@ -2078,12 +2159,6 @@ aside {
         width: 36rem; // 576px
         height: 15.75rem; // 252px
       }
-    }
-  }
-
-  fieldset {
-    div {
-      width: 20.3rem; // 325px
     }
   }
 
@@ -2110,7 +2185,7 @@ aside {
   aside {
     width: 40.8rem; // 653px
     height: 15.2rem; // 243px
-    bottom: 12rem; // 192px
+    bottom: 5.5rem; // 88px
     left: 6.26rem; // 100px
 
     li {
@@ -2296,8 +2371,6 @@ aside {
     width: 21.5rem; // 344px
     margin-top: 2.5rem; // 40px
   }
-
-  
 
   #div-content-block-5-desc-3 {
     width: 21.5rem; // 344px
