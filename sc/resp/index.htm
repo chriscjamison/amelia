@@ -446,6 +446,7 @@
 				<!-- CONTENT BLOCK #2 -->
 				<div class="div-content">
 					<div class="div-content-block-4" id="div-content-block-4-desc-2">
+						<div>&ldquo;</div>
 						<p>
 							Nullam auctor justo quis mauris venenatis sagittis. Cras malesuada lectus ac lectus tempor ultricies. 
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -455,7 +456,6 @@
 							Etiam vel lorem non arcu pharetra eleifend vitae nec metus. 
 						</p>
 						<span>Owen</span>
-            <div>&ldquo;</div>
 					</div>
 				<!-- END of CONTENT BLOCK #2 -->
 				</div>
@@ -564,37 +564,37 @@
 							<div class="div-content-column" id="div-content-column-1-article-5">
 
 								<!-- Page #1 for FORM TYPE #2 -->
-								<div class="div-form-page-1">
+								<div class="div-form-page-1 div-form-page-visible">
 									
 									<!-- Form Question #1 -->
-									<div class="div-form-question" id="div-form-article-5-question-1">
+									<div class="div-form-question div-form-question-left" id="div-form-article-5-question-1">
 										<h2 class="h2-form">Question <sup>#</sup>1:</h2>
 										<h3 class="h3-form">How many people make up your household?</h3>
 										<fieldset>
-											<div>
-												<input type="radio" name="num_in_household" value="0" id="input-article-5-num_in_household-0" />
+											<p>
+												<input type="radio" name="num_in_household" value="0" id="household_0" />
 												<label for="0">0</label>
-											</div>
-											<div>
-												<input type="radio" name="num_in_household" value="1" id="input-article-5-num_in_household-1" />
+											</p>
+											<p>
+												<input type="radio" name="num_in_household" value="1" id="household_1" />
 												<label for="1">1</label>
-											</div>
-											<div>
-												<input type="radio" name="num_in_household" value="2" id="input-article-5-num_in_household-2" />
+											</p>
+											<p>
+												<input type="radio" name="num_in_household" value="2" id="household_2" />
 												<label for="2">2</label>
-											</div>
-											<div>
-												<input type="radio" name="num_in_household" value="3" id="input-article-5-num_in_household-3" />
+											</p>
+											<p>
+												<input type="radio" name="num_in_household" value="3" id="household_3" />
 												<label for="3">3</label>
-											</div>
-											<div>
-												<input type="radio" name="num_in_household" value="4" id="input-article-5-num_in_household-4" />
+											</p>
+											<p>
+												<input type="radio" name="num_in_household" value="4" id="household_4" />
 												<label for="4">4</label>
-											</div>
-											<div>
-												<input type="radio" name="num_in_household" value="5" id="input-article-5-num_in_household-5" />
+											</p>
+											<p>
+												<input type="radio" name="num_in_household" value="5" id="household_5" />
 												<label for="5">5 or more</label>
-											</div>
+											</p>
 										</fieldset>	
 									<!-- END of Form Question #1 -->
 									</div>
@@ -609,33 +609,34 @@
 							<div class="div-content-column" id="div-content-column-2-article-5">
 
 								<!-- Page #1 of FORM TYPE #2 -->
-								<div class="div-form-page-2">
+								<div class="div-form-page-1 div-form-page-visible"">
 
 									<!-- Form Question #2 -->
 									<div class="div-form-question" id="div-form-article-5-question-2">
 										<h2 class="h2-form">Question <sup>#</sup>2:</h2>
 										<h3 class="h3-form">Click the circle next to the value which matches your monthly income?</h3>
 										<fieldset>
-											<div>
-												<input type="radio" name="monthly_income" value="1" id="input-article-5-income-0" />
+											<p>
+												<input type="radio" name="monthly_income" value="1" id="income_0" />
 												<label for="less-than-500">Less than $3,000</label>
-											</div>
-											<div>
-												<input type="radio" name="monthly_income" value="2" id="input-article-5-income-1" />
+											</p>
+											<p>
+												<input type="radio" name="monthly_income" value="2" id="income_1" />
 												<label for="501-1000">From $3,001 - $4,200</label>
-											</div>
-											<div>
-												<input type="radio" name="monthly_income" value="3" id="input-article-5-income-2" />
+											</p>
+											<p>
+												<input type="radio" name="monthly_income" value="3" id="income_2" />
 												<label for="1001-1500">From $4,201 - $5,000</label>
-											</div>
-											<div>
-												<input type="radio" name="monthly_income" value="4" id="input-article-5-income-3" />
+											</p>
+											<p>
+												<input type="radio" name="monthly_income" value="4" id="income_3" />
 												<label for="1501-2000">From $5,001 - $6,000</label>
-											</div>
-											<div>
-												<input type="radio" name="monthly_income" value="5" id="input-article-5-income-4" />
+											</p>
+											<p>
+												<input type="radio" name="monthly_income" value="5" id="income_6" />
 												<label for="more-than-2000">More than $6,000</label>
-											</div>
+											</p>
+										</fieldset>	
 										</fieldset>	
 									<!-- END of Form Question #2 -->
 									</div>
@@ -654,25 +655,32 @@
 
 				<!-- CONTENT BLOCK #3 -->
 				<div class="div-content">
-					<div class="div-content-block-5-type-4" id="div-content-block-5-header-2">
-						<span>Sliding Scale Rate</span>
+					<div class="div-content-column">
+						<div class="div-content-block-5-type-4" id="div-content-block-5-header-2">
+							<span>Sliding Scale Rate</span>
+						</div>
+
+						<!-- Content block that FORM TYPE #2 updates -->
+						<div class="div-content-block-5-type-5" id="div-content-block-5-desc-4">
+							<div>
+								<div>
+									<sup>$</sup><span>45</span><span>/hour</span>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<!-- Content block that FORM TYPE #2 updates -->
-          <div class="div-content-block-5-type-5" id="div-content-block-5-desc-4">
-						<span>
-              <span><sup>$</sup><span>45</span><span>/hour</span>
-            </span>
-          </div>
-          <div class="div-content-block-5-type-6" id="div-content-block-5-desc-5">
-						<p>
-							Ut at nulla sed dolor congue pellentesque non sodales lorem. Sed gravida nulla venenatis 
-							vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
-							Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
-						</p>
+					<div class="div-content-column">
+						<div class="div-content-block-5-type-6" id="div-content-block-5-desc-5">
+							<p>
+								Ut at nulla sed dolor congue pellentesque non sodales lorem. Sed gravida nulla venenatis 
+								vehicula mattis. Curabitur ipsum turpis, vulputate eu sem sit amet, porta pellentesque lectus. 
+								Mauris egestas augue fermentum justo varius, nec ultrices nisl hendrerit.
+							</p>
 
-						<!-- BUTTON which navigates to FORM TYPE #3 (Contact form) -->
-            <input type="button" name="contact_amelia" value="Contact Amelia" id="button-article-5-contact" />
+							<!-- BUTTON which navigates to FORM TYPE #3 (Contact form) -->
+							<input type="button" name="contact_amelia" value="Contact Amelia" id="button-article-5-contact" />
+						</div>
 					</div>
 				<!-- END of CONTENT BLOCK #3 -->
 				</div>
@@ -754,22 +762,22 @@
 
 				<!-- CONTENT BLOCK #2 -->
 				<div class="div-content">
-					<div id="div-form-article-5">
+					<div id="div-form-article-6">
 
 						<!-- FORM TYPE #3 -->
-						<form method="POST" action="/assets/php/resp/form_3.php" name="article-6" id="form-article-1">
+						<form method="POST" action="/assets/php/resp/form_3.php" name="article-6" id="form-article-6">
 
 							<!-- LEFT COLUMN for FORM TYPE #3 -->
 							<div class="div-content-column" id="div-content-column-1-article-6">
 
 								<!-- Page #1 for FORM TYPE #3 -->
-								<div class="div-form-page-1">
+								<div class="div-form-page-1 div-form-page-visible">
 
 									<!-- Form Question #1 -->
-									<div class="div-form-question" id="div-form-article-6-question-1">
+									<div class="div-form-question div-form-question-left" id="div-form-article-6-question-1">
 										<h2 class="h2-form">Enter in your first name below:</h2>
 										<fieldset>
-											<input type="text" size="34" maxlength="40" name="cntct_name" id="input-article-6-name" />
+											<input type="text" size="27" maxlength="40" name="cntct_name" id="input-article-6-name" />
 										</fieldset>	
 									<!-- END of Form Question #1 -->
 									</div>
@@ -781,34 +789,34 @@
 								<div class="div-form-page-2">
 
 									<!-- Form Question #3 -->
-									<div class="div-form-question" id="div-form-article-6-question-3">
-										<span>Please select an option that best matches your need:</span>
+									<div class="div-form-question div-form-question-left" id="div-form-article-6-question-3">
+										<h2 class="h2-form">Please select an option that best matches your need:</h2>
 										<fieldset>
-											<div>
+											<p>
 												<input type="radio" name="need" value="consultation" id="input-article-6-need-consultation" />
-												<label for="cnsltatn">Consultation</label>
-											</div>
-											<div>
-												<input type="radio" name="need" value="make-appointment" id="input-article-6-need-make_appointment" />
-												<label for="mke-appntmnt">Make Appointment</label>
-											</div>
-											<div>
-												<input type="radio" name="need" value="cancel-appointment" id="input-article-6-need-cancel_appointment" />
-												<label for="cancl-appntmnt">Cancel Appointment</label>
-											</div>
-											<div>
-												<input type="radio" name="need" value="billng" id="input-article-6-need-billing" />
-												<label for="bllng">Billing / Insurance</label>
-											</div>
-											<div>
+												<label for="consultation">Consultation</label>
+											</p>
+											<p>
+												<input type="radio" name="need" value="make_appointment" id="input-article-6-need-make_appointment" />
+												<label for="make_appointment">Make Appointment</label>
+											</p>
+											<p>
+												<input type="radio" name="need" value="cancel_appointment" id="input-article-6-need-cancel_appointment" />
+												<label for="cancel_appointment">Cancel Appointment</label>
+											</p>
+											<p>
+												<input type="radio" name="need" value="billing" id="input-article-6-need-billing" />
+												<label for="billing">Billing / Insurance</label>
+											</p>
+											<p>
 												<input type="radio" name="need" value="other" id="input-article-6-need-other" />
 												<label for="other">Other</label>
-											</div>
-											<div>
-												<input type="text" name="need-other" value="" id="input-article-6-need-other-text" />
-											</div>
+											</p>
+											<p>
+												<input type="text" name="need-other-field" value="" id="input-article-6-need-other-field" />
+											</p>
 										</fieldset>	
-									<!-- END of Form Question #3 -->
+										<!-- END of Form Question #3 -->
 									</div>
 
 								<!-- END of Page #2 for FORM TYPE #3 -->
@@ -821,48 +829,48 @@
 							<div class="div-content-column" id="div-content-column-2-article-6">
 
 								<!-- Page #1 for FORM TYPE #3 -->
-								<div class="div-form-page-1">
+								<div class="div-form-page-1 div-form-page-visible">
 
 									<!-- Form Question #2 -->
 									<div class="div-form-question" id="div-form-article-6-question-2">
-										<span>Please enter your email or phone number below:</span>
+										<h2 class="h2-form">Please enter your email or phone number below:</h2>
 										<fieldset>
-											<div>
-												<input type="radio" name="phone_email" value="email" id="input-article-6-email" />
-												<label for="appntmnt">Email Address</label>
-											</div>
-											<div>
-												<input type="radio" name="phone_email" value="phone" id="input-article-6-phone" />
-												<label for="cnsltatn">Phone Number</label>
-											</div>
-											<input type="email" size="34" maxlength="40" name="cntct_method" id=input-article-6-field-email" />
+											<p>
+												<input type="radio" name="phone_email" value="email" id="input-article-6-phone_email-email" />
+												<label for="email">Email Address</label>
+											</p>
+											<p>
+												<input type="radio" name="phone_email" value="phone" id="input-article-6-phone_email-phone" />
+												<label for="phone">Phone Number</label>
+											</p>
+											<input type="email" size="27" maxlength="40" name="contact_method" id="input-article-6-phone_email-field" />
 										</fieldset>
-									<!-- END of Form Question #2 -->
+										<!-- END of Form Question #2 -->
 									</div>
 
 									<!-- BUTTON to view Page #2 of FORM TYPE #3 -->
-									<input type="button" name="article_6-next" value="Next" id="button-article-6-next" />
+									<input type="button" name="article-6-next" value="Next" id="button-form-article-6-next" />
 
 								<!-- END of Page #2 for FORM TYPE #3 -->
 								</div>
 
 								<!-- Page #2 for FORM TYPE #3 -->
-								<div class="form-page_2">
+								<div class="div-form-page-2">
 
 									<!-- Form Question #4 -->
-									<div class="div-form-question" id="article_6-no_4">
-										<span>Please enter your message for Amelia below:</span>
+									<div class="div-form-question" id="div-form-article-6-question-4">
+										<h2 class="h2-form">Please enter your message for Amelia below:</h2>
 										<fieldset>
-											<textarea name="msg" cols="33" rows="10" id="msg"></textarea>
+											<textarea name="message" cols="27" rows="10" id="textarea-article-6-message"></textarea>
 										</fieldset>
 									<!-- END of Form Question #4 -->
 									</div>
 
-									<!-- BUTTON to Submit FORM TYPE #3 -->
-									<input type="submit" name="article_6-sbmt" value="Send Message" id="submit-form-article-6" />
 									<!-- BUTTON to view Page #1 of FORM TYPE #3 -->
+									<input type="button" name="article-6-previous" value="Previous" id="button-form-article-6-previous" />
 
-									<input type="button" name="article_6-prev" value="Previous" id="button-article-6-previous" />
+									<!-- BUTTON to Submit FORM TYPE #3 -->
+									<input type="submit" name="article-6-submit" value="Send Message" id="submit-form-article-6" />
 								<!-- END of Page #2 of FORM TYPE #3 -->
 								</div>
 

@@ -501,18 +501,24 @@ input[type=submit]:hover {
 
 #button-form-article-1-next, 
 #button-form-article-1-previous, 
-#submit-form-article-1  {
+#submit-form-article-1, 
+#submit-form-article-5, 
+#button-article-6-next, 
+#button-form-article-6-previous, 
+#submit-form-article-6  {
   left: 21.5rem; // 344px
 }
 
-#button-form-article-1-next {
+#button-form-article-1-next, 
+#button-form-article-6-next {
   transform: translateX(-5rem);
 }
 /* Formats a <button> element which appears on the first page of the form of 
  * 'SECTION #1'.
  */
 
- #button-form-article-1-previous {
+ #button-form-article-1-previous, 
+ #button-form-article-6-previous {
   margin-left: 0;
   transform: translateX(-12.5rem);
 }
@@ -520,15 +526,13 @@ input[type=submit]:hover {
  * 'SECTION #1'.
  */
 
-#submit-form-article-1 {
+#submit-form-article-1, 
+#submit-form-article-6 {
   transform: translateX(-13rem);
 }
 /* Formats a <button> element which appears on the first page of the form of 
  * 'SECTION #1'.
  */
-
-
-
 
 #button-article-5-start {
   margin: 0 0 1.25rem 0; // 0 0 20px 0
@@ -539,7 +543,9 @@ input[type=submit]:hover {
  */
 
 #submit-form-article-5 {
-	margin: 0.35rem 0 0.7rem 0;
+  margin: 0;
+  letter-spacing: -0.5px;
+  transform: translateX(-3.81rem); // 61px
 }
 /* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
 
@@ -852,10 +858,10 @@ nav {
     background-color: $nav_background_color; 
 
     #div-nav-border {
-      width: 41em;
-      height: 6.25em;
+      width: 40.25rem;
+      height: 6.25rem;
       position: fixed;
-      left: -41em;
+      left: -40.25rem;
       z-index: 3;
       background-color: $nav_border_color;
     }
@@ -1330,7 +1336,6 @@ aside {
 
 .div-content-block-3 { 
   h2 {
-    display: block;
     margin: 0 0 $margin_value_1 0;
     padding-bottom: 0.1rem; // 2px
     border-bottom: 0.1rem solid; // 2px
@@ -1389,9 +1394,6 @@ aside {
 
    div {
     position: absolute;
-    top: -0.3rem;
-    left: 0.06rem;
-    font-size: 12rem;
   }
   /* Formats <div> elements which appear as quotation marks above the blocks 
    * contained within 'SECTION #4'.
@@ -1513,13 +1515,6 @@ aside {
    * Formats a <span> element which are contained within a block within 
    * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
    */
-
-  p {
-    border-bottom: 0.13rem solid; // 2px
-  }
-  /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
-   * containing logos and text.
-   */
 }
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 
@@ -1558,6 +1553,9 @@ aside {
  */
 
 #div-content-block-5-header-2 {
+  width: 21.5rem; // 344px
+  padding: $padding_value_3 $padding_value_5;
+  transform: translateX(15.5rem); // 248px
 	background-color: $content_block_5_background_3_color;
   color: $content_block_5_text_2_color;
   
@@ -1627,16 +1625,16 @@ aside {
  */
 
  #div-content-block-5-desc-4 {
-  float: left;
+  padding: $padding_value_3 $padding_value_5;
   background-color: #216F43;
 
-  span {
+  div {
     width: 100%;
     height: 225px;
     display: table;
     float: 1rem;
 
-    span {
+    div {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
@@ -1646,29 +1644,29 @@ aside {
         top: 55px;
         font-size: 2.5rem;
         color: #C8CBDF;
-
-        span {
-          font-size: 10rem;
-          letter-spacing: -10px;
-          color: #fff;
-        }
-        /* 
-         * Formats the numberical value that appears in the block below the block that serves as a header  
-         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
-         */
-
-         span + span {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-          color: #96C5AA;
-        }
-        /* 
-         * Formats the text, '/hour', that appears in the below the block that serves as a header 
-         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
-         */
       }
       /* 
        * Formats the dollar sign that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+
+      span {
+        font-size: 10rem;
+        letter-spacing: -10px;
+        color: #fff;
+      }
+      /* 
+       * Formats the numberical value that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+
+       span + span {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        color: #96C5AA;
+      }
+      /* 
+       * Formats the text, '/hour', that appears in the below the block that serves as a header 
        * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
        */
     }
@@ -1688,12 +1686,14 @@ aside {
  */
 
 #div-content-block-5-desc-5 {
-  float: left;
+  width: 21.5rem; // 344px
+  margin-top: 0 !important;
+  padding: $padding_value_3 $padding_value_5;
   background-color: #C8CBDF;
   color: #2A326B;
 
   p {
-    font-size: 0.95rem; // 11pt
+    font-size: $base_font_size;
     border-bottom: 0.13rem solid; // 2px
   }
   /* 
@@ -1904,9 +1904,9 @@ aside {
   /* ****** NAVIGATION ****** */
 
   nav {
-    width: 41rem; // 656px
+    width: 40.25rem; // 656px
     height: 100%;
-    left: -41rem; // -656px
+    left: -40.25rem; // -656px
   
     #div-nav-icon {
       width: 3.13rem; // 50px
@@ -1962,30 +1962,32 @@ aside {
       * This is the state which appears when the navigation panel is open. 
       */
   
-      #div-nav-options {
-      width: 41rem; // 656px
+    #div-nav-options {
+      width: 40.25rem; // 656px
+      padding-left: $padding_value_1;
       top: 6.56rem; // 105px
-      left: -41rem; // -656px
+      left: -40.25rem; // -656px
   
       a {
         width: 12.4em; // 198px
         height: 2.35em; // 38px
-        margin: 1em; // 16rem
+        margin: $margin_value_3 0 0.25rem $margin_value_3;
         padding: 1em; // 16rem
+        display: inline-block;
         font-size: $nav_options_font_size_1;
       }
     }
   
     #div-nav-background {
-      width: 41rem; // 656px
+      width: 40.25rem; // 656px
       height: 100%;
-      left: -41rem; // -656px
+      left: -40.25rem; // -656px
     }
   
     #div-nav-border {
-      width: 41rem; // 656px
+      width: 40.25rem; // 656px
       height: 6.25rem; // 100px
-      left: -41rem; // 656px
+      left: -40.25rem; // 656px
     }
   
     .nav-visible {
@@ -1993,7 +1995,7 @@ aside {
     }
   
     .nav-not_visible {
-      left: -41rem !important; // -656px
+      left: -40.25rem !important; // -656px
     }
   }
   
@@ -2267,9 +2269,10 @@ aside {
 
   .div-content-block-4 { 
     div {
-      top: -0.3rem; // 5px
+      top: 3.2rem; // 51px
       left: 0.06rem; // 1px
-      font-size: 12rem; // 144pt
+      font-size: 10rem; // 120pt
+      line-height: 0.1;
     }
     /* Formats <div> elements which appear as quotation marks above the blocks 
      * contained within 'SECTION #4'.
@@ -2303,7 +2306,7 @@ aside {
   }
   
   #div-content-block-4-desc-4, 
-  #div-content-block-5-desc-5 {
+  #div-content-block-5-desc-5 {   
     p {
       padding-bottom: 0.9rem; // 14px
     }
@@ -2399,6 +2402,12 @@ aside {
     margin-top: $margin_value_3;
   }
   
+  #div-content-block-5-desc-4 {
+    width: 21.5rem; // 344px
+    margin-top: 1.5rem;
+    padding: $padding_value_3 $padding_value_5;
+    transform: translateX(15.5rem); // 312px
+  }
 
   /* ****** SECTION #6 ****** */
 
@@ -2468,7 +2477,22 @@ aside {
   }
 
   #div-content-block-6-desc-3 {
-    padding: 1rem 2rem; // 16px 32px
-    margin-bottom: 20rem; // 320px
+    width: 32.5rem; // 520px
+    margin: 0 auto;
+    padding: $padding_value_3 $padding_value_5;
+    left: auto;
+    position: relative;
+    transform: none;
+    
+    h2 {
+      width: 100%;
+      margin: 0 0 $margin_value_1 0;
+      padding-bottom: 0.25rem; // 4px
+      display: inline-block;
+      transform: none;
+      border-bottom: 2px solid;
+      font-size: $lg_h2_font_size;
+      font-weight: $bold_font_weight;
+    }  
   }
 }	

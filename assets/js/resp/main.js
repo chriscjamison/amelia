@@ -63,6 +63,12 @@ $(document).ready(
         $(this).addClass("nav-option-click");
 
         navigateToNewSection($(this).attr("id"));
+
+        animateMenuIcon("click");
+
+        animateVisibleContent();
+
+        animateMenu();
       }
     );
 
@@ -103,9 +109,95 @@ $(document).ready(
         swapFormQuestions();
       }
     );
+
+    $("#button-article-5-start").on("click", 
+      function () {
+        window.location.hash = "#article=5&position=1";
+
+        centerBrowser();
+
+        positionContent();
+      }
+    );
+
+    $("#button-article-5-contact").on("click", 
+      function () {
+        window.location.hash = "#article=6&position=0";
+
+        centerBrowser();
+
+        positionContent();
+      }
+    );
+
+    $("#button-article-6-start").on("click", 
+      function () {
+        window.location.hash = "#article=6&position=1";
+
+        centerBrowser();
+
+        positionContent();
+      }
+    );
+
+    $("#button-article-6-map").on("click", 
+      function () {
+        window.open("https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027", "_blank");
+      }
+    );
+
+    $("#button-article-6-next").on("click", 
+      function () {
+        window.location.hash = "#article=6&position=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    
+
+    $("#button-article-6-previous").on("click", 
+      function () {
+        window.location.hash = "#article=6&position=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $(".div-nav-article > div > div > a").on("click", 
+      function () {
+       closeSectionNavigation();
+      }
+    );
   }
 );
 
+
+
+function closeSectionNavigation() {
+  // A String variable which will hold the CSS selector which refers 
+  // to intrasection navigation is initialized.
+  var section_nav_div_selector = "";
+
+  // The CSS selector which refers to intrasection navigation 
+  // is passed on.
+  section_nav_div_selector = ".div-nav-article > div > div";
+
+  // An Object variable which will hold the jQuery object which 
+  // refers to the intrasection navigation is initialized.
+  var section_nav_div_element = {};
+
+  // The jQuery object which refers to the intrasection navigation 
+  // is initialized.
+  section_nav_div_element = $(section_nav_div_selector);
+
+  // The links of the intrasection navigation is made not visible.
+  $(section_nav_div_element).removeClass("div-nav-article-visible");
+}
 
 
 function showSectionNavigation(article_value) {

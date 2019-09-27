@@ -278,23 +278,30 @@ input[type=submit]:hover {
  */
 #button-form-article-1-next,
 #button-form-article-1-previous,
-#submit-form-article-1 {
+#submit-form-article-1,
+#submit-form-article-5,
+#button-article-6-next,
+#button-form-article-6-previous,
+#submit-form-article-6 {
   left: 21.5rem; }
 
-#button-form-article-1-next {
+#button-form-article-1-next,
+#button-form-article-6-next {
   transform: translateX(-5rem); }
 
 /* Formats a <button> element which appears on the first page of the form of 
  * 'SECTION #1'.
  */
-#button-form-article-1-previous {
+#button-form-article-1-previous,
+#button-form-article-6-previous {
   margin-left: 0;
   transform: translateX(-12.5rem); }
 
 /* Formats a <button> element which appears on the first page of the form of 
  * 'SECTION #1'.
  */
-#submit-form-article-1 {
+#submit-form-article-1,
+#submit-form-article-6 {
   transform: translateX(-13rem); }
 
 /* Formats a <button> element which appears on the first page of the form of 
@@ -308,7 +315,9 @@ input[type=submit]:hover {
  * 'SECTION #5'.
  */
 #submit-form-article-5 {
-  margin: 0.35rem 0 0.7rem 0; }
+  margin: 0;
+  letter-spacing: -0.5px;
+  transform: translateX(-3.81rem); }
 
 /* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
 #button-article-5-contact {
@@ -577,10 +586,10 @@ nav {
      * menu. 
      */ }
     nav #div-nav-background #div-nav-border {
-      width: 41em;
-      height: 6.25em;
+      width: 40.25rem;
+      height: 6.25rem;
       position: fixed;
-      left: -41em;
+      left: -40.25rem;
       z-index: 3;
       background-color: #444; }
 
@@ -949,7 +958,6 @@ aside {
    * '#div-content-block-3-desc-4'.
    */ }
   .div-content-block-3 h2 {
-    display: block;
     margin: 0 0 0.5rem 0;
     padding-bottom: 0.1rem;
     border-bottom: 0.1rem solid;
@@ -997,10 +1005,7 @@ aside {
   .div-content-block-4 p {
     line-height: 1.6; }
   .div-content-block-4 div {
-    position: absolute;
-    top: -0.3rem;
-    left: 0.06rem;
-    font-size: 12rem; }
+    position: absolute; }
   .div-content-block-4 span {
     width: 100%;
     display: block;
@@ -1082,16 +1087,11 @@ aside {
   /* 
    * Formats a <span> element which are contained within a block within 
    * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
-   */
-  /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
-   * containing logos and text.
    */ }
   #div-content-block-4-desc-4 div {
     color: #FFF2DE; }
   #div-content-block-4-desc-4 span {
     color: #D3A75D; }
-  #div-content-block-4-desc-4 p {
-    border-bottom: 0.13rem solid; }
 
 /* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
 /* ****** SECTION #5 ****** */
@@ -1122,6 +1122,9 @@ aside {
  * of 'SECTION #5'. 
  */
 #div-content-block-5-header-2 {
+  width: 21.5rem;
+  padding: 1rem 2rem;
+  transform: translateX(15.5rem);
   background-color: #C1D1D9;
   color: #408B61;
   /* Formats the text of the block which serves as a header for the content contained 
@@ -1174,13 +1177,13 @@ aside {
  * which contain either logos or text. 
  */
 #div-content-block-5-desc-4 {
-  float: left;
+  padding: 1rem 2rem;
   background-color: #216F43;
   /* 
    * Formats a block that serves as a container for text copy that appears below the block 
    * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
    */ }
-  #div-content-block-5-desc-4 span {
+  #div-content-block-5-desc-4 div {
     width: 100%;
     height: 225px;
     display: table;
@@ -1189,42 +1192,44 @@ aside {
      * Formats a block that serves as a container for text copy that appears below the block 
      * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
      */ }
-    #div-content-block-5-desc-4 span span {
+    #div-content-block-5-desc-4 div div {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
       /* 
        * Formats the dollar sign that appears in the block below the block that serves as a header  
        * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+      /* 
+       * Formats the numberical value that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+      /* 
+       * Formats the text, '/hour', that appears in the below the block that serves as a header 
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
        */ }
-      #div-content-block-5-desc-4 span span sup {
+      #div-content-block-5-desc-4 div div sup {
         position: absolute;
         top: 55px;
         font-size: 2.5rem;
-        color: #C8CBDF;
-        /* 
-         * Formats the numberical value that appears in the block below the block that serves as a header  
-         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
-         */
-        /* 
-         * Formats the text, '/hour', that appears in the below the block that serves as a header 
-         * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
-         */ }
-        #div-content-block-5-desc-4 span span sup span {
-          font-size: 10rem;
-          letter-spacing: -10px;
-          color: #fff; }
-        #div-content-block-5-desc-4 span span sup span + span {
-          font-size: 1.5rem;
-          letter-spacing: 0;
-          color: #96C5AA; }
+        color: #C8CBDF; }
+      #div-content-block-5-desc-4 div div span {
+        font-size: 10rem;
+        letter-spacing: -10px;
+        color: #fff; }
+      #div-content-block-5-desc-4 div div span + span {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        color: #96C5AA; }
 
 /* 
  * Formats a block that appears below the block that serves as a header 
  * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
  */
 #div-content-block-5-desc-5 {
-  float: left;
+  width: 21.5rem;
+  margin-top: 0 !important;
+  padding: 1rem 2rem;
   background-color: #C8CBDF;
   color: #2A326B;
   /* 
@@ -1232,7 +1237,7 @@ aside {
    * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
    */ }
   #div-content-block-5-desc-5 p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     border-bottom: 0.13rem solid; }
 
 /* 
@@ -1390,9 +1395,9 @@ aside {
     position: relative; }
   /* ****** NAVIGATION ****** */
   nav {
-    width: 41rem;
+    width: 40.25rem;
     height: 100%;
-    left: -41rem;
+    left: -40.25rem;
     /* Sets a class which is used to alter the 'click-state' of the menu icon 
       * appears in the upper left of the page. 
       * This is the default, 'base', click state.
@@ -1434,27 +1439,29 @@ aside {
     nav .nav-icon-click-2 {
       background-position: 0 -150px; }
     nav #div-nav-options {
-      width: 41rem;
+      width: 40.25rem;
+      padding-left: 0.5rem;
       top: 6.56rem;
-      left: -41rem; }
+      left: -40.25rem; }
       nav #div-nav-options a {
         width: 12.4em;
         height: 2.35em;
-        margin: 1em;
+        margin: 1rem 0 0.25rem 1rem;
         padding: 1em;
+        display: inline-block;
         font-size: 1.25rem; }
     nav #div-nav-background {
-      width: 41rem;
+      width: 40.25rem;
       height: 100%;
-      left: -41rem; }
+      left: -40.25rem; }
     nav #div-nav-border {
-      width: 41rem;
+      width: 40.25rem;
       height: 6.25rem;
-      left: -41rem; }
+      left: -40.25rem; }
     nav .nav-visible {
       left: 0 !important; }
     nav .nav-not_visible {
-      left: -41rem !important; }
+      left: -40.25rem !important; }
   #div-nav-article-previous,
   #div-nav-article-next {
     width: 4.9rem;
@@ -1627,9 +1634,10 @@ aside {
      * contained within 'SECTION #4'.
      */ }
     .div-content-block-4 div {
-      top: -0.3rem;
+      top: 3.2rem;
       left: 0.06rem;
-      font-size: 12rem; }
+      font-size: 10rem;
+      line-height: 0.1; }
   #div-content-block-4-desc-3 span span {
     width: 6.56rem;
     height: 1.69rem;
@@ -1706,6 +1714,11 @@ aside {
   #div-content-block-5-desc-5 {
     min-height: 14.06rem;
     margin-top: 1rem; }
+  #div-content-block-5-desc-4 {
+    width: 21.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    transform: translateX(15.5rem); }
   /* ****** SECTION #6 ****** */
   .div-content-block-6-type-1 {
     width: 21.5rem;
@@ -1750,5 +1763,18 @@ aside {
   .div-spacer-article-6 {
     width: 28.9rem; }
   #div-content-block-6-desc-3 {
+    width: 32.5rem;
+    margin: 0 auto;
     padding: 1rem 2rem;
-    margin-bottom: 20rem; } }
+    left: auto;
+    position: relative;
+    transform: none; }
+    #div-content-block-6-desc-3 h2 {
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+      padding-bottom: 0.25rem;
+      display: inline-block;
+      transform: none;
+      border-bottom: 2px solid;
+      font-size: 2.5rem;
+      font-weight: 700; } }
