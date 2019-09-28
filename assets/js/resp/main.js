@@ -6,6 +6,10 @@
 $(window).on("load", 
   function () {
     initializePage();
+
+    displayContent();
+
+    animateIntrapageNavigation();
   }
 );
 
@@ -17,7 +21,13 @@ $(window).on("hashchange",
   }
 );
 
+$(window).on("scroll", 
+  function () {
+    displayContent();
 
+    animateIntrapageNavigation();
+  }
+);
 
 $(document).ready(
   function () {
@@ -71,7 +81,6 @@ $(document).ready(
         animateMenu();
       }
     );
-
 
     $("#button-article-1-start").on("click", 
       // Activates when the user clicks on a "button" element within "SECTION #1" 
@@ -156,8 +165,6 @@ $(document).ready(
       }
     );
 
-    
-
     $("#button-article-6-previous").on("click", 
       function () {
         window.location.hash = "#article=6&position=1";
@@ -175,6 +182,324 @@ $(document).ready(
     );
   }
 );
+
+
+
+function scrollToPreviousSection()  {
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = setDisplayType();
+
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // A Number variable which will hold the vertical position of the browser 
+  // within the webpage is initialized.
+  var current_position;
+
+  // The current position of the browser window is passed on.
+  current_position = $(window).scrollTop(); 
+
+  // A Number variable which will hold the a value which refers to the 
+  // section currently viewable in the browser window is initialized.
+  var current_section;
+
+  // The section the browser is currently viewing is found out by 
+  // dividing the value of 'current_position' by 'section_height'.
+  current_section = Math.floor(current_position / section_height);
+
+  // A Number variable which will hold a new point within the webpage to 
+  // scroll to is initialized.
+  var new_position;
+
+  // A point within the webpage to scroll to is calcluated by subtracting 
+  // '1' from the value of 'current_section' and multiplying that value 
+  // by the value of 'section_height'.
+  new_position = (current_section - 1) * section_height;
+
+  // IF statement which sets the value of 'new_position' to '0' if the 
+  // current section is the landing section.
+  if (current_section === 0)  {
+    new_position = 0;
+  }
+
+  // The browser is set to scroll to the point the previous section begins.
+  $(window).scrollTop(new_position);
+}
+
+
+
+function scrollToNextSection()  {
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = setDisplayType();
+  
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // A Number variable which will hold the vertical position of the browser 
+  // within the webpage is initialized.
+  var current_position;
+
+  // The current position of the browser window is passed on.
+  current_position = $(window).scrollTop(); 
+
+  // A Number variable which will hold the a value which refers to the 
+  // section currently viewable in the browser window is initialized.
+  var current_section;
+
+  // The section the browser is currently viewing is found out by 
+  // dividing the value of 'current_position' by 'section_height'.
+  current_section = Math.floor(current_position / section_height);
+
+  // A Number variable which will hold a new point within the webpage to 
+  // scroll to is initialized.
+  var new_position;
+
+  // A point within the webpage to scroll to is calcluated by subtracting 
+  // '1' from the value of 'current_section' and multiplying that value 
+  // by the value of 'section_height'.
+  new_position = (current_section + 1) * section_height;
+
+  // The browser is set to scroll to the point the previous section begins.
+  $(window).scrollTop(new_position);
+}
+
+
+
+function animateIntrapageNavigation() {
+  // A String variable which will hold the CSS selector which refers to the 
+  // main block of content is initialized.
+  var main_selector = "";
+
+  // The CSS selector which refers to the main block of content is passed on.
+  main_selector = "main";
+
+  // An Object variable which will hold a jQuery object which refers to the 
+  // main block of content is initialized.
+  var main_element = {};
+
+  // The jQuery object which refers to the main block of content is passed on.
+  main_element = $(main_selector);
+
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = setDisplayType();
+
+  // A Number variable which will hold the height of the webpage is initialized.
+  var webpage_height;
+
+  // The height of the webpage is passed on.
+  webpage_height = $(main_element).height();
+
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // A Number variable which will hold the vertical position of the browser 
+  // within the webpage is initialized.
+  var current_position;
+
+  // The current position of the browser window is passed on.
+  current_position = $(window).scrollTop(); 
+
+  // A Boolean variable which represents if the browser is at the top of the 
+  // webpage is initialized.
+  var is_browser_at_the_top;
+
+  // A Boolean variable which represents if the browser is at the bottom 
+  // of the webpage is initialized.
+  var is_browser_at_the_bottom;
+
+  // The default states of the flags are passed on. For the sake of this 
+  // function, it is assumed that the browser is at the top of the webpage.
+  is_browser_at_the_top = true;
+  is_browser_at_the_bottom = false;
+
+  // IF statement which determines if the browser is at the top of the webpage.
+  if (current_position > 0) {
+    is_browser_at_the_top = false;
+  }
+  // IF statement which determines if the browser is at the bottom of the webpage.
+  if (section_height >= (webpage_height - current_position)) {
+    is_browser_at_the_bottom = true;
+  }
+
+  // IF/ELSE IF statement which will change the visibility of the intrapage 
+  // navigation which appears along the bottom of the webpage. 
+  // If the browser is at the top of the webpage, the link for the 'previous' 
+  // section is not displayed. If the browser is at the bottom of the webpage 
+  // the link for the 'next' section is not displayed. Otherwise, both links 
+  // are displayed.
+  if (is_browser_at_the_top === true) {
+    // A String variable which will hold the CSS selector which refers to the 
+    // link to the previous section is initialized.
+    var previous_link_selector = "";
+
+    // The CSS selector which refers to the link to the previous section 
+    // is passed on.
+    previous_link_selector = "#a-nav-article-previous";
+
+    // An Objet variable which will hold the jQuery object which refers to the 
+    // link to the previous section is initialized.
+    var previous_link_element = {};
+
+    // The jQuery object which refers to the link to the previous section 
+    // is passed on.
+    previous_link_element = $(previous_link_selector);
+
+    // The link to the previous section is made visible.
+    if ($(previous_link_element).css("opacity") !== "0")  {
+      $(previous_link_element).fadeTo(400, 0);
+    }
+  } 
+  
+  if (is_browser_at_the_bottom === true) {
+    // A String variable which will hold the CSS selector which refers to the 
+    // link to the next section is initialized.
+    var next_link_selector = "";
+
+    // The CSS selector which refers to the link to the next section 
+    // is passed on.
+    next_link_selector = "#a-nav-article-next";
+
+    // An Object variable which will hold the jQuery object which refers to the 
+    // link to the next section is initialized.
+    var next_link_element = {};
+
+    // The jQuery object which refers to the link to the next section 
+    // is passed on.
+    next_link_element = $(next_link_selector);
+
+    // The link to the next section is made visible.
+    if ($(next_link_element).css("opacity") !== "0")  {
+      $(next_link_element).fadeTo(400, 0);
+    }
+  }
+
+  if (is_browser_at_the_bottom === false && 
+      is_browser_at_the_top === false) {
+    // String variables which will hold the CSS selectors which refer to the 
+    // intrapage navigation are initialized.
+    var previous_link_selector = "";
+    var next_link_selector = "";
+
+    // The CSS selectors which refer to the intrapage navigation are passed on.
+    previous_link_selector = "#a-nav-article-previous";
+    next_link_selector = "#a-nav-article-next";
+
+    // Object variables which will hold the jQuery objects which refer to the 
+    // intrapage navigation are initialized.
+    var previous_link_element = {};
+    var next_link_element = {};
+
+    // The jQuery objects which refer to the intrapage navigation are passed on.
+    previous_link_element = $(previous_link_selector);
+    next_link_element = $(next_link_selector);
+
+    // The link to the previous section is made visible.
+    if ($(previous_link_element).css("opacity") !== "1")  {
+      $(previous_link_element).fadeTo(400, 1);
+    }
+
+    // The link to the next section is made visible.
+    if ($(next_link_element).css("opacity") !== "1")  {
+      $(next_link_element).fadeTo(400, 1);
+    }
+  }
+}
+
+
+
+function displayContent() {
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = setDisplayType();
+
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // A Number variable which will hold the vertical position of the browser 
+  // within the webpage is initialized.
+  var current_position;
+
+  // The current position of the browser window is passed on.
+  current_position = $(window).scrollTop();
+
+  // A Number variable which will hold the a value which refers to the 
+  // section currently viewable in the browser window is initialized.
+  var current_section;
+
+  // The section the browser is currently viewing is found out by 
+  // dividing the value of 'current_position' by 'section_height'.
+  current_section = Math.floor(current_position / section_height);
+
+  // A String variable which will hold a CSS selector which refers 
+  // to the section which is visible in the browser window is initialized.
+  var article_visible_selector = "";
+
+  // The CSS selector which refers to the section which is visible 
+  // is passed on.
+  article_visible_selector = "#article-content-" + current_section.toString();
+
+  // IF statment which will change the value of 'article_visible_selector' 
+  // if the section visible in the browser window is the landing section.
+  if (current_section === 0)  {
+    article_visible_selector = "#article-content-landing";
+  }
+
+  // An Object variable which will hold the jQuery object which refers 
+  // to the section which is visible in the browser window is initialized.
+  var article_visible_element = {};
+
+  // The jQuery object which refers to the section which is visible 
+  // in the browser window is passed on.
+  article_visible_element = $(article_visible_selector);
+
+  // A Boolean variable which will hold a value which refers to the value 
+  // of the CSS property, 'opacity', is initialized.
+  var is_content_visible;
+
+  // IF/ELSE statement which determines if the content within the browser 
+  // window is visible.
+  if ($(article_visible_element).css("opacity") !== "0")  {
+    is_content_visible = true;  
+  } else {
+    is_content_visible = false;
+  }
+
+  // The content within the browser window is made visible.
+  if (is_content_visible === false) {
+    $(article_visible_element).fadeTo(400, 1);
+  }
+}
 
 
 
@@ -908,83 +1233,88 @@ function positionContent()  {
   // is gathered.
   hash_data_Array = extractHashData();
 
-  // Strings which will hold the data from the GET variables 
-  // in the hash of the URL are initialized.
-  var article_value = "";
-  var position_value = "";
+  // IF statement which only runs the code to position the content 
+  // if a hash in the URL exists.
+  if (hash_data_Array !== undefined)  {
+    // Strings which will hold the data from the GET variables 
+    // in the hash of the URL are initialized.
+    var article_value = "";
+    var position_value = "";
 
-  // The values of the GET variables in the hash of the URL 
-  // are passed on.
-  article_value = hash_data_Array[0];
-  position_value = hash_data_Array[1];
+    // The values of the GET variables in the hash of the URL 
+    // are passed on.
+    article_value = hash_data_Array[0];
+    position_value = hash_data_Array[1];
 
-  // A String which will hold the CSS selector for section 
-  // of content which will be positioned is initialized.
-  var article_selector = "";
+    // A String which will hold the CSS selector for section 
+    // of content which will be positioned is initialized.
+    var article_selector = "";
 
-  // The CSS selector for the section of content which will 
-  // be positioned is initialized.
-  article_selector = "#article-content-" + article_value;
+    // The CSS selector for the section of content which will 
+    // be positioned is initialized.
+    article_selector = "#article-content-" + article_value;
 
-  // An Object which will hold the jQuery object which refers 
-  // to the section of content which will be positioned 
-  // is intiialized.
-  var article_element = {};
+    // An Object which will hold the jQuery object which refers 
+    // to the section of content which will be positioned 
+    // is intiialized.
+    var article_element = {};
 
-  // The jQuery object which refers to the section of content 
-  // which will be positioned is passed on.
-  article_element = $(article_selector);
+    // The jQuery object which refers to the section of content 
+    // which will be positioned is passed on.
+    article_element = $(article_selector);
+    
+    // A String variable which will hold the CSS selector which refers 
+    // to the block of content within this section which is visible 
+    // is initialized.
+    var div_content_visible_selector = "";
+
+    // The CSS selector for the block of content which is visible 
+    // within this section is passed on.
+    div_content_visible_selector = "div-content-visible"; 
+
+    // All blocks of content within the section which is now visible are now made 
+    // invisible.
+    $(article_element).children("div").removeClass(div_content_visible_selector);
+
+    // The value of 'position_value' is converted to an integer.
+    position_value = parseInt(position_value);
+
+    // A String variable which will hold the CSS selector which refers to the block of 
+    // content to be made viewable is initialized.
+    var content_block_selector = "";
+
+    // The CSS selector for the block of content to be made viewable is passed on.
+    content_block_selector = article_selector + " > div:nth-child(" + (position_value + 2).toString() + ")";
+
+    // IF statment which will alter the value of 'content_block_selector' if the 
+    // 'section' includes a form.
+    if ((article_value === "1" || article_value === "6") && 
+        position_value > 1) {
+      content_block_selector = article_selector + " > div:nth-child(" + (position_value + 1).toString() + ")";
+    }
+
+    // An Object variable which will hold the jQuery object which refers to the HTML element 
+    // which holds the block of content to be made viewable is initialized.
+    var content_block_element = {};
+
+    // The jQuery object that refers to the HTML element which holds the block of content 
+    // to be made viewable is passed on.
+    content_block_element = $(content_block_selector);
+
+    // The block of content which the variable in the URL hash refers to is made visible.
+    $(content_block_element).addClass(div_content_visible_selector);
+
+    // IF statment which will change the current 'page' of form questions if the 
+    // 'section' includes a form.
+    if ((article_value === "1" || article_value === "6") && 
+        position_value > 1) {
+      swapFormQuestions();
+    }
+
+    // The background of the section is repositioned.
+    positionBackgrounds();
+  }
   
-  // A String variable which will hold the CSS selector which refers 
-  // to the block of content within this section which is visible 
-  // is initialized.
-  var div_content_visible_selector = "";
-
-  // The CSS selector for the block of content which is visible 
-  // within this section is passed on.
-  div_content_visible_selector = "div-content-visible"; 
-
-  // All blocks of content within the section which is now visible are now made 
-  // invisible.
-  $(article_element).children("div").removeClass(div_content_visible_selector);
-
-  // The value of 'position_value' is converted to an integer.
-  position_value = parseInt(position_value);
-
-  // A String variable which will hold the CSS selector which refers to the block of 
-  // content to be made viewable is initialized.
-  var content_block_selector = "";
-
-  // The CSS selector for the block of content to be made viewable is passed on.
-  content_block_selector = article_selector + " > div:nth-child(" + (position_value + 2).toString() + ")";
-
-  // IF statment which will alter the value of 'content_block_selector' if the 
-  // 'section' includes a form.
-  if ((article_value === "1" || article_value === "6") && 
-      position_value > 1) {
-    content_block_selector = article_selector + " > div:nth-child(" + (position_value + 1).toString() + ")";
-  }
-
-  // An Object variable which will hold the jQuery object which refers to the HTML element 
-  // which holds the block of content to be made viewable is initialized.
-  var content_block_element = {};
-
-  // The jQuery object that refers to the HTML element which holds the block of content 
-  // to be made viewable is passed on.
-  content_block_element = $(content_block_selector);
-
-  // The block of content which the variable in the URL hash refers to is made visible.
-  $(content_block_element).addClass(div_content_visible_selector);
-
-  // IF statment which will change the current 'page' of form questions if the 
-  // 'section' includes a form.
-  if ((article_value === "1" || article_value === "6") && 
-      position_value > 1) {
-    swapFormQuestions();
-  }
-
-  // The background of the section is repositioned.
-  positionBackgrounds();
 }
 
 
