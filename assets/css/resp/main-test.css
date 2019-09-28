@@ -283,7 +283,7 @@ input[type=submit]:hover {
 #button-form-article-1-previous,
 #submit-form-article-1,
 #submit-form-article-5,
-#button-article-6-next,
+#button-form-article-6-next,
 #button-form-article-6-previous,
 #submit-form-article-6 {
   left: 21.5rem; }
@@ -342,7 +342,7 @@ input[type=submit]:hover {
  * This button starts the form process. 
  */
 #submit-form-article-6 {
-  letter-spacing: -0.7px; }
+  letter-spacing: -1px; }
 
 /* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
  * within 'SECTION #1'.

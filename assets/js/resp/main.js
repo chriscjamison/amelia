@@ -155,7 +155,7 @@ $(document).ready(
       }
     );
 
-    $("#button-article-6-next").on("click", 
+    $("#button-form-article-6-next").on("click", 
       function () {
         window.location.hash = "#article=6&position=2";
 
@@ -165,7 +165,7 @@ $(document).ready(
       }
     );
 
-    $("#button-article-6-previous").on("click", 
+    $("#button-form-article-6-previous").on("click", 
       function () {
         window.location.hash = "#article=6&position=1";
 
