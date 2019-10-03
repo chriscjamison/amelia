@@ -143,6 +143,66 @@ $(document).ready(
         swapFormQuestions();
       }
     );
+
+    $("#mobile-button-form-article-1-previous-2").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-1-next-2").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=3";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-1-previous-3").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-1-next-3").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=4";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-1-previous-4").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=3";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
     
 
     $("#button-article-5-start").on("click", 
@@ -668,7 +728,7 @@ function swapFormQuestions()  {
       $(page_two_questions_elements).addClass(page_visible_selector);
     }
   } else if (num_of_values === 3)  {
-console.log("3");
+
     // A String variable which will hold the value of the GET variable, 
     // 'question' is initialized.
     var question_value = "";
@@ -711,12 +771,12 @@ console.log("3");
     $(page_two_questions_elements).removeClass(page_visible_selector);
     
     // IF/ELSE statement which will set the visibility of a given page.
-    if (position_value === "1") {
+    if (position_value === "2" && (question_value === "1" || question_value === "2")) {
       $(page_one_questions_elements).addClass(page_visible_selector);
     } else {
       $(page_two_questions_elements).addClass(page_visible_selector);
     }
-
+    
     // A String variable which will hold the CSS selector which refers 
     // to the question which will be made visible is initialized.
     var form_question_selector = "";
@@ -751,17 +811,17 @@ console.log("3");
     
     // A String variable which will hold the CSS class selector for the question 
     // to be made visible is initialized.
-    var form_question_visible_class_selector = "";
+    var form_question_visible_class_name = "";
 
     // The CSS class selector which refers to the question to be made visible 
     // is passed on.
-    form_question_visible_class_selector = "div-form-question-visible";
+    form_question_visible_class_name = "div-form-question-visible";
     
     // Any CSS class referernce which makes the question visible is removed.
-    $(form_questions_elements).removeClass(form_question_visible_class_selector);
+    $(form_questions_elements).removeClass(form_question_visible_class_name);
 
     // The question under processing is made visible.
-    $(form_question_element).addClass(form_question_visible_class_selector); 
+    $(form_question_element).addClass(form_question_visible_class_name); 
 
     // A String variable which will hold a CSS selector which refers to all 
     // navigation buttons within a form is initialized.
@@ -769,7 +829,7 @@ console.log("3");
 
     // The CSS selector which wil hold the CSS selector which refers to all 
     // navigation buttons within a form is passed on.
-    form_questions_buttons_selector = "#form-article-" + article_value + " input[type=button]";
+    form_questions_buttons_selector = "#form-article-" + article_value + " input[type=button], #submit-form-article-" + article_value;
 
     // An Object variable which will hold the jQuery object which refers 
     // to all navigation buttons within a form is initialized.
@@ -843,33 +903,39 @@ console.log("3");
       // The jQuery objects which refer to the navigation buttons to the 
       // previous and next questions are passed on.
       previous_button_element = $(previous_button_selector);
-      next_button_element = $(next_button_element);
+      next_button_element = $(next_button_selector);
 
       // The navigation buttons to the previous and next questions are 
       // made visible.
       $(previous_button_element).addClass(button_visible_class_name);
       $(next_button_element).addClass(button_visible_class_name);
     } else {
-      // A String variable which will hold the CSS selector which 
-      // refers to the navigation button moving on to the previous  
-      // question is initialized.
+      // String variables which will hold CSS selectors which refer to the 
+      // navigation button used to display the previous question and the 
+      // button used to submit the form are initialized.
       var previous_button_selector = "";
+      var submit_button_selector = "";
 
-      // The CSS selector which refers to the navigation button 
-      // to the next question is passed on.
-      previous_button_selector = "#mobile-button-form-article-" + article_value + "-previous-" + question_value;
+      // The CSS selectors which refer to the navigation button pointing to 
+      //  the previous question and the submit button are passed on.
+      var previous_button_selector = "#mobile-button-form-article-" + article_value + "-previous-" + question_value;
+      var submit_button_selector = "#submit-form-article-" + article_value;
 
-      // An Object variable which will hold the jQuery object which 
-      // refers to the navigation button to the previous question 
-      // is initialized.
+      // Object variables which will hold jQuery objects which refer 
+      // to the navigation button to the previous question and the submit button 
+      // are initialized.
       var previous_button_element = {};
+      var submit_button_element = {};
 
-      // The jQuery object which refers to the navigation button 
-      // to the previous question is passed on.
+      // The jQuery objects which refer to the navigation button to the 
+      // previous question and submit button are passed on.
       previous_button_element = $(previous_button_selector);
+      submit_button_element = $(submit_button_selector);
 
-      // The navigation button to the previous question is made visible.
+      // The navigation button to the previous button and the submit button are 
+      // made visible.
       $(previous_button_element).addClass(button_visible_class_name);
+      $(submit_button_element).addClass(button_visible_class_name);
     }
   }
 }

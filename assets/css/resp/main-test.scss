@@ -2532,8 +2532,10 @@ aside {
   }
 
   .div-form-question {
+    max-height: 20rem;
     padding: $padding_value_3;
     display: none;
+    overflow-y: scroll;
 
     .h2-form {
       font-size: $mobile_h2_font_size;
@@ -2544,12 +2546,27 @@ aside {
     }
   }
 
+  #div-form-article-1-question-2 {
+    fieldset {
+      div { 
+        span:first-of-type {
+          margin-right: 0;
+        }
+
+        span:last-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
   .div-form-question-visible {
     display: block;
   }
 
   #button-article-1-start, 
-  #form-article-1 input[type=button] {
+  #form-article-1 input[type=button], 
+  #form-article-1 input[type=submit] {
     display: none;
   }
 
@@ -2557,10 +2574,28 @@ aside {
     margin: 0 0 0.8rem 0;
   }
 
-  #mobile-button-form-article-1-next-1 {
+  #mobile-button-form-article-1-next-1, 
+  #mobile-button-form-article-1-next-2, 
+  #mobile-button-form-article-1-next-3, 
+  #submit-form-article-1 {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
+  }
+
+  #mobile-button-form-article-1-next-2, 
+  #mobile-button-form-article-1-next-3, 
+  #submit-form-article-1 {
+    transform: translate(-100%, -100%);
+  }
+
+  #mobile-button-form-article-1-previous-2, 
+  #mobile-button-form-article-1-previous-3, 
+  #mobile-button-form-article-1-previous-4 {
+    margin: 0;
+    top: $margin_value_4;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-210%);
   }
 
   .button_visible {
