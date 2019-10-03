@@ -95,6 +95,19 @@ $(document).ready(
       }
     );
 
+    $("#mobile-button-article-1-start").on("click", 
+    // Activates when the user clicks on a "button" element within "SECTION #1" 
+    // to move to 'FORM TYPE #1'.
+    function () {
+      window.location.hash = "#article=1&position=1&question=1";
+
+      centerBrowser();
+
+      positionContent();
+      // animateFormPanes("article-1");
+    }
+  );
+
     $("#button-form-article-1-next").on("click", 
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
@@ -118,6 +131,19 @@ $(document).ready(
         swapFormQuestions();
       }
     );
+
+    $("#mobile-button-form-article-1-next-1").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=2&question=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+    
 
     $("#button-article-5-start").on("click", 
       function () {
@@ -587,47 +613,264 @@ function swapFormQuestions()  {
   var article_value = "";
   var position_value = "";
 
-  // The values of the GET variables in the hash of the URL 
-  // are passed on.
-  article_value = hash_data_Array[0];
-  position_value = hash_data_Array[1];
+  // A Number variable which will hold the number of values held 
+  // within 'hash_data_Array'.
+  var num_of_values;
 
-  // String variables which will hold CSS selectors which refer to 
-  // the different 'pages' of form questions are initialized.
-  var page_one_questions_selector = "";
-  var page_two_questions_selector = "";
-
-  // The CSS selectors which refer to the different 'pages' of form 
-  // questions of form questions are passed on.
-  page_one_questions_selector = "#form-article-" + article_value + " .div-form-page-1";
-  page_two_questions_selector = "#form-article-" + article_value + " .div-form-page-2";
-
-  // Object variables which will hold jQuery objects which refer to 
-  // the different 'pages' of form questions are initialized.
-  var page_one_questions_elements = {};
-  var page_two_questions_elements = {};
-
-  // jQuery objects which refer to the different 'pages' of form questions 
-  // are passed on.
-  page_one_questions_elements = $(page_one_questions_selector);
-  page_two_questions_elements = $(page_two_questions_selector);
-
-  // A String variable which will hold the CSS class which sets a given 'page' 
-  // to visible is initialized.
-  var page_visible_selector = "";
-
-  // The CSS class which sets a given 'page' to visible is passed on.
-  var page_visible_selector = "div-form-page-visible";
-
-  // The CSS class which makes a given 'page' visible is stripped from both pages.
-  $(page_one_questions_elements).removeClass(page_visible_selector);
-  $(page_two_questions_elements).removeClass(page_visible_selector);
+  // The number of values held within 'hash_data_Array' is passed on.
+  num_of_values = hash_data_Array.length;
   
-  // IF/ELSE statement which will set the visibility of a given page.
-  if (position_value === "1") {
-    $(page_one_questions_elements).addClass(page_visible_selector);
-  } else {
-    $(page_two_questions_elements).addClass(page_visible_selector);
+  // IF/ELSE statement which will display two questions at a time 
+  // if the browser is a desktop browser ('num_of_values' = 2) or 
+  // display only one question at a time if the browser is a 
+  // smartphone browser ('num_of_values' = 3).
+  if (num_of_values === 2)  {
+    // The values of the GET variables in the hash of the URL 
+    // are passed on.
+    article_value = hash_data_Array[0];
+    position_value = hash_data_Array[1];
+
+    // String variables which will hold CSS selectors which refer to 
+    // the different 'pages' of form questions are initialized.
+    var page_one_questions_selector = "";
+    var page_two_questions_selector = "";
+
+    // The CSS selectors which refer to the different 'pages' of form 
+    // questions of form questions are passed on.
+    page_one_questions_selector = "#form-article-" + article_value + " .div-form-page-1";
+    page_two_questions_selector = "#form-article-" + article_value + " .div-form-page-2";
+
+    // Object variables which will hold jQuery objects which refer to 
+    // the different 'pages' of form questions are initialized.
+    var page_one_questions_elements = {};
+    var page_two_questions_elements = {};
+
+    // jQuery objects which refer to the different 'pages' of form questions 
+    // are passed on.
+    page_one_questions_elements = $(page_one_questions_selector);
+    page_two_questions_elements = $(page_two_questions_selector);
+
+    // A String variable which will hold the CSS class which sets a given 'page' 
+    // to visible is initialized.
+    var page_visible_selector = "";
+
+    // The CSS class which sets a given 'page' to visible is passed on.
+    var page_visible_selector = "div-form-page-visible";
+
+    // The CSS class which makes a given 'page' visible is stripped from both pages.
+    $(page_one_questions_elements).removeClass(page_visible_selector);
+    $(page_two_questions_elements).removeClass(page_visible_selector);
+    
+    // IF/ELSE statement which will set the visibility of a given page.
+    if (position_value === "1") {
+      $(page_one_questions_elements).addClass(page_visible_selector);
+    } else {
+      $(page_two_questions_elements).addClass(page_visible_selector);
+    }
+  } else if (num_of_values === 3)  {
+console.log("3");
+    // A String variable which will hold the value of the GET variable, 
+    // 'question' is initialized.
+    var question_value = "";
+
+    // The values of the GET variables in the hash of the URL 
+    // are passed on.
+    article_value = hash_data_Array[0];
+    position_value = hash_data_Array[1];
+    question_value = hash_data_Array[2];
+
+    // String variables which will hold CSS selectors which refer to 
+    // the different 'pages' of form questions are initialized.
+    var page_one_questions_selector = "";
+    var page_two_questions_selector = "";
+
+    // The CSS selectors which refer to the different 'pages' of form 
+    // questions of form questions are passed on.
+    page_one_questions_selector = "#form-article-" + article_value + " .div-form-page-1";
+    page_two_questions_selector = "#form-article-" + article_value + " .div-form-page-2";
+
+    // Object variables which will hold jQuery objects which refer to 
+    // the different 'pages' of form questions are initialized.
+    var page_one_questions_elements = {};
+    var page_two_questions_elements = {};
+
+    // jQuery objects which refer to the different 'pages' of form questions 
+    // are passed on.
+    page_one_questions_elements = $(page_one_questions_selector);
+    page_two_questions_elements = $(page_two_questions_selector);
+
+    // A String variable which will hold the CSS class which sets a given 'page' 
+    // to visible is initialized.
+    var page_visible_selector = "";
+
+    // The CSS class which sets a given 'page' to visible is passed on.
+    var page_visible_selector = "div-form-page-visible";
+
+    // The CSS class which makes a given 'page' visible is stripped from both pages.
+    $(page_one_questions_elements).removeClass(page_visible_selector);
+    $(page_two_questions_elements).removeClass(page_visible_selector);
+    
+    // IF/ELSE statement which will set the visibility of a given page.
+    if (position_value === "1") {
+      $(page_one_questions_elements).addClass(page_visible_selector);
+    } else {
+      $(page_two_questions_elements).addClass(page_visible_selector);
+    }
+
+    // A String variable which will hold the CSS selector which refers 
+    // to the question which will be made visible is initialized.
+    var form_question_selector = "";
+
+    // The CSS selector which refers to the question which will be made 
+    // visibile is passed on.
+    form_question_selector = "#div-form-article-" + article_value + "-question-" + question_value;
+
+    // An Object variable which will hold the jQuery object which refers 
+    // to the question which will be made visible is initialized.
+    var form_question_element = {};
+
+    // The jQuery object which refers to the question which will 
+    // be made visible is passed on.
+    form_question_element = $(form_question_selector);
+
+    // A String variable which will hold a CSS selector which refers to all 
+    // questions within the form is initialized.
+    var form_questions_selector = "";
+
+    // The CSS selector which refers to all questions within the form 
+    // is passed on.
+    form_questions_selector = "#form-article-" + article_value + " .div-form-question";
+
+    // An Object variable which will hold the jQuery object which refers to 
+    // all questions within the form is initialized.
+    var form_questions_elements = {};
+
+    // The jQuery object which refers to all questions within the form 
+    // is passed on.
+    form_questions_elements = $(form_questions_selector);
+    
+    // A String variable which will hold the CSS class selector for the question 
+    // to be made visible is initialized.
+    var form_question_visible_class_selector = "";
+
+    // The CSS class selector which refers to the question to be made visible 
+    // is passed on.
+    form_question_visible_class_selector = "div-form-question-visible";
+    
+    // Any CSS class referernce which makes the question visible is removed.
+    $(form_questions_elements).removeClass(form_question_visible_class_selector);
+
+    // The question under processing is made visible.
+    $(form_question_element).addClass(form_question_visible_class_selector); 
+
+    // A String variable which will hold a CSS selector which refers to all 
+    // navigation buttons within a form is initialized.
+    var form_questions_buttons_selector = "";
+
+    // The CSS selector which wil hold the CSS selector which refers to all 
+    // navigation buttons within a form is passed on.
+    form_questions_buttons_selector = "#form-article-" + article_value + " input[type=button]";
+
+    // An Object variable which will hold the jQuery object which refers 
+    // to all navigation buttons within a form is initialized.
+    form_questions_buttons_elements = {};
+
+    // The jQuery object which refers to all navigation buttons within a form 
+    // is passed on.
+    form_questions_buttons_elements = $(form_questions_buttons_selector);
+
+    // A String variable which will hold a CSS class name is intialized.
+    var button_visible_class_name = "";
+
+    // The CSS class name, 'button_visible', is passed on.
+    button_visible_class_name = "button_visible";
+
+    // All navigation buttons are made 'not visible'.
+    $(form_questions_buttons_elements).removeClass(button_visible_class_name);
+
+    // A Number variable which will hold the number of questions within the 
+    // form under processing is initialized.
+    var num_of_form_questions;
+
+    // The number of form questions within the form under processing 
+    // is passed on.
+    num_of_form_questions = $(form_questions_elements).length;
+
+    // The type of 'question_value' is changed to Number.
+    question_value = parseInt(question_value);
+
+    // IF/ELSE IF/ELSE statement which displays navigation buttons 
+    // corresponding to the currently visible form question.
+    if (question_value === 1) {
+      // A String variable which will hold the CSS selector which 
+      // refers to the navigation button moving on to the next 
+      // question is initialized.
+      var next_button_selector = "";
+
+      // The CSS selector which refers to the navigation button 
+      // to the next question is passed on.
+      next_button_selector = "#mobile-button-form-article-" + article_value + "-next-" + question_value;
+
+      // An Object variable which will hold the jQuery object which 
+      // refers to the navigation button to the next question 
+      // is initialized.
+      var next_button_element = {};
+
+      // The jQuery object which refers to the navigation button 
+      // to the next question is passed on.
+      next_button_element = $(next_button_selector);
+
+      // The navigation button to the next question is made visible.
+      $(next_button_element).addClass(button_visible_class_name);
+    } else if (question_value > 1 && question_value < num_of_form_questions)  {
+      // String variables which will hold CSS selectors which refer to the 
+      // navigation buttons used to display different form questions 
+      // are initialized.
+      var previous_button_selector = "";
+      var next_button_selector = "";
+
+      // The CSS selectors which refer to the navigations to the previous 
+      // and next questions are passed on.
+      var previous_button_selector = "#mobile-button-form-article-" + article_value + "-previous-" + question_value;
+      var next_button_selector = "#mobile-button-form-article-" + article_value + "-next-" + question_value;
+
+      // Object variables which will hold jQuery objects which refer 
+      // to the navigation buttons to the previous and next questions 
+      // are initialized.
+      var previous_button_element = {};
+      var next_button_element = {};
+
+      // The jQuery objects which refer to the navigation buttons to the 
+      // previous and next questions are passed on.
+      previous_button_element = $(previous_button_selector);
+      next_button_element = $(next_button_element);
+
+      // The navigation buttons to the previous and next questions are 
+      // made visible.
+      $(previous_button_element).addClass(button_visible_class_name);
+      $(next_button_element).addClass(button_visible_class_name);
+    } else {
+      // A String variable which will hold the CSS selector which 
+      // refers to the navigation button moving on to the previous  
+      // question is initialized.
+      var previous_button_selector = "";
+
+      // The CSS selector which refers to the navigation button 
+      // to the next question is passed on.
+      previous_button_selector = "#mobile-button-form-article-" + article_value + "-previous-" + question_value;
+
+      // An Object variable which will hold the jQuery object which 
+      // refers to the navigation button to the previous question 
+      // is initialized.
+      var previous_button_element = {};
+
+      // The jQuery object which refers to the navigation button 
+      // to the previous question is passed on.
+      previous_button_element = $(previous_button_selector);
+
+      // The navigation button to the previous question is made visible.
+      $(previous_button_element).addClass(button_visible_class_name);
+    }
   }
 }
 
@@ -1084,36 +1327,80 @@ function extractHashData()  {
     // The values of the hash are passed on.
     hash_values_Array = url_hash.split("&");
 
-    // An Array which will hold the raw GET variable data for 'article' 
-    // is initialized.
-    var article_value_Array = [];
-    // An Array which will hold the raw GET variable data for 'position' 
-    // is initialized.
-    var position_value_Array = [];
+    // A Number variable which will hold the number of values held 
+    // in 'hash_values_Array' is initialized.
+    var num_of_values;
+
+    // The number of values held within 'hash_values_Array' 
+    // is passed on.
+    num_of_values = hash_values_Array.length;
+
+    // IF/ELSE IF statement which processes values for two variables if 
+    // 'num_of_values' equals '2'. If 'num_of_values' equals '3', the 
+    // statement processes three variables.
+    if (num_of_values == 2) {
+      // An Array which will hold the raw GET variable data for 'article' 
+      // is initialized.
+      var article_value_Array = [];
+      // An Array which will hold the raw GET variable data for 'position' 
+      // is initialized.
+      var position_value_Array = [];
+      
+      // A String which will hold the value of the GET variable for 'article' 
+      // is initialized.
+      var article_value = "";
+      // A String which will hold the value of the GET variable for 'position' 
+      // is initialized.
+      var position_value = "";
+
+      // The values of the GET variables, 'article' and 'position', are passed on.
+      article_value_Array = hash_values_Array[0].split("=");
+      article_value = article_value_Array[1];
+
+      position_value_Array = hash_values_Array[1].split("=");
+      position_value = position_value_Array[1];
+
+      // An Array which will hold the parsed data from the hash of the URL 
+      // is initialized.
+      var parsed_hash_data_Array = [];
+
+      // The data points for the variables, 'article' and 'position', are 
+      // passed on.
+      parsed_hash_data_Array = [article_value, position_value];
+    } else if (num_of_values === 3) {
+      // Array variables which will hold the raw GET variable data for 'article', 
+      // 'position', and 'question' are initialized. 
+      var article_value_Array = [];
+      var position_value_Array = [];
+      var question_value_Array = [];
+      
+      // String variables which will hold the value of the GET variables for 'article', 
+      // 'position', and 'question' are initialized.
+      var article_value = "";
+      var position_value = "";
+      var question_value = "";
+
+      // The values of the GET variables, 'article', 'position', 
+      // and 'question' are passed on.
+      article_value_Array = hash_values_Array[0].split("=");
+      article_value = article_value_Array[1];
+
+      position_value_Array = hash_values_Array[1].split("=");
+      position_value = position_value_Array[1];
+
+      question_value_Array = hash_values_Array[2].split("=");
+      question_value = question_value_Array[1];
+
+      // An Array which will hold the parsed data from the hash of the URL 
+      // is initialized.
+      var parsed_hash_data_Array = [];
+
+      // The data points for the variables, 'article', 'position', and 'question', 
+      // are passed on.
+      parsed_hash_data_Array = [article_value, position_value, question_value];
+    }
     
-    // A String which will hold the value of the GET variable for 'article' 
-    // is initialized.
-    var article_value = "";
-    // A String which will hold the value of the GET variable for 'position' 
-    // is initialized.
-    var position_value = "";
-
-    // The values of the GET variables, 'article' and 'position', are passed on.
-    article_value_Array = hash_values_Array[0].split("=");
-    article_value = article_value_Array[1];
-
-    position_value_Array = hash_values_Array[1].split("=");
-    position_value = position_value_Array[1];
-
-    // An Array which will hold the parsed data from the hash of the URL 
-    // is initialized.
-    var parsed_hash_data_Array = [];
-
-    // The data points for the variables, 'article' and 'position', are 
-    // passed on.
-    parsed_hash_data_Array = [article_value, position_value];
-
-    // The data is passed on.
+    // The data are passed on.
     return parsed_hash_data_Array;
   }
 }
@@ -1304,10 +1591,32 @@ function positionContent()  {
     // The block of content which the variable in the URL hash refers to is made visible.
     $(content_block_element).addClass(div_content_visible_selector);
 
+    // A Number variable which will hold the number of values held 
+    // within 'hash_data_Array'.
+    var num_of_values;
+
+    // The number of values held within 'hash_data_Array' is passed on.
+    num_of_values = hash_data_Array.length;
+
+    // A Number variable which will hold a threshold to gauge if form 
+    // questions need to be made visible.
+    var position_threshold;
+
+    // IF/ELSE statement which will set the threshold to load form questions 
+    // to '1' if the browser can contain two questions ('num_of_values' equals '2' - 
+    // a desktop browser). 
+    // Otherwise, the threshold will be set to '0' since the browser 
+    // only contains one question ('num_of_values' equals '3' - a smartphone browser).
+    if (num_of_values === 2)  {
+      position_threshold = 1;
+    } else if (num_of_values === 3) {
+      position_threshold = 0;
+    }
+
     // IF statment which will change the current 'page' of form questions if the 
     // 'section' includes a form.
     if ((article_value === "1" || article_value === "6") && 
-        position_value > 1) {
+        position_value > position_threshold) {
       swapFormQuestions();
     }
 
@@ -1411,11 +1720,14 @@ function setDisplayType() {
  *  of the function call using the Array, 'page_dimensions_Array'.
  * **************** **************** **************** **************** **************** */
 
-  // A Number variable which will hold the width of the browser is initialized.
+  // A Number variable which will hold the dimensions of the browser 
+  // are initialized.
   var window_width; 
+  var window_height;
 
-  // The width of the browser is passed on.
-  window_width = window.innerWidth;
+  // The dimensions of the browser are passed on.
+  window_width = window.outerWidth;
+  window_height = window.outerHeight;
 
   // An Array which will hold values which best matches the dimensions of the browser 
   // window is initialized.
@@ -1425,7 +1737,7 @@ function setDisplayType() {
   // the various 'window frame' elements.
   if (window_width <= 414)  { 
     // The display is likely for a smartphone.
-    display_dimensions_Array = [414, 736];
+    display_dimensions_Array = [360, 640];
   } else if (window_width > 414 && window_width <= 1024) {
     // The display is likely for a tablet device.
     display_dimensions_Array = [768, 1024];
@@ -1439,6 +1751,8 @@ function setDisplayType() {
     // The display is a 1080p desktop display.
     display_dimensions_Array = [1920, 1080];
   } 
+
+  // IF/ELSE statement which passes on the brow
 
   // The string contained by 'display_dimensions_Array' which refers to the dimensions of the display 
   // is returned.

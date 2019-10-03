@@ -109,9 +109,13 @@ $header_font: 'Balthazar', 'Cambria', serif;
 $form_question_font: "Franklin Gothic Medium", sans-serif;
 
 $base_font_size: 1rem; // 14pt
+$mobile_base_font_size: 0.9rem; // 11pt
 $aside_font_size: 0.9rem; // 11pt
 $header_font_size: 2.5rem; // 30pt
+$mobile_header_font-size: 2rem; // 24pt
 $lg_h2_font_size: 2.5rem; // 30pt
+$mobile_h2_font_size: 1.25rem; // 15pt
+$mobile_h3_font_size: 1rem; // 14pt
 $form_question_font_size: 1.2rem; // 14pt
 $form_alert_font_size: 2.5rem; // 30pt
 $form_question_sup_font_size: 0.8rem; // 10pt
@@ -1871,7 +1875,7 @@ aside {
 
 /* ****** DESKTOP - 1366px WIDE ****** */
 
-@media screen and (min-width: 1281px) and (max-height: 1366px)  {
+@media screen and (min-width: 1281px) and (max-width: 1366px)  {
 
   /* ****** COMMON ELEMENTS ****** */
 
@@ -2502,3 +2506,119 @@ aside {
     }  
   }
 }	
+
+/* ****** MOBILE - ANDROID (360px) ****** */
+
+@media screen and (min-width: 20.06rem) and (max-width: 22.5rem)  {
+  nav {
+    #div-nav-options {
+      a {
+        display: none;
+      }
+    }
+  }
+
+  #a-nav-article-previous, 
+  #a-nav-article-next {
+    width: 5rem; // 80px
+    height: 1.3rem; // 21px
+    left: 50%;
+    transform: translateX(-100%);
+  }
+
+  #a-nav-article-previous > span, 
+  #a-nav-article-next > span  {
+    display: none;
+  }
+
+  .div-form-question {
+    padding: $padding_value_3;
+    display: none;
+
+    .h2-form {
+      font-size: $mobile_h2_font_size;
+    }
+  
+    .h3-form {
+      font-size: $mobile_h3_font_size; 
+    }
+  }
+
+  .div-form-question-visible {
+    display: block;
+  }
+
+  #button-article-1-start, 
+  #form-article-1 input[type=button] {
+    display: none;
+  }
+
+  #mobile-button-article-1-start {
+    margin: 0 0 0.8rem 0;
+  }
+
+  #mobile-button-form-article-1-next-1 {
+    margin: 0;
+    top: $margin_value_4;
+    left: calc(100% - 1.25rem);
+  }
+
+  .button_visible {
+    display: block !important;
+  }
+
+  h1 {
+    padding: $padding_value_3;
+
+    span {
+      font-size: $mobile_header_font_size;
+    }
+  }
+
+  p {
+    font-size: $mobile_base_font_size;
+  }
+
+  article {
+    width: 22.5rem; // 360px
+    height: 40rem; // 640px
+
+    .div-content {
+      width: 22.5rem; // 360px
+      height: 34rem; // 544px
+      margin-top: 7rem; // 112px
+    }
+  }
+
+  aside {
+    img {
+      margin: 0 auto;
+      float: none;
+    }
+
+    ul {
+      width: 16rem; // 256px
+      margin: 0 auto;
+      float: none;
+    }
+    li {
+      height: auto;
+    }
+  }
+  
+  #aside-info {
+    width: 18.75rem; // 300px
+    height: 27.25rem; // 436px
+    margin: 0 auto;
+    position: relative;
+    top: 3rem; // 64px
+    float: none;
+  }
+  
+  .div-content-block-1 {
+    p ~ p {
+      margin-bottom: 0;
+    }
+  }
+
+}
