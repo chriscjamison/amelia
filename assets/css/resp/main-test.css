@@ -654,6 +654,8 @@ nav {
      * menu-options of the intra-sectional navigation.
      */ }
     .div-nav-article div a:first-of-type {
+      width: 9.38em;
+      height: 2.19em;
       display: block;
       position: relative;
       margin: 0 auto;
@@ -1525,10 +1527,6 @@ aside {
         * for the intra-sectional navigation.
         * This is the click state which is set once the menu-button has been clicked.
         */ }
-      .div-nav-article div a:first-of-type {
-        width: 9.38em;
-        height: 2.19em;
-        margin: 0 auto; }
       .div-nav-article div .nav-article-base {
         background-position: 0px 0px; }
       .div-nav-article div .nav-article-hover {
@@ -1796,8 +1794,14 @@ aside {
   #a-nav-article-previous > span,
   #a-nav-article-next > span {
     display: none; }
+  .div-nav-article {
+    width: 22.5rem;
+    height: 2.25rem;
+    top: 35rem; }
+  .div-content-column {
+    display: block; }
   .div-form-question {
-    max-height: 20rem;
+    max-height: 24rem;
     padding: 1rem;
     display: none;
     overflow-y: scroll; }
@@ -1838,6 +1842,7 @@ aside {
   .button_visible {
     display: block !important; }
   h1 {
+    width: 20.5rem;
     padding: 1rem; }
     h1 span {
       font-size: 2rem; }
@@ -1849,7 +1854,9 @@ aside {
     article .div-content {
       width: 22.5rem;
       height: 34rem;
-      margin-top: 7rem; }
+      top: 6.5rem; }
+    article .div-content-tall_header {
+      top: 8.5rem; }
   aside img {
     margin: 0 auto;
     float: none; }
@@ -1867,4 +1874,35 @@ aside {
     top: 3rem;
     float: none; }
   .div-content-block-1 p ~ p {
-    margin-bottom: 0; } }
+    margin-bottom: 0; }
+  .div-content-block-1 {
+    max-height: 24rem;
+    overflow-y: scroll; }
+  .div-content-block-2 {
+    width: 6.95rem;
+    min-height: 15.5rem;
+    left: 0;
+    transform: none; }
+    .div-content-block-2 img,
+    .div-content-block-2 #img-content-block-2-missouri {
+      display: none; }
+    .div-content-block-2 ul {
+      border-top: none; }
+      .div-content-block-2 ul li {
+        font-size: 0.9rem; }
+  #div-content-block-right {
+    transform: none; }
+  .div-content-block-2-type-1 {
+    margin-top: 0.5rem; }
+    .div-content-block-2-type-1 span:first-child {
+      display: none; }
+    .div-content-block-2-type-1 span + div span {
+      width: 5.33rem;
+      margin-right: 0.25rem;
+      font-size: 0.9rem;
+      text-align: left;
+      word-break: break-word; }
+    .div-content-block-2-type-1 span + div span:first-of-type {
+      display: block; }
+    .div-content-block-2-type-1 span + div span:last-of-type {
+      margin-right: 0; } }

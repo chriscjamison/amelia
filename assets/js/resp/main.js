@@ -112,7 +112,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2";
+        window.location.hash = "#article=1&position=1";
 
         centerBrowser();
 
@@ -136,7 +136,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=2";
+        window.location.hash = "#article=1&position=1&question=2";
 
         centerBrowser();
 
@@ -148,7 +148,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=1";
+        window.location.hash = "#article=1&position=1&question=1";
 
         centerBrowser();
 
@@ -160,7 +160,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=3";
+        window.location.hash = "#article=1&position=1&question=3";
 
         centerBrowser();
 
@@ -172,7 +172,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=2";
+        window.location.hash = "#article=1&position=1&question=2";
 
         centerBrowser();
 
@@ -184,7 +184,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=4";
+        window.location.hash = "#article=1&position=1&question=4";
 
         centerBrowser();
 
@@ -196,7 +196,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=2&question=3";
+        window.location.hash = "#article=1&position=1&question=3";
 
         centerBrowser();
 
@@ -771,7 +771,7 @@ function swapFormQuestions()  {
     $(page_two_questions_elements).removeClass(page_visible_selector);
     
     // IF/ELSE statement which will set the visibility of a given page.
-    if (position_value === "2" && (question_value === "1" || question_value === "2")) {
+    if (position_value === "1" && (question_value === "1" || question_value === "2")) {
       $(page_one_questions_elements).addClass(page_visible_selector);
     } else {
       $(page_two_questions_elements).addClass(page_visible_selector);

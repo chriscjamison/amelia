@@ -931,6 +931,8 @@ nav {
     margin: 0 auto;
 
     a:first-of-type {
+      width: 9.38em; // 150px
+      height: 2.19em; // 35px
       display: block;
       position: relative;
       margin: 0 auto;
@@ -2064,13 +2066,7 @@ aside {
   .div-nav-article {
     width: 84.25rem; // 1,348px
 
-    div {
-      a:first-of-type {
-        width: 9.38em; // 150px
-        height: 2.19em; // 35px
-        margin: 0 auto;
-      }
-  
+    div {  
       .nav-article-base {
         background-position: 0px 0px;
       }
@@ -2531,8 +2527,18 @@ aside {
     display: none;
   }
 
+  .div-nav-article {
+    width: 22.5rem; 
+    height: 2.25rem;
+    top: 35rem;
+  }
+
+  .div-content-column {
+    display: block;
+  }
+
   .div-form-question {
-    max-height: 20rem;
+    max-height: 24rem; // 384px
     padding: $padding_value_3;
     display: none;
     overflow-y: scroll;
@@ -2603,6 +2609,7 @@ aside {
   }
 
   h1 {
+    width: 20.5rem; // 344px;
     padding: $padding_value_3;
 
     span {
@@ -2621,7 +2628,11 @@ aside {
     .div-content {
       width: 22.5rem; // 360px
       height: 34rem; // 544px
-      margin-top: 7rem; // 112px
+      top: 6.5rem; // 104px
+    }
+
+    .div-content-tall_header {
+      top: 8.5rem; // 136px
     }
   }
 
@@ -2656,4 +2667,57 @@ aside {
     }
   }
 
+  .div-content-block-1 {
+    max-height: 24rem; // 384px
+    overflow-y: scroll;
+  }
+
+  .div-content-block-2 {
+    width: 6.95rem; // 111px
+    min-height: 15.5rem; // 248px
+    left: 0;
+    transform: none;
+
+    img, 
+    #img-content-block-2-missouri {
+      display: none;
+    }
+
+    ul {
+      border-top: none;
+
+      li {
+        font-size: $mobile_base_font_size;
+      }
+    }
+  }
+
+  #div-content-block-right {
+    transform: none;
+  }
+
+  .div-content-block-2-type-1 {
+    margin-top: $margin_value_1;
+
+    span:first-child {
+      display: none;
+    }
+
+    span + div span {
+      width: 5.33rem; // 85px
+      margin-right: 0.25rem; // 4px
+      font-size: $mobile_base_font_size;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    span + div span:first-of-type { 
+      display: block;
+    }
+
+    span + div span:last-of-type {
+      margin-right: 0;
+    }
+    
+  }
 }
