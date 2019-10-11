@@ -5,7 +5,7 @@
 
 $(window).on("load", 
   function () {
-    // initializePage();
+    initializePage();
 
     displayContent();
 
@@ -21,16 +21,12 @@ $(window).on("hashchange",
   }
 );
 
-window.addEventListener("scroll",  
+$(window).on("scroll",  
   function () {
-    // displayContent();
-/* setTimeout(
-  function () { */
-    console.log("$(\"html\").scrollTop() = " + $("html").scrollTop());
-  /* }, 100
-); */
-    // animateIntrapageNavigation();
-  }, false
+    displayContent();
+console.log("$(window).scrollTop() = " + $(window).scrollTop());
+    animateIntrapageNavigation();
+  }
 );
 
 $(document).ready(
@@ -100,17 +96,17 @@ $(document).ready(
     );
 
     $("#mobile-button-article-1-start").on("click", 
-    // Activates when the user clicks on a "button" element within "SECTION #1" 
-    // to move to 'FORM TYPE #1'.
-    function () {
-      window.location.hash = "#article=1&position=1&question=1";
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=1&position=1&question=1";
 
-      centerBrowser();
+        centerBrowser();
 
-      positionContent();
-      // animateFormPanes("article-1");
-    }
-  );
+        positionContent();
+        // animateFormPanes("article-1");
+      }
+    );
 
     $("#button-form-article-1-next").on("click", 
       // Activates when the user clicks on a "button" element within "SECTION #1" 
@@ -207,7 +203,18 @@ $(document).ready(
         swapFormQuestions();
       }
     );
-    
+
+    $("#mobile-button-article-5-start").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=5&position=1&question=1";
+
+        centerBrowser();
+
+        positionContent();
+      }
+    );
 
     $("#button-article-5-start").on("click", 
       function () {
@@ -218,6 +225,31 @@ $(document).ready(
         positionContent();
       }
     );
+
+    $("#mobile-button-form-article-5-next-1").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=5&position=1&question=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-5-previous-2").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=5&position=1&question=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
 
     $("#button-article-5-contact").on("click", 
       function () {
@@ -598,6 +630,14 @@ function displayContent() {
   // The height of each section of content is passed on.
   section_height = display_dimensions_Array[1];
 
+  // A Number variable which will hold a value which be added to the 
+  // value of 'current_position' will cause the content to load as the 
+  // visitor scrolls through the webpage.
+  var position_offset_value;
+
+  // The value which will cause content to be made visible is passed on.
+  position_offset_value = 500;
+
   // A Number variable which will hold the vertical position of the browser 
   // within the webpage is initialized.
   var current_position;
@@ -610,8 +650,8 @@ function displayContent() {
   var current_section;
 
   // The section the browser is currently viewing is found out by 
-  // dividing the value of 'current_position' by 'section_height'.
-  current_section = Math.floor(current_position / section_height);
+  // dividing the value of the sum of 'current_position' and 'position_offset_value' by 'section_height'.
+  current_section = Math.floor((current_position + position_offset_value) / section_height);
 
   // A String variable which will hold a CSS selector which refers 
   // to the section which is visible in the browser window is initialized.
@@ -647,9 +687,21 @@ function displayContent() {
     is_content_visible = false;
   }
 
+  // A Number which will hold the width of the sections of content is initialized.
+  var section_width;
+
+  // The width of the sections of content is passed on.
+  section_width = display_dimensions_Array[0];
+
   // The content within the browser window is made visible.
-  if (is_content_visible === false) {
+  if (is_content_visible === false && (current_section !== 0 || (current_section === 0 && section_width > 1024))) {
     $(article_visible_element).fadeTo(400, 1);
+  } else if (is_content_visible === false && section_width < 1024 && current_section === 0) {
+    setTimeout(
+      function () {
+        $(article_visible_element).fadeTo(400, 1);
+      }, 650
+    );
   }
 }
 
@@ -1771,7 +1823,7 @@ function positionContent()  {
 
     // IF statment which will change the current 'page' of form questions if the 
     // 'section' includes a form.
-    if ((article_value === "1" || article_value === "6") && 
+    if ((article_value === "1" || article_value === "5" || article_value === "6") && 
         position_value > position_threshold) {
       swapFormQuestions();
     }
@@ -1779,7 +1831,6 @@ function positionContent()  {
     // The background of the section is repositioned.
     positionBackgrounds();
   }
-  
 }
 
 
@@ -1947,11 +1998,27 @@ function setValueOfHashVariables()  {
 
 
 
-
-
-
-
 function layoutBackgrounds()  {
+  // An Array which will hold the dimensions of the browser is initialized.
+  var browser_dimensions_Array = [];
+  
+  // A Number variable which will hold the width of the sections of content 
+  // within a section is initialized.
+  var article_width;
+  
+  // A Number variable which will hold the height of the sections of content within a 
+  // section is initialized.
+  var article_height;
+
+  // The dimensions of the browser window is passed on.
+  browser_dimensions_Array = setDisplayType();
+
+  // The width of the browser window is passed on.
+  article_width = browser_dimensions_Array[0];
+  
+  // The height of the browser window is passed on.
+  article_height = browser_dimensions_Array[1];
+
   // A String variable which will hold the CSS selector which refers to the sections 
   // of content within the webpage is initialized.
   var all_sections_selector = "";
@@ -1962,18 +2029,10 @@ function layoutBackgrounds()  {
   // content within a section is initialized.
   var content_blocks_selector = "";
   
-
-  
   // An Object variable which will hold a jQuery object which refers to the HTML elements 
   // containing sections of content is initialied.
   var all_sections_elements = {};
-  // An Object variable which will hold a jQuery object which refers to the HTML element 
-  // which hold a section of content is initialized.
-  var section_element = {};
-  // An Object variable which will hold a jQuery object which refers to the HTML elements 
-  // which hold the blocks of content within a section is initialized.
-  var content_blocks_elements = {};
-
+  
   // The CSS selector which refers to all of the sections of content within the webpage 
   // is passed on.
   all_sections_selector = "article";
@@ -1982,34 +2041,11 @@ function layoutBackgrounds()  {
   section_selector = "#article-content-";
   // The CSS selector which refers to blocks of content within a section 
   // is passed on.
-  content_blocks_selector = ".div-content"
+  content_blocks_selector = ".div-content";
 
-  /* // The jQuery object which refers to the HTML element which hold the background images 
+  // The jQuery object which refers to the HTML elements containing sections of content 
   // is passed on.
-  background_elements = $(background_selector); */
-  // The jQuery object which refers to all of the HTML elements which hold sections 
-  // of content is passed on.
   all_sections_elements = $(all_sections_selector);
-/*   // The jQuery object which refers to the HTML element which hold a section 
-  // of content is passed on.
-  section_element = $(section_selector);
-  // The jQuery object which refers to the HTML elements which hold blocks of content 
-  // within a section is passed on.
-  content_blocks_elements = $(content_blocks_selector);
- */
-
-  // An Array which will hold the dimensions of the browser is initialized.
-  var browser_dimensions_Array = [];
-  
-  // A Number variable which will hold the height of the sections of content within a 
-  // section is initialized.
-  var article_height;
-
-  // The dimensions of the browser window is passed on.
-  browser_dimensions_Array = setDisplayType();
-
-  // The height of the browser window is passed on.
-  article_height = browser_dimensions_Array[1];
 
   // A Number variable which will hold the number of sections within the 
   // webpage is initialized.
@@ -2058,6 +2094,43 @@ function layoutBackgrounds()  {
     num_content_blocks_Array[inc] = $(current_section_element).children(content_blocks_selector).length;
   } 
 
+  // A String variable which will hold the CSS selector which refers to the HTML element containing 
+  // the background images is initialized.
+  var backgrounds_selector = "";
+
+  // The CSS selector whicih refers to the HTML element containing the background images 
+  // is passed on.
+  backgrounds_selector = "#section-backgrounds";
+  
+  // An Object variable which will hold the jQuery object which refers to the HTML element 
+  // containing the backgrounds images is initialized.
+  var backgrounds_element = {};
+
+  // The jQuery object which refers to the HTML element which hold the background images 
+  // is passed on.
+  backgrounds_element = $(backgrounds_selector);
+
+  // A Number variable which will hold the height of the webpage is initialized.
+  var webpage_height;
+
+  // The height of the webpage is passed on. That value is calculated by multiplying the 
+  // value of 'article_height' by 'num_of_sections'.
+  webpage_height = article_height * num_sections;
+  
+  // An Object variable which will hold values of CSS properties which will define the 
+  // width and height of the HTML element holding the background images is initialized.
+  var backgrounds_css = {};
+
+  // The width and height of the webpage are passed on.
+  backgrounds_css = {
+    width: article_width, 
+    height: webpage_height
+  };
+
+  // The dimensions of the webpage are passed on to the HTML element holding 
+  // the background images.
+  $(backgrounds_element).css(backgrounds_css);
+
   // A Number variable which will hold a value which matches the width of the background 
   // image for an individual section is initialized.
   var background_width;
@@ -2092,7 +2165,6 @@ function layoutBackgrounds()  {
   // webpage is passed on.
   background_selector = "#div-background-";
 
-
   // A FOR loop which loads the background image of each section.
   for (inc = 0; inc < num_sections; inc++)  {
     // IF statement which will set the value of 'num_content_blocks' to 
@@ -2106,7 +2178,7 @@ function layoutBackgrounds()  {
     // The width of the background image for this section is calculated by multiplying 
     // the number of blocks of content by the width of the browser window as calculated 
     // by 'setDisplayType'.
-    background_width = num_content_blocks * browser_dimensions_Array[0];
+    background_width = num_content_blocks * article_width;
     // The height of the background image for this section is passed on.
     background_height = article_height;
 
@@ -2337,7 +2409,7 @@ function initializePage()  {
   * **************** **************** **************** **************** **************** */
 
   // The background images are added to the webpage.
-  layoutBackgrounds();
+  
 
   // The height of the webpage is set.
   setWebpageHeight();
@@ -2346,6 +2418,7 @@ function initializePage()  {
   // hash refer to are made viewable.
   setTimeout( 
     function () {
+      layoutBackgrounds();
       centerBrowser();
       positionContent();
     }, 10

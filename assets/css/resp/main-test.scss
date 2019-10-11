@@ -708,7 +708,7 @@ p:not(#foo) > input[type=radio] + label:hover:active {
 body {
   margin: 0;
 	padding: 0;
-	// overflow-x: hidden;
+	overflow-x: hidden;
 }
 /* 
   Formats the <body> HTML tag 
@@ -1576,6 +1576,7 @@ aside {
 /* Formats the blocks which are contained with 'SECTION #5'. */
 
 #div-content-block-5-desc-1 {
+  padding: $padding_value_3 $padding_value_5;
   position: relative;
   float: left;
 	background-color: $content_block_5_background_1_color;
@@ -1666,6 +1667,15 @@ aside {
 /* Formats a <div> element which serves as a container for various <span> elements 
  * which contain either logos or text. 
  */
+
+ #div-content-block-5-desc-3 {
+  margin-top: $margin_value_3;
+  padding: $padding_value_3 $padding_value_5;
+  position: relative;
+  float: left;
+  background-color: $content_block_5_div_1_color;
+  color: $content_block_5_text_3_color;
+ }
 
  #div-content-block-5-desc-4 {
   padding: $padding_value_3 $padding_value_5;
@@ -2383,12 +2393,6 @@ aside {
 
   #div-content-block-5-desc-3 {
     width: 21.5rem; // 344px
-    margin-top: $margin_value_3;
-    padding: $padding_value_3 $padding_value_5;
-    position: relative;
-    float: left;
-    background-color: $content_block_5_div_1_color;
-    color: $content_block_5_text_3_color;
 
     p {
       padding-bottom: $padding_value_3;
@@ -2555,7 +2559,7 @@ aside {
     max-height: 24rem; // 384px
     padding: $padding_value_3;
     display: none;
-    // overflow-y: auto;
+    overflow-y: scroll;
 
     .h2-form {
       font-size: $mobile_h2_font_size;
@@ -2586,7 +2590,10 @@ aside {
 
   #button-article-1-start, 
   #form-article-1 input[type=button], 
-  #form-article-1 input[type=submit] {
+  #form-article-1 input[type=submit], 
+  #button-article-5-start, 
+  #form-article-5 input[type=button], 
+  #form-article-5 input[type=submit] {
     display: none;
   }
 
@@ -2597,7 +2604,10 @@ aside {
   #mobile-button-form-article-1-next-1, 
   #mobile-button-form-article-1-next-2, 
   #mobile-button-form-article-1-next-3, 
-  #submit-form-article-1 {
+  #submit-form-article-1, 
+  #mobile-button-article-5-start, 
+  #mobile-button-form-article-5-next-1, 
+  #submit-form-article-5 {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
@@ -2605,17 +2615,43 @@ aside {
 
   #mobile-button-form-article-1-next-2, 
   #mobile-button-form-article-1-next-3, 
-  #submit-form-article-1 {
+  #submit-form-article-1, 
+  #submit-form-article-5 {
     transform: translate(-100%, -100%);
   }
 
   #mobile-button-form-article-1-previous-2, 
   #mobile-button-form-article-1-previous-3, 
-  #mobile-button-form-article-1-previous-4 {
+  #mobile-button-form-article-1-previous-4, 
+  #mobile-button-form-article-5-previous-2 {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
     transform: translateX(-210%);
+  }
+
+  #mobile-button-article-5-start {
+    margin-bottom: $margin_value_3;
+    top: 0;
+  }
+
+  #button-article-6-start {
+    margin-top: 0.4rem;
+    left: 0;
+    transform: translateX(34%);
+  }
+
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%);
+  }
+
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.75rem, -1.25rem); // 12px -20px
   }
 
   .button_visible {
@@ -2633,6 +2669,15 @@ aside {
 
   p {
     font-size: $mobile_base_font_size;
+  }
+
+  #section-backgrounds {
+    overflow-x: hidden;
+
+    div {
+      height: 40rem;
+      overflow-x: hidden;
+    }
   }
 
   article {
@@ -2685,7 +2730,7 @@ aside {
   .div-content-block-3, 
   .div-content-block-4 {
     max-height: 21rem; // 336px
-    // overflow-y: auto;
+    overflow-y: scroll;
   }
 
   .div-content-block-2 {
@@ -2734,6 +2779,40 @@ aside {
     span + div span:last-of-type {
       margin-right: 0;
     }
-    
+  }
+
+  #div-content-block-5-desc-1 {
+    max-height: 15rem;  // 296px
+    overflow-y: scroll;
+  }
+
+  #div-content-block-5-header-1, 
+  #div-content-block-5-desc-2 {
+    display: none;
+  }
+
+  #article-content-6 {
+    .div-content-column:last-of-type {
+      display: none;
+    }
+  }
+
+  #div-content-block-6-desc-1 {
+    padding: $padding_value_3 $padding_value_5;
+    margin-bottom: $margin_value_3;
+
+    p {
+      padding-bottom: $padding_value_3;
+    }
+  }
+
+  #div-content-block-6-desc-2 {
+    div {
+      padding: $padding_value_3 $padding_value_5;
+
+      p {
+        width: 9.5rem;
+      }
+    }
   }
 }
