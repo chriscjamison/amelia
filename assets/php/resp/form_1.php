@@ -1,7 +1,8 @@
 <?php
+  phpinfo();
+
   $mood_type = $_GET['mood_type'];
   $difficulty = $_GET['difficulty'];
-  $checkbox = $_GET;
   $harm = $_GET['harm'];
 
   $total_score = 0;
@@ -11,11 +12,11 @@
       $total_score = 5;
     break;
 
-    case "angr":
+    case "anger":
       $total_score = 10;
     break;
 
-    case "axty":
+    case "anxiety":
       $total_score = 15;
     break;
   }
@@ -30,7 +31,7 @@
     $total_score = $total_score + 25;
   }
 
-  if (isset($_GET["job"])) {
+  if (isset($_GET["relationship"])) {
     $total_score = $total_score + 30;
   }
 
@@ -38,12 +39,12 @@
     $total_score = $total_score + 35;
   }
   
-  if (isset($_GET["othr"])) {
+  if (isset($_GET["other"])) {
     $total_score = $total_score + 10;
   }
 
   switch ($harm) {
-    case "tght":
+    case "thought":
       $total_score = $total_score + 40;
     break;
 
@@ -51,15 +52,15 @@
       $total_score = $total_score + 75;
     break;
 
-    case "nthr": 
+    case "neither": 
       $total_score = $total_score - 25;
     break;
   }
   
   if ($total_score < 150) {
-    $url_string = "index.htm#sctn_1?pos=3";
+    $url_string = "index.htm#article=1&position=3";
   } else {
-    $url_string = "index.htm#sctn_1?pos=2";
+    $url_string = "index.htm#article=1&position=4";
   }
 ?>
 

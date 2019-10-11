@@ -24,7 +24,7 @@ $(window).on("hashchange",
 $(window).on("scroll",  
   function () {
     displayContent();
-console.log("$(window).scrollTop() = " + $(window).scrollTop());
+
     animateIntrapageNavigation();
   }
 );
@@ -263,7 +263,7 @@ $(document).ready(
 
     $("#button-article-6-start").on("click", 
       function () {
-        window.location.hash = "#article=6&position=1";
+        window.location.hash = "#article=6&position=1&question=1";
 
         centerBrowser();
 
@@ -271,9 +271,37 @@ $(document).ready(
       }
     );
 
+    $("#mobile-button-article-6-more_info").on("click", 
+      function () {
+        var button_element = {};
+
+        button_element = $(this);
+
+        var button_id_value = "";
+
+        button_id_value = $(button_element).attr("id");
+
+        swapColumns(button_id_value);
+      }
+    );
+
     $("#button-article-6-map").on("click", 
       function () {
         window.open("https://www.bing.com/mapspreview?&cp=30.303075~-97.745526&lvl=19&dir=106.769&pi=1.662&style=x&mo=z.0&osid=a9917ca0-d3c5-4f1d-8d63-06e918dccf3d&v=2&sV=2&form=S00027", "_blank");
+      }
+    );
+
+    $("#mobile-button-article-6-back").on("click", 
+      function () {
+        var button_element = {};
+
+        button_element = $(this);
+
+        var button_id_value = "";
+
+        button_id_value = $(button_element).attr("id");
+
+        swapColumns(button_id_value);
       }
     );
 
@@ -290,6 +318,78 @@ $(document).ready(
     $("#button-form-article-6-previous").on("click", 
       function () {
         window.location.hash = "#article=6&position=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-next-1").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-previous-2").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=1";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-next-2").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=3";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-previous-3").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=2";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-next-3").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=4";
+
+        centerBrowser();
+
+        swapFormQuestions();
+      }
+    );
+
+    $("#mobile-button-form-article-6-previous-4").on("click", 
+      // Activates when the user clicks on a "button" element within "SECTION #1" 
+      // to move to 'FORM TYPE #1'.
+      function () {
+        window.location.hash = "#article=6&position=1&question=3";
 
         centerBrowser();
 
@@ -322,6 +422,91 @@ $(document).ready(
     );
   }
 );
+
+
+
+function swapColumns(button_id_value) {
+  // An Array which will hold the characters contained within 'button_id_value' 
+  // which have been broken up between characters seperated by the character, '-', 
+  // is initialized.
+  var button_id_data_Array = [];
+
+  // The value of 'button_id_value' is broken up into smaller segments.
+  button_id_data_Array = button_id_value.split("-");
+
+  // A String variable which will hold a character which identifies the 'section' 
+  // which called this function.
+  section_num_value = "";
+
+  // The character which identifies the 'section' is passed on.
+  section_num_value = button_id_data_Array[3];
+
+  // A String variable which will hold the CSS selector which refers 
+  // to the HTML element containing the 'columns' of content this function 
+  // is processing is initialized.
+  var div_column_selector = "";
+
+  // The CSS selector which refers to the HTML element containing the columns
+  // of content under processing is passed on.
+  div_column_selector = "#article-content-" + section_num_value + " > div > .div-content-column";
+
+  console.log("div_column_selector = " + div_column_selector);
+
+  // An Object variable which will hold the jQuery object which refers to the 
+  // HTML element containing the column of content under prcessing is initialized.
+  var div_column_elements = {};
+
+  // String variable which will hold the CSS selector for the individual columns 
+  // of content this function processes are initialized.
+  var div_first_column_selector = "";
+  var div_second_column_selector = "";
+
+  // The CSS selectors which refer to the HTML elements containing the columns 
+  // of content under processing is created.
+  div_first_column_selector = div_column_selector + ":first-of-type";
+  div_second_column_selector = div_column_selector + ":last-of-type";
+
+  // Object variables which will hold the jQuery objects which refers to the 
+  // columns of content within a section are initialized.
+  var div_first_column_element = {};
+  var div_second_column_element = {};
+
+  // The jQuery objects which refer to the columns of content within a section 
+  // are passed on.
+  div_first_column_element = $(div_first_column_selector);
+  div_second_column_element = $(div_second_column_selector);
+
+  // A String variable which will hold the CSS class which makes a column of content 
+  // not visible is initialized.
+  var column_not_visible_class_value = "";
+
+  // The CSS class which makes a column of content not visible is passed on.
+  column_not_visible_class_value = "div-column-not_visible";
+
+  // A Boolean variable which will hold a flag which will hold the value 
+  // of 'true' if the column under processing is not visible is initialized.
+  var is_column_not_visible;
+
+  // The function assumes the first column is visible.
+  is_column_not_visible = false;
+
+  // The visibility of the first column is found and passed on.
+  is_column_not_visible = $(div_first_column_element).hasClass(column_not_visible_class_value);
+
+  // All references to the CSS class which makes a column of content not visible 
+  // are removed.
+  $(div_first_column_element).removeClass(column_not_visible_class_value);
+  $(div_second_column_element).removeClass(column_not_visible_class_value);
+
+  // IF/ELSE statement which changes the visibility of the columns. If the 
+  // first column was already visible, the first column will be hidden and the 
+  // second column will now become visible.
+  if (is_column_not_visible === false) {
+    $(div_first_column_element).addClass(column_not_visible_class_value);
+  } else {
+    $(div_second_column_element).addClass(column_not_visible_class_value);
+  }
+}
 
 
 

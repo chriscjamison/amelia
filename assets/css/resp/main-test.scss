@@ -236,7 +236,9 @@ h1 {
  * are formatted in this pairing. 
  */
 
-
+.div-column-not_visible {
+  display: block;
+}
 
 /* ****** FORMS ****** */
 
@@ -260,9 +262,9 @@ fieldset {
 }
 /* Formats <fieldset> elements which contain form options. */
 
+
+
 /* ---- 'FORM FIELDS & OPTIONS' ---- */
-
-
 
 label + p,
 input + p {
@@ -1889,6 +1891,14 @@ aside {
     p {
       border-right: none;
     }
+
+    .p-desktop-phone_number {
+      display: block;
+    }
+
+    .p-mobile-phone_number {
+      display: none;
+    }
   }
 }
 
@@ -2555,6 +2565,10 @@ aside {
     display: block;
   }
 
+  .div-column-not_visible {
+    display: none;
+  }
+
   .div-form-question {
     max-height: 24rem; // 384px
     padding: $padding_value_3;
@@ -2584,6 +2598,13 @@ aside {
     }
   }
 
+  input[type=text], 
+  input[type=email], 
+  input[type=number], 
+  textarea {
+    width: 14.75rem; // 236px
+  }
+
   .div-form-question-visible {
     display: block;
   }
@@ -2593,7 +2614,9 @@ aside {
   #form-article-1 input[type=submit], 
   #button-article-5-start, 
   #form-article-5 input[type=button], 
-  #form-article-5 input[type=submit] {
+  #form-article-5 input[type=submit], 
+  #form-article-6 input[type=button], 
+  #form-article-6 input[type=submit] {
     display: none;
   }
 
@@ -2607,7 +2630,11 @@ aside {
   #submit-form-article-1, 
   #mobile-button-article-5-start, 
   #mobile-button-form-article-5-next-1, 
-  #submit-form-article-5 {
+  #submit-form-article-5, 
+  #mobile-button-form-article-6-next-1, 
+  #mobile-button-form-article-6-next-2, 
+  #mobile-button-form-article-6-next-3, 
+  #submit-form-article-6 {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
@@ -2616,14 +2643,21 @@ aside {
   #mobile-button-form-article-1-next-2, 
   #mobile-button-form-article-1-next-3, 
   #submit-form-article-1, 
-  #submit-form-article-5 {
+  #submit-form-article-5, 
+  #submit-button-article-6-back, 
+  #mobile-button-form-article-6-next-2, 
+  #mobile-button-form-article-6-next-3, 
+  #submit-form-article-6 {
     transform: translate(-100%, -100%);
   }
 
   #mobile-button-form-article-1-previous-2, 
   #mobile-button-form-article-1-previous-3, 
   #mobile-button-form-article-1-previous-4, 
-  #mobile-button-form-article-5-previous-2 {
+  #mobile-button-form-article-5-previous-2,  
+  #mobile-button-form-article-6-previous-2, 
+  #mobile-button-form-article-6-previous-3, 
+  #mobile-button-form-article-6-previous-4 {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
@@ -2633,6 +2667,7 @@ aside {
   #mobile-button-article-5-start {
     margin-bottom: $margin_value_3;
     top: 0;
+    transform: translateX(-6.55rem); // -276px
   }
 
   #button-article-6-start {
@@ -2646,6 +2681,19 @@ aside {
     top: 0;
     left: calc(100% - 1.25rem);
     transform: translateX(-200%);
+  }
+
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%);
+  }
+
+  #mobile-button-article-6-back {
+    margin-top: $margin_value_3;
+    left: 50%;
+    transform: translate(-0.6rem); // -10px
   }
 
   #button-article-6-map {
@@ -2791,12 +2839,6 @@ aside {
     display: none;
   }
 
-  #article-content-6 {
-    .div-content-column:last-of-type {
-      display: none;
-    }
-  }
-
   #div-content-block-6-desc-1 {
     padding: $padding_value_3 $padding_value_5;
     margin-bottom: $margin_value_3;
@@ -2811,8 +2853,39 @@ aside {
       padding: $padding_value_3 $padding_value_5;
 
       p {
-        width: 9.5rem;
+        width: 9.5rem; // 152px
       }
     }
+  }
+
+  #div-content-block-6-info-1 {
+    padding: $padding_value_3 0;
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.6rem; // 170px
+    margin: $margin_value_3 0 0 0;
+
+    div {
+      width: 6.75rem; // 108px
+      min-height: 10.8rem; // 173px
+
+      .p-desktop-phone_number {
+        display: none;
+      }
+    
+      .p-mobile-phone_number {
+        display: block;
+
+        a {
+          color: $input_font_color;
+        }
+      }
+    }
+  }
+
+  #div-content-block-6-desc-office_hours {
+    margin-right: $margin_value_3;
   }
 }

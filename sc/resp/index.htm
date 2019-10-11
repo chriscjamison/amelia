@@ -142,12 +142,12 @@
 									</p>
 									<fieldset>
 										<p>
-											<input type="checkbox" name="death" value="death" id="stressor-dth" />
+											<input type="checkbox" name="death" value="death" id="stressor-death" />
 											<label for="death">Death of a loved one</label>
 										</p>
 										<p>
-											<input type="checkbox" name="rltn" value="rltn" id="stressor-rltn" />
-											<label for="rltn">End of close relationship</label>
+											<input type="checkbox" name="relationship" value="rltn" id="stressor-relationship" />
+											<label for="relationship">End of close relationship</label>
 										</p>
 										<p>
 											<input type="checkbox" name="job" value="job" id="stressor-job" />
@@ -158,8 +158,8 @@
 											<label for="move">Moving to new city</label>
 										</p>
 										<p>
-											<input type="checkbox" name="othr" value="othr" id="stressor-othr" />
-											<label for="othr">Other</label>
+											<input type="checkbox" name="other" value="other" id="stressor-other" />
+											<label for="other">Other</label>
 										</p>
 									</fieldset>
 								<!-- END of Form Question #3 -->
@@ -220,14 +220,14 @@
 								<!-- END of Form Question #2 -->
 								</div>
 
-								<!-- BUTTON to view next set of questions of FORM TYPE #1 -->
-								<input type="button" name="article-1-next" value="Next" id="button-form-article-1-next" />
-
-								<!-- BUTTON to view QUESTION #1 of FORM TYPE #1 -->
+								<!-- BUTTON to view QUESTION #1 of mobile FORM TYPE #1 -->
 								<input type="button" name="mobile-article-1-previous-2" value="Previous" id="mobile-button-form-article-1-previous-2" />
 
-								<!-- BUTTON to view QUESTION #3 of FORM TYPE #1 -->
+								<!-- BUTTON to view QUESTION #3 of mobile FORM TYPE #1 -->
 								<input type="button" name="mobile-article-1-next-2" value="Next" id="mobile-button-form-article-1-next-2" />
+
+								<!-- BUTTON to view next set of questions of FORM TYPE #1 -->
+								<input type="button" name="article-1-next" value="Next" id="button-form-article-1-next" />
 							<!-- END of Page #1 of FORM TYPE #1 -->
 							</div>
 
@@ -242,20 +242,20 @@
 										<div>
 											<select name="harm" id="harm">
 												<option value="default" selected>- Select One -</option>
-												<option value="tght">Thought of</option>
+												<option value="thought">Thought of</option>
 												<option value="harm">Physically harmed</option>
-												<option value="nther">Neither</option>
+												<option value="neither">Neither</option>
 											</select>
 										</div>
 									</fieldset>
 								<!-- END of Form Question #4 -->
 								</div>
 
-								<!-- BUTTON to view previous set of questions of FORM TYPE #1 -->
-								<input type="button" name="article-1-previous" value="Previous" id="button-form-article-1-previous" />
-
 								<!-- BUTTON to view QUESTION #3 of FORM TYPE #1 -->
 								<input type="button" name="article-1-previous" value="Previous" id="mobile-button-form-article-1-previous-4" />
+								
+								<!-- BUTTON to view previous set of questions of FORM TYPE #1 -->
+								<input type="button" name="article-1-previous" value="Previous" id="button-form-article-1-previous" />
 								
 								<!-- BUTTON to Submit FORM TYPE #1 -->
 								<input type="submit" name="article-1-submit" value="Complete" id="submit-form-article-1" />
@@ -757,7 +757,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="div-content-column">
+					<div class="div-content-column div-column-not_visible">
 						<div class="div-content-block-6" id="div-content-block-6-info-1">
 							<span>
 								<span>In the case of a medical emergency: <strong>Dial 911</strong></span>
@@ -777,19 +777,26 @@
 						<div class="div-content-block-6-type-2" id="div-content-block-6-desc-phone_numbers">
 							<span>Phone &amp; Fax Numbers</span>
 							<div>
-								<p>
+								<p class="p-desktop-phone_number">
 									<b>Phone Number:</b>
 									<br>
 									512-555-4515
+								</p>
+								<p class="p-mobile-phone_number">
+									<b>Phone Number:</b>
+									<br>
+									<a href="tel:512-555-4515" title="Phone Number: 512-555-4515">512-555-4515</a>
 								</p>
 								<p>
 									<b>Fax Number: </b>
 									<br>
 									512-555-4516
 								</p>
-								
 							</div>
 						</div>
+							
+						<!-- BUTTON which navigates to the first block of content in SECTION #6 -->
+						<input type="button" name="back" value="Back" id="mobile-button-article-6-back" />
 					</div>
 				<!-- END of CONTENT BLOCK #1 -->	
 				</div>
@@ -815,6 +822,9 @@
 										</fieldset>	
 									<!-- END of Form Question #1 -->
 									</div>
+
+									<!-- BUTTON to view QUESTION #2 of FORM TYPE #3 -->
+									<input type="button" name="mobile-article-6-next-1" value="Next" id="mobile-button-form-article-6-next-1" />
 
 								<!-- END of Page #1 of FORM TYPE #3 -->
 								</div>
@@ -853,6 +863,12 @@
 										<!-- END of Form Question #3 -->
 									</div>
 
+									<!-- BUTTON to view QUESTION #2 of FORM TYPE #1 -->
+									<input type="button" name="mobile-article-6-previous-3" value="Previous" id="mobile-button-form-article-6-previous-3" />
+
+									<!-- BUTTON to view QUESTION #4 of FORM TYPE #1 -->
+									<input type="button" name="mobile-article-6-next-3" value="Next" id="mobile-button-form-article-6-next-3" />
+
 								<!-- END of Page #2 of FORM TYPE #3 -->
 								</div>
 
@@ -882,6 +898,12 @@
 										<!-- END of Form Question #2 -->
 									</div>
 
+									<!-- BUTTON to view QUESTION #1 of mobile FORM TYPE #3 -->
+									<input type="button" name="mobile-article-6-previous-2" value="Previous" id="mobile-button-form-article-6-previous-2" />
+
+									<!-- BUTTON to view QUESTION #3 of mobile FORM TYPE #3 -->
+									<input type="button" name="mobile-article-6-next-2" value="Next" id="mobile-button-form-article-6-next-2" />
+									
 									<!-- BUTTON to view Page #2 of FORM TYPE #3 -->
 									<input type="button" name="article-6-next" value="Next" id="button-form-article-6-next" />
 
@@ -899,6 +921,9 @@
 										</fieldset>
 									<!-- END of Form Question #4 -->
 									</div>
+
+									<!-- BUTTON to view QUESTION #3 of FORM TYPE #6 -->
+									<input type="button" name="article-6-previous" value="Previous" id="mobile-button-form-article-6-previous-4" />
 
 									<!-- BUTTON to view Page #1 of FORM TYPE #3 -->
 									<input type="button" name="article-6-previous" value="Previous" id="button-form-article-6-previous" />

@@ -68,6 +68,9 @@ h1 {
  * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
  * are formatted in this pairing. 
  */
+.div-column-not_visible {
+  display: block; }
+
 /* ****** FORMS ****** */
 .div-content-column {
   height: auto;
@@ -1389,6 +1392,12 @@ aside {
     #div-content-block-6-desc-office_hours div p,
     #div-content-block-6-desc-phone_numbers div p {
       border-right: none; }
+    #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
+      display: block; }
+    #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
+      display: none; }
 
 .div-spacer-article-6 {
   height: 0;
@@ -1808,6 +1817,8 @@ aside {
         margin-left: 0.75rem !important; }
   .div-content-column {
     display: block; }
+  .div-column-not_visible {
+    display: none; }
   .div-form-question {
     max-height: 24rem;
     padding: 1rem;
@@ -1821,6 +1832,11 @@ aside {
     margin-right: 0; }
   #div-form-article-1-question-2 fieldset div span:last-of-type {
     margin-left: 0; }
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea {
+    width: 14.75rem; }
   .div-form-question-visible {
     display: block; }
   #button-article-1-start,
@@ -1828,7 +1844,9 @@ aside {
   #form-article-1 input[type=submit],
   #button-article-5-start,
   #form-article-5 input[type=button],
-  #form-article-5 input[type=submit] {
+  #form-article-5 input[type=submit],
+  #form-article-6 input[type=button],
+  #form-article-6 input[type=submit] {
     display: none; }
   #mobile-button-article-1-start {
     margin: 0 0 0.8rem 0; }
@@ -1838,26 +1856,38 @@ aside {
   #submit-form-article-1,
   #mobile-button-article-5-start,
   #mobile-button-form-article-5-next-1,
-  #submit-form-article-5 {
+  #submit-form-article-5,
+  #mobile-button-form-article-6-next-1,
+  #mobile-button-form-article-6-next-2,
+  #mobile-button-form-article-6-next-3,
+  #submit-form-article-6 {
     margin: 0;
     top: 1.25rem;
     left: calc(100% - 1.25rem); }
   #mobile-button-form-article-1-next-2,
   #mobile-button-form-article-1-next-3,
   #submit-form-article-1,
-  #submit-form-article-5 {
+  #submit-form-article-5,
+  #submit-button-article-6-back,
+  #mobile-button-form-article-6-next-2,
+  #mobile-button-form-article-6-next-3,
+  #submit-form-article-6 {
     transform: translate(-100%, -100%); }
   #mobile-button-form-article-1-previous-2,
   #mobile-button-form-article-1-previous-3,
   #mobile-button-form-article-1-previous-4,
-  #mobile-button-form-article-5-previous-2 {
+  #mobile-button-form-article-5-previous-2,
+  #mobile-button-form-article-6-previous-2,
+  #mobile-button-form-article-6-previous-3,
+  #mobile-button-form-article-6-previous-4 {
     margin: 0;
     top: 1.25rem;
     left: calc(100% - 1.25rem);
     transform: translateX(-210%); }
   #mobile-button-article-5-start {
     margin-bottom: 1rem;
-    top: 0; }
+    top: 0;
+    transform: translateX(-6.55rem); }
   #button-article-6-start {
     margin-top: 0.4rem;
     left: 0;
@@ -1867,6 +1897,15 @@ aside {
     top: 0;
     left: calc(100% - 1.25rem);
     transform: translateX(-200%); }
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%); }
+  #mobile-button-article-6-back {
+    margin-top: 1rem;
+    left: 50%;
+    transform: translate(-0.6rem); }
   #button-article-6-map {
     margin: 0;
     left: 0;
@@ -1951,8 +1990,6 @@ aside {
   #div-content-block-5-header-1,
   #div-content-block-5-desc-2 {
     display: none; }
-  #article-content-6 .div-content-column:last-of-type {
-    display: none; }
   #div-content-block-6-desc-1 {
     padding: 1rem 2rem;
     margin-bottom: 1rem; }
@@ -1961,4 +1998,25 @@ aside {
   #div-content-block-6-desc-2 div {
     padding: 1rem 2rem; }
     #div-content-block-6-desc-2 div p {
-      width: 9.5rem; } }
+      width: 9.5rem; }
+  #div-content-block-6-info-1 {
+    padding: 1rem 0; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.6rem;
+    margin: 1rem 0 0 0; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 6.75rem;
+      min-height: 10.8rem; }
+      #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
+      #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
+        display: none; }
+      #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
+      #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
+        display: block; }
+        #div-content-block-6-desc-office_hours div .p-mobile-phone_number a,
+        #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number a {
+          color: #221763; }
+  #div-content-block-6-desc-office_hours {
+    margin-right: 1rem; } }
