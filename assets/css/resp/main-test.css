@@ -457,8 +457,7 @@ p:not(#foo) > input[type=radio] + label:hover:active {
 /* ****** CONTAINER ELEMENTS ****** */
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden; }
+  padding: 0; }
 
 /* 
   Formats the <body> HTML tag 
@@ -650,6 +649,22 @@ nav {
     /* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
      * which serves as the menu-button for the intra-sectional navigation. 
      */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the base click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the hover click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the active click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the click state which is set once the menu-button has been clicked.
+     */
     /* Formats the <div> element which contains the <a> elements which serve as 
      * menu-options of the intra-sectional navigation.
      */ }
@@ -668,6 +683,14 @@ nav {
     .div-nav-article div .nav-article-click {
       cursor: default;
       opacity: 1; }
+    .div-nav-article div .nav-article-base {
+      background-position: 0px 0px; }
+    .div-nav-article div .nav-article-hover {
+      background-position: 0px -35px; }
+    .div-nav-article div .nav-article-click-1 {
+      background-position: 0px -70px; }
+    .div-nav-article div .nav-article-click-2 {
+      background-position: 0px -105px; }
     .div-nav-article div div {
       position: absolute;
       display: none;
@@ -1510,39 +1533,14 @@ aside {
   */
   .div-nav-article {
     width: 84.25rem; }
-    .div-nav-article div {
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the base click state.
-        */
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the hover click state.
-        */
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the active click state.
-        */
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the click state which is set once the menu-button has been clicked.
-        */ }
-      .div-nav-article div .nav-article-base {
-        background-position: 0px 0px; }
-      .div-nav-article div .nav-article-hover {
-        background-position: 0px -35px; }
-      .div-nav-article div .nav-article-active {
-        background-position: 0px -70px; }
-      .div-nav-article div .nav-article-click {
-        background-position: 0x -105px; }
-      .div-nav-article div div {
-        height: 2.19em;
-        margin: 1rem auto 0 auto; }
-        .div-nav-article div div a {
-          width: 6.56em;
-          height: 1.38em;
-          margin: 0 0.94em;
-          padding: 0.19em 0 0 0; }
+    .div-nav-article div div {
+      height: 2.19em;
+      margin: 1rem auto 0 auto; }
+      .div-nav-article div div a {
+        width: 6.56em;
+        height: 1.38em;
+        margin: 0 0.94em;
+        padding: 0.19em 0 0 0; }
   #div-nav-article-3 {
     top: 38rem; }
     #div-nav-article-3 div {
@@ -1796,15 +1794,20 @@ aside {
     display: none; }
   .div-nav-article {
     width: 22.5rem;
-    height: 2.25rem;
-    top: 35rem; }
+    height: 9.5rem;
+    top: 30.5rem; }
+    .div-nav-article div {
+      height: 6.5rem; }
+      .div-nav-article div div a:nth-of-type(n) {
+        margin: 1rem 0.75rem 0 2rem !important; }
+      .div-nav-article div div a:nth-of-type(2n) {
+        margin-left: 0.75rem !important; }
   .div-content-column {
     display: block; }
   .div-form-question {
     max-height: 24rem;
     padding: 1rem;
-    display: none;
-    overflow-y: scroll; }
+    display: none; }
     .div-form-question .h2-form {
       font-size: 1.25rem; }
     .div-form-question .h3-form {
@@ -1875,9 +1878,10 @@ aside {
     float: none; }
   .div-content-block-1 p ~ p {
     margin-bottom: 0; }
-  .div-content-block-1 {
-    max-height: 24rem;
-    overflow-y: scroll; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4 {
+    max-height: 21rem; }
   .div-content-block-2 {
     width: 6.95rem;
     min-height: 15.5rem;

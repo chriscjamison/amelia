@@ -5,7 +5,7 @@
 
 $(window).on("load", 
   function () {
-    initializePage();
+    // initializePage();
 
     displayContent();
 
@@ -21,12 +21,16 @@ $(window).on("hashchange",
   }
 );
 
-$(window).on("scroll", 
+window.addEventListener("scroll",  
   function () {
-    displayContent();
-
-    animateIntrapageNavigation();
-  }
+    // displayContent();
+/* setTimeout(
+  function () { */
+    console.log("$(\"html\").scrollTop() = " + $("html").scrollTop());
+  /* }, 100
+); */
+    // animateIntrapageNavigation();
+  }, false
 );
 
 $(document).ready(
@@ -261,14 +265,76 @@ $(document).ready(
       }
     );
 
-    $(".div-nav-article > div > div > a").on("click", 
+    $("#a-nav-article-3").on("click", 
       function () {
-       closeSectionNavigation();
+        swapArticleNavigationLink($(this).attr("id"));
+      }
+    );
+
+    $("#div-nav-article-3 > div > div > a").on("click", 
+      function () {
+       closeSectionNavigation("3");
+      }
+    );
+
+    $("#a-nav-article-4").on("click", 
+      function () {
+        swapArticleNavigationLink($(this).attr("id"));
+      }
+    );
+
+    $("#div-nav-article-4 > div > div > a").on("click", 
+      function () {
+       closeSectionNavigation("4");
       }
     );
   }
 );
 
+
+
+function swapArticleNavigationLink(link_id_value) {
+  var article_link_selector = "";
+
+  article_link_selector = "#" + link_id_value;
+
+  var article_link_element = {};
+
+  article_link_element = $(article_link_selector);
+
+  $(article_link_element).removeClass();
+
+  var article_links_div_selector = "";
+
+  article_links_div_selector = "#div-nav-article-" + link_id_value.slice(-1) + " > div > div";
+
+  var article_links_div_element = {};
+
+  article_links_div_element = $(article_links_div_selector);
+  var are_links_visible;
+
+  are_links_visible = $(article_links_div_element).hasClass("div-nav-article-visible");
+
+  if (are_links_visible === true) {
+    $(article_link_element).addClass("nav-article-click-1");
+
+    setTimeout(
+      function () {
+        $(article_link_element).removeClass();
+        $(article_link_element).addClass("nav-article-base");
+      }, 50
+    );
+  } else {
+    $(article_link_element).addClass("nav-article-click-1");
+
+    setTimeout(
+      function () {
+        $(article_link_element).removeClass();
+        $(article_link_element).addClass("nav-article-click-2");
+      }, 50
+    );
+  }
+}
 
 
 function scrollToPreviousSection()  {
@@ -589,7 +655,7 @@ function displayContent() {
 
 
 
-function closeSectionNavigation() {
+function closeSectionNavigation(link_id_value) {
   // A String variable which will hold the CSS selector which refers 
   // to intrasection navigation is initialized.
   var section_nav_div_selector = "";
@@ -608,6 +674,30 @@ function closeSectionNavigation() {
 
   // The links of the intrasection navigation is made not visible.
   $(section_nav_div_element).removeClass("div-nav-article-visible");
+
+  // A String variable which will hold the CSS selector which 
+  // refers to the link which shows or hides the links within 
+  // the 'section' navigation is initialized.
+  var article_link_selector = "";
+
+  // The CSS selector which refers to the link which shows or 
+  // hides the links within the section navigation is passed on.
+  article_link_selector = "#a-nav-article-" + link_id_value;
+
+  // An Object variable which will hold the jQuery object which 
+  // refers to the link which shows or hides the links within 
+  // the section navigation is initialized.
+  var article_link_element = {};
+
+  // The jQuery object which refers to the link which shows or hides 
+  // the links within the section navigation is passed on.
+  article_link_element = $(article_link_selector);
+
+  // All CSS classes are removed from the link this function is processing.
+  $(article_link_element).removeClass();
+
+  // The link this function is processing is returned to its base hover state.
+  $(article_link_element).addClass("nav-article-base");
 }
 
 

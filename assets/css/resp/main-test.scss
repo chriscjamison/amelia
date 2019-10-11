@@ -708,7 +708,7 @@ p:not(#foo) > input[type=radio] + label:hover:active {
 body {
   margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 }
 /* 
   Formats the <body> HTML tag 
@@ -956,6 +956,38 @@ nav {
       cursor: default;
       opacity: 1;
     }
+
+    .nav-article-base {
+      background-position: 0px 0px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the base click state.
+     */
+
+    .nav-article-hover {
+      background-position: 0px -35px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the hover click state.
+     */
+
+    .nav-article-click-1 {
+      background-position: 0px -70px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the active click state.
+     */
+
+    .nav-article-click-2 {
+      background-position: 0px -105px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the click state which is set once the menu-button has been clicked.
+     */
 
     div {
       position: absolute;
@@ -2067,38 +2099,6 @@ aside {
     width: 84.25rem; // 1,348px
 
     div {  
-      .nav-article-base {
-        background-position: 0px 0px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the base click state.
-        */
-  
-      .nav-article-hover {
-        background-position: 0px -35px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the hover click state.
-        */
-  
-      .nav-article-active {
-        background-position: 0px -70px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the active click state.
-        */
-  
-      .nav-article-click {
-        background-position: 0x -105px;
-      }
-      /* Formats the click-state for the <span> element which serves as the menu-button 
-        * for the intra-sectional navigation.
-        * This is the click state which is set once the menu-button has been clicked.
-        */
-  
       div {
         height: 2.19em; // 35px
         margin: $margin_value_3 auto 0 auto;
@@ -2529,8 +2529,22 @@ aside {
 
   .div-nav-article {
     width: 22.5rem; 
-    height: 2.25rem;
-    top: 35rem;
+    height: 9.5rem; // 152px
+    top: 30.5rem; // 488px 
+
+    div {
+      height: 6.5rem; // 104px
+
+      div {
+        a:nth-of-type(n) {
+          margin: $margin_value_3 $margin_value_2 0 $margin_value_5 !important;
+        }
+        
+        a:nth-of-type(2n) {
+          margin-left: 0.75rem !important;
+        }
+      }
+    }
   }
 
   .div-content-column {
@@ -2541,7 +2555,7 @@ aside {
     max-height: 24rem; // 384px
     padding: $padding_value_3;
     display: none;
-    overflow-y: scroll;
+    // overflow-y: auto;
 
     .h2-form {
       font-size: $mobile_h2_font_size;
@@ -2667,9 +2681,11 @@ aside {
     }
   }
 
-  .div-content-block-1 {
-    max-height: 24rem; // 384px
-    overflow-y: scroll;
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4 {
+    max-height: 21rem; // 336px
+    // overflow-y: auto;
   }
 
   .div-content-block-2 {
