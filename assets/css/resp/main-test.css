@@ -516,6 +516,23 @@ nav {
   position: fixed;
   z-index: 2;
   /* Formats a <div> element which serves as the menu 'button'. */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the default, 'base', click state.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the mouseover, or 'hover', click state.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is a 'click' state that is only meant to be visible for the duration 
+    * of the clicking of the mouse.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the state which appears when the navigation panel is open. 
+    */
   /* Sets a class which is used to alter the 'click-state' of the side panel  
    * which contains the menu options which slides 'out' of the left of the page. 
    * This class sets the <nav> element to appear in a 'fixed' location 
@@ -538,10 +555,32 @@ nav {
    * This state is activated once the navigation panel has been activated.
    */ }
   nav #div-nav-icon {
+    width: 3.13rem;
+    height: 3.13rem;
+    top: 1.56rem;
+    left: 1.56rem;
     position: fixed;
     z-index: 5;
     background-image: url("/assets/img/nav/nav.png");
     background-repeat: no-repeat; }
+  nav .nav-icon-base {
+    background-position: 0 0; }
+  nav .nav-icon-base,
+  nav .nav-icon-hover,
+  nav .nav-icon-click-1,
+  nav .nav-icon-click-2,
+  nav #div-nav-options a,
+  nav .nav-option-base,
+  nav .nav-option-hover {
+    cursor: pointer; }
+  nav .nav-icon-base {
+    background-position: 0 0; }
+  nav .nav-icon-hover {
+    background-position: 0 -50px; }
+  nav .nav-icon-click-1 {
+    background-position: 0 -100px; }
+  nav .nav-icon-click-2 {
+    background-position: 0 -150px; }
   nav .nav-click-closed {
     position: fixed !important; }
   nav .nav-click-open {
@@ -600,6 +639,9 @@ nav {
       background-color: #444; }
 
 /* Formats the <nav> element which contains the inter-sectional navigation. */
+.nav-visible {
+  left: 0 !important; }
+
 #a-nav-article-previous,
 #a-nav-article-next {
   position: fixed;
@@ -1444,47 +1486,7 @@ aside {
   nav {
     width: 40.25rem;
     height: 100%;
-    left: -40.25rem;
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the default, 'base', click state.
-      */
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the mouseover, or 'hover', click state.
-      */
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is a 'click' state that is only meant to be visible for the duration 
-      * of the clicking of the mouse.
-      */
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the state which appears when the navigation panel is open. 
-      */ }
-    nav #div-nav-icon {
-      width: 3.13rem;
-      height: 3.13rem;
-      top: 1.56rem;
-      left: 1.56rem; }
-    nav .nav-icon-base {
-      background-position: 0 0; }
-    nav .nav-icon-base,
-    nav .nav-icon-hover,
-    nav .nav-icon-click-1,
-    nav .nav-icon-click-2,
-    nav #div-nav-options a,
-    nav .nav-option-base,
-    nav .nav-option-hover {
-      cursor: pointer; }
-    nav .nav-icon-base {
-      background-position: 0 0; }
-    nav .nav-icon-hover {
-      background-position: 0 -50px; }
-    nav .nav-icon-click-1 {
-      background-position: 0 -100px; }
-    nav .nav-icon-click-2 {
-      background-position: 0 -150px; }
+    left: -40.25rem; }
     nav #div-nav-options {
       width: 40.25rem;
       padding-left: 0.5rem;
@@ -1505,8 +1507,6 @@ aside {
       width: 40.25rem;
       height: 6.25rem;
       left: -40.25rem; }
-    nav .nav-visible {
-      left: 0 !important; }
     nav .nav-not_visible {
       left: -40.25rem !important; }
   #a-nav-article-previous,
@@ -1794,17 +1794,47 @@ aside {
 
 /* ****** MOBILE - ANDROID (360px) ****** */
 @media screen and (min-width: 20.06rem) and (max-width: 22.5rem) {
-  nav #div-nav-options a {
-    display: none; }
+  nav {
+    width: 22.5rem;
+    height: 40rem;
+    left: -22.5rem; }
+    nav #div-nav-options {
+      width: 12.5rem;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      top: 2.75rem; }
+      nav #div-nav-options a {
+        width: 11rem;
+        height: 3rem;
+        margin-bottom: 0.5rem;
+        padding: 0.75rem;
+        display: block;
+        font-size: 1.2rem; }
+    nav #div-nav-background {
+      width: 22.5rem;
+      height: 40rem;
+      top: 0; }
+      nav #div-nav-background #div-nav-border {
+        display: none; }
+  .nav-not_visible {
+    left: -22.5rem !important; }
+  #div-nav-options.nav-visible {
+    left: 22.5rem !important; }
   #a-nav-article-previous,
   #a-nav-article-next {
     width: 5rem;
     height: 1.3rem;
     left: 50%;
-    transform: translateX(-100%); }
+    transform: translateX(-50%); }
   #a-nav-article-previous > span,
   #a-nav-article-next > span {
     display: none; }
+  #a-nav-article-previous {
+    top: 1rem; }
+  #a-nav-article-next {
+    bottom: 1rem;
+    background-position: 0px -209px; }
   .div-nav-article {
     width: 22.5rem;
     height: 9.5rem;

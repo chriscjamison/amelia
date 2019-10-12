@@ -554,20 +554,14 @@ function swapArticleNavigationLink(link_id_value) {
 }
 
 
-function scrollToPreviousSection()  {
-  // An Array which will hold the dimensions of the browser window 
-  // is initialized.
-  var display_dimensions_Array = [];
 
-  // The browser dimensions are passed on.
-  display_dimensions_Array = setDisplayType();
-
+function getCurrentSection()  {
   // A Number variable which will hold the height of each section of content 
   // is initialized.
   var section_height;
 
   // The height of each section of content is passed on.
-  section_height = display_dimensions_Array[1];
+  section_height = getSectionHeight();
 
   // A Number variable which will hold the vertical position of the browser 
   // within the webpage is initialized.
@@ -583,6 +577,49 @@ function scrollToPreviousSection()  {
   // The section the browser is currently viewing is found out by 
   // dividing the value of 'current_position' by 'section_height'.
   current_section = Math.floor(current_position / section_height);
+
+  // The current section within the browser window is passed on.
+  return current_section;
+}
+
+
+
+function getSectionHeight() {
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = getDisplaySize();
+
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = display_dimensions_Array[1];
+
+  // The height of each section is passed back.
+  return section_height;
+}
+
+
+
+function scrollToPreviousSection()  {
+  // A Number variable which will hold the a value which refers to the 
+  // section currently viewable in the browser window is initialized.
+  var current_section;
+
+  // The section the browser is currently viewing is found out by 
+  // dividing the value of 'current_position' by 'section_height'.
+  current_section = getCurrentSection();
+  
+  // A Number variable which will hold the height of each section of content 
+  // is initialized.
+  var section_height;
+
+  // The height of each section of content is passed on.
+  section_height = getSectionHeight();
 
   // A Number variable which will hold a new point within the webpage to 
   // scroll to is initialized.
@@ -606,34 +643,20 @@ function scrollToPreviousSection()  {
 
 
 function scrollToNextSection()  {
-  // An Array which will hold the dimensions of the browser window 
-  // is initialized.
-  var display_dimensions_Array = [];
-
-  // The browser dimensions are passed on.
-  display_dimensions_Array = setDisplayType();
-  
-  // A Number variable which will hold the height of each section of content 
-  // is initialized.
-  var section_height;
-
-  // The height of each section of content is passed on.
-  section_height = display_dimensions_Array[1];
-
-  // A Number variable which will hold the vertical position of the browser 
-  // within the webpage is initialized.
-  var current_position;
-
-  // The current position of the browser window is passed on.
-  current_position = $(window).scrollTop(); 
-
   // A Number variable which will hold the a value which refers to the 
   // section currently viewable in the browser window is initialized.
   var current_section;
 
   // The section the browser is currently viewing is found out by 
   // dividing the value of 'current_position' by 'section_height'.
-  current_section = Math.floor(current_position / section_height);
+  current_section = getCurrentSection();
+
+  // A Number variable which will hold the height of a given section 
+  // of content is initialized.
+  var section_height;
+
+  // The height of a given section of content is passed on.
+  section_height = getSectionHeight()
 
   // A Number variable which will hold a new point within the webpage to 
   // scroll to is initialized.
@@ -665,13 +688,6 @@ function animateIntrapageNavigation() {
   // The jQuery object which refers to the main block of content is passed on.
   main_element = $(main_selector);
 
-  // An Array which will hold the dimensions of the browser window 
-  // is initialized.
-  var display_dimensions_Array = [];
-
-  // The browser dimensions are passed on.
-  display_dimensions_Array = setDisplayType();
-
   // A Number variable which will hold the height of the webpage is initialized.
   var webpage_height;
 
@@ -683,7 +699,7 @@ function animateIntrapageNavigation() {
   var section_height;
 
   // The height of each section of content is passed on.
-  section_height = display_dimensions_Array[1];
+  section_height = getSectionHeight();
 
   // A Number variable which will hold the vertical position of the browser 
   // within the webpage is initialized.
@@ -801,19 +817,12 @@ function animateIntrapageNavigation() {
 
 
 function displayContent() {
-  // An Array which will hold the dimensions of the browser window 
-  // is initialized.
-  var display_dimensions_Array = [];
-
-  // The browser dimensions are passed on.
-  display_dimensions_Array = setDisplayType();
-
   // A Number variable which will hold the height of each section of content 
   // is initialized.
   var section_height;
 
   // The height of each section of content is passed on.
-  section_height = display_dimensions_Array[1];
+  section_height = getSectionHeight();
 
   // A Number variable which will hold a value which be added to the 
   // value of 'current_position' will cause the content to load as the 
@@ -871,6 +880,13 @@ function displayContent() {
   } else {
     is_content_visible = false;
   }
+
+  // An Array which will hold the dimensions of the browser window 
+  // is initialized.
+  var display_dimensions_Array = [];
+
+  // The browser dimensions are passed on.
+  display_dimensions_Array = getDisplaySize();
 
   // A Number which will hold the width of the sections of content is initialized.
   var section_width;
@@ -1270,19 +1286,12 @@ function swapFormQuestions()  {
 
 
 function calculateNavigationPoint(section_value) {
-  // An Array which will hold the dimensions of the browser window 
-  // is initialized.
-  var display_dimensions_Array = [];
-
   // A Number variable which will hold the height of a given section 
   // of content is initialized.
   var section_height;
 
-  // The dimensions of the browser are passed on.
-  display_dimensions_Array = setDisplayType();
-
   // The height of a given section of content is passed on.
-  section_height = display_dimensions_Array[1];
+  section_height = getSectionHeight();
 
   // A Number variable which will hold the position within the webpage 
   // to scroll to is initialized.
@@ -1409,9 +1418,6 @@ function hideVisibleContent() {
 
 
 function locateVisibleContent() {
-  // A String variable which will hold the CSS selector for the sections 
-  // of content is initialized.
-  var article_selector = "";
   // A String variable which will hold the CSS selector for the blocks 
   // of content within a section is initialized.
   var div_content_selector = "";
@@ -1419,9 +1425,6 @@ function locateVisibleContent() {
   // visible block of content within a section is initialized.
   var div_content_visible_selector = "";
 
-  // The CSS selector which refers to the sections of content within the 
-  // webpage is passed on.
-  article_selector = "article";
   // The CSS selector which refers to the blocks of content within a section 
   // is passed on.
   div_content_selector = ".div-content";
@@ -1430,18 +1433,11 @@ function locateVisibleContent() {
   div_content_visible_selector = "div-content-visible";
 
   // An Object variable which will hold the jQuery object which refers 
-  // to the sections of content is initialized.
-  var article_elements = {};
-  // An Object variable which will hold the jQuery object which refers 
   // to blocks of content within a section is initialized.
   var div_content_elements = {};
   // An Object variable which will hold the jQuery object which refers 
   // to an individual block of content is initialized.
   var div_content_element = {};
-
-  // The jQuery object which refers to the sections of content within 
-  // the webpage is passed on.
-  article_elements = $(article_selector);
 
   // An Array which will hold values which point out the blocks of content 
   // within the website are visible is initialized.
@@ -1452,7 +1448,7 @@ function locateVisibleContent() {
   var num_of_sections;
 
   // The number of sections of content within the website is passed on.
-  num_of_sections = $(article_elements).length;
+  num_of_sections = getNumOfSections();
 
   // A Number variable which will hold the value of a loop incrementer 
   // is initialized.
@@ -1560,6 +1556,75 @@ function animateVisibleContent()  {
 
 
 
+function showIntersectionNavigation() {
+  // String variables which will hold the CSS selectors which refer to the arrows 
+  // which link to one section before and after the current section are initialized.
+  var previous_link_selector = "";
+  var next_link_selector = "";
+
+  // The CSS selectors which refer to the arrows which link to one section before 
+  // and after the current section are passed on.
+  previous_link_selector = "#a-nav-article-previous";
+  next_link_selector = "#a-nav-article-next";
+
+  // Object variables which will hold jQuery objects which refer to the arrows 
+  // which link to one section before and after the current section are initialized.
+  var previous_link_element = {};
+  var next_link_element = {};
+
+  // The jQuery objects which refer to the arrows which link to one section before 
+  // and after the current section are passed on.
+  previous_link_element = $(previous_link_selector);
+  next_link_element = $(next_link_selector);
+
+  var current_section;
+
+  current_section = getCurrentSection();
+
+  var num_of_sections;
+
+  num_of_sections = getNumOfSections();
+
+  // The links are made visible.
+  if (current_section > 0 && current_section < num_of_sections)  {
+    $(previous_link_element).fadeTo(250, 1);
+    $(next_link_element).fadeTo(250, 1);
+  } else if (current_section === 0) {
+    $(next_link_element).fadeTo(250, 1);
+  } else {
+    $(previous_link_element).fadeTo(250, 1);
+  }  
+}
+
+
+
+function hideIntersectionNavigation() {
+  // String variables which will hold the CSS selectors which refer to the arrows 
+  // which link to one section before and after the current section are initialized.
+  var previous_link_selector = "";
+  var next_link_selector = "";
+
+  // The CSS selectors which refer to the arrows which link to one section before 
+  // and after the current section are passed on.
+  previous_link_selector = "#a-nav-article-previous";
+  next_link_selector = "#a-nav-article-next";
+
+  // Object variables which will hold jQuery objects which refer to the arrows 
+  // which link to one section before and after the current section are initialized.
+  var previous_link_element = {};
+  var next_link_element = {};
+
+  // The jQuery objects which refer to the arrows which link to one section before 
+  // and after the current section are passed on.
+  previous_link_element = $(previous_link_selector);
+  next_link_element = $(next_link_selector);
+
+  // The links are hidden from view.
+  $(previous_link_element).fadeTo(250, 0);
+  $(next_link_element).fadeTo(250, 0);
+}
+
+
 function animateMenu()  {
   // A String variable which will hold the CSS selector for the background 
   // for the side navigation is initialized.
@@ -1629,18 +1694,38 @@ function animateMenu()  {
     $(nav_background_element).addClass("nav-visible");
     $(nav_border_element).addClass("nav-visible");
     $(nav_options_element).addClass("nav-visible");
+
+    hideIntersectionNavigation();
   } else if (nav_background_left_value === 0) {
+    showIntersectionNavigation();
+
     // The background, border, and menu options for the side navigation are 
     // made not visible.
     $(nav_background_element).addClass("nav-not_visible");
     $(nav_border_element).addClass("nav-not_visible");
     $(nav_options_element).addClass("nav-not_visible");
+
+
   }
 }
 
 
 
 function animateMenuIcon(click_state)  {
+  // An Array which will hold the dimensions of the browser 
+  // initialized.
+  var browser_dimensions_Array = [];
+
+  // The dimensions of the browser are passed on.
+  browser_dimensions_Array = getDisplaySize();
+
+  // A Number variable which will hold the width of the display 
+  // is initialized.
+  var window_width;
+
+  // The width of the display is passed on.
+  window_width = browser_dimensions_Array[0];
+
   // Initialize String variable which will hold the CSS selector for the menu icon.
   var menu_icon_selector = "";
 
@@ -1660,7 +1745,7 @@ function animateMenuIcon(click_state)  {
 
   // The value of the CSS property, 'background-position', of the menu icon is passed on.
   menu_icon_background_position_value = $(menu_icon_element).css("backgroundPosition");
-
+console.log("menu_icon_background_position_value = " + menu_icon_background_position_value);
   // IF/ELSE statement which will change the hover state of the menu icon. 
   // 
   // If the menu icon was in its base state when the cursor moved over it, the hover state 
@@ -1686,9 +1771,16 @@ function animateMenuIcon(click_state)  {
             $(menu_icon_element).addClass("nav-icon-click-2");
           }, 175
         );
-      } else {
-        $(menu_icon_element).addClass("nav-icon-base");
       }
+    } else if ((menu_icon_background_position_value === "0% 0%" || 
+                menu_icon_background_position_value === "0px 0px") && 
+                click_state === "click" && 
+                window_width < 1024) {
+      console.log("1");
+      $(menu_icon_element).removeClass();
+      $(menu_icon_element).addClass("nav-icon-click-2");
+    } else {
+      $(menu_icon_element).addClass("nav-icon-base");
     }
   } else {
     if (click_state === "click")  {
@@ -2033,7 +2125,7 @@ function positionBackgrounds() {
   var display_dimensions_Array = [];
 
   // The dimensions of the browser are passed on.
-  display_dimensions_Array = setDisplayType();
+  display_dimensions_Array = getDisplaySize();
   
   // String variables which will hold the value of the GET variables, 
   // 'article' and 'position', are initialized.
@@ -2099,7 +2191,7 @@ function positionBackgrounds() {
 }
 
 
-function setDisplayType() {
+function getDisplaySize() {
 /* **************** **************** **************** **************** **************** 
  *  Reads the browser width and height and returns numerical values of width and height 
  *  which are used by various functions to layout HTML elements within the webpage. 
@@ -2150,7 +2242,7 @@ function setDisplayType() {
   // is returned.
   return display_dimensions_Array;
 
-} // END of FUNCTION setDisplayType
+} // END of FUNCTION getDisplaySize
 
 
 
@@ -2196,7 +2288,7 @@ function layoutBackgrounds()  {
   var article_height;
 
   // The dimensions of the browser window is passed on.
-  browser_dimensions_Array = setDisplayType();
+  browser_dimensions_Array = getDisplaySize();
 
   // The width of the browser window is passed on.
   article_width = browser_dimensions_Array[0];
@@ -2362,7 +2454,7 @@ function layoutBackgrounds()  {
 
     // The width of the background image for this section is calculated by multiplying 
     // the number of blocks of content by the width of the browser window as calculated 
-    // by 'setDisplayType'.
+    // by 'getDisplaySize'.
     background_width = num_content_blocks * article_width;
     // The height of the background image for this section is passed on.
     background_height = article_height;
@@ -2419,54 +2511,70 @@ function layoutBackgrounds()  {
 
 
 
-function setWebpageHeight() {
-  // A String variable which will hold the CSS selector referring to all content 
-  // on the webpage is initialized.
-  var main_selector = "";
+function getNumOfSections() {
   // A String variable which will hold the CSS selector referring to content 
   // within a given section is initialized.
   var article_selector = "";
-  
-  // An Object variable which will hold a jQuery object referring to the HTML element 
-  // using the CSS selector 'article' is initialized.
-  var main_element = {};
+
+  // The CSS selector for the HTML elements which holds the sections of content is 
+  // passed on.
+  article_selector = ".article-content";
+
   // An Object variable which will hold a jQuery object referring to the HTML element 
   // using the CSS selector '.article-content' is initialized.
   var article_elements = {};
 
-  // The CSS selector for the HTML element, '<article>' is passed on.
-  main_selector = "main";
-  // The CSS selector for the HTML elements which holds the sections of content is 
-  // passed on.
-  article_selector = ".article-content";
-  
-  // The jQuery object which refers to the HTML element '<article>' is passed on.
-  main_element = $(main_selector);
   // The jQuery object which refers to the HTML elements which hold content 
   // is passed on.
   article_elements = $(article_selector);
-  
-  // An Array which will hold the dimensions of the browser window is initialized.
-  var browser_dimensions_Array = [];
-  // A Number variable which will hold the height of the browser window is initialized.
-  var article_height;
+
   // A Number variable which will hold the number of sections of content within 
   // the webpage is initialized.
   var num_of_sections;
-  // A Number variable which will hold the height of the webpage is initialized.
-  var webpage_height;
-
-  // The dimensions of the browser are passed on.
-  browser_dimensions_Array = setDisplayType();
-
-  // The height of the browser window is passed on.
-  article_height = browser_dimensions_Array[1];
 
   // The number of sections within the webpage is passed on. 
   // 
   // The number of sections is discovered by counting the number of the HTML elements 
   // '.article-content' within the HTML.
   num_of_sections = $(article_elements).length;
+
+  // The count of the number of sections is passed back.
+  return num_of_sections;
+}
+
+
+
+function setWebpageHeight() {
+  // A String variable which will hold the CSS selector referring to all content 
+  // on the webpage is initialized.
+  var main_selector = "";
+  
+  // An Object variable which will hold a jQuery object referring to the HTML element 
+  // using the CSS selector 'article' is initialized.
+  var main_element = {};
+
+  // The CSS selector for the HTML element, '<article>' is passed on.
+  main_selector = "main";
+  
+  // The jQuery object which refers to the HTML element '<article>' is passed on.
+  main_element = $(main_selector);
+  
+  // An Array which will hold the dimensions of the browser window is initialized.
+  var browser_dimensions_Array = [];
+  // A Number variable which will hold the height of the browser window is initialized.
+  var article_height;
+  
+  // A Number variable which will hold the height of the webpage is initialized.
+  var webpage_height;
+
+  // The dimensions of the browser are passed on.
+  browser_dimensions_Array = getDisplaySize();
+
+  // The height of the browser window is passed on.
+  article_height = browser_dimensions_Array[1];
+
+  // The number of sections within the webpage is passed on. 
+  num_of_sections = getNumOfSections();
 
   // The total height of the webpage is calculated by multiplying the height of the 
   // browser window by the number of sections. 
@@ -2533,7 +2641,7 @@ function setupArticles()  {
   var browser_dimensions_Array = [];
 
   // The dimensions of the browser are passed on.
-  browser_dimensions_Array = setDisplayType();
+  browser_dimensions_Array = getDisplaySize();
 
   // A Number variable which will hold the width of the browser is initialized.
   var window_width;

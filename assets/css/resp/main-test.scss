@@ -158,6 +158,7 @@ $nav_options_font_size_1: 1.25rem; // 15pt
 $nav_options_font_size_2: 1.5rem; // 18pt
 $nav_options_font_size_3: 1.25rem; // 15pt
 $nav_options_font_size_ipad: 2.5rem; // 30pt
+$nav_options_font_size_mobile: 1.2rem; // 14pt
 
 $nav_section_font_size_1: 1.8rem; // 22pt
 $nav_section_font_size_2: 2rem; // 24pt
@@ -774,12 +775,63 @@ nav {
   z-index: 2;
 
   #div-nav-icon {
+    width: 3.13rem; // 50px
+    height: 3.13rem; // 50px
+    top: 1.56rem; // 25px
+    left: 1.56rem; // 25px
     position: fixed;
     z-index: 5;
     background-image: $nav_icon_background_image;
     background-repeat: no-repeat;
   }
   /* Formats a <div> element which serves as the menu 'button'. */
+
+  .nav-icon-base {
+    background-position: 0 0;
+  }
+
+  .nav-icon-base, 
+  .nav-icon-hover, 
+  .nav-icon-click-1, 
+  .nav-icon-click-2, 
+  #div-nav-options a, 
+  .nav-option-base, 
+  .nav-option-hover {
+    cursor: pointer;
+  }
+
+  .nav-icon-base {
+    background-position: 0 0;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the default, 'base', click state.
+    */
+  
+  .nav-icon-hover {
+    background-position: 0 -50px; 
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the mouseover, or 'hover', click state.
+    */
+  
+  .nav-icon-click-1 {
+    background-position: 0 -100px;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is a 'click' state that is only meant to be visible for the duration 
+    * of the clicking of the mouse.
+    */
+  
+  .nav-icon-click-2 {
+    background-position: 0 -150px;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the state which appears when the navigation panel is open. 
+    */
   
   .nav-click-closed {
     position: fixed !important;
@@ -881,6 +933,10 @@ nav {
   }  
 }
 /* Formats the <nav> element which contains the inter-sectional navigation. */
+
+.nav-visible {
+  left: 0 !important;
+}
 
 #a-nav-article-previous,
 #a-nav-article-next {
@@ -1971,60 +2027,6 @@ aside {
     height: 100%;
     left: -40.25rem; // -656px
   
-    #div-nav-icon {
-      width: 3.13rem; // 50px
-      height: 3.13rem; // 50px
-      top: 1.56rem; // 25px
-      left: 1.56rem; // 25px
-    }
-  
-    .nav-icon-base {
-      background-position: 0 0;
-    }
-  
-    .nav-icon-base, 
-    .nav-icon-hover, 
-    .nav-icon-click-1, 
-    .nav-icon-click-2, 
-    #div-nav-options a, 
-    .nav-option-base, 
-    .nav-option-hover {
-      cursor: pointer;
-    }
-  
-    .nav-icon-base {
-      background-position: 0 0;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the default, 'base', click state.
-      */
-    
-    .nav-icon-hover {
-      background-position: 0 -50px; 
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the mouseover, or 'hover', click state.
-      */
-    
-    .nav-icon-click-1 {
-      background-position: 0 -100px;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is a 'click' state that is only meant to be visible for the duration 
-      * of the clicking of the mouse.
-      */
-    
-    .nav-icon-click-2 {
-      background-position: 0 -150px;
-    }
-    /* Sets a class which is used to alter the 'click-state' of the menu icon 
-      * appears in the upper left of the page. 
-      * This is the state which appears when the navigation panel is open. 
-      */
-  
     #div-nav-options {
       width: 40.25rem; // 656px
       padding-left: $padding_value_1;
@@ -2051,10 +2053,6 @@ aside {
       width: 40.25rem; // 656px
       height: 6.25rem; // 100px
       left: -40.25rem; // 656px
-    }
-  
-    .nav-visible {
-      left: 0 !important;
     }
   
     .nav-not_visible {
@@ -2521,11 +2519,44 @@ aside {
 
 @media screen and (min-width: 20.06rem) and (max-width: 22.5rem)  {
   nav {
+    width: 22.5rem; // 360px
+    height: 40rem; // 640px
+    left: -22.5rem; // 360px
+
     #div-nav-options {
+      width: 12.5rem;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      top: 2.75rem; // 44px
+
       a {
+        width: 11rem; // 176px
+        height: 3rem; // 48px
+        margin-bottom: $margin_value_1;
+        padding: $padding_value_2;
+        display: block;
+        font-size: $nav_options_font_size_mobile;
+      }
+    }
+
+    #div-nav-background {
+      width: 22.5rem; // 360px
+      height: 40rem; // 640px
+      top: 0;
+
+      #div-nav-border {
         display: none;
       }
     }
+  }
+
+  .nav-not_visible {
+    left: -22.5rem !important; // -360px
+  }
+
+  #div-nav-options.nav-visible {
+    left: 22.5rem !important; // 360px
   }
 
   #a-nav-article-previous, 
@@ -2533,12 +2564,25 @@ aside {
     width: 5rem; // 80px
     height: 1.3rem; // 21px
     left: 50%;
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 
   #a-nav-article-previous > span, 
   #a-nav-article-next > span  {
     display: none;
+  }
+
+  #a-nav-article-previous {
+    top: 1rem;
+  }
+
+  #a-nav-article-next {
+    bottom: 1rem;
+    background-position: 0px -209px;
+  }
+
+  .nav-article-section_links-not_visible {
+    display: none !important;
   }
 
   .div-nav-article {
