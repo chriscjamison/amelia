@@ -2515,6 +2515,154 @@ aside {
   }
 }	
 
+
+
+/* ****** MOBILE - iPad (768px x 1024px) ****** */
+
+@media screen and (min-width: 48rem) and (max-width: 50rem) {
+  
+  article {
+    width: 48rem; // 768px
+    height: 64rem; // 1024px
+
+    .div-content {
+      width: 48rem; // 768px
+      height: 52.5rem; // 840px
+      top: 10rem; // 160px
+    }
+  }
+
+  h1 {
+    width: 48rem; // 768px
+    height: 7rem; // 112px
+    top: 3.13rem; // 50px
+
+    span {
+      width: 12rem; // 192px
+    }
+  }
+  
+  nav {
+    width: 21rem; // 336px
+    height: 100%;
+    left: -21rem; // -336px
+  
+    #div-nav-options {
+      width: 21rem; // 336px
+      padding-left: $padding_value_1;
+      top: 6.56rem; // 105px
+      left: -21rem; // -336px
+  
+      a {
+        width: 12.4em; // 198px
+        height: 2.35em; // 38px
+        margin: $margin_value_3 0 0.25rem $margin_value_3;
+        padding: 1em; // 16rem
+        display: inline-block;
+        font-size: $nav_options_font_size_1;
+      }
+    }
+  
+    #div-nav-background {
+      width: 21rem; // 336px
+      height: 100%;
+      left: -21rem; // -336px
+
+      #div-nav-border {
+        width: 21rem; // 336px
+        height: 6.25rem; // 100px
+        left: -21rem; // 336px
+      }
+    }
+    
+    .nav-not_visible {
+      left: -21rem !important; // -336px
+    }
+  }
+
+  .div-content-column {
+    width: 47.5%;
+    margin-left: 1.56rem; // 25px
+    vertical-align: top;
+  }
+
+  .div-content-column:last-of-type {
+    margin-left: 0;
+  }
+
+  .div-form-question {
+    width: 18rem; // 288px
+    padding: $padding_value_3 $padding_value_5 $padding_value_5 $padding_value_5;
+
+    .h2-form {
+      font-size: $mobile_h2_font_size;
+    }
+  
+    .h3-form {
+      font-size: $mobile_h3_font_size; 
+    }
+
+    p {
+      font-size: $mobile_base_font_size;
+    }
+
+    span:first-of-type {
+      margin-right: 0.25rem;
+    }
+
+    span:last-of-type {
+      margin-left: 0.25rem;
+    }
+  }
+
+  #mobile-small_padding {
+    padding: $padding_value_1;
+  }
+  
+  .button-desktop {
+    display: block;
+  }
+
+  .button-mobile {
+    display: none;
+  }
+
+  #button-form-article-1-next, 
+  #button-form-article-1-previous, 
+  #submit-form-article-1, 
+  #submit-form-article-5, 
+  #button-form-article-6-next, 
+  #button-form-article-6-previous, 
+  #submit-form-article-6 {
+    left: 22rem; // 352px
+  }
+
+  #button-form-article-1-next, 
+  #button-form-article-6-next {
+    margin: $margin_value_3 0 0 0;
+    transform: translateX(-100%);
+  }
+
+
+  #aside-info {
+    width: 19.25rem; // 308px
+    bottom: 1.75rem; // 28px
+    left: 1.75rem; // 28px
+
+    li {
+      height: auto;
+    }
+  }
+
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4 {
+    width: 29rem; // 464px
+    margin: 0 auto;
+  }
+}
+
+
 /* ****** MOBILE - ANDROID (360px) ****** */
 
 @media screen and (min-width: 20.06rem) and (max-width: 22.5rem)  {
@@ -2653,10 +2801,9 @@ aside {
     display: block;
   }
 
-  #button-article-1-start, 
+  .button-desktop, 
   #form-article-1 input[type=button], 
   #form-article-1 input[type=submit], 
-  #button-article-5-start, 
   #form-article-5 input[type=button], 
   #form-article-5 input[type=submit], 
   #form-article-6 input[type=button], 
@@ -2668,40 +2815,17 @@ aside {
     margin: 0 0 0.8rem 0;
   }
 
-  #mobile-button-form-article-1-next-1, 
-  #mobile-button-form-article-1-next-2, 
-  #mobile-button-form-article-1-next-3, 
-  #submit-form-article-1, 
-  #mobile-button-article-5-start, 
-  #mobile-button-form-article-5-next-1, 
-  #submit-form-article-5, 
-  #mobile-button-form-article-6-next-1, 
-  #mobile-button-form-article-6-next-2, 
-  #mobile-button-form-article-6-next-3, 
-  #submit-form-article-6 {
+  .button-right {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);
   }
 
-  #mobile-button-form-article-1-next-2, 
-  #mobile-button-form-article-1-next-3, 
-  #submit-form-article-1, 
-  #submit-form-article-5, 
-  #submit-button-article-6-back, 
-  #mobile-button-form-article-6-next-2, 
-  #mobile-button-form-article-6-next-3, 
-  #submit-form-article-6 {
+  .button-position-1 {
     transform: translate(-100%, -100%);
   }
 
-  #mobile-button-form-article-1-previous-2, 
-  #mobile-button-form-article-1-previous-3, 
-  #mobile-button-form-article-1-previous-4, 
-  #mobile-button-form-article-5-previous-2,  
-  #mobile-button-form-article-6-previous-2, 
-  #mobile-button-form-article-6-previous-3, 
-  #mobile-button-form-article-6-previous-4 {
+  .button-left {
     margin: 0;
     top: $margin_value_4;
     left: calc(100% - 1.25rem);

@@ -1625,6 +1625,7 @@ function hideIntersectionNavigation() {
 }
 
 
+
 function animateMenu()  {
   // A String variable which will hold the CSS selector for the background 
   // for the side navigation is initialized.

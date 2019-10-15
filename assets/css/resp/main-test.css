@@ -1792,6 +1792,96 @@ aside {
       font-size: 2.5rem;
       font-weight: 700; } }
 
+/* ****** MOBILE - iPad (768px x 1024px) ****** */
+@media screen and (min-width: 48rem) and (max-width: 50rem) {
+  article {
+    width: 48rem;
+    height: 64rem; }
+    article .div-content {
+      width: 48rem;
+      height: 52.5rem;
+      top: 10rem; }
+  h1 {
+    width: 48rem;
+    height: 7rem;
+    top: 3.13rem; }
+    h1 span {
+      width: 12rem; }
+  nav {
+    width: 21rem;
+    height: 100%;
+    left: -21rem; }
+    nav #div-nav-options {
+      width: 21rem;
+      padding-left: 0.5rem;
+      top: 6.56rem;
+      left: -21rem; }
+      nav #div-nav-options a {
+        width: 12.4em;
+        height: 2.35em;
+        margin: 1rem 0 0.25rem 1rem;
+        padding: 1em;
+        display: inline-block;
+        font-size: 1.25rem; }
+    nav #div-nav-background {
+      width: 21rem;
+      height: 100%;
+      left: -21rem; }
+      nav #div-nav-background #div-nav-border {
+        width: 21rem;
+        height: 6.25rem;
+        left: -21rem; }
+    nav .nav-not_visible {
+      left: -21rem !important; }
+  .div-content-column {
+    width: 47.5%;
+    margin-left: 1.56rem;
+    vertical-align: top; }
+  .div-content-column:last-of-type {
+    margin-left: 0; }
+  .div-form-question {
+    width: 18rem;
+    padding: 1rem 2rem 2rem 2rem; }
+    .div-form-question .h2-form {
+      font-size: 1.25rem; }
+    .div-form-question .h3-form {
+      font-size: 1rem; }
+    .div-form-question p {
+      font-size: 0.9rem; }
+    .div-form-question span:first-of-type {
+      margin-right: 0.25rem; }
+    .div-form-question span:last-of-type {
+      margin-left: 0.25rem; }
+  #mobile-small_padding {
+    padding: 0.5rem; }
+  .button-desktop {
+    display: block; }
+  .button-mobile {
+    display: none; }
+  #button-form-article-1-next,
+  #button-form-article-1-previous,
+  #submit-form-article-1,
+  #submit-form-article-5,
+  #button-form-article-6-next,
+  #button-form-article-6-previous,
+  #submit-form-article-6 {
+    left: 22rem; }
+  #button-form-article-1-next,
+  #button-form-article-6-next {
+    margin: 1rem 0 0 0;
+    transform: translateX(-100%); }
+  #aside-info {
+    width: 19.25rem;
+    bottom: 1.75rem;
+    left: 1.75rem; }
+    #aside-info li {
+      height: auto; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4 {
+    width: 29rem;
+    margin: 0 auto; } }
+
 /* ****** MOBILE - ANDROID (360px) ****** */
 @media screen and (min-width: 20.06rem) and (max-width: 22.5rem) {
   nav {
@@ -1835,6 +1925,8 @@ aside {
   #a-nav-article-next {
     bottom: 1rem;
     background-position: 0px -209px; }
+  .nav-article-section_links-not_visible {
+    display: none !important; }
   .div-nav-article {
     width: 22.5rem;
     height: 9.5rem;
@@ -1869,10 +1961,9 @@ aside {
     width: 14.75rem; }
   .div-form-question-visible {
     display: block; }
-  #button-article-1-start,
+  .button-desktop,
   #form-article-1 input[type=button],
   #form-article-1 input[type=submit],
-  #button-article-5-start,
   #form-article-5 input[type=button],
   #form-article-5 input[type=submit],
   #form-article-6 input[type=button],
@@ -1880,36 +1971,13 @@ aside {
     display: none; }
   #mobile-button-article-1-start {
     margin: 0 0 0.8rem 0; }
-  #mobile-button-form-article-1-next-1,
-  #mobile-button-form-article-1-next-2,
-  #mobile-button-form-article-1-next-3,
-  #submit-form-article-1,
-  #mobile-button-article-5-start,
-  #mobile-button-form-article-5-next-1,
-  #submit-form-article-5,
-  #mobile-button-form-article-6-next-1,
-  #mobile-button-form-article-6-next-2,
-  #mobile-button-form-article-6-next-3,
-  #submit-form-article-6 {
+  .button-right {
     margin: 0;
     top: 1.25rem;
     left: calc(100% - 1.25rem); }
-  #mobile-button-form-article-1-next-2,
-  #mobile-button-form-article-1-next-3,
-  #submit-form-article-1,
-  #submit-form-article-5,
-  #submit-button-article-6-back,
-  #mobile-button-form-article-6-next-2,
-  #mobile-button-form-article-6-next-3,
-  #submit-form-article-6 {
+  .button-position-1 {
     transform: translate(-100%, -100%); }
-  #mobile-button-form-article-1-previous-2,
-  #mobile-button-form-article-1-previous-3,
-  #mobile-button-form-article-1-previous-4,
-  #mobile-button-form-article-5-previous-2,
-  #mobile-button-form-article-6-previous-2,
-  #mobile-button-form-article-6-previous-3,
-  #mobile-button-form-article-6-previous-4 {
+  .button-left {
     margin: 0;
     top: 1.25rem;
     left: calc(100% - 1.25rem);
