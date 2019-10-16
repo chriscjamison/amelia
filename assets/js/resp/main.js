@@ -112,7 +112,7 @@ $(document).ready(
       // Activates when the user clicks on a "button" element within "SECTION #1" 
       // to move to 'FORM TYPE #1'.
       function () {
-        window.location.hash = "#article=1&position=1";
+        window.location.hash = "#article=1&position=2";
 
         centerBrowser();
 
@@ -830,7 +830,7 @@ function displayContent() {
   var position_offset_value;
 
   // The value which will cause content to be made visible is passed on.
-  position_offset_value = 500;
+  position_offset_value = 0;
 
   // A Number variable which will hold the vertical position of the browser 
   // within the webpage is initialized.
@@ -845,7 +845,7 @@ function displayContent() {
 
   // The section the browser is currently viewing is found out by 
   // dividing the value of the sum of 'current_position' and 'position_offset_value' by 'section_height'.
-  current_section = Math.floor((current_position + position_offset_value) / section_height);
+  current_section = Math.round((current_position + position_offset_value) / section_height);
 
   // A String variable which will hold a CSS selector which refers 
   // to the section which is visible in the browser window is initialized.
@@ -1746,7 +1746,7 @@ function animateMenuIcon(click_state)  {
 
   // The value of the CSS property, 'background-position', of the menu icon is passed on.
   menu_icon_background_position_value = $(menu_icon_element).css("backgroundPosition");
-console.log("menu_icon_background_position_value = " + menu_icon_background_position_value);
+
   // IF/ELSE statement which will change the hover state of the menu icon. 
   // 
   // If the menu icon was in its base state when the cursor moved over it, the hover state 
@@ -1995,6 +1995,7 @@ function navigateToWindowPane(url_hash_viewable_values_Array) {
   // The block of content which the variable in the URL hash refers to is made visible.
   $(content_block_element).css(content_block_visible_css);
 } // END of FUNCTION 
+
 
 
 function positionContent()  {

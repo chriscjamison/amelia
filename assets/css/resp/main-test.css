@@ -1709,9 +1709,13 @@ aside {
     #div-content-block-5-desc-2 span + span + span ~ span span {
       height: 2.81rem;
       line-height: 2.75; }
+    #div-content-block-5-desc-2 span:nth-child(4),
+    #div-content-block-5-desc-2 span:nth-child(5) {
+      margin-top: 0; }
   #div-content-block-5-header-1 {
-    width: 21.5rem;
-    margin-top: 2.5rem; }
+    width: 23.25rem;
+    margin-top: 2.5rem;
+    padding: 1rem; }
   #div-content-block-5-desc-3 {
     width: 21.5rem;
     /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
@@ -1807,6 +1811,11 @@ aside {
     top: 3.13rem; }
     h1 span {
       width: 12rem; }
+  #section-backgrounds {
+    overflow-x: hidden; }
+    #section-backgrounds div {
+      height: 64rem;
+      overflow-x: hidden; }
   nav {
     width: 21rem;
     height: 100%;
@@ -1833,6 +1842,38 @@ aside {
         left: -21rem; }
     nav .nav-not_visible {
       left: -21rem !important; }
+  #a-nav-article-previous,
+  #a-nav-article-next {
+    width: 5rem;
+    height: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%); }
+    #a-nav-article-previous span,
+    #a-nav-article-next span {
+      display: none; }
+  #a-nav-article-previous {
+    top: 1.52rem; }
+  #a-nav-article-next {
+    bottom: 1.52rem;
+    background-position: 0px -209px; }
+  .div-nav-article {
+    width: 36.9rem;
+    height: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%); }
+    .div-nav-article div div {
+      width: 36.9rem;
+      height: 2.25rem;
+      margin-top: 1rem; }
+  #div-nav-article-3 {
+    top: 38.25rem; }
+  #div-nav-article-4 {
+    top: 29.5rem; }
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea {
+    width: 14.25rem; }
   .div-content-column {
     width: 47.5%;
     margin-left: 1.56rem;
@@ -1852,8 +1893,10 @@ aside {
       margin-right: 0.25rem; }
     .div-form-question span:last-of-type {
       margin-left: 0.25rem; }
-  #mobile-small_padding {
+  .fieldset-mobile-small_padding {
     padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
   .button-desktop {
     display: block; }
   .button-mobile {
@@ -1870,6 +1913,20 @@ aside {
   #button-form-article-6-next {
     margin: 1rem 0 0 0;
     transform: translateX(-100%); }
+  #button-form-article-1-previous,
+  #button-form-article-6-previous {
+    margin: 0;
+    transform: translate(-16.5rem, 1rem); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    margin: 0;
+    transform: translate(-7.75rem, -2.1rem); }
+  #button-article-6-start {
+    margin: 0.2rem 0 0.7rem 0; }
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.3rem, -1.5rem); }
   #aside-info {
     width: 19.25rem;
     bottom: 1.75rem;
@@ -1880,7 +1937,85 @@ aside {
   .div-content-block-3,
   .div-content-block-4 {
     width: 29rem;
-    margin: 0 auto; } }
+    margin: 0 auto; }
+  .div-content-block-2,
+  .div-content-block-5-type-1,
+  #div-content-block-5-desc-3,
+  .div-content-block-6-type-1,
+  .div-content-block-6-type-2 div {
+    width: 18rem; }
+  .div-content-block-2 ul li {
+    font-size: 0.9rem; }
+  #div-content-block-left {
+    left: 0;
+    transform: translateX(1.52rem); }
+  #div-content-block-right {
+    left: 0;
+    transform: translateX(2rem); }
+  .div-content-block-2-type-1 {
+    width: 48rem;
+    margin-top: 1rem; }
+    .div-content-block-2-type-1 span {
+      font-size: 0.9rem; }
+    .div-content-block-2-type-1 span + div {
+      height: 7.25rem;
+      margin-top: 1rem; }
+      .div-content-block-2-type-1 span + div span {
+        width: 10.25rem;
+        min-height: 4.75rem;
+        margin-left: 1rem;
+        padding: 1rem 2rem;
+        text-align: left; }
+      .div-content-block-2-type-1 span + div span:first-of-type {
+        margin-left: 1.72rem; }
+  #div-content-block-5-header-1 {
+    width: 20rem;
+    padding: 1rem; }
+  #div-content-block-5-desc-2 span {
+    width: 6.15rem;
+    height: 2.81rem;
+    margin-top: 1rem;
+    padding: 0.5rem; }
+  #div-content-block-5-desc-2 span span {
+    width: 6.25rem;
+    padding: 0; }
+  #div-content-block-5-desc-2 span > span {
+    height: 2rem;
+    margin-top: 0.8rem; }
+  #div-content-block-5-desc-2 span + span > span {
+    height: 2.25rem;
+    margin-top: 0.55rem; }
+  #div-content-block-5-desc-2 span + span + span > span {
+    height: 2.81rem;
+    margin-top: 0; }
+  #div-content-block-5-desc-2 span + span + span ~ span span {
+    height: 2.81rem;
+    line-height: 2.75; }
+  #div-content-block-5-desc-2 span:nth-child(4),
+  #div-content-block-5-desc-2 span:nth-child(5) {
+    margin-top: 0; }
+  .div-content-block-6-type-1 {
+    padding: 1rem 2rem; }
+  #div-content-block-6-desc-1 p {
+    padding-bottom: 1rem; }
+  .div-content-block-6-type-2 {
+    width: 22rem;
+    margin-top: 1rem; }
+    .div-content-block-6-type-2 div {
+      margin-top: 1rem;
+      padding: 1rem 2rem; }
+      .div-content-block-6-type-2 div p {
+        padding-right: 0.4rem; }
+  #div-content-block-6-info-1 {
+    width: 20rem;
+    padding: 1rem; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.5rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 6.5rem;
+      min-height: 16.5rem; } }
 
 /* ****** MOBILE - ANDROID (360px) ****** */
 @media screen and (min-width: 20.06rem) and (max-width: 22.5rem) {
