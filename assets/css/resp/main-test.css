@@ -1590,6 +1590,10 @@ aside {
     #form-question-alert div div {
       width: 36rem;
       height: 15.75rem; }
+  .button-desktop {
+    display: block; }
+  .button-mobile {
+    display: none; }
   #button-article-5-contact {
     letter-spacing: -1.7px !important; }
   #button-article-6-start {
@@ -1600,11 +1604,13 @@ aside {
     right: 0;
     transform: translate(2rem, -51%);
     vertical-align: middle; }
+  #submit-form-article-6 {
+    transform: translate(-65%, -100%); }
   /* ****** LANDING SECTION ****** */
   aside {
     width: 40.8rem;
     height: 15.2rem;
-    bottom: 5.5rem;
+    bottom: 12rem;
     left: 6.26rem; }
     aside li {
       width: 20.75rem; }
@@ -2017,35 +2023,21 @@ aside {
       width: 6.5rem;
       min-height: 16.5rem; } }
 
-/* ****** MOBILE - ANDROID (360px) ****** */
-@media screen and (min-width: 20.06rem) and (max-width: 22.5rem) {
-  nav {
-    width: 22.5rem;
-    height: 40rem;
-    left: -22.5rem; }
-    nav #div-nav-options {
-      width: 12.5rem;
-      height: auto;
-      margin: 0 auto;
-      position: relative;
-      top: 2.75rem; }
-      nav #div-nav-options a {
-        width: 11rem;
-        height: 3rem;
-        margin-bottom: 0.5rem;
-        padding: 0.75rem;
-        display: block;
-        font-size: 1.2rem; }
-    nav #div-nav-background {
-      width: 22.5rem;
-      height: 40rem;
-      top: 0; }
-      nav #div-nav-background #div-nav-border {
-        display: none; }
-  .nav-not_visible {
-    left: -22.5rem !important; }
-  #div-nav-options.nav-visible {
-    left: 22.5rem !important; }
+/* ****** MOBILE PHONES ****** */
+@media screen and (min-width: 20rem) and (max-width: 23.44rem) {
+  nav #div-nav-options {
+    height: auto;
+    margin: 0 auto;
+    position: relative; }
+    nav #div-nav-options a {
+      width: 11rem;
+      margin-bottom: 0.5rem;
+      padding: 0.75rem;
+      display: block; }
+  nav #div-nav-background {
+    top: 0; }
+    nav #div-nav-background #div-nav-border {
+      display: none; }
   #a-nav-article-previous,
   #a-nav-article-next {
     width: 5rem;
@@ -2062,16 +2054,12 @@ aside {
     background-position: 0px -209px; }
   .nav-article-section_links-not_visible {
     display: none !important; }
-  .div-nav-article {
-    width: 22.5rem;
-    height: 9.5rem;
-    top: 30.5rem; }
-    .div-nav-article div {
-      height: 6.5rem; }
-      .div-nav-article div div a:nth-of-type(n) {
-        margin: 1rem 0.75rem 0 2rem !important; }
-      .div-nav-article div div a:nth-of-type(2n) {
-        margin-left: 0.75rem !important; }
+  .div-nav-article div {
+    height: 8.75rem; }
+    .div-nav-article div div a:nth-of-type(n) {
+      margin: 1rem 0.75rem 0 2rem !important; }
+    .div-nav-article div div a:nth-of-type(2n) {
+      margin-left: 0.75rem !important; }
   .div-content-column {
     display: block; }
   .div-column-not_visible {
@@ -2089,6 +2077,9 @@ aside {
     margin-right: 0; }
   #div-form-article-1-question-2 fieldset div span:last-of-type {
     margin-left: 0; }
+  input[type=radio],
+  input[type=checkbox] {
+    width: 16rem; }
   input[type=text],
   input[type=email],
   input[type=number],
@@ -2120,7 +2111,7 @@ aside {
   #mobile-button-article-5-start {
     margin-bottom: 1rem;
     top: 0;
-    transform: translateX(-6.55rem); }
+    transform: translateX(-9.1rem); }
   #button-article-6-start {
     margin-top: 0.4rem;
     left: 0;
@@ -2143,29 +2134,44 @@ aside {
     margin: 0;
     left: 0;
     transform: translate(0.75rem, -1.25rem); }
+  #mobile-button-form-article-1-next-1,
+  #mobile-button-form-article-5-next-1,
+  #mobile-button-form-article-6-next-1 {
+    transform: translateX(-10.25rem); }
+  #mobile-button-form-article-1-next-2,
+  #mobile-button-form-article-1-next-3,
+  #mobile-button-form-article-6-next-2,
+  #mobile-button-form-article-6-next-3 {
+    transform: translate(-10.25rem, -100%); }
+  #mobile-button-form-article-1-previous-2,
+  #mobile-button-form-article-1-previous-3,
+  #mobile-button-form-article-5-previous-2,
+  #mobile-button-form-article-6-previous-2,
+  #mobile-button-form-article-6-previous-3 {
+    transform: translateX(-19rem); }
+  #mobile-button-form-article-1-previous-4 {
+    transform: translate(-19rem, -0.2rem); }
+  #mobile-button-form-article-6-previous-4 {
+    transform: translate(-19rem, 1rem); }
+  #submit-form-article-5 {
+    transform: translate(-8rem, -100%); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    transform: translate(-9.25rem, -3.4rem); }
   .button_visible {
     display: block !important; }
   h1 {
-    width: 20.5rem;
     padding: 1rem; }
     h1 span {
       font-size: 2rem; }
   p {
     font-size: 0.9rem; }
+  article {
+    height: 40rem; }
   #section-backgrounds {
     overflow-x: hidden; }
     #section-backgrounds div {
-      height: 40rem;
       overflow-x: hidden; }
-  article {
-    width: 22.5rem;
-    height: 40rem; }
-    article .div-content {
-      width: 22.5rem;
-      height: 34rem;
-      top: 6.5rem; }
-    article .div-content-tall_header {
-      top: 8.5rem; }
   aside img {
     margin: 0 auto;
     float: none; }
@@ -2180,7 +2186,6 @@ aside {
     height: 27.25rem;
     margin: 0 auto;
     position: relative;
-    top: 3rem;
     float: none; }
   .div-content-block-1 p ~ p {
     margin-bottom: 0; }
@@ -2190,7 +2195,6 @@ aside {
     max-height: 21rem;
     overflow-y: scroll; }
   .div-content-block-2 {
-    width: 6.95rem;
     min-height: 15.5rem;
     left: 0;
     transform: none; }
@@ -2208,7 +2212,6 @@ aside {
     .div-content-block-2-type-1 span:first-child {
       display: none; }
     .div-content-block-2-type-1 span + div span {
-      width: 5.33rem;
       margin-right: 0.25rem;
       font-size: 0.9rem;
       text-align: left;
@@ -2236,20 +2239,136 @@ aside {
     padding: 1rem 0; }
   #div-content-block-6-desc-office_hours,
   #div-content-block-6-desc-phone_numbers {
-    width: 10.6rem;
     margin: 1rem 0 0 0; }
+    #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
+      display: none; }
+    #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
+      display: block; }
+      #div-content-block-6-desc-office_hours div .p-mobile-phone_number a,
+      #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number a {
+        color: #221763; }
+  #div-content-block-6-desc-office_hours {
+    margin-right: 1rem; } }
+
+/* ****** MOBILE PHONE - ANDROID (360px x 640px) ****** */
+@media screen and (min-width: 20.5rem) and (max-width: 22.5rem) {
+  nav {
+    width: 22.5rem;
+    height: 40rem;
+    left: -22.5rem; }
+    nav #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; }
+      nav #div-nav-options a {
+        height: 3rem;
+        font-size: 1.2rem; }
+    nav #div-nav-background {
+      width: 22.5rem;
+      height: 40rem; }
+  .nav-not_visible {
+    left: -22.5rem !important; }
+  #div-nav-options.nav-visible {
+    left: 22.5rem !important; }
+  .div-nav-article {
+    width: 22.5rem;
+    height: 9.5rem;
+    top: 30.5rem; }
+  .button-desktop {
+    display: block; }
+  h1 {
+    width: 20.5rem; }
+  #section-backgrounds div {
+    height: 40rem; }
+  article {
+    width: 22.5rem; }
+    article .div-content {
+      width: 22.5rem;
+      height: 34rem;
+      top: 6.5rem; }
+    article .div-content-tall_header {
+      top: 8.5rem; }
+  #aside-info {
+    top: 3rem; }
+  .div-content-block-2 {
+    width: 6.95rem; }
+  .div-content-block-2-type-1 span + div span {
+    width: 5.33rem; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.6rem; }
     #div-content-block-6-desc-office_hours div,
     #div-content-block-6-desc-phone_numbers div {
       width: 6.75rem;
-      min-height: 10.8rem; }
-      #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
-      #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
-        display: none; }
-      #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
-      #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
-        display: block; }
-        #div-content-block-6-desc-office_hours div .p-mobile-phone_number a,
-        #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number a {
-          color: #221763; }
-  #div-content-block-6-desc-office_hours {
-    margin-right: 1rem; } }
+      min-height: 10.8rem; } }
+
+/* ****** MOBILE PHONE - iPHONE 5 (320px x 568px) ****** */
+@media screen and (max-width: 20rem) {
+  nav {
+    width: 20rem;
+    height: 35.5rem;
+    left: -20rem; }
+    nav #div-nav-options {
+      top: 6rem; }
+      nav #div-nav-options a {
+        height: 2rem;
+        font-size: 1rem; }
+    nav #div-nav-background {
+      width: 20rem;
+      height: 35.5rem; }
+  .nav-not_visible {
+    left: -24rem !important; }
+  #div-nav-options.nav-visible {
+    left: 24rem !important; }
+  .div-nav-article {
+    width: 20rem;
+    height: 9.5rem;
+    top: 30.5rem; }
+    .div-nav-article div div a {
+      width: 7.1rem !important; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  h1 {
+    width: 18rem; }
+  #section-backgrounds div {
+    height: 35.5rem; }
+  article {
+    width: 20rem; }
+    article .div-content {
+      width: 20rem;
+      height: 34rem;
+      top: 6.5rem; }
+    article .div-content-tall_header {
+      top: 8.5rem; }
+  #aside-info {
+    top: 0; }
+  .div-content-block-2 {
+    width: 5.7rem; }
+  .div-content-block-2-type-1 span + div span {
+    width: 4.5rem;
+    min-height: 11.25rem; }
+  #mobile-button-article-6-more_info {
+    transform: translateX(-14.75rem); }
+  #button-article-6-start {
+    transform: translateX(0.2rem); }
+  #div-content-block-6-desc-2 div p {
+    width: 8.5rem;
+    border-right: none; }
+  #button-article-6-map {
+    transform: translate(8.5rem, -4.6rem); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    transform: translate(-12rem, -3.4rem); }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 9.35rem; }
+    #div-content-block-6-desc-office_hours span,
+    #div-content-block-6-desc-phone_numbers span {
+      min-height: 5.25rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 5.35rem;
+      min-height: 14.75rem; } }

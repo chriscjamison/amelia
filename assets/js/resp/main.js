@@ -2405,6 +2405,12 @@ function layoutBackgrounds()  {
     width: article_width, 
     height: webpage_height
   };
+  
+  // IF statement which modifies the width of the HTML element holding if the browser 
+  // is a mobile browser.
+  if (article_width <= 1024)  {
+    backgrounds_css.width = $(window).width();
+  }
 
   // The dimensions of the webpage are passed on to the HTML element holding 
   // the background images.
