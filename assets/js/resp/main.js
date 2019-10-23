@@ -2209,11 +2209,9 @@ function getDisplaySize() {
   // A Number variable which will hold the dimensions of the browser 
   // are initialized.
   var window_width; 
-  var window_height;
 
   // The dimensions of the browser are passed on.
   window_width = window.outerWidth;
-  window_height = window.outerHeight;
 
   // An Array which will hold values which best matches the dimensions of the browser 
   // window is initialized.
@@ -2223,17 +2221,17 @@ function getDisplaySize() {
   // the various 'window frame' elements.
   if (window_width <= 414)  { 
     // The display is likely for a smartphone.
-    display_dimensions_Array = [360, 640];
+    display_dimensions_Array = [414, 735];
   } else if (window_width > 414 && window_width <= 1024) {
     // The display is likely for a tablet device.
     display_dimensions_Array = [768, 1024];
   } else if (window_width > 1024 && window_width <= 1280) {
     // The display is a standard desktop display.
-    display_dimensions_Array = [1280, 800];
-  } else if (window_width > 1280 && window_width <= 1600)  {
+    display_dimensions_Array = [1024, 1366];
+  } else if (window_width > 1280 && window_width <= 1366)  {
     // The display is a 720p desktop display.
     display_dimensions_Array = [1366, 768];
-  } else if (window_width > 1600)  {
+  } else if (window_width > 1366)  {
     // The display is a 1080p desktop display.
     display_dimensions_Array = [1920, 1080];
   } 
