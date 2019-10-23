@@ -2236,8 +2236,6 @@ function getDisplaySize() {
     display_dimensions_Array = [1920, 1080];
   } 
 
-  // IF/ELSE statement which passes on the brow
-
   // The string contained by 'display_dimensions_Array' which refers to the dimensions of the display 
   // is returned.
   return display_dimensions_Array;
