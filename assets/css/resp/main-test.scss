@@ -1009,7 +1009,7 @@ nav {
     .nav-article-hover, 
     .nav-article-active, 
     .nav-article-click {
-      cursor: default;
+      cursor: pointer;
       opacity: 1;
     }
 
@@ -3269,6 +3269,11 @@ aside {
     margin-top: 0.4rem;
     left: 0;
     transform: translateX(34%);
+  }
+
+  #mobile-button-article-6-start {
+    transform: translateX(-17rem); // -272px
+    letter-spacing: -1.7px;
   }
 
   #mobile-button-article-6-more_info {

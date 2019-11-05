@@ -397,6 +397,18 @@ $(document).ready(
       }
     );
 
+    $("#a-nav-article-3").on("mouseover", 
+      function () {
+        animateIntrasectionLink("mouseover", $(this).attr("id"));
+      }
+    );
+
+    $("#a-nav-article-3").on("mouseout", 
+      function () {
+        animateIntrasectionLink("mouseout", $(this).attr("id"));
+      }
+    );
+    
     $("#a-nav-article-3").on("click", 
       function () {
         swapArticleNavigationLink($(this).attr("id"));
@@ -406,6 +418,18 @@ $(document).ready(
     $("#div-nav-article-3 > div > div > a").on("click", 
       function () {
        closeSectionNavigation("3");
+      }
+    );
+
+    $("#a-nav-article-4").on("mouseover", 
+      function () {
+        animateIntrasectionLink("mouseover", $(this).attr("id"));
+      }
+    );
+
+    $("#a-nav-article-4").on("mouseout", 
+      function () {
+        animateIntrasectionLink("mouseout", $(this).attr("id"));
       }
     );
 
@@ -508,45 +532,227 @@ function swapColumns(button_id_value) {
 
 
 
+function animateIntrasectionLink(click_state, link_id_value)  {
+  // A String variable which will hold the CSS selector which refers to the intersection 
+  // links menu icon is initialized.
+  var section_link_selector = "";
+
+  // The CSS selector which refers to the intersection links menu icon is passed on.
+  section_link_selector = "#div-nav-article-" + link_id_value.slice(-1) + " div a:first-of-type";
+
+  // An Object variable which will hold the jQuery object which refers to the intersection 
+  // links menu icon is initialized.
+  var section_link_element = {};
+
+  // The jQuery object which refers to the intersection links menu icon is passed on.
+  section_link_element = $(section_link_selector);
+
+  // A String variable which will hold the value of the CSS property 'background-position', 
+  // of the intersection links menu icon is initialized.
+  var section_link_background_position_value = "";
+
+  // The value of the CSS property, 'background-position', for the intersection links menu 
+  // icon is passed on.
+  section_link_background_position_value = $(section_link_element).css("backgroundPosition");
+
+  // The name of a CSS class which will reset the click state of 
+  // the intrasection menu icon is initialized.
+  var base_state = "";
+
+  // The name of a CSS class which will reset the click state 
+  // of the intrasection menu icon is passed on.
+  base_state = "nav-article-base"; 
+
+  // The name of a CSS class which will change the click state of 
+  // the intrasection menu icon to 'hover' is initialized.
+  var hover_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the intrasection menu icon to 'hover' is passed on.
+  hover_state = "nav-article-hover"; 
+
+  // The name of a CSS class which will change the click state of 
+  // the link under processing to 'clicked' is initialized.
+  var clicked_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'clicked' is passed on.
+  clicked_state = "nav-article-click-2"; 
+
+  // IF/ELSE statement which changes the click state of the intersection menu icon if the 
+  // cursor hovers over or out of the icon.
+  if (click_state === "mouseover")  {
+    if (section_link_background_position_value === "0px 0px" || 
+        section_link_background_position_value === "0% 0%") {
+      $(section_link_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(section_link_element).removeClass();
+        }, 50
+      );
+  
+      setTimeout(
+        function () {
+          $(section_link_element).addClass(hover_state);
+          
+          $(section_link_element).fadeTo(100, 1);
+        }, 100
+      );
+    }
+  } else if (click_state === "mouseout")  {
+    if (section_link_background_position_value === "0px -35px") {
+      $(section_link_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(section_link_element).removeClass();
+        }, 50
+      );
+  
+      setTimeout(
+        function () {
+          $(section_link_element).addClass(base_state);
+          
+          $(section_link_element).fadeTo(100, 1);
+        }, 100
+      );
+    }
+  }
+
+}
+
+
 function swapArticleNavigationLink(link_id_value) {
-  var article_link_selector = "";
-
-  article_link_selector = "#" + link_id_value;
-
-  var article_link_element = {};
-
-  article_link_element = $(article_link_selector);
-
-  $(article_link_element).removeClass();
-
+  // A String variable which will hold the CSS selector which refers to the HTML element 
+  // containing the intersection links is initialized.
   var article_links_div_selector = "";
 
+  // The CSS selector which refers to the HTML element containing the intersection links 
+  // is passed on.
   article_links_div_selector = "#div-nav-article-" + link_id_value.slice(-1) + " > div > div";
 
+  // An Object variable which will hold the jQuery object which refers to the HTML element 
+  // containing the intersection links is initialized.
   var article_links_div_element = {};
 
+  // The jQuery object which refers to the HTML element containing the intersection links 
+  // is passed on.
   article_links_div_element = $(article_links_div_selector);
+
+  // A Boolean variable which will hold a flag which refers to the visiblilty of the HTML 
+  // element holding the intersection links is initialized.
   var are_links_visible;
 
-  are_links_visible = $(article_links_div_element).hasClass("div-nav-article-visible");
+  // A String variable which will hold the name of a CSS class which, if present, is 
+  // a sign that the intrasection links are visible is initialized.
+  var nav_article_visible_class = "";
 
+  // The name of a CSS class which, if present, is a sign that the intrasection links 
+  // are visible is passed on.
+  nav_article_visible_class = "div-nav-article-visible";
+
+  // If the <div> holding the intrasection links contains the CSS class, 'div-nav-article-visible', 
+  // 'are_links_visible' will then hold the value of 'true'. Otherwise, 'are_links_visible' 
+  // will hold the value of 'false'.
+  are_links_visible = $(article_links_div_element).hasClass(nav_article_visible_class);
+
+  // A String variable which will hold the CSS selector which refers to the link under processing 
+  // is initialized.
+  var article_link_selector = "";
+
+  // The CSS selector which refers to the link under processing is passed on.
+  article_link_selector = "#" + link_id_value;
+
+  // An Object variable which will hold the jQuery object which refers to the link 
+  // under processing is initialized.
+  var article_link_element = {};
+
+  // The jQuery object which refers to the link under processing is passed on.
+  article_link_element = $(article_link_selector);
+
+  // The name of a CSS class which will reset the click state of 
+  // the link under processing is initialized.
+  var base_state = "";
+
+  // The name of a CSS class which will reset the click state 
+  // of the link under processing is passed on.
+  base_state = "nav-article-base"; 
+
+  // The name of a CSS class which will change the click state of 
+  // the link under processing to 'active' is initialized.
+  var active_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'active' is passed on.
+  active_state = "nav-article-click-1"; 
+
+  // The name of a CSS class which will change the click state of 
+  // the link under processing to 'clicked' is initialized.
+  var clicked_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'clicked' is passed on.
+  clicked_state = "nav-article-click-2"; 
+
+  // The link under processing is faded from view.
+  $(article_link_element).fadeOut(50);
+
+  // The link under processing is made not visible.
+  setTimeout(
+    function () {
+      $(article_link_element).removeClass();
+    }, 50
+  );
+
+  // IF/ELSE statement which will change the click state of the link under processing.
   if (are_links_visible === true) {
-    $(article_link_element).addClass("nav-article-click-1");
-
     setTimeout(
       function () {
-        $(article_link_element).removeClass();
-        $(article_link_element).addClass("nav-article-base");
-      }, 50
+        $(article_link_element).addClass(active_state);
+
+        $(article_link_element).fadeTo(100, 1);
+      }, 100
     );
+
+    $(article_link_element).fadeOut(100);
+
+    /* setTimeout(
+      function () {
+        $(article_link_element).removeClass();
+      }, 100
+    );
+
+    setTimeout(
+      function () {
+        $(article_link_element).addClass(base_state);
+        
+        $(article_link_element).fadeTo(100, 1);
+      }, 100
+    ); */
   } else {
-    $(article_link_element).addClass("nav-article-click-1");
+    setTimeout(
+      function () {
+        $(article_link_element).addClass(active_state);
+
+        $(article_link_element).fadeTo(100, 1);
+      }, 100
+    );
+
+    $(article_link_element).fadeOut(100);
 
     setTimeout(
       function () {
         $(article_link_element).removeClass();
-        $(article_link_element).addClass("nav-article-click-2");
-      }, 50
+      }, 100
+    );
+
+    setTimeout(
+      function () {
+        $(article_link_element).addClass(clicked_state);
+        
+        $(article_link_element).fadeTo(100, 1);
+      }, 100
     );
   }
 }
@@ -2275,7 +2481,7 @@ function positionContent()  {
 
     // The CSS selector for the section of content which will 
     // be positioned is initialized.
-    article_selector = "#article-content-" + article_value;
+    article_selector = "#article-content-" + article_value + " .div-content";
 
     // An Object which will hold the jQuery object which refers 
     // to the section of content which will be positioned 
@@ -2297,7 +2503,13 @@ function positionContent()  {
 
     // All blocks of content within the section which is now visible are now made 
     // invisible.
-    $(article_element).children("div").removeClass(div_content_visible_selector);
+    $(article_element).fadeOut(200);
+
+    setTimeout(
+      function () {
+        $(article_element).removeClass(div_content_visible_selector);
+      }, 200
+    );
 
     // The value of 'position_value' is converted to an integer.
     position_value = parseInt(position_value);
@@ -2307,13 +2519,13 @@ function positionContent()  {
     var content_block_selector = "";
 
     // The CSS selector for the block of content to be made viewable is passed on.
-    content_block_selector = article_selector + " > div:nth-child(" + (position_value + 2).toString() + ")";
+    content_block_selector = article_selector + ":nth-child(" + (position_value + 2).toString() + ")";
 
     // IF statment which will alter the value of 'content_block_selector' if the 
     // 'section' includes a form.
     if ((article_value === "1" || article_value === "6") && 
         position_value > 1) {
-      content_block_selector = article_selector + " > div:nth-child(" + (position_value + 1).toString() + ")";
+      content_block_selector = article_selector + ":nth-child(" + (position_value + 1).toString() + ")";
     }
 
     // An Object variable which will hold the jQuery object which refers to the HTML element 
@@ -2325,7 +2537,13 @@ function positionContent()  {
     content_block_element = $(content_block_selector);
 
     // The block of content which the variable in the URL hash refers to is made visible.
-    $(content_block_element).addClass(div_content_visible_selector);
+    setTimeout(
+      function () {
+        $(content_block_element).addClass(div_content_visible_selector);
+
+        $(content_block_element).fadeIn(400);
+      }, 400
+    );
 
     // A Number variable which will hold the number of values held 
     // within 'hash_data_Array'.
@@ -2727,11 +2945,11 @@ function layoutBackgrounds()  {
     if (inc === 0)  {
       background_image_path = background_image_path + "landing" + 
                               "/" + background_width.toString() + "x" + 
-                              background_height.toString() + ".jpg?v=4')";
+                              background_height.toString() + ".jpg?v=5')";
     } else {
       background_image_path = background_image_path + inc.toString() + 
                               "/" + background_width.toString() + "x" + 
-                              background_height.toString() + ".jpg?v=4')";
+                              background_height.toString() + ".jpg?v=5')";
     }
 
     background_top_value = (inc * background_height).toString() + "px"

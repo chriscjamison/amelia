@@ -725,7 +725,7 @@ nav {
     .div-nav-article div .nav-article-hover,
     .div-nav-article div .nav-article-active,
     .div-nav-article div .nav-article-click {
-      cursor: default;
+      cursor: pointer;
       opacity: 1; }
     .div-nav-article div .nav-article-base {
       background-position: 0px 0px; }
@@ -2220,6 +2220,9 @@ aside {
     margin-top: 0.4rem;
     left: 0;
     transform: translateX(34%); }
+  #mobile-button-article-6-start {
+    transform: translateX(-17rem);
+    letter-spacing: -1.7px; }
   #mobile-button-article-6-more_info {
     margin: 0;
     top: 0;
