@@ -575,6 +575,7 @@ nav {
   nav .nav-icon-base {
     background-position: 0 0; }
   nav .nav-icon-hover {
+    display: block !important;
     background-position: 0 -50px; }
   nav .nav-icon-click-1 {
     background-position: 0 -100px; }

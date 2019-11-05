@@ -450,8 +450,6 @@ function swapColumns(button_id_value) {
   // of content under processing is passed on.
   div_column_selector = "#article-content-" + section_num_value + " > div > .div-content-column";
 
-  console.log("div_column_selector = " + div_column_selector);
-
   // An Object variable which will hold the jQuery object which refers to the 
   // HTML element containing the column of content under prcessing is initialized.
   var div_column_elements = {};
@@ -925,8 +923,24 @@ function closeSectionNavigation(link_id_value) {
   // is initialized.
   section_nav_div_element = $(section_nav_div_selector);
 
-  // The links of the intrasection navigation is made not visible.
-  $(section_nav_div_element).removeClass("div-nav-article-visible");
+  // A String variable which will hold the name of a CSS class 
+  // which will hide the links of the intrasection navigation 
+  // is initialized.
+  var nav_visible_class = "";
+
+  // The name of a CSS class which will hide the links of the 
+  // intrasection navigation is passed on.
+  nav_visible_class = "div-nav-article-visible";
+
+  // The links of the intrasection navigation are faded from view.
+  $(section_nav_div_element).fadeOut(50);
+
+  // The links of the intrasection navigation are made not visible.
+  setTimeout(
+    function () {
+      $(section_nav_div_element).removeClass(nav_visible_class);
+    }, 50
+  );
 
   // A String variable which will hold the CSS selector which 
   // refers to the link which shows or hides the links within 
@@ -942,15 +956,36 @@ function closeSectionNavigation(link_id_value) {
   // the section navigation is initialized.
   var article_link_element = {};
 
+  // A String variable which will hold the name of a CSS class used 
+  // to reset the click state of the link under processing is initialized.
+  var link_click_state_class = "";
+
+  // The name of a CSS class which will be used to reset the click state 
+  // of the link under processing is passed on.
+  link_click_state_class = "nav-article-base";
+
   // The jQuery object which refers to the link which shows or hides 
   // the links within the section navigation is passed on.
   article_link_element = $(article_link_selector);
 
+  // The link is faded from view.
+  $(article_link_element).fadeOut(50);
+
   // All CSS classes are removed from the link this function is processing.
-  $(article_link_element).removeClass();
+  setTimeout(
+    function () {
+      $(article_link_element).removeClass();
+    }, 50
+  );
 
   // The link this function is processing is returned to its base hover state.
-  $(article_link_element).addClass("nav-article-base");
+  setTimeout(
+    function () {
+      $(article_link_element).addClass(link_click_state_class);
+
+      $(article_link_element).fadeTo(100, 1);
+    }, 100
+  );
 }
 
 
@@ -993,11 +1028,29 @@ function showSectionNavigation(article_value) {
   // IF/ELSE statement which will determine if the intrasection 
   // navigation is visible.
   if (is_section_navigation_visible === false)  {
-    $(section_nav_div_element).removeClass(section_nav_visible_selector);
+    $(section_nav_div_element).fadeOut(50);
 
-    $(section_nav_div_element).addClass(section_nav_visible_selector);
+    setTimeout(
+      function () {
+        $(section_nav_div_element).removeClass(section_nav_visible_selector);
+      }, 50
+    );
+
+    setTimeout(
+      function () {
+        $(section_nav_div_element).addClass(section_nav_visible_selector);
+  
+        $(section_nav_div_element).fadeTo(150, 1);
+      }, 150
+    );
   } else {
-    $(section_nav_div_element).removeClass(section_nav_visible_selector);
+    $(section_nav_div_element).fadeOut(50);
+
+    setTimeout(
+      function () {
+        $(section_nav_div_element).removeClass(section_nav_visible_selector);
+      }, 50
+    );
   }
 }
 
@@ -1060,15 +1113,35 @@ function swapFormQuestions()  {
     // The CSS class which sets a given 'page' to visible is passed on.
     var page_visible_selector = "div-form-page-visible";
 
+    // The pages of form questions are faded from view.
+    $(page_one_questions_elements).fadeOut(50);
+    $(page_two_questions_elements).fadeOut(50);
+
     // The CSS class which makes a given 'page' visible is stripped from both pages.
-    $(page_one_questions_elements).removeClass(page_visible_selector);
-    $(page_two_questions_elements).removeClass(page_visible_selector);
+    setTimeout(
+      function () {
+        $(page_one_questions_elements).removeClass(page_visible_selector);
+        $(page_two_questions_elements).removeClass(page_visible_selector);  
+      }, 50
+    );
     
     // IF/ELSE statement which will set the visibility of a given page.
     if (position_value === "1") {
-      $(page_one_questions_elements).addClass(page_visible_selector);
+      setTimeout( 
+        function () {
+          $(page_one_questions_elements).addClass(page_visible_selector);
+
+          $(page_one_questions_elements).fadeTo(200, 1);
+        }, 200
+      );
     } else {
-      $(page_two_questions_elements).addClass(page_visible_selector);
+      setTimeout( 
+        function () {
+          $(page_two_questions_elements).addClass(page_visible_selector);
+
+          $(page_two_questions_elements).fadeTo(200, 1);
+        }, 200
+      );
     }
   } else if (num_of_values === 3)  {
 
@@ -1109,15 +1182,36 @@ function swapFormQuestions()  {
     // The CSS class which sets a given 'page' to visible is passed on.
     var page_visible_selector = "div-form-page-visible";
 
+    // The 'pages' of form questions are faded from view.
+    $(page_one_questions_elements).fadeOut(50);
+    $(page_two_questions_elements).fadeOut(50);
+
     // The CSS class which makes a given 'page' visible is stripped from both pages.
-    $(page_one_questions_elements).removeClass(page_visible_selector);
-    $(page_two_questions_elements).removeClass(page_visible_selector);
+    setTimeout(
+      function () {
+        $(page_one_questions_elements).removeClass(page_visible_selector);
+        $(page_two_questions_elements).removeClass(page_visible_selector);
+      }, 50
+    );
+    
     
     // IF/ELSE statement which will set the visibility of a given page.
     if (position_value === "1" && (question_value === "1" || question_value === "2")) {
-      $(page_one_questions_elements).addClass(page_visible_selector);
+      setTimeout(
+        function () {
+          $(page_one_questions_elements).addClass(page_visible_selector);
+
+          $(page_one_questions_elements).fadeTo(200, 1);
+        }, 200
+      );
     } else {
-      $(page_two_questions_elements).addClass(page_visible_selector);
+      setTimeout(
+        function () {
+          $(page_two_questions_elements).addClass(page_visible_selector);
+
+          $(page_two_questions_elements).fadeTo(200, 1);
+        }, 200
+      );
     }
     
     // A String variable which will hold the CSS selector which refers 
@@ -1160,11 +1254,25 @@ function swapFormQuestions()  {
     // is passed on.
     form_question_visible_class_name = "div-form-question-visible";
     
-    // Any CSS class referernce which makes the question visible is removed.
-    $(form_questions_elements).removeClass(form_question_visible_class_name);
+    // The form questions are faded from view.
+    $(form_questions_elements).fadeOut(50);
 
-    // The question under processing is made visible.
-    $(form_question_element).addClass(form_question_visible_class_name); 
+    // Any CSS class referernce which makes the question visible is removed.
+    setTimeout(
+      function () {
+        $(form_questions_elements).removeClass(form_question_visible_class_name);
+      }, 50
+    );
+
+    // The form question is made visible and faded into view.
+
+    setTimeout(
+      function () {
+        $(form_question_element).addClass(form_question_visible_class_name);
+
+        $(form_question_element).fadeTo(200, 1);
+      }, 200
+    );
 
     // A String variable which will hold a CSS selector which refers to all 
     // navigation buttons within a form is initialized.
@@ -1389,7 +1497,7 @@ function hideVisibleContent() {
   // The jQuery object which refers to the sections of content within 
   // the webpage is passed on.
   article_elements = $(article_selector);
-
+/* 
   // An Object variable which will a value for the CSS property, 
   // 'display', is initialized.
   var article_display_css = {};
@@ -1399,7 +1507,7 @@ function hideVisibleContent() {
   article_opacity_css = {
     opacity: 0
   };
-
+ */
   // A value of the CSS property, 'display', which will be used 
   // to make the sections of content not visible is passed on.
   article_display_css = {
@@ -1684,6 +1792,22 @@ function animateMenu()  {
   $(nav_border_element).removeClass();
   $(nav_options_element).removeClass();
 
+  // The name of a CSS class which will allow the navigation elements 
+  // to be made visible is initialized.
+  var nav_visible_class = "";
+
+  // The name of a CSS class which will allow the navigation elements 
+  // to be made visible is passed on.
+  nav_visible_class = "nav-visible"; 
+
+  // The name of a CSS class which will allow the navigation elements 
+  // to be made not visible is initialized.
+  var nav_not_visible_class = "";
+
+  // The name of a CSS class which will allow the navigation elements 
+  // to be made not visible is passed on.
+  nav_not_visible_class = "nav-not_visible"; 
+
   // IF/ELSE statment which will display the background of the side navigation 
   // if the background is not visible. 
   // 
@@ -1692,21 +1816,31 @@ function animateMenu()  {
   if (nav_background_left_value < 0)  {
     // The background, border, and menu options for the side navigation 
     // are made visible.
-    $(nav_background_element).addClass("nav-visible");
-    $(nav_border_element).addClass("nav-visible");
-    $(nav_options_element).addClass("nav-visible");
+    setTimeout(
+      function () {
+        $(nav_background_element).addClass(nav_visible_class);
+        $(nav_border_element).addClass(nav_visible_class);
+        $(nav_options_element).addClass(nav_visible_class);
+
+        $(nav_background_element).fadeTo(200, 1);
+        $(nav_border_element).fadeTo(200, 1);
+        $(nav_options_element).fadeTo(200, 1);
+      }, 100
+    );
 
     hideIntersectionNavigation();
   } else if (nav_background_left_value === 0) {
     showIntersectionNavigation();
-
+    
     // The background, border, and menu options for the side navigation are 
     // made not visible.
-    $(nav_background_element).addClass("nav-not_visible");
-    $(nav_border_element).addClass("nav-not_visible");
-    $(nav_options_element).addClass("nav-not_visible");
-
-
+    setTimeout(
+      function () {
+        $(nav_background_element).addClass(nav_not_visible_class);
+        $(nav_border_element).addClass(nav_not_visible_class);
+        $(nav_options_element).addClass(nav_not_visible_class);
+      }, 50
+    );
   }
 }
 
@@ -1746,6 +1880,39 @@ function animateMenuIcon(click_state)  {
 
   // The value of the CSS property, 'background-position', of the menu icon is passed on.
   menu_icon_background_position_value = $(menu_icon_element).css("backgroundPosition");
+  
+  // The name of a CSS class which will reset the click state of 
+  // the menu icon is initialized.
+  var base_state = "";
+
+  // The name of a CSS class which will reset the click state of the 
+  // menu icon is passed on.
+  base_state = "nav-icon-base"; 
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'hover' is initialized.
+  var hover_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'hover' is passed on.
+  hover_state = "nav-icon-hover"; 
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'active' is initialized.
+  var active_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'active' is passed on.
+  active_state = "nav-icon-click-1"; 
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'clicked' is initialized.
+  var clicked_state = "";
+
+  // The name of a CSS class which will set the click state of 
+  // the menu icon to 'clicked' is passed on.
+  clicked_state = "nav-icon-click-2"; 
+
 
   // IF/ELSE statement which will change the hover state of the menu icon. 
   // 
@@ -1757,36 +1924,118 @@ function animateMenuIcon(click_state)  {
     if ((menu_icon_background_position_value === "0% 0%" || 
         menu_icon_background_position_value === "0px 0px") && 
         click_state === "mouseover") {
-      $(menu_icon_element).removeClass();
-      $(menu_icon_element).addClass("nav-icon-hover");
+      $(menu_icon_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).removeClass();
+        }, 50
+      );
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).addClass(hover_state);
+
+          $(menu_icon_element).fadeTo(50, 1);
+        }, 50
+      );
     } else if (menu_icon_background_position_value === "0px -50px") {
-      $(menu_icon_element).removeClass();
+      $(menu_icon_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).removeClass();
+        }, 50
+      );
         
       if (click_state === "click") {
-        $(menu_icon_element).removeClass();
-        $(menu_icon_element).addClass("nav-icon-click-1");
+        setTimeout(
+          function () {
+            $(menu_icon_element).addClass(active_state);
+  
+            $(menu_icon_element).fadeTo(50, 1);
+          }, 50
+        );
 
         setTimeout(
           function () {
-            $(menu_icon_element).removeClass();
-            $(menu_icon_element).addClass("nav-icon-click-2");
+            $(menu_icon_element).addClass(clicked_state);
+  
+            $(menu_icon_element).fadeTo(50, 1);
           }, 175
         );
-      }
+      } else if (click_state === "mouseout") {
+        $(menu_icon_element).fadeTo(50, 0.5);
+    
+        setTimeout(
+          function () {
+            $(menu_icon_element).removeClass();
+          }, 50
+        );
+    
+        setTimeout(
+          function () {
+            $(menu_icon_element).addClass(base_state);
+    
+            $(menu_icon_element).fadeTo(50, 1);
+          }, 50
+        );
+      }  
     } else if ((menu_icon_background_position_value === "0% 0%" || 
                 menu_icon_background_position_value === "0px 0px") && 
                 click_state === "click" && 
                 window_width < 1024) {
-      console.log("1");
-      $(menu_icon_element).removeClass();
-      $(menu_icon_element).addClass("nav-icon-click-2");
-    } else {
-      $(menu_icon_element).addClass("nav-icon-base");
-    }
+      $(menu_icon_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).removeClass();
+        }, 50
+      );
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).addClass(clicked_state);
+
+          $(menu_icon_element).fadeTo(50, 1);
+        }, 50
+      );
+    } else if ((menu_icon_background_position_value !== "0% 0%" || 
+                menu_icon_background_position_value !== "0px 0px") && 
+                click_state !== "mouseout") {
+      $(menu_icon_element).fadeTo(50, 0.5);
+  
+      setTimeout(
+        function () {
+          $(menu_icon_element).removeClass();
+        }, 50
+      );
+  
+      setTimeout(
+        function () {
+          $(menu_icon_element).addClass(base_state);
+  
+          $(menu_icon_element).fadeTo(50, 1);
+        }, 50
+      );
+    }  
   } else {
     if (click_state === "click")  {
-      $(menu_icon_element).removeClass();
-      $(menu_icon_element).addClass("nav-icon-base");
+      $(menu_icon_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).removeClass();
+        }, 50
+      );
+
+      setTimeout(
+        function () {
+          $(menu_icon_element).addClass(base_state);
+
+          $(menu_icon_element).fadeTo(50, 1);
+        }, 50
+      );
     }
   }
 } 
@@ -2228,10 +2477,10 @@ function getDisplaySize() {
   } else if (window_width > 1024 && window_width <= 1280) {
     // The display is a standard desktop display.
     display_dimensions_Array = [1024, 1366];
-  } else if (window_width > 1280 && window_width <= 1366)  {
+  } else if (window_width > 1280 && window_width <= 1382)  {
     // The display is a 720p desktop display.
     display_dimensions_Array = [1366, 768];
-  } else if (window_width > 1366)  {
+  } else if (window_width > 1382)  {
     // The display is a 1080p desktop display.
     display_dimensions_Array = [1920, 1080];
   } 
@@ -2478,11 +2727,11 @@ function layoutBackgrounds()  {
     if (inc === 0)  {
       background_image_path = background_image_path + "landing" + 
                               "/" + background_width.toString() + "x" + 
-                              background_height.toString() + ".jpg')";
+                              background_height.toString() + ".jpg?v=4')";
     } else {
       background_image_path = background_image_path + inc.toString() + 
                               "/" + background_width.toString() + "x" + 
-                              background_height.toString() + ".jpg')";
+                              background_height.toString() + ".jpg?v=4')";
     }
 
     background_top_value = (inc * background_height).toString() + "px"
