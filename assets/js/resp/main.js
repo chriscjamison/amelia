@@ -15,6 +15,8 @@ $(window).on("load",
 
 $(window).on("hashchange", 
   function () {
+    displayContent();
+    
     positionContent();
 
     positionBackgrounds();
@@ -716,20 +718,6 @@ function swapArticleNavigationLink(link_id_value) {
     );
 
     $(article_link_element).fadeOut(100);
-
-    /* setTimeout(
-      function () {
-        $(article_link_element).removeClass();
-      }, 100
-    );
-
-    setTimeout(
-      function () {
-        $(article_link_element).addClass(base_state);
-        
-        $(article_link_element).fadeTo(100, 1);
-      }, 100
-    ); */
   } else {
     setTimeout(
       function () {

@@ -608,6 +608,7 @@ nav {
       display: block;
       font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       background-color: #000;
+      text-decoration: none;
       color: #fff; }
     nav #div-nav-options .nav-option-base {
       background-color: #000 !important;
@@ -2215,13 +2216,13 @@ aside {
   #mobile-button-article-5-start {
     margin-bottom: 1rem;
     top: 0;
-    transform: translateX(-9.1rem); }
+    transform: translate(-9.1rem, -14.25rem); }
   #button-article-6-start {
     margin-top: 0.4rem;
     left: 0;
     transform: translateX(34%); }
   #mobile-button-article-6-start {
-    transform: translateX(-17rem);
+    transform: translateX(-17.1rem);
     letter-spacing: -1.7px; }
   #mobile-button-article-6-more_info {
     margin: 0;
@@ -2333,11 +2334,17 @@ aside {
     .div-content-block-2-type-1 span + div span:last-of-type {
       margin-right: 0; }
   #div-content-block-5-desc-1 {
-    max-height: 15rem;
+    max-height: 21rem;
     overflow-y: scroll; }
   #div-content-block-5-header-1,
   #div-content-block-5-desc-2 {
     display: none; }
+  #div-content-block-5-desc-3 {
+    top: 23rem;
+    max-height: 11rem; }
+    #div-content-block-5-desc-3 p {
+      width: 82%;
+      position: absolute; }
   #div-content-block-6-desc-1 {
     padding: 1rem 2rem;
     margin-bottom: 1rem; }
@@ -2378,7 +2385,7 @@ aside {
         font-size: 1.2rem; }
     nav #div-nav-background {
       width: 25.88rem;
-      height: 45.94rem; }
+      height: 46rem; }
   .nav-not_visible {
     left: -25.88rem !important; }
   #div-nav-options.nav-visible {

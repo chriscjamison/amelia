@@ -860,6 +860,7 @@ nav {
       display: block;
       font-family: $nav_options_a_font;
       background-color: $nav_options_a_background_color;
+      text-decoration: none;
       color: $nav_options_a_font_color;
     }
     /* Formats the <a> elements which serve as menu options in the inter-sectional 
@@ -3262,7 +3263,7 @@ aside {
   #mobile-button-article-5-start {
     margin-bottom: $margin_value_3;
     top: 0;
-    transform: translateX(-9.1rem); // -146px
+    transform: translate(-9.1rem, -14.25rem); // -146px, -228px
   }
 
   #button-article-6-start {
@@ -3272,7 +3273,7 @@ aside {
   }
 
   #mobile-button-article-6-start {
-    transform: translateX(-17rem); // -272px
+    transform: translateX(-17.1rem); // -274px
     letter-spacing: -1.7px;
   }
 
@@ -3461,13 +3462,23 @@ aside {
   }
 
   #div-content-block-5-desc-1 {
-    max-height: 15rem;  // 296px
+    max-height: 21rem;  // 366px
     overflow-y: scroll;
   }
 
   #div-content-block-5-header-1, 
   #div-content-block-5-desc-2 {
     display: none;
+  }
+
+  #div-content-block-5-desc-3 {
+    top: 23rem; // 368px
+    max-height: 11rem; // 176px
+
+    p {
+      width: 82%;
+      position: absolute;
+    }
   }
 
   #div-content-block-6-desc-1 {
@@ -3539,7 +3550,7 @@ aside {
 
     #div-nav-background {
       width: 25.88rem; // 414px
-      height: 45.94rem; // 735px
+      height: 46rem; // 736px
     }
   }
 
