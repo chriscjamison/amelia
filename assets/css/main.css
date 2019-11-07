@@ -1,0 +1,2664 @@
+/* Filename: main.scss 
+ *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
+ * 
+ *  + All measurements are given in terms of 'em'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+/* ****** SASS VARIABLES ****** */
+/* ****** COMMON ELEMENTS ****** */
+article {
+  opacity: 0; }
+
+.div-content,
+aside ul {
+  font-family: "Glegoo", "Palatino", serif;
+  font-weight: 400;
+  font-size: 1rem; }
+
+h1 {
+  position: absolute;
+  display: table;
+  /* Formats the <div> which holds the 'SECTION' title for a given section. */
+  /* 
+  * Formats the <span> element which holds the text of a 'SECTION' title. 
+  */ }
+  h1 span {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: "Balthazar", "Cambria", serif;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff; }
+
+.div-content {
+  display: none;
+  position: relative;
+  float: left;
+  top: 0;
+  left: 0; }
+
+/* 
+ * Formats the <div> which holds the text or form content within a section. 
+ * '.div-content' elements differ from '.article-content' elements.
+ * '.div-content' elements only hold the content of one sub-section, 
+ * while '.article-content' elements hold many sub-sections.
+ */
+.div-content-visible {
+  display: block; }
+
+.div-content-block-1,
+.div-content-block-3,
+.div-content-block-4 {
+  height: initial;
+  padding: 1rem 2rem;
+  z-index: 2; }
+
+/* Formats the main 'blocks' which hold <p> elements which contain text content. 
+ * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
+ * are formatted in this pairing. 
+ */
+.div-column-not_visible {
+  display: block; }
+
+/* ****** FORMS ****** */
+.div-content-column {
+  height: auto;
+  display: inline-block; }
+
+/* Formats a <div> element which places a form question either on the left or right 
+ * side of the browser window and is contained within a <form> element.
+ * Forms can be found within 'SECTION #1', 'SECTION #5', & 'SECTION #6'.
+ */
+fieldset {
+  padding: 1rem 2rem;
+  border: 0.125rem solid #cfd7a3;
+  /* Formats <div> elements which appear within <fieldset> elements. */ }
+  fieldset div {
+    margin: 0 auto; }
+
+/* Formats <fieldset> elements which contain form options. */
+/* ---- 'FORM FIELDS & OPTIONS' ---- */
+label + p,
+input + p {
+  margin-top: 20px; }
+
+/* Formats form fields and options that appear within individual form questions. */
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+  padding: 0.5rem;
+  border: 0.125rem solid #bbbbbb;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px; }
+
+/* Formats the layout of <input> elements which appear within individual form questions. */
+input[type=radio],
+input[type=checkbox] {
+  border: 0;
+  width: 100%;
+  height: 1.6rem; }
+
+/* Formats the layout of <input type=radio> and <input type=checkbox> elements 
+ * which appear within individual form questions.
+ */
+input[type=range] {
+  margin: 0.9rem auto 0.1rem auto;
+  color: #221763; }
+
+/* Formats the layout of <input type=range> elements within individual form questions. */
+select {
+  font: 400 1.3rem "Franklin Gothic Medium", sans-serif;
+  width: 150px;
+  margin: 0.7rem auto 0.5rem auto;
+  display: block; }
+
+/* Formats the options within a <select> element that appear 
+ * within individual form options. 
+ */
+input[type=button],
+input[type=submit] {
+  width: 7.81rem;
+  height: 3.125rem;
+  margin: 0 0 0 1.25rem;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  background-color: #40BDE8;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem;
+  color: #221763;
+  border: 0.125rem solid #369DBF;
+  cursor: pointer; }
+
+/* Formats which appear as buttons throughout the webpage. */
+input[type=button]:hover,
+input[type=submit]:hover {
+  background-color: #33CCFF; }
+
+/* Formats the click-state for the <button> and <submit> elements which appear 
+ * throughout the webpage.
+ * This is the hover click state.
+ */
+.div-form-question {
+  height: auto;
+  background-color: #ffffff;
+  /* Formats <span> elements which contain text headers. */
+  /* Formats the first <span> element which is contained within a given form question. */
+  /* Formats the last <span> element which is contained within a given form question. */
+  /* Formats the additional <span> elements which are contained within a given form question. */
+  /* Formats <p> elements which contain text instructions or descriptive copy for a given 
+   * form question. 
+   */ }
+  .div-form-question .h2-form,
+  .div-form-question .h3-form {
+    margin: 0 0 0.5rem 0; }
+  .div-form-question .h3-form,
+  .div-form-question p {
+    line-height: 1.6; }
+  .div-form-question p {
+    margin-bottom: 1.25rem; }
+  .div-form-question span {
+    display: inline-block; }
+  .div-form-question span:first-child {
+    margin-right: 0.5rem; }
+  .div-form-question span:last-child {
+    margin-left: 0.5rem; }
+  .div-form-question span + span {
+    padding-bottom: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6; }
+  .div-form-question span + p {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 2px solid #cfd7a3;
+    line-height: 1.6; }
+  .div-form-question fieldset {
+    /* More formatting for the text within <span> elements which follow the first <span> element 
+     * within an individual form question. 
+     */
+    /* Formats the text within a <sup> element that is contained 
+     * within an individual form question. 
+     */
+    /* Formats descriptive text that falls underneath the instruction within a given 
+     * form question.
+     */ }
+    .div-form-question fieldset p {
+      margin-top: 1rem; }
+    .div-form-question fieldset p:last-of-type {
+      margin-bottom: 1rem; }
+    .div-form-question fieldset div {
+      /* Formats the visual appearance of text within <span> elements which are contained 
+       * within an individual form question. 
+       */ }
+      .div-form-question fieldset div span {
+        position: relative;
+        top: -0.625rem;
+        font-family: "Franklin Gothic Medium", sans-serif;
+        font-size: 1rem; }
+    .div-form-question fieldset span + span {
+      left: 0.813rem; }
+    .div-form-question fieldset sup {
+      font-size: 0.8rem; }
+    .div-form-question fieldset .p-form-ftnote {
+      padding: 0.75rem;
+      border-top: 0.125rem dotted #cfd7a3;
+      font-size: 0.9rem;
+      line-height: 1.6rem; }
+
+/* Formats a <div> element which contains an individual form question. */
+.div-form-page-1,
+.div-form-page-2 {
+  display: none;
+  opacity: 0; }
+
+/* 
+ * Formats <div> elements which control which set of two questions are displayed 
+ * within the browser window at a given time.
+ */
+.div-form-page-visible {
+  display: block;
+  opacity: 1; }
+
+.form_question_error_border {
+  border-color: #971b1e; }
+
+.form_question_error_text {
+  color: #971b1e; }
+
+.form_question_base_border {
+  border-color: #cfd7a3; }
+
+.form_question_base_text {
+  color: #000000; }
+
+#form-question-alert {
+  width: inherit;
+  height: inherit;
+  display: table;
+  position: absolute;
+  background-color: #dddddd;
+  opacity: 0.95;
+  z-index: 7;
+  /* Formats descriptive text within a <div> element that appears once a form 
+    * has been submitted which returns an error message.
+    */ }
+  #form-question-alert div {
+    display: table-cell;
+    font-family: "Glegoo", "Palatino", serif;
+    font-size: 0.8rem;
+    vertical-align: middle;
+    text-align: center;
+    /* Formats a <div> element which contains descriptive text about an error returned 
+      * from a form submission. 
+      */ }
+    #form-question-alert div div {
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      text-align: left;
+      background-color: #971b1e;
+      color: #ffffff;
+      /* Formats a <span> element which serves as a header for descriptive text about 
+        * an error returned from a form submission.
+        */
+      /* Formats descriptive text within a <p> element that is contained by a <div> 
+        * element using the id, "#form-question-alert".
+        */ }
+      #form-question-alert div div span {
+        display: block;
+        border-bottom: 0.125rem solid #fff;
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: left; }
+      #form-question-alert div div p {
+        text-align: left; }
+
+/* Formats a <div> element which appears once a form has been submitted 
+  * which returns an error message. 
+  */
+#button-article-1-start {
+  margin: 0 0 0.8rem 0; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #1'.
+ * The button 'starts' the form process.
+ */
+#button-form-article-1-next,
+#button-form-article-1-previous,
+#submit-form-article-1,
+#submit-form-article-5,
+#button-form-article-6-next,
+#button-form-article-6-previous,
+#submit-form-article-6 {
+  left: 21.5rem; }
+
+#button-form-article-1-next,
+#button-form-article-6-next {
+  transform: translateX(-5rem); }
+
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+#button-form-article-1-previous,
+#button-form-article-6-previous {
+  margin-left: 0;
+  transform: translateX(-12.5rem); }
+
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+#submit-form-article-6 {
+  transform: translateX(-13rem); }
+
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+#button-article-5-start {
+  margin: 0 0 1.25rem 0; }
+
+/* 
+ * Formats the <button> element which appears on the 'CONTENT BLOCK #1' of  
+ * 'SECTION #5'.
+ */
+#submit-form-article-5 {
+  margin: 0;
+  letter-spacing: -0.5px;
+  transform: translateX(-3.81rem); }
+
+/* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
+#button-article-5-contact {
+  margin: 0 0 0.7rem 0;
+  letter-spacing: -0.7px; }
+
+/* Formats the <button> element which appears on the response page of the form, 
+ * 'FORM TYPE #5'.
+ */
+#button-article-6-map {
+  margin: 0; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'. */
+#button-article-6-start {
+  margin: 0.7rem 0 0.7rem 0;
+  letter-spacing: -1.9px; }
+
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'.
+ * This button starts the form process. 
+ */
+#submit-form-article-6 {
+  letter-spacing: -1px; }
+
+/* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
+ * within 'SECTION #1'.
+ */
+p > input {
+  padding: 0;
+  margin: 0;
+  height: 16px;
+  width: 16px;
+  float: left;
+  position: absolute;
+  opacity: 0; }
+
+/* Formats the layout of individual <input type=radio> and <input type=checkout> elements. */
+p > label {
+  line-height: 1.1;
+  padding-left: 2.06rem; }
+
+/* Formats the layout of the labels of individual <input> elements. */
+p:not(#foo) > input + label {
+  height: 22px;
+  background-image: url("/amelia/assets/img/form/form.png");
+  background-position: 0 -1px;
+  background-repeat: no-repeat;
+  font-family: "Franklin Gothic Medium", sans-serif;
+  font-size: 1.2rem; }
+
+/* Formats the type of shape that appears next to radio or checkbox elements. */
+p:not(#foo) > input[type=radio] + label,
+p:not(#foo) > input[type=checkbox] + label {
+  display: block;
+  font-weight: normal;
+  padding-top: 0.05rem;
+  color: #000000;
+  background-position: 0 0; }
+
+/* Formats text that appears next to radio or checkbox elements. */
+p:not(#foo) > input[type=checkbox] + label {
+  padding-top: 0;
+  background-position: 0 -103px; }
+
+/* Formats the shape of that appears next to <input type=checkbox> elements.
+ * Also defines the base click-state. 
+ */
+/* Checked styles */
+p:not(#foo) > input[type=checkbox]:checked + label,
+p:not(#foo) > input[type=checkbox]:hover:checked + label,
+p:not(#foo) > input[type=checkbox]:focus:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover,
+p:not(#foo) > input[type=checkbox]:focus:checked + label {
+  background-position: 0 -178px;
+  font-weight: 700;
+  color: #221763; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the clicked click-state. 
+ */
+p:not(#foo) > input[type=radio]:checked + label,
+p:not(#foo) > input[type=radio]:hover:checked + label,
+p:not(#foo) > input[type=radio]:focus:checked + label,
+p:not(#foo) > input[type=radio]:checked + label:hover,
+p:not(#foo) > input[type=radio]:focus:checked + label {
+  background-position: 0 -79px;
+  font-weight: 700;
+  color: #221763; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the clicked click-state. 
+ */
+/* Hover & Focus styles */
+p:not(#foo) > input[type=checkbox]:hover + label,
+p:not(#foo) > input[type=checkbox]:focus + label,
+p:not(#foo) > input[type=checkbox] + label:hover {
+  background-position: 0 -128px;
+  font-weight: 700;
+  color: #000000; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the hover click-state. 
+ */
+p:not(#foo) > input[type=radio]:hover + label,
+p:not(#foo) > input[type=radio]:focus + label,
+p:not(#foo) > input[type=radio] + label:hover,
+p:not(#foo) > fieldset > input[type=radio]:hover + label,
+p:not(#foo) > fieldset > input[type=radio]:focus + label,
+p:not(#foo) > fieldset > input[type=radio] + label:hover {
+  background-position: 0 -26px;
+  font-weight: 700;
+  color: #000000; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the hover click-state. 
+ */
+/* Active styles */
+p:not(#foo) > input[type=checkbox]:active + label,
+p:not(#foo) > input[type=checkbox] + label:hover:active,
+p:not(#foo) > input[type=checkbox]:active:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover:active {
+  background-position: 0 -153px;
+  font-weight: 400; }
+
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the active click-state. 
+ */
+p:not(#foo) > input[type=radio]:active + label,
+p:not(#foo) > input[type=radio] + label:hover:active {
+  background-position: 0 -53px; }
+
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the active click-state. 
+ */
+/* ****** CONTAINER ELEMENTS ****** */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; }
+
+/* 
+  Formats the <body> HTML tag 
+  + The 'overflow-x' attribute hides the horizontal scroll bar as intra-section navigation 
+    takes place or the main navigation menu animates.
+*/
+main {
+  width: initial;
+  height: initial;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  clear: both;
+  z-index: 1; }
+
+/* Formats the HTML element, 'main', which holds all of the copy and form content. */
+.article-content {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 0;
+  left: 0; }
+
+/* 
+ * Formats the HTML elements, 'article' which holds the text and form content of 
+ * a particular 'SECTION' or segment of content organized by a similar theme. 
+ */
+#section-backgrounds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; }
+
+/* 
+ * Formats the <div> which hold the background images for the 'SECTIONS' of 
+ * content. 
+ */
+#section-backgrounds > div {
+  position: absolute;
+  background-repeat: no-repeat; }
+
+/* 
+ * Formats the <div> elements which hold the background images 
+ * for the individual sections.
+ */
+/* ****** NAVIGATION ELEMENTS ****** */
+nav {
+  height: auto;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+  /* Formats a <div> element which serves as the menu 'button'. */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the default, 'base', click state.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the mouseover, or 'hover', click state.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is a 'click' state that is only meant to be visible for the duration 
+    * of the clicking of the mouse.
+    */
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the state which appears when the navigation panel is open. 
+    */
+  /* Sets a class which is used to alter the 'click-state' of the side panel  
+   * which contains the menu options which slides 'out' of the left of the page. 
+   * This class sets the <nav> element to appear in a 'fixed' location 
+   * in the browser window.
+   */
+  /* Sets a class which is used to alter the 'click-state' of the side panel
+   * which contains the menu options which slides out of the left of the page.
+   * This class sets the <nav> element to appear in a location that is 
+   * determined by the CSS properties and values set by 'nav.js'. 
+   */
+  /* Formats a <div> element which holds of the individual menu options in the 
+   * inter-sectional menu panel.
+   */
+  /* Sets a class which is used to alter the 'click-state' of the collection of menu options 
+   * which is contained in the navigation panel.
+   * This click-state is the base state.
+   */
+  /* Sets a class which is used to alter the 'click-state' of the collection of menu options  
+   * which is contained in the navigation panel.
+   * This state is activated once the navigation panel has been activated.
+   */ }
+  nav #div-nav-icon {
+    width: 3.13rem;
+    height: 3.13rem;
+    top: 1.56rem;
+    left: 1.56rem;
+    position: fixed;
+    z-index: 5;
+    background-image: url("/amelia/assets/img/nav/nav.png");
+    background-repeat: no-repeat; }
+  nav .nav-icon-base {
+    background-position: 0 0; }
+  nav .nav-icon-base,
+  nav .nav-icon-hover,
+  nav .nav-icon-click-1,
+  nav .nav-icon-click-2,
+  nav #div-nav-options a,
+  nav .nav-option-base,
+  nav .nav-option-hover {
+    cursor: pointer; }
+  nav .nav-icon-base {
+    background-position: 0 0; }
+  nav .nav-icon-hover {
+    display: block !important;
+    background-position: 0 -50px; }
+  nav .nav-icon-click-1 {
+    background-position: 0 -100px; }
+  nav .nav-icon-click-2 {
+    background-position: 0 -150px; }
+  nav .nav-click-closed {
+    position: fixed !important; }
+  nav .nav-click-open {
+    position: absolute !important; }
+  nav #div-nav-options {
+    height: inherit;
+    position: fixed;
+    z-index: 4;
+    /* Formats the <a> elements which serve as menu options in the inter-sectional 
+     * menu.
+     */
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'base' click state.
+     */
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'hover' click state.
+     */
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'click' click state.
+     */ }
+    nav #div-nav-options a {
+      display: block;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      background-color: #000;
+      text-decoration: none;
+      color: #fff; }
+    nav #div-nav-options .nav-option-base {
+      background-color: #000 !important;
+      color: #fff !important; }
+    nav #div-nav-options .nav-option-hover {
+      background-color: #808080 !important;
+      color: #fff !important; }
+    nav #div-nav-options .nav-option-click {
+      background-color: #A6A6A6 !important;
+      color: #000 !important; }
+  nav .nav-options-base {
+    display: none;
+    opacity: 0; }
+  nav .nav-options-click {
+    display: block !important;
+    opacity: 1 !important; }
+  nav #div-nav-background {
+    position: fixed;
+    background-color: #666;
+    /* Formats a <div> element which appears at the top of the inter-sectional navigation 
+     * menu. 
+     */ }
+    nav #div-nav-background #div-nav-border {
+      height: 6.25rem;
+      position: fixed;
+      z-index: 3;
+      background-color: #444; }
+
+/* Formats the <nav> element which contains the inter-sectional navigation. */
+.nav-visible {
+  left: 0 !important; }
+
+#a-nav-article-previous,
+#a-nav-article-next {
+  position: fixed;
+  background-image: url("/amelia/assets/img/nav/next/next-section.png");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  cursor: default;
+  z-index: 5; }
+
+/* Formats <div> elements which act as inter-sectional navigation which appears 
+ * along the right side of the page.
+ */
+#a-nav-article-previous {
+  opacity: 0; }
+
+/* Formats a <div> element which moves the page upward through previously viewed 
+ * sections. 
+ */
+#a-nav-article-previous,
+#a-nav-article-next,
+#a-nav-article-previous:hover,
+#a-nav-article-next:hover {
+  cursor: pointer; }
+
+/* Sets the cursor state based upon the click-state of the <div> elements, 
+ * '#previous-article' and '#next-article'. 
+ */
+#a-nav-article-previous > span,
+#a-nav-article-next > span {
+  display: block;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px; }
+
+/* Formats the text descriptions of the inter-sectional navigation 
+ * which appears on the right of the page.
+ */
+.div-nav-article {
+  position: absolute;
+  /* Formats the <div> element which serves as a container for the <div> and <span> 
+   * elements which make up the inter-sectional navigation for 'SECTION #3' 
+   * and 'SECTION #4'.
+   */ }
+  .div-nav-article div {
+    height: inherit;
+    margin: 0 auto;
+    /* Formats the <span> element which serves as the menu-button for the intra-sectional 
+     * navigation for 'SECTION #3' and 'SECTION #4'. 
+     */
+    /* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
+     * which serves as the menu-button for the intra-sectional navigation. 
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the base click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the hover click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the active click state.
+     */
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the click state which is set once the menu-button has been clicked.
+     */
+    /* Formats the <div> element which contains the <a> elements which serve as 
+     * menu-options of the intra-sectional navigation.
+     */ }
+    .div-nav-article div a:first-of-type {
+      width: 9.38em;
+      height: 2.19em;
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      color: #fff; }
+    .div-nav-article div span:hover {
+      cursor: pointer; }
+    .div-nav-article div .nav-article-base,
+    .div-nav-article div .nav-article-hover,
+    .div-nav-article div .nav-article-active,
+    .div-nav-article div .nav-article-click {
+      cursor: pointer;
+      opacity: 1; }
+    .div-nav-article div .nav-article-base {
+      background-position: 0px 0px; }
+    .div-nav-article div .nav-article-hover {
+      background-position: 0px -35px; }
+    .div-nav-article div .nav-article-click-1 {
+      background-position: 0px -70px; }
+    .div-nav-article div .nav-article-click-2 {
+      background-position: 0px -105px; }
+    .div-nav-article div div {
+      position: absolute;
+      display: none;
+      /* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */ }
+      .div-nav-article div div a {
+        width: 6.56em !important;
+        height: 1.38em !important;
+        display: block;
+        float: left;
+        margin: 0 1rem 0 0 !important;
+        padding: 0.19em 0 0 0;
+        background-color: #000;
+        background-image: none !important;
+        border: 0.13rem solid #222;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 1.25rem;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        cursor: pointer; }
+      .div-nav-article div div a:last-of-type {
+        margin-right: 0 !important; }
+
+/* Formats a <div> element which contains the intra-sectional navigation 
+ * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
+ */
+.div-nav-article-visible {
+  display: block !important; }
+
+#div-nav-article-3 div {
+  /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #3'.
+     */ }
+  #div-nav-article-3 div a:first-of-type {
+    background-image: url("/amelia/assets/img/nav/article-nav/article-3.png"); }
+
+#div-nav-article-4 div {
+  /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #4'.
+     */ }
+  #div-nav-article-4 div a:first-of-type {
+    background-image: url("/amelia/assets/img/nav/article-nav/article-4.png"); }
+
+.div-nav-article > div > div >
+.div-nav-article > div > div a:hover {
+  background-color: #333; }
+
+/* Formats the click-state for the <a> elements which serves as menu-options
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
+@media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px.
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+  nav,
+  #div-nav-border,
+  #div-nav-background,
+  #div-nav-options {
+    width: 20.5em;
+    left: -20.5em; }
+  nav,
+  #div-nav-background {
+    height: 67.5em; }
+  #div-nav-options {
+    height: initial; }
+    #div-nav-options a {
+      width: 12.4em;
+      height: 2.15em;
+      margin: 0.75em; }
+  .div-nav-article {
+    width: 119em !important;
+    top: 42em !important; } }
+
+/* ****** LANDING SECTION ****** */
+aside {
+  position: absolute;
+  float: right;
+  /* Formats the logo which is contained within the <aside> HTML element. */
+  /* Formats the list which is contained within the <aside> HTML element. */
+  /* Formats the list-items which are contained within the <div> using the selctor, "#info". */ }
+  aside img {
+    margin: 0 1.7rem;
+    padding: 1.7rem;
+    display: block;
+    position: relative;
+    float: left;
+    background-color: #967348; }
+  aside ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    float: left;
+    font-size: 0.9rem;
+    font-weight: 400; }
+  aside li {
+    height: 1.65rem;
+    margin: 1rem 0;
+    padding: 0.45rem 0 0.35rem 0.75rem;
+    display: block;
+    color: #FBE7E9;
+    background-color: #632E22; }
+
+/* 
+ * Formats an <aside> which contains the logo and a brief list 
+ * of selling points.
+ * + Opacity is set to '0' to allow for a fade-in by by a jQuery event.
+ */
+/* ****** SECTION #1 ****** */
+#h1-header-article-1 {
+  background-color: #92676C; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
+.div-content-block-1 {
+  /* 
+   * Formats a <h2> element which contains a text header for an individual response from 
+   * 'FORM TYPE #1. The <span> elements appear within the <div> elements using the selectors, 
+   * '#div-content-block-1-desc-2' & '#div-content-block-1-desc-3'.
+   */
+  /* 
+   * Formats the <p> elements which hold the text content that is contained by a <div> element
+   * using the class, '.div-content-block-1'.
+   */
+  /* More formatting for the <p> elements which hold text content. */ }
+  .div-content-block-1 h2 {
+    width: 100%;
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.25rem;
+    display: inline-block;
+    border-bottom: 2px solid;
+    font-weight: 700; }
+  .div-content-block-1 p {
+    margin-bottom: 2rem;
+    /*     text-indent: 1.3rem; // 21px
+ */
+    line-height: 1.6;
+    color: #58262C; }
+  .div-content-block-1 p ~ p {
+    margin-bottom: 1.7rem;
+    padding-bottom: 1.5rem; }
+
+#div-content-block-1-desc-1 {
+  background-color: #E7D4C8; }
+
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FIRST WINDOW PANE' or first sub-section of 'SECTION #1' 
+ */
+#div-content-block-1-desc-2 {
+  background-color: #E7DCC8;
+  color: #6D5647; }
+
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'THIRD WINDOW PANE' or third sub-section of 'SECTION #1' 
+ */
+#div-content-block-1-desc-3 {
+  background-color: #DEC0C3;
+  color: #694448; }
+
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
+ */
+/* ****** SECTION #2 ****** */
+#h1-header-article-2 {
+  background-color: #744725; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
+.div-content-block-2 {
+  height: auto;
+  padding: 1rem 2rem;
+  display: inline-block;
+  position: relative;
+  background-color: #D9C296;
+  vertical-align: top;
+  /* Formats an image which is contained within the blocks. */
+  /* Formats the list which appears within the blocks. */ }
+  .div-content-block-2 img {
+    margin: 1rem 0 0.4rem 0; }
+  .div-content-block-2 #img-content-block-2-missouri {
+    margin-bottom: 1.8rem;
+    display: block; }
+  .div-content-block-2 ul {
+    margin: 0.35rem auto;
+    padding: 0;
+    list-style-type: none;
+    border-top: 0.188rem solid #897042;
+    /* Formats the list-items which appears within the blocks. */
+    /* More formatting for the first list-item which appears within blocks. */ }
+    .div-content-block-2 ul li {
+      margin: 0.5rem 0;
+      color: #523A0E; }
+    .div-content-block-2 ul li:first-child {
+      font-weight: 600; }
+
+/* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
+#div-content-block-left {
+  left: 50%;
+  transform: translateX(-104.5%); }
+
+#div-content-block-right {
+  left: 0;
+  transform: translateX(63.5%); }
+
+.div-spacer-article-2 {
+  display: inline-block; }
+
+.div-content-block-2-type-1 {
+  margin: 0;
+  position: relative;
+  float: left;
+  clear: both;
+  /* 
+   * Formats a block which serves as a 'header' for the secondary blocks 
+   * contained within 'SECTION #2'. 
+   */
+  /* 
+   * Formats a block which serves as a container for secondary information 
+   * within 'SECTION #2. 
+   */
+  /* 
+   * Formats a spacer which reorders the content contained within 'SECTION #2'. 
+   * The spacer changes dimensions based on breakpoint of the browser.
+   */ }
+  .div-content-block-2-type-1 span {
+    width: 13rem;
+    display: block;
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: #745925;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #d9c296; }
+  .div-content-block-2-type-1 span + div {
+    height: inherit;
+    margin: 0 auto;
+    position: relative;
+    /* 
+     * Formats the text content of the secondary blocks that appear near the bottom of the 
+     * landing page for 'SECTION #2'. 
+     */ }
+    .div-content-block-2-type-1 span + div span {
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: 600;
+      color: #523A0E;
+      background-color: #B19563; }
+  .div-content-block-2-type-1 .div-spacer-article-2 {
+    width: 0.1rem;
+    height: 4rem; }
+
+/* Formats the secondary blocks that appear below the larger, main blocks in 'SECTION #2'. */
+/* ****** SECTION #3 ****** */
+#h1-header-article-3 {
+  background-color: #B7A68E; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
+.div-content-block-3 {
+  /* 
+   * Formats a text header for the block within each sub-section. The <h2> elements appear 
+   * within the <div> elements using the selectors, 
+   * '#div-content-block-3-desc-2', '#div-content-block-3-desc-3', & 
+   * '#div-content-block-3-desc-4'.
+   */ }
+  .div-content-block-3 h2 {
+    margin: 0 0 0.5rem 0;
+    padding-bottom: 0.1rem;
+    border-bottom: 0.1rem solid;
+    font-size: 2.5rem;
+    font-weight: 600; }
+
+#div-content-block-3-desc-1 {
+  background-color: #988366;
+  color: #D9CDBC; }
+
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+#div-content-block-3-desc-2 {
+  background-color: #987566;
+  color: #FFFCFB; }
+
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+#div-content-block-3-desc-3 {
+  background-color: #988C66;
+  color: #FFFBEE; }
+
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
+#div-content-block-3-desc-4 {
+  background-color: #988366;
+  color: #FFF8EE; }
+
+/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
+/* ****** SECTION #4 ****** */
+#h1-header-article-4 {
+  background-color: #C8586A; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
+.div-content-block-4 {
+  /* 
+   * Formats <p> elements which are contained with an individual block contained 
+   * within 'SECTION #4'.
+   */
+  /* Formats <div> elements which appear as quotation marks above the blocks 
+   * contained within 'SECTION #4'.
+   */
+  /* Formats a  text header for the 'block' within each sub-section. The <span> elements 
+   * appear within the <div> elements using the selectors, 
+   * '#div-content-block-4-desc-2', '#div-content-block-4-desc-3', & 
+   * '#div-content-block-4-desc-4'.
+   */ }
+  .div-content-block-4 p {
+    line-height: 1.6; }
+  .div-content-block-4 div {
+    position: absolute; }
+  .div-content-block-4 span {
+    width: 100%;
+    display: block;
+    padding-top: 0.3rem;
+    border-top: 0.188rem solid;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: right; }
+
+#div-content-block-4-desc-1 {
+  background-color: #A33042;
+  color: #FBDADF; }
+
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
+#div-content-block-4-desc-2 {
+  background-color: #FFD6BC;
+  color: #AC6133;
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */ }
+  #div-content-block-4-desc-2 div {
+    color: #FBBC95; }
+  #div-content-block-4-desc-2 span {
+    color: #D48B5D; }
+
+/* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
+#div-content-block-4-desc-3 {
+  background-color: #FBBC95;
+  color: #AC6133;
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-middle, underneath the header block.
+   */
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-right, underneath the header block.
+   */
+  /* Formats <span> elements which contain text. Theses elements appear
+   * below a row of <span> elements which contain logos.
+   */ }
+  #div-content-block-4-desc-3 div {
+    color: #FFF2DE; }
+  #div-content-block-4-desc-3 span {
+    color: #AC7F33;
+    /* Formats a <span> element which contain a logo. This logo is contained by 
+     * the block which appears on the upper-left, underneath the header block.
+     */ }
+    #div-content-block-4-desc-3 span span {
+      display: block;
+      background-image: url("/amelia/assets/img/articles/5/logos-insurance.png");
+      background-position: 0px 0px; }
+  #div-content-block-4-desc-3 span + span > span {
+    background-position: 0px -28px; }
+  #div-content-block-4-desc-3 span + span + span > span {
+    background-position: 0px -47px; }
+  #div-content-block-4-desc-3 span + span + span ~ span span {
+    text-align: center;
+    background-image: none; }
+
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+#div-content-block-4-desc-4 {
+  background-color: #FBD595;
+  color: #AC6133;
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */ }
+  #div-content-block-4-desc-4 div {
+    color: #FFF2DE; }
+  #div-content-block-4-desc-4 span {
+    color: #D3A75D; }
+
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+/* ****** SECTION #5 ****** */
+#h1-header-article-5 {
+  background-color: #3C667B; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
+.div-content-block-5-type-1 {
+  position: relative; }
+
+/* Formats the blocks which are contained with 'SECTION #5'. */
+#div-content-block-5-desc-1 {
+  padding: 1rem 2rem;
+  position: relative;
+  float: left;
+  background-color: #96C5AA;
+  color: #216F43; }
+
+/* 
+ * Formats the block which contains text content but does not include a <button> element 
+ * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+ */
+#div-content-block-5-header-1 {
+  position: relative;
+  float: left;
+  background-color: #5F8395; }
+
+/* Formats the block which serves as a header which appears within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #5'. 
+ */
+#div-content-block-5-header-2 {
+  width: 21.5rem;
+  padding: 1rem 2rem;
+  transform: translateX(15.5rem);
+  background-color: #C1D1D9;
+  color: #408B61;
+  /* Formats the text of the block which serves as a header for the content contained 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */ }
+  #div-content-block-5-header-2 span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center; }
+
+/* Formats the block which serves as a header for the content that is contained 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+#div-content-block-5-desc-2 {
+  /* Formats <span> elements which contains a logo or text content */
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-left, underneath the header block.
+   */
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-middle, underneath the header block.
+   */
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-right, underneath the header block.
+   */
+  /* 
+   * Formats <span> elements which contain text. Theses elements appear
+   * below a row of <span> elements which contain logos.
+   */ }
+  #div-content-block-5-desc-2 span {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-color: #C1D1D9; }
+    #div-content-block-5-desc-2 span span {
+      display: block;
+      background-color: transparent;
+      background-image: url("/amelia/assets/img/articles/5/logos-insurance.png"); }
+  #div-content-block-5-desc-2 span > span {
+    background-position: 0px 0px; }
+  #div-content-block-5-desc-2 span + span > span {
+    background-position: 0px -45px; }
+  #div-content-block-5-desc-2 span + span + span > span {
+    background-position: 0px -90px; }
+  #div-content-block-5-desc-2 span + span + span ~ span span {
+    text-align: center;
+    background-image: none; }
+
+/* Formats a <div> element which serves as a container for various <span> elements 
+ * which contain either logos or text. 
+ */
+#div-content-block-5-desc-3 {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  position: relative;
+  background-color: #C1D1D9;
+  color: #214D62; }
+
+#div-content-block-5-desc-4 {
+  padding: 1rem 2rem;
+  background-color: #216F43;
+  /* 
+   * Formats a block that serves as a container for text copy that appears below the block 
+   * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */ }
+  #div-content-block-5-desc-4 div {
+    width: 100%;
+    height: 225px;
+    display: table;
+    /* 
+     * Formats a block that serves as a container for text copy that appears below the block 
+     * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+     */ }
+    #div-content-block-5-desc-4 div div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      /* 
+       * Formats the dollar sign that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+      /* 
+       * Formats the numberical value that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+      /* 
+       * Formats the text, '/hour', that appears in the below the block that serves as a header 
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */ }
+      #div-content-block-5-desc-4 div div sup {
+        position: absolute;
+        top: 55px;
+        font-size: 2.5rem;
+        color: #C8CBDF; }
+      #div-content-block-5-desc-4 div div span {
+        font-size: 10rem;
+        letter-spacing: -10px;
+        color: #fff; }
+      #div-content-block-5-desc-4 div div span + span {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        color: #96C5AA; }
+
+/* 
+ * Formats a block that appears below the block that serves as a header 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+.div-content-no_cost {
+  font-size: 6rem;
+  font-weight: 600;
+  color: #ffffff; }
+
+#div-content-block-5-desc-5 {
+  width: 21.5rem;
+  margin-top: 0 !important;
+  padding: 1rem 2rem;
+  background-color: #C8CBDF;
+  color: #2A326B;
+  /* 
+   * Formats <p> elements which appear within a block that appears on the right of the page 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */ }
+  #div-content-block-5-desc-5 p {
+    font-size: 1rem;
+    border-bottom: 0.13rem solid; }
+
+/* 
+ * Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
+ * of 'SECTION #5'.
+ */
+/* ---- SECTION #6 ---- */
+#h1-header-article-6 {
+  background-color: #46483b; }
+
+/* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
+.div-content-block-6-type-1 {
+  position: relative; }
+
+/* 
+ * Formats the blocks which appears directly underneath the header within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+#div-content-block-6-desc-1 {
+  background-color: #a7ab92;
+  color: #2A2E13;
+  /* 
+   * Formats the <p> elements which are contained by the block which appears directly underneath the header 
+   * on the left hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+   */ }
+  #div-content-block-6-desc-1 p {
+    line-height: 1.6;
+    border-bottom: 0.125rem solid; }
+
+/* 
+ * Formats the block which appears directly underneath the header on the left hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+#div-content-block-6-info-1 {
+  position: relative;
+  background-color: #971B1E;
+  color: #FFFFFF;
+  /* 
+   * Formats a block that serves as a container for text copy that appears directly underneath the header 
+   * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'. 
+   */ }
+  #div-content-block-6-info-1 span {
+    display: table;
+    margin: 0 auto;
+    background: none;
+    /* 
+     * Formats a <span> element which is contained by the block which appears directly underneath the header 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */ }
+    #div-content-block-6-info-1 span span {
+      width: 20.25rem;
+      display: table-cell;
+      background: none;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      vertical-align: middle; }
+
+/* 
+ * Formats the block which appears directly underneath the header on the right hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+.div-content-block-6-type-2 {
+  position: relative;
+  /* 
+   * Formats blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */
+  /* 
+   * Formats the blocks which contain office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */ }
+  .div-content-block-6-type-2 span {
+    padding: 1rem 2rem;
+    display: block;
+    font-weight: 600;
+    color: #B0AE97;
+    background-color: #302E1E; }
+  .div-content-block-6-type-2 div {
+    background-color: #a7ab92;
+    /* Formats the text within blocks which contain office information within the 'FIRST WINDOW PANE' 
+     * of 'SECTION #6'.
+     */ }
+    .div-content-block-6-type-2 div p {
+      display: inline-block;
+      line-height: 1.6;
+      border-right: 0.125rem solid;
+      color: #2A2E13; }
+
+/* 
+ * Formats a block which serves as a header for location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+#div-content-block-6-desc-office_hours,
+#div-content-block-6-desc-phone_numbers {
+  width: 12rem;
+  height: inherit;
+  margin: 1rem 0.75rem 0 0;
+  display: inline-block;
+  vertical-align: top; }
+  #div-content-block-6-desc-office_hours span,
+  #div-content-block-6-desc-phone_numbers span {
+    min-height: 3.5rem; }
+  #div-content-block-6-desc-office_hours div,
+  #div-content-block-6-desc-phone_numbers div {
+    width: 8rem;
+    min-height: 10.25rem;
+    margin-top: 1rem;
+    padding: 1rem 2rem; }
+    #div-content-block-6-desc-office_hours div p,
+    #div-content-block-6-desc-phone_numbers div p {
+      border-right: none; }
+    #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
+      display: block; }
+    #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
+      display: none; }
+
+.div-spacer-article-6 {
+  height: 0;
+  position: relative;
+  clear: both; }
+
+/* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
+#div-content-block-6-desc-3 {
+  position: relative;
+  background-color: #A7AB92;
+  color: #2C2F1E; }
+
+/* 
+ * Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+/* ****** ****** ****** ****** ****** ****** ****** ****** 
+                         BREAKPOINTS                                   
+   ****** ****** ****** ****** ****** ****** ****** ****** */
+/* ****** DESKTOP ****** */
+@media screen and (min-width: 64.06rem) and (max-width: 120rem) {
+  /* ****** COMMON ELEMENTS ****** */
+  h1 {
+    height: 9rem;
+    top: 3.13rem; }
+    h1 span {
+      width: 12rem; }
+  .div-content {
+    margin-top: 12rem; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4 {
+    width: 32.5rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative; }
+  /* ****** NAVIGATION ****** */
+  nav {
+    height: 100%; }
+    nav #div-nav-options {
+      padding-left: 0.5rem;
+      top: 6.56rem; }
+      nav #div-nav-options a {
+        width: 12.4em;
+        height: 2.35em;
+        margin: 1rem 0 0.25rem 1rem;
+        padding: 1em;
+        display: inline-block;
+        font-size: 1.25rem; }
+    nav #div-nav-background {
+      height: 100%; }
+    nav #div-nav-border {
+      height: 6.25rem; }
+  #a-nav-article-previous,
+  #a-nav-article-next {
+    width: 4.9rem;
+    height: 5.4rem;
+    right: 3.13rem;
+    bottom: 3rem;
+    z-index: 5;
+    background-position: 0 -209px; }
+  #a-nav-article-previous {
+    height: 4rem;
+    top: 1.06em;
+    padding-top: 1.88em;
+    background-position: 0 0; }
+  /* Formats a <div> element which moves the page upward through previously viewed 
+  * sections. 
+  */
+  #a-nav-article-next {
+    background-position: 0px -145px; }
+  /* Formats a <div> element which moves the page upward through yet-to-be-viewed 
+  * sections. 
+  */
+  #a-nav-article-previous:hover {
+    background-position: 0px -111px !important; }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#previous-article'. 
+    */
+  #a-nav-article-next:hover {
+    background-position: 0px -235px !important; }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#next-article'. 
+    */
+  #a-nav-article-previous > span,
+  #a-nav-article-next > span {
+    width: 4.9em;
+    height: 5.4em;
+    margin: 0 auto 50px auto;
+    font-size: 0.8em;
+    line-height: 1.3; }
+  /* Formats the text descriptions of the inter-sectional navigation 
+  * which appears on the right of the page.
+  */
+  .div-nav-article div {
+    width: 36.85rem; }
+    .div-nav-article div div {
+      height: 2.19em;
+      margin: 1rem auto 0 auto; }
+      .div-nav-article div div a {
+        width: 6.56em;
+        height: 1.38em;
+        margin: 0 0.94em;
+        padding: 0.19em 0 0 0; }
+  /* ****** FORMS ****** */
+  .div-content-column {
+    width: 48.65%;
+    margin-right: 1.25rem;
+    vertical-align: top; }
+  .div-content-column:last-of-type {
+    margin-right: 0; }
+  .div-form-question {
+    width: 21.5rem;
+    margin-bottom: 1.25rem;
+    padding: 2rem;
+    font-size: 0.8rem; }
+    .div-form-question span:first-child {
+      margin-bottom: 0.75rem; }
+  #form-question-alert div {
+    width: 22rem;
+    height: 10rem; }
+    #form-question-alert div div {
+      width: 36rem;
+      height: 15.75rem; }
+  .button-desktop {
+    display: block; }
+  .button-mobile {
+    display: none; }
+  #submit-form-article-1 {
+    transform: translate(-5rem, -3.1rem); }
+  #button-article-5-contact {
+    letter-spacing: -1.7px !important; }
+  #button-article-6-start {
+    letter-spacing: -1.7px; }
+  #button-article-6-map {
+    margin: 0;
+    left: auto;
+    right: 0;
+    transform: translate(2rem, -51%);
+    vertical-align: middle; }
+  #submit-form-article-6 {
+    transform: translate(-65%, -100%); }
+  /* ****** LANDING SECTION ****** */
+  #aside-info {
+    width: 40.8rem;
+    height: 15.2rem;
+    bottom: 12rem;
+    left: 6.26rem; }
+    #aside-info li {
+      width: 20.75rem; }
+    #aside-info li:first-of-type {
+      margin-top: 0; }
+    #aside-info li:last-of-type {
+      margin-bottom: 0; }
+  /* ****** SECTION #1 ****** */
+  .div-content-block-1 h2 {
+    font-size: 2.5rem; }
+  /* ****** SECTION #2 ****** */
+  .div-content-block-2 {
+    width: 21.5rem;
+    min-height: 15rem; }
+  .div-content-block-2-type-1 {
+    height: 12.25rem;
+    top: 3rem; }
+    .div-content-block-2-type-1 span + div {
+      width: 49rem;
+      height: 7.5rem;
+      top: 1rem; }
+      .div-content-block-2-type-1 span + div span {
+        width: 11rem;
+        height: 5.5rem;
+        padding: 1rem 2rem;
+        margin-left: 2rem;
+        text-align: left; }
+      .div-content-block-2-type-1 span + div span:first-of-type {
+        margin-left: 0; }
+  /* ****** SECTION #3 ****** */
+  .div-content-block-3 {
+    margin: 0 auto;
+    position: relative;
+    /* 
+     * Formats <p> elements which are contained with an individual block contained 
+     * within 'SECTION #3'.
+     */ }
+    .div-content-block-3 h2 {
+      width: 100%; }
+    .div-content-block-3 p {
+      line-height: 1.6; }
+  /* ****** SECTION #4 ****** */
+  .div-content-block-4 {
+    /* Formats <div> elements which appear as quotation marks above the blocks 
+     * contained within 'SECTION #4'.
+     */ }
+    .div-content-block-4 div {
+      top: 3.2rem;
+      left: 0.06rem;
+      font-size: 10rem;
+      line-height: 0.1; }
+  #div-content-block-4-desc-3 span span {
+    width: 6.56rem;
+    height: 1.69rem;
+    margin-top: 0.55rem; }
+  #div-content-block-4-desc-3 span + span > span {
+    width: 6.56rem;
+    height: 1.25rem;
+    margin-top: 0.9rem; }
+  #div-content-block-4-desc-3 span + span + span > span {
+    width: 6.56rem;
+    height: 2.81rem;
+    margin-top: 0; }
+  #div-content-block-4-desc-3 span + span + span ~ span span {
+    height: 2.81rem;
+    margin-top: 0.85rem; }
+  #div-content-block-4-desc-4 p,
+  #div-content-block-5-desc-5 p {
+    padding-bottom: 0.9rem; }
+  /* ****** SECTION #5 ****** */
+  .div-content-block-5-type-1 {
+    width: 21.5rem;
+    padding: 1rem 2rem;
+    /* Formats the <p> elements which hold the text content that is contained by a <div> element
+     * using the class, '.div-content-block-5-type-1'.
+     */ }
+    .div-content-block-5-type-1 p {
+      line-height: 1.7rem; }
+  #div-content-block-5-desc-1 {
+    left: 50%; }
+  #div-content-block-5-desc-2 {
+    width: 25.5rem; }
+    #div-content-block-5-desc-2 span {
+      width: 6.25rem;
+      height: 2.81rem;
+      margin-top: 1rem;
+      padding: 1rem; }
+    #div-content-block-5-desc-2 span span {
+      width: 6.25rem;
+      padding: 0; }
+    #div-content-block-5-desc-2 span > span {
+      height: 2rem;
+      margin-top: 0.8rem; }
+    #div-content-block-5-desc-2 span + span > span {
+      height: 2.25rem;
+      margin-top: 0.55rem; }
+    #div-content-block-5-desc-2 span + span + span > span {
+      height: 2.81rem;
+      margin-top: 0; }
+    #div-content-block-5-desc-2 span + span + span ~ span span {
+      height: 2.81rem;
+      line-height: 2.75; }
+    #div-content-block-5-desc-2 span:nth-child(4),
+    #div-content-block-5-desc-2 span:nth-child(5) {
+      margin-top: 0; }
+  #div-content-block-5-header-1 {
+    width: 23.25rem;
+    margin-top: 2.5rem;
+    padding: 1rem; }
+  #div-content-block-5-header-2 {
+    left: 50%;
+    transform: translateX(32.25rem); }
+  #div-content-block-5-desc-3 {
+    width: 21.5rem;
+    /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
+     * containing logos and text.
+     */ }
+    #div-content-block-5-desc-3 p {
+      padding-bottom: 1rem;
+      border-bottom: 0.188rem solid; }
+  /* Formats the block which contains text content but DOES include a <button> element 
+   * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+   */
+  #div-content-block-5-desc-4,
+  #div-content-block-5-desc-5 {
+    min-height: 14.06rem;
+    margin-top: 1rem; }
+  #div-content-block-5-desc-4 {
+    width: 21.5rem;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    transform: translateX(32.25rem); }
+  /* ****** SECTION #6 ****** */
+  .div-content-block-6-type-1 {
+    width: 21.5rem;
+    padding: 1rem 2rem;
+    left: 50%;
+    position: relative; }
+  #div-content-block-6-desc-1 {
+    padding: 1rem 2rem; }
+    #div-content-block-6-desc-1 p {
+      margin-bottom: 0.5rem;
+      padding-bottom: 1.25rem; }
+  #div-content-block-6-info-1 {
+    width: 23.5rem;
+    margin-top: 2.5rem;
+    padding: 1rem; }
+  #div-content-block-6-desc-2 {
+    width: 25.5rem;
+    height: 10.31rem;
+    left: 50%; }
+    #div-content-block-6-desc-2 div {
+      width: 21.5rem;
+      margin-top: 1rem;
+      padding: 1rem 2rem; }
+      #div-content-block-6-desc-2 div p {
+        width: 11.25rem;
+        margin: 0.75rem 0 0 0; }
+  .div-content-block-6-type-2 {
+    width: 32.8rem;
+    height: 12.15rem;
+    margin-top: 1rem;
+    /* Formats a block which serves as a container of location informtion which appears 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */ }
+    .div-content-block-6-type-2 div {
+      width: 15.75rem; }
+      .div-content-block-6-type-2 div div {
+        width: 9.61rem;
+        margin: 0;
+        padding: 0; }
+  .div-spacer-article-6 {
+    width: 28.9rem; }
+  #div-content-block-6-desc-3 {
+    width: 32.5rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    left: auto;
+    position: relative;
+    transform: none; }
+    #div-content-block-6-desc-3 h2 {
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+      padding-bottom: 0.25rem;
+      display: inline-block;
+      transform: none;
+      border-bottom: 2px solid;
+      font-size: 2.5rem;
+      font-weight: 700; } }
+
+/* ****** DESKTOP - 1920px WIDE ****** */
+@media screen and (min-width: 100.06rem) and (max-width: 120rem) {
+  article {
+    width: 118.88rem;
+    height: 67.5rem; }
+  h1 {
+    width: 118.88rem; }
+  .div-content {
+    width: 118.88rem;
+    height: 55.5rem;
+    margin-top: 12rem; }
+  nav {
+    width: 21rem;
+    left: -21rem; }
+    nav #div-nav-options {
+      width: 21rem;
+      left: -21rem; }
+  #div-nav-background {
+    width: 21rem;
+    height: 100%;
+    left: -21rem; }
+  #div-nav-border {
+    width: 21rem;
+    left: -21rem; }
+  .nav-not_visible {
+    left: -21rem !important; }
+  .div-nav-article {
+    width: 118.88rem; }
+  .div-form-question-left {
+    transform: translateX(32.3rem); }
+  #div-content-block-left {
+    transform: translateX(-27.1rem); }
+  #div-content-block-right {
+    transform: translateX(33.3rem); }
+  .div-content-block-2-type-1 {
+    width: 118.88rem; }
+  #div-content-block-5-desc-1 {
+    transform: translateX(3.4rem); }
+  #div-content-block-6-desc-1 {
+    transform: translateX(3.4rem); }
+  #div-content-block-6-desc-2 {
+    transform: translateX(3.4rem); } }
+
+/* ****** DESKTOP - 1600px WIDE ****** */
+@media screen and (min-width: 85.38rem) and (max-width: 100rem) {
+  article {
+    width: 99.25rem;
+    height: 67.5rem; }
+  h1 {
+    width: 99.25rem; }
+  .div-content {
+    width: 99.25rem;
+    height: 36rem; }
+  nav {
+    width: 40.25rem;
+    left: -40.25rem; }
+    nav #div-nav-options {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav #div-nav-background {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav #div-nav-border {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav .nav-not_visible {
+      left: -40.25rem !important; }
+  .div-nav-article {
+    width: 99.25rem; }
+  #div-nav-article-3 {
+    top: 38rem; }
+  #div-nav-article-4 {
+    top: 32rem; }
+  .div-form-question-left {
+    transform: translateX(22.8rem); }
+  #aside-info {
+    bottom: 1.69rem; }
+  #div-content-block-left {
+    transform: translateX(-26.9rem); }
+  #div-content-block-right {
+    transform: translateX(23.7rem); }
+  .div-content-block-2-type-1 {
+    width: 99.25rem; }
+  #div-content-block-5-desc-1 {
+    transform: translateX(-1.2rem); }
+  #div-content-block-6-desc-1 {
+    transform: translateX(-1.2rem); }
+  #div-content-block-6-desc-2 {
+    transform: translateX(-1.2rem); } }
+
+/* ****** DESKTOP - 1366px WIDE ****** */
+@media screen and (min-width: 64rem) and (max-width: 86rem) {
+  article {
+    width: 84.25rem;
+    height: 48rem; }
+  h1 {
+    width: 84.25rem; }
+  .div-content {
+    width: 84.25rem;
+    height: 36rem; }
+  nav {
+    width: 40.25rem;
+    left: -40.25rem; }
+    nav #div-nav-options {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav #div-nav-background {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav #div-nav-border {
+      width: 40.25rem;
+      left: -40.25rem; }
+    nav .nav-not_visible {
+      left: -40.25rem !important; }
+  .div-nav-article {
+    width: 84.25rem; }
+  #div-nav-article-3 {
+    top: 38rem; }
+  #div-nav-article-4 {
+    top: 32rem; }
+  .div-form-question-left {
+    margin-left: 15.5rem; }
+  .div-content-block-2-type-1 {
+    width: 84.25rem; }
+  #div-content-block-5-desc-1 {
+    transform: translateX(-4.75rem); }
+  .div-content-block-6-type-1 {
+    transform: translateX(-4.75rem); }
+  #div-content-block-6-desc-2 {
+    transform: translateX(-4.75rem); } }
+
+/* ****** MOBILE - iPad (768px x 1024px) ****** */
+@media screen and (min-width: 48rem) and (max-width: 50rem) {
+  article {
+    width: 48rem;
+    height: 64rem; }
+    article .div-content {
+      width: 48rem;
+      height: 52.5rem;
+      top: 10rem; }
+  h1 {
+    width: 48rem;
+    height: 7rem;
+    top: 3.13rem; }
+    h1 span {
+      width: 12rem; }
+  #section-backgrounds {
+    overflow-x: hidden; }
+    #section-backgrounds div {
+      height: 64rem;
+      overflow-x: hidden; }
+  nav {
+    width: 21rem;
+    height: 100%;
+    left: -21rem; }
+    nav #div-nav-options {
+      width: 21rem;
+      padding-left: 0.5rem;
+      top: 7rem;
+      left: -21rem; }
+      nav #div-nav-options a {
+        width: 12.4em;
+        height: 2.35em;
+        margin: 1rem 0 0.25rem 1rem;
+        padding: 1em;
+        display: inline-block;
+        font-size: 1.25rem; }
+    nav #div-nav-background {
+      width: 21rem;
+      height: 100%;
+      left: -21rem; }
+      nav #div-nav-background #div-nav-border {
+        width: 21rem;
+        height: 6.25rem;
+        left: -21rem; }
+    nav .nav-not_visible {
+      left: -21rem !important; }
+  #a-nav-article-previous,
+  #a-nav-article-next {
+    width: 5rem;
+    height: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%); }
+    #a-nav-article-previous span,
+    #a-nav-article-next span {
+      display: none; }
+  #a-nav-article-previous {
+    top: 1.52rem; }
+  #a-nav-article-next {
+    bottom: 1.52rem;
+    background-position: 0px -209px; }
+  .div-nav-article {
+    width: 36.9rem;
+    height: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%); }
+    .div-nav-article div div {
+      width: 36.9rem;
+      height: 2.25rem;
+      margin-top: 1rem; }
+  #div-nav-article-3 {
+    top: 38.25rem; }
+  #div-nav-article-4 {
+    top: 29.5rem; }
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea {
+    width: 14.25rem; }
+  .div-content-column {
+    width: 47.5%;
+    margin-left: 1.56rem;
+    vertical-align: top; }
+  .div-content-column:last-of-type {
+    margin-left: 0; }
+  .div-form-question {
+    width: 18rem;
+    padding: 1rem 2rem 2rem 2rem; }
+    .div-form-question .h2-form {
+      font-size: 1.25rem; }
+    .div-form-question .h3-form {
+      font-size: 1rem; }
+    .div-form-question p {
+      font-size: 0.9rem; }
+    .div-form-question span:first-of-type {
+      margin-right: 0.25rem; }
+    .div-form-question span:last-of-type {
+      margin-left: 0.25rem; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  .button-desktop {
+    display: block; }
+  .button-mobile {
+    display: none; }
+  #button-form-article-1-next,
+  #button-form-article-1-previous,
+  #submit-form-article-1,
+  #submit-form-article-5,
+  #button-form-article-6-next,
+  #button-form-article-6-previous,
+  #submit-form-article-6 {
+    left: 22rem; }
+  #button-form-article-1-next,
+  #button-form-article-6-next {
+    margin: 1rem 0 0 0;
+    transform: translateX(-100%); }
+  #button-form-article-1-previous,
+  #button-form-article-6-previous {
+    margin: 0;
+    transform: translate(-16.5rem, 1rem); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    margin: 0;
+    transform: translate(-7.75rem, -2.1rem); }
+  #button-article-6-start {
+    margin: 0.2rem 0 0.7rem 0; }
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.3rem, -1.5rem); }
+  #aside-info {
+    width: 19.25rem;
+    bottom: 1.75rem;
+    left: 1.75rem; }
+    #aside-info li {
+      height: auto; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4 {
+    width: 29rem;
+    margin: 0 auto; }
+  .div-content-block-2,
+  .div-content-block-5-type-1,
+  #div-content-block-5-desc-3,
+  .div-content-block-6-type-1,
+  .div-content-block-6-type-2 div {
+    width: 18rem; }
+  .div-content-block-2 ul li {
+    font-size: 0.9rem; }
+  #div-content-block-left {
+    left: 0;
+    transform: translateX(1.52rem); }
+  #div-content-block-right {
+    left: 0;
+    transform: translateX(2rem); }
+  .div-content-block-2-type-1 {
+    width: 48rem;
+    margin-top: 1rem; }
+    .div-content-block-2-type-1 span {
+      font-size: 0.9rem; }
+    .div-content-block-2-type-1 span + div {
+      height: 7.25rem;
+      margin-top: 1rem; }
+      .div-content-block-2-type-1 span + div span {
+        width: 10.25rem;
+        min-height: 4.75rem;
+        margin-left: 1rem;
+        padding: 1rem 2rem;
+        text-align: left; }
+      .div-content-block-2-type-1 span + div span:first-of-type {
+        margin-left: 1.72rem; }
+  #div-content-block-5-header-1 {
+    width: 20rem;
+    padding: 1rem; }
+  #div-content-block-5-desc-2 span {
+    width: 6.15rem;
+    height: 2.81rem;
+    margin-top: 1rem;
+    padding: 0.5rem; }
+  #div-content-block-5-desc-2 span span {
+    width: 6.25rem;
+    padding: 0; }
+  #div-content-block-5-desc-2 span > span {
+    height: 2rem;
+    margin-top: 0.8rem; }
+  #div-content-block-5-desc-2 span + span > span {
+    height: 2.25rem;
+    margin-top: 0.55rem; }
+  #div-content-block-5-desc-2 span + span + span > span {
+    height: 2.81rem;
+    margin-top: 0; }
+  #div-content-block-5-desc-2 span + span + span ~ span span {
+    height: 2.81rem;
+    line-height: 2.75; }
+  #div-content-block-5-desc-2 span:nth-child(4),
+  #div-content-block-5-desc-2 span:nth-child(5) {
+    margin-top: 0; }
+  .div-content-block-6-type-1 {
+    padding: 1rem 2rem; }
+  #div-content-block-6-desc-1 p {
+    padding-bottom: 1rem; }
+  .div-content-block-6-type-2 {
+    width: 22rem;
+    margin-top: 1rem; }
+    .div-content-block-6-type-2 div {
+      margin-top: 1rem;
+      padding: 1rem 2rem; }
+      .div-content-block-6-type-2 div p {
+        padding-right: 0.4rem; }
+  #div-content-block-6-info-1 {
+    width: 20rem;
+    padding: 1rem; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.5rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 6.5rem;
+      min-height: 16.5rem; } }
+
+/* ****** MOBILE PHONES ****** */
+@media screen and (min-width: 20rem) and (max-width: 25.875rem) {
+  nav {
+    height: 45.94rem; }
+    nav #div-nav-options {
+      height: auto;
+      margin: 0 auto;
+      position: relative; }
+      nav #div-nav-options a {
+        width: 11rem;
+        margin-bottom: 0.5rem;
+        padding: 0.75rem;
+        display: block; }
+    nav #div-nav-background {
+      top: 0; }
+      nav #div-nav-background #div-nav-border {
+        display: none; }
+  #a-nav-article-previous,
+  #a-nav-article-next {
+    width: 5rem;
+    height: 1.3rem;
+    left: 50%;
+    transform: translateX(-50%); }
+  #a-nav-article-previous > span,
+  #a-nav-article-next > span {
+    display: none; }
+  #a-nav-article-previous {
+    top: 1rem; }
+  #a-nav-article-next {
+    bottom: 1rem;
+    background-position: 0px -209px; }
+  .nav-article-section_links-not_visible {
+    display: none !important; }
+  .div-nav-article {
+    height: 9.5rem;
+    top: 30.5rem; }
+    .div-nav-article div {
+      height: 8.75rem; }
+      .div-nav-article div div a:nth-of-type(n) {
+        margin: 1rem 0.75rem 0 2rem !important; }
+      .div-nav-article div div a:nth-of-type(2n) {
+        margin-left: 0.75rem !important; }
+  .div-content-column {
+    display: block; }
+  .div-column-not_visible {
+    display: none; }
+  .div-form-question {
+    max-height: 24rem;
+    padding: 1rem;
+    display: none;
+    overflow-y: scroll; }
+    .div-form-question .h2-form {
+      font-size: 1.25rem; }
+    .div-form-question .h3-form {
+      font-size: 1rem; }
+  #div-form-article-1-question-2 fieldset div span:first-of-type {
+    margin-right: 0; }
+  #div-form-article-1-question-2 fieldset div span:last-of-type {
+    margin-left: 0; }
+  input[type=radio],
+  input[type=checkbox] {
+    width: 16rem; }
+  input[type=text],
+  input[type=email],
+  input[type=number],
+  textarea {
+    width: 14.75rem; }
+  .div-form-question-visible {
+    display: block; }
+  .button-desktop,
+  #form-article-1 input[type=button],
+  #form-article-1 input[type=submit],
+  #form-article-5 input[type=button],
+  #form-article-5 input[type=submit],
+  #form-article-6 input[type=button],
+  #form-article-6 input[type=submit] {
+    display: none; }
+  #mobile-button-article-1-start {
+    margin: 0 0 0.8rem 0; }
+  .button-right {
+    margin: 0;
+    top: 1.25rem;
+    left: calc(100% - 1.25rem); }
+  .button-position-1 {
+    transform: translate(-100%, -100%); }
+  .button-left {
+    margin: 0;
+    top: 1.25rem;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-210%); }
+  #mobile-button-article-5-start {
+    margin-bottom: 1rem;
+    top: 0;
+    transform: translate(-9.1rem, 0); }
+  #mobile-button-article-5-contact {
+    top: 0;
+    transform: translateX(-9rem);
+    letter-spacing: -1.7px; }
+  #button-article-6-start {
+    margin-top: 0.4rem;
+    left: 0;
+    transform: translateX(34%); }
+  #mobile-button-article-6-start {
+    transform: translateX(-17.1rem);
+    letter-spacing: -1.7px; }
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%); }
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%); }
+  #mobile-button-article-6-back {
+    margin-top: 1rem;
+    left: 50%;
+    transform: translate(-0.6rem); }
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.75rem, -1.25rem); }
+  #mobile-button-form-article-1-next-1,
+  #mobile-button-form-article-5-next-1,
+  #mobile-button-form-article-6-next-1 {
+    transform: translateX(-10.25rem); }
+  #mobile-button-form-article-1-next-2,
+  #mobile-button-form-article-1-next-3,
+  #mobile-button-form-article-6-next-2,
+  #mobile-button-form-article-6-next-3 {
+    transform: translate(-10.25rem, -100%); }
+  #mobile-button-form-article-1-previous-2,
+  #mobile-button-form-article-1-previous-3,
+  #mobile-button-form-article-5-previous-2,
+  #mobile-button-form-article-6-previous-2,
+  #mobile-button-form-article-6-previous-3 {
+    transform: translateX(-19rem); }
+  #mobile-button-form-article-1-previous-4 {
+    transform: translate(-19rem, -0.2rem); }
+  #mobile-button-form-article-6-previous-4 {
+    transform: translate(-19rem, 1rem); }
+  #submit-form-article-5 {
+    transform: translate(-8rem, -100%); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    transform: translate(-9.25rem, -3.4rem); }
+  .button_visible {
+    display: block !important; }
+  h1 {
+    padding: 1rem; }
+    h1 span {
+      font-size: 2rem; }
+  p {
+    font-size: 0.9rem; }
+  article {
+    height: 45.94rem; }
+    article .div-content {
+      height: 34rem;
+      top: 6.5rem; }
+    article .div-content-tall_header {
+      top: 8.5rem; }
+  #section-backgrounds {
+    overflow-x: hidden; }
+    #section-backgrounds div {
+      overflow-x: hidden; }
+  aside img {
+    margin: 0 auto;
+    float: none; }
+  aside ul {
+    width: 16rem;
+    margin: 0 auto;
+    float: none; }
+  aside li {
+    height: auto; }
+  #aside-info {
+    width: 18.75rem;
+    height: 27.25rem;
+    margin: 0 auto;
+    position: relative;
+    float: none; }
+  .div-content-block-1 p ~ p {
+    margin-bottom: 0; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4 {
+    max-height: 21rem;
+    overflow-y: scroll; }
+  .div-content-block-2 {
+    min-height: 15.5rem;
+    left: 0;
+    transform: none; }
+    .div-content-block-2 img,
+    .div-content-block-2 #img-content-block-2-missouri {
+      display: none; }
+    .div-content-block-2 ul {
+      border-top: none; }
+      .div-content-block-2 ul li {
+        font-size: 0.9rem; }
+  #div-content-block-right {
+    transform: none; }
+  .div-content-block-2-type-1 {
+    margin-top: 0.5rem; }
+    .div-content-block-2-type-1 span:first-child {
+      display: none; }
+    .div-content-block-2-type-1 span + div span {
+      margin-right: 0.25rem;
+      font-size: 0.9rem;
+      text-align: left;
+      word-break: break-word; }
+    .div-content-block-2-type-1 span + div span:first-of-type {
+      display: block; }
+    .div-content-block-2-type-1 span + div span:last-of-type {
+      margin-right: 0; }
+  #article-content-5 .div-content-column:last-of-type {
+    position: relative;
+    top: 1rem; }
+  #div-content-block-5-desc-1 {
+    max-height: 21rem;
+    overflow-y: scroll; }
+  #div-content-block-5-header-1,
+  #div-content-block-5-desc-2 {
+    display: none; }
+  #div-content-block-5-header-2 {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transform: none; }
+    #div-content-block-5-header-2 span {
+      font-size: 1.25rem; }
+  #div-content-block-5-desc-3 {
+    overflow-x: hidden; }
+  #div-content-block-5-desc-4 {
+    margin-bottom: 1rem; }
+    #div-content-block-5-desc-4 div {
+      height: 8.93px; }
+      #div-content-block-5-desc-4 div div sup {
+        top: 8.75rem;
+        font-size: 1.75rem; }
+      #div-content-block-5-desc-4 div div span {
+        font-size: 5rem;
+        letter-spacing: -6px; }
+  .div-content-no_cost {
+    font-size: 5rem; }
+  #div-content-block-5-desc-5 {
+    width: auto;
+    padding: 1rem 2rem 2rem 2rem; }
+    #div-content-block-5-desc-5 p {
+      border-bottom: none;
+      font-size: 0.9rem; }
+  #div-content-block-6-desc-1 {
+    padding: 1rem 2rem;
+    margin-bottom: 1rem; }
+    #div-content-block-6-desc-1 p {
+      padding-bottom: 1rem; }
+  #div-content-block-6-desc-2 div {
+    margin-top: 1rem;
+    padding: 1rem 2rem; }
+    #div-content-block-6-desc-2 div p {
+      width: 9.5rem; }
+  #div-content-block-6-info-1 {
+    padding: 1rem 0; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    margin: 1rem 0 0 0; }
+    #div-content-block-6-desc-office_hours div .p-desktop-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-desktop-phone_number {
+      display: none; }
+    #div-content-block-6-desc-office_hours div .p-mobile-phone_number,
+    #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number {
+      display: block; }
+      #div-content-block-6-desc-office_hours div .p-mobile-phone_number a,
+      #div-content-block-6-desc-phone_numbers div .p-mobile-phone_number a {
+        color: #221763; }
+  #div-content-block-6-desc-office_hours {
+    margin-right: 1rem; } }
+
+/* ****** MOBILE PHONE - iPHONE 8+ (414px x 735px) ****** */
+@media screen and (min-width: 23.44rem) and (max-width: 25.88rem) {
+  nav {
+    width: 25.88rem;
+    left: -25.88rem; }
+    nav #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; }
+      nav #div-nav-options a {
+        height: 3rem;
+        font-size: 1.2rem; }
+    nav #div-nav-background {
+      width: 25.88rem;
+      height: 46rem; }
+  .nav-not_visible {
+    left: -25.88rem !important; }
+  #div-nav-options.nav-visible {
+    left: 25.88rem !important; }
+  .div-nav-article {
+    width: 25.88rem;
+    top: 34.5rem; }
+    .div-nav-article div div a:nth-of-type(n) {
+      margin: 1rem 0.75rem 0 3.75rem !important; }
+    .div-nav-article div div a:nth-of-type(2n) {
+      margin-left: 0.75rem !important; }
+  .div-form-question {
+    max-height: 25.5rem;
+    overflow-y: scroll; }
+    .div-form-question .div-form-question span:first-child {
+      margin-right: 1.6rem; }
+    .div-form-question .div-form-question span:last-child {
+      margin-left: 1.6rem; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  #mobile-button-form-article-1-previous-4 {
+    transform: translate(-19rem, 0); }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    transform: translate(-5.9rem, -3.15rem); }
+  #submit-form-article-5 {
+    transform: translate(-4.5rem, -100%); }
+  #button-article-6-start {
+    transform: translateX(6rem); }
+  #button-article-6-map {
+    transform: translate(2.75rem, -1.25rem); }
+  #section-backgrounds div {
+    height: 45.94rem; }
+  h1 {
+    width: 23.88rem; }
+  article {
+    width: 25.88rem; }
+    article .div-content {
+      width: 25.88rem;
+      height: 34rem;
+      top: 6.5rem; }
+  #aside-info {
+    top: 8rem; }
+  .div-content-block-1,
+  .div-content-block-3,
+  .div-content-block-4,
+  #div-content-block-5-desc-1 {
+    max-height: 25.5rem;
+    overflow-y: scroll; }
+  .div-content-block-2 {
+    width: 10.65rem;
+    min-height: 10.5rem;
+    padding: 1rem; }
+  #div-content-block-left {
+    transform: translateX(-13rem); }
+  .div-content-block-2-type-1 span + div span {
+    width: 6.45rem;
+    min-height: 8.2rem; }
+  #div-content-block-5-header-2 {
+    width: 23.88rem; }
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; }
+  #div-content-block-6-desc-2 div {
+    margin-top: 1rem; }
+    #div-content-block-6-desc-2 div p {
+      width: 10.75rem; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 12.29rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 8.29rem; } }
+
+/* ****** MOBILE PHONE - iPHONE 6/7/8 (375px x 667px) ****** */
+@media screen and (min-width: 22.5rem) and (max-width: 23.44rem) {
+  nav {
+    width: 23.44rem;
+    left: -23.44rem; }
+    nav #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; }
+      nav #div-nav-options a {
+        height: 3rem;
+        font-size: 1.2rem; }
+    nav #div-nav-background {
+      width: 23.44rem;
+      height: 40rem; }
+  .nav-not_visible {
+    left: -23.44rem !important; }
+  #div-nav-options.nav-visible {
+    left: 23.44rem !important; }
+  .div-nav-article {
+    width: 23.44rem;
+    top: 34.5rem; }
+    .div-nav-article div div a:nth-of-type(n) {
+      margin: 1rem 0.75rem 0 2.5rem !important; }
+    .div-nav-article div div a:nth-of-type(2n) {
+      margin-left: 0.75rem !important; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  #button-article-6-start {
+    transform: translateX(3.6rem); }
+  #button-article-6-map {
+    transform: translate(1.25rem, -1.25rem); }
+  .button-desktop {
+    display: none; }
+  h1 {
+    width: 21.44rem; }
+  article {
+    width: 23.44rem; }
+    article .div-content {
+      width: 23.44rem; }
+  #aside-info {
+    top: 3rem; }
+  .div-content-block-2 {
+    width: 7.43rem; }
+  .div-content-block-2-type-1 span + div span {
+    width: 5.64rem; }
+  #div-content-block-left {
+    transform: translateX(-11.75rem); }
+  #div-content-block-5-desc-3 p {
+    width: 18.5rem; }
+  #div-content-block-5-header-2 {
+    width: 21.4rem; }
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; }
+  #div-content-block-6-desc-2 div p {
+    width: 9.75rem; } }
+
+/* ****** MOBILE PHONE - ANDROID (360px x 640px) ****** */
+@media screen and (min-width: 20.5rem) and (max-width: 22.5rem) {
+  nav {
+    width: 22.5rem;
+    left: -22.5rem; }
+    nav #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; }
+      nav #div-nav-options a {
+        height: 3rem;
+        font-size: 1.2rem; }
+    nav #div-nav-background {
+      width: 22.5rem;
+      height: 40rem; }
+  .nav-not_visible {
+    left: -22.5rem !important; }
+  #div-nav-options.nav-visible {
+    left: 22.5rem !important; }
+  .div-nav-article {
+    width: 22.5rem;
+    top: 30.5rem; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  .button-desktop {
+    display: none; }
+  h1 {
+    width: 20.5rem; }
+  article {
+    width: 22.5rem; }
+    article .div-content {
+      width: 22.5rem; }
+  #aside-info {
+    top: 3rem; }
+  .div-content-block-2 {
+    width: 6.95rem; }
+  .div-content-block-2-type-1 span + div span {
+    width: 5.33rem; }
+  #div-content-block-5-header-2 {
+    width: 20.5rem; }
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; }
+  #div-content-block-6-desc-2 div {
+    margin-top: 1rem; }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.6rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 6.75rem;
+      min-height: 10.8rem; } }
+
+/* ****** MOBILE PHONE - iPHONE 5 (320px x 568px) ****** */
+@media screen and (max-width: 20rem) {
+  nav {
+    width: 20rem;
+    left: -20rem; }
+    nav #div-nav-options {
+      top: 6rem; }
+      nav #div-nav-options a {
+        height: 2rem;
+        font-size: 1rem; }
+    nav #div-nav-background {
+      width: 20rem;
+      height: 35.5rem; }
+  .nav-not_visible {
+    left: -24rem !important; }
+  #div-nav-options.nav-visible {
+    left: 24rem !important; }
+  .div-nav-article {
+    width: 20rem;
+    height: 9.5rem;
+    top: 30.5rem; }
+    .div-nav-article div div a {
+      width: 7.1rem !important; }
+  .fieldset-mobile-small_padding {
+    padding: 0.5rem; }
+  .fieldset-mobile-medium_padding {
+    padding: 1rem; }
+  #mobile-button-article-6-more_info {
+    transform: translateX(-14.75rem); }
+  #button-article-6-start {
+    transform: translateX(0.2rem); }
+  #button-article-6-map {
+    transform: translate(8.5rem, -4.6rem); }
+  h1 {
+    width: 18rem; }
+  #section-backgrounds div {
+    height: 35.5rem; }
+  article {
+    width: 20rem; }
+    article .div-content {
+      width: 20rem;
+      height: 34rem;
+      top: 6.5rem; }
+    article .div-content-tall_header {
+      top: 8.5rem; }
+  #aside-info {
+    top: 0; }
+  .div-content-block-2 {
+    width: 5.7rem; }
+  .div-content-block-2-type-1 span + div span {
+    width: 4.5rem;
+    min-height: 11.25rem; }
+  #div-content-block-6-desc-2 div p {
+    width: 8.5rem;
+    border-right: none; }
+  #submit-form-article-1,
+  #submit-form-article-6 {
+    transform: translate(-12rem, -3.4rem); }
+  #div-content-block-6-desc-office_hours,
+  #div-content-block-6-desc-phone_numbers {
+    width: 9.35rem; }
+    #div-content-block-6-desc-office_hours span,
+    #div-content-block-6-desc-phone_numbers span {
+      min-height: 5.25rem; }
+    #div-content-block-6-desc-office_hours div,
+    #div-content-block-6-desc-phone_numbers div {
+      width: 5.35rem;
+      min-height: 14.75rem; } }

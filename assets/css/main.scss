@@ -1,0 +1,4093 @@
+/* Filename: main.scss 
+ *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
+ *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
+ * 
+ *  + All measurements are given in terms of 'em'.
+ * 
+ *  + The responsive breaklines fall according to the following browser dimensions:
+ *    - 1920x1020
+ *    - 1366x768
+ *    - 1280x1024
+ *    - 1280x800
+ *    - 1024x1500
+ *    - 980x1740
+ *    - 980x1308
+ * ******************************************************************************************** */
+
+/* ****** SASS VARIABLES ****** */
+
+$landing_li_text_color: #FBE7E9;
+$landing_li_background_color: #632E22;
+
+$article_2_ul_border: 0.188rem solid #897042; // 3px
+
+$h1_article_1_color: #92676C;
+$content_block_p_1_color: #58262C;
+$content_desc_background_1_color:  #E7D4C8;
+$content_desc_background_2_color: #E7DCC8;
+$content_desc_background_3_color: #DEC0C3;
+$content_desc_text_2_color: #6D5647;
+$content_desc_text_3_color: #694448;
+
+$h1_article_2_color: #744725;
+$content_block_2_background_1_color: #D9C296;
+$content_block_2_background_2_color: #745925;
+$content_block_2_background_3_color:#B19563;
+$content_block_2_text_color: #523A0E;
+
+$h1_article_3_color: #B7A68E;
+$content_block_3_background_1_color: #988366;
+$content_block_3_background_2_color: #987566;
+$content_block_3_background_3_color: #988C66;
+$content_block_3_background_4_color: #988366;
+$content_block_3_text_1_color: #D9CDBC;
+$content_block_3_text_2_color: #FFFCFB;
+$content_block_3_text_3_color: #FFFBEE;
+$content_block_3_text_4_color: #FFF8EE;
+
+$h1_article_4_color: #C8586A;
+$content_block_4_background_1_color: #A33042;
+$content_block_4_background_2_color: #FFD6BC;
+$content_block_4_background_3_color: #FBBC95;
+$content_block_4_background_4_color: #FBD595;
+
+$content_block_4_text_1_color: #FBDADF;
+$content_block_4_text_2_color: #AC6133;
+$content_block_4_text_3_color: #AC7F33;
+
+$content_block_4_div_1_text_color: #FBBC95;
+$content_block_4_div_2_text_color: #FFF2DE;
+
+$content_block_4_span_1_text_color: #D48B5D;
+$content_block_4_span_2_text_color: #AC7F33;
+$content_block_4_span_3_text_color: #D3A75D;
+
+$h1_article_5_color: #3C667B;
+$content_block_5_background_1_color: #96C5AA;
+$content_block_5_background_2_color: #5F8395;
+$content_block_5_background_3_color: #C1D1D9;
+$content_block_5_text_1_color: #216F43;
+$content_block_5_text_2_color: #408B61;
+$content_block_5_text_3_color: #214D62;
+$content_block_5_div_1_color: #C1D1D9;
+$content_block_5_rate_no_cost_color: #ffffff;
+$content_block_5_border: 0.188rem solid; // 2px
+
+$h1_article_6_color: #46483b;
+$content_block_6_background_1_color: #a7ab92;
+$content_block_6_background_2_color: #971B1E;
+$content_block_6_background_3_color: #a7ab92;
+$content_block_6_background_4_color: #302E1E;
+$content_block_6_background_5_color: #A7AB92;
+$content_block_6_text_1_color: #2A2E13;
+$content_block_6_text_2_color: #FFFFFF;
+$content_block_6_text_3_color: #2C2F1E;
+$content_block_6_span_background_1_color: #302E1E;
+$content_block_6_span_text_1_color: #B0AE97;
+$content_block_6_border: 0.125rem solid; // 2px
+
+$form_question_p_border: 0.125rem solid #cfd7a3; // 2px
+$form_question_footnote_border: 0.125rem dotted #cfd7a3; // 2px
+$form_fieldset_border: 0.125rem solid #cfd7a3; // 2px
+$form_alert_border: 0.125rem solid #fff; // 2px
+$form_background_color: #ffffff;
+$form_alert_background_1_color: #dddddd;
+$form_alert_background_2_color: #971b1e;
+$form_alert_base_color: #cfd7a3;
+$form_alert_text_1_color: #ffffff;
+$form_alert_text_2_color: #000000;
+
+$input_border_1: 0.125rem solid #369DBF; // 2px
+$input_border_2: 0.125rem solid #bbbbbb; // 2px
+
+$input_background_1_color: #40BDE8;
+$input_background_2_color: #33CCFF;
+$input_checkbox_color: #000000;
+$input_font_color: #221763;
+
+$span_background_image_article_5: url('/amelia/assets/img/articles/5/logos-insurance.png');
+
+$base_font: 'Glegoo', 'Palatino', serif;
+$header_font: 'Balthazar', 'Cambria', serif;
+$form_question_font: "Franklin Gothic Medium", sans-serif;
+
+$base_font_size: 1rem; // 14pt
+$mobile_base_font_size: 0.9rem; // 11pt
+$aside_font_size: 0.9rem; // 11pt
+$header_font_size: 2.5rem; // 30pt
+$mobile_header_font-size: 2rem; // 24pt
+$lg_h2_font_size: 2.5rem; // 30pt
+$mobile_h2_font_size: 1.25rem; // 15pt
+$mobile_h3_font_size: 1rem; // 14pt
+$form_question_font_size: 1.2rem; // 14pt
+$form_alert_font_size: 2.5rem; // 30pt
+$form_question_sup_font_size: 0.8rem; // 10pt
+$article_nav_font_size: 0.8em; // 10pt
+$mobile_dollar_sign_font_size: 1.75rem; // 21pt
+$mobile_rate_header_font_size: 1.25rem; // 15pt
+$mobile_rate_font_size: 5rem; // 60pt
+$rate_no_cost_font_size: 6rem; // 72pt
+
+$base_font_weight: 400;
+$header_font_weight: 600;
+$semibold_font_weight: 600;
+$bold_font_weight: 700;
+
+$margin_value_1: 0.5rem; // 8px
+$margin_value_2: 0.75rem; // 12px
+$margin_value_3: 1rem; // 16px
+$margin_value_4: 1.25rem; // 20px
+$margin_value_5: 2rem; // 32px
+
+$padding_value_1: 0.5rem; // 8px
+$padding_value_2: 0.75rem; // 12px
+$padding_value_3: 1rem; // 16px
+$padding_value_4: 1.25rem; // 20px
+$padding_value_5: 2rem; // 32px
+
+$line_height: 1.6;
+
+$nav_icon_background_image: url('/amelia/assets/img/nav/nav.png');
+
+$nav_background_color: #666;
+$nav_border_color: #444;
+
+$nav_section_border: 0.13rem solid #222; // 2px
+
+$nav_options_a_font: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+$nav_options_a_background_color: #000;
+$nav_options_a_hover_background_color: #808080;
+$nav_options_a_click_background_color: #A6A6A6;
+$nav_options_a_font_color: #fff;
+
+$nav_options_font_size_1: 1.25rem; // 15pt
+$nav_options_font_size_2: 1.5rem; // 18pt
+$nav_options_font_size_3: 1.25rem; // 15pt
+$nav_options_font_size_ipad: 2.5rem; // 30pt
+$nav_options_font_size_mobile: 1.2rem; // 14pt
+
+$nav_section_font_size_1: 1.8rem; // 22pt
+$nav_section_font_size_2: 2rem; // 24pt
+
+$nav_section_font_weight_normal: 400;
+
+$nav_intrasection_background_image: url('/amelia/assets/img/nav/next/next-section.png');
+$nav_span_section_3_background_image: url('/amelia/assets/img/nav/article-nav/article-3.png');
+$nav_span_section_4_background_image: url('/amelia/assets/img/nav/article-nav/article-4.png');
+
+
+
+
+/* ****** COMMON ELEMENTS ****** */
+
+article {
+  opacity: 0;
+}
+
+.div-content, 
+aside ul  {
+  font-family: $base_font;
+  font-weight: $base_font_weight;
+  font-size: $base_font_size;
+}
+
+h1 {
+	position: absolute;
+	display: table;
+/* Formats the <div> which holds the 'SECTION' title for a given section. */
+
+  span {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: $header_font;
+    font-weight: $header_font_weight;
+    font-size: $header_font_size;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  /* 
+  * Formats the <span> element which holds the text of a 'SECTION' title. 
+  */
+}
+
+.div-content {
+  display: none;
+  position: relative;
+  float: left;
+  top: 0;
+  left: 0;
+}
+/* 
+ * Formats the <div> which holds the text or form content within a section. 
+ * '.div-content' elements differ from '.article-content' elements.
+ * '.div-content' elements only hold the content of one sub-section, 
+ * while '.article-content' elements hold many sub-sections.
+ */
+
+.div-content-visible {
+  display: block;
+}
+
+.div-content-block-1, 
+.div-content-block-3, 
+.div-content-block-4 {
+	height: initial;
+	padding: $padding_value_3 $padding_value_5;
+	z-index: 2;
+}
+/* Formats the main 'blocks' which hold <p> elements which contain text content. 
+ * The blocks, using the above classed, are contained within sections, 1, 3, 4, & 6 
+ * are formatted in this pairing. 
+ */
+
+.div-column-not_visible {
+  display: block;
+}
+
+/* ****** FORMS ****** */
+
+.div-content-column {
+	height: auto;
+  display: inline-block;
+}
+/* Formats a <div> element which places a form question either on the left or right 
+ * side of the browser window and is contained within a <form> element.
+ * Forms can be found within 'SECTION #1', 'SECTION #5', & 'SECTION #6'.
+ */
+
+fieldset {
+	padding: $padding_value_3 $padding_value_5;
+  border: $form_fieldset_border;
+  
+  div {
+    margin: 0 auto;
+  }
+  /* Formats <div> elements which appear within <fieldset> elements. */
+}
+/* Formats <fieldset> elements which contain form options. */
+
+
+
+/* ---- 'FORM FIELDS & OPTIONS' ---- */
+
+label + p,
+input + p {
+	margin-top: 20px;
+}
+/* Formats form fields and options that appear within individual form questions. */
+
+input[type=text],
+input[type=email],
+input[type=number],
+textarea {
+	padding: 0.5rem;
+  border: $input_border_2;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+	letter-spacing: 1px;
+}
+/* Formats the layout of <input> elements which appear within individual form questions. */
+
+input[type=radio],
+input[type=checkbox] {
+	border: 0;
+	width: 100%;
+	height: 1.6rem;
+}
+/* Formats the layout of <input type=radio> and <input type=checkbox> elements 
+ * which appear within individual form questions.
+ */
+
+input[type=range] {
+	margin: 0.9rem auto 0.1rem auto;
+	color: $input_font_color;
+}
+/* Formats the layout of <input type=range> elements within individual form questions. */
+
+select {
+	font: 400 1.3rem "Franklin Gothic Medium", sans-serif;
+	width: 150px;
+	margin: 0.7rem auto 0.5rem auto;
+	display: block;
+}
+/* Formats the options within a <select> element that appear 
+ * within individual form options. 
+ */
+
+input[type=button],
+input[type=submit] {
+	width: 7.81rem; // 125px
+	height: 3.125rem; // 50px
+  margin: 0 0 0 $margin_value_4;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  background-color: $input_background_1_color;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+	color: $input_font_color;
+	border: $input_border_1;
+	cursor: pointer;
+}
+/* Formats which appear as buttons throughout the webpage. */
+
+input[type=button]:hover,
+input[type=submit]:hover {
+	background-color: $input_background_2_color;
+}
+/* Formats the click-state for the <button> and <submit> elements which appear 
+ * throughout the webpage.
+ * This is the hover click state.
+ */
+
+.div-form-question {
+  height: auto;
+  background-color: $form_background_color;
+
+  .h2-form, 
+  .h3-form {
+    margin: 0 0 $margin_value_1 0;
+  }
+
+  .h3-form, 
+  p {
+    line-height: $line_height;
+  }
+
+  p {
+    margin-bottom: $margin_value_4;
+  }
+
+  span {
+    display: inline-block;
+  }
+  /* Formats <span> elements which contain text headers. */
+  
+  span:first-child {
+    margin-right: $margin_value_1;
+  }
+  /* Formats the first <span> element which is contained within a given form question. */
+
+  span:last-child {
+    margin-left: $margin_value_1;
+  }
+  /* Formats the last <span> element which is contained within a given form question. */
+
+  span + span {
+    padding-bottom: 1.1rem; // 18px
+    font-size: $base_font_size;
+    font-weight: $header_font_weight;
+    line-height: $line_height;
+  }
+  /* Formats the additional <span> elements which are contained within a given form question. */
+
+  span + p {
+    margin-top: $margin_value_2;
+    padding-top: $padding_value_2;
+    border-top: 2px solid #cfd7a3;
+    line-height: $line_height;
+  }
+  /* Formats <p> elements which contain text instructions or descriptive copy for a given 
+   * form question. 
+   */
+
+  fieldset { 
+    p {
+      margin-top: $margin_value_3;
+    }
+
+    p:last-of-type {
+      margin-bottom: $margin_value_3;
+    }
+
+    div { 
+      span {
+        position: relative;
+        top: -0.625rem; // 10px
+        font-family: $form_question_font;
+        font-size: $base_font_size;
+      }
+      /* Formats the visual appearance of text within <span> elements which are contained 
+       * within an individual form question. 
+       */
+    }
+
+    span + span {
+      left: 0.813rem; // 13px
+    }
+    /* More formatting for the text within <span> elements which follow the first <span> element 
+     * within an individual form question. 
+     */
+
+     sup {
+      font-size: $form_question_sup_font_size;
+    }
+    /* Formats the text within a <sup> element that is contained 
+     * within an individual form question. 
+     */
+
+    .p-form-ftnote {
+      padding: $padding_value_2;
+      border-top: $form_question_footnote_border;
+      font-size: 0.9rem;
+      line-height: 1.6rem;
+    }
+    /* Formats descriptive text that falls underneath the instruction within a given 
+     * form question.
+     */
+  }
+}
+/* Formats a <div> element which contains an individual form question. */
+
+.div-form-page-1, 
+.div-form-page-2 {
+  display: none;
+  opacity: 0;
+}
+/* 
+ * Formats <div> elements which control which set of two questions are displayed 
+ * within the browser window at a given time.
+ */
+
+.div-form-page-visible {
+  display: block;
+  opacity: 1;
+}
+
+.form_question_error_border {
+  border-color: $form_alert_background_2_color;
+}
+
+.form_question_error_text {
+  color: $form_alert_background_2_color;
+}
+
+.form_question_base_border {
+  border-color: $form_alert_base_color;
+}
+
+.form_question_base_text {
+  color: $form_alert_text_2_color;
+}
+
+
+
+
+
+
+#form-question-alert {
+  width: inherit;
+  height: inherit;
+  display: table;
+  position: absolute;
+  background-color: $form_alert_background_1_color;
+  opacity: 0.95;
+  z-index: 7;
+
+  div {
+    display: table-cell;
+    font-family: $base_font;
+    font-size: $form_question_sup_font_size;
+    vertical-align: middle;
+    text-align: center;
+
+    div {
+      margin: 0 auto;
+      padding: $padding_value_3 $padding_value_5;
+      text-align: left;
+      background-color: $form_alert_background_2_color;
+      color: $form_alert_text_1_color;
+
+      span {
+        display: block;
+        border-bottom: $form_alert_border;
+        font-size: $form_alert_font_size;
+        font-weight: $header_font_weight;
+        text-align: left;
+      }
+      /* Formats a <span> element which serves as a header for descriptive text about 
+        * an error returned from a form submission.
+        */
+
+      p {
+        text-align: left;
+      }
+      /* Formats descriptive text within a <p> element that is contained by a <div> 
+        * element using the id, "#form-question-alert".
+        */
+    }
+    /* Formats a <div> element which contains descriptive text about an error returned 
+      * from a form submission. 
+      */
+  }
+  /* Formats descriptive text within a <div> element that appears once a form 
+    * has been submitted which returns an error message.
+    */
+}
+/* Formats a <div> element which appears once a form has been submitted 
+  * which returns an error message. 
+  */
+
+#button-article-1-start {
+	margin: 0 0 0.8rem 0;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #1'.
+ * The button 'starts' the form process.
+ */
+
+#button-form-article-1-next, 
+#button-form-article-1-previous, 
+#submit-form-article-1, 
+#submit-form-article-5, 
+#button-form-article-6-next, 
+#button-form-article-6-previous, 
+#submit-form-article-6  {
+  left: 21.5rem; // 344px
+}
+
+#button-form-article-1-next, 
+#button-form-article-6-next {
+  transform: translateX(-5rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+#button-form-article-1-previous, 
+#button-form-article-6-previous {
+  margin-left: 0;
+  transform: translateX(-12.5rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+#submit-form-article-6 {
+  transform: translateX(-13rem);
+}
+/* Formats a <button> element which appears on the first page of the form of 
+ * 'SECTION #1'.
+ */
+
+#button-article-5-start {
+  margin: 0 0 1.25rem 0; // 0 0 20px 0
+}
+/* 
+ * Formats the <button> element which appears on the 'CONTENT BLOCK #1' of  
+ * 'SECTION #5'.
+ */
+
+#submit-form-article-5 {
+  margin: 0;
+  letter-spacing: -0.5px;
+  transform: translateX(-3.81rem); // 61px
+}
+/* Formats the <submit> element which submits the form, 'FORM TYPE #5'. */
+
+#button-article-5-contact {
+  margin: 0 0 0.7rem 0;
+  letter-spacing: -0.7px;
+}
+/* Formats the <button> element which appears on the response page of the form, 
+ * 'FORM TYPE #5'.
+ */
+
+#button-article-6-map {
+  margin: 0;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'. */
+
+#button-article-6-start {
+  margin: 0.7rem 0 0.7rem 0;
+  letter-spacing: -1.9px;
+}
+/* Formats a <button> element which appears on the landing page of 'SECTION #6'.
+ * This button starts the form process. 
+ */
+
+#submit-form-article-6 {
+	letter-spacing: -1px;
+}
+/* Formats a <submit> element which appears within, 'FORM TYPE #6', which appears 
+ * within 'SECTION #1'.
+ */
+
+p > input {
+	padding: 0;
+	margin: 0;
+	height: 16px;
+	width: 16px;
+	float: left;
+	position: absolute;
+	opacity: 0;
+}
+/* Formats the layout of individual <input type=radio> and <input type=checkout> elements. */
+
+p > label { 
+	line-height: 1.1;
+	padding-left: 2.06rem; // 33px
+}
+/* Formats the layout of the labels of individual <input> elements. */
+
+p:not(#foo) > input + label {
+  height: 22px;
+  background-image: url('/amelia/assets/img/form/form.png');
+  background-position:  0 -1px;
+  background-repeat: no-repeat;
+  font-family: $form_question_font;
+  font-size: $form_question_font_size;
+}
+/* Formats the type of shape that appears next to radio or checkbox elements. */
+
+p:not(#foo) > input[type=radio] + label, 
+p:not(#foo) > input[type=checkbox] + label { 
+	display: block;
+	font-weight: normal;
+	padding-top: 0.05rem;
+	color: $input_checkbox_color;
+	background-position: 0 0;
+}
+/* Formats text that appears next to radio or checkbox elements. */
+
+p:not(#foo) > input[type=checkbox] + label {
+	padding-top: 0;
+	background-position: 0 -103px;
+}
+/* Formats the shape of that appears next to <input type=checkbox> elements.
+ * Also defines the base click-state. 
+ */
+
+/* Checked styles */
+p:not(#foo) > input[type=checkbox]:checked + label, 
+p:not(#foo) > input[type=checkbox]:hover:checked + label,
+p:not(#foo) > input[type=checkbox]:focus:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover,
+p:not(#foo) > input[type=checkbox]:focus:checked + label { 
+	background-position: 0 -178px;
+	font-weight: $bold_font_weight;
+	color: $input_font_color;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the clicked click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:checked + label, 
+p:not(#foo) > input[type=radio]:hover:checked + label,
+p:not(#foo) > input[type=radio]:focus:checked + label,
+p:not(#foo) > input[type=radio]:checked + label:hover,
+p:not(#foo) > input[type=radio]:focus:checked + label { 
+	background-position: 0 -79px;
+	font-weight: $bold_font_weight;
+	color: $input_font_color;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the clicked click-state. 
+ */
+
+/* Hover & Focus styles */
+p:not(#foo) > input[type=checkbox]:hover + label,
+p:not(#foo) > input[type=checkbox]:focus + label,
+p:not(#foo) > input[type=checkbox] + label:hover { 
+	background-position: 0 -128px;
+	font-weight: $bold_font_weight;
+	color: $input_checkbox_color;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the hover click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:hover + label,
+p:not(#foo) > input[type=radio]:focus + label,
+p:not(#foo) > input[type=radio] + label:hover,
+p:not(#foo) > fieldset > input[type=radio]:hover + label,
+p:not(#foo) > fieldset > input[type=radio]:focus + label,
+p:not(#foo) > fieldset > input[type=radio] + label:hover { 
+	background-position: 0 -26px;
+	font-weight: $bold_font_weight;
+	color: $input_checkbox_color;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the hover click-state. 
+ */
+
+/* Active styles */
+p:not(#foo) > input[type=checkbox]:active + label,
+p:not(#foo) > input[type=checkbox] + label:hover:active, 
+p:not(#foo) > input[type=checkbox]:active:checked + label,
+p:not(#foo) > input[type=checkbox]:checked + label:hover:active { 
+	background-position: 0 -153px;
+	font-weight: $base_font_weight;
+}
+/* Formats the color and appearance of <input type=checkbox> elements.
+ * Also defines the active click-state. 
+ */
+
+p:not(#foo) > input[type=radio]:active + label,
+p:not(#foo) > input[type=radio] + label:hover:active { 
+	background-position: 0 -53px;
+}
+/* Formats the color and appearance of <input type=radio> elements.
+ * Also defines the active click-state. 
+ */
+
+/* ****** CONTAINER ELEMENTS ****** */
+
+body {
+  margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+/* 
+  Formats the <body> HTML tag 
+  + The 'overflow-x' attribute hides the horizontal scroll bar as intra-section navigation 
+    takes place or the main navigation menu animates.
+*/
+
+main {
+  width: initial;
+  height: initial;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	clear: both;
+	z-index: 1;
+}
+/* Formats the HTML element, 'main', which holds all of the copy and form content. */
+
+.article-content {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+/* 
+ * Formats the HTML elements, 'article' which holds the text and form content of 
+ * a particular 'SECTION' or segment of content organized by a similar theme. 
+ */
+
+ #section-backgrounds {
+	position: absolute;
+	top: 0;
+  left: 0;
+	z-index: 0;
+}
+/* 
+ * Formats the <div> which hold the background images for the 'SECTIONS' of 
+ * content. 
+ */
+
+ #section-backgrounds > div {
+  position: absolute;
+  background-repeat: no-repeat;
+}
+/* 
+ * Formats the <div> elements which hold the background images 
+ * for the individual sections.
+ */
+
+
+
+/* ****** NAVIGATION ELEMENTS ****** */
+
+nav {
+	height: auto;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+
+  #div-nav-icon {
+    width: 3.13rem; // 50px
+    height: 3.13rem; // 50px
+    top: 1.56rem; // 25px
+    left: 1.56rem; // 25px
+    position: fixed;
+    z-index: 5;
+    background-image: $nav_icon_background_image;
+    background-repeat: no-repeat;
+  }
+  /* Formats a <div> element which serves as the menu 'button'. */
+
+  .nav-icon-base {
+    background-position: 0 0;
+  }
+
+  .nav-icon-base, 
+  .nav-icon-hover, 
+  .nav-icon-click-1, 
+  .nav-icon-click-2, 
+  #div-nav-options a, 
+  .nav-option-base, 
+  .nav-option-hover {
+    cursor: pointer;
+  }
+
+  .nav-icon-base {
+    background-position: 0 0;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the default, 'base', click state.
+    */
+  
+  .nav-icon-hover {
+    display: block !important;
+    background-position: 0 -50px; 
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the mouseover, or 'hover', click state.
+    */
+  
+  .nav-icon-click-1 {
+    background-position: 0 -100px;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is a 'click' state that is only meant to be visible for the duration 
+    * of the clicking of the mouse.
+    */
+  
+  .nav-icon-click-2 {
+    background-position: 0 -150px;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the menu icon 
+    * appears in the upper left of the page. 
+    * This is the state which appears when the navigation panel is open. 
+    */
+  
+  .nav-click-closed {
+    position: fixed !important;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the side panel  
+   * which contains the menu options which slides 'out' of the left of the page. 
+   * This class sets the <nav> element to appear in a 'fixed' location 
+   * in the browser window.
+   */
+
+  .nav-click-open {
+    position: absolute !important;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the side panel
+   * which contains the menu options which slides out of the left of the page.
+   * This class sets the <nav> element to appear in a location that is 
+   * determined by the CSS properties and values set by 'nav.js'. 
+   */
+
+  #div-nav-options {
+    height: inherit;
+    position: fixed;
+    z-index: 4;
+
+    a {
+      display: block;
+      font-family: $nav_options_a_font;
+      background-color: $nav_options_a_background_color;
+      text-decoration: none;
+      color: $nav_options_a_font_color;
+    }
+    /* Formats the <a> elements which serve as menu options in the inter-sectional 
+     * menu.
+     */
+    
+    .nav-option-base {
+      background-color: $nav_options_a_background_color !important;
+      color: $nav_options_a_font_color !important;
+    }
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'base' click state.
+     */
+    
+    .nav-option-hover {
+      background-color: $nav_options_a_hover_background_color !important;
+      color: $nav_options_a_font_color !important;
+    }
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'hover' click state.
+     */
+    
+    .nav-option-click {
+      background-color: $nav_options_a_click_background_color !important;
+      color: $nav_options_a_background_color !important;
+    }
+    /* Sets a class which is used to alter the 'click-state' of a menu option 
+     * which is contained in the navigation panel.
+     * This class represents the 'click' click state.
+     */
+  }
+  /* Formats a <div> element which holds of the individual menu options in the 
+   * inter-sectional menu panel.
+   */
+
+  .nav-options-base {
+    display: none;
+    opacity: 0;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the collection of menu options 
+   * which is contained in the navigation panel.
+   * This click-state is the base state.
+   */
+  
+  .nav-options-click {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  /* Sets a class which is used to alter the 'click-state' of the collection of menu options  
+   * which is contained in the navigation panel.
+   * This state is activated once the navigation panel has been activated.
+   */
+
+  #div-nav-background {
+    position: fixed;
+    background-color: $nav_background_color; 
+
+    #div-nav-border {
+      height: 6.25rem;
+      position: fixed;
+      z-index: 3;
+      background-color: $nav_border_color;
+    }
+    /* Formats a <div> element which appears at the top of the inter-sectional navigation 
+     * menu. 
+     */
+  }  
+}
+/* Formats the <nav> element which contains the inter-sectional navigation. */
+
+.nav-visible {
+  left: 0 !important;
+}
+
+#a-nav-article-previous,
+#a-nav-article-next {
+	position: fixed;
+	background-image: $nav_intrasection_background_image;
+  background-repeat: no-repeat;  
+  text-decoration: none;
+  cursor: default;
+  z-index: 5;
+}
+/* Formats <div> elements which act as inter-sectional navigation which appears 
+ * along the right side of the page.
+ */
+
+#a-nav-article-previous {
+  opacity: 0;
+}
+/* Formats a <div> element which moves the page upward through previously viewed 
+ * sections. 
+ */
+
+#a-nav-article-previous, 
+#a-nav-article-next, 
+#a-nav-article-previous:hover,
+#a-nav-article-next:hover {
+  cursor: pointer;  
+}
+/* Sets the cursor state based upon the click-state of the <div> elements, 
+ * '#previous-article' and '#next-article'. 
+ */
+
+#a-nav-article-previous > span,
+#a-nav-article-next > span {
+	display: block;
+	font-family: $nav_options_a_font;
+	color: $nav_options_a_font_color;	
+	text-align: center;
+	letter-spacing: 1px;
+}
+/* Formats the text descriptions of the inter-sectional navigation 
+ * which appears on the right of the page.
+ */
+
+.div-nav-article {
+	position: absolute;
+  
+  
+  div {
+    height: inherit;
+    margin: 0 auto;
+
+    a:first-of-type {
+      width: 9.38em; // 150px
+      height: 2.19em; // 35px
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      color: $nav_options_a_font_color;
+    } 
+    /* Formats the <span> element which serves as the menu-button for the intra-sectional 
+     * navigation for 'SECTION #3' and 'SECTION #4'. 
+     */
+
+     span:hover {
+      cursor: pointer;
+    }
+    /* Sets the cursor to a 'pointer' when the user hovers over the <span> element 
+     * which serves as the menu-button for the intra-sectional navigation. 
+     */
+
+    .nav-article-base, 
+    .nav-article-hover, 
+    .nav-article-active, 
+    .nav-article-click {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .nav-article-base {
+      background-position: 0px 0px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the base click state.
+     */
+
+    .nav-article-hover {
+      background-position: 0px -35px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the hover click state.
+     */
+
+    .nav-article-click-1 {
+      background-position: 0px -70px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the active click state.
+     */
+
+    .nav-article-click-2 {
+      background-position: 0px -105px;
+    }
+    /* Formats the click-state for the <span> element which serves as the menu-button 
+     * for the intra-sectional navigation.
+     * This is the click state which is set once the menu-button has been clicked.
+     */
+
+    div {
+      position: absolute;
+      display: none;
+
+      a {
+        width: 6.56em !important;
+        height: 1.38em !important;
+        display: block;
+        float: left;
+        margin: 0 $margin_value_3 0 0 !important;
+        padding: 0.19em 0 0 0;
+        background-color: $nav_options_a_background_color;
+        background-image: none !important;
+        border: $nav_section_border;
+        font-family: $nav_options_a_font;
+        font-size: $nav_options_font_size_1;
+        color: $nav_options_a_font_color;
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 1px;
+        cursor: pointer; 
+      }
+      /* Formats the <a> elements which serve as menu-options of the intra-sectional navigation. */
+
+      a:last-of-type {
+        margin-right: 0 !important;
+      }
+      
+    }
+    /* Formats the <div> element which contains the <a> elements which serve as 
+     * menu-options of the intra-sectional navigation.
+     */
+  }
+  /* Formats the <div> element which serves as a container for the <div> and <span> 
+   * elements which make up the inter-sectional navigation for 'SECTION #3' 
+   * and 'SECTION #4'.
+   */
+}
+/* Formats a <div> element which contains the intra-sectional navigation 
+ * which appears near the bottom of the pages within 'SECTION #3' and 'SECTION #4' 
+ */
+
+.div-nav-article-visible {
+  display: block !important;
+}
+ 
+
+#div-nav-article-3 {
+  div {
+    a:first-of-type {
+      background-image: $nav_span_section_3_background_image;
+    }
+    /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #3'.
+     */
+  } 
+}
+
+#div-nav-article-4 {
+  div {
+    a:first-of-type {
+      background-image: $nav_span_section_4_background_image;
+    }
+    /* Formats the background-image of the <span> element which serves as the 
+     * menu-button for the intra-sectional navigation for 'SECTION #4'.
+     */
+  } 
+} 
+
+
+.div-nav-article > div > div > 
+.div-nav-article > div > div a:hover {
+	background-color: #333;
+}
+/* Formats the click-state for the <a> elements which serves as menu-options
+ * for the intra-sectional navigation.
+ * This is the hover click state.
+ */
+
+@media screen and (min-width: 1910px) {
+  /* This CSS breakpoint affects browsers which have a width more than 1910px.
+   * This breakpoint is optimized to fit resolutions of 1920x1020px.
+   */
+
+  nav, 
+  #div-nav-border,
+  #div-nav-background, 
+  #div-nav-options {
+    width: 20.5em; // 328px
+    left: -20.5em; // 328px
+  }
+
+  nav, 
+  #div-nav-background {
+    height: 67.5em; // 1080px
+  }
+
+  #div-nav-options {
+    height: initial;
+
+    a {
+      width: 12.4em; // 198px
+      height: 2.15em; // 34px
+      margin: 0.75em; // 12px
+    }
+  }
+
+  .div-nav-article {
+    width: 119em !important; // 1904px
+    top: 42em !important; // 672px
+  }
+}
+
+
+
+/* ****** LANDING SECTION ****** */
+ 
+aside {
+	position: absolute;
+	float: right;
+  
+
+  img {
+    margin: 0 1.7rem;
+    padding: 1.7rem;
+    display: block;
+    position: relative;
+    float: left;
+    background-color: #967348;
+    
+  }
+  /* Formats the logo which is contained within the <aside> HTML element. */
+
+  ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: relative;
+    float: left;
+    font-size: $aside_font_size;
+    font-weight: $base_font_weight;
+  }
+  /* Formats the list which is contained within the <aside> HTML element. */
+  
+  li {
+    height: 1.65rem;
+    margin: 1rem 0;
+    padding: 0.45rem 0 0.35rem 0.75rem; // 7px 0 6px 12px
+    display: block;
+    color: $landing_li_text_color;
+    background-color: $landing_li_background_color;
+  }
+  /* Formats the list-items which are contained within the <div> using the selctor, "#info". */
+}
+/* 
+ * Formats an <aside> which contains the logo and a brief list 
+ * of selling points.
+ * + Opacity is set to '0' to allow for a fade-in by by a jQuery event.
+ */
+
+
+/* ****** SECTION #1 ****** */
+ 
+#h1-header-article-1 {
+	background-color: $h1_article_1_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #1'. */
+
+.div-content-block-1 { 
+  h2 {
+    width: 100%;
+    margin: 0 0 $margin_value_1 0;
+    padding-bottom: 0.25rem; // 4px
+    display: inline-block;
+    border-bottom: 2px solid;
+    font-weight: $bold_font_weight;
+  }
+  /* 
+   * Formats a <h2> element which contains a text header for an individual response from 
+   * 'FORM TYPE #1. The <span> elements appear within the <div> elements using the selectors, 
+   * '#div-content-block-1-desc-2' & '#div-content-block-1-desc-3'.
+   */
+
+  p {
+    margin-bottom: 2rem; // 32px
+/*     text-indent: 1.3rem; // 21px
+ */    line-height: $line_height;
+    color: $content_block_p_1_color;
+  }
+  /* 
+   * Formats the <p> elements which hold the text content that is contained by a <div> element
+   * using the class, '.div-content-block-1'.
+   */
+
+  p ~ p {
+    margin-bottom: 1.7rem; // 27px
+    padding-bottom: 1.5rem; // 24px
+  }
+  /* More formatting for the <p> elements which hold text content. */
+}
+
+#div-content-block-1-desc-1 {
+	background-color: $content_desc_background_1_color;
+}
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FIRST WINDOW PANE' or first sub-section of 'SECTION #1' 
+ */
+
+#div-content-block-1-desc-2 {
+	background-color: $content_desc_background_2_color;
+	color: $content_desc_text_2_color;
+}
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'THIRD WINDOW PANE' or third sub-section of 'SECTION #1' 
+ */
+
+#div-content-block-1-desc-3 {
+	background-color: $content_desc_background_3_color;
+	color: $content_desc_text_3_color;
+} 
+/* 
+ * Contains formating for a block of text appearing in the first section.
+ * Appears within the 'FOURTH WINDOW PANE' or fourth sub-section of 'SECTION #1' 
+ */
+
+
+/* ****** SECTION #2 ****** */
+
+#h1-header-article-2 {
+	background-color: $h1_article_2_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #2'. */
+
+.div-content-block-2 {
+	height: auto;
+	padding: $padding_value_3 $padding_value_5;
+  display: inline-block;
+  position: relative;
+  background-color: $content_block_2_background_1_color;
+  vertical-align: top;
+
+  img {
+    margin: 1rem 0 0.4rem 0; // 16px 0 7px 0
+  }
+  /* Formats an image which is contained within the blocks. */
+
+  #img-content-block-2-missouri {
+    margin-bottom: 1.8rem; // 
+    display: block;
+  }
+
+  ul {
+    margin: 0.35rem auto; // 6px auto
+    padding: 0;
+    list-style-type: none;
+    border-top: $article_2_ul_border;
+
+    li {
+      margin: 0.5rem 0;
+      color: $content_block_2_text_color;
+    }
+    /* Formats the list-items which appears within the blocks. */
+
+    li:first-child {
+      font-weight: $semibold_font_weight;
+    }
+    /* More formatting for the first list-item which appears within blocks. */
+  }
+  /* Formats the list which appears within the blocks. */
+}
+/* Formats the blocks which contain the largest and above the secondary blocks within 'SECTION #2'. */
+
+#div-content-block-left {
+  left: 50%;
+  transform: translateX(-104.5%);
+}
+
+#div-content-block-right {
+  left: 0;
+  transform: translateX(63.5%);
+}
+
+.div-spacer-article-2 {
+  display: inline-block;
+}
+
+.div-content-block-2-type-1 {
+  margin: 0;
+  position: relative;
+  float: left;
+  clear: both;
+  
+  span {
+    width: 13rem; // 148px
+    display: block;
+    padding: $padding_value_3;
+    margin: 0 auto;
+    background-color: $content_block_2_background_2_color;
+    font-size: $base_font_size;
+    font-weight: $semibold_font_weight;
+    text-align: center;
+    color: #d9c296;
+  }
+  /* 
+   * Formats a block which serves as a 'header' for the secondary blocks 
+   * contained within 'SECTION #2'. 
+   */
+  
+   span + div {
+    height: inherit;
+    margin: 0 auto;
+    position: relative;
+
+    span {
+      display: block;
+      float: left;
+      text-align: center;
+      font-weight: $semibold_font_weight;
+      color: $content_block_2_text_color;
+      background-color: $content_block_2_background_3_color;
+    }
+    /* 
+     * Formats the text content of the secondary blocks that appear near the bottom of the 
+     * landing page for 'SECTION #2'. 
+     */
+  }
+  /* 
+   * Formats a block which serves as a container for secondary information 
+   * within 'SECTION #2. 
+   */
+
+   .div-spacer-article-2 {
+    width: 0.1rem; // 2px
+    height: 4rem; // 64px
+  }
+  /* 
+   * Formats a spacer which reorders the content contained within 'SECTION #2'. 
+   * The spacer changes dimensions based on breakpoint of the browser.
+   */
+}
+/* Formats the secondary blocks that appear below the larger, main blocks in 'SECTION #2'. */
+
+
+/* ****** SECTION #3 ****** */
+
+#h1-header-article-3 {
+	background-color: $h1_article_3_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
+
+.div-content-block-3 { 
+  h2 {
+    margin: 0 0 $margin_value_1 0;
+    padding-bottom: 0.1rem; // 2px
+    border-bottom: 0.1rem solid; // 2px
+    font-size: $lg_h2_font_size;
+    font-weight: $semibold_font_weight;
+  }
+  /* 
+   * Formats a text header for the block within each sub-section. The <h2> elements appear 
+   * within the <div> elements using the selectors, 
+   * '#div-content-block-3-desc-2', '#div-content-block-3-desc-3', & 
+   * '#div-content-block-3-desc-4'.
+   */
+} 
+
+#div-content-block-3-desc-1 {
+  background-color: $content_block_3_background_1_color;
+  color: $content_block_3_text_1_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+
+#div-content-block-3-desc-2 {
+  background-color: $content_block_3_background_2_color;
+  color: $content_block_3_text_2_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #3'. */
+
+#div-content-block-3-desc-3 {
+  background-color: $content_block_3_background_3_color;
+  color: $content_block_3_text_3_color;
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #3'. */
+
+#div-content-block-3-desc-4 {
+	background-color: $content_block_3_background_4_color;
+  color: $content_block_3_text_4_color;
+}
+/* Formats a block which is contained within the 'FOURTH WINDOW PANE' of 'SECTION #3'. */
+
+
+/* ****** SECTION #4 ****** */
+
+#h1-header-article-4 {
+	background-color: $h1_article_4_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
+
+.div-content-block-4 { 
+  p {
+    line-height: $line_height;
+  }
+  /* 
+   * Formats <p> elements which are contained with an individual block contained 
+   * within 'SECTION #4'.
+   */
+
+   div {
+    position: absolute;
+  }
+  /* Formats <div> elements which appear as quotation marks above the blocks 
+   * contained within 'SECTION #4'.
+   */
+   
+   span {
+    width: 100%;
+    display: block;
+    padding-top: 0.3rem; // 5px
+    border-top: 0.188rem solid; // 3px
+    font-size: 1.25rem; // 24pt
+    font-weight: $bold_font_weight;
+    text-align: right;
+  }
+  /* Formats a  text header for the 'block' within each sub-section. The <span> elements 
+   * appear within the <div> elements using the selectors, 
+   * '#div-content-block-4-desc-2', '#div-content-block-4-desc-3', & 
+   * '#div-content-block-4-desc-4'.
+   */
+}
+
+#div-content-block-4-desc-1 {
+	background-color: $content_block_4_background_1_color;
+  color: $content_block_4_text_1_color;
+}
+/* Formats a block which is contained within the 'FIRST WINDOW PANE' of 'SECTION #4'. */
+
+#div-content-block-4-desc-2 {
+	background-color: $content_block_4_background_2_color;
+  color: $content_block_4_text_2_color;
+
+  div {
+    color: $content_block_4_div_1_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $content_block_4_span_1_text_color;
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+}
+/* Formats a block which is contained within the 'SECOND WINDOW PANE' of 'SECTION #4'. */
+
+#div-content-block-4-desc-3 {
+	background-color: $content_block_4_background_3_color;
+  color: $content_block_4_text_2_color;
+
+  div {
+    color: $content_block_4_div_2_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $content_block_4_span_2_text_color;
+
+    span {
+      display: block;
+      background-image: $span_background_image_article_5;
+      background-position: 0px 0px;
+    }
+    /* Formats a <span> element which contain a logo. This logo is contained by 
+     * the block which appears on the upper-left, underneath the header block.
+     */
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+
+   span + span > span {
+    background-position: 0px -28px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-middle, underneath the header block.
+   */
+
+   span + span + span > span {
+    background-position: 0px -47px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-right, underneath the header block.
+   */
+
+   span + span + span ~ span span {
+    text-align: center;
+    background-image: none;
+  }
+  /* Formats <span> elements which contain text. Theses elements appear
+   * below a row of <span> elements which contain logos.
+   */
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+
+#div-content-block-4-desc-4 {
+	background-color: $content_block_4_background_4_color;
+  color: $content_block_4_text_2_color;
+
+  div {
+    color: $content_block_4_div_2_text_color;
+  }
+  /* 
+   * Formats the quotation marks which appear above the block within the 
+   * 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+  
+  span {
+    color: $content_block_4_span_3_text_color;
+  }
+  /* 
+   * Formats a <span> element which are contained within a block within 
+   * the 'SECOND WINDOW PANE' of 'SECTION #4'. 
+   */
+}
+/* Formats a block which is contained within the 'THIRD WINDOW PANE' of 'SECTION #4'. */
+
+
+/* ****** SECTION #5 ****** */
+
+#h1-header-article-5 {
+	background-color: $h1_article_5_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #3'. */
+
+.div-content-block-5-type-1 {
+	position: relative;
+}
+/* Formats the blocks which are contained with 'SECTION #5'. */
+
+#div-content-block-5-desc-1 {
+  padding: $padding_value_3 $padding_value_5;
+  position: relative;
+  float: left;
+	background-color: $content_block_5_background_1_color;
+	color: $content_block_5_text_1_color;
+}
+/* 
+ * Formats the block which contains text content but does not include a <button> element 
+ * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+ */
+
+ #div-content-block-5-header-1 {
+	position: relative;
+  float: left;
+  background-color: $content_block_5_background_2_color;
+}
+/* Formats the block which serves as a header which appears within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #5'. 
+ */
+
+#div-content-block-5-header-2 {
+  width: 21.5rem; // 344px
+  padding: $padding_value_3 $padding_value_5;
+  transform: translateX(15.5rem); // 248px
+	background-color: $content_block_5_background_3_color;
+  color: $content_block_5_text_2_color;
+  
+  span {
+    display: block;
+    font-size: 2rem;
+    font-weight: $bold_font_weight;
+    text-align: center;
+  }
+  /* Formats the text of the block which serves as a header for the content contained 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* Formats the block which serves as a header for the content that is contained 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+
+#div-content-block-5-desc-2 {
+  span {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-color: $content_block_5_background_3_color;
+
+    span {
+      display: block;
+      background-color: transparent;
+      background-image: $span_background_image_article_5;
+    }
+  }
+  /* Formats <span> elements which contains a logo or text content */
+
+  
+  span > span {
+    background-position: 0px 0px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-left, underneath the header block.
+   */
+
+   span + span > span {
+    background-position: 0px -45px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-middle, underneath the header block.
+   */
+
+   span + span + span > span {
+    background-position: 0px -90px;
+  }
+  /* Formats a <span> element which contain a logo. This logo is contained by 
+   * the block which appears on the upper-right, underneath the header block.
+   */
+
+   span + span + span ~ span span {
+    text-align: center;
+    background-image: none;
+  }
+  /* 
+   * Formats <span> elements which contain text. Theses elements appear
+   * below a row of <span> elements which contain logos.
+   */
+}
+/* Formats a <div> element which serves as a container for various <span> elements 
+ * which contain either logos or text. 
+ */
+
+ #div-content-block-5-desc-3 {
+  margin-top: $margin_value_3;
+  padding: $padding_value_3 $padding_value_5;
+  position: relative;
+  background-color: $content_block_5_div_1_color;
+  color: $content_block_5_text_3_color;
+ }
+
+ #div-content-block-5-desc-4 {
+  padding: $padding_value_3 $padding_value_5;
+  background-color: #216F43;
+
+  div {
+    width: 100%;
+    height: 225px;
+    display: table;
+
+    div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+
+      sup {
+        position: absolute;
+        top: 55px;
+        font-size: 2.5rem;
+        color: #C8CBDF;
+      }
+      /* 
+       * Formats the dollar sign that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+
+      span {
+        font-size: 10rem;
+        letter-spacing: -10px;
+        color: #fff;
+      }
+      /* 
+       * Formats the numberical value that appears in the block below the block that serves as a header  
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+
+       span + span {
+        font-size: 1.5rem;
+        letter-spacing: 0;
+        color: #96C5AA;
+      }
+      /* 
+       * Formats the text, '/hour', that appears in the below the block that serves as a header 
+       * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+       */
+    }
+    /* 
+     * Formats a block that serves as a container for text copy that appears below the block 
+     * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+     */
+  }
+  /* 
+   * Formats a block that serves as a container for text copy that appears below the block 
+   * that serves as a header within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* 
+ * Formats a block that appears below the block that serves as a header 
+ * within the 'THIRD WINDOW PANE' of 'SECTION #5'.
+ */
+
+.div-content-no_cost {
+  font-size: $rate_no_cost_font_size;
+  font-weight: $semibold_font_weight; 
+  color: $content_block_5_rate_no_cost_color;
+}
+
+#div-content-block-5-desc-5 {
+  width: 21.5rem; // 344px
+  margin-top: 0 !important;
+  padding: $padding_value_3 $padding_value_5;
+  background-color: #C8CBDF;
+  color: #2A326B;
+
+  p {
+    font-size: $base_font_size;
+    border-bottom: 0.13rem solid; // 2px
+  }
+  /* 
+   * Formats <p> elements which appear within a block that appears on the right of the page 
+   * within the 'THIRD WINDOW PANE' of 'SECTION #5'. 
+   */
+}
+/* 
+ * Formats a block that appears on the right of the page within the 'THIRD WINDOW PANE' 
+ * of 'SECTION #5'.
+ */
+
+
+
+/* ---- SECTION #6 ---- */
+
+#h1-header-article-6 {
+	background-color: $h1_article_6_color; 
+}
+/* Formats the color of the <h1> which holds the title of 'SECTION #4'. */
+
+.div-content-block-6-type-1 {
+  position: relative;
+}
+/* 
+ * Formats the blocks which appears directly underneath the header within the 'FIRST WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+
+ #div-content-block-6-desc-1 {
+	background-color: $content_block_6_background_1_color;
+  color: $content_block_6_text_1_color;
+
+  p {
+    line-height: $line_height;
+    border-bottom: $content_block_6_border;
+  }
+  /* 
+   * Formats the <p> elements which are contained by the block which appears directly underneath the header 
+   * on the left hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+   */
+}
+/* 
+ * Formats the block which appears directly underneath the header on the left hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+#div-content-block-6-info-1 {
+	position: relative;
+  background-color: $content_block_6_background_2_color;
+  color: $content_block_6_text_2_color;
+
+  span {
+    display: table;
+    margin: 0 auto;
+    background: none;
+
+    span {
+      width: 20.25rem; // 324px
+      display: table-cell;
+      background: none;
+      text-align: center;
+      font-size: $base_font_size;
+      font-weight: $semibold_font_weight;
+      color: $content_block_6_text_2_color;
+      vertical-align: middle;
+    }
+    /* 
+     * Formats a <span> element which is contained by the block which appears directly underneath the header 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */
+  }
+  /* 
+   * Formats a block that serves as a container for text copy that appears directly underneath the header 
+   * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'. 
+   */
+}
+/* 
+ * Formats the block which appears directly underneath the header on the right hand side of the page 
+ * within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+.div-content-block-6-type-2 {
+  position: relative;
+
+  span {
+    padding: $padding_value_3 $padding_value_5;
+    display: block;
+    font-weight: $semibold_font_weight;
+    color: $content_block_6_span_text_1_color;
+    background-color: $content_block_6_span_background_1_color; 
+  }
+  /* 
+   * Formats blocks which serve as headers for office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */
+
+  div {
+    background-color: $content_block_6_background_1_color;
+
+    p {
+      display: inline-block;
+      line-height: $line_height;
+      border-right: $content_block_6_border;
+      color: $content_block_6_text_1_color;
+
+    }
+    /* Formats the text within blocks which contain office information within the 'FIRST WINDOW PANE' 
+     * of 'SECTION #6'.
+     */
+  }
+  /* 
+   * Formats the blocks which contain office information within the 'FIRST WINDOW PANE' 
+   * of 'SECTION #6'.
+   */
+}
+/* 
+ * Formats a block which serves as a header for location informtion which appears 
+ * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+ */
+
+#div-content-block-6-desc-office_hours, 
+#div-content-block-6-desc-phone_numbers {
+  width: 12rem; // 192px
+  height: inherit;
+  margin: $margin_value_3 $margin_value_2 0 0;
+  display: inline-block;
+  vertical-align: top;
+
+  span {
+    min-height: 3.5rem; // 56px
+  }
+
+  div {
+    width: 8rem; // 128px
+    min-height: 10.25rem; // 164px
+    margin-top: $margin_value_3;
+    padding: $padding_value_3 $padding_value_5;
+
+    p {
+      border-right: none;
+    }
+
+    .p-desktop-phone_number {
+      display: block;
+    }
+
+    .p-mobile-phone_number {
+      display: none;
+    }
+  }
+}
+
+.div-spacer-article-6 {
+  height: 0;
+  position: relative;
+  clear: both;
+}
+/* Formats a block which spaces blocks within the 'FIRST WINDOW PANE' of 'SECTION #6'. */
+
+#div-content-block-6-desc-3 {
+	position: relative;
+	background-color: $content_block_6_background_5_color;
+	color: $content_block_6_text_3_color;
+}
+/* 
+ * Formats a block which appears directly underneath the header within the 'SECOND WINDOW PANE' 
+ * of 'SECTION #6'.
+ */
+
+
+
+/* ****** ****** ****** ****** ****** ****** ****** ****** 
+                         BREAKPOINTS                                   
+   ****** ****** ****** ****** ****** ****** ****** ****** */
+
+
+
+/* ****** DESKTOP ****** */
+
+@media screen and (min-width: 64.06rem) and (max-width: 120rem)  {
+
+  /* ****** COMMON ELEMENTS ****** */
+
+  h1 {
+    height: 9rem; // 144px
+    top: 3.13rem; // 50px
+
+    span {
+      width: 12rem; // 192px
+    }
+  }
+
+  .div-content {
+    margin-top: 12rem; // 192px
+  }
+
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4 {
+    width: 32.5rem; // 520px
+    margin: 0 auto;
+    padding: $padding_value_3 $padding_value_5;
+    position: relative;
+  }
+  
+
+  /* ****** NAVIGATION ****** */
+
+  nav {
+    height: 100%;
+  
+    #div-nav-options {
+      padding-left: $padding_value_1;
+      top: 6.56rem; // 105px
+  
+      a {
+        width: 12.4em; // 198px
+        height: 2.35em; // 38px
+        margin: $margin_value_3 0 0.25rem $margin_value_3;
+        padding: 1em; // 16rem
+        display: inline-block;
+        font-size: $nav_options_font_size_1;
+      }
+    }
+  
+    #div-nav-background {
+      height: 100%;
+    }
+  
+    #div-nav-border {
+      height: 6.25rem; // 100px
+    }
+  }
+  
+  #a-nav-article-previous,
+  #a-nav-article-next {
+    width: 4.9rem; // 78px
+    height: 5.4rem; // 86px
+    right: 3.13rem; // 50px
+    bottom: 3rem; // 48px
+    z-index: 5;
+    background-position: 0 -209px;
+  }
+  
+  #a-nav-article-previous {
+    height: 4rem; // 64px
+    top: 1.06em; // 17px
+    padding-top: 1.88em; // 30px
+    background-position: 0 0;
+  }
+  /* Formats a <div> element which moves the page upward through previously viewed 
+  * sections. 
+  */
+  
+  #a-nav-article-next {
+    background-position: 0px -145px;
+  }
+  /* Formats a <div> element which moves the page upward through yet-to-be-viewed 
+  * sections. 
+  */
+  
+  #a-nav-article-previous:hover {
+    background-position: 0px -111px !important;
+  }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#previous-article'. 
+    */
+  
+  #a-nav-article-next:hover {
+    background-position: 0px -235px !important;
+  }
+  /* More formatting for the cursor state based upon the click-state 
+    * of the <div> element, '#next-article'. 
+    */
+  
+  #a-nav-article-previous > span,
+  #a-nav-article-next > span {
+    width: 4.9em; // 78px
+    height: 5.4em; // 86px
+    margin: 0 auto 50px auto;
+    font-size: $article_nav_font_size;
+    line-height: 1.3;
+  }
+  /* Formats the text descriptions of the inter-sectional navigation 
+  * which appears on the right of the page.
+  */
+  
+  .div-nav-article {
+    div {  
+      width: 36.85rem; // 590px
+
+      div {
+        height: 2.19em; // 35px
+        margin: $margin_value_3 auto 0 auto;
+  
+        a {
+          width: 6.56em; // 105px
+          height: 1.38em; // 22px
+          margin: 0 0.94em; // 15px
+          padding: 0.19em 0 0 0; // 3px 0 0 0
+        }
+      }
+    }
+  }
+
+
+  /* ****** FORMS ****** */
+
+  .div-content-column {
+    width: 48.65%;
+    margin-right: $margin_value_4;
+    vertical-align: top;
+  }
+
+  .div-content-column:last-of-type {
+    margin-right: 0;
+  }
+  
+  .div-form-question {
+    width: 21.5rem; // 344px
+    margin-bottom: $margin_value_4;
+    padding: $padding_value_5;
+    font-size: 0.8rem;
+
+    span:first-child {
+      margin-bottom: $margin_value_2;
+    }
+  }
+
+  #form-question-alert {
+    div {
+      width: 22rem; // 352px
+      height: 10rem; // 160px
+
+      div {
+        width: 36rem; // 576px
+        height: 15.75rem; // 252px
+      }
+    }
+  }
+
+  .button-desktop {
+    display: block;
+  }
+
+  .button-mobile {
+    display: none;
+  }
+  
+  #submit-form-article-1 {
+    transform: translate(-5rem, -3.1rem); // -80rem, -50px
+  }
+
+  #button-article-5-contact {
+    letter-spacing: -1.7px !important;
+  }
+
+  #button-article-6-start {
+    letter-spacing: -1.7px;
+  }
+
+  #button-article-6-map {
+    margin: 0;
+    left: auto;
+    right: 0;
+    transform: translate(2rem, -51%);
+    vertical-align: middle;
+  }
+  
+  #submit-form-article-6 {
+    transform: translate(-65%, -100%);
+  }
+
+    
+
+  /* ****** LANDING SECTION ****** */
+
+  #aside-info {
+    width: 40.8rem; // 653px
+    height: 15.2rem; // 243px
+    bottom: 12rem; // 192px
+    left: 6.26rem; // 100px
+
+    li {
+      width: 20.75rem; // 332px
+    }
+
+    li:first-of-type {
+      margin-top: 0;
+    }
+
+    li:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  
+  
+  /* ****** SECTION #1 ****** */
+
+  .div-content-block-1 {
+    h2 {
+      font-size: $lg_h2_font_size;
+    }
+  }
+  
+
+
+  /* ****** SECTION #2 ****** */
+  
+  .div-content-block-2 {
+    width: 21.5rem; // 344px
+    min-height: 15rem; // 240px
+  }
+
+  .div-content-block-2-type-1 {
+    height: 12.25rem; // 196px
+    top: 3rem; // 48px
+
+    span + div {
+      width: 49rem; // 784px
+      height: 7.5rem; // 120px
+      top: 1rem; // 16px
+
+      span {
+        width: 11rem; // 176px
+        height: 5.5rem; // 885px
+        padding: $padding_value_3 $padding_value_5;
+        margin-left: $margin_value_5;
+        text-align: left;
+      }
+
+      span:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+
+  
+  
+  /* ****** SECTION #3 ****** */
+
+  .div-content-block-3 { 
+    margin: 0 auto;
+    position: relative;
+
+    h2 {
+      width: 100%;
+    }
+
+    p {
+      line-height: $line_height;
+    }
+    /* 
+     * Formats <p> elements which are contained with an individual block contained 
+     * within 'SECTION #3'.
+     */
+  }
+  
+  
+  
+  /* ****** SECTION #4 ****** */
+
+  .div-content-block-4 { 
+    div {
+      top: 3.2rem; // 51px
+      left: 0.06rem; // 1px
+      font-size: 10rem; // 120pt
+      line-height: 0.1;
+    }
+    /* Formats <div> elements which appear as quotation marks above the blocks 
+     * contained within 'SECTION #4'.
+     */
+  }
+  
+  #div-content-block-4-desc-3 {
+    span span {
+      width: 6.56rem; // 105px
+      height: 1.69rem; // 27px
+      margin-top: 0.55rem; // 9px
+      
+    }
+
+    span + span > span {
+      width: 6.56rem; // 105px
+      height: 1.25rem; // 20px
+      margin-top: 0.9rem; // 14px
+    }
+
+    span + span + span > span {
+      width: 6.56rem; // 105px
+      height: 2.81rem; // 45px
+      margin-top: 0;
+    }
+
+    span + span + span ~ span span {
+      height: 2.81rem; // 45px
+      margin-top: 0.85rem; // 14px
+    }
+  }
+  
+  #div-content-block-4-desc-4, 
+  #div-content-block-5-desc-5 {   
+    p {
+      padding-bottom: 0.9rem; // 14px
+    }
+  }
+
+
+
+  /* ****** SECTION #5 ****** */
+
+  .div-content-block-5-type-1 {
+    width: 21.5rem; // 344px
+    // margin-right: 4.5rem; // 72px
+    padding: 1rem 2rem; // 16px 32px
+
+    p {
+      // text-indent: 1.3rem; //  21px
+      line-height: 1.7rem; // 27px
+    }
+    /* Formats the <p> elements which hold the text content that is contained by a <div> element
+     * using the class, '.div-content-block-5-type-1'.
+     */
+  }
+
+  #div-content-block-5-desc-1 {
+    left: 50%;
+  }
+
+  #div-content-block-5-desc-2 { 
+    width: 25.5rem; // 408px
+
+    span {
+      width: 6.25rem; // 100px
+      height: 2.81rem; // 45px
+      margin-top: $margin_value_3;
+      padding: $padding_value_3;
+    }
+
+    span span {
+      width: 6.25rem; // 105px
+      padding: 0;
+    }
+
+    span > span {
+      height: 2rem; // 32px
+      margin-top: 0.8rem; // 13px
+    }
+
+    span + span > span {
+      height: 2.25rem; // 36px
+      margin-top: 0.55rem; // 9px
+    }
+
+    span + span + span > span {
+      height: 2.81rem; // 45px
+      margin-top: 0;
+    }
+
+    span + span + span ~ span span {
+      height: 2.81rem; // 45px
+      line-height: 2.75;
+    }
+
+    span:nth-child(4), 
+    span:nth-child(5) {
+      margin-top: 0;
+    }
+  }
+
+  #div-content-block-5-header-1 {
+    width: 23.25rem; // 372px
+    margin-top: 2.5rem; // 40px
+    padding: $padding_value_3;
+  }
+
+  #div-content-block-5-header-2 {
+    left: 50%;
+    transform: translateX(32.25rem); // 516px
+  }
+
+  #div-content-block-5-desc-3 {
+    width: 21.5rem; // 344px
+
+    p {
+      padding-bottom: $padding_value_3;
+      border-bottom: $content_block_5_border;
+    }
+    /* Formats the <p> element which appears in the block underneath the collection of <span> elements 
+     * containing logos and text.
+     */
+  }
+  /* Formats the block which contains text content but DOES include a <button> element 
+   * which appears within the 'FIRST WINDOW PANE' of 'SECTION #5'. 
+   */
+
+  #div-content-block-5-desc-4, 
+  #div-content-block-5-desc-5 {
+    min-height: 14.06rem; // 225px
+    margin-top: $margin_value_3;
+  }
+  
+  #div-content-block-5-desc-4 {
+    width: 21.5rem; // 344px
+    margin-top: 1.5rem;
+    padding: $padding_value_3 $padding_value_5;
+    transform: translateX(32.25rem); // 516px
+  }
+
+
+
+  /* ****** SECTION #6 ****** */
+
+  .div-content-block-6-type-1 {
+    width: 21.5rem; // 344px
+    padding: $padding_value_3 $padding_value_5;
+    left: 50%;
+    position: relative;
+  }
+
+  #div-content-block-6-desc-1 {
+    padding: $padding_value_3 $padding_value_5;
+    
+    p {
+      margin-bottom: $margin_value_1;
+      padding-bottom: $padding_value_4;
+    }
+  }
+
+  #div-content-block-6-info-1 {
+    width: 23.5rem; // 376px
+    margin-top: 2.5rem; // 40px
+    padding: $padding_value_3;
+  }
+
+  #div-content-block-6-desc-2 {
+    width: 25.5rem; // 408px
+    height: 10.31rem; // 165px
+    left: 50%;
+
+    div {
+      width: 21.5rem; // 344px
+      margin-top: $margin_value_3;
+      padding: $padding_value_3 $padding_value_5;
+
+      p {
+        width: 11.25rem; // 180px
+        margin: $margin_value_2 0 0 0;
+      }
+    }
+  }
+  
+  .div-content-block-6-type-2 {
+    width: 32.8rem; // 525px
+    height: 12.15rem; // 194px
+    margin-top: $margin_value_3;
+
+    div {
+      width: 15.75rem; // 252px
+
+      div {
+        width: 9.61rem; // 154px
+        margin: 0;
+        padding: 0;
+      }
+  
+    }
+    /* Formats a block which serves as a container of location informtion which appears 
+     * on the right hand side of the page within the 'FIRST WINDOW PANE' of 'SECTION #6'.
+     */
+  }
+
+  .div-spacer-article-6 {
+    width: 28.9rem; // 462px
+  }
+
+  #div-content-block-6-desc-3 {
+    width: 32.5rem; // 520px
+    margin: 0 auto;
+    padding: $padding_value_3 $padding_value_5;
+    left: auto;
+    position: relative;
+    transform: none;
+    
+    h2 {
+      width: 100%;
+      margin: 0 0 $margin_value_1 0;
+      padding-bottom: 0.25rem; // 4px
+      display: inline-block;
+      transform: none;
+      border-bottom: 2px solid;
+      font-size: $lg_h2_font_size;
+      font-weight: $bold_font_weight;
+    }  
+  }
+}
+
+
+
+/* ****** DESKTOP - 1920px WIDE ****** */
+
+@media screen and (min-width: 100.06rem) and (max-width: 120rem)  {
+  article {
+    width: 118.88rem; // 1902px
+    height: 67.5rem; // 1080px
+  }
+
+  h1 {
+    width: 118.88rem; // 1902px
+  }
+
+  .div-content {
+    width: 118.88rem; // 1902px
+    height: 55.5rem; // 888px
+    margin-top: 12rem; // 192px
+  }
+
+  nav {
+    width: 21rem; // 336px
+    left: -21rem; // -336px
+  
+    #div-nav-options {
+      width: 21rem; // 336px
+      left: -21rem; // -336px
+    }
+  }
+
+  #div-nav-background {
+    width: 21rem; // 336px
+    height: 100%;
+    left: -21rem; // -336px
+  }
+
+  #div-nav-border {
+    width: 21rem; // 336px
+    left: -21rem; // -336px
+  }
+
+  .nav-not_visible {
+    left: -21rem !important; // -336px
+  }
+  
+  .div-nav-article {
+    width: 118.88rem; // 1902px
+  }
+
+  .div-form-question-left {
+    transform: translateX(32.3rem); // 517px
+  }
+
+  #div-content-block-left {
+    transform: translateX(-27.1rem); // 434px
+  }
+  
+  #div-content-block-right {
+    transform: translateX(33.3rem); // 533px
+  }
+
+  .div-content-block-2-type-1 {
+    width: 118.88rem; // 1902px
+  }
+
+  #div-content-block-5-desc-1 {
+    transform: translateX(3.4rem); // 54px
+  }
+
+  #div-content-block-6-desc-1 {
+    transform: translateX(3.4rem); // 54px
+  }
+
+  #div-content-block-6-desc-2 {
+    transform: translateX(3.4rem); // 54px
+  }
+}
+ 
+
+
+/* ****** DESKTOP - 1600px WIDE ****** */
+
+@media screen and (min-width: 85.38rem) and (max-width: 100rem)  {
+  article {
+    width: 99.25rem; // 1588px
+    height: 67.5rem; // 1080px
+  }
+
+  h1 {
+    width: 99.25rem; // 1588px
+  }
+
+  .div-content {
+    width: 99.25rem; // 1588px
+    height: 36rem; // 576px
+  }
+
+  nav {
+    width: 40.25rem; // 656px
+    left: -40.25rem; // -656px
+  
+    #div-nav-options {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // -656px
+    }
+  
+    #div-nav-background {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // -656px
+    }
+  
+    #div-nav-border {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // 656px
+    }
+  
+    .nav-not_visible {
+      left: -40.25rem !important; // -656px
+    }
+  }
+
+  .div-nav-article {
+    width: 99.25rem; // 1588px
+  }
+
+  #div-nav-article-3 {
+    top: 38rem; // 608px
+  }
+
+  #div-nav-article-4 {
+    top: 32rem; // 512px
+  }
+
+  .div-form-question-left {
+    transform: translateX(22.8rem);
+  }
+
+  #aside-info {
+    bottom: 1.69rem; // 27px
+  }
+
+  #div-content-block-left {
+    transform: translateX(-26.9rem); // 430px
+  }
+  
+  #div-content-block-right {
+    transform: translateX(23.7rem); // 379px
+  }
+
+  .div-content-block-2-type-1 {
+    width: 99.25rem; // 1588px
+  }
+
+  #div-content-block-5-desc-1 {
+    transform: translateX(-1.2rem); // 19px
+  }
+
+  #div-content-block-6-desc-1 {
+    transform: translateX(-1.2rem); // 19px
+  }
+
+  #div-content-block-6-desc-2 {
+    transform: translateX(-1.2rem); // 19px
+  }
+}
+
+
+/* ****** DESKTOP - 1366px WIDE ****** */
+
+@media screen and (min-width: 64rem) and (max-width: 86rem)  {
+  article {
+    width: 84.25rem; // 1,348px
+    height: 48rem; // 768px
+  }
+
+  h1 {
+    width: 84.25rem; // 1348px
+  }
+
+  .div-content {
+    width: 84.25rem; // 1,348px
+    height: 36rem; // 576px
+  }
+
+  nav {
+    width: 40.25rem; // 656px
+    left: -40.25rem; // -656px
+  
+    #div-nav-options {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // -656px
+    }
+  
+    #div-nav-background {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // -656px
+    }
+  
+    #div-nav-border {
+      width: 40.25rem; // 656px
+      left: -40.25rem; // 656px
+    }
+  
+    .nav-not_visible {
+      left: -40.25rem !important; // -656px
+    }
+  }
+
+  .div-nav-article {
+    width: 84.25rem; // 1,348px
+  }
+
+  #div-nav-article-3 {
+    top: 38rem; // 608px
+  }
+
+  #div-nav-article-4 {
+    top: 32rem; // 512px
+  }
+
+  .div-form-question-left {
+    margin-left: 15.5rem; // 248px 
+  }
+
+  .div-content-block-2-type-1 {
+    width: 84.25rem; // 1,332px
+  }
+
+  #div-content-block-5-desc-1 {
+    transform: translateX(-4.75rem);
+  }
+
+  .div-content-block-6-type-1 {
+    transform: translateX(-4.75rem);
+  }
+
+  #div-content-block-6-desc-2 {
+    transform: translateX(-4.75rem);
+  }
+}	
+
+
+
+/* ****** MOBILE - iPad (768px x 1024px) ****** */
+
+@media screen and (min-width: 48rem) and (max-width: 50rem) {
+  article {
+    width: 48rem; // 768px
+    height: 64rem; // 1024px
+
+    .div-content {
+      width: 48rem; // 768px
+      height: 52.5rem; // 840px
+      top: 10rem; // 160px
+    }
+  }
+
+  h1 {
+    width: 48rem; // 768px
+    height: 7rem; // 112px
+    top: 3.13rem; // 50px
+
+    span {
+      width: 12rem; // 192px
+    }
+  }
+
+  #section-backgrounds {
+    overflow-x: hidden;
+
+    div {
+      height: 64rem; // 1024px
+      overflow-x: hidden;
+    }
+  }
+  
+  nav {
+    width: 21rem; // 336px
+    height: 100%;
+    left: -21rem; // -336px
+  
+    #div-nav-options {
+      width: 21rem; // 336px
+      padding-left: $padding_value_1;
+      top: 7rem; // 112px
+      left: -21rem; // -336px
+  
+      a {
+        width: 12.4em; // 198px
+        height: 2.35em; // 38px
+        margin: $margin_value_3 0 0.25rem $margin_value_3;
+        padding: 1em; // 16rem
+        display: inline-block;
+        font-size: $nav_options_font_size_1;
+      }
+    }
+  
+    #div-nav-background {
+      width: 21rem; // 336px
+      height: 100%;
+      left: -21rem; // -336px
+
+      #div-nav-border {
+        width: 21rem; // 336px
+        height: 6.25rem; // 100px
+        left: -21rem; // 336px
+      }
+    }
+    
+    .nav-not_visible {
+      left: -21rem !important; // -336px
+    }
+  }
+
+  #a-nav-article-previous, 
+  #a-nav-article-next {
+    width: 5rem; // 80px
+    height: 1.5rem; // 24px
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+      display: none;
+    }
+  }
+
+  #a-nav-article-previous {
+    top: 1.52rem; // 25px
+  }
+
+  #a-nav-article-next {
+    bottom: 1.52rem; // 25px
+    background-position: 0px -209px;
+  }
+
+  .div-nav-article {
+    width: 36.9rem; // 590px
+    height: 5.5rem; // 88px
+    left: 50%;
+    transform: translateX(-50%);
+    
+    div div {
+      width: 36.9rem; // 590px
+      height: 2.25rem; // 36px
+      margin-top: $margin_value_3;
+    }
+  }
+
+  #div-nav-article-3 {
+    top: 38.25rem; // 612px
+  }
+
+  #div-nav-article-4 {
+    top:29.5rem; // 472px
+  }
+
+  input[type=text], 
+  input[type=email], 
+  input[type=number], 
+  textarea {
+    width: 14.25rem; // 228px
+  }
+
+  .div-content-column {
+    width: 47.5%;
+    margin-left: 1.56rem; // 25px
+    vertical-align: top;
+  }
+
+  .div-content-column:last-of-type {
+    margin-left: 0;
+  }
+
+  .div-form-question {
+    width: 18rem; // 288px
+    padding: $padding_value_3 $padding_value_5 $padding_value_5 $padding_value_5;
+
+    .h2-form {
+      font-size: $mobile_h2_font_size;
+    }
+  
+    .h3-form {
+      font-size: $mobile_h3_font_size; 
+    }
+
+    p {
+      font-size: $mobile_base_font_size;
+    }
+
+    span:first-of-type {
+      margin-right: 0.25rem;
+    }
+
+    span:last-of-type {
+      margin-left: 0.25rem;
+    }
+  }
+
+  .fieldset-mobile-small_padding {
+    padding: $padding_value_1;
+  }
+
+  .fieldset-mobile-medium_padding {
+    padding: $padding_value_3;
+  }
+  
+  .button-desktop {
+    display: block;
+  }
+
+  .button-mobile {
+    display: none;
+  }
+
+  #button-form-article-1-next, 
+  #button-form-article-1-previous, 
+  #submit-form-article-1, 
+  #submit-form-article-5, 
+  #button-form-article-6-next, 
+  #button-form-article-6-previous, 
+  #submit-form-article-6 {
+    left: 22rem; // 352px
+  }
+
+  #button-form-article-1-next, 
+  #button-form-article-6-next {
+    margin: $margin_value_3 0 0 0;
+    transform: translateX(-100%);
+  }
+
+  #button-form-article-1-previous, 
+  #button-form-article-6-previous {
+    margin: 0;
+    transform: translate(-16.5rem, 1rem); // -264px, 16px
+  }
+
+  #submit-form-article-1, 
+  #submit-form-article-6 {
+    margin: 0;
+    transform: translate(-7.75rem, -2.1rem);
+  }
+
+  #button-article-6-start {
+    margin: 0.2rem 0 0.7rem 0; // 3px 0 11px 0
+  }
+
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.3rem, -1.5rem); // 5px, -24px
+  }
+
+  #aside-info {
+    width: 19.25rem; // 308px
+    bottom: 1.75rem; // 28px
+    left: 1.75rem; // 28px
+
+    li {
+      height: auto;
+    }
+  }
+
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4 {
+    width: 29rem; // 464px
+    margin: 0 auto;
+  }
+
+  .div-content-block-2, 
+  .div-content-block-5-type-1, 
+  #div-content-block-5-desc-3, 
+  .div-content-block-6-type-1, 
+  .div-content-block-6-type-2 div {
+    width: 18rem; // 288px
+  }
+
+  .div-content-block-2 {
+    ul {
+      li {
+        font-size: $mobile_base_font_size;
+      }
+    }
+  }
+
+  #div-content-block-left {
+    left: 0;
+    transform: translateX(1.52rem); // 24px
+  }
+
+  #div-content-block-right {
+    left: 0;
+    transform: translateX(2rem); // 32px
+  }
+
+  .div-content-block-2-type-1 {
+    width: 48rem; // 768px
+    margin-top: $margin_value_3;
+
+    span {
+      font-size: $mobile_base_font_size;
+    }
+
+    span + div {
+      height: 7.25rem; // 116px
+      margin-top: $margin_value_3;
+
+      span {
+        width: 10.25rem; // 164px
+        min-height: 4.75rem; // 76px
+        margin-left: $margin_value_3;
+        padding: $padding_value_3 $padding_value_5;
+        text-align: left;
+      }
+
+      span:first-of-type {
+        margin-left: 1.72rem; // 28px
+      }
+    }
+  }
+
+  #div-content-block-5-header-1 {
+    width: 20rem; // 320px
+    padding: $padding_value_3;
+  }
+
+  #div-content-block-5-desc-2 { 
+    span {
+      width: 6.15rem; // 98px
+      height: 2.81rem; // 45px
+      margin-top: $margin_value_3;
+      padding: $padding_value_1;
+    }
+
+    span span {
+      width: 6.25rem; // 105px
+      padding: 0;
+    }
+
+    span > span {
+      height: 2rem; // 32px
+      margin-top: 0.8rem; // 13px
+    }
+
+    span + span > span {
+      height: 2.25rem; // 36px
+      margin-top: 0.55rem; // 9px
+    }
+
+    span + span + span > span {
+      height: 2.81rem; // 45px
+      margin-top: 0;
+    }
+
+    span + span + span ~ span span {
+      height: 2.81rem; // 45px
+      line-height: 2.75;
+    }
+
+    span:nth-child(4), 
+    span:nth-child(5) {
+      margin-top: 0;
+    }
+  }
+
+  .div-content-block-6-type-1 {
+    padding: $padding_value_3 $padding_value_5;
+  }
+
+  #div-content-block-6-desc-1 {
+    p {
+      padding-bottom: $padding_value_3;
+    }
+  }
+
+  .div-content-block-6-type-2 {
+    width: 22rem;
+    margin-top: $margin_value_3;
+
+    div {
+      margin-top: $margin_value_3;
+      padding: $padding_value_3 $padding_value_5;
+
+      p {
+        padding-right: 0.4rem; // 6px
+      }
+    }
+  }
+
+  #div-content-block-6-info-1 {
+    width: 20rem; // 320px
+    padding: $padding_value_3;
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.5rem; // 168px
+
+    div {
+      width: 6.5rem; // 104px
+      min-height: 16.5rem; // 264px
+    }
+    
+  }
+
+}
+
+
+/* ****** MOBILE PHONES ****** */
+
+@media screen and (min-width: 20rem) and (max-width: 25.875rem)  {
+  nav {
+    height: 45.94rem; // 735px
+
+    #div-nav-options {
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+
+      a {
+        width: 11rem; // 176px
+        margin-bottom: $margin_value_1;
+        padding: $padding_value_2;
+        display: block;
+      }
+    }
+
+    #div-nav-background {
+      top: 0;
+
+      #div-nav-border {
+        display: none;
+      }
+    }
+  }
+
+  #a-nav-article-previous, 
+  #a-nav-article-next {
+    width: 5rem; // 80px
+    height: 1.3rem; // 21px
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #a-nav-article-previous > span, 
+  #a-nav-article-next > span  {
+    display: none;
+  }
+
+  #a-nav-article-previous {
+    top: 1rem;
+  }
+
+  #a-nav-article-next {
+    bottom: 1rem;
+    background-position: 0px -209px;
+  }
+
+  .nav-article-section_links-not_visible {
+    display: none !important;
+  }
+
+  .div-nav-article {
+    height: 9.5rem; // 152px
+    top: 30.5rem; // 488px 
+    
+    div {
+      height: 8.75rem; // 140px
+
+      div {
+        a:nth-of-type(n) {
+          margin: $margin_value_3 $margin_value_2 0 $margin_value_5 !important;
+        }
+        
+        a:nth-of-type(2n) {
+          margin-left: 0.75rem !important;
+        }
+      }
+    }
+  }
+
+  .div-content-column {
+    display: block;
+  }
+
+  .div-column-not_visible {
+    display: none;
+  }
+
+  .div-form-question {
+    max-height: 24rem; // 384px
+    padding: $padding_value_3;
+    display: none;
+    overflow-y: scroll;
+
+    .h2-form {
+      font-size: $mobile_h2_font_size;
+    }
+  
+    .h3-form {
+      font-size: $mobile_h3_font_size; 
+    }
+  }
+
+  #div-form-article-1-question-2 {
+    fieldset {
+      div { 
+        span:first-of-type {
+          margin-right: 0;
+        }
+
+        span:last-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  input[type=radio], 
+  input[type=checkbox] {
+    width: 16rem; // 256px
+  }
+
+  input[type=text], 
+  input[type=email], 
+  input[type=number], 
+  textarea {
+    width: 14.75rem; // 236px
+  }
+
+  .div-form-question-visible {
+    display: block;
+  }
+
+  .button-desktop, 
+  #form-article-1 input[type=button], 
+  #form-article-1 input[type=submit], 
+  #form-article-5 input[type=button], 
+  #form-article-5 input[type=submit], 
+  #form-article-6 input[type=button], 
+  #form-article-6 input[type=submit] {
+    display: none;
+  }
+
+  #mobile-button-article-1-start {
+    margin: 0 0 0.8rem 0;
+  }
+
+  .button-right {
+    margin: 0;
+    top: $margin_value_4;
+    left: calc(100% - 1.25rem);
+  }
+
+  .button-position-1 {
+    transform: translate(-100%, -100%);
+  }
+
+  .button-left {
+    margin: 0;
+    top: $margin_value_4;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-210%);
+  }
+
+  #mobile-button-article-5-start {
+    margin-bottom: $margin_value_3;
+    top: 0;
+    transform: translate(-9.1rem, 0); // -146px
+  }
+
+  #mobile-button-article-5-contact {
+    top: 0;
+    transform: translateX(-9rem); // -144px
+    letter-spacing: -1.7px;
+  }
+
+  #button-article-6-start {
+    margin-top: 0.4rem;
+    left: 0;
+    transform: translateX(34%);
+  }
+
+  #mobile-button-article-6-start {
+    transform: translateX(-17.1rem); // -274px
+    letter-spacing: -1.7px;
+  }
+
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%);
+  }
+
+  #mobile-button-article-6-more_info {
+    margin: 0;
+    top: 0;
+    left: calc(100% - 1.25rem);
+    transform: translateX(-200%);
+  }
+
+  #mobile-button-article-6-back {
+    margin-top: $margin_value_3;
+    left: 50%;
+    transform: translate(-0.6rem); // -10px
+  }
+
+  #button-article-6-map {
+    margin: 0;
+    left: 0;
+    transform: translate(0.75rem, -1.25rem); // 12px -20px
+  }
+  
+  #mobile-button-form-article-1-next-1, 
+  #mobile-button-form-article-5-next-1, 
+  #mobile-button-form-article-6-next-1 {
+    transform: translateX(-10.25rem); // 164px
+  }
+
+  #mobile-button-form-article-1-next-2, 
+  #mobile-button-form-article-1-next-3, 
+  #mobile-button-form-article-6-next-2, 
+  #mobile-button-form-article-6-next-3 {
+    transform: translate(-10.25rem, -100%); // 164px, 100%
+  }
+
+  #mobile-button-form-article-1-previous-2, 
+  #mobile-button-form-article-1-previous-3, 
+  #mobile-button-form-article-5-previous-2, 
+  #mobile-button-form-article-6-previous-2, 
+  #mobile-button-form-article-6-previous-3  {
+    transform: translateX(-19rem); // 304px                         
+  }
+
+  #mobile-button-form-article-1-previous-4  {
+    transform: translate(-19rem, -0.2rem); // 304px, 3px
+  }
+
+  #mobile-button-form-article-6-previous-4 {
+    transform: translate(-19rem, 1rem); // 304px, 16px
+  }
+
+  #submit-form-article-5 {
+    transform: translate(-8rem, -100%); // 128px, 100%
+  } 
+
+  #submit-form-article-1, 
+  #submit-form-article-6 {
+    transform: translate(-9.25rem, -3.4rem); // 148px, 54px
+  }
+
+  .button_visible {
+    display: block !important;
+  }
+
+  h1 {
+    padding: $padding_value_3;
+
+    span {
+      font-size: $mobile_header_font_size;
+    }
+  }
+
+  p {
+    font-size: $mobile_base_font_size;
+  }
+
+  article {
+    height: 45.94rem; // 735px
+
+    .div-content {
+      height: 34rem; // 544px
+      top: 6.5rem; // 104px
+    }
+
+    .div-content-tall_header {
+      top: 8.5rem; // 136px
+    }
+  }
+
+  #section-backgrounds {
+    overflow-x: hidden;
+
+    div {
+      overflow-x: hidden;
+    }
+  }
+
+  aside {
+    img {
+      margin: 0 auto;
+      float: none;
+    }
+
+    ul {
+      width: 16rem; // 256px
+      margin: 0 auto;
+      float: none;
+    }
+    li {
+      height: auto;
+    }
+  }
+  
+  #aside-info {
+    width: 18.75rem; // 300px
+    height: 27.25rem; // 436px
+    margin: 0 auto;
+    position: relative;
+    float: none;
+  }
+  
+  .div-content-block-1 {
+    p ~ p {
+      margin-bottom: 0;
+    }
+  }
+
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4 {
+    max-height: 21rem; // 336px
+    overflow-y: scroll;
+  }
+
+  .div-content-block-2 {
+    min-height: 15.5rem; // 248px
+    left: 0;
+    transform: none;
+
+    img, 
+    #img-content-block-2-missouri {
+      display: none;
+    }
+
+    ul {
+      border-top: none;
+
+      li {
+        font-size: $mobile_base_font_size;
+      }
+    }
+  }
+
+  #div-content-block-right {
+    transform: none;
+  }
+
+  .div-content-block-2-type-1 {
+    margin-top: $margin_value_1;
+
+    span:first-child {
+      display: none;
+    }
+
+    span + div span {
+      margin-right: 0.25rem; // 4px
+      font-size: $mobile_base_font_size;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    span + div span:first-of-type { 
+      display: block;
+    }
+
+    span + div span:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  #article-content-5 .div-content-column:last-of-type {
+    position: relative;
+    top: 1rem;
+  }
+
+  #div-content-block-5-desc-1 {
+    max-height: 21rem;  // 366px
+    overflow-y: scroll;
+  }
+
+  #div-content-block-5-header-1, 
+  #div-content-block-5-desc-2 {
+    display: none;
+  }
+
+  #div-content-block-5-header-2 {
+    margin-bottom: $margin_value_3;
+    padding: $padding_value_3;
+    transform: none;
+    
+    span {
+      font-size: $mobile_rate_header_font_size;
+    }
+  }
+
+  #div-content-block-5-desc-3 {
+    overflow-x: hidden;
+  }
+
+  #div-content-block-5-desc-4 {
+    margin-bottom: $margin_value_3;
+
+    div {
+      height: 8.93px; // 143px
+
+      div sup {
+        top: 8.75rem; // 140px
+        font-size: $mobile_dollar_sign_font_size;
+      }
+
+      div span {
+        font-size: $mobile_rate_font_size;
+        letter-spacing: -6px;
+      }
+    }
+  }
+
+  .div-content-no_cost {
+    font-size: $mobile_rate_font_size;
+  }
+
+  #div-content-block-5-desc-5 {
+    width: auto; 
+    padding: $padding_value_3 $padding_value_5 $padding_value_5 $padding_value_5;
+
+    p {
+      border-bottom: none;
+      font-size: $mobile_base_font_size;
+    }
+  }
+
+  #div-content-block-6-desc-1 {
+    padding: $padding_value_3 $padding_value_5;
+    margin-bottom: $margin_value_3;
+
+    p {
+      padding-bottom: $padding_value_3;
+    }
+  }
+
+  #div-content-block-6-desc-2 {
+    div {
+      margin-top: $margin_value_3; 
+      padding: $padding_value_3 $padding_value_5;
+
+      p {
+        width: 9.5rem; // 152px
+      }
+    }
+  }
+
+  #div-content-block-6-info-1 {
+    padding: $padding_value_3 0;
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    margin: $margin_value_3 0 0 0;
+
+    div {
+      .p-desktop-phone_number {
+        display: none;
+      }
+    
+      .p-mobile-phone_number {
+        display: block;
+
+        a {
+          color: $input_font_color;
+        }
+      }
+    }
+  }
+
+  #div-content-block-6-desc-office_hours {
+    margin-right: $margin_value_3;
+  }
+}
+
+
+
+/* ****** MOBILE PHONE - iPHONE 8+ (414px x 735px) ****** */
+
+@media screen and (min-width: 23.44rem) and (max-width: 25.88rem)  {
+  nav {
+    width: 25.88rem; // 414px
+    left: -25.88rem; // 414px
+
+    #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; // 44px
+
+      a {
+        height: 3rem; // 48px
+        font-size: $nav_options_font_size_mobile;
+      }
+    }
+
+    #div-nav-background {
+      width: 25.88rem; // 414px
+      height: 46rem; // 736px
+    }
+  }
+
+  .nav-not_visible {
+    left: -25.88rem !important; // -414px
+  }
+
+  #div-nav-options.nav-visible {
+    left: 25.88rem !important; // 414px
+  }
+
+  .div-nav-article {
+    width: 25.88rem; // 414px
+    top: 34.5rem; // 552px
+
+    div div {
+      a:nth-of-type(n) {
+        margin: $margin_value_3 $margin_value_2 0 3.75rem !important; // 16px 12px 0 60px
+      }
+
+      a:nth-of-type(2n) {
+        margin-left: 0.75rem !important;
+      }
+    }
+  }
+
+  .div-form-question {
+    max-height: 25.5rem; // 408px
+    overflow-y: scroll;
+
+    .div-form-question span:first-child {
+      margin-right: 1.6rem; // 26px
+    }
+
+    .div-form-question span:last-child {
+      margin-left: 1.6rem; // 26px
+    }
+  }
+
+  .fieldset-mobile-small_padding {
+    padding: $padding_value_1;
+  }
+
+  .fieldset-mobile-medium_padding {
+    padding: $padding_value_3;
+  }
+
+  #mobile-button-form-article-1-previous-4 {
+    transform: translate(-19rem, 0); // 304px, 0
+  }
+
+  #submit-form-article-1, 
+  #submit-form-article-6 {
+    transform: translate(-5.9rem, -3.15rem); // 94px, 50px
+  }
+
+  #submit-form-article-5 {
+    transform: translate(-4.5rem, -100%); // -76px, -100%
+  }
+  
+  #button-article-6-start {
+    transform: translateX(6rem); // 96px
+  }
+
+  #button-article-6-map {
+    transform: translate(2.75rem, -1.25rem); // 44px, -20px
+  }
+
+  #section-backgrounds {
+    div {
+      height: 45.94rem; // 414px
+    }
+  }
+
+  h1 {
+    width: 23.88rem; // 312px;
+  }
+
+  article {
+    width: 25.88rem; // 414px
+
+    .div-content {
+      width: 25.88rem; // 414px
+      height: 34rem; // 544px
+      top: 6.5rem; // 104px
+    }
+  }
+
+  #aside-info {
+    top: 8rem; // 128px
+  }
+
+  .div-content-block-1, 
+  .div-content-block-3, 
+  .div-content-block-4, 
+  #div-content-block-5-desc-1 {
+    max-height: 25.5rem; // 408px
+    overflow-y: scroll;
+  }
+
+  .div-content-block-2 {
+    width: 10.65rem; // 170px
+    min-height: 10.5rem; // 168px
+    padding: $padding_value_3;
+  }
+
+  #div-content-block-left {
+    transform: translateX(-13rem); // 208px
+  }
+
+  .div-content-block-2-type-1 { 
+    span + div { 
+      span {
+        width: 6.45rem; // 103px
+        min-height: 8.2rem; // 131px
+      }
+    }
+  }
+
+  #div-content-block-5-header-2 {
+    width: 23.88rem;
+  }
+
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; // 104px
+  }
+  
+  #div-content-block-6-desc-2 {
+    div {
+      margin-top: $margin_value_3;
+
+      p {
+        width: 10.75rem; // 172px 
+      }
+    }
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    width: 12.29rem; // 197px
+
+    div {
+      width: 8.29rem; // 133px
+    }
+  }
+}
+
+
+
+/* ****** MOBILE PHONE - iPHONE 6/7/8 (375px x 667px) ****** */
+
+@media screen and (min-width: 22.5rem) and (max-width: 23.44rem)  {
+  nav {
+    width: 23.44rem; // 375px
+    left: -23.44rem; // -375px
+
+    #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; // 44px
+
+      a {
+        height: 3rem; // 48px
+        font-size: $nav_options_font_size_mobile;
+      }
+    }
+
+    #div-nav-background {
+      width: 23.44rem; // 375px
+      height: 40rem; // 640px
+    }
+  }
+
+  .nav-not_visible {
+    left: -23.44rem !important; // -375px
+  }
+
+  #div-nav-options.nav-visible {
+    left: 23.44rem !important; // 375px
+  }
+
+  .div-nav-article {
+    width: 23.44rem; // 375px 
+    top: 34.5rem; // 488px 
+
+    div div {
+      a:nth-of-type(n) {
+        margin: $margin_value_3 $margin_value_2 0 2.5rem !important; // 16px 12px 0 40px
+      }
+      
+      a:nth-of-type(2n) {
+        margin-left: $margin_value_2 !important;
+      }
+    }
+  }
+
+  .fieldset-mobile-small_padding {
+    padding: $padding_value_1;
+  }
+
+  .fieldset-mobile-medium_padding {
+    padding: $padding_value_3;
+  }
+
+  #button-article-6-start {
+    transform: translateX(3.6rem); // 58px
+  }
+
+  #button-article-6-map {
+    transform: translate(1.25rem, -1.25rem); // 20px, -20px
+  }
+
+  .button-desktop {
+    display: none;
+  }
+
+  h1 {
+    width: 21.44rem; // 342px;
+  }
+
+  article {
+    width: 23.44rem; // 375px
+
+    .div-content {
+      width: 23.44rem; // 375px
+    }
+  }
+  
+  #aside-info {
+    top: 3rem; // 64px
+  }
+
+  .div-content-block-2 {
+    width: 7.43rem; // 119px
+  }
+
+  .div-content-block-2-type-1 {
+    span + div span {
+      width: 5.64rem; // 90px
+    }
+  }
+
+  #div-content-block-left {
+    transform: translateX(-11.75rem); // 188px
+  }
+
+  #div-content-block-5-desc-3 {
+    p {
+      width: 18.5rem; // 296px
+    }
+  }
+
+  #div-content-block-5-header-2 {
+    width: 21.4rem; // 342px
+  }
+
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; // 104px
+  }
+
+  #div-content-block-6-desc-2 { 
+    div p {
+      width: 9.75rem; // 156px
+    }
+  }
+}
+
+
+
+/* ****** MOBILE PHONE - ANDROID (360px x 640px) ****** */
+
+@media screen and (min-width: 20.5rem) and (max-width: 22.5rem)  {
+  nav {
+    width: 22.5rem; // 360px
+    left: -22.5rem; // 360px
+
+    #div-nav-options {
+      width: 12.5rem;
+      top: 2.75rem; // 44px
+
+      a {
+        height: 3rem; // 48px
+        font-size: $nav_options_font_size_mobile;
+      }
+    }
+
+    #div-nav-background {
+      width: 22.5rem; // 360px
+      height: 40rem; // 640px
+    }
+  }
+
+  .nav-not_visible {
+    left: -22.5rem !important; // -360px
+  }
+
+  #div-nav-options.nav-visible {
+    left: 22.5rem !important; // 360px
+  }
+
+  .div-nav-article {
+    width: 22.5rem; 
+    top: 30.5rem; // 488px 
+  }
+
+  .fieldset-mobile-small_padding {
+    padding: $padding_value_1;
+  }
+
+  .fieldset-mobile-medium_padding {
+    padding: $padding_value_3;
+  }
+  
+  .button-desktop {
+    display: none;
+  }
+
+  h1 {
+    width: 20.5rem; // 344px;
+  }
+
+  article {
+    width: 22.5rem; // 360px
+
+    .div-content {
+      width: 22.5rem; // 360px
+    }
+  }
+
+  #aside-info {
+    top: 3rem; // 64px
+  }
+
+  .div-content-block-2 {
+    width: 6.95rem; // 111px
+  }
+
+  .div-content-block-2-type-1 {
+    span + div span {
+      width: 5.33rem; // 85px
+    }
+  }
+
+  #div-content-block-5-header-2 {
+    width: 20.5rem; // 328px
+  }
+
+  #article-content-6 .div-content-tall_header {
+    top: 6.5rem; // 104px
+  }
+
+  #div-content-block-6-desc-2 { 
+    div {
+      margin-top: $margin_value_3;
+    }
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    width: 10.6rem; // 170px
+
+    div {
+      width: 6.75rem; // 108px
+      min-height: 10.8rem; // 173px
+    }
+  }
+}
+
+/* ****** MOBILE PHONE - iPHONE 5 (320px x 568px) ****** */
+
+@media screen and (max-width: 20rem)  {
+  nav {
+    width: 20rem; // 320px
+    left: -20rem; // 320px
+
+    #div-nav-options {
+      top: 6rem;
+  
+      a {
+        height: 2rem;
+        font-size: $base_font_size;
+      }
+    }
+
+    #div-nav-background {
+      width: 20rem; // 320px
+      height: 35.5rem; // 568px
+    }
+  }
+
+  .nav-not_visible {
+    left: -24rem !important; // -384px
+  }
+
+  #div-nav-options.nav-visible {
+    left: 24rem !important; // 384px
+  }
+
+  .div-nav-article {
+    width: 20rem; // 320px
+    height: 9.5rem; // 152px
+    top: 30.5rem; // 488px 
+
+    div div a {
+      width: 7.1rem !important; // 113px
+    }
+  }
+  
+  .fieldset-mobile-small_padding {
+    padding: $padding_value_1;
+  }
+
+  .fieldset-mobile-medium_padding {
+    padding: $padding_value_3;
+  }
+  
+  #mobile-button-article-6-more_info {
+    transform: translateX(-14.75rem); // 236px
+  }
+
+  #button-article-6-start {
+    transform: translateX(0.2rem); // 3px
+  }
+
+  #button-article-6-map {
+    transform: translate(8.5rem, -4.6rem); // 136px, 74px
+  }
+
+  h1 {
+    width: 18rem; // 288px;
+  }
+
+  #section-backgrounds {
+    div {
+      height: 35.5rem; // 320px
+    }
+  }
+
+  article {
+    width: 20rem; // 320px
+
+    .div-content {
+      width: 20rem; // 320px
+      height: 34rem; // 544px
+      top: 6.5rem; // 104px
+    }
+
+    .div-content-tall_header {
+      top: 8.5rem; // 136px
+    }
+  }
+  
+  #aside-info {
+    top: 0;
+  }
+
+  .div-content-block-2 {
+    width: 5.7rem; // 91px
+  }
+
+  .div-content-block-2-type-1 {
+    span + div span {
+      width: 4.5rem; // 72px
+      min-height: 11.25rem; // 180px
+    }
+  }
+
+  #div-content-block-6-desc-2 { 
+    div { 
+      p {
+        width: 8.5rem;
+        border-right: none;
+      }
+    }
+  }
+
+  #submit-form-article-1, 
+  #submit-form-article-6 {
+    transform: translate(-12rem, -3.4rem);
+  }
+
+  #div-content-block-6-desc-office_hours, 
+  #div-content-block-6-desc-phone_numbers {
+    width: 9.35rem; // 150px
+
+    span {
+      min-height: 5.25rem; // 84px
+    }
+
+    div {
+      width: 5.35rem; // 108px
+      min-height: 14.75rem; // 236px
+    }
+  }
+}
