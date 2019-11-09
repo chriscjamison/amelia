@@ -277,6 +277,16 @@ $(document).ready(
 
     $("#button-article-6-start").on("click", 
       function () {
+        window.location.hash = "#article=6&position=1";
+
+        centerBrowser();
+
+        positionContent();
+      }
+    );
+    
+    $("#mobile-button-article-6-start").on("click", 
+      function () {
         window.location.hash = "#article=6&position=1&question=1";
 
         centerBrowser();
@@ -485,7 +495,7 @@ $(document).ready(
 
     $("#div-form-article-6-question-2 > fieldset").mouseenter( 
       function () {
-        validateQuestionField("start", "div-form-article-6-question-1");
+        validateQuestionField("start", "div-form-article-6-question-2");
       }
     );
 
@@ -2857,7 +2867,7 @@ function setValueOfHashVariables()  {
 
 
 
-function validateTextFields(question_value) {
+function validateTextFields(validation_type, question_value) {
   // A String variable which will hold a CSS selector which refers 
   // to the HTML element which contains the question under processing 
   // is initialized.
@@ -2942,7 +2952,7 @@ function validateTextFields(question_value) {
 
 
 
-function validateSelectField(question_value)  {
+function validateSelectField(validation_type, question_value)  {
   // A String variable which will hold a CSS selector which refers 
   // to the HTML element which contains the question under processing 
   // is initialized.
@@ -3025,7 +3035,7 @@ function validateSelectField(question_value)  {
 
 
 
-function validateRadioButtonsTypeOne(question_value) {
+function validateRadioButtonsTypeOne(validation_type, question_value) {
   // A String variable which will hold a CSS selector which refers 
   // to the HTML element which contains the question under processing 
   // is initialized.
@@ -3047,94 +3057,8 @@ function validateRadioButtonsTypeOne(question_value) {
   var checked_selector = new String();
   // The CSS selector which refers to the '<input>' HTML element which has 
   // been checked is passed on.
-  checked_selector = "#" + question_value + " > span + fieldset > p > input:checked"; 
-  
-  // An Object variable which will hold the jQuery object which refers to the '<input>' 
-  // HTML element which has been checked is initialized.
-  var checked_element = new Object(); 
-  // The jQuery object which refers to the '<input>' HTML element which has been checked 
-  // is passed on.      
-  checked_element = $(checked_selector);
+  checked_selector = "#" + question_value + " fieldset > p > input:checked";
 
-  // String variables which hold CSS class names which, when changed, will change 
-  // the appearance of form fields to reflect the improper data they contain 
-  // are initialized.
-  var error_border_class_value = "";
-  var base_border_class_value = "";
-
-  // CSS class names which, when used, will change the appearance of form fields 
-  // are passed on.
-  error_border_class_value = "form_question_error_border";
-  base_border_class_value = "form_question_base_border";
-    
-  // IF/ELSE IF statement which changes the appearance of the border containing 
-  // the form fields if none of the form fields have been clicked. Otherwise, 
-  // if the visitor is correcting improper data, the appearance of the border 
-  // is changed to its default state.
-  if (validation_type === "reset" && 
-      ($(checked_element).attr("name") === undefined ||  
-        $(checked_element).attr("name") === "monthly_income")) {
-    $(fieldset_element).fadeTo(50, 0.5);
-
-    setTimeout(
-      function () {
-        $(fieldset_element).removeClass();
-      }, 50
-    );
-
-    setTimeout(
-      function () {
-        $(fieldset_element).addClass(error_border_class_value);
-        
-        $(fieldset_element).fadeTo(100, 1);
-      }, 100
-    ); 
-  } else if (validation_type === "start" && 
-              $(fieldset_element).hasClass(error_border_class_value)) {
-    $(fieldset_element).fadeTo(50, 0.5);
-
-    setTimeout(
-      function () {
-        $(fieldset_element).removeClass();
-      }, 50
-    );
-
-    setTimeout(
-      function () {
-        $(fieldset_element).addClass(base_border_class_value);
-        
-        $(fieldset_element).fadeTo(100, 1);
-      }, 100
-    );    
-  }
-}
-
-
-
-function validateRadioButtonsTypeTwo(question_value) {
-  // A String variable which will hold a CSS selector which refers 
-  // to the HTML element which contains the question under processing 
-  // is initialized.
-  var fieldset_selector = "";
-  // The CSS selector which refers to the HTML element which contains 
-  // the question under processing is passed on.
-  fieldset_selector = "#" + question_value + " > fieldset";
-  
-  // An Object variable which will hold the jQuery object which refers 
-  // to the HTML element which contains the question under processing 
-  // is initialized.
-  var fieldset_element = {};  
-  // The jQuery object which refers to the HTML element which contains 
-  // the question under processing is passed on.
-  fieldset_element = $(fieldset_selector);
-
-  // A String variable which will hold the CSS selector which refers to the '<input>' 
-  // HTML element which has been checked is initialized.
-  var checked_selector = new String();
-  // The CSS selector which refers to the '<input>' HTML element which has 
-  // been checked is passed on.
-  checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-  
   // An Object variable which will hold the jQuery object which refers to the '<input>' 
   // HTML element which has been checked is initialized.
   var checked_element = new Object(); 
@@ -3196,7 +3120,92 @@ function validateRadioButtonsTypeTwo(question_value) {
 
 
 
-function validateName(question_value) {
+function validateRadioButtonsTypeTwo(validation_type, question_value) {
+  // A String variable which will hold a CSS selector which refers 
+  // to the HTML element which contains the question under processing 
+  // is initialized.
+  var fieldset_selector = "";
+  // The CSS selector which refers to the HTML element which contains 
+  // the question under processing is passed on.
+  fieldset_selector = "#" + question_value + " > fieldset";
+  
+  // An Object variable which will hold the jQuery object which refers 
+  // to the HTML element which contains the question under processing 
+  // is initialized.
+  var fieldset_element = {};  
+  // The jQuery object which refers to the HTML element which contains 
+  // the question under processing is passed on.
+  fieldset_element = $(fieldset_selector);
+
+  // A String variable which will hold the CSS selector which refers to the '<input>' 
+  // HTML element which has been checked is initialized.
+  var checked_selector = new String();
+  // The CSS selector which refers to the '<input>' HTML element which has 
+  // been checked is passed on.
+  checked_selector = "#" + question_value + " fieldset > p > input:checked"; 
+  
+  // An Object variable which will hold the jQuery object which refers to the '<input>' 
+  // HTML element which has been checked is initialized.
+  var checked_element = new Object(); 
+  // The jQuery object which refers to the '<input>' HTML element which has been checked 
+  // is passed on.      
+  checked_element = $(checked_selector);
+
+  // String variables which hold CSS class names which, when changed, will change 
+  // the appearance of form fields to reflect the improper data they contain 
+  // are initialized.
+  var error_border_class_value = "";
+  var base_border_class_value = "";
+
+  // CSS class names which, when used, will change the appearance of form fields 
+  // are passed on.
+  error_border_class_value = "form_question_error_border";
+  base_border_class_value = "form_question_base_border";
+    
+  // IF/ELSE IF statement which changes the appearance of the border containing 
+  // the form fields if none of the form fields have been clicked. Otherwise, 
+  // if the visitor is correcting improper data, the appearance of the border 
+  // is changed to its default state.
+  if (validation_type === "reset" && 
+      $(checked_element).attr("name") === undefined) {
+    $(fieldset_element).fadeTo(50, 0.5);
+
+    setTimeout(
+      function () {
+        $(fieldset_element).removeClass();
+      }, 50
+    );
+
+    setTimeout(
+      function () {
+        $(fieldset_element).addClass(error_border_class_value);
+        
+        $(fieldset_element).fadeTo(100, 1);
+      }, 100
+    ); 
+  } else if (validation_type === "start" && 
+              $(fieldset_element).hasClass(error_border_class_value)) {
+    $(fieldset_element).fadeTo(50, 0.5);
+
+    setTimeout(
+      function () {
+        $(fieldset_element).removeClass();
+      }, 50
+    );
+
+    setTimeout(
+      function () {
+        $(fieldset_element).addClass(base_border_class_value);
+        
+        $(fieldset_element).fadeTo(100, 1);
+      }, 100
+    );    
+  }
+}
+
+
+
+function validateName(validation_type, question_value) {
   // A String variable which will hold a CSS selector which refers 
   // to the HTML element which contains the question under processing 
   // is initialized.
@@ -3297,7 +3306,7 @@ function validateName(question_value) {
 
 
 
-function validateEmailPhone(question_value) {
+function validateEmailPhone(validation_type, question_value) {
   // A String variable which will hold a CSS selector which refers 
   // to the HTML element which contains the question under processing 
   // is initialized.
@@ -3319,8 +3328,8 @@ function validateEmailPhone(question_value) {
   var checked_selector = new String();
   // The CSS selector which refers to the '<input>' HTML element which has 
   // been checked is passed on.
-  checked_selector = "#" + question_value + " > span + fieldset > p > input:checked";
-  
+  checked_selector = "#" + question_value + " fieldset > p > input[name=phone_email]:checked";
+
   // An Object variable which will hold the jQuery object which refers to the '<input>' 
   // HTML element which has been checked is initialized.
   var checked_element = new Object(); 
@@ -3333,7 +3342,7 @@ function validateEmailPhone(question_value) {
   var field_selector = "";
   // The CSS selector which refers to the '<input>' HTML element containing 
   // a text field is passed on.
-  field_selector = "#input-article-6-phone_email-email";
+  field_selector = "#input-article-6-phone_email-field";
 
   // An Object variable which will hold the jQuery object which refers to 
   // the '<input>' HTML element containing a text field is initialized.
@@ -3341,6 +3350,15 @@ function validateEmailPhone(question_value) {
   // The jQuery object which refers to the '<input>' HTML element containing 
   // a text field is passed on.
   field_element = $(field_selector);
+
+  // A String which will hold the value entered by a visitor within the 
+  // text field meant to collect the email address or phone number of the 
+  // visitor is initialized.
+  var field_value = "";
+
+  // The value of the text field meant to collect the visitor's contact information 
+  // is passed on.
+  field_value = $(field_element).val();
     
   // String variables which hold CSS class names which, when changed, will change 
   // the appearance of form fields to reflect the improper data they contain 
@@ -3359,16 +3377,17 @@ function validateEmailPhone(question_value) {
 
   // IF/ELSE IF statement which validates the data entered by the visitor is an 
   // email address versus a phone number.
-  if ($(checked_element).attr("id") === "input-article-6-phone_email-email") {
+  if ($(checked_element).attr("id") === "input-article-6-phone_email-email" || 
+      $(checked_element).attr("id") === undefined) {
     // IF/ELSE statement which removes the default message from the text field 
     // and resets the appearance of the border and text field if the visitor 
     // is adding or correcting data. Otherwise, the format of the email address 
     // is checked.
     if (validation_type === "start" && 
-        $(field_element).val() === "Please enter a valid email address") {
+        field_value === "Please enter a valid email address") {
       $(fieldset_element).fadeTo(50, 0.5);
       $(field_element).fadeTo(50, 0.5);
-  
+
       setTimeout(
         function () {
           $(fieldset_element).removeClass();
@@ -3387,37 +3406,35 @@ function validateEmailPhone(question_value) {
       );    
   
       $(field_element).val("");
-    } else {
-      if (validation_type === "reset" && 
-          ($(field_element).val().length === 0) ||  
-          ($(field_element).val().indexOf("@") === -1 || 
-          ($(field_element).val().indexOf(".com") === -1 && 
-            $(field_element).val().indexOf(".net") === -1 && 
-            $(field_element).val().indexOf(".org") === -1 && 
-            $(field_element).val().indexOf(".edu") === -1 && 
-            $(field_element).val().indexOf(".mil") === -1)))  {
-        $(fieldset_element).fadeTo(50, 0.5);
-        $(field_element).fadeTo(50, 0.5);
-    
-        setTimeout(
-          function () {
-            $(fieldset_element).removeClass();
-            $(field_element).removeClass();
-          }, 50
-        );
-    
-        setTimeout(
-          function () {
-            $(fieldset_element).addClass(error_border_class_value);
-            $(field_element).addClass(error_text_class_value);
-            
-            $(fieldset_element).fadeTo(100, 1);
-            $(field_element).fadeTo(100, 1);
-          }, 100
-        );
-        
-        $(field_element).val("Please enter a valid email address");
-      }
+    } else if (validation_type === "reset" && 
+               (field_value.length === 0) ||  
+                (field_value.indexOf("@") === -1 || 
+                 (field_value.indexOf(".com") === -1 && 
+                  field_value.indexOf(".net") === -1 && 
+                  field_value.indexOf(".org") === -1 && 
+                  field_value.indexOf(".edu") === -1 && 
+                  field_value.indexOf(".mil") === -1)))  {
+      $(fieldset_element).fadeTo(50, 0.5);
+      $(field_element).fadeTo(50, 0.5);
+
+      setTimeout(
+        function () {
+          $(fieldset_element).removeClass();
+          $(field_element).removeClass();
+        }, 50
+      );
+
+      setTimeout(
+        function () {
+          $(fieldset_element).addClass(error_border_class_value);
+          $(field_element).addClass(error_text_class_value);
+          
+          $(fieldset_element).fadeTo(100, 1);
+          $(field_element).fadeTo(100, 1);
+        }, 100
+      );
+
+      $(field_element).val("Please enter a valid email address");
     }
   } else if ($(checked_element).attr("id") === "input-article-6-phone_email-phone") {
     // A String variable which will hold the data entered into the text field 
@@ -3471,7 +3488,7 @@ function validateEmailPhone(question_value) {
     // text field and resets the appearance of the border and text field 
     // if the visitor is adding or correcting data. Otherwise, 
     // the appearance of the border and text field reflects improper data.
-    if ($(field_element).val() === "Please enter your phone number") {
+    if (phone_number_value === "Pleaseenteryourphonenumber") {
       $(fieldset_element).fadeTo(50, 0.5);
       $(field_element).fadeTo(50, 0.5);
 
@@ -3494,9 +3511,9 @@ function validateEmailPhone(question_value) {
 
       $(field_element).val("");
     } else if (validation_type === "reset" && 
-                (phone_number_val.length === 0 ||  
-                (phone_number_val.length < 10 || 
-                phone_number_val.length > 10))) {
+                (phone_number_value.length === 0 ||  
+                (phone_number_value.length < 10 || 
+                  phone_number_value.length > 10))) {
       $(fieldset_element).fadeTo(50, 0.5);
       $(field_element).fadeTo(50, 0.5);
   
@@ -3531,32 +3548,28 @@ function validateQuestionField(validation_type, question_value)  {
       validateTextFields(validation_type, question_value);
     break;
 
-    case "div-form-article-1-question-3": 
-      validateTextFields(validation_type, question_value)
-    break;
-
     case "div-form-article-1-question-4":
       validateSelectField(validation_type, question_value);
     break;
 
-    case "article-5-question-1":
+    case "div-form-article-5-question-1":
       validateRadioButtonsTypeOne(validation_type, question_value);
     break;
 
-    case "article-5-question-2":
+    case "div-form-article-5-question-2":
       validateRadioButtonsTypeTwo(validation_type, question_value);
     break;
     
-    case "article-6-question-1":
+    case "div-form-article-6-question-1":
       validateName(validation_type, question_value);
     break;
 
-    case "article-6-question-2":
+    case "div-form-article-6-question-2":
       validateEmailPhone(validation_type, question_value);      
     break;
 
-    case "article-6-question-3":
-      validateRadioButtonsTypeTwo(validation_type, question_value);
+    case "div-form-article-6-question-3":
+      validateRadioButtonsTypeOne(validation_type, question_value);
     break;
   }
 } 
@@ -3564,12 +3577,12 @@ function validateQuestionField(validation_type, question_value)  {
 
 
 function validateForm(form_element)  {
-  // The HTML attribute 'id' of the form under processing is passed on.
-  id_string = $(form_element).attr("id");
-
   // A String variable which will hold the CSS selector for the HTML 
   // element which refers to form under processing is initialized.
   var id_string = "";
+
+  // The HTML attribute 'id' of the form under processing is passed on.
+  id_string = $(form_element).attr("id");
   
   // A String variable which will hold the CSS selector which refers to the 
   // the questions contained within the form under processing is initialized.
@@ -3759,7 +3772,7 @@ function validateForm(form_element)  {
     $(article_element).prepend(alert_div_element);
 
     // The alert message fades out of visiblity once it is clicked by the visitor.
-    $("##form-question-alert").click(
+    $("#form-question-alert").click(
       function () {
         $(this).fadeTo(400, 0, 
           function () {
@@ -3768,12 +3781,14 @@ function validateForm(form_element)  {
         );
       }
     );
+
+    return false;
   }
 }
 
 
 
-function setRateValue(rate_value_search_string) {
+function setRateValue() {
   // A String variable which will hold the name of the GET variable which contains 
   // the calculated sliding scale rate is initialized.
   var rate_value_search_string = "";
@@ -3799,7 +3814,7 @@ function setRateValue(rate_value_search_string) {
   
   // The calculated rate value is extracted from the URL.
   rate_value_value = url_string.slice(rate_value_index_value, url_string.length);
-  
+
   // IF/ELSE statement which displays the calculated value. The value, 'No Cost', 
   // is used if the value within the URL is '0'. Otherwise, the value used is 
   // the one contained within the URL string.
@@ -3809,7 +3824,7 @@ function setRateValue(rate_value_search_string) {
     var content_block_selector = "";
     // The CSS selector which refers to the block of content which holds the 
     // calculated value is passed on.
-    content_block_selector = "#div-content-block-5-desc-4 > span > span:first-of-type";
+    content_block_selector = "#div-content-block-5-desc-4 > div > div";
 
     // An Object variable which will hold the jQuery object which refers to the 
     // block of content which holds the calculated value is initialized.
@@ -3838,7 +3853,7 @@ function setRateValue(rate_value_search_string) {
     var content_block_selector = "";
     // The CSS selector which refers to the block of content which holds the 
     // calculated value is passed on.
-    content_block_selector = "#div-content-block-5-desc-4 > span > span > sup + span";
+    content_block_selector = "#div-content-block-5-desc-4 > div > div > sup + span";
 
     // An Object variable which will hold the jQuery object which refers to the 
     // block of content which holds the calculated value is initialized.
@@ -4170,124 +4185,7 @@ function setWebpageHeight() {
 
 
 
-function setupArticles()  {
-  // A String variable which will hold the CSS selector referring to content 
-  // within a given section is initialized.
-  var article_selector = "";
-  
-  // The CSS selector for the HTML elements which holds the sections of content is 
-  // passed on.
-  article_selector = ".article-content";
-
-  // An Object variable which will hold a jQuery object referring to the HTML element 
-  // using the CSS selector '.article-content' is initialized.
-  var article_elements = {};
-
-  // The jQuery object which refers to the HTML elements which hold content 
-  // is passed on.
-  article_elements = $(article_selector);
-
-  // A Number variable which will hold the number of 'sections' within the webpage is 
-  // initialized.
-  var num_of_articles;
-
-  // The number of 'sections' is passed on.
-  num_of_articles = $(article_elements).length;
-
-  // A String variable which will hold a CSS selector which refers to the blocks of 
-  // content within the section the loop processes is initialized.
-  var content_blocks_selector = "";
-
-  // The CSS selector which refers to the blocks of content within a section is passed on.
-  content_blocks_selector = ".div-content";
-
-  // A String variable which will hold the CSS selector which refers to the blocks 
-  // within a 'section' is initialized.
-  var current_content_block_selector = "";
-
-  // A Number variable which will hold the number of blocks within the section the loop 
-  // processing.
-  var num_of_content_blocks;
-
-  // A String variable which will hold the CSS selector which refers to the current 
-  // background the following loop is processing is initialized.
-  var current_article_selector = "";
-
-  // An Object variable which will hold the jQuery object which refers to the blocks 
-  // of content within the background the following loop is processing is initialized.
-  var current_article_elements = {};
-
-  // The base of the CSS selector which will refer to the 'section' the loop below 
-  // is processing is passed on.
-  current_article_selector = "#article-content-";
-
-  // An Array which will hold the browser dimensions is initialized.
-  var browser_dimensions_Array = [];
-
-  // The dimensions of the browser are passed on.
-  browser_dimensions_Array = getDisplaySize();
-
-  // A Number variable which will hold the width of the browser is initialized.
-  var window_width;
-
-  // The width of the browser is passed on.
-  window_width = browser_dimensions_Array[0];
-
-  // An Object variable which will hold the CSS values which refer to the dimensions 
-  // a 'section' will be set to is initialized.
-  var section_css = {};
-
-  // SWITCH statement which sets the height and width of a given section based on 
-  // the dimensions of the browser.
-  switch (window_width) {
-    case 1366:
-      section_css.width = "1903px"
-    break;
-  }
-
-  // A Number variable which will serve as an incrementer for the loop below 
-  // is initialized.
-  var i;
-
-  // FOR loop which will set the width and height of the <article> tag referencing 
-  // each 'section' and make visible the block of content within each 'section' 
-  // a visitor wishes to see.
-  for (i = 0; i < num_of_articles; i++)  {
-    // IF/ELSE statement which sets the CSS selector of the 'section' this loop 
-    // is processing. If the 'section' is the landing section, 'main' is included 
-    // in the selector. Otherwise the value of 'i' is included.
-    if (i === 0)  {
-      current_article_selector = current_article_selector + "main";
-    } else {
-      current_article_selector = current_article_selector + i.toString();
-    }
-  }
-}
-
 function initializePage()  {
-  /* **************** **************** **************** **************** **************** 
-  * 'initializePage' initializes the rendering of the HTML elements 
-  * using the selectors, 'article', '.article-content', '.div-content', 
-  * and "#section-backgrounds".
-  *   
-  * This function also initializes the placement of the inter-section 
-  * which uses "arrows". These arrows appear on the far-right side of the browser window 
-  * within a desktop or laptop display and in the middle of the top and bottom edges 
-  * of a mobile display .
-  * 
-  * Based upon the width and height values calculated by, 'setWindowDimensions', 
-  * the values of the CSS properties, "width" and "height" are applied 
-  * to the HTML elements using the selectors, "#cntainr", ".wndow", ".copy", 
-  * and "#section-backgrounds". 
-  * 
-  * The HTML elements, using the selectors, "#section-backgrounds > div", has its, "background image", 
-  * property set by a jQuery segment of code which loads images based upon the 
-  * "width" and "height" values passed on to the Array, "page_dimensions_Array".
-  * **************** **************** **************** **************** **************** */
-
-  // The background images are added to the webpage.
-  
-
   // The height of the webpage is set.
   setWebpageHeight();
 

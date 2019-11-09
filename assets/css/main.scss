@@ -126,7 +126,7 @@ $article_nav_font_size: 0.8em; // 10pt
 $mobile_dollar_sign_font_size: 1.75rem; // 21pt
 $mobile_rate_header_font_size: 1.25rem; // 15pt
 $mobile_rate_font_size: 5rem; // 60pt
-$rate_no_cost_font_size: 6rem; // 72pt
+$rate_no_cost_font_size: 5rem; // 60pt
 
 $base_font_weight: 400;
 $header_font_weight: 600;
@@ -3502,7 +3502,7 @@ aside {
       height: 8.93px; // 143px
 
       div sup {
-        top: 8.75rem; // 140px
+        top: 6.75rem; // 108px
         font-size: $mobile_dollar_sign_font_size;
       }
 
