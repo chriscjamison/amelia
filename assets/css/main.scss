@@ -1,17 +1,16 @@
 /* Filename: main.scss 
  *  + Contains the CSS styling for all of the static visual elements of the 'One Page' template
- *  !!! NOTE !!! Does not contain styling for the navigation or form elements 
  * 
- *  + All measurements are given in terms of 'em'.
+ *  + All measurements are given in terms of 'rem'.
  * 
  *  + The responsive breaklines fall according to the following browser dimensions:
  *    - 1920x1020
  *    - 1366x768
- *    - 1280x1024
- *    - 1280x800
- *    - 1024x1500
- *    - 980x1740
- *    - 980x1308
+ *    - 768x1024
+ *    - 414x735
+ *    - 375x667
+ *    - 360x640
+ *    - 320x568
  * ******************************************************************************************** */
 
 /* ****** SASS VARIABLES ****** */
@@ -472,31 +471,26 @@ input[type=submit]:hover {
   color: $form_alert_text_2_color;
 }
 
-
-
-
-
-
 #form-question-alert {
   width: inherit;
   height: inherit;
   display: table;
   position: absolute;
   background-color: $form_alert_background_1_color;
+  text-align: center;
   opacity: 0.95;
   z-index: 7;
 
   div {
-    display: table-cell;
+    display: inline-table;
     font-family: $base_font;
-    font-size: $form_question_sup_font_size;
-    vertical-align: middle;
-    text-align: center;
+    font-size: $base_font_size;
+    transform: translateY(100%);
 
     div {
       margin: 0 auto;
       padding: $padding_value_3 $padding_value_5;
-      text-align: left;
+      transform: none;
       background-color: $form_alert_background_2_color;
       color: $form_alert_text_1_color;
 
@@ -2127,12 +2121,12 @@ aside {
 
   #form-question-alert {
     div {
-      width: 22rem; // 352px
-      height: 10rem; // 160px
+      width: 26rem; // 416px
+      height: 18.25rem; // 310px
 
       div {
-        width: 36rem; // 576px
-        height: 15.75rem; // 252px
+        width: 22rem; // 352px
+        height: 16.25rem; // 278px
       }
     }
   }
@@ -3198,6 +3192,18 @@ aside {
     }
   }
 
+  input[type=radio], 
+  input[type=checkbox] {
+    width: 16rem; // 256px
+  }
+
+  input[type=text], 
+  input[type=email], 
+  input[type=number], 
+  textarea {
+    width: 14.75rem; // 236px
+  }
+
   #div-form-article-1-question-2 {
     fieldset {
       div { 
@@ -3210,18 +3216,6 @@ aside {
         }
       }
     }
-  }
-
-  input[type=radio], 
-  input[type=checkbox] {
-    width: 16rem; // 256px
-  }
-
-  input[type=text], 
-  input[type=email], 
-  input[type=number], 
-  textarea {
-    width: 14.75rem; // 236px
   }
 
   .div-form-question-visible {
@@ -3343,11 +3337,17 @@ aside {
 
   #submit-form-article-1, 
   #submit-form-article-6 {
-    transform: translate(-9.25rem, -3.4rem); // 148px, 54px
+    transform: translate(-8.25rem, -3.4rem); // 132px, 54px
   }
 
   .button_visible {
     display: block !important;
+  }
+
+  #form-question-alert {
+    div {
+      transform: translateY(66%);
+    }
   }
 
   h1 {
@@ -3765,7 +3765,7 @@ aside {
 
     #div-nav-background {
       width: 23.44rem; // 375px
-      height: 40rem; // 640px
+      height: 41.75rem; // 668px
     }
   }
 

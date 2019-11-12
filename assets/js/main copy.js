@@ -524,7 +524,7 @@ $(document).ready(
     );
 
     $("#form-article-1, #form-article-5, #form-article-6").submit(
-      function () {
+      function (e) {
         // An Object variable which will hold the relevant data referring 
         // to the form under processing is initialized.
         var form_element = {};
@@ -533,7 +533,7 @@ $(document).ready(
         form_element = this;
 
         // The data contained by the form under processing is checked for errors.
-        validateForm(form_element);
+        validateForm(form_element, e);
       }
     );
           
@@ -3576,14 +3576,14 @@ function validateQuestionField(validation_type, question_value)  {
 
 
 
-function validateForm(form_element)  {
+function validateForm(form_element, event)  {
   // A String variable which will hold the CSS selector for the HTML 
   // element which refers to form under processing is initialized.
   var id_string = "";
 
   // The HTML attribute 'id' of the form under processing is passed on.
   id_string = $(form_element).attr("id");
-  
+console.log("id_string = " + id_string);  
   // A String variable which will hold the CSS selector which refers to the 
   // the questions contained within the form under processing is initialized.
   var form_questions_selector = "";
@@ -3593,7 +3593,7 @@ function validateForm(form_element)  {
 
   form_questions_selector = "#" + id_string + " .div-form-question";
   form_questions_elements = $(form_questions_selector);
-  
+console.log("form_questions_selector = " + form_questions_selector);
   // A Boolean variable which serves as a flag used to identify all fields as 
   // complete is initialized. 'complete_field_flag' will be set to, 'true', 
   // if all fields are complete. Otherwise, 'complete_field_flag' will be 
@@ -3628,6 +3628,10 @@ function validateForm(form_element)  {
   // A String variable which will hold the value of an, '<input>', 
   // HTML element of type, 'checkbox' is initialized.
   var checkbox_element_property = new String();
+
+  // An Array which will hold the flags which describe the validity 
+  // of date entered into form questions is initialized.
+  var complete_field_flag_Array = [];
   
   // A Number variable which will hold a loop incrementer is initialized.  
   var inc = new Number();
@@ -3657,18 +3661,19 @@ function validateForm(form_element)  {
           // for the, '<input>, HTML element under processing 
           // is passed on.
           input_element = this;
-          input_element_val = $(input_element).val();
+          input_element_value = $(input_element).val();
           input_element_type = $(input_element).attr("type");
-
+console.log("input_element_value = " + input_element_value);
+console.log("input_element_type = " + input_element_type);
           // IF/ELSE statement which verifys the validity of the data within 
           // the, '<input>', field under processing.
           if ((input_element_type === "text" || 
               input_element_type === "email" ||
               input_element_type === "tel") && 
-              (input_element_val.length > 0) && 
-              (input_element_val !== "Please enter your first name" && 
-               input_element_val !== "Please enter a valid email address" &&
-               input_element_val !== "Please enter your phone number")) {
+              (input_element_value.length > 0) && 
+              (input_element_value !== "Please enter your first name" && 
+               input_element_value !== "Please enter a valid email address" &&
+               input_element_value !== "Please enter your phone number")) {
             
             // If the current field under processing is of the type, 'text', 
             // 'email', or 'tel', the field contains some text, and the default 
@@ -3679,44 +3684,45 @@ function validateForm(form_element)  {
             // If the '<input>' field has been clicked, the value, 'true', 
             // will be passed on.
             radio_element_property = $(input_element).prop("checked");
-            
+console.log("radio_element_property = " + radio_element_property);            
             // IF statement which passes on the value, 'true', to the flag 
             // which determines if the '<input>' HTML element has been clicked.
             if (radio_element_property === true) {
-              input_element_checked_flag = true;
+              complete_field_flag = true;
             }
           } else if (input_element_type === "checkbox") {
             // If the '<input>' field has been checked, the value, 'true', 
             // will be passed on.
             checkbox_element_property = $(input_element).prop("checked");
-
+console.log("checkbox_element_property = " + checkbox_element_property);
             // IF statement which passes on the value, 'true', to the flag 
             // which determines if the '<input>' HTML element has been checked.
             if (checkbox_element_property === true)  {
-              input_element_checked_flag = true;
+              complete_field_flag = true;
             } 
           } else if (input_element_type === "range") {
             complete_field_flag = true; 
           } 
         }
       );
-      
+    
       // IF statement which checks form fields using '<textarea>' and '<select>'.
       if ($(textarea_element).val() !== undefined) {
         complete_field_flag = true;
       } else if ($(select_element).val() !== undefined)  {
         // IF statement which sets the flag which states if a '<select>' setting 
         // has been changed from the 'default' state.
+console.log
         if ($(select_element).val() !== "default")  {
           complete_field_flag = true;
         }
       }
 
       // The flag which states if the '<input>' HTML element contains proper data 
-      // is pased on to the place within 'complete_field_flag_Array' which matches 
+      // is passed on to the place within 'complete_field_flag_Array' which matches 
       // the form question within the form this function is processing.
       complete_field_flag_Array[inc] = complete_field_flag;
-
+console.log("complete_field_flag_Array[" + inc + "] = " + complete_field_flag_Array[inc]);
       // The loop incrementer has its value increased by 1.
       inc++; 
     }
@@ -3735,6 +3741,8 @@ function validateForm(form_element)  {
   // IF statement which will generate an error message alerting the visitor 
   // to the improper data input into the form.
   if (complete_field_flag === false) {
+    event.preventDefault();
+
     // A String variable which will hold HTML used to hold an alert message 
     // meant for the visitor is initialized.
     var alert_div_element = "";
@@ -3745,16 +3753,38 @@ function validateForm(form_element)  {
     // An Object variable which will hold the jQuery object which refers to the 
     // 'Section' holding the form under processing is initialized.
     var article_element = {};
+    // An Array which will hold the dimensions of the browser window is initialized.
+    var browser_dimensions_Array = [];
 
+    // A Number variable which will hold the width of the browser window 
+    // is initialized.
+    var window_width;
+
+    // The dimensions of the browser are passed on.
+    browser_dimensions_Array = getDisplaySize();
+
+    // The width of the browser window is passed on.
+    window_width = browser_dimensions_Array[0];
+    
     // The HTML meant to render the alert message meant for the visitor is passed on.
     alert_div_element = 
-      "<div id=\"#form-question-alert\">" + 
+      "<div id=\"form-question-alert\">" + 
       "  <div>" + 
       "    <div>" + 
       "      <span>Alert</span>" + 
       "      <p>This form needs more information than you provided.</p>" +
-      "      <p>Please check the question fields that are surrounded by red borders.</p>" +  
-      "      <p>Click the screen to close this alert.</p></div>" + 
+      "      <p>Please check the question fields that are surrounded by red borders.</p>";
+
+    // IF/ELSE statement which will add a direction to the alert window to 'click' the window 
+    // if the browser is a desktop brower and to 'tap' the window if the browser is a 
+    // mobile browser.
+    if (window_width > 768) {
+      alert_div_element = alert_div_element + "      <p>Click the screen to close this alert.</p></div>";
+    } else {
+      alert_div_element = alert_div_element + "      <p>Tap the screen to close this alert.</p></div>";
+    }
+
+    alert_div_element = alert_div_element + 
       "    </div>" + 
       "  </div>" + 
       "</div>";
@@ -3780,9 +3810,7 @@ function validateForm(form_element)  {
           }
         );
       }
-    );
-
-    return false;
+    );    
   }
 }
 
