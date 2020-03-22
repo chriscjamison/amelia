@@ -4091,7 +4091,7 @@ function layoutBackgrounds()  {
     background_image_path = "";
     
     // The prefix of the path the background images are stored is passed on.
-    background_image_path = "url('/amelia/assets/img/backgrounds/";
+    background_image_path = "url('/assets/img/backgrounds/";
 
     // IF/ELSE statement which loads the background image for the section being processed.
     // 
